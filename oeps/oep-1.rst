@@ -1,26 +1,37 @@
+OEP-1: OEP Purpose and Guidelines
+=================================
 
-=====   ======================================
-OEP     Add a JIRA link
-Title   Open edX (enhancement) Proposal (OEP)
-Author  Calen Pennington
-Status  Draft
-Type    Process
-Created 26-Mar-2016
-=====   ======================================
-
++--------+---------------------------------------+
+|OEP     | :doc:`oep-1`                          |
++--------+---------------------------------------+
+|Title   | OEP Purpose and Guidelines            |
++--------+---------------------------------------+
+|Author  | Calen Pennington                      |
++--------+---------------------------------------+
+|Status  | Draft (:oep-status:`1`)               |
++--------+---------------------------------------+
+|Type    | Process                               |
++--------+---------------------------------------+
+|Created | 26-Mar-2016                           |
++--------+---------------------------------------+
 
 What is an OEP?
+===============
+
 OEP stands for Open edX (Enhancement) Proposal. An OEP is a document that specifies a specific choice being made by the Open edX community, in the form of a best-practice, architecture design, technology decision, or process adjustment. It should provide the use-cases and rationales that surround that choice.
 OEPs are not the only way for a change to be made to Open edX, however the goal is for it to be a repository collecting the history of large and/or broadly relevant choices. 
 
 OEP Types
-A Process proposal describes a change to how the Open edX community functions.
-A "Best Practices" proposal describes a technology or implementation choice that the Open edX community believes all Open edX services and/or libraries should use or follow.
-An Architecture proposal describes relationships between Open edX services and libraries, including their APIs and data formats.
+=========
+* A Process proposal describes a change to how the Open edX community functions.
+* A "Best Practices" proposal describes a technology or implementation choice that the Open edX community believes all Open edX services and/or libraries should use or follow.
+* An Architecture proposal describes relationships between Open edX services and libraries, including their APIs and data formats.
 
 Workflow
+========
 
 Submitting an OEP
+-----------------
 The OEP process begins with a new idea for Open edX. It is highly recommended that a single OEP contain a single key proposal or new idea. Small enhancements or patches often don't need an OEP and can be injected into the Open edX development workflow with a patch submission﻿.
 Each OEP must have a champion -- someone who writes the OEP using the style and format described below, shepherds the discussions in the appropriate forums, and attempts to build community consensus around the idea. The OEP champion (a.k.a. Author) should first attempt to ascertain whether the idea is OEP-able. Posting to the edx-code mailing list is the best way to go about this.
 
