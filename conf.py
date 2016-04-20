@@ -52,8 +52,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Open edX Proposals'
-copyright = u'2016, Calen Pennington'
-author = u'Calen Pennington'
+copyright = u'2016, edX Inc. and licensed under a Creative Commons Attribution-ShareAlike 4.0 International License unless otherwise specified'
+author = 'edX'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
