@@ -9,7 +9,7 @@ OEP-1: OEP Purpose and Guidelines
 +--------+---------------------------------------+
 |Author  | Calen Pennington                      |
 +--------+---------------------------------------+
-|Status  | Draft (:oep-status:`1`)               |
+|Status  | Draft                                 |
 +--------+---------------------------------------+
 |Type    | Process                               |
 +--------+---------------------------------------+
@@ -200,8 +200,6 @@ are described below. All other rows are required.
 +---------------+-------------------------------------------+
 | Title         | <OEP title>                               |
 +---------------+-------------------------------------------+
-| Version       | <version string>                          |
-+---------------+-------------------------------------------+
 | Last-Modified | <date string>                             |
 +---------------+-------------------------------------------+
 | Author        | <list of authors' real names and          |
@@ -216,7 +214,7 @@ are described below. All other rows are required.
 | Type          | <Architecture | Best Practice |           |
 |               | Process>                                  |
 +---------------+-------------------------------------------+
-|  Created      | <date created on, in dd-mmm-yyyy format>  |
+|  Created      | <date created on, in yyyy-mm-dd format>   |
 +---------------+-------------------------------------------+
 | `Replaces`    | <OEP number>                              |
 +---------------+-------------------------------------------+
@@ -235,7 +233,7 @@ reject an OEP rests with.
 The Type header specifies the type of OEP: Architecture, Best Practice or Process.
 
 The Created header records the date that the OEP was assigned a number. It should be
-in dd-mmm-yyyy format, e.g. 14-Aug-2001.
+in yyyy-mm-dd format, e.g. 2016-04-21.
 
 OEPs may also have a Replaced-By header indicating that a OEP has been rendered
 obsolete by a later document; the value is the number of the OEP that replaces

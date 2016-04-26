@@ -33,7 +33,6 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
-    'sphinx.ext.extlinks',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -52,7 +51,6 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Open edX Proposals'
-copyright = u'2016, edX Inc. and licensed under a Creative Commons Attribution-ShareAlike 4.0 International License unless otherwise specified'
 author = 'edX'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -294,8 +292,4 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}
-
-extlinks = {
-    'oep-status': ('https://openedx.atlassian.net/browse/%s', 'OEP-')
-}
 
