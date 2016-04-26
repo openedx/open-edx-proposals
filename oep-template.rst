@@ -97,7 +97,11 @@ The final implementation must include test code and documentation, following the
 Copyright
 =========
 
-All OEPs must be shared under the `Creative Commons Attribution-ShareAlike 4.0 International License`_.
+.. image:: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+    :alt: Creative Commons License CC-BY-SA
+    :target: http://creativecommons.org/licenses/by-sa/4.0/
+
+This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License`_.
 
 .. _Creative Commons Attribution-ShareAlike 4.0 International License: https://creativecommons.org/licenses/by-sa/4.0/
 
