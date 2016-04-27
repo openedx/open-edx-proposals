@@ -55,8 +55,9 @@ Each OEP must have a champion -- someone who writes the OEP using the
 style and format described below, shepherds the discussions in the
 appropriate forums, and attempts to build community consensus around
 the idea. The OEP champion (a.k.a. Author) should first attempt to
-ascertain whether the idea is OEP-able. Posting to the edx-code mailing
-list is the best way to go about this.
+ascertain whether the idea is appropriate for an OEP. Posting to the
+`edx-code`_ mailing list, ``arch@edx.org`` and ``archexternal@edx.org``
+is the best way to go about this.
 
 Vetting an idea publicly before going as far as writing an OEP is meant
 to save the potential author time. Many ideas have been brought forward
@@ -69,15 +70,18 @@ and not just the author. Just because an idea sounds good to the author
 does not mean it will work for most Open edX installations.
 
 Once the champion has asked the Open edX community as to whether an idea
-has any chance of acceptance, a draft OEP should be submitted as a pull request
-against the `central OEP repository`_.
+has any chance of acceptance, a draft OEP should be submitted as a Pull Request
+against the `central OEP repository`_. The Pull Request title must start
+with "OEP-XXX", and claims that OEP number for the included proposal.
+Before claiming a number, check the list of previous Pull Requests to
+see which numbers have already been assigned.
 
 .. _central OEP repository: http://github.com/edx/open-edx-proposals
 
 As updates are necessary, the OEP author can update the pull request.
 
-OEPs can be paired with pull requests to other Open edX repositiories with
-reference implementations.
+OEPs can be reference pull requests to other Open edX repositiories which
+will act as reference implementations.
 
 OEP Review & Resolution
 -----------------------
@@ -90,20 +94,20 @@ community will be given the opportunity to comment on the OEP, with the
 Arbiter serving to keep the discussion on track and to evaluate when
 it has reached a final conclusion.
 
-For an OEP to be accepted it must meet certain minimum criteria. It must be a
-clear and complete description of the proposed enhancement. The enhancement
-must represent a net improvement. The proposed implementation, if applicable,
-must be solid and must not complicate Open edX unduly.
+For an OEP to be accepted by the Arbiter, it must meet certain minimum
+criteria. It must be a clear and complete description of the proposed
+enhancement. The enhancement must represent a net improvement. The proposed
+implementation, if applicable, must pass the existing Open edX review process.
 
 An OEP can be assigned the status "Deferred". The OEP author or Arbiter can
 assign the OEP this status when no progress is being made on the OEP. Once a
-OEP is deferred, an OEP editor can re-assign it to draft status.
+OEP is deferred, the OEP Author can re-assign it to draft status.
 
-An OEP can also be "Rejected". Perhaps after all is said and done it was not a
-good idea. It is still important to have a record of this fact. The "Withdrawn"
-status is similar - it means that the OEP author themselves has decided that
-the OEP is actually a bad idea, or has accepted that a competing proposal is a
-better alternative.
+An OEP can also be "Rejected" by the Arbiter. Perhaps after all is said and
+done it was not a good idea. It is still important to have a record of this
+fact. The "Withdrawn" status is similar - it means that the OEP author
+themselves has decided that the OEP is actually a bad idea, or has accepted
+that a competing proposal is a better alternative.
 
 When a OEP is Accepted, Rejected or Withdrawn, the OEP should be updated
 accordingly. In addition to updating the status field, at the very least the
@@ -117,63 +121,78 @@ The possible paths of the status of OEPs are as follows:
 
 .. image:: oep-1/state-flow.png
 
+Please note that OEP statuses do not necessary coincide with the status of
+the Pull Request that contains the OEP. For example, OEPs that have been "Rejected"
+should still be merged, but should be marked as Rejected. This preserves the rationale
+and description of the OEP in the generated documentation.
+
+Likewise, an OEP that is in "Draft" may be merged to capture a set of edits,
+and to make the proposal more visible to community comment. From that point, additional
+Pull Requests can be opened to edit the "Draft" OEP, until it converges to being
+either "Accepted" or "Rejected".
+
 OEP Maintenance
 ---------------
 
 In general, OEPs are no longer modified after they have reached the Final state.
-They can be replaced by subsequent OEPs, however.
+They can be replaced by subsequent OEPs, however (OEPs that have been replaced
+are given the status "Replaced").
 
 What belongs in a successful OEP?
 =================================
 Each OEP should have the following parts:
 
 *Preamble*
-  A table containing meta-data about the OEP, including the OEP number,
-  a short descriptive title, the names, and optionally the contact info for each author, etc.
+    A table containing meta-data about the OEP, including the OEP number,
+    a short descriptive title, the names, and optionally the contact info for each author, etc.
 
 *Abstract*
-  a short (~200 word) description of the technical issue being addressed.
+    A short (~200 word) description of the technical issue being addressed.
 
 *Copyright*
-  All OEPs must be shared under the `Creative Commons Attribution-ShareAlike 4.0 International License`_.
+    All OEPs must be shared under the `Creative Commons Attribution-ShareAlike 4.0 International License`_.
 
 .. _Creative Commons Attribution-ShareAlike 4.0 International License: https://creativecommons.org/licenses/by-sa/4.0/
 
 *Specification*
-  The technical specification should describe the syntax and
-  semantics of any new API.
+    The technical specification should describe the syntax and semantics of any new API,
+    or the details of what the Best Practice, Process, or Archictecture being proposed
+    by the OEP are.
 
 *Motivation*
-  The motivation is critical for OEPs that want to change Open edX. It should
-  clearly explain why the existing achictecture or process is inadequate to
-  address the problem that the OEP solves, or why Open edX would be significantly
-  improved by adopting the best practice. OEP submissions without sufficient
-  motivation may be rejected outright.
+    The motivation is critical for OEPs that want to change Open edX. It should
+    clearly explain why the existing achictecture or process is inadequate to
+    address the problem that the OEP solves, or why Open edX would be significantly
+    improved by adopting the best practice. OEP submissions without sufficient
+    motivation are unlikely to be accepted.
 
 *Rationale*
-  The rationale fleshes out the specification by describing what motivated the
-  design and why particular design decisions were made. It should describe
-  alternate designs that were considered and related work, e.g. how the
-  feature is supported in other systems.
+    The rationale fleshes out the specification by describing what motivated the
+    design and why particular design decisions were made. It should describe
+    alternate designs that were considered and related work, e.g. how the
+    feature is supported in other systems.
 
-  The rationale should provide evidence of consensus within the community
-  and discuss important objections or concerns raised during discussion.
+    The rationale should provide evidence of consensus within the community
+    and discuss important objections or concerns raised during discussion.
 
 *Backwards Compatibility*
-  All OEPs that introduce backwards incompatibilities must include a section
-  describing these incompatibilities and their severity. The OEP must explain
-  how the author proposes to deal with these incompatibilities. OEP submissions
-  without a sufficient backwards compatibility treatise may be rejected outright.
+    All OEPs that introduce backwards incompatibilities must include a section
+    describing these incompatibilities and their severity. The OEP must explain
+    how the author proposes to deal with these incompatibilities. OEP submissions
+    without that don't consider backwards compatibility are unlikely to be
+    accepted.
 
 *Reference Implementation*
-  The reference implementation must be completed before any OEP is given status
-  "Final", but it need not be completed before the OEP is accepted. While there
-  is merit to the approach of reaching consensus on the specification and rationale
-  before writing code, the principle of "rough consensus and running code" is still
-  useful when it comes to resolving many discussions of API details.
+    The reference implementation must be completed before any OEP is given status
+    "Final", but it need not be completed before the OEP is accepted. While there
+    is merit to the approach of reaching consensus on the specification and rationale
+    before writing code, the principle of "rough consensus and running code" is still
+    useful when it comes to resolving many discussions of API details.
 
-  The final implementation must include test code and documentation, following the
-  `Open edX Contribution Guidelines`_.
+    The final implementation must include test code and documentation, following the
+    `Open edX Contribution Guidelines`_.
+
+*Rejected Alternatives*
 
 .. _Open edX Contribution Guidelines: http://edx.readthedocs.org/projects/edx-developer-guide/en/latest/process/index.html
 
@@ -190,42 +209,42 @@ using Sphinx. An OEP template can be found `in the repo`_.
 
 OEP Header Preamble
 -------------------
-Each OEP must begin with an ReST tabel with meta-data about the OEP. The rows must
+Each OEP must begin with an ReST table with meta-data about the OEP. The rows must
 appear in the following order. Rows in italics are optional and
 are described below. All other rows are required.
 
 
-+---------------+-------------------------------------------+
-| OEP           | <link to OEP>                             |
-+---------------+-------------------------------------------+
-| Title         | <OEP title>                               |
-+---------------+-------------------------------------------+
-| Last-Modified | <date string>                             |
-+---------------+-------------------------------------------+
-| Author        | <list of authors' real names and          |
-|               | optionally, email addrs>                  |
-+---------------+-------------------------------------------+
-| Arbiter       | <OEP czar's real name>                    |
-+---------------+-------------------------------------------+
-| Status        | <Draft | Accepted | Deferred |            |
-|               | Rejected | Withdrawn | Final |            |
-|               | Replaced>                                 |
-+---------------+-------------------------------------------+
-| Type          | <Architecture | Best Practice |           |
-|               | Process>                                  |
-+---------------+-------------------------------------------+
-|  Created      | <date created on, in yyyy-mm-dd format>   |
-+---------------+-------------------------------------------+
-| `Replaces`    | <OEP number>                              |
-+---------------+-------------------------------------------+
-| `Replaced-By` | <OEP number>                              |
-+---------------+-------------------------------------------+
++---------------+---------------------------------------------+
+| OEP           | <link to OEP>                               |
++---------------+---------------------------------------------+
+| Title         | <OEP title>                                 |
++---------------+---------------------------------------------+
+| Last-Modified | <date string>                               |
++---------------+---------------------------------------------+
+| Author        | <list of authors' real names and            |
+|               | email addresses>                            |
++---------------+---------------------------------------------+
+| Arbiter       | <OEP Arbiter's real name and email address> |
++---------------+---------------------------------------------+
+| Status        | <Draft | Accepted | Deferred |              |
+|               | Rejected | Withdrawn | Final |              |
+|               | Replaced>                                   |
++---------------+---------------------------------------------+
+| Type          | <Architecture | Best Practice |             |
+|               | Process>                                    |
++---------------+---------------------------------------------+
+|  Created      | <date created on, in yyyy-mm-dd format>     |
++---------------+---------------------------------------------+
+| `Replaces`    | <link to OEP>                               |
++---------------+---------------------------------------------+
+| `Replaced-By` | <link to OEP>                               |
++---------------+---------------------------------------------+
 
 The Author header lists the names, and optionally the email addresses of
-all the authors/owners of the PEP. The format of the Author header value must be
+all the authors/owners of the OEP. The format of the Author header value must be
 ``Random J. User <address@dom.ain>`` if the email address is included, and just
 ``Random J. User`` if the address is not given. If there are multiple authors,
-they should but put in a comma separated list.
+they should be put in a comma separated list.
 
 The Arbiter field is used to record who the final decision to approve or
 reject an OEP rests with.
@@ -252,13 +271,13 @@ Bugs and updates to an OEP can be submitted as comments on the OEP PR, or by
 making your own PR against the branch containing the original OEP PR. Whether
 those changes are included is up to the author of the OEP.
 
-Transferring PEP Ownership
+Transferring OEP Ownership
 --------------------------
 It occasionally becomes necessary to transfer ownership of OEPs to a new champion.
 In general, it is preferable to retain the original author as a co-author of the
 transferred OEP, but that's really up to the original author. A good reason to
 transfer ownership is because the original author no longer has the time or interest
-in updating it or following through with the PEP process, or has fallen off the face
+in updating it or following through with the OEP process, or has fallen off the face
 of the 'net (i.e. is unreachable or not responding to email). A bad reason to transfer
 ownership is because the author doesn't agree with the direction of the OEP. One aim
 of the OEP process is to try to build consensus around a OEP, but if that's not possible,
