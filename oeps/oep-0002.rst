@@ -1,0 +1,124 @@
+==========================
+OEP-2: Repository Metadata
+==========================
+
++---------------+-------------------------------------------+
+| OEP           | :doc:`oep-2`                              |
++---------------+-------------------------------------------+
+| Title         | Repository Metadata                       |
++---------------+-------------------------------------------+
+| Last-Modified | 2016-04-21                                |
++---------------+-------------------------------------------+
+| Author        | Calen Pennington <cale@edx.org>           |
++---------------+-------------------------------------------+
+| Arbiter       |                                           |
++---------------+-------------------------------------------+
+| Status        | Draft                                     |
++---------------+-------------------------------------------+
+| Type          | Best Practice                             |
++---------------+-------------------------------------------+
+| Created       | 2016-04-21                                |
++---------------+-------------------------------------------+
+
+Abstract
+========
+
+Proposes a standard format for repository metadata for Open edX projects.
+
+Motivation
+==========
+
+One of the primary goals for Best Practice OEPs is to standardize techniques
+and tools across Open edX repositories. However, without
+tooling, it will be difficult to move all of the repositories in the same
+direction (and hard to validate which ones have been updated). This OEP exists
+to fill that gap.  By providing a standard format for metadata about accordance
+to Best Practice OEPs, tools can be developed in the future to report on the
+current status of all of the Open edX repositories, and how well they follow
+the Best Practices listed in the OEPs.
+
+Bear in mind that particular classes of Open edX repositories may have
+different Best Practices. The practices that apply to an XBlock may not be the
+same as those that apply to a standalone Django service or to a Django app.
+
+Specification
+=============
+
+Each repo in the Open edX system will include a file ``openedx.yaml``, with the
+following fields:
+
+``owner``: string
+    The github user/team responsible for the repository.
+
+``nick``: string
+    A short-name for the repository used by reporting tools.
+
+``tags``: list of strings
+    Used to group repositories by in reporting tools. Sample tags: core,
+    mobile analytics.
+
+``oeps``: dictionary
+    A list of keys corresponding to Best Practice OEPs (in the format
+    ``oep-n``). Each value would be one of ``True``, ``False``, or a
+    reason dictionary. ``True`` and ``False`` would indicate accordance (or
+    lack thereof) with the specified OEP. A reason dictionary
+    must have ``state`` and ``reason`` keys. The ``state`` key is a boolean,
+    and ``reason`` is a string that should explain why it's ok that the
+    ``state`` is ``False`` (this will be displayed in reporting tools).
+
+    If an OEP isn't listed in the ``oeps`` dictionary, then it is assumed to be
+    ``False``, unless the reporting tool can auto-detect accordance.
+
+For example, in the `edx-platform`_ repo, the file might look like:
+
+.. _edx-platform: https://github.com/edx/edx-platform
+
+.. code-block:: yaml
+
+    # openedx.yaml
+
+    ---
+    owner: edx/teaching-and-learning
+    nick: edx
+    tags:
+        - core
+        - xblock
+        - lms
+        - studio
+    oeps:
+        oep-314: True  # edx-platform uses django 3.14
+        oep-42:
+            state: False
+            reason: This OEP doesn't actually exist
+
+
+Rationale
+=========
+
+The keys in ``openedx.yml`` were derived from existing repository metadata collected
+by edx.org.
+
+The design of the ``oeps`` dictionary was guided by a couple of use cases:
+
+1. Adding a new OEP that few repositories will support, initially. We shouldn't
+   need to update all repositories to detect if they are in accordance, we should
+   be able to assume that they aren't, or automatically detect whether they are.
+2. Repositories may have specific requirements that force them to not implement a
+   best practice. The tools should be able to present that reasoning to anyone
+   looking across repositories, and the reasons should be documented in the repositories
+   themselves.
+3. As much as possible, Best Practices should be autodetected, but because they will
+   often involve a judgement call, autodetection shouldn't be mandatory.
+
+Copyright
+=========
+
+.. image:: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+    :alt: Creative Commons License CC-BY-SA
+    :target: http://creativecommons.org/licenses/by-sa/4.0/
+
+This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License`_.
+
+.. _Creative Commons Attribution-ShareAlike 4.0 International License: https://creativecommons.org/licenses/by-sa/4.0/
+
+
