@@ -169,11 +169,15 @@ Each OEP should have the following parts:
 *Rationale*
     The rationale fleshes out the specification by describing what motivated the
     design and why particular design decisions were made. It should describe
-    alternate designs that were considered and related work, e.g. how the
+    alternate designs that were considered and related work, for example, how the
     feature is supported in other systems.
 
     The rationale should provide evidence of consensus within the community
     and discuss important objections or concerns raised during discussion.
+    It should also link to any major and pertinent discussions of the OEP
+    that happened in other fora (such as the `edx-code`_ mailing list).
+
+    .. _edx-code: https://groups.google.com/forum/#!forum/edx-code
 
 *Backwards Compatibility*
     All OEPs that introduce backwards incompatibilities must include a section
@@ -192,9 +196,14 @@ Each OEP should have the following parts:
     The final implementation must include test code and documentation, following the
     `Open edX Contribution Guidelines`_.
 
+.. _Open edX Contribution Guidelines: http://edx.readthedocs.org/projects/edx-developer-guide/en/latest/process/index.html
+
 *Rejected Alternatives*
 
-.. _Open edX Contribution Guidelines: http://edx.readthedocs.org/projects/edx-developer-guide/en/latest/process/index.html
+    The OEP should list any alternative designs or implementations that were
+    considered and rejected, and why they weren't chosen. It should also link
+    to the original source of that discussion.
+
 
 OEP Formats and Templates
 -------------------------

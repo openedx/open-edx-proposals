@@ -51,7 +51,8 @@ The motivation is critical for OEPs that want to change Open edX. It should
 clearly explain why the existing achictecture or process is inadequate to
 address the problem that the OEP solves, or why Open edX would be significantly
 improved by adopting the best practice. OEP submissions without sufficient
-motivation may be rejected outright.
+motivation are unlikely to be accepted.
+
 
 
 Rationale
@@ -76,7 +77,8 @@ Backwards Compatibility
 All OEPs that introduce backwards incompatibilities must include a section
 describing these incompatibilities and their severity. The OEP must explain
 how the author proposes to deal with these incompatibilities. OEP submissions
-without a sufficient backwards compatibility treatise may be rejected outright.
+without that don't consider backwards compatibility are unlikely to be
+accepted.
 
 
 Reference Implementation
@@ -92,6 +94,14 @@ The final implementation must include test code and documentation, following the
 `Open edX Contribution Guidelines`_.
 
 .. _Open edX Contribution Guidelines: http://edx.readthedocs.org/projects/edx-developer-guide/en/latest/process/index.html
+
+
+Rejected Alternatives
+=====================
+
+The OEP should list any alternative designs or implementations that were
+considered and rejected, and why they weren't chosen. It should also link
+to the original source of that discussion.
 
 
 Copyright
