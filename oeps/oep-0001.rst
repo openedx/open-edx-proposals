@@ -288,9 +288,13 @@ directory oep-XXXX/, where "XXXX" is the OEP number.
 
 Reporting OEP Bugs, or Submitting OEP Updates
 ---------------------------------------------
-Bugs and updates to an OEP can be submitted as comments on the OEP PR, or by
-making your own PR against the branch containing the original OEP PR. Whether
-those changes are included is up to the author of the OEP.
+While pull request containing the initial draft of an OEP is open, comments
+should be made on that pull request, or by submitting a new pull request
+that targets the branch from which the OEP pull request was made.
+
+Once an OEP has been merged to the open-edx-proposals repository (even if
+it is still a draft), changes can be suggested to it via new pull requests.
+Whether those changes are included is up to the author of the OEP.
 
 Transferring OEP Ownership
 --------------------------
