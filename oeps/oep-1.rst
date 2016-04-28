@@ -70,10 +70,10 @@ and not just the author. Just because an idea sounds good to the author
 does not mean it will work for most Open edX installations.
 
 Once the champion has asked the Open edX community as to whether an idea
-has any chance of acceptance, a draft OEP should be submitted as a Pull Request
-against the `central OEP repository`_. The Pull Request title must start
+has any chance of acceptance, a draft OEP should be submitted as a pull request
+against the `central OEP repository`_. The pull request title must start
 with "OEP-XXX", and claims that OEP number for the included proposal.
-Before claiming a number, check the list of previous Pull Requests to
+Before claiming a number, check the list of previous pull requests to
 see which numbers have already been assigned.
 
 .. _central OEP repository: http://github.com/edx/open-edx-proposals
@@ -122,13 +122,13 @@ The possible paths of the status of OEPs are as follows:
 .. image:: oep-1/state-flow.png
 
 Please note that OEP statuses do not necessary coincide with the status of
-the Pull Request that contains the OEP. For example, OEPs that have been "Rejected"
+the pull request that contains the OEP. For example, OEPs that have been "Rejected"
 should still be merged, but should be marked as Rejected. This preserves the rationale
 and description of the OEP in the generated documentation.
 
 Likewise, an OEP that is in "Draft" may be merged to capture a set of edits,
 and to make the proposal more visible to community comment. From that point, additional
-Pull Requests can be opened to edit the "Draft" OEP, until it converges to being
+pull requests can be opened to edit the "Draft" OEP, until it converges to being
 either "Accepted" or "Rejected".
 
 OEP Maintenance
