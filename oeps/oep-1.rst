@@ -131,6 +131,18 @@ and to make the proposal more visible to community comment. From that point, add
 pull requests can be opened to edit the "Draft" OEP, until it converges to being
 either "Accepted" or "Rejected".
 
+OEP Reviewers
+-------------
+
+OEP reviewers are individuals responsible for making sure that all incoming
+OEPs receive timely responses and that the OEP process is followed. They are
+also expected to provide substantive feedback and guidance to the Authors of
+incoming OEPs. The current reviewers are:
+
+* <TBD>
+
+New OEP reviewers are added by invitation of the current reviewers.
+
 OEP Maintenance
 ---------------
 
