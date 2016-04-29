@@ -139,7 +139,7 @@ OEPs receive timely responses and that the OEP process is followed. They are
 also expected to provide substantive feedback and guidance to the Authors of
 incoming OEPs. The current reviewers are:
 
-* Eddie Fagan
+* Eddie Fagin
 
 New OEP reviewers are added by invitation of the current reviewers.
 
