@@ -119,7 +119,7 @@ obsolete.
 
 The possible paths of the status of OEPs are as follows:
 
-.. image:: oep-1/state-flow.png
+.. image:: oep-0001/state-flow.png
 
 Please note that OEP statuses do not necessary coincide with the status of
 the pull request that contains the OEP. For example, OEPs that have been "Rejected"
