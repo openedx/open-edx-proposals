@@ -23,7 +23,7 @@ OEP-XXX: OEP Template
 | Type          | <Architecture | Best Practice |           |
 |               | Process>                                  |
 +---------------+-------------------------------------------+
-|  Created      | <date created on, in yyyy-mm-dd format>   |
+|  Created      | <date created on, in YYYY-MM-DD format>   |
 +---------------+-------------------------------------------+
 | `Replaces`    | <OEP number>                              |
 +---------------+-------------------------------------------+

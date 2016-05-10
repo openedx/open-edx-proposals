@@ -131,17 +131,25 @@ and to make the proposal more visible to community comment. From that point, add
 pull requests can be opened to edit the "Draft" OEP, until it converges to being
 either "Accepted" or "Rejected".
 
-OEP Reviewers
--------------
+OEP Roles
+---------
 
-OEP reviewers are individuals responsible for making sure that all incoming
-OEPs receive timely responses and that the OEP process is followed. They are
-also expected to provide substantive feedback and guidance to the Authors of
-incoming OEPs. The current reviewers are:
+Each OEP will have an Arbiter (as described in `OEP Review & Resolution`_). The
+Arbiter will be chosen by Eddie Fagin (edX's Chief Archictect). The Arbiter
+will be the person making the final decision on whether the OEP should be Accepted,
+and as such, they should be knowledgable about the contents of the proposal, and
+willing to listen to arguments both for and against it by the rest of the community.
+The Author of the OEP will never be selected as the Arbiter of that OEP.
 
-* Eddie Fagin
+The Arbiter is also responsible for helping the Author to elicit feedback from
+the community on the OEP, and for helping to move the OEP towards a final decision
+(whether that decision is Accepted, Rejected or Deferred). The Arbiter (in
+discussion with the Author) can merge an in-progress OEP (if it has reached a
+stage of relative stability) to allow for additional incremental updates.
 
-New OEP reviewers are added by invitation of the current reviewers.
+Finally, the Arbiter is responsible for the decision to transfer an OEP if the
+original Author has become unresponsive (as described in `Transferring OEP Ownership`_.
+
 
 OEP Maintenance
 ---------------
@@ -254,7 +262,7 @@ are described below. All other rows are required.
 | Type          | <Architecture | Best Practice |             |
 |               | Process>                                    |
 +---------------+---------------------------------------------+
-|  Created      | <date created on, in yyyy-mm-dd format>     |
+|  Created      | <date created on, in YYYY-MM-DD format>     |
 +---------------+---------------------------------------------+
 | `Replaces`    | <link to OEP>                               |
 +---------------+---------------------------------------------+
@@ -273,7 +281,7 @@ reject an OEP rests with.
 The Type header specifies the type of OEP: Architecture, Best Practice or Process.
 
 The Created header records the date that the OEP was assigned a number. It should be
-in yyyy-mm-dd format, e.g. 2016-04-21.
+in YYYY-MM-DD format, e.g. 2016-04-21.
 
 OEPs may also have a Replaced-By header indicating that a OEP has been rendered
 obsolete by a later document; the value is the number of the OEP that replaces
