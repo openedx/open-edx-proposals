@@ -7,7 +7,7 @@ OEP-1: OEP Purpose and Guidelines
 +--------+---------------------------------------+
 |Title   | OEP Purpose and Guidelines            |
 +--------+---------------------------------------+
-|Author  | Calen Pennington                      |
+|Author  | Calen Pennington <cale@edx.org>       |
 +--------+---------------------------------------+
 |Status  | Draft                                 |
 +--------+---------------------------------------+
@@ -15,7 +15,7 @@ OEP-1: OEP Purpose and Guidelines
 +--------+---------------------------------------+
 |Created | 26-Mar-2016                           |
 +--------+---------------------------------------+
-|Arbiter |                                       |
+|Arbiter | Eddie Fagin <efagin@edx.org>          |
 +--------+---------------------------------------+
 
 
@@ -51,10 +51,10 @@ recommended that a single OEP contain a single key proposal or new idea.
 Small enhancements or patches often don't need an OEP and can be injected
 into the Open edX development workflow with a patch submission.
 
-Each OEP must have a champion -- someone who writes the OEP using the
+Each OEP must have a Author -- someone who writes the OEP using the
 style and format described below, shepherds the discussions in the
 appropriate forums, and attempts to build community consensus around
-the idea. The OEP champion (a.k.a. Author) should first attempt to
+the idea. The OEP Author should first attempt to
 ascertain whether the idea is appropriate for an OEP. Posting to the
 `edx-code`_ mailing list, ``arch@edx.org`` and ``archexternal@edx.org``
 is the best way to go about this.
@@ -69,7 +69,7 @@ It also helps to make sure the idea is applicable to the entire community
 and not just the author. Just because an idea sounds good to the author
 does not mean it will work for most Open edX installations.
 
-Once the champion has asked the Open edX community as to whether an idea
+Once the Author has asked the Open edX community as to whether an idea
 has any chance of acceptance, a draft OEP should be submitted as a pull request
 against the `central OEP repository`_. The pull request title must start
 with "OEP-XXX", and claims that OEP number for the included proposal.
@@ -78,7 +78,7 @@ see which numbers have already been assigned.
 
 .. _central OEP repository: http://github.com/edx/open-edx-proposals
 
-As updates are necessary, the OEP author can update the pull request.
+As updates are necessary, the OEP Author can update the pull request.
 
 OEPs can be reference pull requests to other Open edX repositiories which
 will act as reference implementations.
@@ -86,11 +86,10 @@ will act as reference implementations.
 OEP Review & Resolution
 -----------------------
 
-Once the authors have completed an OEP, they may request a review from
-OEP reviewers. These reviewers will select one member to act as the final
-arbiter on the OEP. This arbiter will be recorded in the "Arbiter"
-header on the OEP. The remaining reviewers and the rest of the Open edX
-community will be given the opportunity to comment on the OEP, with the
+Once the Author has completed an OEP, they may request a review from
+OEP reviewers. The edX Chief Architect will select an Arbiter for the OEP.
+This Arbiter will be recorded in the "Arbiter" header on the OEP. The rest of
+Open edX community will be given the opportunity to comment on the OEP, with the
 Arbiter serving to keep the discussion on track and to evaluate when
 it has reached a final conclusion.
 
@@ -99,13 +98,13 @@ criteria. It must be a clear and complete description of the proposed
 enhancement. The enhancement must represent a net improvement. The proposed
 implementation, if applicable, must pass the existing Open edX review process.
 
-An OEP can be assigned the status "Deferred". The OEP author or Arbiter can
+An OEP can be assigned the status "Deferred". The OEP Author or Arbiter can
 assign the OEP this status when no progress is being made on the OEP. Once a
 OEP is deferred, the OEP Author can re-assign it to draft status.
 
 An OEP can also be "Rejected" by the Arbiter. Perhaps after all is said and
 done it was not a good idea. It is still important to have a record of this
-fact. The "Withdrawn" status is similar - it means that the OEP author
+fact. The "Withdrawn" status is similar - it means that the OEP Author
 themselves has decided that the OEP is actually a bad idea, or has accepted
 that a competing proposal is a better alternative.
 
@@ -135,7 +134,7 @@ OEP Roles
 ---------
 
 Each OEP will have an Arbiter (as described in `OEP Review & Resolution`_). The
-Arbiter will be chosen by Eddie Fagin (edX's Chief Architect). The Arbiter
+Arbiter will be chosen by the edX Chief Architect (currently Eddie Fagin). The Arbiter
 will be the person making the final decision on whether the OEP should be Accepted,
 and as such, they should be knowledgable about the contents of the proposal, and
 willing to listen to arguments both for and against it by the rest of the community.
@@ -157,6 +156,23 @@ OEP Maintenance
 In general, OEPs are no longer modified after they have reached the Final state.
 They can be replaced by subsequent OEPs, however (OEPs that have been replaced
 are given the status "Replaced").
+
+The choice of whether an edit to an OEP should be allowed or whether a new OEP
+should be published is up to the Arbiter of the original OEP. However, as a
+general guideline, the following would not require a replacement OEP::
+
+    * Formatting changes
+    * Grammatical and spelling corrections
+    * Adding links to additional relevant resources and discussions
+    * Additional diagrams or clarifying material (as long as the Arbiter agrees
+      that the substance of the OEP isn't changed).
+
+The following should be build as a replacement OEP::
+
+    * Changing the choice of technology in a Best Practice OEP (such as the
+      which test-runner should be used).
+    * Changing how a set of services is separated in an Architecture OEP (for
+      example, splitting one service into two, or combining two services into one).
 
 What belongs in a successful OEP?
 =================================
@@ -302,17 +318,17 @@ that targets the branch from which the OEP pull request was made.
 
 Once an OEP has been merged to the open-edx-proposals repository (even if
 it is still a draft), changes can be suggested to it via new pull requests.
-Whether those changes are included is up to the author of the OEP.
+Whether those changes are included is up to the Author of the OEP.
 
 Transferring OEP Ownership
 --------------------------
-It occasionally becomes necessary to transfer ownership of OEPs to a new champion.
-In general, it is preferable to retain the original author as a co-author of the
-transferred OEP, but that's really up to the original author. A good reason to
-transfer ownership is because the original author no longer has the time or interest
+It occasionally becomes necessary to transfer ownership of OEPs to a new Author.
+In general, it is preferable to retain the original Author as a co-author of the
+transferred OEP, but that's really up to the original Author. A good reason to
+transfer ownership is because the original Author no longer has the time or interest
 in updating it or following through with the OEP process, or has fallen off the face
 of the 'net (i.e. is unreachable or not responding to email). A bad reason to transfer
-ownership is because the author doesn't agree with the direction of the OEP. One aim
+ownership is because the Author doesn't agree with the direction of the OEP. One aim
 of the OEP process is to try to build consensus around a OEP, but if that's not possible,
-an author can always submit a competing OEP.
+an Author can always submit a competing OEP.
 
