@@ -135,7 +135,7 @@ OEP Roles
 ---------
 
 Each OEP will have an Arbiter (as described in `OEP Review & Resolution`_). The
-Arbiter will be chosen by Eddie Fagin (edX's Chief Archictect). The Arbiter
+Arbiter will be chosen by Eddie Fagin (edX's Chief Architect). The Arbiter
 will be the person making the final decision on whether the OEP should be Accepted,
 and as such, they should be knowledgable about the contents of the proposal, and
 willing to listen to arguments both for and against it by the rest of the community.
@@ -176,7 +176,7 @@ Each OEP should have the following parts:
 
 *Specification*
     The technical specification should describe the syntax and semantics of any new API,
-    or the details of what the Best Practice, Process, or Archictecture being proposed
+    or the details of what the Best Practice, Process, or Architecture being proposed
     by the OEP are.
 
 *Motivation*
