@@ -40,7 +40,7 @@ Specification
 =============
 
 The technical specification should describe the syntax and semantics of any new API,
-or the details of what the Best Practice, Process, or Archictecture being proposed
+or the details of what the Best Practice, Process, or Architecture being proposed
 by the OEP are.
 
 
