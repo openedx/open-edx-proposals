@@ -112,6 +112,8 @@ enhancement. The enhancement must represent a net improvement. The proposed
 implementation, if applicable, must pass the existing
 `Open edX Contribution Guidelines`_.
 
+.. _Open edX Contribution Guidelines: http://edx.readthedocs.org/projects/edx-developer-guide/en/latest/process/index.html
+
 Once an OEP has been accepted by an Arbiter, it is "Under Review". Once this
 state is acheived, we recommend announcing the OEP to the community in relevant
 forums such as the edx-code and more relevant mailing lists, the
