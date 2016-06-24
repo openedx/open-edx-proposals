@@ -216,17 +216,17 @@ Each OEP should have the following parts.
 
 .. We talked about copyright vs. licensing. Can we require them to license as CC-by-SA? can we let them reserve copyright to themselves? Tena, help! Also, this comes later in the template -- make the sequence here match the sequence there?
 
-*Specification*
-    The technical specification should describe the syntax and
-    semantics of any new API, or the details of what the Best Practice,
-    Process, or Architecture being proposed by the OEP are.
-
 *Motivation*
     The motivation is critical for OEPs that want to change Open edX. It should
     clearly explain why the existing architecture or process is inadequate to
     address the problem that the OEP solves, or why Open edX would be significantly
     improved by adopting the best practice. OEP submissions without sufficient
     motivation are unlikely to be accepted.
+
+*Specification*
+    The technical specification should describe the syntax and
+    semantics of any new API, or the details of what the Best Practice,
+    Process, or Architecture being proposed by the OEP are.
 
 *Rationale*
     The rationale fleshes out the specification by describing what

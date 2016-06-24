@@ -39,13 +39,6 @@ Abstract
 The abstract is a short (~200 word) description of the technical issue that
 this Open edX proposal (OEP) addresses.
 
-Specification
-=============
-
-The specification describes the technical details of the Architecture, Best
-Practice, or Process change proposed by the OEP. If the proposal includes a new
-API, specify its syntax and semantics.
-
 Motivation
 ==========
 
@@ -56,6 +49,13 @@ edX.
 
 OEP submissions without sufficiently clear and compelling motivation are
 unlikely to be accepted.
+
+Specification
+=============
+
+The specification describes the technical details of the Architecture, Best
+Practice, or Process change proposed by the OEP. If the proposal includes a new
+API, specify its syntax and semantics.
 
 Rationale
 =========
