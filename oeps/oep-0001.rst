@@ -112,6 +112,12 @@ enhancement. The enhancement must represent a net improvement. The proposed
 implementation, if applicable, must pass the existing
 `Open edX Contribution Guidelines`_.
 
+Once an OEP has been accepted by an Arbiter, it is "Under Review". Once this
+state is acheived, we recommend announcing the OEP to the community in relevant
+forums such as the edx-code and more relevant mailing lists, the
+#open-edx-proposals Slack channel, and any other relevant Slack channels. It 
+should also be added to the list of "Under Review" OEPs in the OEP repo.
+
 A Draft OEP can be assigned the status "Deferred". The OEP Author or Arbiter
 can assign the OEP this status when no progress is being made on the OEP. If an
 OEP is deferred, the OEP Author can reassign it to Draft status.
