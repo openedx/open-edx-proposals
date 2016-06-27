@@ -2,10 +2,12 @@
 #
 
 # You can set these variables from the command line.
-SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
-PAPER         =
-BUILDDIR      = _build
+SPHINXOPTS      =
+SPHINXBUILD     = sphinx-build
+SPHINXAUTOBUILD = sphinx-autobuild
+PAPER           =
+BUILDDIR        = _build
+PORT            = 9050
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
@@ -221,3 +223,7 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+.PHONY: develop
+develop:
+	sphinx-autobuild -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html -p $(PORT) --ignore '.git/**' --open-browser
