@@ -5,7 +5,7 @@ OEP-XXX: OEP Template
 .. This is the template to use when you start a new OEP.
 
 +---------------+-------------------------------------------+
-| OEP           | :doc:`oep-XXX`                            |
+| OEP           | :doc:`OEP-XXX </oeps/oep-0xxx>`           |
 +---------------+-------------------------------------------+
 | Title         | <OEP title>                               |
 +---------------+-------------------------------------------+
