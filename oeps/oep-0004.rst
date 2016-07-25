@@ -121,6 +121,11 @@ Governance
 * Resources should not, on the other hand, be too broad to be useful, i.e.,
   instead of ``courseware``, consider ``discussions`` or ``catalog`` or
   whatever specific resource is of interest
+ 
+* Scope descriptions need to be presented to the user by the token management
+  system.  They should therefore be maintained with the central list of scopes.
+  Scope descriptions should be internationalized, but should be presented with
+  the scope name, which is consistent across translations.
 
 Open questions
 --------------
