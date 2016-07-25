@@ -127,6 +127,16 @@ Governance
   Scope descriptions should be internationalized, but should be presented with
   the scope name, which is consistent across translations.
 
+Alt:
+
+* Scope metadata should be maintained centrally with the canonical list of 
+  scopes.
+
+* Scope descriptions should be internationalized strings, managed by Transifex.
+
+* Scopes should be presented to the user during authorization as a combination 
+  of the canonical name and the internationalized description.
+
 Open questions
 --------------
 * Where, exactly, are we going to maintain the list of all scopes, and which
