@@ -89,11 +89,11 @@ Initial Submission
 ------------------
 
 Once the Author has asked the Open edX community whether an idea has any chance
-of acceptance, a draft OEP should be written submitted as a pull request against the
-`central OEP repository`_. To identify the draft proposal, the Author should check the
-numbered list of previous OEP pull requests and select the next available
-number. The pull request title must start with "OEP-XXX", which claims that OEP
-number for the included proposal.
+of acceptance, a draft OEP should be submitted as a pull request against the
+`central OEP repository`_. To identify the draft proposal, the Author should
+check the numbered list of previous OEP pull requests and select the next 
+available number. The pull request title must start with "OEP-XXX", which 
+claims that OEP number for the included proposal.
 
 .. _central OEP repository: http://github.com/edx/open-edx-proposals
 
