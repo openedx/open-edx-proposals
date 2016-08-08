@@ -32,6 +32,9 @@ OEP-XXX: OEP Template
 +---------------+-------------------------------------------+
 | `Replaced-By` | <OEP number>                              |
 +---------------+-------------------------------------------+
+| `References`  | <links to any other relevant discussions  |
+|               | or relevant related materials>            |
++---------------+-------------------------------------------+
 
 Abstract
 ========
