@@ -109,6 +109,12 @@ considered and rejected, and why they were not implemented. It should also link
 to the original source of that discussion.
 
 
+Change History
+==============
+
+A list of dated sections that describes a brief summary of each revision of the OEP.
+
+
 Copyright
 =========
 
