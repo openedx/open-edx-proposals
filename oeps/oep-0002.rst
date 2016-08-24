@@ -7,7 +7,7 @@ OEP-2: Repository Metadata
 +---------------+-------------------------------------------+
 | Title         | Repository Metadata                       |
 +---------------+-------------------------------------------+
-| Last-Modified | 2016-06-29                                |
+| Last-Modified | 2016-08-24                                |
 +---------------+-------------------------------------------+
 | Author        | Calen Pennington <cale@edx.org>           |
 +---------------+-------------------------------------------+
@@ -50,14 +50,16 @@ following fields:
 ``owner``: string
     The github user/team responsible for the repository.
 
-``nick``: string
-    A short-name for the repository used by reporting tools.
+``nick``: string (optional)
+    A short-name for the repository used by reporting tools created by the
+    edX Open Source team. Should be 3-4 characters, because this value
+    is used in charts with very limited space on their axes.
 
-``tags``: list of strings
+``tags``: list of strings (optional)
     Used to group repositories by in reporting tools. Sample tags: core,
     mobile analytics.
 
-``oeps``: dictionary
+``oeps``: dictionary (optional)
     A list of keys corresponding to Best Practice OEPs (in the format
     ``oep-n``). Each value would be one of ``True``, ``False``, or a
     reason dictionary. ``True`` and ``False`` would indicate accordance (or
@@ -68,6 +70,39 @@ following fields:
 
     If an OEP isn't listed in the ``oeps`` dictionary, then it is assumed to be
     ``False``, unless the reporting tool can auto-detect accordance.
+
+``track-pulls``: boolean (optional)
+
+    .. This should be moved to a separate OEP
+
+    Whether or not this repository should be tracked for creation of OSPR tickets.
+
+``openedx-release``: dictionary (optional)
+
+    .. This should be moved to a separate OEP
+
+    This controls how this repo is managed during the Open edX release process.
+
+    Possible keys:
+
+    ``ref``
+        The name of a branch in this repo. This is the branch that will be tagged
+        when an Open edX release is made.
+
+    ``requirements``
+        The path to a requirements.txt-style file in this repo. This file will
+        be consulted to find the commit to tag in dependent repos indicated by
+        ``parent-repo`` keys.
+
+    ``parent-repo``
+        The name of another repo, one that installs this repo via a requirements
+        file.  The parent repo's requirements file will indicate the commit to
+        tag in this repo.
+
+``obsolete``: boolean (optional)
+    If ``True``, this specifies that this repository is obsolete and no longer
+    maintained by ``edX``.
+
 
 For example, in the `edx-platform`_ repo, the file might look like:
 
@@ -109,6 +144,22 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
    themselves.
 3. As much as possible, Best Practices should be autodetected, but because they will
    often involve a judgement call, autodetection shouldn't be mandatory.
+
+
+Change History
+==============
+
+2016-08-24
+----------
+
+* Add documentation of the ``openedx-release``, ``track-pulls``, ``dead``,
+  and ``nick`` keys in the ``openedx.yaml`` file.
+
+2016-06-29
+----------
+
+* Original publication
+
 
 Copyright
 =========
