@@ -130,7 +130,7 @@ For example, in the `edx-platform`_ repo, the file might look like:
 Rationale
 =========
 
-The keys in ``openedx.yml`` were derived from existing repository metadata collected
+The keys in ``openedx.yaml`` were derived from existing repository metadata collected
 by edx.org.
 
 The design of the ``oeps`` dictionary was guided by a couple of use cases:
