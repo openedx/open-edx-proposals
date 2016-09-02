@@ -24,7 +24,7 @@ Abstract
 ========
 
 Open edX is a large ecosystem of smaller services. In order to facilitate
-newcomers working in that system, each service will provide a prebuilt
+newcomers working in that system, each service will provide a pre-built
 environment that is packaged, published, and ready to be used for development.
 
 Motivation
@@ -49,11 +49,11 @@ because it was able to use the infrastructure that was built out for installing
 Open edX in production.  However, there are several problems with the current
 monolithic `Vagrant`_ image which we would like to address:
 
-1. As new services are added to the Open edX ecosystem, the `Vagrant`_ image
+1. As new services are added to the Open edX ecosystem, the Vagrant image
    grows in size, requiring more system memory from the host machine.
 
-2. `Vagrant`_ imposes noticeable overhead during filesystem access, which
-   especially hurts any development that it doing file-heavy operations (such
+2. Vagrant imposes noticeable overhead during file system access, which
+   especially hurts any development that is doing file-heavy operations (such
    as manipulating static assets).
 
 3. The monolithic `Vagrant`_ image isn't particularly representative of the
@@ -92,20 +92,20 @@ checked-out `edx-platform`_ repository.
 The following targets will be standard::
 
     make dev.watch  # Start the local development environment services (if
-                    # they aren't already) and display their logs on stdout
+                    # they aren't already) and display their logs on stdout.
 
     make dev.shell  # Start the local development environment services (if they
                     # aren't already) and access a shell on the primary
                     # container (as the user that owns the service, in the
-                    # directory that has the service source code)
+                    # directory that has the service source code).
 
     make dev.clean  # Stop the local development environment services and
                     # remove any intermediate data that they stored in the
-                    # .dev/ directory
+                    # .dev/ directory.
 
     make dev.*      # Start the local development environment services (if they
                     # aren't already) and run `make *` from the code directory
-                    # of the primary service (as the service owner)
+                    # of the primary service (as the service owner).
 
 Implementation
 ~~~~~~~~~~~~~~
@@ -122,12 +122,12 @@ Requirements
    support our development environments. Minimizing changes to third-party
    containers means we have less code/configuration that we need to update as
    third-party containers and applications change. Minimizing customization
-   should also keep push us in the direction of making it easy to deploy our
+   should also push us in the direction of making it easy to deploy our
    stack, because there will be fewer customizations needed by operators of
    Open edX in production.
 
 2. Open edX containers must run all of their processes via `supervisor`_ to
-   provide a single entrypoint even when the container has multiple processes
+   provide a single entry point even when the container has multiple processes
    (such as `nginx`_ and a `Django`_ service running under `gunicorn`_).
 
    **Rationale**: `Docker`_ imposes a single-entry-point constraint.
@@ -139,8 +139,8 @@ Requirements
    ``stderr``.
 
    **Rationale**: Logging to ``stdout`` and ``stderr`` makes it significantly
-   easier to develop the app in different environments, since those filehandles
-   are available nearly everywhere. `supervisor`_ captures both filehandles and
+   easier to develop the app in different environments, since those file handles
+   are available nearly everywhere. `supervisor`_ captures both file handles and
    logs their contents to disk, which means that we can display the logs to the
    screen, and can search through old development logs.
 
@@ -152,7 +152,7 @@ Requirements
    **Rationale**: This will allow data from local development environment to
    persist across container executions. Locating the storage in the source code
    repository isolates the storage of third-party containers that are used in
-   common between local develepment environments so that data doesn't leak
+   common between local development environments so that data doesn't leak
    between them.  Making the storage location configurable means that local
    development environments could share storage if desired.
 
@@ -179,13 +179,13 @@ Requirements
    **Rationale**: Having a container that is up-to-date with both code and
    configuration makes it easier for developers to make their changes with
    confidence that those same changes will work once they are merged. Having
-   containers for previous releases allows easier development for hotfixes.
+   containers for previous releases allows easier development for hot fixes.
 
 8. The local development environment should be installed with all
    pre-requisites to allow tests to be run on them without additional developer
    input.
 
-   **Rationale**: Tests are an important part of both the fast feedback loop
+   **Rationale**: Tests are an important part of the fast feedback loop
    for developers. Being able to run those tests immediately when the local
    development environment starts means that developers can have confidence
    that the environment is working correctly for development.
@@ -206,32 +206,29 @@ The prototype implementation was done using `Docker`_ for the containers, and
 Rationale
 =========
 
-Choice of `Docker`_
-~~~~~~~~~~~~~~~~~~~
-
-`Docker`_ has a low per-service overhead, because it doesn't allocate resources
+Docker has a low per-service overhead, because it doesn't allocate resources
 to particular containers.
 
-`Docker`_ uses a layered filesystem, which, if used properly, we should be able
-to limit the amount of data that a developer needs to download to update from
+Docker uses a layered file system, which, if used properly, should let us
+limit the amount of data that a developer needs to download to update from
 one version of the base image to the next.
 
 
 Backward Compatibility
-=======================
+======================
 
-This implementation supersedes and replaces use of `Vagrant`_ for the local
+This implementation supersedes and replaces use of Vagrant for the local
 development environment.  However, nothing in the implementation should break
-the `Vagrant`_-based local development environment during the development
-phase, and developers currently using `Vagrant`_ will be able to continue to
+the Vagrant-based local development environment during the development
+phase, and developers currently using Vagrant will be able to continue to
 use it. Long-term, the goal will be to deprecate and no longer support the
-`Vagrant`_-based local development environment.
+Vagrant-based local development environment.
 
 Reference Implementation
 ========================
 
 The `course-discovery`_ service uses a `Docker`_-based local development
-environment, and was the prototype implementation of for this OEP. However, it
+environment, and was the prototype implementation of this OEP. However, it
 will need modification to fully meet the specifications of this OEP.
 
 
