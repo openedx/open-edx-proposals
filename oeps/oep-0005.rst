@@ -47,7 +47,7 @@ well as single shared instances of the databases that they all need to run.
 This marked a significant improvement over the ad-hoc installation methods,
 because it was able to use the infrastructure that was built out for installing
 Open edX in production.  However, there are several problems with the current
-monolithic `Vagrant`_ image which we would like to address:
+monolithic Vagrant image which we would like to address:
 
 1. As new services are added to the Open edX ecosystem, the Vagrant image
    grows in size, requiring more system memory from the host machine.
@@ -56,7 +56,7 @@ monolithic `Vagrant`_ image which we would like to address:
    especially hurts any development that is doing file-heavy operations (such
    as manipulating static assets).
 
-3. The monolithic `Vagrant`_ image isn't particularly representative of the
+3. The monolithic Vagrant image isn't particularly representative of the
    production service architecture, because all of the services are installed
    on the same machine, which makes it harder for developers to be confident
    that their changes will work when deployed.
@@ -72,7 +72,7 @@ monolithic `Vagrant`_ image which we would like to address:
    latest code versions), or the image has to be rebuilt every time any of the
    installed services change (which results in lots of churn).
 
-6. Because the `Vagrant`_ image contains many separate services, the definition
+6. Because the Vagrant image contains many separate services, the definition
    of that image has to be separate from any of the service repositories, which
    makes it hard to update (and to push updates out to users).
 
@@ -131,7 +131,7 @@ Requirements
    (such as `nginx`_ and a `Django`_ service running under `gunicorn`_).
 
    **Rationale**: `Docker`_ imposes a single-entry-point constraint.
-   Standardizing on `supervisor`_ means that we need to make fewer choices
+   Standardizing on supervisor means that we need to make fewer choices
    during development, and that we can combining the learnings and
    configurations across various Open edX projects.
 
@@ -140,13 +140,13 @@ Requirements
 
    **Rationale**: Logging to ``stdout`` and ``stderr`` makes it significantly
    easier to develop the app in different environments, since those file handles
-   are available nearly everywhere. `supervisor`_ captures both file handles and
+   are available nearly everywhere. supervisor captures both file handles and
    logs their contents to disk, which means that we can display the logs to the
    screen, and can search through old development logs.
 
 4. Dependent services (such as databases) should be configured by default to
    mount their storage directories inside ``.dev/`` inside the source code
-   directory (this should be added to `.gitignore` and `.dockerignore`_). This
+   directory (this should be added to `.gitignore`_ and `.dockerignore`_). This
    location should be configurable via an environment variable.
 
    **Rationale**: This will allow data from local development environment to
@@ -200,7 +200,7 @@ Requirements
 Technology Selection
 --------------------
 
-The prototype implementation was done using `Docker`_ for the containers, and
+The prototype implementation was done using Docker for the containers, and
 `Docker Compose`_ to manage the networking between services.
 
 Rationale
@@ -227,7 +227,7 @@ Vagrant-based local development environment.
 Reference Implementation
 ========================
 
-The `course-discovery`_ service uses a `Docker`_-based local development
+The `course-discovery`_ service uses a Docker-based local development
 environment, and was the prototype implementation of this OEP. However, it
 will need modification to fully meet the specifications of this OEP.
 
