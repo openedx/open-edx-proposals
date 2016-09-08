@@ -7,7 +7,7 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+-------------------------------------------+
 | Title         | OEP Purpose and Guidelines                |
 +---------------+-------------------------------------------+
-| Last-Modified | 2016-06-24                                |
+| Last-Modified | 2016-08-24                                |
 +---------------+-------------------------------------------+
 | Author        | Calen Pennington <cale@edx.org>           |
 +---------------+-------------------------------------------+
@@ -275,6 +275,11 @@ Each OEP should have the following parts.
     considered and rejected, and why they were not chosen. It should also link
     to the original source of that discussion.
 
+*Change History*
+
+    A list of dated sections that describes a brief summary of each revision
+    of the OEP.
+
 
 OEP Formats and Templates
 -------------------------
@@ -377,3 +382,24 @@ author of the transferred OEP, but that is really up to the original Author.
   the direction of the OEP. A significant aim of the OEP process is to try to
   build consensus around an OEP, but if that is not possible, the Author can
   always submit a separate OEP with an alternative proposal.
+
+Change History
+==============
+
+2016-08-24
+----------
+
+* Add a definition of the *Change History* section.
+* Add a copyright notice.
+
+
+Copyright
+=========
+
+.. image:: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+    :alt: Creative Commons License CC-BY-SA
+    :target: http://creativecommons.org/licenses/by-sa/4.0/
+
+This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License`_.
+
+.. _Creative Commons Attribution-ShareAlike 4.0 International License: https://creativecommons.org/licenses/by-sa/4.0/
