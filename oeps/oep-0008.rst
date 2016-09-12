@@ -39,7 +39,7 @@ when making choices.
 Motivation
 ==========
 
-Having common unit testing best practices across the organization's repo will
+Having common unit testing best practices across the organization's repos will
 increase the productivity of developers by reducing the ramp-up cost when
 moving among repos. It will also increase the quality of the software by
 decreasing the cognitive load on developers who must call to mind the various
@@ -51,9 +51,18 @@ Specification
 
 CI (Continuous Integration) Framework
 -------------------------------------
-We use `Travis CI`_ for both public and private repos, with the exception of
-the edx-platform repo for which we use an internally-managed Jenkins
-environment.
+Our standard is to use `Travis CI`_ for both public and private repos.
+
+We make exceptions for repos which have more complicated CI requirements For
+these we use an internally-managed Jenkins environment.
+
+Examples of special cases for which we use Jenkins rather than Travis:
+
+* The setup and/or execution time for the validation is prohibitively long (e.g.
+  the edx-platform repo)
+* A repo contains secrets that we do not want to share with a third party (e.g.
+  secure repos)
+
 
 Guidelines:
 ^^^^^^^^^^^
@@ -62,8 +71,10 @@ Guidelines:
 
 * Use the container-base (sudo-less) CI environment, if possible
 
-* Execute tests for each supported Python version, and if appropriate also in
-  combination with different Django versions
+* Execute tests in each supported environment
+
+  * For Python projects, execute tests for each supported Python version(s)
+  * For Django, also test in combination with the supported Django version(s)
 
 * Configure with automated deployment of tagged releases to `PyPI`_
 
@@ -74,8 +85,10 @@ We use Makefiles for task management. The reason for this choice is that
 almost any system no matter the OS should be able to use them without any
 special software installation or configuration.
 
-If the Makefile gets too complex, use it as a wrapper to `Paver`_ scripts,
-which are written in Python.
+If the Makefile gets too complex:
+
+* For Python projects, use it as a wrapper to `Paver`_ scripts
+* For JavaScript projectes, use it as a wrapper to `Gulp`_
 
 Standard Makefile Targets:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -104,6 +117,7 @@ Standard Makefile Targets:
 .. _Travis CI: https://travis-ci.org/
 .. _PyPI: https://pypi.python.org/pypi
 .. _Paver: https://pythonhosted.org/Paver/
+.. _Gulp: http://gulpjs.com/
 
 
 Python Language Specific
@@ -132,12 +146,12 @@ Requirements
 * Requirements filename examples:
 
   * ``requirements.*``: contains the base requirements
+
   * ``test-requirements.*``: contains the requirements needed for writing and
     running tests
 
-* Editable requirements format example: ``-e
-  git+https://github.com/edx/django- oauth2-provider.git@0.2.7-fork-edx-6a#egg
-  =django-oauth2-provider==0.2.7 -fork-edx-6``
+* Editable requirements format example:
+  ``-e git+https://github.com/edx/django-oauth2-provider.git@0.2.7-fork-edx-6a#egg =django-oauth2-provider==0.2.7-fork-edx-6``
 
 Code Quality
 ^^^^^^^^^^^^
@@ -200,12 +214,30 @@ Code Quality
 * `ESLint`_ for static analysis in order to find problematic patterns or code
   that doesn’t adhere to style guidelines
 
+  * `edX ESLint config`_  for generating ESLint configuration files that verify
+    edX best practices
+
+  * Configure in either ``package.json`` or ``.eslintrc.json``
+
+  * Specify exclusions in ``.eslintignore``
+
+
 Test Framework
 ^^^^^^^^^^^^^^
 
 * `Jasmine`_ as the framework for testing JavaScript code
 
+  * `jasmine-jquery`_ matchers and fixture loader for Jasmine
+
+  * Jasmine-based helper classes from the testing folder of the `edX UI
+    Toolkit`_
+
 * `Karma`_ as the test runner for the JS tests
+
+  * We also use plugins to extend Karma. As this list could change, it is not
+    codified here. Please look at the ``devDependencies`` section of the
+    ``package.json`` file in existing edX repos to survey those that we are
+    currently using.
 
 Code Coverage
 ^^^^^^^^^^^^^
@@ -213,8 +245,11 @@ Code Coverage
 * `JSCover`_ for calculating code coverage
 
 .. _ESLint: http://eslint.org/docs/about/
+.. _edX ESLint config: https://github.com/edx/eslint-config-edx
 .. _Jasmine: http://jasmine.github.io/
+.. _jasmine-jquery: https://github.com/velesin/jasmine-jquery
 .. _Karma: https://karma-runner.github.io/
+.. _edX UI Toolkit: http://ui-toolkit.edx.org/
 .. _JSCover: http://tntim96.github.io/JSCover/
 
 
@@ -275,6 +310,19 @@ Rejected Alternatives:
     platform codebase, and we have good examples there of its usage,
     including tests.
 
+`JSHint`_ / `JSCS`_
+  The original choice in the edx-platform was to use JSHint for JavaScript code
+  linting.
+
+  However JSHint didn't have a good story for linting ES2015+ as we aimed to
+  upgrade to that version of JavaScript.
+
+  And JSCS, which was another leader in the JS code style linter and formatter
+  has merged with ESLint.
+
+  Thus we determined that ESLint is preferred to cover our immediate, short
+  term, and long term needs.
+
 `Coveralls`_
   The original choice for recording code coverage for trending
   reports was to write the coverage statistics from edx-platform test
@@ -298,6 +346,9 @@ Rejected Alternatives:
 .. _nose2: https://github.com/nose-devs/nose2/
 .. _rake: https://ruby.github.io/rake/
 .. _Invoke: http://docs.pyinvoke.org/
+.. _JSHint: http://jshint.com/
+.. _JSLint: http://www.jslint.com/
+.. _JSCS: http://jscs.info/
 .. _Coveralls: https://coveralls.io/
 
 
