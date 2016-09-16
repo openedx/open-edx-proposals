@@ -1,17 +1,17 @@
-==================================
-OEP-8: Unit Testing Best Practices
-==================================
+========================================
+OEP-8: Unit Testing Tools and Frameworks
+========================================
 
 +---------------+-------------------------------------------+
 | OEP           | :doc:`OEP-8 </oeps/oep-0008>`             |
 +===============+===========================================+
-| Title         | Unit Testing Best Practices               |
+| Title         | Unit Testing Tools and Frameworks         |
 +---------------+-------------------------------------------+
 | Last Modified | 2016-09-09                                |
 +---------------+-------------------------------------------+
 | Author        | Jesse Zoldak                              |
 +---------------+-------------------------------------------+
-| Arbiter       |                                           |
+| Arbiter       | Ben Patterson                             |
 +---------------+-------------------------------------------+
 | Status        | Draft                                     |
 +---------------+-------------------------------------------+
@@ -19,31 +19,40 @@ OEP-8: Unit Testing Best Practices
 +---------------+-------------------------------------------+
 | Created       | 2016-09-09                                |
 +---------------+-------------------------------------------+
-| `Resolution`  |                                           |
-+---------------+-------------------------------------------+
-| `Replaces`    |                                           |
-+---------------+-------------------------------------------+
-| `Replaced-By` |                                           |
-+---------------+-------------------------------------------+
+
 
 Abstract
 ========
 
-The edX ecosystem has grown from a handful of developers working on a few
-repos to many developers working on many repos. As such, questions arise as to
-tools, frameworks, and patterns to use in unit testing. This proposal is
-intended to codify best practices and to provide a reference for contributors
-when making choices.
+The edX ecosystem has grown from a handful of developers working on a few repos
+to many developers working on many repos. As such, questions arise as to tools
+and frameworks to use in unit testing. This proposal is intended to codify best
+practices and to provide a reference for contributors when making choices.
 
 
 Motivation
 ==========
 
-Having common unit testing best practices across the organization's repos will
-increase the productivity of developers by reducing the ramp-up cost when
-moving among repos. It will also increase the quality of the software by
-decreasing the cognitive load on developers who must call to mind the various
-tips and techniques while using the disparate tools and frameworks.
+Having common best practices for unit testing tools and frameworks across the
+organization's repos will increase the productivity of developers by reducing
+the ramp-up cost when moving among repos. It will also increase the quality of
+the software by decreasing the cognitive load on developers who must call to
+mind the various tips and techniques while using the disparate tools and
+frameworks.
+
+Note that edX already has a few dozen or more existing repos, and they are most
+likely currently not in full compliance with this OEP. This includes the edx-
+platform repo.
+
+Acceptance of this OEP does not imply that we will immediately work to bring all
+repos in full compliance. Rather we will track compliance using the Repository
+Metadata file specified in `OEP-2`_.
+
+Another reason for an exception might be to prototype a proposed new best
+practice. In that case, the openedx.yaml file could be marked as such (using the
+reason field).
+
+.. _OEP-2: https://open-edx-proposals.readthedocs.io/en/latest/oeps/oep-0002.html
 
 
 Specification
@@ -90,29 +99,38 @@ If the Makefile gets too complex:
 * For Python projects, use it as a wrapper to `Paver`_ scripts
 * For JavaScript projectes, use it as a wrapper to `Gulp`_
 
-Standard Makefile Targets:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Standard Makefile Target Naming Conventions:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+--------------+--------------------------------------------------------------+
-| target       | description                                                  |
-+==============+==============================================================+
-| help         | display a help message                                       |
-+--------------+--------------------------------------------------------------+
-| pip-compile  | update the ``requirements/*.txt`` files with the             |
-|              | latest packages satisfying ``requirements/*.in``             |
-+--------------+--------------------------------------------------------------+
-| requirements | install development environment requirements                 |
-+--------------+--------------------------------------------------------------+
-| quality      | check coding style                                           |
-+--------------+--------------------------------------------------------------+
-| test         | run all unit, integration, and acceptance tests for the repo |
-+--------------+--------------------------------------------------------------+
-| validate     | run tests and quality checks                                 |
-+--------------+--------------------------------------------------------------+
-| e2e          | run End to End tests against a deployed environment to       |
-|              | verify the system as a user, initiating their actions        |
-|              | through the UI                                               |
-+--------------+--------------------------------------------------------------+
++-------------------+--------------------------------------------------------------+
+| target            | description                                                  |
++===================+==============================================================+
+| help              | display a help message                                       |
++-------------------+--------------------------------------------------------------+
+| clean             | delete the artifacts created when running the validations    |
+|                   | and/or the application itself                                |
++-------------------+--------------------------------------------------------------+
+| pip-compile       | update the ``requirements/*.txt`` files with the latest      |
+|                   | packages satisfying ``requirements/*.in``                    |
++-------------------+--------------------------------------------------------------+
+| requirements      | install development environment requirements                 |
++-------------------+--------------------------------------------------------------+
+| requirements.prod | install production requirements                              |
+| (optional)        |                                                              |
++-------------------+--------------------------------------------------------------+
+| requirements.test | install requirements for testing                             |
+| (optional)        |                                                              |
++-------------------+--------------------------------------------------------------+
+| quality           | check coding style                                           |
++-------------------+--------------------------------------------------------------+
+| test              | run all unit, integration, and acceptance tests for the repo |
++-------------------+--------------------------------------------------------------+
+| validate          | run tests and quality checks                                 |
++-------------------+--------------------------------------------------------------+
+| e2e (optional)    | run End to End tests against a deployed environment to       |
+|                   | verify the system as a user, initiating their actions        |
+|                   | through the UI                                               |
++-------------------+--------------------------------------------------------------+
 
 .. _Travis CI: https://travis-ci.org/
 .. _PyPI: https://pypi.python.org/pypi
@@ -253,8 +271,8 @@ Code Coverage
 .. _JSCover: http://tntim96.github.io/JSCover/
 
 
-Rejected Alternatives:
-----------------------
+Rationale:
+----------
 
 `nose`_ / `nose2`_
   The original choice in the edx-platform was to use nose
