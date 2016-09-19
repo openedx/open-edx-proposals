@@ -260,7 +260,7 @@ Test Framework
 Code Coverage
 ^^^^^^^^^^^^^
 
-* `JSCover`_ for calculating code coverage
+* `karma-coverage`_ for calculating code coverage
 
 .. _ESLint: http://eslint.org/docs/about/
 .. _edX ESLint config: https://github.com/edx/eslint-config-edx
@@ -268,13 +268,13 @@ Code Coverage
 .. _jasmine-jquery: https://github.com/velesin/jasmine-jquery
 .. _Karma: https://karma-runner.github.io/
 .. _edX UI Toolkit: http://ui-toolkit.edx.org/
-.. _JSCover: http://tntim96.github.io/JSCover/
+.. _karma-coverage: https://www.npmjs.com/package/karma-coverage
 
 
 Rationale:
 ----------
 
-`nose`_ / `nose2`_
+Pytest / `nose`_ / `nose2`_
   The original choice in the edx-platform was to use nose
   to extend unittest to make testing nicer and easier to understand. However,
   nose has been in maintenance mode for the past several years and will likely
@@ -284,35 +284,15 @@ Rationale:
   unittest, the question then becomes whether edX standardize on nose2 or
   pytest.
 
-  Note that edX developers have already begun using pytest in new repos,
-  having chosen it over nose2 for some or all of the reasons listed below.
-  Given this and lacking other barriers that would make it a bad choice, we
-  have decided to standardize on pytest.
+  Pytest has garnered widespread adoption, and thus most current tutorials,
+  templates, blog posts, etc. provide examples that use this framework. edX
+  developers have experimented with using pytest in new repos and have been
+  satisfied with the results. Given this and lacking other information that
+  would make it a bad choice, we have decided to standardize on pytest. Note
+  that nose2 might also have been a fine choice, but we did not prioritize
+  comparing and contrasting the two.
 
-  Here are some of the reasons that we have chosen pytest:
-
-  * Actively maintained and well documented
-
-  * Industry momentum - pytest has garnered widespread adoption, and thus
-    most current tutorials, templates, blog posts, etc. provide examples
-    that use this framework
-
-  * Highly customizable, a good API, a plugin system (both included and
-    community plugins)
-
-  * Ability to mark tests, and to programmatically select which tests to run
-    by name, path, module, or mark
-
-  * Better, more customizable failure reports
-
-  * Explicit, modular, scalable fixtures
-
-  * Built-in features such as a --duration flag to show the slowest tests,
-    console output capture by default, traceback modification
-
-  * Can run current code: unittest, nose, doctest
-
-`rake`_ / `Invoke`_
+Paver / `rake`_ / `Invoke`_
   The original choice in the edx-platform was to use rake as the task
   manager. However that made little sense as the amount of Ruby code in
   the platform is eclipsed by the amount of Python code, and most
@@ -328,7 +308,7 @@ Rationale:
     platform codebase, and we have good examples there of its usage,
     including tests.
 
-`JSHint`_ / `JSCS`_
+ESLint / `JSHint`_ / `JSCS`_
   The original choice in the edx-platform was to use JSHint for JavaScript code
   linting.
 
@@ -341,25 +321,25 @@ Rationale:
   Thus we determined that ESLint is preferred to cover our immediate, short
   term, and long term needs.
 
-`Coveralls`_
+CodeCov / `Coveralls`_
   The original choice for recording code coverage for trending
   reports was to write the coverage statistics from edx-platform test
   execution to DataDog.
 
-  This homegrown method was neither scalable no maintainable. As such, we
+  This homegrown method was neither scalable nor maintainable. As such, we
   started integrating with Coveralls.
 
-  However the SLA for Coveralls posting the data back to GitHub does not meet
-  our needs, and developers were waiting many hours after the test execution
-  on the CI system had completed to get the feedback on their PRs. This led to
-  frustration and productivity hits.
+  However this solution did not meet our needs for aggregation and trending
+  analysis. Also we were integrating with the Free for Open Source version,
+  and the SLA for this service did not meet our time-to-feedback requirement.
 
   In addition, developers starting using CodeCov on some repos and found that
   they prefered the integration on PRs, including seeing the non-covered lines
-  in details. And the codecov Chrome Extension that shows coverage while in
-  the GitHub web app has also been found useful.
+  in details. And people have found the codecov Chrome Extension that shows
+  coverage while in the GitHub web app to be useful.
 
-.. _unittest: https://docs.python.org/2/library/unittest.html/
+  Thus we have decided to standardize on CodeCov.
+
 .. _nose: http://nose.readthedocs.io/
 .. _nose2: https://github.com/nose-devs/nose2/
 .. _rake: https://ruby.github.io/rake/
