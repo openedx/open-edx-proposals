@@ -300,9 +300,12 @@ rendered to HTML using Sphinx. An `OEP template`_ can be found in the repo.
 
 OEPs may be discussed in a more convenient format, such as a Google Doc, if
 it is deemed appropriate for the audience and sufficiently open to comment and
-review. The final OEP should be committed as described above with a link to the
-location of any discussion, and the ownership of the discussion document should
-be transferred to the edX Chief Architect.
+review. The final OEP must be transcribed into the `reStructuredText`_-based
+template and committed to the OEP repository. The Arbiter shall be responsible
+for ensuring the proper transcription. The reviewed and accepted OEP must
+reference the location of relevant discussion, and the ownership of the
+discussion document should be transferred to the edX Chief Architect, if
+applicable.
 
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 .. _OEP template: https://github.com/cpennington/open-edx-proposals/blob/master/oep-template.rst
