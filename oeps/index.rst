@@ -28,7 +28,7 @@ OEPs
    :maxdepth: 1
    :glob:
 
-   oeps/*
+   oep-*
 
 
 

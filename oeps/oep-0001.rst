@@ -3,7 +3,7 @@ OEP-1: OEP Purpose and Guidelines
 =================================
 
 +---------------+-------------------------------------------+
-| OEP           | :doc:`OEP-1 </oeps/oep-0001>`             |
+| OEP           | :doc:`OEP-1 <oep-0001>`                   |
 +---------------+-------------------------------------------+
 | Title         | OEP Purpose and Guidelines                |
 +---------------+-------------------------------------------+
@@ -300,7 +300,7 @@ must appear in the following order. Rows in italics are optional and are
 described below. All other rows are required.
 
 +---------------+-------------------------------------------+
-| OEP           | :doc:`OEP-XXX </oeps/oep-0xxx>`             |
+| OEP           | OEP-XXX                                   |
 +---------------+-------------------------------------------+
 | Title         | <OEP title>                               |
 +---------------+-------------------------------------------+
