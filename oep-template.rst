@@ -21,7 +21,7 @@ OEP-XXX: OEP Template
 |               | Replaced>                                 |
 +---------------+-------------------------------------------+
 | Type          | <Architecture | Best Practice |           |
-|               | Process>                                  |
+|               | Process | Product Enhancement>            |
 +---------------+-------------------------------------------+
 |  Created      | <date created on, in YYYY-MM-DD format>   |
 +---------------+-------------------------------------------+
@@ -31,6 +31,9 @@ OEP-XXX: OEP Template
 | `Replaces`    | <OEP number>                              |
 +---------------+-------------------------------------------+
 | `Replaced-By` | <OEP number>                              |
++---------------+-------------------------------------------+
+| `References`  | <links to any other relevant discussions  |
+|               | or relevant related materials>            |
 +---------------+-------------------------------------------+
 
 Abstract
@@ -54,8 +57,8 @@ Specification
 =============
 
 The specification describes the technical details of the Architecture, Best
-Practice, or Process change proposed by the OEP. If the proposal includes a new
-API, specify its syntax and semantics.
+Practice, Process or Product Enhancement proposed by the OEP. If the proposal
+includes a new API, specify its syntax and semantics.
 
 Rationale
 =========
