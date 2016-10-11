@@ -3,17 +3,17 @@ OEP-9: User Authorization (Permissions)
 =======================================
 
 +---------------+-------------------------------------------+
-| OEP           | :doc:`OEP-9 </oeps/oep-0009>`             |
+| OEP           | :doc:`OEP-9 <oep-0009>`                   |
 +---------------+-------------------------------------------+
 | Title         | User Authorization (Permissions)          |
 +---------------+-------------------------------------------+
-| Last Modified | 2016-09-14                                |
+| Last Modified | 2016-10-11                                |
 +---------------+-------------------------------------------+
 | Author        | Jeremy Bowman <jbowman@edx.org>           |
 +---------------+-------------------------------------------+
 | Arbiter       | Eddie Fagin <eddie@edx.org>               |
 +---------------+-------------------------------------------+
-| Status        | Draft                                     |
+| Status        | Approved                                  |
 +---------------+-------------------------------------------+
 | Type          | Best Practice                             |
 +---------------+-------------------------------------------+
@@ -281,7 +281,7 @@ shaped the recommendations:
 
 
 Backward Compatibility
-=======================
+======================
 
 The ``rules`` package can be added to existing packages with minimal impact,
 as it doesn't inherently change the outcome of any authorization checks.  In
@@ -299,17 +299,3 @@ still uses a copy of the original implementation.
 
 Change History
 ==============
-
-
-Copyright
-=========
-
-.. image:: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
-    :alt: Creative Commons License CC-BY-SA
-    :target: http://creativecommons.org/licenses/by-sa/4.0/
-
-This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License`_.
-
-.. _Creative Commons Attribution-ShareAlike 4.0 International License: https://creativecommons.org/licenses/by-sa/4.0/
-
-
