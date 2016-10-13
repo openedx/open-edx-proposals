@@ -116,19 +116,3 @@ Change History
 ==============
 
 A list of dated sections that describes a brief summary of each revision of the OEP.
-
-
-Copyright
-=========
-
-.. this section might need revision
-
-.. image:: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
-    :alt: Creative Commons License CC-BY-SA
-    :target: http://creativecommons.org/licenses/by-sa/4.0/
-
-This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0 International License`_.
-
-.. _Creative Commons Attribution-ShareAlike 4.0 International License: https://creativecommons.org/licenses/by-sa/4.0/
-
-
