@@ -1,0 +1,202 @@
+=========================
+OEP-10: Open edX Releases
+=========================
+
++---------------+-------------------------------------------+
+| OEP           | :doc:`OEP-10 <oep-0010>`                  |
++---------------+-------------------------------------------+
+| Title         | Open edX Releases                         |
++---------------+-------------------------------------------+
+| Last Modified | 2016-10-14                                |
++---------------+-------------------------------------------+
+| Author        | Ned Batchelder, ned@edx.org               |
++---------------+-------------------------------------------+
+| Arbiter       | Edward Fagin                              |
++---------------+-------------------------------------------+
+| Status        | Draft                                     |
++---------------+-------------------------------------------+
+| Type          | Process                                   |
++---------------+-------------------------------------------+
+| Created       | 2016-10-14                                |
++---------------+-------------------------------------------+
+| `Resolution`  | <links to any discussions where the final |
+|               | status was decided>                       |
++---------------+-------------------------------------------+
+
+
+..
+    - Expectations for component owners
+
+
+Abstract
+========
+
+Open edX is packaged occasionally into releases. This document details the
+process.
+
+
+Motivation
+==========
+
+Open edX releases happen infrequently, every four to six months. Edx engineers
+are typically focused on the weekly edx.org releases.  This document
+standardizes aspects of the release process to ensure that all involved
+understand and participate appropriately.
+
+
+Specification
+=============
+
+
+Components
+----------
+
+When talking about software that is part of Open edX, there are a number of
+components that might be useful to discuss, of various sizes:
+
+- Application: this is a user-visible application that provides some useful
+  functionality.  Examples are the LMS, Studio, Analytics Insights.  These can
+  be composed of a number of different repos and services.
+
+- Service (or IDA): this is a program that can be separately installed and
+  started.  Often applications will need a number of these working together to
+  provide all functionality.  The LMS and Studio applications are implemented
+  by the edxapp service, which also uses the forums service.  A service might
+  or might not have a user interface.
+
+- Feature: large applications have major features which are configurable, and
+  should be called out explicitly if their support status is different than the
+  application they are a part of.
+
+
+
+Levels of support
+-----------------
+
+Units in Open edX are either either *included* or *supported* in a release.
+
+To be **included** in an Open edX release, a component, facility or feature
+must meet these criteria.
+
+- It must be successfully merged into its repository's release-from branch.
+  This is typically master, though it can be any branch.
+
+- It must be installable in at least one of the supported installation methods.
+
+- It must be usable in the installed configuration.
+
+Beyond inclusion, to be **supported** in an Open edX release, a component must
+meet further criteria:
+
+- It must be documented thoroughly and accurately.
+
+- An engineering team either in edX or outside of edX, must agree to be
+  minimally available for answering questions in the public channels.
+
+- An engineering team either in edX or outside of edX, must agree to provide
+  fixes if severe problems are identified.
+
+Many of these criteria are open to interpretation, or varying degrees of
+effort. For example, what does "documented thoroughly" mean? We can't quantify
+that. It and other loose criteria are included here because they are important
+parts of providing a finished quality product, and we don't want to overlook
+them.
+
+
+Release creation
+----------------
+
+A new release line is created every four to six months.  Release lines are
+named with words in alphabetical order: Dogwood, Eucalyptus, Ficus, Gingko,
+Hawthorn.  On a release line, there will be a handful of releases:
+Eucalyptus.1, Eucalyptus.2, and so on.
+
+After the .1 release, new releases in a line are made only for severe problems
+such as security problems, data loss, or feature breakage. 
+
+A new release line is created by making a "release master" branch in each
+involved repo.  These are named "open-release/RELEASENAME.master".  This branch
+will be where changes are accumulated to create each release in the line.
+Releases will be tagged "open-release/RELEASENAME.1",
+"open-release/RELEASENAME.2", and so on.
+
+
+Involving repos in the Open edX build process
+---------------------------------------------
+
+:doc:`OEP-2 <oep-0002>` defines a file format for repository metadata.  The 
+``openedx-release`` key is an optional dictionary governing the participation
+of the repo in the Open edX release process.
+
+``openedx-release``: dictionary (optional)
+
+    Possible keys:
+
+    ``ref``
+        The name of the release-from branch in this repo. This is the branch
+        that will be tagged when an Open edX release is made.
+
+    ``requirements``
+        The path to a requirements.txt-style file in this repo. This file will
+        be consulted to find the commit to tag in dependent repos indicated by
+        ``parent-repo`` keys.
+
+    ``parent-repo``
+        The name of another repo, one that installs this repo via a
+        requirements file.  The parent repo's requirements file will indicate
+        the commit to tag in this repo.
+
+        .. note::
+            We believe we no longer need to tag dependent repos, so this may go
+            away.
+
+
+
+Installing repos
+----------------
+
+Our installations are based on Anisble playbooks.  Up until the Eucalyptus
+release, all three supported installation methods were single-machine: all of
+the Open edX software was installed and ran on a single machine, either a
+Virtualbox image, or a native machine.
+
+That model does not scale up as the number of services and applications grows.
+Newer services are supporting Docker for installation.  Eventually, we would
+like to be in an all-Docker world where an installation is just a constellation
+of Docker containers.
+
+To allow us to move gradually from a single-machine model to an all-Docker
+model, we'll support a machine running a number of edX services and
+applications, and also running a number of Docker containers.
+
+
+Installation methods
+--------------------
+
+There are three supported installation methods:
+
+- Devstack: for developers planning to modify Open edX code.
+
+- Native: for adopters looking to experiment with Open edX in a non-production
+  environment.  Also useful as a starting point for people designing their
+  production deployment.
+
+- Fullstack: same as Native, but in a pre-packaged Vagrant image.
+
+The devstack installation will follow :doc:`OEP-5 <oep-0005>`, with a
+single-machine Vagrant image running alongside some number of Docker
+containers.
+
+.. note::
+
+   We haven't determined how best to allow developers to configure which
+   services to run and which should be editable.
+
+The native and fullstack installation will use Ansible playbooks to install
+Open edX components onto the machine, and install Docker and some number of
+Docker containers.
+
+
+Change History
+==============
+

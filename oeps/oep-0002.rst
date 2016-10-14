@@ -77,27 +77,7 @@ following fields:
 
     Whether or not this repository should be tracked for creation of OSPR tickets.
 
-``openedx-release``: dictionary (optional)
-
-    .. This should be moved to a separate OEP
-
-    This controls how this repo is managed during the Open edX release process.
-
-    Possible keys:
-
-    ``ref``
-        The name of a branch in this repo. This is the branch that will be tagged
-        when an Open edX release is made.
-
-    ``requirements``
-        The path to a requirements.txt-style file in this repo. This file will
-        be consulted to find the commit to tag in dependent repos indicated by
-        ``parent-repo`` keys.
-
-    ``parent-repo``
-        The name of another repo, one that installs this repo via a requirements
-        file.  The parent repo's requirements file will indicate the commit to
-        tag in this repo.
+``openedx-release``: defined by :doc:`OEP-10 <oep-0010>`.
 
 ``obsolete``: boolean (optional)
     If ``True``, this specifies that this repository is obsolete and no longer
@@ -148,6 +128,11 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
 
 Change History
 ==============
+
+2016-10-13
+----------
+
+* Move the definition of ``openedx-release`` to :doc:`OEP-10 <oep-0010>`.
 
 2016-08-24
 ----------
