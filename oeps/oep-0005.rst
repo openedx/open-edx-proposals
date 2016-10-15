@@ -132,7 +132,7 @@ Requirements
 
    **Rationale**: `Docker`_ imposes a single-entry-point constraint.
    Standardizing on supervisor means that we need to make fewer choices
-   during development, and that we can combining the learnings and
+   during development, and that we can combine the learnings and
    configurations across various Open edX projects.
 
 3. Open edX services running in containers must log to ``stdout`` and
@@ -140,7 +140,7 @@ Requirements
 
    **Rationale**: Logging to ``stdout`` and ``stderr`` makes it significantly
    easier to develop the app in different environments, since those file handles
-   are available nearly everywhere. supervisor captures both file handles and
+   are available nearly everywhere. Supervisor captures both file handles and
    logs their contents to disk, which means that we can display the logs to the
    screen, and can search through old development logs.
 
