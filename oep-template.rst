@@ -23,7 +23,7 @@ OEP-XXX: OEP Template
 | Type          | <Architecture | Best Practice |           |
 |               | Process | Product Enhancement>            |
 +---------------+-------------------------------------------+
-|  Created      | <date created on, in YYYY-MM-DD format>   |
+| Created       | <date created on, in YYYY-MM-DD format>   |
 +---------------+-------------------------------------------+
 | `Resolution`  | <links to any discussions where the final |
 |               | status was decided>                       |
@@ -78,7 +78,7 @@ other fora (such as the `edx-code`_ mailing list).
 
 
 Backward Compatibility
-=======================
+======================
 
 This statement identifies whether the proposed change is backward compatible.
 An OEP that introduces backward incompatibilities must describe the
