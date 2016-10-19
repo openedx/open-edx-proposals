@@ -62,7 +62,7 @@ CI (Continuous Integration) Framework
 -------------------------------------
 Our standard is to use `Travis CI`_ for both public and private repos.
 
-We make exceptions for repos which have more complicated CI requirements For
+We make exceptions for repos which have more complicated CI requirements. For
 these we use an internally-managed Jenkins environment.
 
 Examples of special cases for which we use Jenkins rather than Travis:
@@ -77,8 +77,6 @@ Guidelines:
 ^^^^^^^^^^^
 
 * Configuration file: ``.travis.yml``
-
-* Use the container-base (sudo-less) CI environment, if possible
 
 * Execute tests in each supported environment
 
@@ -270,6 +268,15 @@ Code Coverage
 .. _edX UI Toolkit: http://ui-toolkit.edx.org/
 .. _karma-coverage: https://www.npmjs.com/package/karma-coverage
 
+Other Languages and Platforms
+-----------------------------
+
+We do not have specific best practices for other languages (e.g. Ruby) or
+platforms (e.g. mobile).
+
+These may be added later via either a change to this OEP (through a pull
+request) or in a new OEP.
+
 
 Rationale:
 ----------
@@ -331,7 +338,13 @@ CodeCov / `Coveralls`_
 
   However this solution did not meet our needs for aggregation and trending
   analysis. Also we were integrating with the Free for Open Source version,
-  and the SLA for this service did not meet our time-to-feedback requirement.
+  and the SLA for this service did not meet our time-to-feedback requirement
+  for the edx-platform repo.
+
+  Note that the slow response time for feedback the we experienced for the
+  edx-platform repo could have been due to something particular to the repo
+  itself, such as its size or activity. We did not pursue investigation into
+  the root cause or explore potential fixes.
 
   In addition, developers starting using CodeCov on some repos and found that
   they prefered the integration on PRs, including seeing the non-covered lines
