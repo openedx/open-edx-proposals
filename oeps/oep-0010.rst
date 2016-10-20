@@ -73,10 +73,10 @@ components that might be useful to discuss, of various sizes:
 Levels of support
 -----------------
 
-Units in Open edX are either either *included* or *supported* in a release.
+Units in Open edX are either *included* or *supported* in a release.
 
-To be **included** in an Open edX release, a component, facility or feature
-must meet these criteria.
+To be **included** in an Open edX release, a component must meet these
+criteria.
 
 - It must be successfully merged into its repository's release-from branch.
   This is typically master, though it can be any branch.
