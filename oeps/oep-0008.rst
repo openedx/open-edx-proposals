@@ -58,8 +58,11 @@ reason field).
 Specification
 =============
 
+Language Independent
+--------------------
+
 CI (Continuous Integration) Framework
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Our standard is to use `Travis CI`_ for both public and private repos.
 
 We make exceptions for repos which have more complicated CI requirements. For
@@ -74,7 +77,7 @@ Examples of special cases for which we use Jenkins rather than Travis:
 
 
 Guidelines:
-^^^^^^^^^^^
+"""""""""""
 
 * Configuration file: ``.travis.yml``
 
@@ -87,7 +90,7 @@ Guidelines:
 
 
 Task Management
----------------
+^^^^^^^^^^^^^^^
 We use Makefiles for task management. The reason for this choice is that
 almost any system no matter the OS should be able to use them without any
 special software installation or configuration.
@@ -98,7 +101,7 @@ If the Makefile gets too complex:
 * For JavaScript projectes, use it as a wrapper to `Gulp`_
 
 Standard Makefile Target Naming Conventions:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""""""""""""""
 
 +-------------------+--------------------------------------------------------------+
 | target            | description                                                  |
@@ -152,12 +155,23 @@ Requirements
 * Requirements files are kept either at root level or within a directory named
   ``requirements``.
 
-* Direct dependencies are listed in ``requirements/*.in`` for use in
-  development and `Tox`_ virtual environments with as few version constraints
-  as possible.
+* Direct dependencies are listed in ``requirements/*.in``.
 
-* Full pinned dependencies in ``requirements/*.txt`` are auto-generated via
-  ``make pip-compile``.
+* Full pinned dependencies are auto-generated via ``make pip-compile`` and
+  saved in ``requirements/*.txt``. This file is tracked under version control.
+
+* For a developer to update package versions, she would run ``pip-compile
+  --upgrade`` and check in the changes to the .txt file(s).
+
+* Requirements are installed via ``make requirements`` which behind the scenes
+  will execute ``pip-sync``. Note that ``pip-sync`` updates a virtual env to
+  reflect exactly what is in the requirements files. This will
+  install/upgrade/uninstall everything necessary to match their contents.
+
+* Requirements that a developer also wants to use in their local development
+  environment (e.g. pudb) should be listed in a non-version-controlled
+  requirements file named ``private.txt``. This filename is included in the
+  ``pip-sync`` command and so its listed dependencies will be installed.
 
 * Requirements filename examples:
 
@@ -271,7 +285,7 @@ Code Coverage
 Other Languages and Platforms
 -----------------------------
 
-We do not have specific best practices for other languages (e.g. Ruby) or
+We do not have specific recommendations for other languages (e.g. Ruby) or
 platforms (e.g. mobile).
 
 These may be added later via either a change to this OEP (through a pull
