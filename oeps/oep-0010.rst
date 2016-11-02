@@ -38,7 +38,7 @@ process.
 Motivation
 ==========
 
-Open edX releases happen infrequently, every four to six months. Edx engineers
+Open edX releases happen infrequently, every four to six months. EdX engineers
 are typically focused on the weekly edx.org releases.  This document
 standardizes aspects of the release process to ensure that all involved
 understand and participate appropriately.
@@ -137,19 +137,11 @@ of the repo in the Open edX release process.
         that will be tagged when an Open edX release is made.
 
     ``requirements``
-        The path to a requirements.txt-style file in this repo. This file will
-        be consulted to find the commit to tag in dependent repos indicated by
-        ``parent-repo`` keys.
+        This key is obsolete, and can be removed.
 
     ``parent-repo``
-        The name of another repo, one that installs this repo via a
-        requirements file.  The parent repo's requirements file will indicate
-        the commit to tag in this repo.
-
-        .. note::
-            We believe we no longer need to tag dependent repos, so this may go
-            away.
-
+        This key is obsolete. Repos marked with this key should have the entire
+        ``openedx-release`` key removed.
 
 
 Installing repos
