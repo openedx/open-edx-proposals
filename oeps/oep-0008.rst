@@ -139,6 +139,29 @@ Standard Makefile Target Naming Conventions:
 .. _Gulp: http://gulpjs.com/
 
 
+Code Coverage
+^^^^^^^^^^^^^
+* Report on lines of code covered (statement, not branch coverage).
+* Include coverage of test files themselves. This guards against tests being inadvertenly excluded from execution.
+* Report coverage stats to `codecov`_ for trending and analysis.
+  * For repos with unit tests in multiple languages, use CodeCov's "flags" feature to independently track
+    coverage by language.
+
+.. _codecov: https://codecov.io/
+
+
+Repo Badging
+^^^^^^^^^^^^
+* Badges are displayed on GitHub repos via the README for any integrated services
+* Use svg images from `shields.io`_ where available (preferred over png images)
+* At a minimum we include badges for:
+
+  * Build status
+  * Coverage
+
+  .. _shields.io: http://shields.io/
+
+
 Python Language Specific
 ------------------------
 
@@ -222,8 +245,6 @@ Code Coverage
 
   * Configuration file: ``.coveragerc``
 
-* Report coverage stats to `codecov`_ for trending and analysis
-
 .. _pip-tools: https://pypi.python.org/pypi/pip-tools
 .. _Pylint: https://www.pylint.org/
 .. _edx-lint: https://github.com/edx/edx-lint/
@@ -232,7 +253,6 @@ Code Coverage
 .. _pytest: http://doc.pytest.org/
 .. _Tox: https://tox.readthedocs.io/
 .. _Coverage.py: https://coverage.readthedocs.io/
-.. _codecov: https://codecov.io/
 
 
 JavaScript Language Specific
