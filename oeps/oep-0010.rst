@@ -13,16 +13,16 @@ OEP-10: Open edX Releases
 +---------------+-------------------------------------------+
 | Arbiter       | Edward Fagin                              |
 +---------------+-------------------------------------------+
-| Status        | Draft                                     |
+| Status        | Accepted                                  |
 +---------------+-------------------------------------------+
 | Type          | Process                                   |
 +---------------+-------------------------------------------+
 | Created       | 2016-10-14                                |
 +---------------+-------------------------------------------+
-| `Resolution`  | <links to any discussions where the final |
-|               | status was decided>                       |
+| Resolution    | `Original pull request`_                  |
 +---------------+-------------------------------------------+
 
+.. _Original pull request: https://github.com/edx/open-edx-proposals/pull/26
 
 ..
     - Expectations for component owners
@@ -73,7 +73,7 @@ components that might be useful to discuss, of various sizes:
 Levels of support
 -----------------
 
-Units in Open edX are either *included* or *supported* in a release.
+Components in Open edX are either *included* or *supported* in a release.
 
 To be **included** in an Open edX release, a component must meet these
 criteria.
