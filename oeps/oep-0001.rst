@@ -62,6 +62,34 @@ Workflow
   :local:
   :depth: 1
 
+OEP Roles
+---------
+
+Each OEP must have a Author: someone who writes the OEP using the style and
+format described here, shepherds the discussions in the appropriate forums,
+and attempts to build community consensus around the idea.  
+
+Each OEP also has an Arbiter (as described in `Initial Submission`_). The
+Arbiter will be chosen by the edX Chief Architect (currently Eddie Fagin).  
+The Author of an OEP will never be selected as the Arbiter of that OEP.
+
+The Arbiter will be the person making the final decision on whether the OEP 
+should be Accepted, and as such, the Arbiter should be knowledgeable about 
+the contents of the proposal, and willing to listen to arguments both for 
+and against it by the rest of the community.
+
+The Arbiter is also responsible for helping the Author move the proposal
+through the OEP process, providing technical and process expertise as needed.
+The Arbiter also assists the Author to solicit feedback from the community on
+the OEP, and for helping to move the OEP towards a final decision (whether that
+decision is Accepted, Rejected, or Deferred). The Arbiter (in discussion with 
+the Author) can merge an in-progress OEP (if it has reached a stage of relative
+stability) to allow for additional incremental updates.
+
+Finally, the Arbiter is responsible for the decision to transfer an OEP if the
+original Author has become unresponsive (as described in `Transferring OEP
+Ownership`_).
+
 Before Submitting an OEP
 ------------------------
 
@@ -70,11 +98,9 @@ that a single OEP contain a single key proposal or new idea. Small enhancements
 or patches often don't need an OEP and can be injected into the Open edX
 development workflow with a patch submission.
 
-Each OEP must have a Author: someone who writes the OEP using the style and
-format described below, shepherds the discussions in the appropriate forums,
-and attempts to build community consensus around the idea. The OEP Author
-should first attempt to ascertain whether the idea is appropriate for an OEP.
-Posting to the `edx-code`_ mailing list is the best way to go about this.
+The OEP Author should first attempt to ascertain whether the idea is appropriate 
+for an OEP.  Posting to the `edx-code`_ mailing list is the best way to go about 
+this.
 
 Vetting an idea publicly before going as far as writing an OEP is meant to save
 the potential author time. Many ideas have been brought forward for changing
@@ -164,30 +190,6 @@ Likewise, an OEP that is in "Draft" status can be merged to capture a set of
 edits, and to make the proposal more visible to community comment. From that
 point, additional pull requests can be opened to edit the "Draft" OEP, until it
 converges to being either "Accepted" or "Rejected".
-
-OEP Roles
----------
-
-Each OEP has an Arbiter (as described in `Initial Submission`_). The
-Arbiter will be chosen by the edX Chief Architect (currently Eddie Fagin). The
-Arbiter will be the person making the final decision on whether the OEP should
-be Accepted, and as such, the Arbiter should be knowledgeable about the
-contents of the proposal, and willing to listen to arguments both for and
-against it by the rest of the community.
-
-The Author of an OEP will never be selected as the Arbiter of that OEP.
-
-The Arbiter is also responsible for helping the Author move the proposal
-through the OEP process, providing technical and process expertise as needed.
-The Arbiter also assists the Author to solicit feedback from the community on
-the OEP, and for helping to move the OEP towards a final decision (whether that
-decision is Accepted, Rejected, or Deferred). The Arbiter (in discussion with 
-the Author) can merge an in-progress OEP (if it has reached a stage of relative
-stability) to allow for additional incremental updates.
-
-Finally, the Arbiter is responsible for the decision to transfer an OEP if the
-original Author has become unresponsive (as described in `Transferring OEP
-Ownership`_).
 
 OEP Maintenance
 ---------------
