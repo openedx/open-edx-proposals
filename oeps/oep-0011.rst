@@ -1,0 +1,175 @@
+=========================================
+OEP-11: Archiving edX Github Repositories
+=========================================
+
++---------------+-------------------------------------------+
+| OEP           | :doc:`OEP-11 </oeps/oep-0011.rst>`        |
++---------------+-------------------------------------------+
+| Title         | Archiving edX Github Repositories         |
++---------------+-------------------------------------------+
+| Last Modified | 2017-01-09                                |
++---------------+-------------------------------------------+
+| Author        | Christina Roberts, christina@edx.org      |
++---------------+-------------------------------------------+
+| Arbiter       | TBD                                       |
++---------------+-------------------------------------------+
+| Status        | Draft                                     |
++---------------+-------------------------------------------+
+| Type          | Process                                   |
++---------------+-------------------------------------------+
+| Created       | 2017-01-09                                |
++---------------+-------------------------------------------+
+| `References`  | `ORA PR Discussion`_,                     |
+|               | `Initial Archiving Discussions`_          |
++---------------+-------------------------------------------+
+
+.. _ORA PR Discussion: https://github.com/edx/edx-ora/pull/187
+.. _Initial Archiving Discussions: https://openedx.atlassian.net/wiki/display/IT/Proposed+Github+Deprecation+Process
+
+Abstract
+========
+
+The `edx organization`_ contains a large number of repositories, most of
+which are active and maintained, but some of which are now obsolete. To
+clarify the status of repositories, and to ensure that we are only monitoring
+active repositories via Gemnasium (which alerts about the usage of third
+party libraries with known security issues), a process for archiving a
+repository is defined below.
+
+.. _edx organization: https://github.com/edx
+
+Motivation
+==========
+
+Recently openedx.yaml files were added to edX repositories per
+`OEP-2 <oep-0002.rst>`_. In the course of deciding owners for those repositories,
+there was a `ORA PR Discussion`_ about how best to handle deprecated or obsolete
+repositories; in particular, do obsolete repositories need owners, and how can
+repositories be clearly marked as present for archive purposes only?
+
+This discussion resurfaced related to edX's usage of Gemnasium to report
+the usage of third-party libraries that have known security issues. All
+repositories under the edX organization were being monitored, but this added
+noise when trying to understand the number of third-party library updates
+required for actively maintained repositories.
+
+Specification
+=============
+
+When a repository under the `edx organization`_ will no longer be maintained
+because it is no longer in use, the following steps should be followed:
+
+First, send an email to edx-code@googlegroups.com announcing that the
+repository will be archived, and inquiring if anyone would like to take
+ownership of the repo. If someone wishes to take ownership, transfer the
+repository to their github organization and hand over rights [Open questions:
+Do we need to outline these steps further? Would there need to be internal
+sign-off before transferring the repo outside of edX? Would we wish to create
+our own fork of the repo?].
+
+If nobody wishes to take ownership of the repository then:
+
+1. Update the README.rst file in the repository to state that it is archived
+and that the repository may depend on out-of-date libraries with security
+issues.
+
+2. Add "obsolete: True" to openedx.yaml (creating the file if necessary). Note
+that currently an owner is required in openedx.yaml per `OEP-2 <oep-0002.rst>`_,
+but a proposal will be made to relax this requirement for repositories which
+are marked as obsolete/archived.
+
+3. Create an IT ticket to update the description of the repository to begin
+with [ARCHIVED].
+
+4. Create a DevOps ticket to change the status of the repo to "non-monitored" in
+Gemnasium, and to remove any integration or webhooks that DevOps may be maintaining.
+
+In the future, the step of changing the monitored status of a repository in
+Gemnasium could be automated using Gemansium APIs and keying off of the
+"obsolete" value in openedx.yaml.
+
+Rationale
+=========
+
+The proposed process leverages the already-existing "obsolete" flag in
+openedx.yaml. It does not require introducing a new organization that is
+maintained by edX, and the source code remains easily visible and searchable
+(see `Rejected Alternatives`_).
+
+Backward Compatibility
+======================
+
+This proposal does not introduce any backward compatibility issues.
+
+Reference Implementation
+========================
+
+If this proposal is accepted, the following repositories will be updated to
+fully conform to the specification. Currently the README.rst files in these
+repos have been updated and DevOps has marked them "unmonitored" in
+Gemnamsium, but other steps have only been followed to varying degrees.
+
+1. `Old ORA repository`_
+2. `Discussions Hackathon repository`_
+
+.. _Old ORA repository: https://github.com/edx/edx-ora
+.. _Discussions Hackathon repository: https://github.com/edx/discussions
+
+Rejected Alternatives
+=====================
+
+There are a couple variations of this proposal that were originally discussed in
+`Initial Archiving Discussions`_. Many of the steps of updating documentation
+and notifying the open source community are essentially the same; the major
+differences from the proposed process are outlined below.
+
+Alternative 1: Transfer Repository
+----------------------------------
+Transfer the obsolete repository to a new organization, edx-archived.
+
+Pros:
+
+- `edx organization`_ is no longer littered with unsupported/obsolete
+  repositories.
+- Gemnasium monitoring may cease automatically (although this would need to be
+  confirmed).
+- Pattern followed by `Facebook`_, and thus might be familiar to others.
+
+Reasons rejected:
+
+- This creates another organization that edX must maintain and adds
+  administrative overhead.
+- It could be difficult for people to find the code through search, though
+  forwarding links would work for anyone who already linked to the repositories.
+
+.. _Facebook: https://github.com/facebookarchive
+
+Alternative 2: Create Archive Branch
+------------------------------------
+Move the code from the master branch to an archived branch,
+while leaving the repository itself within `edx organization`_.
+
+Pros:
+
+- No need to create and maintain a new organization.
+- Gemnasium monitoring will cease automatically.
+- No help tickets to IT or DevOps are required.
+- This pattern was recommended on `Anselm Hannemann's blog`_, though it is not
+  known how many organizations (if any) have adopted this process.
+
+Reasons rejected:
+
+- Non-intuitive, and could be confusing for developers to understand the state
+  of the code, as cloning the repo or viewing it on Github would show an empty
+  repository (Note: this could possibly be improved by changing the default
+  branch for the repository, but that might reintroduce the Gemansium monitoring
+  issue).
+- It is unclear what the implications would be for any existing forks.
+
+.. _Anselm Hannemann's blog: https://helloanselm.com/2013/handle-deprecated-unmaintained-repositories/
+
+
+Change History
+==============
+
+A list of dated sections that describes a brief summary of each revision of the OEP.
