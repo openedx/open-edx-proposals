@@ -64,9 +64,15 @@ following fields:
     ``oep-n``). Each value would be one of ``True``, ``False``, or a
     reason dictionary. ``True`` and ``False`` would indicate accordance (or
     lack thereof) with the specified OEP. A reason dictionary
-    must have ``state`` and ``reason`` keys. The ``state`` key is a boolean,
-    and ``reason`` is a string that should explain why it's ok that the
-    ``state`` is ``False`` (this will be displayed in reporting tools).
+    must have a ``state`` key. The ``state`` key can have a value of ``True``,
+    ``False`` or ``Not Applicable``. If the ``state`` is ``False`` the reason
+    dictionary must also include a ``reason`` key. The ``reason`` is a string
+    that should explain why it's ok that the ``state`` is ``False``
+    (this will be displayed in reporting tools). A ``state`` value of
+    ``Not Applicable`` indicates the OEP will never be applicable to this
+    repository. For example: an OEP that defines a best practices for Javascript
+    testing would be marked as ``Not Applicable`` in a python command line
+    tool's repository.
 
     If an OEP isn't listed in the ``oeps`` dictionary, then it is assumed to be
     ``False``, unless the reporting tool can auto-detect accordance.
