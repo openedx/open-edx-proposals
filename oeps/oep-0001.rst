@@ -200,7 +200,7 @@ the status "Replaced").
 
 The choice of whether an edit to an OEP should be allowed or whether a new OEP
 should be published is up to the Arbiter of the original OEP, or the edX Chief
-Architect if that Arbiter is no longer available.. However, as a general
+Architect if that Arbiter is no longer available. However, as a general
 guideline, the following updates would not require a replacement OEP.
 
 * Formatting changes.
