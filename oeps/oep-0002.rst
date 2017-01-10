@@ -47,7 +47,7 @@ Specification
 Each repo in the Open edX system will include a file ``openedx.yaml``, with the
 following fields:
 
-``owner``: string
+``owner``: string (required unless ``archived`` is ``True``)
     The github user/team responsible for the repository.
 
 ``nick``: string (optional)
@@ -86,8 +86,8 @@ following fields:
 
 ``openedx-release``: defined by :doc:`OEP-10 <oep-0010>`.
 
-``obsolete``: boolean (optional)
-    If ``True``, this specifies that this repository is obsolete and no longer
+``archived``: boolean (optional)
+    If ``True``, this specifies that this repository is archived and no longer
     maintained by ``edX``.
 
 
@@ -142,6 +142,12 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
 
 Change History
 ==============
+
+2017-01-18
+----------
+
+* Change ``obsolete`` to ``archived`` and relax the requirement for an owner
+if ``archived`` is True.
 
 2017-01-10
 ----------
