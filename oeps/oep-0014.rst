@@ -7,7 +7,7 @@ OEP-14: Archiving edX Github Repositories
 +---------------+-------------------------------------------+
 | Title         | Archiving edX Github Repositories         |
 +---------------+-------------------------------------------+
-| Last Modified | 2017-01-10                                |
+| Last Modified | 2017-01-11                                |
 +---------------+-------------------------------------------+
 | Author        | Christina Roberts, christina@edx.org      |
 +---------------+-------------------------------------------+
@@ -84,11 +84,9 @@ Archive Steps
 1. Update the README.rst file in the repository to state that it is archived,
 using the `README Archive Statement`_ below.
 
-2. Add "obsolete: True" to openedx.yaml (creating the file if necessary). Note
-that currently an owner is required in openedx.yaml per `OEP-2 <oep-0002.rst>`_,
-but a proposal will be made to relax this requirement for repositories which
-are marked as archived. A proposal will also be made to change "obsolete" to
-"archived".
+2. Add "archived: True" to openedx.yaml (creating the file if necessary). Note that
+it is not necessary for the openedx.yaml file to define an owner when archived is
+set to True.
 
 3. Create an IT help ticket to update the description of the repository to begin
 with [ARCHIVED].
@@ -98,7 +96,7 @@ Gemnasium, and to remove any integration or webhooks that DevOps may be maintain
 
 In the future, the step of changing the monitored status of a repository in
 Gemnasium could be automated using Gemansium APIs and keying off of the
-"obsolete" value in openedx.yaml.
+"archived" value in openedx.yaml.
 
 README Archive Statement
 ------------------------
@@ -112,7 +110,7 @@ repository will also not be merged.
 Rationale
 =========
 
-The proposed process leverages the already-existing "obsolete" flag in
+The proposed process leverages the already-existing "archived" flag in
 openedx.yaml. It does not require introducing a new organization that is
 maintained by edX, and the source code remains easily visible and searchable
 (see `Rejected Alternatives`_).
@@ -125,15 +123,9 @@ This proposal does not introduce any backward compatibility issues.
 Reference Implementation
 ========================
 
-If this proposal is accepted, the following repositories will be updated to
-fully conform to the specification. Currently the README.rst files in these
-repos have been updated and DevOps has marked them "unmonitored" in
-Gemnamsium, but other steps have only been followed to varying degrees.
+The `Discussions Hackathon repository`_ has been updated to conform to the
+`Archive Steps`_.
 
-1. `Old ORA repository`_
-2. `Discussions Hackathon repository`_
-
-.. _Old ORA repository: https://github.com/edx/edx-ora
 .. _Discussions Hackathon repository: https://github.com/edx/discussions
 
 Rejected Alternatives
