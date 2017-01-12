@@ -39,17 +39,19 @@ repository is defined below.
 Motivation
 ==========
 
-Recently openedx.yaml files were added to edX repositories per
-`OEP-2 <oep-0002.rst>`_. In the course of deciding owners for those repositories,
-there was an `ORA PR Discussion`_ about how best to handle deprecated or obsolete
-repositories; in particular, do obsolete repositories need owners, and how can
-repositories be clearly marked as present for archive purposes only?
+Recently openedx.yaml files were added to edX repositories per `OEP-2`_. In the
+course of deciding owners for those repositories, there was an `ORA PR
+Discussion`_ about how best to handle deprecated or obsolete repositories; in
+particular, do obsolete repositories need owners, and how can repositories be
+clearly marked as present for archive purposes only?
 
 This discussion resurfaced related to edX's usage of Gemnasium to report
 the usage of third-party libraries that have known security issues. All
 repositories under the edX organization were being monitored, but this added
 noise when trying to understand the number of third-party library updates
 required for actively maintained repositories.
+
+.. _OEP-2: https://open-edx-proposals.readthedocs.io/en/latest/oep-0002.html
 
 Specification
 =============
