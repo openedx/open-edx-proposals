@@ -144,6 +144,9 @@ Pros:
 
 - `edx organization`_ is no longer littered with unsupported/obsolete
   repositories.
+- Github search results within the `edx organization`_ do not include matches
+  in archived repositories. This could decrease confusion, especially since
+  repo descriptions are not included in search results.
 - Gemnasium monitoring may cease automatically (although this would need to be
   confirmed).
 - Pattern followed by `Facebook`_, and thus might be familiar to others.
