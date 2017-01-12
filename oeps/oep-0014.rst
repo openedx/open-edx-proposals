@@ -64,55 +64,56 @@ Transfer to New Owner if Interest
 First, follow these steps to see if anyone would like to take ownership of
 this repository:
 
-1. Send an email to edx-code@googlegroups.com announcing that the
-repository will be archived, and inquiring if anyone would like to take
-ownership of the repo. If there are no responses after 2 work days, skip
-to `Archive Steps`_.
+1. Send an email to edx-code@googlegroups.com announcing that the repository
+   will be archived, and inquiring if anyone would like to take ownership of
+   the repo. If there are no responses after 2 work days, skip to `Archive
+   Steps`_.
 
 2. If someone does wish to take ownership of the repository, email the internal
-edX developers mailing list to see if there are any objections. If there are no
-objections after 2 work days, post to edx-code@googlegroups.com that the
-transfer will take place.
+   edX developers mailing list to see if there are any objections. If there are
+   no objections after 2 work days, post to edx-code@googlegroups.com that the
+   transfer will take place.
 
 3. Create an IT help ticket for the repository to be transferred to the new
-organization.
+   organization.
 
-4. Once the transfer has occurred, create a fork of the transferred
-repository into the `edx organization`_ and follow the `Archive Steps`_ below
-for the forked repo.
+4. Once the transfer has occurred, create a fork of the transferred repository
+   into the `edx organization`_ and follow the `Archive Steps`_ below for the
+   forked repo.
 
 Archive Steps
 -------------
 1. Update the README.rst file in the repository to state that it is archived,
-using the `README Archive Statement`_ below.
+   using the `README Archive Statement`_ below.
 
-2. Add "archived: True" to openedx.yaml (creating the file if necessary). Note that
-it is not necessary for the openedx.yaml file to define an owner when archived is
-set to True.
+2. Add ``archived: True`` to openedx.yaml (creating the file if necessary). Note
+   that it is not necessary for the openedx.yaml file to define an owner when
+   archived is set to True.
 
-3. Create an IT help ticket to update the description of the repository to begin
-with [ARCHIVED].
+3. Create an IT help ticket to update the description of the repository to
+   begin with ``[ARCHIVED]``.
 
-4. Create a DevOps ticket to change the status of the repo to "non-monitored" in
-Gemnasium, and to remove any integration or webhooks that DevOps may be maintaining.
+4. Create a DevOps ticket to change the status of the repo to "non-monitored"
+   in Gemnasium, and to remove any integration or webhooks that DevOps may be
+   maintaining.
 
 In the future, the step of changing the monitored status of a repository in
 Gemnasium could be automated using Gemansium APIs and keying off of the
-"archived" value in openedx.yaml.
+``archived`` value in openedx.yaml.
 
 README Archive Statement
 ------------------------
 Include this statement in the README.rst file:
 
-This repository has been archived and is no longer supported-- use it at your
-own risk. This repository may depend on out-of-date libraries with security
-issues, and security updates will not be provided. Pull requests against this
-repository will also not be merged.
+    This repository has been archived and is no longer supported—use it at your
+    own risk. This repository may depend on out-of-date libraries with security
+    issues, and security updates will not be provided. Pull requests against
+    this repository will also not be merged.
 
 Rationale
 =========
 
-The proposed process leverages the already-existing "archived" flag in
+The proposed process leverages the already-existing ``archived`` flag in
 openedx.yaml. It does not require introducing a new organization that is
 maintained by edX, and the source code remains easily visible and searchable
 (see `Rejected Alternatives`_).
@@ -140,7 +141,7 @@ differences from the proposed process are outlined below.
 
 Alternative 1: Transfer Repository
 ----------------------------------
-Transfer the obsolete repository to a new organization, edx-archived.
+Transfer the obsolete repository to a new organization: edx-archived.
 
 Pros:
 
