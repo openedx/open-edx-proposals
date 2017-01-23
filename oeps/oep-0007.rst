@@ -13,15 +13,16 @@ OEP-7: Migrating to Python 3
 +---------------+-------------------------------------------+
 | Arbiter       | Jeremy Bowman <jbowman@edx.org>           |
 +---------------+-------------------------------------------+
-| Status        | Draft                                     |
+| Status        | Accepted                                  |
 +---------------+-------------------------------------------+
 | Type          | Best Practices                            |
 +---------------+-------------------------------------------+
 | Created       | 2016-08-12                                |
 +---------------+-------------------------------------------+
-| Resolution    |                                           |
+| Resolution    | `open-edx-proposals#21`_                  |
 +---------------+-------------------------------------------+
 
+.. _open-edx-proposals#21: https://github.com/edx/open-edx-proposals/pull/21#pullrequestreview-18018383
 
 Abstract
 ========
