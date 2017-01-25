@@ -75,18 +75,18 @@ Use Case 2: Insights Extensions
 EdX Insights is a course analytics application that could be extended in
 a variety of different ways. Some examples include:
 
-1. ** New Charts **
+1. **New Charts**
 
    A plugin could provide new types of charts for existing data types, or it
    could extend the application to show charts for data that had not previously
    been visualized.
 
-2. ** New Data Reports **
+2. **New Data Reports**
 
    A plugin could provide new data reports so that an Insights installation
    could let users see and/or download data in a variety of custom formats.
 
-3. ** New Summary Cards **
+3. **New Summary Cards**
 
    A common UX pattern in edX Insights is to provide summary cards with key
    metrics for a particular data set. A plugin could provide new card types
@@ -173,24 +173,30 @@ building REST APIs.
 
 There are three ways in which a Django fragment view can be consumed:
 
-# the view class can be instantiated and the `render_fragment` method
-  invoked directly. This is the simplest option for server-side rendering where
-  a page wants to include a fragment. The returned fragment has methods which
-  return the HTML to include in the head of the page, the body of the page, and
-  the footer. The page template can then include these three HTML snippets when
-  it renders itself.
+1. **Invoked directly from Python**
 
-# the view's URL will by default return an HTML rendering of the fragment.
-  This rendering can be included within a page via an iFrame, or it can be
-  shown by a mobile app using a web view. Both of these techniques are used
-  for XBlocks today, and so this would extend the capabilities to Django apps.
+   The view class can be instantiated and the `render_fragment` method invoked
+   directly. This is the simplest option for server-side rendering where a page
+   wants to include a fragment. The returned fragment has methods which return
+   the HTML to include in the head of the page, the body of the page, and the
+   footer. The page template can then include these three HTML snippets when it
+   renders itself.
 
-# the view's URL can be invoked with a content type requesting a JSON
-  rendering of the fragment (`application/web-fragment`, perhaps). This can be
-  used by client-side logic to fetch a fragment and then dynamically render it
-  into the current page. There are already many places where XBlock's are
-  rendered in this way, such as in Studio when a new block is added to a unit,
-  or with the `jQuery-XBlock`_ library.
+2. **Full page**
+
+   The view's URL will by default return an HTML rendering of the fragment. This
+   rendering can be included within a page via an iFrame, or it can be shown by
+   a mobile app using a web view. Both of these techniques are used for XBlocks
+   today, and so this would extend the capabilities to Django apps.
+
+3. **REST API**
+
+   The view's URL can be invoked with a content type requesting a JSON rendering
+   of the fragment (`application/web-fragment`, perhaps). This can be used by
+   client-side logic to fetch a fragment and then dynamically render it into the
+   current page. There are already many places where XBlock's are rendered in
+   this way, such as in Studio when a new block is added to a unit, or with the
+   `jQuery-XBlock`_ library.
 
 A JQuery API will be provided that can receive this JSON payload and render it
 into the current page appropriately. There are already multiple such
@@ -245,9 +251,7 @@ page makes a request to find all installed instructor component and then
 displays them as a set of cards organized by category:
 
 .. image:: oep-0012/proposed-instructor-dashboard.png
-  :alt: A screen shot from the instructor dashboard prototype, showing
-  how each feature that can be controlled is shown as a card that can
-  be drilled down into to be seen full screen.
+  :alt: A screen shot from the instructor dashboard prototype.
 
 Each card has a "View" link that lets the user drill down and see the
 component for the feature being represented. This component is shown full
