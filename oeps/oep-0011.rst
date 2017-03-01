@@ -7,7 +7,7 @@ OEP-11: Front End Best Practices
 +---------------+-------------------------------------------+
 | Title         | Front End Best Practices                  |
 +---------------+-------------------------------------------+
-| Last Modified | 2016-10-19                                |
+| Last Modified | 2017-03-01                                |
 +---------------+-------------------------------------------+
 | Author        | Andy Armstrong <andya@edx.org>            |
 +---------------+-------------------------------------------+
@@ -23,11 +23,10 @@ OEP-11: Front End Best Practices
 Abstract
 ========
 
-This document describes the best practices for developing front end applications
-and components for Open edX. It covers the techniques and approaches that
-are currently recommended, as well as the suggested technologies and libraries
-that should be used.
-
+This document describes the technology best practices for developing
+front end applications and components for Open edX. It covers the techniques
+and approaches that are currently recommended, as well as the technologies
+and libraries that should be used.
 
 Motivation
 ==========
@@ -39,9 +38,8 @@ place to get an overview of the industry's current best practices is
 Open edX is a large platform that provides its front end functionality in
 a variety of ways. The major applications (Studio, LMS, Insights, Otto) are
 built as Django views that return rendered pages consisting of HTML, CSS and
-JavaScript. In addition, components can be created with `XBlocks`_ which use
-Python code to render themselves as HTML fragments along with their CSS and
-JavaScript dependencies.
+JavaScript. In addition, several mechanisms exist for rendering isolated UI
+using Python and manifests of CSS and JavaScript files.
 
 Within this document, the phrase "front end" is used to mean any part
 of the platform that is shown to users. This phrase is a little confusing
@@ -50,129 +48,15 @@ Python code running on a "back end" server. The true back end is the
 APIs that the front end communicates with to access and update information
 on behalf of the user.
 
-Note: this document provides many recommendations which are provided as
-guides when developing new front ends. It is important to always use the
-best tool for the job, so there will be situations where an alternative
-approach or technology should be adopted.
-
 Specification
 =============
-
-Best Practices
-~~~~~~~~~~~~~~
-
-1. **Use server-side rendering whenever possible**
-
-   Rationale: Server-side rendering gives the content to the user
-   immediately without requiring additional round-trips. This can make
-   for large performance improvements on slow networks or mobile devices.
-
-   When a dynamic client-side experience is required, then the server-side
-   page should include JavaScript code along with the HTML. See the
-   technical recommendations below for more detail.
-
-2. **Front-ends should be self-contained**
-
-   Rationale: Front end applications require a variety of types of assets
-   that need to be managed together, including code, styles, templates, and
-   images. For Django apps and XBlocks, all of these assets should live
-   within the app's or block's own directory rather than being located
-   in shared locations within the consuming application. Ideally, apps or blocks
-   should live in their own repository and should be pip installed into
-   and should be pip installed into the main application.
-
-3. **Designs should be built upon patterns from the edX Pattern Library**
-
-   Rationale: The `edX Pattern Library`_  is a collection of web application
-   components and visual styles that can be used to develop UIs that are
-   consistent with the edX platform. Using the pattern library ensures that
-   web applications follow best practices for user experience, theming,
-   and accessibility.
-
-   You can learn more about building user interfaces with the pattern
-   library in the Developer's Guide chapter `Developing User Interfaces`_.
-
-4. **Front-ends should consume and extract reusable UI components**
-
-   Rationale: when developing new applications, developers should prefer
-   reuse of existing components over building custom front end logic.
-   If a new component is required, it should be built as a new reusable
-   addition to the `edX UI Toolkit`_, based upon patterns from the
-   `edX Pattern Library`_. This ensures that future development can
-   reuse this component, while also standardizing how it behaves
-   for the user in terms of user interface, accessibility, theming
-   and so on.
-
-6. **Front-ends should manage history consistently**
-
-   Rationale: it is important that rich-client applications provide a
-   consistent history to their users. This includes both the ability to
-   use the back button in a natural way, and to be able to use URLs to
-   deep link to any part of the application. History should be updated
-   for every action that feels to the user that they are on a new page.
-
-7. **Features should work equally well on mobile and web platforms**
-
-   Rationale: Open edX provides iOS and Android applications in addition
-   to its web applications, and so new learner features need to be implemented
-   for all three platforms. The simplest way to achieve feature parity is to
-   provide a responsive web experience that can be used on phones and tablets
-   as well as on desktops and laptops. The `edx Pattern Library`_ helps with
-   this by providing a responsive grid system along with components that
-   work equally well on mobile and web.
-
-8. **Designs should be fully accessible**
-
-   Rationale: Open edX measures and evaluates accessibility using the World
-   Wide Web Consortium’s `Web Content Accessibility Guidelines (WCAG) 2.0`_.
-   All features merged into edX repositories are expected to conform to
-   Level AA of this specification and to satisfy the requirements outlined in
-   the `edX Website Accessibility Policy`_.
-
-   You can learn more about developing accessible applications with
-   the Developer's Guide chapter `edX Accessibility Guidelines`_.
-
-9. **Front end applications should support localization**
-
-   Rationale: Open edX is used by learners all over the world, and so
-   it is critical that all new functionality support localization. This means
-   that every string in an application should be marked for translation,
-   and it also includes ensuring that all new user interfaces will switch to
-   right-to-left mode when the language requires it.
-
-   You can learn more about localization with the Developer's Guide
-   chapter `edX Internationalization`_.
-
-10. **Front end implementations should support theming**
-
-   Rationale: Open edX is used by organizations around the world,
-   and each one requires that the user experience is based upon their
-   own brand. This includes elements as simple as overriding the fonts,
-   imagery and color schemes, to more complex customization of headers,
-   footers and registration flows.
-
-   You can learn more about how Open edX supports theming with
-   the guide `Changing Themes for an Open edX Site`_. One simple way to
-   make your interface themeable is to use patterns from the
-   `edX Pattern Library`_ as they already support theming.
-
-11. **Front end code should be safe from cross site scripting**
-
-   Cross Site Scripting (XSS) vulnerabilities allow user-supplied data to be
-   incorrectly executed as code in a web browser. This can allow an attacker
-   to inject malicious scripts, which in the worst case can cause the loss
-   of private user data.
-
-   In order to keep your code safe from such attackers, you should follow the
-   best practices laid out in the guide
-   `Preventing Cross Site Scripting Vulnerabilities`_.
 
 Technology Selection
 ~~~~~~~~~~~~~~~~~~~~
 
 1. **Server-side content should be rendered with Django Templates**
 
-   Rationale: There are many template languages available for Django,
+   **Rationale**: There are many template languages available for Django,
    but the simplest option is to use the built-in Django template engine.
    The Open edX codebase has a mixture of Django and Mako templates, but the
    former are easier to reason about because they don't support arbitrary
@@ -186,21 +70,30 @@ Technology Selection
    There is much desire to replace Mako within edx-platform so this
    exception may eventually be removed.
 
-2. **ECMAScript 2015 should be the supported version of JavaScript**
+2. **Target the latest standardised JavaScript version (ECMA-262)**
 
-   Rationale: ECMAScript is the standardized version of JavaScript,
-   and modern front end libraries typically use ES2015 (aka ES6).
-   Most browsers now provide native support for ES2015, but to support
-   ES2016 or older browsers it is recommended to use `Babel`_ which can
-   transpile various JavaScript dialects into ES5 (or ES2015, in the future).
+   **Rationale**: ECMA-262 is the specification for JavaScript, and
+   modern front end libraries typically use the version of ECMA-262 released
+   in 2015 (ES2015) or newer. edX JavaScript should use the syntax and
+   features appropriate for the year is is written in, based on ECMA's
+   yearly spec release schedule. The most recently released version of ECMA-262
+   is `ES2017`_. Browsers progressively add support for more ECMA-262 features
+   as they are accepted, so it is recommended to use `Babel`_ which can
+   transpile ECMA-262-compliant JavaScript into code that all browsers support.
 
-   Note: use of ES2015 features should be preferred to the use of older
-   libraries such as CoffeeScript and Underscore which have been subsumed
-   into the newer standard.
+   **Exception**: Much of edX's existing front end code is written conformant
+   to the version of ECMA-262 released in 2009 (ES5). Files written in ES5
+   should be gradually converted to the newer standard as new development in
+   those feature areas requires.
+
+   **Note**: use of standards-compliant ECMAScript features should be
+   preferred to the use of external libraries such as Underscore or
+   compile-to-JavaScript languages such as CoffeeScript. See
+   `Reasons for rejecting CoffeeScript`_ for more detail.
 
 3. **JavaScript libraries should be installed via npm**
 
-   Rationale: It is important that JavaScript libraries are kept
+   **Rationale**: It is important that JavaScript libraries are kept
    up-to-date, and one key component is to make it as simple as possible
    to perform upgrades. Projects that use npm maintain all of their
    library requirements in a single package.json file, which can be
@@ -208,165 +101,108 @@ Technology Selection
 
 4. **JavaScript code should follow the edX ESLint configuration**
 
-   Rationale: In order to standardize and enforce Open edX's JavaScript
+   **Rationale**: In order to standardize and enforce Open edX's JavaScript
    coding style across multiple codebases, edX has published an ESLint
    configuration that provides an enforceable specification. The
    `edX ESLint Config`_ is made available as an npm package that can be
    installed into any Open edX package.
 
+   **Exception**: The `edX ESLint Config for ES5`_ may be used where ES5
+   is in use. Both configs may be used in the same codebase through the
+   use of `ESLint configuration cascading`_.
+
 5. **Use React and Redux when building new client-side applications**
 
-   Rationale: There are a large number of JavaScript libraries for
-   building rich client applications, but many of them are too
-   rigid for a flexible, extensible codebase like Open edX. The
-   edX front end working group (aka FedX) has chosen the combination
-   of React and Redux as the optimal way to build new client-side
-   applications. A great primer on the benefits of this approach is
-   `A Study Plan to Cure JavaScript Fatigue`_.
+   **Rationale**: React should be used for building new UIs, as it is
+   widely adopted by the community and strikes a balance between
+   flexibility and feature richness. For state management of complex
+   client-side interactions, Redux should be used alongside React.
 
    An interesting area for future exploration is `React Native`_ which
    is a variant of React that can be used to render native iOS and Android
-   applications. This could be a potential solution to build consistent
-   experiences more efficiently across web and mobile. See `React at edX`_
-   for more details.
+   applications while sharing logic with web applications. This could
+   be a potential solution to build consistent experiences more efficiently
+   across web and mobile. See `React at edX`_ for more details.
 
-   Note: the other modern library that many organizations are using
-   is Angular 2.  See `Reasons for rejecting Angular`_ for an exploration
-   as to why this does not work as well as React for edX.
+   **Note**: other modern frameworks considered for use included Polymer and
+   Angular. See `Reasons for rejecting Angular`_  and
+   `Reasons for rejecting Polymer`_ for an exploration of why these
+   alternatives do not work as well as React for edX.
 
-   Exception: when building new applications within edx-platform, it
+   **Exception**: when building new applications within edx-platform, it
    is currently acceptable to use Backbone.  Backbone is a somewhat old
    technology in the JavaScript world and has seen a rapid drop off in usage
    within the community. The plan is to incrementally adopt React within
-   edx-platform as it can interoperate cleanly with Backbone.
+   edx-platform as it can interoperate cleanly with Backbone. More
+   documentation on this plan can be found in
+   `Modernizing the edX front end stack`_.
 
-6. **JavaScript dependencies should be managed with AMD modules**
+6. **JavaScript should be bundled using Webpack**
 
-   Rationale: Open edX is a large, complicated code base, and it is
-   getting more tangled over time. It is important that applications be
-   composed as modules, and AMD is the standard module system for JavaScript.
-   It allows code to declare the dependencies it requires, rather than forcing
-   every page to load all possible libraries.
-
-   A majority of edX code uses `RequireJS`_ (and its associated libraries
-   RequireJS Text and RequireJS Optimizer) to handle AMD modueles. In
-   particular, RequireJS Optimizer supports intelligent bundling to package
-   together all required libraries into a single file for faster performance.
-   Note that other edX applications use `Webpack`_ which can also process
-   RequireJS-style dependencies as well as the newer Common JS standard.
-
-7. **CSS should be generated using SASS**
-
-   Rationale: Sass is an extension of CSS that adds power and elegance to
-   the basic language. It makes the maintenance of large CSS files more
-   manageable though the ability to use variables, mixins, imports and more.
-   In particular, it makes theming possible with the ability to override
-   variables that define colors, fonts etc.
-
-   You can find out more about Sass with the official documentation here:
-   `Sass`_.
-
-8. **Applications should be built for production using Webpack**
-
-   Rationale: Webpack is the tool of choice for code optimization and
+   **Rationale**: `Webpack`_ is the tool of choice for code optimization and
    bundling, as it is widely used throughout the industry, and because
    it seamlessly handles modern code bases as well as all of the older
-   technologies used by edX, such as `RequireJS`_.
+   technologies used by edX, such as `AMD Modules`_. Webpack should be
+   implemented to handle as much of the "asset pipeline" as possible,
+   rather than passing this responsibility on to Django.
 
-   Note: There are already a variety of technologies used within Open edX,
-   none of which is a clear winner. RequireJS Optimizer is used for bundling,
-   Django Pipeline is used by edx-platform, Django Compressor is used by some
-   of the Ecommerce applications, and Webpack is prevalent in pure front-end
-   implementations.
+7. **JavaScript dependencies should be managed with ES2015 Modules**
 
+   **Rationale**: JavaScript module systems allow front end code to specify
+   its dependencies and be grouped into bundles that minimize the assets
+   needed to provide page functionality. The most prevalent module syntax
+   is currently `ES2015 Modules`_, which should be adopted everywhere
+   edX code is written to the ES2015 spec or later.
 
-Open Questions
-==============
+   **Exception**: Much of edX's existing (ES5) JavaScript uses the older
+   `AMD Modules`_ syntax for modules. AMD Modules are interoperable
+   with ES2015 Modules if Webpack is used for bundling, so AMD is an
+   acceptable module definition if the code must remain ES5.
 
-.. _JavaScript frameworks:
+8. **CSS should be generated using Sass**
 
-1. **Which more modern JavaScript framework should be supported?**
+   **Rationale**: Sass's SCSS syntax is an extension of CSS that adds power
+   and elegance to the basic language. It makes the maintenance of large
+   CSS files more manageable though the ability to use variables, mixins,
+   imports and more. In particular, it makes theming possible with the
+   ability to override variables that define colors, fonts etc.
 
-   The JavaScript space is very fast moving as can be seen in
-   `The State of JavaScript 2016 Survey`_. There is a lot of momentum
-   around `React`_, and it appears to have many qualities that would
-   make it a good fit for edX. It is too early to make this call, but
-   plans are being made to evaluate its usage. See `React at edX`_ for
-   more details.
-
-2. **How should offline support be provided?**
-
-   For many mobile users, it would be very useful if they could continue
-   their Open edX courses while offline. This is true both for true mobile
-   apps as well as for responsive web applications. This is an area that
-   has not been explored much up to now, but which will only become more
-   important going forward. In particular, we should look at the great
-   capabilities provided by service workers. See the article
-   `Service Workers: An Introduction`_ for a good starting point.
-
-3. **Should Universal JavaScript be considered?**
-
-   There are many companies that are seeing performance benefits by
-   pre-rendering their dynamic client-side applications on the server first.
-   The most common approach is to run the same JavaScript code both in the
-   browser and using Node on the server. This requires the use of a JavaScript
-   framework that does not perform direct manipulation of the DOM, but instead
-   works with an abstraction of the desired HTML. For example, Netflix is
-   seeing great performance gains by using `React`_ in this way, as can be
-   seen in the blog post `Making Netflix Faster`_.
-
-4. **Where do web components fit with Open edX applications?**
-
-   Web Components is a W3C recommendation that allows developers to create
-   custom HTML elements for use within their web applications. The
-   `Polymer Project` provides a library that allows web components to be
-   built in most modern browsers. It seems that there is a useful overlap
-   between web components and Open edX's `XBlocks`_
-
-5. **Should HTTP/2 be used in preference to asset bundling?**
-
-   The Hypertext Transfer Protocol Version 2 (HTTP/2) enables more efficient
-   network communication between clients and servers. In particular, it
-   allows for multiple requests to be handled with the same TCP connection,
-   which removes most of the benefits of asset bundling. It is not yet
-   clear whether this is ready for full scale adoption, but it would reduce
-   a lot of complexity from application's asset pipelines.
-
-6. **Should Jinja2 be considered in preference to Django Templates?**
-
-   `Jinja2`_ is a popular alternative to Django Templates, that has not been
-   evaluated for use within Open edX.
-
+   You can find out more about Sass in the official `Sass documentation`_.
 
 Rejected Alternatives
 =====================
 
-Note: this section needs fleshing out...
-
 .. _Reasons for rejecting Angular:
 1. **Angular**
 
-   Needs fleshing out...
+   `Angular`_ was a popular web framework in its 1.x iteration, and its
+   maintainer (Google) recently released Angular 2. Angular 1 was not considered
+   due to its support status. Angular 2 was rejected due to its opinionated
+   characteristics including its use of TypeScript (a compile-to-JavaScript
+   language) and the difficulty of incrementally integrating Angular into an
+   existing application (e.g., alongside legacy Backbone). Consensus in the
+   front end community is that Angular has a higher learning curve than
+   alternatives like React, which matches poorly with edX's limited front end
+   developers and larger community of infrequent JavaScript contributors.
 
-.. _Reasons for rejecting Bootstrap:
-2. **Bootstrap**
+.. _Reasons for rejecting Polymer:
+2. **Polymer**
 
-   An evaluation was performed,
- - size
- - not accessible (although there is this an accessibility plugin)
- - too inflexible
- - might want to consider compatibility to allow mixing Bootstrap components
-   into pattern library pages. See the edX Bootstrap theme provided by
-   the community as one approach.
-
-   Needs fleshing out...
+   `Polymer`_ is a framework built around `Web Components`_, a set of draft
+   extensions to the HTML and DOM specs for UI encapsulation. Web Components
+   are a very interesting area of emergent Web technology, but are not yet
+   finalized as a spec or supported in many browsers. Because of this, the
+   Polymer community is small and performance issues exist. As Web Components
+   become more mature, edX may reevaluate their use, either with Polymer or
+   without.
 
 .. _Reasons for rejecting CoffeeScript:
 3. **CoffeeScript**
 
    The Open edX codebase made heavy use of CoffeeScript for several years,
-   but it has now been officially deprecated. Most of the language
-   benefits of CoffeeScript are now made available via ES2015.
+   but its use at edX has now been officially deprecated. Most of the language
+   benefits of CoffeeScript are available in Javascript as of the ES2015 spec,
+   and CoffeeScript's community has largely moved onto ECMAScript.
 
 .. _Reasons for rejecting Mako:
 4. **Mako**
@@ -374,39 +210,28 @@ Note: this section needs fleshing out...
    There are a number of reasons why Django templates is preferred to Mako:
 
    * Mako templates are not safe by default, meaning that it is very easy
-   to introduce cross-site scripting vulnerabilities.
+     to introduce cross-site scripting vulnerabilities.
    * Mako templates are hard to unit test because they require that the
-   whole Django context be available in case the template tries to
-   access it. Django templates only have access to the context object
-   that is passed to it, so it is very easy to simulate all possible
-   scenarios.
-
-   Needs fleshing out...
+     whole Django context be available in case the template tries to
+     access it. Django templates only have access to the context object
+     that is passed to it, so it is very easy to simulate all possible
+     scenarios.
 
 .. Cross-references
+.. _AMD Modules: https://github.com/amdjs/amdjs-api/wiki/AMD
+.. _Angular: https://angular.io/
 .. _Babel: https://babeljs.io/
-.. _Bootstrap: http://getbootstrap.com/
-.. _Changing Themes for an Open edX Site: http://edx.readthedocs.io/projects/edx-installing-configuring-and-running/en/open-release-eucalyptus.master/configuration/changing_appearance/theming/index.html
-.. _Developing User Interfaces: http://edx.readthedocs.io/projects/edx-developer-guide/en/latest/user_interface_development.html
-.. _edX Accessibility Guidelines: http://edx.readthedocs.io/projects/edx-developer-guide/en/latest/conventions/accessibility.html
-.. _edX ESLint Config: https://github.com/edx/eslint-config-edx
-.. _edX Internationalization: http://edx.readthedocs.io/projects/edx-developer-guide/en/latest/conventions/internationalization/index.html
-.. _edX Pattern Library: http://ux.edx.org/
-.. _edX UI Toolkit: http://ui-toolkit.edx.org/
-.. _edX Website Accessibility Policy: https://www.edx.org/accessibility
-.. _HTTP 2: http://httpwg.org/specs/rfc7540.html
-.. _Jinja2: http://jinja.pocoo.org/
-.. _Making Netflix Faster: http://techblog.netflix.com/2015/08/making-netflixcom-faster.html
+.. _edX ESLint Config: https://github.com/edx/eslint-config-edx/tree/master/packages/eslint-config-edx
+.. _edX ESLint Config for ES5: https://github.com/edx/eslint-config-edx/tree/master/packages/eslint-config-edx-es5
+.. _ESLint configuration cascading: http://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
+.. _ES2015 Modules: http://www.ecma-international.org/ecma-262/6.0/#sec-imports
+.. _ES2017: https://tc39.github.io/ecma262/
 .. _Modernizing the edX front end stack: https://openedx.atlassian.net/wiki/display/FEDX/Modernizing+the+edX+front+end+stack
-.. _Polymer Project: https://www.polymer-project.org/
-.. _Preventing Cross Site Scripting Vulnerabilities: http://edx.readthedocs.io/projects/edx-developer-guide/en/latest/conventions/safe_templates.html
-.. _React: https://github.com/reactjs
+.. _Polymer: https://www.polymer-project.org/
+.. _React: https://github.com/facebook/react
 .. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React+at+edX
 .. _React Native: https://facebook.github.io/react-native/
-.. _Sass: http://sass-lang.com/
-.. _Service Workers: An Introduction: https://developers.google.com/web/fundamentals/getting-started/primers/service-workers
+.. _Sass documentation: http://sass-lang.com/
 .. _The State of JavaScript 2016 Survey: http://stateofjs.com/
-.. _A Study Plan to Cure JavaScript Fatigue: https://medium.com/@sachagreif/a-study-plan-to-cure-javascript-fatigue-8ad3a54f2eb1#.hfs4ktxuf
-.. _Web Content Accessibility Guidelines (WCAG) 2.0: http://www.w3.org/TR/WCAG/
 .. _Webpack: https://webpack.github.io/
-.. _XBlocks: https://xblock.readthedocs.org/
+.. _Web Components: https://www.webcomponents.org/
