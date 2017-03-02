@@ -110,7 +110,10 @@ Technology Selection
    **Rationale**: React should be used for building new UIs, as it is
    widely adopted by the community and strikes a balance between
    flexibility and feature richness. For state management of complex
-   client-side interactions, Redux should be used alongside React.
+   client-side interactions, Redux should be used. This library was chosen
+   because it sees strong use in the React community, but is also flexible
+   enough to be used in situations where a hybrid React/Backbone architecture
+   exists.
 
    See `React at edX`_ for more details on the evaluation process that led to
    this technology selection. Other modern frameworks considered for use
