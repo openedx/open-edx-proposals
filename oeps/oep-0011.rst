@@ -70,17 +70,17 @@ Technology Selection
    modern front end libraries typically use the version of ECMA-262 released
    in 2015 (ES2015) or newer. edX JavaScript should use the syntax and
    features appropriate for the year is is written in, based on ECMA's
-   yearly spec release schedule. The most recently released version of ECMA-262
-   is `ES2017`_. Browsers progressively add support for more ECMA-262 features
-   as they are accepted, so it is recommended to use `Babel`_ which can
-   transpile ECMA-262-compliant JavaScript into code that all browsers support.
+   yearly spec release schedule. Browsers progressively add support for more
+   ECMA-262 features as they are accepted, so it is recommended to use `Babel`_
+   which can transpile ECMA-262-compliant JavaScript into code that all
+   browsers support.
 
    **Exception**: Much of edX's existing front end code is written conformant
    to the version of ECMA-262 released in 2009 (ES5). Files written in ES5
    should be gradually converted to the newer standard as new development in
    those feature areas requires.
 
-   **Note**: use of standards-compliant ECMAScript features should be
+   **Note**: Use of standards-compliant ECMAScript features should be
    preferred to the use of external libraries such as Underscore or
    compile-to-JavaScript languages such as CoffeeScript. See
    `Reasons for rejecting CoffeeScript`_ for more detail.
@@ -90,7 +90,7 @@ Technology Selection
    **Rationale**: It is important that JavaScript libraries are kept
    up-to-date, and one key component is to make it as simple as possible
    to perform upgrades. Projects that use npm maintain all of their
-   library requirements in a single package.json file, which can be
+   library requirements in a single `package.json` file, which can be
    easily changed as the versions change.
 
 4. **JavaScript code should follow the edX ESLint configuration**
@@ -121,7 +121,7 @@ Technology Selection
    `Reasons for rejecting Polymer`_ for an exploration of why these
    alternatives do not work as well as React for edX.
 
-   **Exception**: when building new applications within edx-platform, it
+   **Exception**: When building new applications within edx-platform, it
    is currently acceptable to use Backbone.  Backbone is a somewhat old
    technology in the JavaScript world and has seen a rapid drop off in usage
    within the community. The plan is to incrementally adopt React within
