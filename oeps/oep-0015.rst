@@ -37,7 +37,7 @@ The Open edX platform is a powerful tool for both content authoring and learning
 Motivation
 ==========
 
-The primary goal of this OEP is to facilitate research and experimentation by removing the bariers to large-scale JavaScript inclusion. Simplifying the inclusion of scripts is especially important for experiments spanning many courses (e.g., all MITx courses): it is not reasonable to expect all course teams at an institution to manually modify every single vertical in their course to include a research script as is the case with the current platform, but it is quite feasible to request that they make a single easy-to-reverse change to their course policy.
+The primary goal of this OEP is to facilitate research and experimentation by removing the barriers to large-scale JavaScript inclusion. Simplifying the inclusion of scripts is especially important for experiments spanning many courses (e.g., all MITx courses): it is not reasonable to expect all course teams at an institution to manually modify every single vertical in their course to include a research script as is the case with the current platform, but it is quite feasible to request that they make a single easy-to-reverse change to their course policy.
 
 As an additional benefit, a course-wide JavaScript mechanism would also simplify the use of course- or institution-wide utility scripts; HarvardX, for example, maintains a custom JS library for course authors.
 
