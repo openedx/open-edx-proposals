@@ -7,7 +7,7 @@ OEP-10: Open edX Releases
 +---------------+-------------------------------------------+
 | Title         | Open edX Releases                         |
 +---------------+-------------------------------------------+
-| Last Modified | 2016-10-14                                |
+| Last Modified | 2017-04-25                                |
 +---------------+-------------------------------------------+
 | Author        | Ned Batchelder, ned@edx.org               |
 +---------------+-------------------------------------------+
@@ -38,10 +38,10 @@ process.
 Motivation
 ==========
 
-Open edX releases happen infrequently, every four to six months. EdX engineers
-are typically focused on the weekly edx.org releases.  This document
-standardizes aspects of the release process to ensure that all involved
-understand and participate appropriately.
+Open edX releases happen roughly every six months. EdX engineers are typically
+focused on the much more frequent edx.org releases.  This document standardizes
+aspects of the release process to ensure that all involved understand and
+participate appropriately.
 
 
 Specification
@@ -67,7 +67,6 @@ components that might be useful to discuss, of various sizes:
 - Feature: large applications have major features which are configurable, and
   should be called out explicitly if their support status is different than the
   application they are a part of.
-
 
 
 Levels of support
@@ -103,10 +102,29 @@ parts of providing a finished quality product, and we don't want to overlook
 them.
 
 
+Dependencies
+------------
+
+Our software is built atop other software layers supported by their creators.
+It's important to consider the support windows for those layers when choosing
+which version to use.  An Open edX release is supported by edX until the next
+release, so for about six months.  The supporting layers must be supported by
+their developers for the entire Open edX release.
+
+Typically this means choosing Long Term Support (LTS) versions of the
+supporting layers, but it's possible shorter-term support versions will provide
+the support needed.
+
+The layers in question here are Django, Python, and Ubuntu.  Here's a `calendar
+of the known support windows`__ and how they overlap with Open edX plans.
+
+.. __: https://docs.google.com/spreadsheets/d/11DheEtMDGrbA9hsUvZ2SEd4Cc8CaC4mAfoV8SVaLBGI
+
+
 Release creation
 ----------------
 
-A new release line is created every four to six months.  Release lines are
+A new release line is created roughly every six months.  Release lines are
 named with words in alphabetical order: Dogwood, Eucalyptus, Ficus, Gingko,
 and so on.  On a release line, there will be a handful of releases:
 Eucalyptus.1, Eucalyptus.2, and so on.
