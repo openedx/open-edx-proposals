@@ -1,0 +1,419 @@
+========================================
+OEP-8: Unit Testing Tools and Frameworks
+========================================
+
++---------------+-------------------------------------------+
+| OEP           | :doc:`OEP-8 </oeps/oep-0008>`             |
++===============+===========================================+
+| Title         | Unit Testing Tools and Frameworks         |
++---------------+-------------------------------------------+
+| Last Modified | 2016-09-09                                |
++---------------+-------------------------------------------+
+| Author        | Jesse Zoldak                              |
++---------------+-------------------------------------------+
+| Arbiter       | Ben Patterson                             |
++---------------+-------------------------------------------+
+| Status        | Draft                                     |
++---------------+-------------------------------------------+
+| Type          | Best Practice                             |
++---------------+-------------------------------------------+
+| Created       | 2016-09-09                                |
++---------------+-------------------------------------------+
+
+
+Abstract
+========
+
+The edX ecosystem has grown from a handful of developers working on a few repos
+to many developers working on many repos. As such, questions arise as to tools
+and frameworks to use in unit testing. This proposal is intended to codify best
+practices and to provide a reference for contributors when making choices.
+
+
+Motivation
+==========
+
+Having common best practices for unit testing tools and frameworks across the
+organization's repos will increase the productivity of developers by reducing
+the ramp-up cost when moving among repos. It will also increase the quality of
+the software by decreasing the cognitive load on developers who must call to
+mind the various tips and techniques while using the disparate tools and
+frameworks.
+
+Note that edX already has a few dozen or more existing repos, and they are most
+likely currently not in full compliance with this OEP. This includes the edx-
+platform repo.
+
+Acceptance of this OEP does not imply that we will immediately work to bring all
+repos in full compliance. Rather we will track compliance using the Repository
+Metadata file specified in `OEP-2`_.
+
+Another reason for an exception might be to prototype a proposed new best
+practice. In that case, the openedx.yaml file could be marked as such (using the
+reason field).
+
+.. _OEP-2: https://open-edx-proposals.readthedocs.io/en/latest/oeps/oep-0002.html
+
+
+Specification
+=============
+
+Language Independent
+--------------------
+
+CI (Continuous Integration) Framework
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Our standard is to use `Travis CI`_ for both public and private repos.
+
+We make exceptions for repos which have more complicated CI requirements. For
+these we use an internally-managed Jenkins environment.
+
+Examples of special cases for which we use Jenkins rather than Travis:
+
+* The setup and/or execution time for the validation is prohibitively long (e.g.
+  the edx-platform repo)
+* A repo contains secrets that we do not want to share with a third party (e.g.
+  secure repos)
+
+
+Guidelines:
+"""""""""""
+
+* Configuration file: ``.travis.yml``
+
+* Execute tests in each supported environment
+
+  * For Python projects, execute tests for each supported Python version(s)
+  * For Django, also test in combination with the supported Django version(s)
+
+* Configure with automated deployment of tagged releases to `PyPI`_
+
+
+Task Management
+^^^^^^^^^^^^^^^
+We use Makefiles for task management. The reason for this choice is that
+almost any system no matter the OS should be able to use them without any
+special software installation or configuration.
+
+If the Makefile gets too complex:
+
+* For Python projects, use it as a wrapper to `Paver`_ scripts
+* For JavaScript projectes, use it as a wrapper to `Gulp`_
+
+Standard Makefile Target Naming Conventions:
+""""""""""""""""""""""""""""""""""""""""""""
+
++-------------------+--------------------------------------------------------------+
+| target            | description                                                  |
++===================+==============================================================+
+| help              | display a help message                                       |
++-------------------+--------------------------------------------------------------+
+| clean             | delete the artifacts created when running the validations    |
+|                   | and/or the application itself                                |
++-------------------+--------------------------------------------------------------+
+| pip-compile       | update the ``requirements/*.txt`` files with the latest      |
+|                   | packages satisfying ``requirements/*.in``                    |
++-------------------+--------------------------------------------------------------+
+| requirements      | install development environment requirements                 |
++-------------------+--------------------------------------------------------------+
+| requirements.prod | install production requirements                              |
+| (optional)        |                                                              |
++-------------------+--------------------------------------------------------------+
+| requirements.test | install requirements for testing                             |
+| (optional)        |                                                              |
++-------------------+--------------------------------------------------------------+
+| quality           | check coding style                                           |
++-------------------+--------------------------------------------------------------+
+| test              | run all unit, integration, and acceptance tests for the repo |
++-------------------+--------------------------------------------------------------+
+| validate          | run tests and quality checks                                 |
++-------------------+--------------------------------------------------------------+
+| e2e (optional)    | run End to End tests against a deployed environment to       |
+|                   | verify the system as a user, initiating their actions        |
+|                   | through the UI                                               |
++-------------------+--------------------------------------------------------------+
+
+.. _Travis CI: https://travis-ci.org/
+.. _PyPI: https://pypi.python.org/pypi
+.. _Paver: https://pythonhosted.org/Paver/
+.. _Gulp: http://gulpjs.com/
+
+
+Code Coverage
+^^^^^^^^^^^^^
+* Report on lines of code covered (statement, not branch coverage).
+* Include coverage of test files themselves. This guards against tests being inadvertenly excluded from execution.
+* Report coverage stats to `codecov`_ for trending and analysis.
+  * For repos with unit tests in multiple languages, use CodeCov's "flags" feature to independently track
+    coverage by language.
+
+.. _codecov: https://codecov.io/
+
+
+Repo Badging
+^^^^^^^^^^^^
+* Badges are displayed on GitHub repos via the README for any integrated services
+* Use svg images from `shields.io`_ where available (preferred over png images)
+* At a minimum we include badges for:
+
+  * Build status
+  * Coverage
+
+  .. _shields.io: http://shields.io/
+
+
+Python Language Specific
+------------------------
+
+Requirements
+^^^^^^^^^^^^
+
+* Core requirements are listed in the ``install_requires`` section of
+  ``setup.py``, and only modified when code changes are made that require a
+  new package or drop support for a previously supported one.
+
+* Requirements are managed via `pip-tools`_ and organized by which ones need
+  to be installed for different Python virtual environments.
+
+* Requirements files are kept either at root level or within a directory named
+  ``requirements``.
+
+* Direct dependencies are listed in ``requirements/*.in``.
+
+* Full pinned dependencies are auto-generated via ``make pip-compile`` and
+  saved in ``requirements/*.txt``. This file is tracked under version control.
+
+* For a developer to update package versions, she would run ``pip-compile
+  --upgrade`` and check in the changes to the .txt file(s).
+
+* Requirements are installed via ``make requirements`` which behind the scenes
+  will execute ``pip-sync``. Note that ``pip-sync`` updates a virtual env to
+  reflect exactly what is in the requirements files. This will
+  install/upgrade/uninstall everything necessary to match their contents.
+
+* Requirements that a developer also wants to use in their local development
+  environment (e.g. pudb) should be listed in a non-version-controlled
+  requirements file named ``private.txt``. This filename is included in the
+  ``pip-sync`` command and so its listed dependencies will be installed.
+
+* Requirements filename examples:
+
+  * ``requirements.*``: contains the base requirements
+
+  * ``test-requirements.*``: contains the requirements needed for writing and
+    running tests
+
+* Editable requirements format example:
+  ``-e git+https://github.com/edx/django-oauth2-provider.git@0.2.7-fork-edx-6a#egg =django-oauth2-provider==0.2.7-fork-edx-6``
+
+Code Quality
+^^^^^^^^^^^^
+
+* `Pylint`_ for static code analysis for conformance with Python best
+  practices
+
+  * `edx-lint`_ for generating pylint configuration files that verify edX best
+    practices
+  * Check both the ``pylintrc`` and the ``pylintrc_tweaks`` files into the
+    repo
+
+* `pycodestyle`_ (formerly pep8) for checking compliance with style
+  conventions in PEP 8
+
+  * Configuration file: ``[pycodestyle]`` section in ``setup.cfg``
+
+* `pydocstyle`_ for checking compliance with Python docstring conventions
+
+  * Configuration file: ``[pydocstyle]`` section in ``setup.cfg``
+
+Test Framework
+^^^^^^^^^^^^^^
+
+* `pytest`_ as the unit test framework
+
+  * Configuration file: ``pytest.ini``
+
+* Tox for installing packages and running tests under multiple Python
+  versions and interpreters
+
+  * Configuration file: ``tox.ini``
+
+Code Coverage
+^^^^^^^^^^^^^
+
+* `Coverage.py`_ for calculating code coverage
+
+  * Configuration file: ``.coveragerc``
+
+.. _pip-tools: https://pypi.python.org/pypi/pip-tools
+.. _Pylint: https://www.pylint.org/
+.. _edx-lint: https://github.com/edx/edx-lint/
+.. _pycodestyle: http://pycodestyle.pycqa.org/
+.. _pydocstyle: http://www.pydocstyle.org/
+.. _pytest: http://doc.pytest.org/
+.. _Tox: https://tox.readthedocs.io/
+.. _Coverage.py: https://coverage.readthedocs.io/
+
+
+JavaScript Language Specific
+----------------------------
+
+Code Quality
+^^^^^^^^^^^^
+
+* `ESLint`_ for static analysis in order to find problematic patterns or code
+  that doesn’t adhere to style guidelines
+
+  * `edX ESLint config`_  for generating ESLint configuration files that verify
+    edX best practices
+
+  * Configure in either ``package.json`` or ``.eslintrc.json``
+
+  * Specify exclusions in ``.eslintignore``
+
+
+Test Framework
+^^^^^^^^^^^^^^
+
+* `Jasmine`_ as the framework for testing JavaScript code
+
+  * `jasmine-jquery`_ matchers and fixture loader for Jasmine
+
+  * Jasmine-based helper classes from the testing folder of the `edX UI
+    Toolkit`_
+
+* `Karma`_ as the test runner for the JS tests
+
+  * We also use plugins to extend Karma. As this list could change, it is not
+    codified here. Please look at the ``devDependencies`` section of the
+    ``package.json`` file in existing edX repos to survey those that we are
+    currently using.
+
+Code Coverage
+^^^^^^^^^^^^^
+
+* `karma-coverage`_ for calculating code coverage
+
+.. _ESLint: http://eslint.org/docs/about/
+.. _edX ESLint config: https://github.com/edx/eslint-config-edx
+.. _Jasmine: http://jasmine.github.io/
+.. _jasmine-jquery: https://github.com/velesin/jasmine-jquery
+.. _Karma: https://karma-runner.github.io/
+.. _edX UI Toolkit: http://ui-toolkit.edx.org/
+.. _karma-coverage: https://www.npmjs.com/package/karma-coverage
+
+Other Languages and Platforms
+-----------------------------
+
+We do not have specific recommendations for other languages (e.g. Ruby) or
+platforms (e.g. mobile).
+
+These may be added later via either a change to this OEP (through a pull
+request) or in a new OEP.
+
+
+Rationale:
+----------
+
+Pytest / `nose`_ / `nose2`_
+  The original choice in the edx-platform was to use nose
+  to extend unittest to make testing nicer and easier to understand. However,
+  nose has been in maintenance mode for the past several years and will likely
+  cease without a new person/team to take over maintainership. The project
+  maintainers themselves suggest using nose2 or pytest (or plain
+  unittest/unittest2). As we still want to use a framework that extends
+  unittest, the question then becomes whether edX standardize on nose2 or
+  pytest.
+
+  Pytest has garnered widespread adoption, and thus most current tutorials,
+  templates, blog posts, etc. provide examples that use this framework. edX
+  developers have experimented with using pytest in new repos and have been
+  satisfied with the results. Given this and lacking other information that
+  would make it a bad choice, we have decided to standardize on pytest. Note
+  that nose2 might also have been a fine choice, but we did not prioritize
+  comparing and contrasting the two.
+
+Paver / `rake`_ / `Invoke`_
+  The original choice in the edx-platform was to use rake as the task
+  manager. However that made little sense as the amount of Ruby code in
+  the platform is eclipsed by the amount of Python code, and most
+  developers are much more comfortable with Python.
+
+  Paver was chosen over Invoke (pyinvoke) for reasons including the
+  following:
+
+  * While fully usable, Invoke is still pre-1.0 software and has no
+    backwards compatibility guarantees until the 1.0 release occurs.
+
+  * Paver is used as the task management / scripting tool for the edx-
+    platform codebase, and we have good examples there of its usage,
+    including tests.
+
+ESLint / `JSHint`_ / `JSCS`_
+  The original choice in the edx-platform was to use JSHint for JavaScript code
+  linting.
+
+  However JSHint didn't have a good story for linting ES2015+ as we aimed to
+  upgrade to that version of JavaScript.
+
+  And JSCS, which was another leader in the JS code style linter and formatter
+  has merged with ESLint.
+
+  Thus we determined that ESLint is preferred to cover our immediate, short
+  term, and long term needs.
+
+CodeCov / `Coveralls`_
+  The original choice for recording code coverage for trending
+  reports was to write the coverage statistics from edx-platform test
+  execution to DataDog.
+
+  This homegrown method was neither scalable nor maintainable. As such, we
+  started integrating with Coveralls.
+
+  However this solution did not meet our needs for aggregation and trending
+  analysis. Also we were integrating with the Free for Open Source version,
+  and the SLA for this service did not meet our time-to-feedback requirement
+  for the edx-platform repo.
+
+  Note that the slow response time for feedback the we experienced for the
+  edx-platform repo could have been due to something particular to the repo
+  itself, such as its size or activity. We did not pursue investigation into
+  the root cause or explore potential fixes.
+
+  In addition, developers starting using CodeCov on some repos and found that
+  they prefered the integration on PRs, including seeing the non-covered lines
+  in details. And people have found the codecov Chrome Extension that shows
+  coverage while in the GitHub web app to be useful.
+
+  Thus we have decided to standardize on CodeCov.
+
+.. _nose: http://nose.readthedocs.io/
+.. _nose2: https://github.com/nose-devs/nose2/
+.. _rake: https://ruby.github.io/rake/
+.. _Invoke: http://docs.pyinvoke.org/
+.. _JSHint: http://jshint.com/
+.. _JSLint: http://www.jslint.com/
+.. _JSCS: http://jscs.info/
+.. _Coveralls: https://coveralls.io/
+
+
+Change History
+==============
+
+2016-09-09
+----------
+
+* Original publication
+
+
+Copyright
+=========
+
+.. image:: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+    :alt: Creative Commons License CC-BY-SA
+    :target: http://creativecommons.org/licenses/by-sa/4.0/
+
+This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0
+International License`_.
+
+.. _Creative Commons Attribution-ShareAlike 4.0 International License: https://creativecommons.org/licenses/by-sa/4.0/
