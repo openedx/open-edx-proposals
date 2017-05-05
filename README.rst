@@ -12,3 +12,13 @@ archive of large and broadly relevant choices made for the platform.
 View the published list of `Open edX Proposals (OEPs)`_ on ReadTheDocs.
 
 .. _Open edX Proposals (OEPs): https://open-edx-proposals.readthedocs.io
+
+Note
+----
+
+    This repository documents the `Open edX Proposals (OEPs)`_.
+
+    If you reached the wrong place, here is a link to `OER Enhancement
+    Proposals`_, which are also called OEPs.
+
+.. _OER Enhancement Proposals: https://oep.readthedocs.io
