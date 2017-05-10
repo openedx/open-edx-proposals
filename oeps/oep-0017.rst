@@ -1,59 +1,74 @@
-=================================
-OEP-1: OEP Purpose and Guidelines
-=================================
+====================================
+OEP-17: L'OEP Purpose and Guidelines
+====================================
 
 +---------------+-------------------------------------------+
-| OEP           | :doc:`OEP-1 <oep-0001>`                   |
+| OEP           | :doc:`OEP-17 </oeps/oep-0017.rst>`        |
 +---------------+-------------------------------------------+
-| Title         | OEP Purpose and Guidelines                |
+| Title         | L'OEP Purpose and Guidelines              |
 +---------------+-------------------------------------------+
-| Last-Modified | 2016-08-24                                |
+| Last-Modified | 2017-05-08                                |
 +---------------+-------------------------------------------+
-| Authors       | Calen Pennington <cale@edx.org>           |
-|               | Joel Barciauskas <joel@edx.org>           |
+| Authors       | Robert Raposa <rraposa@edx.org>           |
 +---------------+-------------------------------------------+
-| Arbiter       | Eddie Fagin <efagin@edx.org>              |
+| Arbiter       |                                           |
 +---------------+-------------------------------------------+
-| Status        | Accepted                                  |
+| Status        | Draft                                     |
 +---------------+-------------------------------------------+
 | Type          | Process                                   |
 +---------------+-------------------------------------------+
-| Created       | 2016-03-26                                |
+| Created       | 2017-05-08                                |
 +---------------+-------------------------------------------+
-| Resolution    | `open-edx-proposals#1`_                   |
+| Resolution    |                                           |
 +---------------+-------------------------------------------+
 
-.. _open-edx-proposals#1: https://github.com/edx/open-edx-proposals/pull/1#issuecomment-220419055
+What is a L'OEP?
+================
 
-What is an OEP?
-===============
+A L'OEP (pronounced "loh-epp") is a Lightweight/Local Open edX (Enhancement)
+Proposal. It is a process based on a mix between the existing OEP process and
+the lighter weight Architecture Decision Record, in order to have more agility
+for documenting a specific technology decision being made within the context
+of a specific repository.
 
-OEP (pronounced "oh-epp") stands for Open edX (Enhancement) Proposal. An OEP is
-a document that details a specific technology decision being made by the Open
-edX community, in the form of a best practice, architecture design, or process
-adjustment. An OEP should provide the use cases and rationales that surround
-that choice. OEPs are not the only way for a change to be made to Open edX,
-however, the goal is to create a collection of OEP documents as a repository or
-knowledge archive of large and broadly relevant choices made for the platform.
+A L'OEP has the same general purposes and goals of a more formal OEP, but might
+be used when either:
 
-A template, ``oep-template.rst``, is available to help you provide all of the
-necessary information for your proposal.
+# The decision to be made only applies to the repository in question, or
 
-OEP Types
-=========
+# A light-weight decision is being trialled at the level of a repository,
+  that may later graduate to be "Replaced By" a more global OEP.
 
-* A **Process** proposal describes a change to how the Open edX community
-  functions.
+In order to understand the rest of this L'OEP process, it is assumed that you
+first understand the OEP process.  This document will mainly highlight the
+differences between this process and the L'OEP process.
 
-* A **Best Practices** proposal describes a technology or implementation
-  choice that the Open edX community believes all applicable Open edX services
-  and/or libraries should use or follow.
+A template directory, ``loep-directory-template``, is available to provide you
+with an ``architecture`` folder containing a standard ``loep-0001.rst`` to
+describe the process. This ``architecture`` can be copied to the root of any
+repository to start the L'OEP process.  Additionally, there is a template
+file ``loep-template.rst`` which can be used to start a new L'OEP in your
+repository.
 
-* An **Architecture** proposal describes relationships between Open edX
-  services and libraries, including their APIs and data formats.
+.. note::
+   When referring to a L'OEP outside of its repository, you must include the
+   name of the repository to avoid confusion with the same L'OEP ID in a
+   different repository.
 
-* A **Product Enhancement** proposal describes a significant enhancement to the
-  functionality of the Open edX platform.
+Motivation
+==========
+
+There are times when the team that owns a repository may want to move with a bit
+more agility within that repository, and yet still wishes to have some level of
+formality for documenting various types of architectural decisions within that
+repository. This could include decisions that only make sense for the specific
+repository. It may also include decisions that a team wishes to try out without
+some of the burdens of the more formal OEP process required to make the decision
+more global.
+
+Additionally, there is a desire to have documentation of certain decisions about
+a codebase live directly with the codebase.
+
 
 Workflow
 ========
@@ -65,231 +80,185 @@ Workflow
 OEP Roles
 ---------
 
-Each OEP must have a Author: someone who writes the OEP using the style and
-format described here, shepherds the discussions in the appropriate forums,
-and attempts to build community consensus around the idea.
+Each L'OEP must have a Author: someone who writes the L'OEP using the style and
+format described here, and attempts to build localized consensus around the
+idea.
 
-Each OEP also has an Arbiter (as described in `Initial Submission`_). The
-Arbiter will be chosen by the edX Chief Architect (currently Eddie Fagin).
-The Author of an OEP will never be selected as the Arbiter of that OEP.
+Unlike with OEPs, there will be a less formal arbitration process.  The edX
+architectural owners of the given repository will self-arbitrate the process
+on the Pull Request (PR) for the proposal. The review process should be no more
+onerous than that of a code change PR that would require architectural
+oversight.
 
-The Arbiter will be the person making the final decision on whether the OEP
-should be Accepted, and as such, the Arbiter should be knowledgeable about
-the contents of the proposal, and willing to listen to arguments both for
-and against it by the rest of the community.
+The same communication channels for the regular OEP process should still be used
+to give visibility and openness into the process for the community.
 
-The Arbiter is also responsible for helping the Author move the proposal
-through the OEP process, providing technical and process expertise as needed.
-The Arbiter also assists the Author to solicit feedback from the community on
-the OEP, and for helping to move the OEP towards a final decision (whether that
-decision is Accepted, Rejected, or Deferred). The Arbiter (in discussion with
-the Author) can merge an in-progress OEP (if it has reached a stage of relative
-stability) to allow for additional incremental updates.
+Adding or changing authors of an L'OEP should follow the same local processes of
+finding a new capable owner for any piece of work within the repository.
 
-Finally, the Arbiter is responsible for the decision to transfer an OEP if the
-original Author has become unresponsive (as described in `Transferring OEP
-Ownership`_).
+Before Submitting a L'OEP
+-------------------------
 
-Before Submitting an OEP
-------------------------
-
-The OEP process begins with a new idea for Open edX. It is highly recommended
-that a single OEP contain a single key proposal or new idea. Small enhancements
-or patches often don't need an OEP and can be injected into the Open edX
-development workflow with a patch submission.
-
-The OEP Author should first attempt to ascertain whether the idea is appropriate
-for an OEP.  Posting to the `edx-code`_ mailing list is the best way to go about
-this.
-
-Vetting an idea publicly before going as far as writing an OEP is meant to save
-the potential author time. Many ideas have been brought forward for changing
-Open edX that have been rejected for various reasons. Asking the Open edX
-community first if an idea is original helps prevent too much time being spent
-on something that is guaranteed to be rejected based on prior discussions
-(searching the Internet is not always sufficient). It also helps to make
-sure the idea is applicable to the entire community and not just the author.
-Just because an idea sounds good to the author does not mean it will work for
-most Open edX installations.
+As with the OEP process, the L'OEP Author should first determine whether the
+idea is appropriate for a L'OEP. This would likely entail a discussion with the
+owners of the repository. This can also be done by posting to the `edx-code`_
+mailing list.
 
 Initial Submission
 ------------------
 
-Once the Author has asked the Open edX community whether an idea has any chance
-of acceptance, a draft OEP should be submitted as a pull request against the
-`central OEP repository`_. To identify the draft proposal, the Author should
-check the numbered list of previous OEP pull requests and select the next
-available number. The pull request title must start with "OEP-XXX", which
-claims that OEP number for the included proposal.
+Once the Author knows that an idea has a chance of acceptance, a draft L'OEP
+should be submitted as a pull request against the ``architecture`` folder of the
+given repository. If the repository has not yet started using the L'OEP process,
+the directory ``loep-directory-template`` can get you started.
 
-.. _central OEP repository: http://github.com/edx/open-edx-proposals
+To identify the draft proposal, the Author should check the numbered list of
+previous L'OEP pull requests and select the next available number. The pull
+request title must start with "L'OEP-XXX", which claims that L'OEP number within
+the scope of that depository for the included proposal.
 
-After the Author drafts an OEP in a format in which they are comfortable, they
-will request an Arbiter from the edX Chief Architect. This Arbiter will be
-recorded in the "Arbiter" header on the OEP. The rest of Open edX community
-will be given the opportunity to comment on the OEP, with the Arbiter serving
-to keep the discussion on track and to evaluate when it has reached a final
-conclusion.
+After the Author drafts a L'OEP in a format in which they are comfortable, they
+will initiate the same code review process that would be followed in that
+repository for any change that would require architectural oversight.
 
-For an OEP to be accepted by the Arbiter, it must meet certain minimum
-criteria. It must be a clear and complete description of the proposed
-enhancement. The enhancement must represent a net improvement. The proposed
-implementation, if applicable, must pass the existing
+For the L'OEP to be accepted, it must contain a clear and complete description
+of the proposed enhancement. The enhancement must represent a net improvement.
+The proposed implementation, if applicable, must pass the existing
 `Open edX Contribution Guidelines`_.
 
 .. _Open edX Contribution Guidelines: http://edx.readthedocs.org/projects/edx-developer-guide/en/latest/process/index.html
 
-As updates are necessary, the OEP Author or Arbiter can update the pull
-request.
+As updates are necessary, the OEP Author can update the pull request.
 
-OEPs can reference pull requests to other Open edX repositories which will act
-as reference implementations.
+L'OEPs can reference pull requests to other Open edX repositories which will act
+as reference implementations. It can also reference L'OEPs that have been
+successful in another repository.
 
-OEP Review & Resolution
------------------------
+L'OEP Review & Resolution
+-------------------------
 
-Once an OEP has been accepted by an Arbiter, it is "Under Review". Once this
-state is acheived, we recommend announcing the OEP to the community in relevant
-forums such as the edx-code and more relevant mailing lists, the
-#open-edx-proposals Slack channel, and any other relevant Slack channels. It
-should also be added to the list of "Under Review" OEPs in the OEP repo.
+Once a L'OEP is under review, we recommend announcing the L'OEP to the community
+in relevant forums such as the ``edx-code`` and more relevant mailing lists, the
+#open-edx-proposals Slack channel, and any other relevant Slack channels.
 
-A Draft OEP can be assigned the status "Deferred". The OEP Author or Arbiter
-can assign the OEP this status when no progress is being made on the OEP. If an
-OEP is deferred, the OEP Author can reassign it to Draft status.
+The status and workflow of a L'OEP is extremely similar to that of the OEP
+review process. The main difference is following the local architectural review
+process for a PR, rather than requiring special arbitration.
 
-An OEP can also be "Rejected" by the Arbiter. Perhaps after all is said and
+A Draft L'OEP can be assigned the status "Deferred". The L'OEP Author with its
+reviewers can assign the L'OEP this status when no progress is being made on the
+L'OEP. If a L'OEP is deferred, the L'OEP Author can reassign it to Draft status.
+
+A L'OEP can also be "Rejected" by its reviewers. Perhaps after all is said and
 done it was not a good idea. It is still important to have a record of this
-fact. The "Withdrawn" status is similar: it means that the OEP Author
-themselves has decided that the OEP is actually a bad idea, or has accepted
+fact. The "Withdrawn" status is similar: it means that the L'OEP Author
+themself has decided that the L'OEP is not a good idea, or has accepted
 that a competing proposal is a better alternative.
 
-When an OEP is Accepted, Rejected, or Withdrawn, the OEP should be updated
+When a L'OEP is Accepted, Rejected, or Withdrawn, the L'OEP should be updated
 accordingly. In addition to updating the Status field, at the very least the
 Resolution header should be added with a link to the relevant post in the
-edx-code mailing list archive or to the appropriate section of the PR, and the
-Last-Modified header should be set to the current date.
+``edx-code`` mailing list archive or to the appropriate section of the PR, and
+the Last-Modified header should be set to the current date.
 
-OEPs can also be superseded by a different OEP, rendering the original
-obsolete.
+L'OEPs can also be superseded by a different L'OEP, rendering the original
+obsolete. Additionally, a L'OEP can be intentionally graduated and/or superseded
+by a more global OEP. There may be cases where a decision is made for L'OEP to
+continue to override a future OEP, and this too could be documented.
 
-The possible paths of the status of OEPs are as follows.
-
-.. image:: oep-0001/state-flow.png
-  :alt: A flowchart of OEP statuses, from Draft to Deferred and then back to
-      Draft, and from Draft to Accepted, Rejected, or Withdrawn. From Accepted,
-      the next status is Final. A Final OEP can be Replaced.
-
-Please note that OEP statuses do not necessarily coincide with the status of
-the pull request that contains the OEP. For example, OEPs that have been
+Please note that L'OEP statuses do not necessarily coincide with the status of
+the pull request that contains the L'OEP. For example, L'OEPs that have been
 rejected should still be merged, but should be marked with the Rejected status.
-This preserves the rationale and description of the OEP in the generated
+This preserves the rationale and description of the L'OEP in the generated
 documentation.
 
-Likewise, an OEP that is in "Draft" status can be merged to capture a set of
+Likewise, a L'OEP that is in "Draft" status can be merged to capture a set of
 edits, and to make the proposal more visible to community comment. From that
-point, additional pull requests can be opened to edit the "Draft" OEP, until it
-converges to being either "Accepted" or "Rejected".
+point, additional pull requests can be opened to edit the "Draft" L'OEP, until
+it converges to being either "Accepted" or "Rejected".
 
 OEP Maintenance
 ---------------
 
-In general, OEPs are not modified after they have reached the Final state. They
-can be replaced by subsequent OEPs, however (OEPs that are replaced are given
-the status "Replaced").
+In general, L'OEPs are not modified after they have reached the Final state.
+They can be replaced by subsequent L'OEPs or OEPs, however (L'OEPs that are
+replaced are given the status "Replaced").
 
-The choice of whether an edit to an OEP should be allowed or whether a new OEP
-should be published is up to the Arbiter of the original OEP, or the edX Chief
-Architect if that Arbiter is no longer available. However, as a general
-guideline, the following updates would not require a replacement OEP.
+The choice of whether an edit to a L'OEP should be allowed or whether a new
+L'OEP should be published is up to the architectural owners of the repository.
+However, as a general guideline, the following updates would not require a
+replacement L'OEP.
 
 * Formatting changes.
 * Grammatical and spelling corrections.
 * Adding links to additional relevant resources and discussions.
-* Additional diagrams or clarifying material (as long as the Arbiter agrees
-  that the substance of the OEP isn't changed).
+* Additional diagrams or clarifying material (as long as the architectural
+  owners agree that the substance of the L'OEP isn't changed).
 
-The following updates warrant replacement OEPs.
+The following updates warrant replacement L'OEPs.
 
-* Changing the choice of technology in a Best Practice OEP (such as
+* Changing the choice of technology in a Best Practice L'OEP (such as
   which test-runner should be used).
-* Changing how a set of services is separated in an Architecture OEP (for
+* Changing how a set of services is separated in an Architecture L'OEP (for
   example, splitting one service into two, or combining two services into one).
 
-What belongs in a successful OEP?
-=================================
+What belongs in a successful L'OEP?
+===================================
 
-Each OEP should have the following parts.
+The parts of a L'OEP vary some from that of an OEP.  Below are the parts of a
+L'OEP, as well the key differences from an OEP.
 
 *Preamble*
-    A table containing metadata about the OEP, including the OEP number,
-    a short descriptive title, the names, and optionally the contact info for each author.
-
-*Abstract*
-    A short (~200 word) description of the technical issue being addressed.
+    A table containing metadata about the L'OEP, including the L'OEP number,
+    a short descriptive title, the names, and optionally the contact info for
+    each author. It does not include the Arbiter or Type used in an OEP.
 
 *Copyright*
-    All OEPs must be shared under the `Creative Commons Attribution-ShareAlike 4.0 International License`_.
+    All L'OEPs must be shared under the `Creative Commons Attribution-ShareAlike 4.0 International License`_.
+    L'OEPs will follow the same copyright process as OEPs.
 
 .. _Creative Commons Attribution-ShareAlike 4.0 International License: https://creativecommons.org/licenses/by-sa/4.0/
 
-.. We talked about copyright vs. licensing. Can we require them to license as CC-by-SA? can we let them reserve copyright to themselves? Tena, help! Also, this comes later in the template -- make the sequence here match the sequence there?
+In place of the sections found in an OEP, the following sections have been taken
+from the `Architecture Decision Record`_ process in an attempt at creating
+lighter-weight proposals.
 
-*Motivation*
-    The motivation is critical for OEPs that want to change Open edX. It should
-    clearly explain why the existing architecture or process is inadequate to
-    address the problem that the OEP solves, or why Open edX would be significantly
-    improved by adopting the best practice. OEP submissions without sufficient
-    motivation are unlikely to be accepted.
+_`Architecture Decisions Record`: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions.
 
-*Specification*
-    The technical specification should describe the syntax and
-    semantics of any new API, or the details of what the Best Practice,
-    Process, or Architecture being proposed by the OEP are.
+*Context*
+    "This section describes the forces at play, including technological, political,
+    social, and project local. These forces are probably in tension, and should be
+    called out as such. The language in this section is value-neutral. It is simply
+    describing facts." [#]_
 
-*Rationale*
-    The rationale fleshes out the specification by describing what
-    motivated the design and why particular design decisions were made. It
-    should describe alternate designs that were considered and related work,
-    for example, how the feature is supported in other systems.
+    This is similar to the Motivation section of _`an OEP`.
 
-    The rationale should provide evidence of consensus within the community
-    and discuss important objections or concerns raised during discussion.
-    It should also link to any major and pertinent discussions of the OEP
-    that happened in other fora (such as the `edx-code`_ mailing list).
+*Decision*
+    "This section describes our response to these forces. It is stated in full
+    sentences, with active voice. "We will ..."" [#]_
 
-    .. _edx-code: https://groups.google.com/forum/#!forum/edx-code
+    This section could include details that might appear in any of the following
+    sections in _`an OEP`: Specification, Rationale, Backward Compatibility,
+    Reference Implementation, and Rejected Alternatives.
 
-*Backward Compatibility*
-    All OEPs that introduce backward incompatibilities
-    must include a section describing these incompatibilities and their
-    severity. The OEP must explain how the author proposes to deal with these
-    incompatibilities. OEP submissions that do not consider backward
-    compatibility are unlikely to be accepted.
+*Consequences*
+    "This section describes the resulting context, after applying the decision. All
+    consequences should be listed here, not just the "positive" ones. A particular
+    decision may have positive, negative, and neutral consequences, but all of them
+    affect the team and project in the future." [#]_
 
-*Reference Implementation*
-    The reference implementation must be completed before any OEP is given
-    a status of "Final", but it need not be completed before the OEP is
-    accepted. While there is merit to the approach of reaching consensus on
-    the specification and rationale before writing code, the principle of
-    "rough consensus and running code" is still useful when it comes to
-    resolving many discussions of API details.
+    This section does not directly align with an of the sections of _`an OEP`.
 
-    The final implementation must include test code and documentation,
-    following the `Open edX Contribution Guidelines`_.
+.. [#]  From Michael Nygard's blog on `Architecture Decisions Records (ADRs)`_.
+.. [#]  From Michael Nygard's blog on `Architecture Decisions Records (ADRs)`_.
+.. [#]  From Michael Nygard's blog on `Architecture Decisions Records (ADRs)`_.
 
-.. _Open edX Contribution Guidelines: http://edx.readthedocs.org/projects/edx-developer-guide/en/latest/process/index.html
+_`Architecture Decisions Records (ADRs)`: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions.
+_`an OEP`: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0001.rst
 
-*Rejected Alternatives*
 
-    The OEP should list any alternative designs or implementations that were
-    considered and rejected, and why they were not chosen. It should also link
-    to the original source of that discussion.
 
-*Change History*
-
-    A list of dated sections that describes a brief summary of each revision
-    of the OEP.
+*************START HERE*****************
 
 
 OEP Formats and Templates
