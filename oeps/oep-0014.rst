@@ -110,6 +110,17 @@ Include this statement in the README.rst file:
     issues, and security updates will not be provided. Pull requests against
     this repository will also not be merged.
 
+For Repos that are Forks
+------------------------
+If the repository is a fork of an upstream repository that is not within the edX organization, and will no longer be maintained, it can be deleted with the following steps.
+
+1. Review any differences between the upstream parent and the forked repo. Capture anything that should be kept for historical purposes.
+
+2. Review dependencies on this fork (i.e., ensure no one is using it anymore)
+
+3. Submit an IT help ticket to have it deleted.
+
+
 Rationale
 =========
 
