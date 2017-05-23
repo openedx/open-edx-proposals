@@ -114,9 +114,10 @@ For Repos that are Forks
 ------------------------
 If the repository is a fork of an upstream repository that is not within the edX organization, and will no longer be maintained, it can be deleted with the following steps.
 
-1. Review any differences between the upstream parent and the forked repo. Capture anything that should be kept for historical purposes.
+1. Review any differences between the upstream parent and the forked repo. Capture anything
+   that should be kept for historical purposes.
 
-2. Review dependencies on this fork (i.e., ensure no one is using it anymore)
+2. Ensure that there are no edX dependencies on this repository.
 
 3. Submit an IT help ticket to have it deleted.
 
@@ -206,3 +207,8 @@ Change History
 ----------
 
 * Original publication
+
+2017-05-23
+----------
+
+* Added steps for repositories that live in the edX org, but are forks of other, independent repositories
