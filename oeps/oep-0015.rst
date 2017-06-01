@@ -7,25 +7,26 @@ OEP-15: Course-wide Custom JavaScript
 +---------------+----------------------------------------------------+
 | Title         | Course-wide Custom JavaScript                      |
 +---------------+----------------------------------------------------+
-| Last Modified | 2017-01-24                                         |
+| Last Modified | 2017-06-01                                         |
 +---------------+----------------------------------------------------+
 | Author        | Martin Segado <msegado@mit.edu>                    |
 +---------------+----------------------------------------------------+
-| Arbiter       |                                                    |
+| Arbiter       | Scott Dunn <sdunn@edx.org>                         |
 +---------------+----------------------------------------------------+
-| Status        | Draft                                              |
+| Status        | Accepted                                           |
 +---------------+----------------------------------------------------+
 | Type          | Product Enhancement                                |
 +---------------+----------------------------------------------------+
 | Created       | 2016-08-29                                         |
 +---------------+----------------------------------------------------+
-| Resolution    |                                                    |
+| Resolution    | `Original pull request`_                           |
 +---------------+----------------------------------------------------+
 | References    | - `Initial OEP suggestion`_ on the edx-code list   |
 |               | - `An edx-code question`_ from another user at MIT |
 |               |   who was hoping to include course-wide JS/CSS     |
 +---------------+----------------------------------------------------+
 
+.. _Original pull request: https://github.com/edx/open-edx-proposals/pull/43
 .. _Initial OEP suggestion: https://groups.google.com/d/topic/edx-code/T83TDxhH74E/discussion
 .. _An edx-code question: https://groups.google.com/d/topic/edx-code/idjPWUIx8Ls/discussion
 
