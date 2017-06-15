@@ -24,7 +24,7 @@ Abstract
 ========
 
 In order to accelerate development, and provide a more consistent user
-experience for our users, Open edX will adopt Bootstrap 4 to style its web
+experience for our users, Open edX will adopt `Bootstrap 4`_ to style its web
 applications. The community will be able to extend the platform using any of
 Bootstrap's collection of components, as well as use Bootstrap theming to brand
 their instances. An Open edX-supported subset of components will be provided
@@ -40,7 +40,7 @@ The following rubric was used to assess potential technologies:
 * Options for community
 * Frameworks that are opinionated vs. flexible
 * Ability to easily build accessible front-ends
-* Ease of design-framework integration
+* Ease of integration
 * DIY framework vs. all-inclusive platform
 * Willingness to dedicate resources to development and maintenance
 * Ease of prototyping
@@ -64,10 +64,10 @@ address:
 * integration with build systems
 * integration into existing edX pages
 
-Bootstrap is the industry standard framework for desigining web applications. It
-comes with a comprehensive collection of web components that are designed to be
-responsive, meaning that Bootstrap applications look good at phone, tablet,
-and desktop sizes.
+Bootstrap is the leading framework for designing web applications. It comes with
+a comprehensive collection of components that are designed to be responsive,
+meaning that Bootstrap applications look good at phone, tablet, and desktop
+sizes.
 
 Bootstrap 4 is the first version to support key requirements for adoption
 within the edX platform:
@@ -76,15 +76,15 @@ within the edX platform:
 * It provides a more flexible grid system that supports all of edX's layouts
 * It uses ems and rems for responsive typography
 
-Another key factor in the switch is the wide availability of Boostrap-based
+Another key factor in the switch is the availability of Bootstrap-based
 React components. With edX's move to adopt React (see
 `OEP-11 - Front End Technology Standards`_), this will provide the community
 with an ever increasing set of components with which to extend the platform.
 
 Finally, a critical benefit to using Bootstrap is that the edX community
-does not need to build or work with a proprietary markup scheme. XBlock authors
-and platform developers alike can target the standard Bootstrap markup which
-is very well documented. This saves time in development, and also ensures that
+does not need to build or work with proprietary HTML classes. XBlock authors
+and platform developers alike can target the standard Bootstrap classes which
+are very well documented. This saves time in development, and also ensures that
 the new user interface will be rendered according to the current theme.
 
 Specification
@@ -148,13 +148,13 @@ there are several benefits of `rtlcss` over bi-app-sass:
 * Having only a single CSS file that adapts to the desired language
   direction makes asset management simpler.
 
-Given this decision, the reference implementation was updated to use `rtlcss`.
-This proof-of-concept successfully demonstrated pages rendered right-to-left
-which confirmed the choice.
+Given this decision, the reference implementation (see below) was updated to use
+`rtlcss`. This proof-of-concept successfully demonstrated pages rendered
+right-to-left which confirmed the choice.
 
 Note: once Bootstrap chooses its own approach, it will be necessary to revisit
 this decision. It might be simpler, for example, to switch to use the same
-technology for simplicities sake.
+technology for simplicity's sake.
 
 For more background, see the `Bootstrap RTL Discovery ticket`_.
 
@@ -183,7 +183,9 @@ allows pages to be converted one at a time.
 An investigation was performed to see whether Bootstrap components could be used
 on non-Bootstrap pages, but the conclusion was that the conflicts made this more
 trouble than it was worth. The recommendation is to convert pages in one shot
-which will be quicker and will have fewer issues.
+which will be quicker and will have fewer issues. For shared templates such as
+the header or footer, a context parameter will be passed through indicating
+whether Bootstrap components should be used.
 
 Reference Implementation
 ========================
@@ -249,6 +251,7 @@ variety of sites in the Open edX community.
 .. _Bootstrap: http://getbootstrap.com/
 .. _Bootstrap Proof-of-Concept PR: https://github.com/edx/edx-platform/pull/14834
 .. _Bootstrap RTL Discovery ticket: https://openedx.atlassian.net/browse/FEDX-352
+.. _Bootstrap 4: https://v4-alpha.getbootstrap.com/
 .. _edX accessibility guidelines: http://edx.readthedocs.io/projects/edx-developer-guide/en/latest/conventions/accessibility.html
 .. _edX Front End Working Group: https://openedx.atlassian.net/wiki/display/FEDX/Front+End+Working+Group
 .. _edX UI Toolkit: http://ui-toolkit.edx.org/
