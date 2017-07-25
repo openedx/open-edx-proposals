@@ -1,0 +1,46 @@
+====================================
+OEP-13: Open edX web API conventions
+====================================
+
+.. This is the template to use when you start a new OEP.
+
++---------------+-------------------------------------------+
+| OEP           | :doc:`OEP-13 </oeps/oep-0013>`            |
++---------------+-------------------------------------------+
+| Title         | Open edX web API conventions              |
++---------------+-------------------------------------------+
+| Last Modified | 2017-07-25                                |
++---------------+-------------------------------------------+
+| Author        | Edward Fagin <eddie@edx.org>              |
++---------------+-------------------------------------------+
+| Arbiter       | Andy Armstrong <andya@edx.org>            |
++---------------+-------------------------------------------+
+| Status        | Withdrawn                                 |
++---------------+-------------------------------------------+
+| Type          | Best Practice                             |
++---------------+-------------------------------------------+
+|  Created      | 2016-12-29                                |
++---------------+-------------------------------------------+
+| `Resolution`  |                                           |
++---------------+-------------------------------------------+
+| `Replaces`    |                                           |
++---------------+-------------------------------------------+
+| `Replaced-By` |                                           |
++---------------+-------------------------------------------+
+| `References`  |                                           |
++---------------+-------------------------------------------+
+
+Abstract
+========
+
+This document captures the conventions to be used for all Open edX web APIs.
+
+Update: moved to https://openedx.atlassian.net/wiki/display/OpenDev/edX+REST+API+Conventions.
+
+Motivation
+==========
+
+The Open edX platform contains many extension points for third-party developers
+that wish to integrate with the platform. We wish to approach a standard
+methodology for API design in order to give developers more consistency in their
+API client design, and to make our endpoint behaviors more predictable.
