@@ -223,6 +223,14 @@ Python versions.  We do not explicitly require one way over the other, but
 decisions should be made on a per-project basis, and adhered to by all
 developers working on that project.
 
+One potential 'gotcha' to look out for is in your ``setup.py`` files. Per the
+documentation for distutils_, none of the string values for metdata fields may
+be unicode. This has the potential to cause problems_ when using a python 3
+ready distribution in a python 2 project.
+
+.. _distutils: https://docs.python.org/2/distutils/setupscript.html#additional-meta-data
+.. _problems: https://github.com/edx/XBlock/pull/365
+
 Handling literals, Option 1: Python 3-Style
 '''''''''''''''''''''''''''''''''''''''''''
 
