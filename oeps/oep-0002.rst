@@ -78,17 +78,17 @@ following fields:
     it is assumed to be ``False``, unless the reporting tool can auto-detect
     accordance.
 
+.. track-pulls should be moved to a separate OEP
+
 ``track-pulls``: boolean (optional)
-
-    .. This should be moved to a separate OEP
-
     Whether or not this repository should be tracked for creation of OSPR tickets.
 
 ``openedx-release``: defined by :doc:`OEP-10 <oep-0010>`.
+    See :doc:`OEP-10 <oep-0010>` for details.
 
 ``archived``: boolean (optional)
     If ``True``, this specifies that this repository is archived and no longer
-    maintained by ``edX``.
+    maintained by edX.
 
 
 For example, in the `edx-platform`_ repo, the file might look like:
@@ -147,7 +147,7 @@ Change History
 ----------
 
 * Change ``obsolete`` to ``archived`` and relax the requirement for an owner
-if ``archived`` is True.
+  if ``archived`` is True.
 
 2017-01-10
 ----------
@@ -169,5 +169,3 @@ if ``archived`` is True.
 ----------
 
 * Original publication
-
-
