@@ -4,42 +4,46 @@ OEP-XXX: OEP Template
 
 .. This is the template to use when you start a new OEP.
 
-+---------------+-------------------------------------------+
-| OEP           | :doc:`OEP-XXX </oeps/oep-0xxx>`           |
-+---------------+-------------------------------------------+
-| Title         | <OEP title>                               |
-+---------------+-------------------------------------------+
-| Last Modified | <date string, in YYYY-MM-DD format>       |
-+---------------+-------------------------------------------+
-| Author        | <list of authors' real names and          |
-|               | optionally, email addresses>              |
-+---------------+-------------------------------------------+
-| Arbiter       | <OEP czar's real name>                    |
-+---------------+-------------------------------------------+
-| Status        | <Draft | Accepted | Deferred |            |
-|               | Rejected | Withdrawn | Final |            |
-|               | Replaced>                                 |
-+---------------+-------------------------------------------+
-| Type          | <Architecture | Best Practice |           |
-|               | Process | Product Enhancement>            |
-+---------------+-------------------------------------------+
-| Created       | <date created on, in YYYY-MM-DD format>   |
-+---------------+-------------------------------------------+
-| `Resolution`  | <links to any discussions where the final |
-|               | status was decided>                       |
-+---------------+-------------------------------------------+
-| `Replaces`    | <OEP number>                              |
-+---------------+-------------------------------------------+
-| `Replaced-By` | <OEP number>                              |
-+---------------+-------------------------------------------+
-| `References`  | <links to any other relevant discussions  |
-|               | or relevant related materials>            |
-+---------------+-------------------------------------------+
++-----------------+--------------------------------------------------------+
+| OEP             | :doc:`OEP-XXXX </oeps/oep-XXXX-YYYY-ZZZZ>`             |
+|                 |                                                        |
+|                 | * <XXXX is the next available OEP number>              |
+|                 | * <YYYY is the abbreviated Type: proc | bp | arch>     |
+|                 | * <ZZZZ is a brief (< 5 words) version of the title>   |
++-----------------+--------------------------------------------------------+
+| Title           | <OEP title>                                            |
++-----------------+--------------------------------------------------------+
+| Last Modified   | <date string, in YYYY-MM-DD format>                    |
++-----------------+--------------------------------------------------------+
+| Authors         | <list of authors' real names and                       |
+|                 | optionally, email addresses>                           |
++-----------------+--------------------------------------------------------+
+| Arbiter         | <Arbiter's real name and email address>                |
++-----------------+--------------------------------------------------------+
+| Status          | <Draft | Under Review | Deferred | Accepted |          |
+|                 | Rejected | Withdrawn | Final | Replaced>               |
++-----------------+--------------------------------------------------------+
+| Type            | <Architecture | Best Practice | Process>               |
++-----------------+--------------------------------------------------------+
+| Created         | <date created on, in YYYY-MM-DD format>                |
++-----------------+--------------------------------------------------------+
+| `Review Period` | <start - target end dates for review>                  |
++-----------------+--------------------------------------------------------+
+| `Resolution`    | <links to any discussions where the final              |
+|                 | status was decided>                                    |
++-----------------+--------------------------------------------------------+
+| `Replaces`      | <OEP number>                                           |
++-----------------+--------------------------------------------------------+
+| `Replaced-By`   | <OEP number>                                           |
++-----------------+--------------------------------------------------------+
+| `References`    | <links to any other relevant discussions               |
+|                 | or relevant related materials>                         |
++-----------------+--------------------------------------------------------+
 
 Abstract
 ========
 
-The abstract is a short (~200 word) description of the technical issue that
+The abstract is a short description of the technical issue that
 this Open edX proposal (OEP) addresses.
 
 Motivation
@@ -50,32 +54,22 @@ existing architecture or process is inadequate to address the problem that the
 OEP solves, or why adopting the best practice would significantly improve Open
 edX.
 
-OEP submissions without sufficiently clear and compelling motivation are
-unlikely to be accepted.
-
 Specification
 =============
 
 The specification describes the technical details of the Architecture, Best
-Practice, Process or Product Enhancement proposed by the OEP. If the proposal
-includes a new API, specify its syntax and semantics.
+Practice or Process proposed by the OEP. If the proposal includes a new API,
+specify its syntax and semantics.
 
 Rationale
 =========
 
 The rationale adds to the specification by describing the events or
-requirements that led the proposal, what influenced the design, and why
-particular design decisions were made. It should describe any alternate designs
-that were considered and identify any related work, for example, how the
-feature is supported in other systems.
-
-The rationale should provide evidence of consensus within the community and
-discuss important objections or concerns raised during discussion. It should
-also link to any major and pertinent discussions of the OEP that happened in
-other fora (such as the `edx-code`_ mailing list).
-
-.. _edx-code: https://groups.google.com/forum/#!forum/edx-code
-
+requirements that led to the proposal, what influenced the design, and why
+particular design decisions were made. The rationale could provide evidence
+of consensus within the community and discuss important objections or
+concerns raised during discussion. It could identify any related work, 
+for example, how the feature is supported in other systems.
 
 Backward Compatibility
 ======================
@@ -85,32 +79,20 @@ An OEP that introduces backward incompatibilities must describe the
 incompatibilities, with their severity and an explanation of how you propose to
 address these incompatibilities.
 
-OEP submissions that do not consider backward compatibility issues are unlikely
-to be accepted.
-
-
 Reference Implementation
 ========================
 
 The reference implementation must be completed before any OEP is given "Final"
-status, but it need not be completed before the OEP is accepted. While there is
+status, but it need not be completed before the OEP is "Accepted". While there is
 merit to the approach of reaching consensus on the specification and rationale
 before writing code, the principle of "rough consensus and running code" is
-still useful when it comes to resolving many discussions of API details.
-
-The final implementation must include test code and documentation, following
-the `Open edX Contribution Guidelines`_.
-
-.. _Open edX Contribution Guidelines: http://edx.readthedocs.org/projects/edx-developer-guide/en/latest/process/index.html
-
+still useful when it comes to resolving many discussions.
 
 Rejected Alternatives
 =====================
 
 This statement describes any alternative designs or implementations that were
-considered and rejected, and why they were not implemented. It should also link
-to the original source of that discussion.
-
+considered and rejected, and why they were not chosen.
 
 Change History
 ==============
