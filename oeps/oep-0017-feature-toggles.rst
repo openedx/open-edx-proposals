@@ -42,7 +42,7 @@ production systems by providing levers to progressively test changes and quickly
 disable changes if needed. For a large platform, it is also used to 
 selectively enable a change/feature for certain users or certain deployments.
 
-Feature toggles inherently add complexity to the code, however, since they 
+However, feature toggles inherently add complexity to the code since they 
 introduce multiple paths and configuration operations, with the potential to
 create an explosion in testing permutations and to create forgotten latent unused
 code paths. A thorough understanding of their implications and best practices is
@@ -55,14 +55,14 @@ Given the many benefits of using feature toggles, edX development teams have
 been using them since the very start. Additionally, since deployment latency
 for edx.org has reduced from monthly->weekly->daily and since teams have been
 bitten too many times by `long-term feature branches`_, teams now have a greater 
-incentive to develop incrementally within the main branch. Updating veteran 
+incentive to develop incrementally within the main branch. Updating legacy 
 edX user experiences and features also drives the need for a framework where 
 usability and behavior changes are gradually released and introduced to the edX 
 user base.
 
 Aligning on a common best practice for feature toggling is critical for both
 the short-term and long-term health of the system. Using different standards,
-strategies, testing procedures, etc leads to confusion, production failures,
+strategies, testing procedures, etc., leads to confusion, production failures,
 and long-term maintenance issues.
 
 .. _long-term feature branches: https://blog.newrelic.com/2012/11/14/long-running-branches-considered-harmful/
@@ -135,9 +135,9 @@ When a team is concerned about potential performance or scalability issues with 
 upcoming change, gating the change behind a toggle allows the team to:
 
 * control when the change is enabled so they can monitor it in production at their
-  own time, independent of the deployment cycle
+  own time, independent of the deployment cycle.
 
-* quickly disable the change in case of unexpected issues in production
+* quickly disable the change in case of unexpected issues in production.
 
 * gradually rollout the change (`canary release`_), starting with a small percentage
   of random users, detecting regressions, addressing any issues that arise, before
@@ -178,16 +178,16 @@ contrast to the `Ops - Monitored Rollout`_ case where changes are rolled out to 
 In the edX case, the Beta testing program may include the following types of population
 subsets:
 
-* Users - list of specific users
+* Users - list of specific users.
 
-* Courses - users enrolled in any course within a list of specific courses *(for 
-  course-related features)*
+* Courses - users associated with any course within a list of specific courses *(for 
+  course-related features).*
 
-* Content-provider Organizations - users enrolled in any course offered by any
-  organization in a list of specific organizations *(for course-related features)*
+* Content-provider Organizations - users associated with any course offered by any
+  organization in a list of specific organizations *(for course-related features).*
 
 * User-provider Organizations - enterprise users associated with any organization in
-  a list of specific organizations
+  a list of specific organizations.
 
 The feature toggle is useful during the duration of the Beta testing period and is 
 removed afterward.
@@ -204,8 +204,7 @@ Use Case 6: VIP / White Label
 
 The business may choose to modify the product experience for different classes of
 users. For example, the state of a feature toggle may depend on whether the user
-is a paying customer, a bundled feature within a subscription plan, or applicable
-to a white label site.
+is a paying customer or applicable to a white label site.
 
 Use Case 7: Opt-out
 ^^^^^^^^^^^^^^^^^^^
@@ -307,8 +306,6 @@ response. The range of toggle types and toggle durations are:
 | 5 | *Is there a specific big grand opening date for this   | Business     | * Use Case: `Launch Date`_               |
 |   | feature? If so, is it really necessary for it to       |              | * Min Toggle type: **Switch Toggle**     |
 |   | remain hidden until that time?*                        |              | * Min Duration: **During Rollout**       |
-|   | that want early access to the changes before they are  |              |                                          |
-|   | officially rolled out?*                                |              |                                          |
 +---+--------------------------------------------------------+--------------+------------------------------------------+
 | 6 | *Are there any specific groups that are adamant about  | Business     | * Use Case: `Opt-out`_                   |
 |   | opting out of the feature? If so, are we unable to     |              | * Min Toggle type: **Group Toggle**      |
@@ -590,7 +587,7 @@ Testing Best Practices
 
 Given that, here are best practices for testing a Feature Toggle:
 
-* Tests should run with whatever state is in production.
+* Tests should run with whatever states are in production (including Prod and Edge).
 
 * Tests should run in both on and off Toggle states unless they are guaranteed
   to not be enabled in production.
@@ -634,7 +631,7 @@ minimum. The framework's Removability and Report features make it possible
 to do so. But it must be accompanied by a proactive process of actually removing
 the toggles and their branches within the code.
 
-In addition to using the Report as a central tool of overseeing the toggles,
+In addition to using the Report as a central tool for overseeing the toggles,
 individual teams should create tickets in their backlogs for removing toggles
 according to their intended expiration dates.
 
