@@ -567,6 +567,11 @@ present the following information for each toggle.
 |                     | of removal; to easily find all expired |                        |
 |                     | toggles.                               |                        |
 +---------------------+----------------------------------------+------------------------+
+| Current Setting(s)  | Summary of the current configuration   | Derived from relational|
+|                     | and value of the feature toggle; to    | table                  |
+|                     | easily evaluate its readiness to       |                        |
+|                     | transition or retire.                  |                        |
++---------------------+----------------------------------------+------------------------+
 | First Modified Time | Date the toggle was first set in the   | Derived from relational|
 |                     | system; to get the starting date       | tables                 |
 |                     | of its use.                            |                        |
