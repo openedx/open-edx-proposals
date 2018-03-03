@@ -72,7 +72,8 @@ Use Cases
 
 At its core, feature toggles allow teams to deploy alternative code paths and to
 choose between them at runtime. There are multiple scenarios where this capability
-comes in handy.
+comes in handy. A feature toggle may transition through one or more of the
+following use cases in its lifetime.
 
 **Note:** Using feature toggles for experimentation is out of the scope for this
 OEP since we use an external A/B testing platform (Optimizely_) to serve that purpose.
@@ -246,6 +247,14 @@ of the feature toggle and how long-lived it is expected to be.
 The diagram also labels which use cases are primarily driven by engineering
 teams (E) and/or business product teams (B).
 
+Note that a single feature toggle may transition through several use cases as a
+feature matures. An example feature toggle might first be used for beta testing a
+feature. While beta testing, the feature may mature from a beta test for
+individual users to a beta test for several courses. The feature may mature past
+beta testing, and apply to all users and courses, but may require some select
+courses to opt-out. Lastly, the feature toggle may be used to provide an Open
+edX option for a single Open edX release before finally being retired and removed.
+
 .. image:: oep-0017/feature_maturity_longevity.png
    :alt: A diagram that shows the toggle use cases on a graph with 2 axes
     for feature maturity and longevity and 4 quadrants to break up the
@@ -272,10 +281,13 @@ so they can choose the right toggle type(s).
 Decision Map
 ------------
 
-In order to decide the required toggle type and its required duration for a
-feature, answer each of the following questions and take the "maximum" *toggle
+The following set of questions can help you determine the set of use cases
+required for a feature, as well as the required toggle type and its required
+duration. Answer each of the following questions and take the "maximum" *toggle
 type* and "maximum" *toggle duration* for all questions with an affirmative
-response. The range of toggle types and toggle durations are:
+response. Also document all use cases associated by the affirmative responses.
+
+The range of toggle types and toggle durations are:
 
 * **Toggle types:** Switch Toggle < Rollout Toggle < Group Toggle
 * **Toggle durations:** During Development < During Rollout < Settlement Period < Forever
