@@ -1,0 +1,438 @@
+======================================
+OEP-0018: Python Dependency Management
+======================================
+
++-----------------+--------------------------------------------------------+
+| OEP             | :doc:`OEP-0018 <oep-0018-bp-python-dependencies>`      |
++-----------------+--------------------------------------------------------+
+| Title           | Python Dependencies Management                         |
++-----------------+--------------------------------------------------------+
+| Last Modified   | 2018-05-02                                             |
++-----------------+--------------------------------------------------------+
+| Authors         | Jeremy Bowman <jbowman@edx.org>                        |
++-----------------+--------------------------------------------------------+
+| Arbiter         | Calen Pennington <cale@edx.org>                        |
++-----------------+--------------------------------------------------------+
+| Status          | Approved                                               |
++-----------------+--------------------------------------------------------+
+| Type            | Best Practice                                          |
++-----------------+--------------------------------------------------------+
+| Created         | 2018-03-27                                             |
++-----------------+--------------------------------------------------------+
+| `Review Period` | 2018-03-27 - 2018-04-27                                |
++-----------------+--------------------------------------------------------+
+| `Resolution`    | `open-edx-proposals#56 resolution`_                    |
++-----------------+--------------------------------------------------------+
+
+.. _open-edx-proposals#56 resolution: https://github.com/edx/open-edx-proposals/pull/56#pullrequestreview-116976355
+
+Abstract
+========
+
+Proposes best practices for declaring and maintaining dependencies on other
+Python packages in Open edX software repositories.
+
+Motivation
+==========
+
+The Open edX project includes dozens of Python software repositories, most of
+which depend on certain other Python packages being installed in order to
+function correctly.  The simple methods we originally used to do this have
+assorted drawbacks that have repeatedly caused problems over the past few
+years: accidental upgrades to incompatible versions, strict installation
+requirements that restrict the ability of downstream packages to manage their
+own dependency versions, lack of clarity regarding the full set of packages
+actually depended upon, etc.
+
+Outlined here is a recommended standard for declaring dependencies on other
+Python packages which resolves most of these issues and will let us make all
+the Open edX Python packages consistent with each other (and many other open
+source Python projects) for ease of understanding and maintenance.
+
+Specification
+=============
+
+The key to successful Python dependency management in Open edX repositories
+is to break it down into five parts:
+
+1. Identify the different contexts in which dependencies will need to be
+   installed.
+2. For each of these contexts, declare the direct dependencies that will be
+   needed.  Use the least restrictive constraints which should allow pip to
+   install a working set of dependencies.  We generally no longer want or need
+   to manually pin specific versions; ``make upgrade`` will do this for us.
+3. Run ``make upgrade`` to generate from the high-level dependencies
+   declarations a separate set of requirements files which specify the exact
+   package versions that are known to work for a Python `virtualenv`_ created
+   for that context.
+4. Automate updates of the detailed requirements files for each context.
+5. When making deliberate changes to the repository's dependencies, only edit
+   the files given to ``*.in`` files in the ``requirements`` directory, never
+   the generated ``*.txt`` files.  Both types of files must be committed when
+   changed.
+
+.. _virtualenv: https://virtualenv.pypa.io/
+
+Identify Usage Contexts
+-----------------------
+
+The dependencies of Python software are typically installed or run in a
+variety of different contexts over the course of developing and using it.
+The set of dependencies needed to perform a task can easily vary between these
+contexts.  The dependencies for each context will be captured in a
+separate file in the ``requirements`` directory.  Here are some common
+contexts and the file names often used for them:
+
+* Just the standard set of core dependencies for execution on a production
+  server to perform its primary purpose (``base.in``)
+* Additional dependencies which are only needed when optional extra features
+  of a package are desired (the file is typically named after the
+  corresponding key in ``extras_require`` from ``setup.py``)
+* Assorted testing libraries to run automated test suites (``test.in``)
+* Static code analysis tools to perform code quality checks (``quality.in``)
+* The utilities called directly by a CI server to create and use one or more
+  virtualenvs and report code coverage statistics to a 3rd-party service
+  (``jenkins.in``, ``travis.in``)
+* `Sphinx`_ and other utilities used to generate developer documentation
+  (``doc.in``)
+* Additional utilities needed to perform common development tasks (``dev.in``)
+* Utilities that a particular developer likes to use with a repository, but
+  aren't strictly needed for any of the regular contexts (``private.in``).
+
+.. _Sphinx: http://www.sphinx-doc.org/
+
+Declare Direct Dependencies
+---------------------------
+
+As indicated above, some of the usage contexts have a standard filename used in
+the ``requirements`` directory of an Open edX repository to list dependencies.
+Others will have an appropriate filename custom to that repository's unique
+context.  Each of these is a ``pip``-compatible `requirements file`_ listing
+the direct dependencies needed for that context.  Beyond complying with the
+file format, there are a few guidelines each of these files should follow:
+
+* The file should start with a brief comment explaining the context in which
+  these dependencies are needed.  Examples can be found in the
+  `cookiecutter-django-app`_ repository.
+* Each listed dependency should have a brief end-of-line comment explaining
+  its primary purpose(s) in this context.  These comments typically start at
+  the 37th character, which allows enough room for most package name plus
+  constraint specifications while keeping the comments visually aligned.
+* Version constraints should only be used to exclude dependency versions which
+  are known (or strongly suspected) to not work in this context.
+* Indirect dependencies (used by dependencies but not directly by the code in
+  the repository itself) should not be listed unless a constraint is needed to
+  enforce a compatible version; these are automatically detected and captured
+  elsewhere as described below.
+* `Environment markers`_ should be used as necessary to indicate dependencies
+  which should only be installed on specific operating systems, Python
+  versions, etc.
+* Avoid direct links to packages in local directories, GitHub, or other version
+  control systems if at all possible; all dependencies should be installed
+  from `PyPI`_.  If you think you're in one of the rare circumstances where
+  installing a package from a URL is appropriate, see the notes below on
+  `Installing Dependencies from URLs`_
+* If the dependencies in one context are a superset of those in another one,
+  do not repeat the dependencies.  Instead, explicitly include the file
+  produced by ``make upgrade`` for the smaller set of dependencies in the
+  requirements file for the larger set of dependencies. For example,
+  ``test.in`` often includes a line like the following to ensure that the same
+  versions of packages used in production for a service will also be used when
+  testing it:
+
+.. code-block:: python
+
+  -r base.txt                         # Core dependencies of the service being tested
+
+If the repository contains a ``setup.py`` file defining a Python package, the
+base dependencies also need to be specified there.  These can be derived from
+``requirements/base.in`` with a Python function declared in
+``setup.py`` itself, such as the following::
+
+    def load_requirements(*requirements_paths):
+        """
+        Load all requirements from the specified requirements files.
+        Returns a list of requirement strings.
+        """
+        requirements = set()
+        for path in requirements_paths:
+            requirements.update(
+                line.split('#')[0].strip() for line in open(path).readlines()
+                if is_requirement(line.strip())
+            )
+        return list(requirements)
+
+
+    def is_requirement(line):
+        """
+        Return True if the requirement line is a package requirement;
+        that is, it is not blank, a comment, a URL, or an included file.
+        """
+        return not (
+            line == '' or
+            line.startswith('-r') or
+            line.startswith('#') or
+            line.startswith('-e') or
+            line.startswith('git+')
+        )
+
+This can be used to define ``install_requires`` as follows::
+
+    install_requires=load_requirements('requirements/base.in'),
+
+.. _requirements file: https://pip.readthedocs.io/en/1.1/requirements.html
+.. _cookiecutter-django-app: https://github.com/edx/cookiecutter-django-app/tree/master/%7B%7Bcookiecutter.repo_name%7D%7D/requirements
+.. _Environment markers: https://www.python.org/dev/peps/pep-0508/#environment-markers
+.. _PyPI: https://pypi.org/
+
+Generate Exact Dependency Specifications
+----------------------------------------
+
+Although we want to keep our manually edited requirements files very simple,
+we need a separate set of requirements files which list every single package
+needed for each usage context, with exact versions of each for reproducible
+test runs and consistent development and production environments.  We can
+generate these automatically using `pip-tools`_, which consists of two related
+utilities:
+
+* ``pip-compile`` generates a requirements file from one or more high-level
+  input requirements files, listing exact versions of every listed and
+  indirect dependency needed to satisfy the given constraints.
+* ``pip-sync`` ensures that the current virtualenv contains exactly (and only)
+  the packages listed in the given requirements files, installing, upgrading,
+  and uninstalling packages as needed.
+
+Open edX packages should use an ``upgrade`` make target to use ``pip-compile``
+to automatically update the detailed requirements files
+(``requirements/*.txt``) to use the newest available packages which satisfy
+the constraints in the direct dependencies files.  These generated files are
+then used anywhere that runs a command to install dependencies: ``tox.ini``,
+``.travis.yml``, the ``requirements`` make target (for updating a local
+development environment), etc.
+
+Sometimes ``pip-compile`` will be unable to find a suitable version of a
+dependency for the output file because there are incompatible version
+constraints in the input files and/or the stated installation requirements
+of the other dependencies.  In cases like this, installing and running
+`pipdeptree`_ can help identify the conflicting constraints so at least one
+of them can be sufficiently relaxed such that a version of the dependency
+exists which satisfies them all.
+
+.. _pip-tools: https://github.com/jazzband/pip-tools
+.. _pipdeptree: https://github.com/naiquevin/pipdeptree
+
+Automate Updates of Exact Dependency Specifications
+---------------------------------------------------
+
+While we want all dependencies explicitly pinned in order to benefit from
+consistent testing and development environments, it isn't acceptable to leave
+these versions untouched for long stretches of time.  Packages we depend on
+routinely release new versions to address security issues, fix bugs, and add
+new features.  While we don't necessarily need to update our repositories
+every time a new dependency version is released, we do want to keep them
+current enough that upgrading a single package to fix a known issue doesn't
+require suddenly adapting to a few years' worth of API changes that we didn't
+pay attention to.
+
+Each Open edX repository should have the following:
+
+* An ``upgrade`` make target as described above, to update the pinned versions
+  of all dependencies (and account for any new or removed indirect
+  dependencies).
+* An automated test suite with reasonably good code coverage, configured to
+  be run on new GitHub pull requests.
+* A service configured to periodically auto-generate a GitHub pull request
+  that tests the output of running ``make upgrade`` (if it results in any
+  changes).  This can either be a service such as `requires.io`_ which tracks
+  new releases of Python package dependencies, or a recurring scheduled job.
+* At least one designated maintainer who receives notifications of the
+  generated pull requests and will merge or fix them as needed.  This
+  maintainer should scan the changelog for each upgraded package to look for
+  changes that merit closer inspection; services like `requires.io`_ and
+  `AllMyChanges.com`_ can make this easier.  The default maintainer may be the
+  "owner" from `openedx.yaml` as specified in
+  :doc:`OEP-2 <oep-0002-bp-repo-metadata>`.
+
+.. _requires.io: https://requires.io/
+.. _AllMyChanges.com: https://allmychanges.com/
+
+Making Deliberate Changes to Dependencies
+-----------------------------------------
+
+In addition to the automation described above to keep dependencies current
+over time, developers will occasionally need to make deliberate changes to the
+set of dependencies.  Common changes include:
+
+* A new dependency is needed to support recent code changes.
+* The need for an old dependency was removed.
+* A version constraint needs to be added to prevent upgrading to a
+  backwards-incompatible release of a required package until appropriate code
+  changes can be made.
+* The code has been updated to support a newer dependency package version
+  which was previously blocked by a version constraint.
+
+Whenever a developer needs to make a deliberate change to the repository's
+Python package dependencies, they should do the following:
+
+1. Make the appropriate changes to the ``*.in`` files.
+2. Run ``make upgrade`` to regenerate the detailed requirements files.
+3. For each package for which the pinned version is changing in the ``*.txt``
+   requirements files, look at its changelog to make sure that there
+   are no problematic backwards-incompatible changes.  If there are, add
+   a version constraint to one of the ``.in`` files to prevent it from being
+   upgraded to that release, run ``make upgrade`` again, and file a ticket
+   briefly describing the change that needs to be made in order to upgrade
+   that package further.  Similarly, if there are new features that the code
+   depending on that package should start taking advantage of, file tickets
+   explaining what should be done.
+4. Check in all of the changed requirements files and wait for the automated
+   test results.  If one of the upgrades caused unexpected problems, follow
+   the same process as if a backwards-incompatible change had been spotted in
+   the changelog (add a version constraint, ``make upgrade``, file a ticket).
+
+Manually editing the ``make upgrade`` output files or only running
+``pip-compile`` on a single file should generally be avoided, since it risks
+failing to account for changes in indirect dependencies or making the
+different requirement files fall out of sync with each other.  And in general,
+we would rather err on the side of using newer versions of dependencies than
+strictly necessary, rather than avoiding upgrades for fear of breaking things.
+If the developer is not confident of their ability to assess whether a change
+to the dependencies is appropriate, they should seek assistance from other
+developers who are either more experienced or more familiar with that
+repository.
+
+Installing Dependencies from URLs
+---------------------------------
+
+As noted above, you should generally avoid installing requirements from a URL
+or local directory instead of PyPI.  But there are a few circumstances where
+it can be appropriate:
+
+* You need to test a release candidate of the dependency to make sure it will
+  work with your code.
+* You critically need a fix for a package which has not yet been included in
+  a release, and you cannot arrange for a release to be made in a timely
+  manner.
+
+In most other circumstances, the package should be added to PyPI instead.  If
+you do need to include a package at a URL, it should be editable (start with
+"-e ") and have both the package name and version specified (end with
+"#egg=NAME==VERSION").  For example:
+
+.. code-block:: none
+
+    -e git+https://github.com/edx/edx-ora2.git@2.1.15#egg=ora2==2.1.15
+
+Rationale
+=========
+
+The practices outlined here help prevent the following problems that we have
+encountered in the past:
+
+* A new deployment of an Open edX release fails because an unpinned indirect
+  dependency recently released a backwards-incompatible version.
+* Tests unrelated to a new code change fail, because an unpinned dependency
+  was upgraded to a backwards-incompatible version.  This can be difficult
+  to diagnose because the upgrade doesn't appear in the diff of pending
+  changes.
+* Tests have been running against a particular set of pinned versions for
+  years, but we now need to upgrade one (like Django) which requires also
+  upgrading several of the other dependencies.  This can force dealing with
+  a few years' worth of backwards-incompatible changes in multiple packages
+  all at once, whereas dealing with them one at a time every few months in
+  smaller pull requests would have been more manageable.
+* We have a different version of a dependency installed than we expect,
+  because the constraints imposed on pip for choosing a version vary between
+  different requirements files and we install them one file at a time.
+* We keep using years-old package versions despite the availability of newer
+  versions with accumulated bug fixes and performance improvements.
+* We install in production environments packages which are only needed for
+  testing, because we didn't make a clean distinction between the dependencies
+  for different usage contexts.  This slows down deployments.
+* We try to exhaustively pin all indirect dependencies manually, but miss some
+  (especially when a seemingly innocuous upgrade adds some new dependencies).
+* We keep installing a package long after we stopped using it, because nobody
+  remembers why it was added to the requirements file (especially true for
+  indirect dependencies that were later dropped as requirements of the package
+  we use directly).
+* We install an exhaustive set of testing dependencies in Travis, even though
+  we really only need it to run tox and codecov; the rest of the testing
+  dependencies are installed in a separate virtualenv created by tox, which
+  should have a separate requirements file.
+* An attempt to pin dependencies in setup.py (or parse its dependencies
+  automatically from a requirements file) forces us to change that package
+  before we can upgrade one of those dependencies in another repository
+  using that package.
+* We add a dependency without realizing that it requires multiple additional
+  indirect dependencies; we may have chosen an alternative if that had been
+  apparent.
+
+There are several good reasons for the recommendation to avoiding installing
+packages from URLs whenever possible:
+
+* Specified VCS branches, commits, and tags can all be deleted from a
+  repository at any time, suddenly making it impossible to find and install
+  the dependency.
+* Editable requirements (starting with "-e ") are downloaded and/or inspected
+  with each installation of the requirements file, even if the correct version
+  is already installed.  This can significantly slow down updates of installed
+  requirements.
+* Packages installed from local directories don't reflect any changes to
+  package metadata (like required package versions) until the version number
+  is incremented or the package is uninstalled; just installing again doesn't
+  help.
+* Package URLs tend to be long and difficult to read, with the actual name of
+  the package hidden in the middle or not even present at all.
+* As of this writing, ``pip-tools`` still has some bugs in handling packages
+  installed from local directories or URLs that require special care to work
+  around.  `Non-editable URL installations`_ are not supported, and
+  `relative local paths are expanded to absolute paths`_.  These can be
+  partially worked around via a post-processing script for the generated
+  requirements files; an example can be found in `edx-platform`_ at
+  ``scripts/post-pip-compile.sh``.
+
+.. _Non-editable URL installations: https://github.com/jazzband/pip-tools/issues/355
+.. _relative local paths are expanded to absolute paths: https://github.com/jazzband/pip-tools/issues/204
+.. _edx-platform: https://github.com/edx/edx-platform
+
+Reference Implementation
+========================
+
+Many of the Open edX repositories have already begun to comply with the
+recommendations outlined here.  In particular, repositories generated using
+`cookiecutter-django-app`_ should already be configured correctly.  These may
+also be useful for reference:
+
+* `django-user-tasks <https://github.com/edx/django-user-tasks>`_
+* `edx-completion <https://github.com/edx/completion>`_
+* `XQueue <https://github.com/edx/xqueue/>`_
+
+Rejected Alternatives
+=====================
+
+`pipenv`_ is a relatively new utility for managing Python dependencies,
+written by Kenneth Reitz (author of the `requests`_ package).  Although it
+recently became the default dependency management tool recommendation of the
+`Python Packaging User Guide`_, it lacks some features that we strongly want
+for Open edX:
+
+* The ability to specify more than 2 sets of dependencies (core and
+  development)
+* The ability to add comments to the dependencies listing explaining why each
+  one is needed
+* Indication of which other dependencies caused the inclusion of indirect
+  dependencies in the full set of requirements
+* Easy interoperability with `tox`_, especially for testing multiple versions
+  of a major dependency
+
+As a younger package than ``pip-tools``, it also seems to have more
+significant still-unresolved problems, although those are gradually being
+fixed.
+
+.. _pipenv: https://docs.pipenv.org/
+.. _requests: http://python-requests.org/
+.. _Python Packaging User Guide: https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies
+.. _tox: https://tox.readthedocs.io/
+
+Change History
+==============
