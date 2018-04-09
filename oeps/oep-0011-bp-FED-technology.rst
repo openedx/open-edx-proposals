@@ -233,7 +233,7 @@ Rejected Alternatives
 .. _Modernizing the edX front end stack: https://openedx.atlassian.net/wiki/display/FEDX/Modernizing+the+edX+front+end+stack
 .. _Polymer: https://www.polymer-project.org/
 .. _React: https://github.com/facebook/react
-.. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React+at+edX
+.. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React
 .. _Sass documentation: http://sass-lang.com/
 .. _Typescript: https://www.typescriptlang.org/
 .. _Webpack: https://webpack.github.io/
