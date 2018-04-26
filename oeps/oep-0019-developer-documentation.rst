@@ -7,7 +7,7 @@ OEP-0019: Developer Documentation
 +-----------------+--------------------------------------------------------+
 | Title           | Developer Documentation                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2018-04-10                                             |
+| Last Modified   | 2018-04-26                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Nimisha Asthagiri                                      |
 |                 | Grant Goodman                                          |
@@ -48,7 +48,7 @@ Specification
 
 We should distinguish between documentation that is strictly internal to edX
 operations and documentation that is helpful for any Open edX platform
-develoers. Documentation for the Open edX platform should be maintained in the
+developers. Documentation for the Open edX platform should be maintained in the
 relevant Git repository, in RST format.
 
 ==========================================
@@ -60,7 +60,7 @@ developers. This will help users discover what's available and also help edX
 maintain and control the resources. Much of the information that would be
 included is on the Confluence
 `Developer Documentation<https://openedx.atlassian.net/wiki/spaces/OpenDev/pages/159881063/Developer+Documentation>`
- page.
+page.
 
 ======================================
 Developer Best Practices Documentation
