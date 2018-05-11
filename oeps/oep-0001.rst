@@ -7,14 +7,14 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Title         | OEP Purpose and Guidelines                                   |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2018-02-xx                                                   |
+| Last-Modified | 2018-05-02                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | Calen Pennington <cale@edx.org>,                             |
 |               | Joel Barciauskas <joel@edx.org>,                             |
 |               | Nimisha Asthagiri <nimisha@edx.org>                          |
 +---------------+--------------------------------------------------------------+
-| Arbiter       | - Eddie Fagin <efagin@edx.org>, `open-edx-proposals#1`_      |
-|               | - Calen Pennington <cale@edx.org>, `open-edx-proposals#53`_  |
+| Arbiter       | - Eddie Fagin <efagin@edx.org>,                              |
+|               | - Calen Pennington <cale@edx.org>                            |
 +---------------+--------------------------------------------------------------+
 | Status        | Accepted                                                     |
 +---------------+--------------------------------------------------------------+
@@ -24,6 +24,7 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Review Period | * 2016-03-26 - 2016-05-19, `open-edx-proposals#1`_           |
 |               | * 2018-02-05 - 2018-02-15, `open-edx-proposals#53`_          |
+|               | * 2018-05-02 - 2018-05-11, `open-edx-proposals#60`_          |
 +---------------+--------------------------------------------------------------+
 | Resolution    | `open-edx-proposals#1 resolution`_                           |
 +---------------+--------------------------------------------------------------+
@@ -33,6 +34,7 @@ OEP-1: OEP Purpose and Guidelines
 
 .. _open-edx-proposals#1: https://github.com/edx/open-edx-proposals/pull/1
 .. _open-edx-proposals#53: https://github.com/edx/open-edx-proposals/pull/53
+.. _open-edx-proposals#60: https://github.com/edx/open-edx-proposals/pull/60
 .. _open-edx-proposals#1 resolution: https://github.com/edx/open-edx-proposals/pull/1#issuecomment-220419055
 .. _PEP: https://www.python.org/dev/peps/pep-0001/
 .. _Architecture Decision Records: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
@@ -50,9 +52,12 @@ edX community, in the form of a best practice, architecture design, or process
 adjustment. An OEP should provide the use cases and rationales that surround
 that choice. OEPs are not the only way for a change to be made to Open edX,
 however. The goal is to create a collection of OEP documents as a repository or
-knowledge archive of large and broadly relevant choices made for the platform.
+knowledge archive of architectural choices made for the platform.
 
-An `OEP template`_ is available to help you provide all of the
+Small enhancements or patches often don't need an OEP and can be injected into
+the Open edX development workflow with a patch submission.
+
+`OEP templates`_ are available to help you provide all of the
 necessary information for your proposal.
 
 OEP Types
@@ -65,8 +70,10 @@ OEP Types
   choice that the Open edX community believes all applicable Open edX services
   and/or libraries should use or follow.
 
-* An **Architecture** proposal describes a structure or framework for Open
-  edX services or relationships between them.
+* An **Architecture** proposal describes a concrete design problem with several
+  potential solutions and the rationale behind the decision. The decision may
+  be specific to a significant Open edX feature or a cross-cutting technical
+  need.
 
 OEP Roles
 =========
@@ -81,9 +88,9 @@ forums, and attempts to build community consensus around the idea.
 Arbiter
 -------
 
-Each OEP also has an Arbiter (as described in `Step 4. Request an Arbiter`_). 
+Each OEP also has an Arbiter (as described in `Step 1. Request an Arbiter`_). 
 The Arbiter will be chosen by the `edX Architecture Team`_. An Author of an OEP
-will never be selected as the Arbiter of that OEP.
+cannot concurrently be the Arbiter of that OEP.
 
 The Arbiter will be the person making the final decision on whether the OEP 
 should be Accepted, and as such, the Arbiter should be knowledgeable about 
@@ -122,40 +129,20 @@ OEP Workflow
 Submitting an OEP
 -----------------
 
-Step 1. Scope your idea
-~~~~~~~~~~~~~~~~~~~~~~~
+Step 1. Request an Arbiter
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The OEP process begins with a new idea for Open edX. Unless it is a Best
-Practice, a single OEP should contain a single key proposal or new idea. Small
-enhancements or patches often don't need an OEP and can be injected into the Open
-edX development workflow with a patch submission.
+Request an Arbiter from the `edX Architecture Team`_ by emailing 
+`arch-team@edx.org`_. This Arbiter will be recorded in the "Arbiter" header on the
+OEP.
 
-Step 2. Vet your idea
-~~~~~~~~~~~~~~~~~~~~~
+.. _`arch-team@edx.org`: mailto:arch-team@edx.org
 
-OEP Authors may choose to ascertain whether the idea is appropriate for an
-OEP. Here are some communication channels where they may do so:
-
-* Posting to the `open-edx-proposals Slack channel`_ and tagging the 
-  `@oep-team`_ group.
-* Posting to the `edx-code`_ mailing list.
-
-Vetting an idea publicly before going as far as writing an OEP is meant to save
-time for the potential authors. Asking the Open edX community first if an idea
-was previously discussed and if it is appropriate for an OEP helps prevent wasted
-effort. It also helps to make sure the idea is applicable to the entire community
-and not just the authors.
-
-.. _open-edx-proposals Slack channel: https://openedx.slack.com/messages/C1L370YTZ/details/
-.. _`@oep-team`: https://openedx.slack.com/messages/C1L370YTZ/groups/S9C5FUCV7/
-.. _edx-code: https://groups.google.com/forum/#!forum/edx-code
-
-Step 3. Create PR for "Draft" OEP
+Step 2. Create PR for "Draft" OEP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once the Authors have asked the Open edX community whether an idea has any chance
-of acceptance, a draft OEP should be submitted as a pull request against the
-`central OEP repository`_. To identify the draft proposal, the Authors should
+Draft an OEP using one of the `OEP templates`_ and submit as a pull request against
+the `central OEP repository`_. To identify the draft proposal, the Authors should
 check the numbered list of previous OEP pull requests and select the next 
 available number. 
 
@@ -164,33 +151,11 @@ The pull request title should be of the form "OEP-XXXX: <OEP title>", where
 
 .. _central OEP repository: http://github.com/edx/open-edx-proposals
 
-Step 4. Request an Arbiter
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-After the Authors draft an OEP in a format in which they are comfortable, they
-will request an Arbiter from the `edX Architecture Team`_ by emailing 
-`arch-team@edx.org`_. This Arbiter will be
-recorded in the "Arbiter" header on the OEP. The rest of the Open edX community 
-will be given the opportunity to comment on the OEP, with the Arbiter serving
-to keep the discussion on track and to evaluate when it has reached a final
-conclusion.
-
-.. _`arch-team@edx.org`: mailto:arch-team@edx.org
-
-Step 5. Review with Arbiter
+Step 3. Review with Arbiter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For an OEP to be accepted by the Arbiter, it must meet certain minimum
-criteria. It must be a clear and complete description of the proposed
-enhancement. The enhancement must represent a net improvement.
-
-As updates are necessary, the OEP Authors or Arbiter can update the pull
-request.
-
-OEP Review & Resolution
------------------------
-
-Once an OEP has been accepted by an Arbiter, it is "Under Review". Once this
+Once an OEP has been accepted by an Arbiter, establish begin and end review
+dates with your Arbiter, making it officially "Under Review". Once this
 state is achieved, we recommend announcing the OEP to the community in the
 following channels:
 
@@ -198,32 +163,69 @@ following channels:
   subject line.
 * `open-edx-proposals Slack channel`_.
 
-An OEP can be assigned the status "Deferred". The OEP Authors or Arbiter
-can assign the OEP this status when no progress is being made on the OEP. If an
-OEP is deferred, the OEP Authors can reassign it to "Under Review" status.
+The rest of the Open edX community is given the opportunity to comment on the OEP.
+The Arbiter serves to keep the discussion on track and to bring the review
+process to a final resolution.
 
-An OEP can also be "Rejected" by the Arbiter. Perhaps after all is said and
-done it was not a good idea. It is still important to have a record of this
-fact. The "Withdrawn" status is similar: it means that the OEP Authors
-themselves have decided that the OEP is actually a bad idea, or have accepted
-that a competing proposal is a better alternative.
+.. _open-edx-proposals Slack channel: https://openedx.slack.com/messages/C1L370YTZ/details/
+.. _edx-code: https://groups.google.com/forum/#!forum/edx-code
 
-When an OEP is Accepted, Rejected, or Withdrawn, the OEP should be updated
-accordingly. In addition to updating the Status field, at the very least the
-Resolution header should be added with a link to the appropriate section of
-the PR, and the Last-Modified header should be set to the current date.
-
-OEPs can also be superseded by a different OEP, rendering the original
-obsolete. In that case, the OEP's status should be changed to "Replaced"
-and updated with a link to its superseding OEP.
-
-The possible paths of the status of OEPs are as follows.
+OEP Status
+----------
 
 .. image:: oep-0001/state-flow.png
   :alt: A flowchart of OEP statuses, from Draft to Under Review or Deferred,
       from Deferred back to Draft, and from Under Review to Accepted, Rejected,
       or Withdrawn. From Accepted, the next status is Final. A Final OEP can
       be Replaced.
+
+Under Review
+~~~~~~~~~~~~
+
+The OEP is under discussion and being reviewed by the Open edX community, the
+Arbiter, and the Authors.
+
+Accepted
+~~~~~~~~
+
+The Arbiter has accepted the OEP after review and discussion within the agreed
+upon review period.
+
+Deferred
+~~~~~~~~
+
+An OEP can be assigned the status "Deferred" when no further progress is made
+on the OEP. If an OEP is deferred, the OEP Authors can change it back to
+"Under Review".
+
+Rejected
+~~~~~~~~
+
+An OEP can also be "Rejected" by the Arbiter. Perhaps after all is said and
+done it was not a good idea. It is still important to have a record of this
+fact.
+
+Withdrawn
+~~~~~~~~~
+
+Similar to "Rejected", the "Withdrawn" status means that the OEP Authors
+themselves have decided that the OEP is actually a bad idea, or have accepted
+that a competing proposal is a better alternative.
+
+Replaced
+~~~~~~~~~
+
+OEPs can also be superseded by a different OEP, rendering the original
+obsolete. In that case, the OEP's status should be changed to "Replaced"
+and updated with a link to its superseding OEP.
+
+Status changes
+~~~~~~~~~~~~~~
+
+When an OEP is Accepted, Rejected, or Withdrawn, the OEP should be updated
+accordingly. In addition to updating the Status field, at the very least the
+Resolution header should be added with a link to the appropriate section of
+the PR, and the Last-Modified header should be set to the current date.
 
 Please note that OEP statuses do not necessarily coincide with the status of
 the pull request that contains the OEP. For example, OEPs that have been
@@ -259,7 +261,7 @@ Updating Best Practice OEPs
 
 A Best Practice OEP may be updated even after it is "Accepted" as it evolves
 over time. A pull request should be created to update the OEP and have it go
-through the `OEP Review & Resolution`_ process. These future edits/updates may
+through the `Step 3. Review with Arbiter`_ process. These future edits/updates may
 be made by the original Authors of the OEP or by new Authors. The Arbiter may
 remain the same as before or may be reassigned by the `edX Architecture Team`_.
 
@@ -285,8 +287,7 @@ The following updates warrant replacement OEPs.
 
 * Changing how a set of services is separated in an Architecture OEP (for
   example, splitting one service into two, or combining two services into one).
-* Proposing a new process that is significantly different from a previously
-  agreed protocol.
+* A change in decision that is significantly different from the previous.
 
 Transferring OEP Ownership
 --------------------------
@@ -312,72 +313,29 @@ OEP Structure and Content
   :local:
   :depth: 1
 
-OEP Structure
--------------
-
-Each OEP should have the following parts.
-
-*Preamble*
-    A table containing metadata about the OEP, including the OEP number,
-    a short descriptive title, the names, and optionally the contact info for each author.
-
-*Abstract*
-    A short description of the technical issue being addressed.
-
-*Copyright*
-    All OEPs must be shared under the `Creative Commons Attribution-ShareAlike 4.0 International License`_.
-
-.. _Creative Commons Attribution-ShareAlike 4.0 International License: https://creativecommons.org/licenses/by-sa/4.0/
-
-*Motivation*
-    The motivation is critical for OEPs that want to change Open edX. It should
-    clearly explain why the existing architecture or process is inadequate to
-    address the problem that the OEP solves, or why Open edX would be significantly
-    improved by adopting the best practice.
-
-*Specification*
-    The technical specification should describe the syntax and
-    semantics of any new API, or the details of what the Best Practice,
-    Process, or Architecture being proposed by the OEP are.
-
-*Rationale*
-    The rationale describes the design decisions that were made. It should
-    describe related work, for example, how the feature is supported in other 
-    systems.
-
-*Backward Compatibility*
-    All OEPs that introduce backward incompatibilities
-    must include a section describing these incompatibilities and their
-    severity. The OEP must explain how the authors propose to deal with these
-    incompatibilities.
-
-*Reference Implementation*
-    The reference implementation must be completed before any OEP is given
-    a status of "Final", but it need not be completed before the OEP is
-    accepted. While there is merit to the approach of reaching consensus on
-    the specification and rationale before writing code, the principle of
-    "rough consensus and running code" is still useful when it comes to
-    resolving many discussions.
-
-*Rejected Alternatives*
-    The OEP should list any alternative designs or implementations that were
-    considered and rejected, and why they were not chosen.
-
-*Change History*
-    A list of dated sections that describes a brief summary of each revision
-    of the OEP.
-
-
-OEP Formats and Templates
--------------------------
+OEP Format
+----------
 
 OEPs are UTF-8 encoded text files that use the `reStructuredText`_ format.
 ReStructuredText [8] allows for rich markup that is relatively easy to read,
 and can also be rendered into good-looking and functional HTML. OEPs are
-rendered to HTML using Sphinx. An `OEP template`_ can be found in the repo.
+rendered to HTML using Sphinx.
 
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
-.. _OEP template: https://github.com/edx/open-edx-proposals/blob/master/oep-template.rst
+
+OEP Templates
+-------------
+
+Other than requiring that all OEPs have a consistent `OEP Header Preamble`_,
+the rest of the OEP document can be customized according to whatever is needed
+to capture the decision(s), as deemed appropriate by the Authors and Arbiter.
+
+To help guide Authors, here are a few ready-made templates that are available
+for use:
+
+* `PEP-based template <pep-based-template.rst>`_ based on Python's PEP_ standard.
+* `ADR-based template <adr-based-template.rst>`_ based on `Architecture Decision Records`_.
+* `External link template <external-link-template.rst>`_ for OEPs with mostly external content.
 
 OEP Header Preamble
 -------------------
@@ -503,3 +461,17 @@ Change History
 * Append type and brief title to an OEP's file name.
 * Remove "Product Enhancement" proposal type.
 * Remove support for Google Docs for discussion.
+
+2018-05-05
+----------
+* Further simplify process
+
+  * Reduce steps in submission process
+
+    * Remove the obvious "scope your idea" as an initial step. 
+    * Remove "vet your idea" before creating a Draft.
+    * Move "request an arbiter" as 1st step in place of vetting and scoping.
+
+  * Support alternative simpler templates.
+
+* Refactored description for OEP status and review.

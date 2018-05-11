@@ -1,8 +1,8 @@
-=====================
-OEP-XXX: OEP Template
-=====================
+======================
+OEP-XXXX: OEP Template
+======================
 
-.. This is the template to use when you start a new OEP.
+.. This OEP template is based on Python's PEP standard.
 
 +-----------------+--------------------------------------------------------+
 | OEP             | :doc:`OEP-XXXX </oeps/oep-XXXX-YYYY-ZZZZ>`             |
@@ -31,10 +31,6 @@ OEP-XXX: OEP Template
 +-----------------+--------------------------------------------------------+
 | `Resolution`    | <links to any discussions where the final              |
 |                 | status was decided>                                    |
-+-----------------+--------------------------------------------------------+
-| `Replaces`      | <OEP number>                                           |
-+-----------------+--------------------------------------------------------+
-| `Replaced-By`   | <OEP number>                                           |
 +-----------------+--------------------------------------------------------+
 | `References`    | <links to any other relevant discussions               |
 |                 | or relevant related materials>                         |
