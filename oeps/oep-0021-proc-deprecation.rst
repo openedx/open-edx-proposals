@@ -48,8 +48,7 @@ Specification
 
 When a team or individual believes that any technology on the Open edX
 platform should no longer be used or maintained, the following steps should be
-followed. Diagram 1 [LINK HERE] is available as a reference for the deprecation
-and removal steps.
+followed.
 
 Criteria and identification
 ---------------------------
@@ -89,25 +88,25 @@ Deprecation steps
 
 1. Identify the technology to be deprecated
 
-2. Communicate out to edX staff and the Open edX community in accordance
-      with the communication section below.
+2. Communicate out to edX staff and the Open edX community in accordance with
+the communication section below.
 
-#. Create a JIRA ticket with the label [LABEL] and [ticket name convention] in
+3. Create a JIRA ticket with the label [LABEL] and [ticket name convention] in
 the [JIRA PROJECT]
 
-#. Initiate discussion as needed with the relevant edX team(s) that own the
+4. Initiate discussion as needed with the relevant edX team(s) that own the
 technology or other stakeholders (e.g. consumers of the technology) on intention
 and timeline for removal.
 
-#. Update the ticket with relevant information on the technology (see section
+5. Update the ticket with relevant information on the technology (see section
 above for suggested details) and anticipated timeline. See [Suggested-Timeline]
 section for suggestions on possible timelines. Continue to update the ticket
 description with stakeholder feedback as applicable.
 
-#. Clearly mark the technology in question as deprecated as described in the 
+6. Clearly mark the technology in question as deprecated as described in the 
 [Mark-for-Deprecation] section.
 
-#. Once the above steps are done, annotate the JIRA ticket with “deprecated -
+7. Once the above steps are done, annotate the JIRA ticket with “deprecated -
 pending removal” state.
 
 Removal steps
@@ -119,22 +118,27 @@ accordance with the agreed upon timeline, it should be moved to “In progress�
 2. Relevant parties should be kept apprised of any delays or issues that arise
 by updating the corresponding JIRA ticket.
 
-#. Once removal is complete, the status should be communicated out to all
+3. Once removal is complete, the status should be communicated out to all
 relevant parties as an update to the original deprecation thread and discussion
 in each channel.
 
-#. The JIRA ticket can be closed out only once all the above deprecation and
+4. The JIRA ticket can be closed out only once all the above deprecation and
 removal steps have been completed.
 
 Communication
 -------------
 
-(reformat into numbered list)
-Once the determination has been made to deprecate, the originator should
-email the edx code list and make an announcement in the #general channel in the
-Open edX Slack team. If originating within edX, an additional email should be
-sent to the engineering all list. A message template with suggested topics to
-cover follows:
+Once the determination has been made to deprecate, the originator should do the
+folowing for communications:
+
+1. Email the edx-code list  
+
+2. Make an announcement in the #general channel in the Open edX Slack team. 
+
+3. If originating within edX, an additional email should be sent to the
+engineering all list. 
+
+A message template with suggested topics to cover is below.
 
 Note: This template is oriented towards an email announcement to the
 edx-code mailing list but relevant portions can be repurposed for other
@@ -213,8 +217,8 @@ feedback gathered during the deprecation and removal process.
 
 Depending on the specific technology being deprecated, additional decision
 review processes may apply. If the originator feels this could be the case then
-the Architecture decision guidelines_ should be consulted. 
-.. _guidelines: https://openedx.atlassian.net/wiki/spaces/AC/pages/704512105/Architecture+Decision+and+Communication+Process
+the Architecture decision 'guidelines
+<https://openedx.atlassian.net/wiki/spaces/AC/pages/704512105/Architecture+Decision+and+Communication+Process>`_ should be consulted. 
 
 Mark for Deprecation
 --------------------
@@ -245,18 +249,18 @@ as described below.
 
    - Set “Expiration Date” as described in `OEP-17. 
    http://open-edx-proposals.readthedocs.io/en/latest
-   oep-0017-bp-feature-toggles.html>`__
+   oep-0017-bp-feature-toggles.html>`_
 
 - xBlock
 
    - TBD to eventually remove the code for Open edX.
 
    - See `deprecating xBlock for the edX website
-   <https://openedx.atlassian.net/wiki/spaces/ENG/pages/723550424/Deprecating+and+Disabling+an+XBlock+for+the+edX+website>`__ specifically for edx.org.
+   <https://openedx.atlassian.net/wiki/spaces/ENG/pages/723550424/Deprecating+and+Disabling+an+XBlock+for+the+edX+website>`_ specifically for edx.org.
 
 - Github repo
 
-   - See `OEP-14 <http://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html>`__
+   - See `OEP-14 <http://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html>`_
 
 Timeline
 --------
