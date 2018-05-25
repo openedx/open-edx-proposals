@@ -92,7 +92,7 @@ Deprecation steps
 the communication section below.
 
 3. Create a JIRA ticket with the label [LABEL] and [ticket name convention] in
-the [JIRA PROJECT]
+the [JIRA PROJECT].
 
 4. Initiate discussion as needed with the relevant edX team(s) that own the
 technology or other stakeholders (e.g. consumers of the technology) on intention
@@ -101,19 +101,20 @@ and timeline for removal.
 5. Update the ticket with relevant information on the technology (see section
 above for suggested details) and anticipated timeline. See [Suggested-Timeline]
 section for suggestions on possible timelines. Continue to update the ticket
-description with stakeholder feedback as applicable.
+description with stakeholder feedback as applicable and update to "Accepted"
+once it's been decided that there's alignment. 
 
 6. Clearly mark the technology in question as deprecated as described in the 
 [Mark-for-Deprecation] section.
 
-7. Once the above steps are done, annotate the JIRA ticket with “deprecated -
-pending removal” state.
+7. Once the above steps are done, annotate the JIRA ticket with “Deprecated”
+state.
 
 Removal steps
 -------------
 
-1. Once an item that is “deprecated - pending removal” is ready to be removed in
-accordance with the agreed upon timeline, it should be moved to “In progress” 
+1. Once an item that is “Deprecated” is ready to be removed in
+accordance with the agreed upon timeline, it should be moved to “Removing” 
 
 2. Relevant parties should be kept apprised of any delays or issues that arise
 by updating the corresponding JIRA ticket.
@@ -122,8 +123,8 @@ by updating the corresponding JIRA ticket.
 relevant parties as an update to the original deprecation thread and discussion
 in each channel.
 
-4. The JIRA ticket can be closed out only once all the above deprecation and
-removal steps have been completed.
+4. The JIRA ticket can be closed out and updated to "Removed" only once all the
+above deprecation and removal steps have been completed.
 
 Communication
 -------------
@@ -175,26 +176,25 @@ description):
 
 -  Proposed
 
-   -  Include target dates for each subsequent step
+   -  Include target dates for each subsequent step.
 
 -  Communicated
 
-   -  Include link to communication on edx-code
+   -  Include link to communication on edx-code.
 
    -  Accept feedback/input from community until target date for “Deprecated”.
 
    -  Adjust target dates, as needed.
 
--  Deprecated (synonym for accepted?)
+-  Accepted
 
-   -  Include links to PRs marking code as deprecated.
+   -  Community feedback has been addressed and there is alignment on timeline.
 
--  Under Migration
+-  Deprecated
 
-   -  Include links to documentation, management commands or other mechanisms by
-   which open edX instances should migrate over to the replacing technology.
+   - Marked as deprecated according to the [Mark-for-Deprecation] section below.
 
--  Begun Removal
+-  Removing
 
    -  Include link to communication on edx-code, with a reminder of the removal.
 
