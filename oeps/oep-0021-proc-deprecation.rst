@@ -1,11 +1,11 @@
-=====================
-OEP-0021: Deprecation
-=====================
+=================================
+OEP-0021: Deprecation and Removal
+=================================
 
 +-----------------+--------------------------------------------------------+
 | OEP             | :doc:`OEP-0021 </oeps/oep-0021-proc-deprecation.rst>`  |
 +-----------------+--------------------------------------------------------+
-| Title           | Deprecation                                            |
+| Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
 | Last Modified   | 2018-05-25                                             |
 +-----------------+--------------------------------------------------------+
@@ -161,7 +161,10 @@ others.
 Status tracking
 ---------------
 
-*(will be available as a graphic)*
+.. image:: oep-0021/state-flow.png
+   :alt: A diagram that shows the state flow transitions. The process starts in the Proposed state and goes
+    through the Communicated, Accepted, Deprecated, Removing, and Removed states. If the proposal isn't Accepted, 
+    the state transitions from Proposed to Abandoned.
 
 Possible states (with suggested information to include in JIRA ticket
 description):
@@ -268,6 +271,12 @@ carrying out deprecation and removal. `OEP-10
 <http://open-edx-proposals.readthedocs.io/en/latest/oep-0010-proc-openedx-releases.html>`_
 is the relevant reference for these named releases. If applicable, ensure that
 there is a reasonable migration path for the previous named release.
+
+.. image:: oep-0021/timeline.png
+   :alt: A diagram that suggests having a 2 week time period between the Proposed
+    and Accepted states, giving the community enough time to provide feedback. After
+    which, the deprecation and removal transition periods will vary by the type and
+    scope of the technical change.
 
 *TURN BELOW INTO A DIAGRAM*
 
