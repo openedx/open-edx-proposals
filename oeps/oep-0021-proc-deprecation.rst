@@ -97,10 +97,8 @@ the communication section below.
 
 3. Create a JIRA ticket of issue type [Task] with the label 
 [deprecation-removal]. After
-creation, confirm that the ticket shows up in the `Deprecation/Removal JIRA
-board`_
-.. _Deprecation/Removal JIRA board:
- .. https://openedx.atlassian.net/secure/RapidBoard.jspa?rapidView=452
+creation, confirm that the ticket shows up in the Deprecation/Removal JIRA
+`board <https://openedx.atlassian.net/secure/RapidBoard.jspa?rapidView=452>`_
 
 4. Initiate discussion as needed with the relevant edX team(s) that own the
 technology or other stakeholders (e.g. consumers of the technology) on intention
@@ -262,15 +260,13 @@ as described below.
 
 - Feature toggles (multiple code paths)
 
-   - Set “Expiration Date” as described in `OEP-17.
-   <http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html>`_
+   - Set “Expiration Date” as described in `OEP-17.<http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html>`_
 
 - xBlock
 
    - TBD to eventually remove the code for Open edX.
 
-   - See `deprecating xBlock for the edX website`
-   <https://openedx.atlassian.net/wiki/spaces/ENG/pages/723550424/Deprecating+and+Disabling+an+XBlock+for+the+edX+website>`_ specifically for edx.org.
+   - See `deprecating xBlock for the edX website <https://openedx.atlassian.net/wiki/spaces/ENG/pages/723550424/Deprecating+and+Disabling+an+XBlock+for+the+edX+website>`_ specifically for edx.org.
 
 - Github repo
 
