@@ -260,7 +260,7 @@ as described below.
 
 - Feature toggles (multiple code paths)
 
-   - Set “Expiration Date” as described in `OEP-17.<http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html>`_
+   - Set “Expiration Date” as described in `OEP-17 <http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html>`_.
 
 - xBlock
 
