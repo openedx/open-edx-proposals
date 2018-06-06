@@ -143,8 +143,8 @@ Communication
 Once the determination has been made to deprecate, the originator should do the
 folowing for communications:
 
-1. Email the `edx-code list`_
-.. _edx-code list: https://groups.google.com/forum/#!forum/edx-code   
+1. Email the `edx-code list <https://groups.google.com/forum/#!forum/edx-code>`_
+
 
 2. Make an announcement in the #general channel in the Open edX Slack
 team.
@@ -231,8 +231,9 @@ feedback gathered during the deprecation and removal process.
 
 Depending on the specific technology being deprecated, additional decision
 review processes may apply. If the originator feels this could be the case then
-the Architecture decision 'guidelines
-<https://openedx.atlassian.net/wiki/spaces/AC/pages/704512105/Architecture+Decision+and+Communication+Process>`_ should be consulted. 
+the Architecture decision `guidelines
+<https://openedx.atlassian.net/wiki/spaces/AC/pages/704512105/Architecture+Decision+and+Communication+Process>`_
+should be consulted.
 
 Mark for Deprecation
 --------------------
@@ -262,13 +263,13 @@ as described below.
 - Feature toggles (multiple code paths)
 
    - Set “Expiration Date” as described in `OEP-17.
-   http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html>`_
+   <http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html>`_
 
 - xBlock
 
    - TBD to eventually remove the code for Open edX.
 
-   - See `deprecating xBlock for the edX website
+   - See `deprecating xBlock for the edX website`
    <https://openedx.atlassian.net/wiki/spaces/ENG/pages/723550424/Deprecating+and+Disabling+an+XBlock+for+the+edX+website>`_ specifically for edx.org.
 
 - Github repo
