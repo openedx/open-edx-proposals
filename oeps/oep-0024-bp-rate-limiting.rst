@@ -43,9 +43,12 @@ Motivation
 - Prevent a single resource from causing outages for all resources
 - Restrict resource usage for low priority APIs.
 
+Specifications
+==============
+
 Setting Rate Limits for DRF
 ---------------------------
-Setting up scoped throttle rates::
+Setting up a scoped throttle rate class::
 
     class ExampleUserThrottle(UserRateThrottle):
         THROTTLE_RATES = {
