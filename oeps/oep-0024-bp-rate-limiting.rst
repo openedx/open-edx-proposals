@@ -87,6 +87,8 @@ Testing scopes are set correctly::
 
 Using Waffle Flags for Variable Rate Limits
 -------------------------------------------
+Open question: is there a better way to set a variable rate limit? Possible use a ConfigModel?
+
 ::
 
     class ExampleUserThrottle(UserRateThrottle):
