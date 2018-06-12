@@ -29,7 +29,9 @@ Propose best practices for rate limiting APIs.
 
 Open questions:
 
+* What about rate limiting is in scope for this OEP?
 * What/how do we set the initial rate limit at?
+** Should we set a global rate limit?
 * What is the process for increasing a rate limit?
 * What is the process for scaling down a rate limit?
 * What about different types of users? (Service, super, normal, etc.)
@@ -37,11 +39,13 @@ Open questions:
 Motivation
 ==========
 
-* Why would we want to rate limit?
+Prevent API
 
-- Prevent DDOS attacks
 - Prevent a single resource from causing outages for all resources
 - Restrict resource usage for low priority APIs.
+
+To be able to safely introduce or scale down rate limits without causing an outage or rollback of a release.
+
 
 Specifications
 ==============
