@@ -7,7 +7,7 @@ OEP-0021: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2018-06-06                                             |
+| Last Modified   | 2018-06-20                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>                              |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
@@ -76,8 +76,9 @@ A general rule to follow is that if it’s code that's used by any Open edX
 platform feature then the associated deprecation/removal should be handled by
 the process outlined in this OEP.
 
-Once the technology to be deprecated is identified, the originator
-should be prepared to communicate the following:
+Once the technology to be deprecated is identified, the originator - whether an
+edX staff member or Open edX community member - should be prepared to
+communicate the following:
 
 - Short description of what the technology is
 
@@ -90,19 +91,27 @@ should be prepared to communicate the following:
 Deprecation steps
 -----------------
 
-1. Identify the technology to be deprecated
+1. Identify the technology to be deprecated.
 
 2. Communicate out to edX staff and the Open edX community in accordance with
 the communication section below.
 
 3. Create a JIRA ticket of issue type [Task] with the label 
-[deprecation-removal]. After
-creation, confirm that the ticket shows up in the Deprecation/Removal JIRA
+[deprecation-removal]. After creation, confirm that the ticket shows up in the
+Deprecation/Removal JIRA
 `board <https://openedx.atlassian.net/secure/RapidBoard.jspa?rapidView=452>`_
 
+*Note: A custom state and workflow is being setup for this board.
+If this is not available yet, then the status can be kept as "In Progress" and
+appropriate status from this OEP can be updated in the description field. If
+there are any issues viewing the board or creating/editing a ticket as an Open
+edX community member, then contact either of the authors for assistance.*
+
 4. Initiate discussion as needed with the relevant edX team(s) that own the
-technology or other stakeholders (e.g. consumers of the technology) on intention
-and timeline for removal.
+technology or other stakeholders on intention and timeline for removal. The
+other stakeholders (e.g. consumers of the technology) are not limited to 
+other internal edX teams but could include the Open edX Community, edX Partners,
+and Enterprise clients. 
 
 5. Update the ticket with relevant information (see section above for suggested
 details) and anticipated timeline. See [Suggested-Timeline] section for
@@ -111,10 +120,18 @@ with stakeholder feedback as applicable and update to "Accepted" once it's been
 decided that there's alignment. 
 
 6. Clearly mark the technology in question as deprecated as described in the 
-[Mark-for-Deprecation] section.
+[Mark-for-Deprecation] section. If relevant documentation exists on the Open edX
+`documentation site <http://docs.edx.org/>`_ then contact the documentation team
+(docs@edx.org) to coordinate follow-up action for deprecation and removal being
+performed.
 
 7. Once the above steps are done, move the JIRA ticket to the “Deprecated”
 state.
+
+*Note: There is consideration given to maintaining a central .rst file
+documenting the technologies that have been deprecated. If
+this gets implemented, this OEP will be updated with an additional step on how
+to update that file.*
 
 Removal steps
 -------------
@@ -141,25 +158,26 @@ Communication
 Once the determination has been made to deprecate, the originator should do the
 folowing for communications:
 
-1. Email the `edx-code list <https://groups.google.com/forum/#!forum/edx-code>`_
+1. Email the `edx-code list. <https://groups.google.com/forum/#!forum/edx-code>`_
+In the event that the edx-code list has been deprecated, its designated
+replacement channel should be utilized instead.
 
-
-2. Make an announcement in the #general channel in the Open edX Slack
-team.
+2. Make an announcement in the **#architecture** channel in the Open edX Slack
+team. The announcement should be shared to **#general** as well. 
 
 3. If originating within edX, an additional message should be sent to the
 engineering all email list. 
 
 A message template with suggested topics to cover is below.
 
-Note: This template is oriented towards an email announcement to the
+*Note: This template is oriented towards an email announcement to the
 edx-code mailing list but relevant portions can be repurposed for other
 channels such as the Open edX Slack team, internal edX mailing list and
-others.
+others.*
 
    From: Deprecation originator
 
-   To: edx-code@googlegroups
+   To: edx-code@googlegroups.com
 
    Subject: Deprecation Announcement: [*Technology Name*]
 
@@ -183,7 +201,7 @@ Status tracking
     through the Communicated, Accepted, Deprecated, Removing, and Removed states. If the proposal isn't Accepted, 
     the state transitions from Proposed to Abandoned.
 
-Possible states (with suggested information to include in JIRA ticket
+JIRA ticket states (with suggested information to include in ticket
 description):
 
 -  Proposed
@@ -260,17 +278,17 @@ as described below.
 
 - Feature toggles (multiple code paths)
 
-   - Set “Expiration Date” as described in `OEP-17 <http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html>`_.
+   - Set “Expiration Date” as described in
+   `OEP-17 <http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html>`_.
 
 - xBlock
 
    - TBD to eventually remove the code for Open edX.
-
    - See `deprecating xBlock for the edX website <https://openedx.atlassian.net/wiki/spaces/ENG/pages/723550424/Deprecating+and+Disabling+an+XBlock+for+the+edX+website>`_ specifically for edx.org.
 
 - Github repo
-
    - See `OEP-14 <http://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html>`_
+
 
 Timeline
 --------
@@ -296,15 +314,10 @@ there is a reasonable migration path for the previous named release.
 
 -  **Communicated** - Day 2->Day 13
 
--  **Accepted** - Day 14 (7-14 days after initial communication, depending on
-influx of feedback)
+-  **Accepted** - Day 14 (7-14 days after initial communication, depending on influx of feedback)
 
 -  **Deprecated/Removing/Removed** - Day 15 and onwards (Time that these steps
 take will be dependent on the technology involved)
-
-
-Rationale
-=========
 
 Change History
 ==============
