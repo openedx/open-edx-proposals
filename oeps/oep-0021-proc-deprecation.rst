@@ -7,7 +7,7 @@ OEP-0021: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2018-06-20                                             |
+| Last Modified   | 2018-06-21                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>                              |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
@@ -105,7 +105,8 @@ Deprecation/Removal JIRA
 If this is not available yet, then the status can be kept as "In Progress" and
 appropriate status from this OEP can be updated in the description field. If
 there are any issues viewing the board or creating/editing a ticket as an Open
-edX community member, then contact either of the authors for assistance.*
+edX community member, then contact either of the authors for assistance. This
+note will be removed once the JIRA workflow has been established.*
 
 4. Initiate discussion as needed with the relevant edX team(s) that own the
 technology or other stakeholders on intention and timeline for removal. The
@@ -122,22 +123,22 @@ decided that there's alignment.
 6. Clearly mark the technology in question as deprecated as described in the 
 [Mark-for-Deprecation] section. If relevant documentation exists on the Open edX
 `documentation site <http://docs.edx.org/>`_ then contact the documentation team
-(docs@edx.org) to coordinate follow-up action for deprecation and removal being
+(docs@edx.org) to coordinate follow-up action for the deprecation and removal being
 performed.
 
 7. Once the above steps are done, move the JIRA ticket to the “Deprecated”
 state.
 
-*Note: There is consideration given to maintaining a central .rst file
-documenting the technologies that have been deprecated. If
-this gets implemented, this OEP will be updated with an additional step on how
-to update that file.*
+*Note: There is consideration being given to maintaining a central .rst file
+documenting the technologies that have been deprecated. If implemented as part
+of a separate OEP, this section will be updated with a reference to that process
+and an additional step on how to update that file.*
 
 Removal steps
 -------------
 
 1. Once an item that is “Deprecated” is ready to be removed in
-accordance with the agreed upon timeline, it should be moved to “Removing” 
+accordance with the agreed upon timeline, it should be moved to “Removing”. 
 
 2. Relevant parties should be kept apprised of any delays or issues that arise
 by updating the corresponding JIRA ticket description.
@@ -156,7 +157,7 @@ Communication
 -------------
 
 Once the determination has been made to deprecate, the originator should do the
-folowing for communications:
+following for communications:
 
 1. Email the `edx-code list. <https://groups.google.com/forum/#!forum/edx-code>`_
 In the event that the edx-code list has been deprecated, its designated
@@ -166,7 +167,7 @@ replacement channel should be utilized instead.
 team. The announcement should be shared to **#general** as well. 
 
 3. If originating within edX, an additional message should be sent to the
-engineering all email list. 
+engineering-all email list. 
 
 A message template with suggested topics to cover is below.
 
@@ -255,31 +256,24 @@ Mark for Deprecation
 --------------------
 
 
-Marking a technology as deprecated, depends on what is being deprecated,
+How to mark a technology as deprecated depends on what is being deprecated,
 as described below.
 
 - REST API
 
-   - Update docstring of the API to say “[DEPRECATED] See
-   <link-to-JIRA-ticket>.”
+   - Update docstring of the API to say *[DEPRECATED] See <link-to-JIRA-ticket>*.
 
 - Frontend code
 
-   - Add a console.log(“<Feature/App/API name> is deprecated. See
-   <link-to-JIRA-ticket>.”) in the JS library such that the log statement is run
-   once when the library is used.
+   - Add a console.log("<Feature/App/API name> is deprecated. See <link-to-JIRA-ticket>.") in the JS library such that the log statement is run once when the library is used.
 
 - Backend code
 
-   - Add a LOG.warning(“<Feature/App/API name> is deprecated. See
-   link-to-JIRA-ticket>.”) in the \__init__.py file or apps.py file of the
-   Django app - such that the log statement is run when the app is first
-   initialized.
+   - Add a LOG.warning("<Feature/App/API name> is deprecated. See <link-to-JIRA-ticket>.") in the \__init__.py file or apps.py file of the Django app - such that the log statement is run when the app is first initialized.
 
 - Feature toggles (multiple code paths)
 
-   - Set “Expiration Date” as described in
-   `OEP-17 <http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html>`_.
+   - Set “Expiration Date” as described in `OEP-17 <http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html>`_.
 
 - xBlock
 
@@ -314,10 +308,9 @@ there is a reasonable migration path for the previous named release.
 
 -  **Communicated** - Day 2->Day 13
 
--  **Accepted** - Day 14 (7-14 days after initial communication, depending on influx of feedback)
+-  **Accepted** - Day 14 (7-14 days after initial communication, depending on influx of feedback) 
 
--  **Deprecated/Removing/Removed** - Day 15 and onwards (Time that these steps
-take will be dependent on the technology involved)
+-  **Deprecated/Removing/Removed** - Day 15 and onwards (Time that these steps take will be dependent on the technology involved)
 
 Change History
 ==============
