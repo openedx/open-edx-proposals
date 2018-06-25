@@ -35,6 +35,10 @@ Open questions:
 * What is the process for increasing a rate limit?
 * What is the process for scaling down a rate limit?
 * What about different types of users? (Service, super, normal, etc.)
+* Should we apply a default rate limit to all services? 
+** If we do, what should this be based on?
+* Should we require a rate limit to be set on each api?
+* Is 429 handling in scope for this OEP?
 
 Motivation
 ==========
