@@ -337,9 +337,9 @@ for use:
 * `ADR-based template`_ based on `Architecture Decision Records`_.
 * `External link template`_ for OEPs with mostly external content.
 
-.. _PEP-based template: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-templates/pep-based-template.rst
-.. _ADR-based template: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-templates/adr-based-template.rst
-.. _External link template: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-templates/external-link-template.rst
+.. _PEP-based template: oep-templates/pep-based-template.rst
+.. _ADR-based template: oep-templates/adr-based-template.rst
+.. _External link template: oep-templates/external-link-template.rst
 
 OEP Header Preamble
 -------------------
