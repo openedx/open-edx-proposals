@@ -7,7 +7,7 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Title         | OEP Purpose and Guidelines                                   |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2018-05-02                                                   |
+| Last-Modified | 2018-07-03                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | Calen Pennington <cale@edx.org>,                             |
 |               | Joel Barciauskas <joel@edx.org>,                             |
@@ -333,9 +333,13 @@ to capture the decision(s), as deemed appropriate by the Authors and Arbiter.
 To help guide Authors, here are a few ready-made templates that are available
 for use:
 
-* `PEP-based template <pep-based-template.rst>`_ based on Python's PEP_ standard.
-* `ADR-based template <adr-based-template.rst>`_ based on `Architecture Decision Records`_.
-* `External link template <external-link-template.rst>`_ for OEPs with mostly external content.
+* `PEP-based template`_ based on Python's PEP_ standard.
+* `ADR-based template`_ based on `Architecture Decision Records`_.
+* `External link template`_ for OEPs with mostly external content.
+
+.. _PEP-based template: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-templates/pep-based-template.rst
+.. _ADR-based template: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-templates/adr-based-template.rst
+.. _External link template: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-templates/external-link-template.rst
 
 OEP Header Preamble
 -------------------
