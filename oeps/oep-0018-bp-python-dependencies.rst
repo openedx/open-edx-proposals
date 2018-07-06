@@ -26,6 +26,10 @@ OEP-0018: Python Dependency Management
 
 .. _open-edx-proposals#56 resolution: https://github.com/edx/open-edx-proposals/pull/56#pullrequestreview-116976355
 
+.. contents::
+   :local:
+   :depth: 2
+
 Abstract
 ========
 
@@ -210,16 +214,7 @@ then used anywhere that runs a command to install dependencies: ``tox.ini``,
 ``.travis.yml``, the ``requirements`` make target (for updating a local
 development environment), etc.
 
-Sometimes ``pip-compile`` will be unable to find a suitable version of a
-dependency for the output file because there are incompatible version
-constraints in the input files and/or the stated installation requirements
-of the other dependencies.  In cases like this, installing and running
-`pipdeptree`_ can help identify the conflicting constraints so at least one
-of them can be sufficiently relaxed such that a version of the dependency
-exists which satisfies them all.
-
 .. _pip-tools: https://github.com/jazzband/pip-tools
-.. _pipdeptree: https://github.com/naiquevin/pipdeptree
 
 Automate Updates of Exact Dependency Specifications
 ---------------------------------------------------
@@ -300,6 +295,19 @@ If the developer is not confident of their ability to assess whether a change
 to the dependencies is appropriate, they should seek assistance from other
 developers who are either more experienced or more familiar with that
 repository.
+
+Resolving "Could not find a version that matches..."
+----------------------------------------------------
+
+Sometimes ``make upgrade`` or ``pip-compile`` will be unable to find a
+suitable version of a dependency for the output file because there are
+incompatible version constraints in the input files and/or the stated
+installation requirements of the other dependencies.  In cases like this,
+installing and running `pipdeptree`_ can help identify the conflicting
+constraints so at least one of them can be sufficiently relaxed such that
+a version of the dependency exists which satisfies them all.
+
+.. _pipdeptree: https://github.com/naiquevin/pipdeptree
 
 Installing Dependencies from URLs
 ---------------------------------
