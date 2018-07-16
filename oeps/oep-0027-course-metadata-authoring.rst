@@ -32,18 +32,16 @@ the context of a **Catalog Course**. The **Catalog Course** data authoring needs
 Today, Catalog Course metadata authoring occurs in multiple places, including the Studio, Ecommerce, and
 Marketing sites. We introduced a new tool, called Publisher, to ease the Catalog Course metadata 
 authoring process. The Publisher tool includes an inflexible workflow engine for the process of provisioning
-a course. Currently, this course publish cycle can take up to `fifteen days`_ in order to provision 
+a course. Currently, this course publish cycle can take up to fifteen days in order to provision 
 a new course. 
 
 We also run into data synchronization issues between the separate services since there are multiple sources of truth and
 multiple writers of the relevant metadata.
 
-.. _fifteen days: https://docs.google.com/document/d/1vZ65FVqwqyRu1pkBP3TZZawDIj8GNAdeXK-K86JsCEQ/edit?usp=sharing/
-
 Decision
 --------
 
-* We will no longer embed workflow into the core system. Rather, we will allow for a `self-service`_  workflow tool that will reduce the provisioning time.
+* We will no longer embed workflow into the core system. Rather, we will allow for a self-service workflow tool that will reduce the provisioning time.
 
 * The following data is Course Run data and should be edited only from within Studio:
 
@@ -79,8 +77,10 @@ Decision
 * The Discovery service will continue to remain the single source of truth for all above data. Though, to address the data
   synchronization, we are limiting the editing of a piece of data to a single owner.
 
-  .. _self-service: https://docs.google.com/document/d/1vZ65FVqwqyRu1pkBP3TZZawDIj8GNAdeXK-K86JsCEQ/edit?usp=sharing/
   .. _Discovery subdomain: https://openedx.atlassian.net/wiki/spaces/AC/pages/213910332/Domain-Driven+Design 
+
+.. image:: oep-0027/publisher_v3_future.png
+  :alt: A flowchart of the movement of course run data and catalog course data through edX systems in the future.
 
 Consequences
 ------------
