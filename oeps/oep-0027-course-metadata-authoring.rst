@@ -63,7 +63,7 @@ Decision
   * seat type
   * other catalog course marketing data
 
-  * Note: course about image and instructors are currently managed as Course Run metadata but will transitioned to Catalog Course metadata. 
+  **Note:** course about image and instructors are currently managed as Course Run metadata but will transition to be Catalog Course metadata. 
 
 * We will provide a unified authoring user experience by having Studio be the portal to authoring both Course Run metadata and
   Catalog Course data. However, authoring of Catalog Course metadata will live in the Discovery subdomain. From the user's perspective, 
@@ -91,7 +91,7 @@ Consequences
 
   As a consequence, the authoring experience is biforcated into two different subdomains in our system, Studio and Discovery. However,
   we do hope that an integration at the UI layer will avoid any disparate user experience. The separation of concerns in the back end
-  allows us to have clearer integration points. We will believe that this is a worthwhile trade-off.
+  allows us to have clearer integration points. We believe this is a worthwhile trade-off.
 
 * By removing the workflow engine from the system, we are reducing the turn around time for course provisioning. This introduces a potential
   risk for less review by internal teams. However, by making the workflow self-service, we believe that the course provisioning process will be
