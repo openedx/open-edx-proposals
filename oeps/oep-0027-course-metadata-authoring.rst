@@ -26,7 +26,7 @@ Context
 -------
 
 In the Open edX system, course content authoring occurs in the Studio tool, which focuses mainly on authoring of
-course structure and content within a **Course Run**. A Course Run is marketed on the edX marketing site via
+course structure and content within a **Course Run**. A Course Run is discoverable on the edX marketing site via
 the context of a **Catalog Course**. The **Catalog Course** data authoring needs a good user experience.
 
 Today, Catalog Course metadata authoring occurs in multiple places, including the Studio, Ecommerce, and
@@ -38,12 +38,51 @@ a new course.
 We also run into data synchronization issues between the separate services since there are multiple sources of truth and
 multiple writers of the relevant metadata.
 
-Decision
---------
+Decisions
+---------
 
 * We will no longer embed workflow into the core system. Rather, we will allow for a self-service workflow tool that will reduce the provisioning time.
 
-* The following data is Course Run data and should be edited only from within Studio:
+* Conceptually, we will separate the notion of Course within the edX system in the following ways:
+
+  * **Course Learning Content**, a course-team created package of learning material, with its weekly and sub-weekly structure
+    (i.e., Sections, Subsections, Units, etc) and learning blocks (i.e., leaf xBlocks), tied to specific dates of offering.
+     
+    * This is what we call **(Studio) Course Run**, for the time being.
+    * It is bound to the organization that authors the content.
+    * Note: In the future, this concept may be further separated when we support content reuse across "Course Runs".
+      At that time, we may distinguish between:
+
+      * **Reusable Learning Content** (not tied down to specific dates nor structure) and
+      * **Packaged Learning Content** (an "instantiation" of a "Reusable Learning Content" with structure, dates, and 
+        configuration).
+
+  * **Discoverable Course**, a learner-facing representation of a course that entices enrollment with marketing information
+    such as the course's price and credit/degree outcomes.
+
+    * This is what we call **Catalog Course**, for the time being.
+    * It is bound to a specific marketing site.
+
+  * **Learner Consumable Course**, a learner-engaging course, with read-optimized representation of the learning content. 
+
+    * This is what we call **(LMS) Course Run**.
+    * It is bound to a specific learner.
+
+* Given the above distinctions, each `edX subdomain`_ will manage its own concept. Hence, the authoring logic
+  implementation for each concept will also remain separate. This prevents us from needing to maintain these concepts across
+  multiple domains: keep the authoring of Discoverable-Course (**Catalog Course**) within Discovery; keep the authoring of 
+  Learning-Content-Course (**Course Run**) within Content Authoring. For example, concepts of price, marketing-publish-date,
+  marketing sales, discounts, etc do not need to bleed into the Content Authoring service.
+
+* However, from the course author's perspective, we will provide a unified user experience by having the current Studio tool
+  be the portal to authoring both Course Run metadata and Catalog Course metadata. So even though authoring of Catalog Course
+  metadata will live in the Discovery subdomain, there will be a seamless transition between the front ends of Course Run
+  Authoring and Catalog Course Authoring.
+
+  * This will depend on upcoming architectural infrastructure work on single sign on across the edX microservices and a universal
+    front end header and footer.
+
+* The following is Course Run metadata and its editing should be owned by the `Content Authoring subdomain`_:
 
   * course run dates
 
@@ -55,7 +94,7 @@ Decision
 
   * pacing type
 
-* The following data is Catalog Course data and should be edited only from within the `Discovery subdomain`_:
+* The following is Catalog Course metadata and its editing should be owned by the `Discovery subdomain`_:
 
   * course about image
   * instructors
@@ -65,22 +104,17 @@ Decision
 
   **Note:** course about image and instructors are currently managed as Course Run metadata but will transition to be Catalog Course metadata. 
 
-* We will provide a unified authoring user experience by having Studio be the portal to authoring both Course Run metadata and
-  Catalog Course data. However, authoring of Catalog Course metadata will live in the Discovery subdomain. From the user's perspective, 
-  there will be a seamless transition between the two front ends.
-
-  * This will depend on upcoming architectural infrastructure work on single sign on across the edX microservices and a universal
-    front end header and footer.
+* The Discovery service will be the single source of truth for the published version of the above data. Though to address the data
+  synchronization issues, we will limit the editing of a piece of data to its single owning service.
 
 * We will introduce a new front end for editing Catalog Course metadata, written using the latest recommended front end technologies.
 
-* The Discovery service will continue to remain the single source of truth for all above data. Though, to address the data
-  synchronization, we are limiting the editing of a piece of data to a single owner.
-
-  .. _Discovery subdomain: https://openedx.atlassian.net/wiki/spaces/AC/pages/213910332/Domain-Driven+Design 
+  .. _Discovery subdomain: https://openedx.atlassian.net/wiki/spaces/AC/pages/663224968/edX+DDD+Bounded+Contexts#edXDDDBoundedContexts-edXSubdomainMap
+  .. _Content Authoring subdomain: https://openedx.atlassian.net/wiki/spaces/AC/pages/663224968/edX+DDD+Bounded+Contexts#edXDDDBoundedContexts-edXSubdomainMap
+  .. _edX subdomain: https://openedx.atlassian.net/wiki/spaces/AC/pages/663224968/edX+DDD+Bounded+Contexts#edXDDDBoundedContexts-edXSubdomainMap
 
 .. image:: oep-0027/publisher_v3_future.png
-  :alt: A flowchart of the movement of course run data and catalog course data through edX systems in the future.
+  :alt: A flowchart of the movement of Course Run metadata and Catalog Course metadata through edX systems in the future.
 
 Consequences
 ------------
@@ -90,7 +124,7 @@ Consequences
   Run learning experience and often choose to integrate with their own organizational Catalog Course management system.
 
   As a consequence, the authoring experience is biforcated into two different subdomains in our system, Studio and Discovery. However,
-  we do hope that an integration at the UI layer will avoid any disparate user experience. The separation of concerns in the back end
+  we do hope that the integration at the UI layer will avoid any disparate user experience. The separation of concerns in the back end
   allows us to have clearer integration points. We believe this is a worthwhile trade-off.
 
 * By removing the workflow engine from the system, we are reducing the turn around time for course provisioning. This introduces a potential
@@ -102,4 +136,3 @@ Consequences
 
 References
 ----------
-
