@@ -11,7 +11,7 @@ OEP-0027: Course Metadata Authoring
 +-----------------+----------------------------------------------------------------+
 | Authors         | Farhanah Sheets, Michael Roytman, Nimisha Asthagiri            |
 +-----------------+----------------------------------------------------------------+
-| Arbiter         | <TODO>                                                         |
+| Arbiter         | Wes Mason                                                      |
 +-----------------+----------------------------------------------------------------+
 | Status          | Under Review                                                   |
 +-----------------+----------------------------------------------------------------+
@@ -19,7 +19,7 @@ OEP-0027: Course Metadata Authoring
 +-----------------+----------------------------------------------------------------+
 | Created         | 2018-07-13                                                     |
 +-----------------+----------------------------------------------------------------+
-| `Review Period` | <TODO>                                                         |
+| `Review Period` | 2018-08-01 - 2018-08-15                                        |
 +-----------------+----------------------------------------------------------------+
 
 Context
@@ -46,7 +46,7 @@ Decisions
 * Conceptually, we will separate the notion of Course within the edX system in the following ways:
 
   * **Course Learning Content**, a course-team created package of learning material, with its weekly and sub-weekly structure
-    (i.e., Sections, Subsections, Units, etc) and learning blocks (i.e., leaf xBlocks), tied to specific dates of offering.
+    (i.e., Sections, Subsections, Units, etc.) and learning blocks (i.e., leaf xBlocks), tied to specific dates of offering.
      
     * This is what we call **(Studio) Course Run**, for the time being.
     * It is bound to the organization that authors the content.
@@ -72,7 +72,7 @@ Decisions
   implementation for each concept will also remain separate. This prevents us from needing to maintain these concepts across
   multiple domains: keep the authoring of Discoverable-Course (**Catalog Course**) within Discovery; keep the authoring of 
   Learning-Content-Course (**Course Run**) within Content Authoring. For example, concepts of price, marketing-publish-date,
-  marketing sales, discounts, etc do not need to bleed into the Content Authoring service.
+  marketing sales, discounts, etc., do not need to bleed into the Content Authoring service.
 
 * However, from the course author's perspective, we will provide a unified user experience by having the current Studio tool
   be the portal to authoring both Course Run metadata and Catalog Course metadata. So even though authoring of Catalog Course
