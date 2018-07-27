@@ -325,9 +325,11 @@ documentaion.  The recommended way to use this is just to put ``import six``
 at the top of the file, and use the fully-qualified names, in order to be
 clear about where we are using compatibility code.
 
+Where possible, ``six`` is the recommended solution. 
+
 .. code:: python3
 
-   import six
+   import six  # Or use: from django.utils import six
 
    for bottlecount in six.moves.range(99, 0, -1):
        print("{} bottles of beer on the wall".format(bottlecount))
