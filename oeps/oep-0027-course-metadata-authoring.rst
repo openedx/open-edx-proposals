@@ -25,6 +25,8 @@ OEP-0027: Course Metadata Authoring
 Context
 -------
 
+An understanding of `edX subdomains`_ is a prerequisite for this OEP.
+
 In the Open edX system, course content authoring occurs in the Studio tool, which focuses mainly on authoring of
 course structure and content within a **Course Run**. A Course Run is discoverable on the edX marketing site via
 the context of a **Catalog Course**. The **Catalog Course** data authoring needs a good user experience.
@@ -38,10 +40,17 @@ a new course.
 We also run into data synchronization issues between the separate services since there are multiple sources of truth and
 multiple writers of the relevant metadata.
 
+This project will leverage edX's `decoupled frontend architecture`_ plan. In particular, we will be using phase 3 of the plan to separate
+the Content Metadata Authoring frontend from the associated backend.
+
+  .. _decoupled frontend architecture: https://openedx.atlassian.net/wiki/spaces/FEDX/pages/790692200/Decoupled+Frontend+Architecture
+  .. _edX subdomains: https://openedx.atlassian.net/wiki/spaces/AC/pages/663224968/edX+DDD+Bounded+Contexts#edXDDDBoundedContexts-edXSubdomainMap
+
+
 Decisions
 ---------
 
-* We will no longer embed workflow into the core system. Rather, we will allow for a self-service workflow tool that will reduce the provisioning time.
+* We will no longer embed workflow into the core system. Rather, we will develop or enhance existing APIs to offload workflow and business process to systems and services that allow for more agile changes.
 
 * Conceptually, we will separate the notion of Course within the edX system in the following ways:
 
@@ -74,14 +83,6 @@ Decisions
   Learning-Content-Course (**Course Run**) within Content Authoring. For example, concepts of price, marketing-publish-date,
   marketing sales, discounts, etc., do not need to bleed into the Content Authoring service.
 
-* However, from the course author's perspective, we will provide a unified user experience by having the current Studio tool
-  be the portal to authoring both Course Run metadata and Catalog Course metadata. So even though authoring of Catalog Course
-  metadata will live in the Discovery subdomain, there will be a seamless transition between the front ends of Course Run
-  Authoring and Catalog Course Authoring.
-
-  * This will depend on upcoming architectural infrastructure work on single sign on across the edX microservices and a universal
-    front end header and footer.
-
 * The following is Course Run metadata and its editing should be owned by the `Content Authoring subdomain`_:
 
   * course run dates
@@ -105,10 +106,21 @@ Decisions
   **Note:** course about image and instructors are currently managed as Course Run metadata but will transition to be Catalog Course metadata. 
 
 * The Discovery service will be the single source of truth for the published version of the above data. Though to address the data
-  synchronization issues, we will limit the editing of a piece of data to its single owning service.
+  synchronization issues, we will limit the editing of a piece of data to its single owning service. Anywhere else that a piece of data is editable
+  will be made read-only.
 
-* We will introduce a new front end for editing Catalog Course metadata, written using the latest recommended front end technologies.
+* We will introduce a new front end for editing Catalog Course metadata, written using the latest recommended front end technologies and leveraging phase 3
+of the `decoupled frontend architecture`_ plan.
 
+* From the course author's perspective, we will provide a unified user experience by having the current Studio tool
+  be the portal to authoring both Course Run metadata and Catalog Course metadata. So even though authoring of Catalog Course
+  metadata will live in the Discovery subdomain, there will be a seamless transition between the front ends of Course Run
+  Authoring and Catalog Course Authoring.
+
+  * This will depend on upcoming architectural infrastructure work on single sign on across the edX microservices and a universal
+    front end header and footer.
+
+  .. _decoupled frontend architecture: https://openedx.atlassian.net/wiki/spaces/FEDX/pages/790692200/Decoupled+Frontend+Architecture
   .. _Discovery subdomain: https://openedx.atlassian.net/wiki/spaces/AC/pages/663224968/edX+DDD+Bounded+Contexts#edXDDDBoundedContexts-edXSubdomainMap
   .. _Content Authoring subdomain: https://openedx.atlassian.net/wiki/spaces/AC/pages/663224968/edX+DDD+Bounded+Contexts#edXDDDBoundedContexts-edXSubdomainMap
   .. _edX subdomain: https://openedx.atlassian.net/wiki/spaces/AC/pages/663224968/edX+DDD+Bounded+Contexts#edXDDDBoundedContexts-edXSubdomainMap
@@ -123,13 +135,14 @@ Consequences
   edX system to integrate better with other external systems. We have found that other systems use Open edX for the Course
   Run learning experience and often choose to integrate with their own organizational Catalog Course management system.
 
-  As a consequence, the authoring experience is biforcated into two different subdomains in our system, Studio and Discovery. However,
+  As a consequence, the authoring experience is bifurcated into two different subdomains in our system, Studio and Discovery. However,
   we do hope that the integration at the UI layer will avoid any disparate user experience. The separation of concerns in the back end
   allows us to have clearer integration points. We believe this is a worthwhile trade-off.
 
-* By removing the workflow engine from the system, we are reducing the turn around time for course provisioning. This introduces a potential
-  risk for less review by internal teams. However, by making the workflow self-service, we believe that the course provisioning process will be
-  more scalable. Also, by using a third party workflow management tool, the workflow will be more flexible.
+* By removing the workflow engine, we are moving to a model that enables self-service publishing for most courses and allows internal teams to 
+  reduce the number of blocking approvals and to move to a more scalable system of monitoring and alerting rather than manual review. There are 
+  risks associated with removing existing workflow and gates, but by offloading workflow to a specialized external system, there is a reduced 
+  reliance on engineering to make changes around workflow and an ability to quickly make changes to workflow to respond to problems.
 
 * In the past, course authors were able to edit data using multiple tools, primarily in the tool where the data was presented to learners. Now, 
   the authoring experience will be isolated to one location, potentially not where that data is surfaced to learners.
