@@ -7,20 +7,29 @@ OEP-0022: Caching in Django
 +-----------------+--------------------------------------------------------+
 | Title           | Caching in Django                                      |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2018-05-21                                             |
+| Last Modified   | 2018-08-16                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Robert Raposa <rraposa@edx.org>                        |
 +-----------------+--------------------------------------------------------+
 | Arbiter         | Alex Dusenbery <adusenbery@edx.org>                    |
 +-----------------+--------------------------------------------------------+
-| Status          | Under Review                                           |
+| Status          | Accepted                                               |
 +-----------------+--------------------------------------------------------+
 | Type            | Best Practice                                          |
 +-----------------+--------------------------------------------------------+
 | Created         | 2018-05-04                                             |
 +-----------------+--------------------------------------------------------+
-| `Review Period` | 2018-06-06                                             |
-+-----------------+--------------------------------------------------------+
+
+Summary
+-------
+
+Most of the safety and other benefits that come from the following
+recommendations can be taken advantage of by simply using the `RequestCache
+and TieredCache from edx-django-utils`_.
+
+There are also some ideas related to caching decorators and cache keys, but
+only with documented next steps, not a precise recommendation around a shared
+library.
 
 Context
 -------
@@ -56,9 +65,10 @@ the scope of this OEP.
 Recommendations
 ---------------
 
-The following recommendations include patterns that are generally useful. The
-intention is to better codify these recommendations into shared libraries over
-time and update this documentation as the need arises.
+As mentioned above, most of the following recommendations have been codified in
+the `RequestCache and TieredCache from edx-django-utils`_.
+
+.. _RequestCache and TieredCache from edx-django-utils: https://github.com/edx/edx-django-utils/tree/master/edx_django_utils/cache
 
 Common Caching Defect and Fix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -162,23 +172,7 @@ This section details various implementations of the documented recommendations.
 It will be updated as shared libraries are selected, moved and evolved for
 better reuse in any repository.
 
-**edx-platform repository utilities:**
-
-+---------------------+------------------------------------------------------------------------------------------------+
-| Common Defect Fix   | There is no shared utility.                                                                    |
-+---------------------+------------------------------------------------------------------------------------------------+
-| Tiered Cache        | There is an `edx-platform RequestCache`_, but no Tiered Cache.                                 |
-+---------------------+------------------------------------------------------------------------------------------------+
-| Force Cache Refresh | There are no utilities for forcing a cache refresh for the Django caches.                      |
-+---------------------+------------------------------------------------------------------------------------------------+
-| Cache Decorators    | There are various cache decorators. These could be assessed when considering creating a shared |
-|                     | library of caching utilities.                                                                  |
-+---------------------+------------------------------------------------------------------------------------------------+
-| Generating Keys     | There are common utilities for generating cache keys. These should be assessed when            |
-|                     | considering creating a shared library of caching utilities.                                    |
-+---------------------+------------------------------------------------------------------------------------------------+
-
-**ecommerce repository utilities:**
+**edx-django-utils repository cache utilities:**
 
 +---------------------+------------------------------------------------------------------------------------------------+
 | Common Defect Fix   | The `RequestCache and TieredCache`_ both handle the `Common Caching Defect and Fix`_. Although |
@@ -190,10 +184,20 @@ better reuse in any repository.
 +---------------------+------------------------------------------------------------------------------------------------+
 | Force Cache Refresh | The TieredCache provides functionality for forcing cache refreshes.                            |
 +---------------------+------------------------------------------------------------------------------------------------+
-| Cache Decorators    | There is no cache decorator utility.                                                           |
+| Cache Decorators    | N/A                                                                                            |
 +---------------------+------------------------------------------------------------------------------------------------+
-| Generating Keys     | There are common utilities for generating cache keys. These should be be assessed when         |
-|                     | considering creating a shared library of caching utilities.                                    |
+| Generating Keys     |  N/A                                                                                           |
++---------------------+------------------------------------------------------------------------------------------------+
+
+**other repository utilities:**
+
++---------------------+------------------------------------------------------------------------------------------------+
+| Cache Decorators    | There are various cache decorators in edx-platform. These could be assessed when considering   |
+|                     | moving additional utilities to edx-django-utils.                                               |
++---------------------+------------------------------------------------------------------------------------------------+
+| Generating Keys     | There are common utilities for generating cache keys in edx-platform, ecommerce, and possibly  |
+|                     | other repositories. These should be be assessed when considering moving additional utilities   |
+|                     | to edx-django-utils.                                                                           |
 +---------------------+------------------------------------------------------------------------------------------------+
 
 **Quickcache library**
@@ -220,13 +224,12 @@ good potential candidate for a shared library.
 
 **Next steps:**
 
-* Choose the best solution(s) to the above problems and create a shared library
-  (or libraries) that enable these best practices.
+* Choose the best solution(s) for cache decorators and key generating
+utilities and make them available in edx-django-utils.
 
 * Use linting utilities to enforce the best practices.
 
-.. _edx-platform RequestCache: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/request_cache/__init__.py
-.. _RequestCache and TieredCache: https://github.com/edx/ecommerce/blob/master/ecommerce/cache_utils/README.rst
+.. _RequestCache and TieredCache: https://github.com/edx/edx-django-utils/tree/master/edx_django_utils/cache
 .. _quickcache library: https://github.com/dimagi/quickcache
 
 Consequences
