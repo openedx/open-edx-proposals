@@ -55,9 +55,9 @@ we get the following points which are further elaborated below
 
 A `God component<https://en.wikipedia.org/wiki/God_object>_` tends to know and do everything within the application. No component should be a God component. Each God component should be broken down into smaller components. These small and modular components should follow the Single responsibility principle.
 
-> A component has single responsibility when it has one reason to change.
+> A component has a single responsibility when it has one reason to change.
 
-The above definition is unambiguous because there can be lots of way to argue whether a component has more than one responsibility or not but it becomes easier to decide when this is conveyed in terms of change. The change can be cosmetic like color, spacing, animation, etc or functional like adding new feature etc.
+The above definition is unambiguous because there can be lots of ways to argue whether a component has more than one responsibility or not but it becomes easier to decide when this is conveyed in terms of change. The change can be cosmetic like color, spacing, animation, etc or functional like adding new feature etc.
 
 Single Responsibility Principle is important because it becomes easy to change the component as it is isolated. It is helpful in the theming architecture where the most common use case would be to override a particular part of the UI which will be a component.
 
@@ -135,7 +135,7 @@ export const MainNav = _MainNav;
 export const MainNavWrapper = _MainNavWrapper;
 ``
 
-The above is an example of customizable component and now below is an example of how this can be overridden to create a new custom theme
+The above is an example of a customizable component and now below is an example of how this can be overridden to create a new custom theme
 
 ``
 // Customizable Header
@@ -167,7 +167,7 @@ export const MainNavWrapper = _MainNavWrapper;
 
 ``
 
-**Internal components** are the smaller components which contain html, css or some logic. They follow the Single Responsibility Principle and are passed data through props. We can Higher Order Components and proxy props around smaller components to give some additional properties or modify some existing properties. An example of this can be creating MyCustomAnimatedLogoWidget component using SiteLogo component.
+**Internal components** are the smaller components which contain html, css or some logic. They follow the Single Responsibility Principle and are passed data through props. We can also use Higher Order Components and proxy props around smaller components to give some additional properties or modify some existing properties. An example of this can be creating MyCustomAnimatedLogoWidget component using SiteLogo component.
 
 ``
 
