@@ -13,11 +13,11 @@ OEP-0028: Content Theming in React
 +-----------------+----------------------------------------------------------------+
 | Title           | Content Theming in React                                       |
 +-----------------+----------------------------------------------------------------+
-| Last Modified   | 2018-08-17                                                     |
+| Last Modified   | 2018-08-23                                                     |
 +-----------------+----------------------------------------------------------------+
-| Authors         | Taranjeet Singh                                                |
+| Authors         | Taranjeet Singh <taranjeet@opencraft.com>                      |
 +-----------------+----------------------------------------------------------------+
-| Arbiter         |                                                                |
+| Arbiter         | Ari Rizzitano <arizzitano@edx.org>                             |
 +-----------------+----------------------------------------------------------------+
 | Status          | Draft                                                          |
 +-----------------+----------------------------------------------------------------+
@@ -224,10 +224,9 @@ Another example where specialized children are passed
 Consequences
 ------------
 
-This section describes the resulting context, after applying the decision.
-All consequences should be listed here, not just the "positive" ones. A particular
-decision may have positive, negative, and neutral consequences, but all of them
-affect the team and project in the future.
+Theming system becomes more robust to content modification. Any data be it static or dynamic can be easily added to an existing component. It also provides support to request any unrelated data from the global store, thereby giving better customization for a new theme.
+
+However, there will be cases when a component becomes too complete to use which will create the need to rewrite that component as a composition of smaller components.
 
 References
 ----------
