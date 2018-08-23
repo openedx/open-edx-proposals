@@ -197,9 +197,9 @@ Another example where specialized children are passed
     export const MainNavWrapper = _MainNavWrapper;
 
 
-* We will provide support for a global redux store, which will act as a central place to store data. This store will access to all data available to the system.
+* We will provide support for a global redux store which will be Open edX global redux store. This will act as a central place to store data and will have access to all data available to the system.
 
-* We will consider the layout of the data in the global store as an API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. and add the less commonly needed data from REST API's using built-in redux actions. We will announce breaking changes if the layout of the data changes in store.
+* We will consider the layout of the data in the Open edX global redux store as a stable API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. We will provide the choice for themes to fetch data that's not part of the Open edX global redux store from REST API's using built-in redux actions and store it in their own separate redux store. We will announce breaking changes if the layout of the data changes in global store.
 
 * We will use containers [2] to access data from the redux store and provide it to components via props. A container is a react component that has a direct connection to the state managed by redux and access data from the state via mapStateToProps. We will use Container as a mechanism to separate data access functionality from the Component. This way we can keep both non redux connected version as well as redux connected version of the same component.
 
