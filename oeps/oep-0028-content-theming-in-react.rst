@@ -28,13 +28,17 @@ OEP-0028: Content Theming in React
 | `Review Period` | 2018-08-17 - 2018-08-25                                        |
 +-----------------+----------------------------------------------------------------+
 
+Abstract
+-------
+
+OEP-0023 [1] addresses the styling part of a theming system based on React. This proposal adds guidelines for content modification aspect to the React based theming system
+
 Context
 -------
 
-This section describes the forces at play, including technological, political,
-social, and project local. These forces are probably in tension, and should
-be called out as such. The language in this section is value-neutral. It is
-simply describing facts.
+A modern UI system is composed of several big and customizable components. These components pose a challenge when updating the content/styling of any component. It becomes tougher when the change is required in the particular part of the UI, rather than the complete UI. This is one of the most common pains of the theming system.
+
+Another pain of theming system is providing access to unrelated data to any component. This data may not be used by earlier components but is required in a particular theme. It becomes an important concern for writing a theming system where a global access to data to all the components in the UI system should be provided.
 
 Decision
 --------
@@ -228,7 +232,5 @@ affect the team and project in the future.
 References
 ----------
 
-List any additional references here that would be useful to the future reader.
-See `Documenting Architecture Decisions`_ for further input.
-
-.. _Documenting Architecture Decisions: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+1. OEP-0023 Style Customization
+      https://open-edx-proposals.readthedocs.io/en/latest/oep-0023-style-customization.html
