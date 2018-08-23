@@ -2,8 +2,6 @@
 OEP-0028: Content Theming in React
 ==================================
 
-.. This OEP template is based on Nygard's Architecture Decision Records.
-
 +-----------------+----------------------------------------------------------------+
 | OEP             | :doc:`OEP-0028 </oeps/oep-0028-arch-content-theming-react>`    |
 |                 |                                                                |
@@ -15,7 +13,8 @@ OEP-0028: Content Theming in React
 +-----------------+----------------------------------------------------------------+
 | Last Modified   | 2018-08-23                                                     |
 +-----------------+----------------------------------------------------------------+
-| Authors         | Taranjeet Singh <taranjeet@opencraft.com>                      |
+| Authors         | Braden MacDonald <braden@opencraft.com>,                       |
+|                 | Taranjeet Singh <taranjeet@opencraft.com>                      |
 +-----------------+----------------------------------------------------------------+
 | Arbiter         | Ari Rizzitano <arizzitano@edx.org>                             |
 +-----------------+----------------------------------------------------------------+
