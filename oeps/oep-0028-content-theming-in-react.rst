@@ -39,7 +39,7 @@ simply describing facts.
 Decision
 --------
 
-* We will build small modular components which will be non customizable, stateless and contain HTML, CSS and certain logic. We can see an example where the header component is broken down into smaller components like SiteLogo, MainNav and UserAvatar.
+* We will build small modular components which will be non-customizable, stateless and contain HTML, CSS,  and certain logic. We can see an example where the header component is broken down into smaller components like SiteLogo, MainNav, and UserAvatar.
 
 .. code-block:: js
 
@@ -55,11 +55,11 @@ Decision
         }
     }
 
-* We will build the complete UI out of these small modular components. We will use composition to build a customizable component. These components will neither contain any HTML nor any logic. We can see in the above example where the _Header component is formed by composition of SiteLogo, MainNav and UserAvatar component.
+* We will build the complete UI out of these small modular components. We will use composition to build a customizable component. These components will neither contain any HTML nor any logic. We can see in the above example where the _Header component is formed by the composition of SiteLogo, MainNav and UserAvatar component.
 
-* We will follow a 2 step approach to create any UI Component. We will first break down a complex component into smaller non customizable components. We will then compose these smaller components to form a complex UI.
+* We will follow a 2 step approach to create any UI Component. We will first break down a complex component into smaller non-customizable components. We will then compose these smaller components to form a complex UI.
 
-We can see this by an example where we have a theme, which has several components for a default theme.
+We can see this through an example where we have a theme, which has several components for a default theme.
 
 .. code-block:: js
 
@@ -128,7 +128,7 @@ Now if we want to customize our _Header component, we can easily do it like
     export const MainNavWrapper = _MainNavWrapper;
 
 
-* We will provide support to add data or other components by using `props.children`. The `props.children` property is provided from React and can be extended to include specialized children like leftPane and rightPane for a Pane component. An example of this can be
+* We will provide support to add data or other components by using `props.children`. The `props.children` property is provided from React and can be extended to include specialized children like left and right for a Pane component. An example of this can be
 
 .. code-block:: js
 
@@ -186,7 +186,7 @@ Another example where specialized children are passed
 
 * We will provide support for a global redux store, which will act as a central place to store data.
 
-* We will use containers to access data from redux store and provide it to components via props.
+* We will use containers to access data from the redux store and provide it to components via props.
 
 * We will have support to update any component into a container if it needs to access any data from the redux store, which it currently does not have access to. We can see this by an example where NavbarHeader component initially displays site title. This component now needs to display authenticated username, which is there in the redux store.
 
@@ -212,7 +212,7 @@ Another example where specialized children are passed
 
     const NavbarContainer = connect(mapStateToProps, null)(NavbarHeaderComponent);
 
-    // use NavbarContainer instead of NavbarComponent as it has access to username
+    // use NavbarContainer instead of NavbarComponent as it has access to the username
 
 Consequences
 ------------
