@@ -52,7 +52,21 @@ Decision
         );
     }
 
-* We will build the complete UI out of these small modular components. We will use composition to build a customizable component. These components will neither contain any HTML nor any logic. We can see in the above example where the _Header component is formed by the composition of SiteLogo, MainNav and UserAvatar component.
+* We will build the complete UI out of the above small modular components. We will generally use composition to build a customizable component. However, inheritance can be used at times. These customizable components will neither contain HTML nor logic. We can see an example of a customizable component called the _Header component, which is formed by the composition of SiteLogo, MainNav and UserAvatar component.
+
+.. code-block:: js
+
+    class _Header extends React.PureComponent {
+        render() {
+            return (
+                <header>
+                    <SiteLogo/>
+                    <MainNav/>
+                    <UserAvatar/>
+                </header>
+            );
+        }
+    }
 
 * We will follow a 2 step approach to create any UI Component. We will first break down a complex component into smaller non-customizable components. We will then compose these smaller components to form a complex UI.
 
