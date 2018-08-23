@@ -201,8 +201,7 @@ Another example where specialized children are passed
 
 * We will consider the layout of the data in the global store as an API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. and add the less commonly needed data from REST API's using built-in redux actions. We will announce breaking changes if the layout of the data changes in store.
 
-
-* We will use containers to access data from the redux store and provide it to components via props.
+* We will use containers [2] to access data from the redux store and provide it to components via props. A container is a react component that has a direct connection to the state managed by redux and access data from the state via mapStateToProps. We will use Container as a mechanism to separate data access functionality from the Component. This way we can keep both non redux connected version as well as redux connected version of the same component.
 
 * We will have support to convert any component into a container if it needs to access any data from the redux store, which it currently does not have access to. We can see this by an example where NavbarHeader component initially displays site title. This component now needs to display authenticated username, which is there in the redux store.
 
@@ -242,3 +241,6 @@ References
 
 1. OEP-0023 Style Customization
       https://open-edx-proposals.readthedocs.io/en/latest/oep-0023-style-customization.html
+
+2. Container Components
+      https://redux.js.org/basics/usagewithreact#presentational-and-container-components
