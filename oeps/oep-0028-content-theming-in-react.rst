@@ -35,7 +35,7 @@ OEP-0023 [1] addresses the styling part of a theming system based on React. This
 Context
 -------
 
-A modern UI system is composed of several big and customizable components. These components pose a challenge when updating the content/styling of any component. It becomes tougher when the change is required in the particular part of the UI, rather than the complete UI. This is one of the most common pains of the theming system.
+Open edX instances frequently wish to customize not only the colors and styles of the Open edX UI, but also to add, remove, and modify significant parts of the UI to suit their use cases and branding. Doing this in a way that is understandable, clean, and easy to maintain can be a challenge unless the original UI is designed with this in mind.
 
 Another pain of theming system is providing access to unrelated data to any component. This data may not be used by earlier components but is required in a particular theme. It becomes an important concern for writing a theming system where a global access to data to all the components in the UI system should be provided.
 
@@ -46,8 +46,8 @@ Decision
 
 .. code-block:: js
 
-    class _Header extends React.PureComponent<Props, State> {
-        public render() {
+    class _Header extends React.PureComponent {
+        render() {
             return (
                 <header>
                     <SiteLogo/>
@@ -67,8 +67,8 @@ We can see this through an example where we have a theme, which has several comp
 .. code-block:: js
 
     // Customizable Header
-    class _Header extends React.PureComponent<Props, State> {
-        public render() {
+    class _Header extends React.PureComponent {
+        render() {
             return (
                 <header>
                     <SiteLogo/>
@@ -80,8 +80,8 @@ We can see this through an example where we have a theme, which has several comp
     }
 
     // Customizable Main Navigation Area
-    class _MainNav extends React.PureComponent<Props> {
-        public render() {
+    class _MainNav extends React.PureComponent {
+        render() {
             return (
                 <MainNavWrapper>
                     <a href="/">Home</a>
@@ -90,16 +90,18 @@ We can see this through an example where we have a theme, which has several comp
                 </MainNavWrapper>
             );
         }
-        get extraNavLinks(): JSX.Element[] { return []; }
+        get extraNavLinks() { return []; }
     }
     // Internal MainNavWrapper - not meant to be modified in most cases
-    class _MainNavWrapper extends React.PureComponent<Props> {
-        public render() {
-            return <div className="mainNav">
-                <ul>
-                    {React.Children.map(this.props.children, (child) => (child ? <li>{child}</li> : null))}
-                </ul>
-            </div>;
+    class _MainNavWrapper extends React.PureComponent {
+        render() {
+            return (
+                <div className="mainNav">
+                    <ul>
+                        {React.Children.map(this.props.children, (child) => (child ? <li>{child}</li> : null))}
+                    </ul>
+                </div>
+            )
         }
     }
 
@@ -115,7 +117,7 @@ Now if we want to customize our _Header component, we can easily do it like
 
     // SiteLogo being updated in Header
     class MyThemedHeader extends _Header {
-        public render() {
+        render() {
             return (
                 <header>
                     {/* Replace <SiteLogo/> with a fancy widget */}
@@ -144,7 +146,7 @@ Now if we want to customize our _Header component, we can easily do it like
 
     // use
     <Header title={"Open Edx"} >
-        <h4>Open Source MOOC platform </h4>
+        <h4>Open Source MOOC platform</h4>
     </Header>
 
 Another example where specialized children are passed
