@@ -184,11 +184,14 @@ Another example where specialized children are passed
     export const MainNavWrapper = _MainNavWrapper;
 
 
-* We will provide support for a global redux store, which will act as a central place to store data.
+* We will provide support for a global redux store, which will act as a central place to store data. This store will access to all data available to the system.
+
+* We will consider the layout of the data in the global store as an API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. and add the less commonly needed data from REST API's using built-in redux actions. We will announce breaking changes if the layout of the data changes in store.
+
 
 * We will use containers to access data from the redux store and provide it to components via props.
 
-* We will have support to update any component into a container if it needs to access any data from the redux store, which it currently does not have access to. We can see this by an example where NavbarHeader component initially displays site title. This component now needs to display authenticated username, which is there in the redux store.
+* We will have support to convert any component into a container if it needs to access any data from the redux store, which it currently does not have access to. We can see this by an example where NavbarHeader component initially displays site title. This component now needs to display authenticated username, which is there in the redux store.
 
 .. code-block:: js
 
@@ -210,9 +213,9 @@ Another example where specialized children are passed
         }
     }
 
-    const NavbarContainer = connect(mapStateToProps, null)(NavbarHeaderComponent);
+    const NavbarHeaderContainer = connect(mapStateToProps, null)(NavbarHeaderComponent);
 
-    // use NavbarContainer instead of NavbarComponent as it has access to the username
+    // use NavbarHeaderContainer instead of NavbarComponent as it has access to the username
 
 Consequences
 ------------
