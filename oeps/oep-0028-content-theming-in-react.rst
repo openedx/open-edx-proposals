@@ -42,20 +42,14 @@ Another pain of theming system is providing access to unrelated data to any comp
 Decision
 --------
 
-* We will build small modular components which will be non-customizable, stateless and contain HTML, CSS,  and certain logic. We can see an example where the header component is broken down into smaller components like SiteLogo, MainNav, and UserAvatar.
+* We will build small modular components which will be non-customizable, stateless and contain HTML, and certain logic. We can see an example of a smaller component SiteLogo, which will later be used in a customizable component _Header.
 
 .. code-block:: js
 
-    class _Header extends React.PureComponent {
-        render() {
-            return (
-                <header>
-                    <SiteLogo/>
-                    <MainNav/>
-                    <UserAvatar/>
-                </header>
-            );
-        }
+    const SiteLogo = (props) => {
+        return (
+            <img src={props.url} alt={props.altText} />
+        );
     }
 
 * We will build the complete UI out of these small modular components. We will use composition to build a customizable component. These components will neither contain any HTML nor any logic. We can see in the above example where the _Header component is formed by the composition of SiteLogo, MainNav and UserAvatar component.
