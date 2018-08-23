@@ -7,11 +7,11 @@ OEP-10: Open edX Releases
 +---------------+---------------------------------------------------+
 | Title         | Open edX Releases                                 |
 +---------------+---------------------------------------------------+
-| Last Modified | 2017-04-25                                        |
+| Last Modified | 2018-08-22                                        |
 +---------------+---------------------------------------------------+
 | Author        | Ned Batchelder <ned@edx.org>                      |
 +---------------+---------------------------------------------------+
-| Arbiter       | Edward Fagin                                      |
+| Arbiter       | Jeremy Bowman                                     |
 +---------------+---------------------------------------------------+
 | Status        | Accepted                                          |
 +---------------+---------------------------------------------------+
@@ -126,8 +126,9 @@ Release creation
 
 A new release line is created roughly every six months.  Release lines are
 named with words in alphabetical order: Dogwood, Eucalyptus, Ficus, Gingko,
-and so on.  On a release line, there will be a handful of releases:
-Eucalyptus.1, Eucalyptus.2, and so on.
+and so on.  On a release line, there will be a handful of releases. The first
+is called .1 (Eucalyptus.1 for example).  Follow-on releases are numbered from
+there: Eucalyptus.2, Eucalyptus.3, and so on.
 
 After the .1 release, new releases in a line are made only for severe problems
 such as security problems, data loss, or feature breakage. 
@@ -198,15 +199,13 @@ There are two supported installation methods:
 
 .. note::
 
-    In Eucalyptus and before, there was a third installation method, called
+    In Ginkgo and before, there was a third installation method, called
     Fullstack.  This was similar to the native installation, but ran under
     Vagrant.  There was no conceptual difference between Native and Fullstack,
     so we dropped Fullstack.  If adopters want to run the Native installation
     under Vagrant, it is not hard to do.
 
-The devstack installation will follow :doc:`OEP-5 <oep-0005>`, with a
-single-machine Vagrant image running alongside some number of Docker
-containers.
+The devstack installation is Docker-based and follows :doc:`OEP-5 <oep-0005>`.
 
 .. note::
 
@@ -214,8 +213,7 @@ containers.
     services to run and which should be editable.
 
 The native installation will use an Ansible playbook to install Open edX
-components onto the machine, and install Docker and some number of Docker
-containers.
+components onto the machine.
 
 .. note::
 
@@ -225,3 +223,4 @@ containers.
 Change History
 ==============
 
+2018-08-22: Installation details adjusted to match current Hawthorn realities.
