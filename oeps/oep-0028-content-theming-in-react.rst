@@ -16,7 +16,7 @@ OEP-0028: Content Theming in React
 | Authors         | Braden MacDonald <braden@opencraft.com>,                       |
 |                 | Taranjeet Singh <taranjeet@opencraft.com>                      |
 +-----------------+----------------------------------------------------------------+
-| Arbiter         | Ari Rizzitano <arizzitano@edx.org>                             |
+| Arbiter         |                                                                |
 +-----------------+----------------------------------------------------------------+
 | Status          | Draft                                                          |
 +-----------------+----------------------------------------------------------------+
