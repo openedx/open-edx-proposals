@@ -30,7 +30,7 @@ OEP-0028: Content Theming in React
 Abstract
 -------
 
-OEP-0023 [1] addresses the styling part of a theming system based on React. This proposal adds guidelines for content modification aspect to the React based theming system
+OEP-0023 [1] addresses the styling part of a theming system based on React. This proposal adds guidelines for content modification to the React based theming system.
 
 Context
 -------
@@ -41,6 +41,12 @@ Another pain of theming system is providing access to unrelated data to any comp
 
 Decision
 --------
+
+* We will build two types of components:
+
+  1. Customizable components which will compose others components
+
+  2. Internal or non customizable components which will contain HTML and certain logic
 
 * We will build small modular components which will be non-customizable, stateless and contain HTML, and certain logic. We can see an example of a smaller component SiteLogo, which will later be used in a customizable component _Header.
 
@@ -141,7 +147,7 @@ Now if we want to customize our _Header component, we can easily do it like
     export const MainNavWrapper = _MainNavWrapper;
 
 
-* We will provide support to add data or other components by using `props.children`. The `props.children` property is provided from React and can be extended to include specialized children like left and right for a Pane component. An example of this can be
+* We will provide support to add data or other components by using `props.children`. The `props.children` property is provided from React and is helpful when a component doesn't know its children ahead of time. An example of this can be
 
 .. code-block:: js
 
@@ -157,7 +163,7 @@ Now if we want to customize our _Header component, we can easily do it like
         <h4>Open Source MOOC platform</h4>
     </Header>
 
-Another example where specialized children are passed
+We can also pass data or components via custom properties in a similar fashion. For example, a Pane component can have left and right as properties which display additional components. The Pane component will look like
 
 .. code-block:: js
 
@@ -179,7 +185,7 @@ Another example where specialized children are passed
     <Pane left={<Image />} right={<Explanation />} />
 
 
-* We will use function and placeholder to add additional content in customizable components. We can take an example of the above DefaultTheme and see _MainNav where it has support to add additional nav links by overriding `extraNavLinks` function.
+* We will use functions and placeholders to add additional content to customizable components. We can take an example of the above DefaultTheme and see _MainNav where it has support to add additional nav links by overriding `extraNavLinks` function.
 
 .. code-block:: js
 
@@ -197,9 +203,9 @@ Another example where specialized children are passed
     export const MainNavWrapper = _MainNavWrapper;
 
 
-* We will provide support for a global redux store which will be Open edX global redux store. This will act as a central place to store data and will have access to all data available to the system.
+* Each frontend (e.g. the LMS, os Studio) will have a global redux store that acts as a central place to hold the state of its UI.
 
-* We will consider the layout of the data in the Open edX global redux store as a stable API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. We will provide the choice for themes to fetch data that's not part of the Open edX global redux store from REST API's using built-in redux actions and store it in their own separate redux store. We will announce breaking changes if the layout of the data changes in global store.
+* We will consider the layout of the data in the redux store specific to each frontend(LMS, Studio, ecommerce, etc.) as a stable API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. We will provide the flexibility for themes to fetch data that's not part of the redux store from REST API's using built-in redux actions and store it in their own separate redux store. We will announce breaking changes if the layout of the data changes in global store.
 
 * We will use containers [2] to access data from the redux store and provide it to components via props. A container is a react component that has a direct connection to the state managed by redux and access data from the state via mapStateToProps. We will use Container as a mechanism to separate data access functionality from the Component. This way we can keep both non redux connected version as well as redux connected version of the same component.
 
@@ -208,16 +214,26 @@ Another example where specialized children are passed
 .. code-block:: js
 
     // NavbarHeader component
-    const NavbarHeaderComponent = (props) => {
-        return (
-            <h1>{props.title}</h1>
-            {props.username}
-        )
+    class NavbarHeader extends React.Component {
+        render() {
+            return (
+                <h1>{props.title}</h1>
+            );
+        }
     }
 
+    class NavbarHeaderWithUserName extends NavbarHeader {
+        render() {
+            return (
+                <>
+                    <h1>{props.title}</h1>
+                    <h3>{props.username}</h3>
+                </>
+            );
+        }
+    }
 
     // NavbarHeader container
-
     function mapStateToProps(state) {
         return {
             title: state.title,
@@ -225,16 +241,16 @@ Another example where specialized children are passed
         }
     }
 
-    const NavbarHeaderContainer = connect(mapStateToProps, null)(NavbarHeaderComponent);
+    const NavbarHeaderContainer = connect(mapStateToProps, null)(NavbarHeaderWithUserName);
 
-    // use NavbarHeaderContainer instead of NavbarComponent as it has access to the username
+    // use NavbarHeaderContainer instead of NavbarHeaderWithUserName as it has access to the username
 
 Consequences
 ------------
 
 Theming system becomes more robust to content modification. Any data be it static or dynamic can be easily added to an existing component. It also provides support to request any unrelated data from the global store, thereby giving better customization for a new theme.
 
-However, there will be cases when a component becomes too complete to use which will create the need to rewrite that component as a composition of smaller components.
+However, there will be cases when a component becomes too complex to use which will create the need to rewrite that component as a composition of smaller components.
 
 References
 ----------
