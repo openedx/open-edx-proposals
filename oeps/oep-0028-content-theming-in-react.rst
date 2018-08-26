@@ -221,7 +221,7 @@ We can also pass data or components via custom properties in a similar fashion. 
 
 * Each frontend (e.g. the LMS, os Studio) will have a global redux store that acts as a central place to hold the state of its UI.
 
-* We will consider the layout of the data in the redux store specific to each frontend(LMS, Studio, ecommerce, etc.) as a stable API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. We will provide the flexibility for themes to fetch data that's not part of the redux store from REST API's using built-in redux actions and store it in their own separate redux store. We will announce breaking changes if the layout of the data changes in global store.
+* We will consider the layout of the data in the redux store specific to each frontend(LMS, Studio, ecommerce, etc.) as a stable API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. We will provide the flexibility for themes to fetch data that's not part of the redux store from REST API's using custom redux actions and store it in their own separate redux store. We will announce breaking changes if the layout of the data changes in global store.
 
 * We will use containers [2] to access data from the redux store and provide it to components via props. A container is a react component that has a direct connection to the state managed by redux and access data from the state via mapStateToProps. We will use Container as a mechanism to separate data access functionality from the Component. This way we can keep both non redux connected version as well as redux connected version of the same component.
 
