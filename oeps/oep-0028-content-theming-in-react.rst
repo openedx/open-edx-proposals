@@ -58,7 +58,7 @@ Decision
         );
     }
 
-* We will build the complete UI out of the above small modular components. We will generally use composition to build a customizable component. However, inheritance can be used at times. These customizable components will neither contain HTML nor logic. We can see an example of a customizable component called the _Header component, which is formed by the composition of SiteLogo, MainNav and UserAvatar component.
+* We will build the complete UI out of the above small modular components. We will aim/prefer to use composition whenever possible. These customizable components will contain little or no HTML nor logic. We can see an example of a customizable component called the _Header component, which is formed by the composition of SiteLogo, MainNav and UserAvatar component.
 
 .. code-block:: js
 
@@ -74,7 +74,7 @@ Decision
         }
     }
 
-* We will follow a 2 step approach to create any UI Component. We will first break down a complex component into smaller non-customizable components. We will then compose these smaller components to form a complex UI.
+* When creating any complex UI Component we will try to break it down into the smallest reusable components, and build the component out of these small reusable pieces.
 
 We can see this through an example where we have a theme, which has several components for a default theme.
 
@@ -159,7 +159,7 @@ Now if we want to customize our _Header component, we can easily do it like
     }
 
     // use
-    <Header title={"Open Edx"} >
+    <Header title="Open Edx" >
         <h4>Open Source MOOC platform</h4>
     </Header>
 
@@ -209,7 +209,7 @@ We can also pass data or components via custom properties in a similar fashion. 
 
 * We will use containers [2] to access data from the redux store and provide it to components via props. A container is a react component that has a direct connection to the state managed by redux and access data from the state via mapStateToProps. We will use Container as a mechanism to separate data access functionality from the Component. This way we can keep both non redux connected version as well as redux connected version of the same component.
 
-* We will have support to convert any component into a container if it needs to access any data from the redux store, which it currently does not have access to. We can see this by an example where NavbarHeader component initially displays site title. This component now needs to display authenticated username, which is there in the redux store.
+* We will have support to compose any component into a container if it needs to access any data from the redux store, which it currently does not have access to. We can see this by an example where NavbarHeader component initially displays site title. This component now needs to display authenticated username, which is there in the redux store.
 
 .. code-block:: js
 
