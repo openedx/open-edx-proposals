@@ -74,7 +74,7 @@ Decision
         }
     }
 
-* When creating any complex UI Component we will try to break it down into the smallest reusable components, and build the component out of these small reusable pieces.
+* When creating any complex UI Component we will try to break it down into the smallest reusable components, and build the component out of these small reusable pieces via composition/inheritance. We will prefer composition whenever adding any new component or content and inheritance when replacing or modifying component.
 
 We can see this through an example where we have a theme, which has several components for a default theme.
 
@@ -146,6 +146,22 @@ Now if we want to customize our _Header component, we can easily do it like
     export const Header = MyThemedHeader;
     export const MainNavWrapper = _MainNavWrapper;
 
+We can see that in the above example we are using inheritance since we are updating MyThemedHeader to include MyCustomAnimatedLogoWidget instead of SiteLogo.
+
+Now if we want to customize our _Header component and include a heading of site's title, we can do it like
+
+.. code-block:: js
+
+    const SiteTitleHeader = (props) => {
+        return (
+            <React.Fragment>
+                <MyThemedHeader />
+                <h3>{props.title}</h3>
+            </React.Fragment>
+        )
+    }
+
+We can see that in the above example we are using composition since we are adding a component to the existing MyThemedHeader component.
 
 * We will provide support to add data or other components by using `props.children`. The `props.children` property is provided from React and is helpful when a component doesn't know its children ahead of time. An example of this can be
 
