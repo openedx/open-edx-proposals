@@ -208,9 +208,11 @@ We can also pass data or components via custom properties in a similar fashion. 
     // Customizable Main Navigation Area
     class MyThemedNav extends _MainNav {
         get extraNavLinks() {
-            return [
-                <a href="/about">About Us</a>,
-            ];
+            return (
+                <React.Fragment>
+                    <a href="/about">About Us</a>
+                </React.Fragment>
+            );
         }
     }
 
@@ -241,10 +243,10 @@ We can also pass data or components via custom properties in a similar fashion. 
     class NavbarHeaderWithUserName extends NavbarHeader {
         render() {
             return (
-                <>
+                <React.Fragment>
                     <h1>{props.title}</h1>
                     <h3>{props.username}</h3>
-                </>
+                </React.Fragment>
             );
         }
     }
