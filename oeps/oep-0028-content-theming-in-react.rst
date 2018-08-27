@@ -37,14 +37,14 @@ Context
 
 Open edX instances frequently wish to customize not only the colors and styles of the Open edX UI, but also to add, remove, and modify significant parts of the UI to suit their use cases and branding. Doing this in a way that is understandable, clean, and easy to maintain can be a challenge unless the original UI is designed with this in mind.
 
-Another pain of theming system is providing access to unrelated data to any component. This data may not be used by earlier components but is required in a particular theme. It becomes an important concern for writing a theming system where a global access to data to all the components in the UI system should be provided.
+Another pain of theming systems is providing access to unrelated data to any component. It becomes important to make commonly-used data globally available to all components.
 
 Decision
 --------
 
 * We will build two types of components:
 
-  1. Customizable components which will compose others components
+  1. Customizable components which will be composed of others components
 
   2. Internal or non customizable components which will contain HTML and certain logic
 
