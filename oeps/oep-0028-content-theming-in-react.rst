@@ -244,7 +244,22 @@ Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimate
         }
     }
 
-* We will use methods and placeholders to add additional content to customizable components. These methods will be overridden from subclasses and will be clearly marked as part of the Theme API. We will announce breaking changes if there are any changes to these methods. We can take an example of the above ``DefaultTheme`` and see ``_MainNav`` where it has support to add additional nav links by overriding ``extraNavLinks`` function.
+* We will provide support via props to control parts of the component when composing components. An example of this can be ``Button`` element
+
+.. code-block:: js
+
+    class Button extends React.PureComponent {
+        render() {
+            return <button
+                color={this.props.color}
+                size={this.props.size}
+                disable={this.props.isDisable}
+                onClick={this.props.onClickHandler}
+            />
+        }
+    }
+
+* We will use methods and placeholders to add additional content to customizable components when using inheritance. These methods will be overridden from subclasses and will be clearly marked as part of the Theme API. We will announce breaking changes if there are any changes to these methods. We can take an example of the above ``DefaultTheme`` and see ``_MainNav`` where it has support to add additional nav links by overriding ``extraNavLinks`` function.
 
 .. code-block:: js
 
