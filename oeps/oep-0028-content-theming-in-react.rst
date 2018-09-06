@@ -66,7 +66,7 @@ Decision
         render() {
             return (
                 <header>
-                    <SiteLogo/>
+                    {this.props.logo ? this.props.logo: <SiteLogo/>}
                     <MainNav/>
                     <UserAvatar/>
                 </header>
@@ -83,7 +83,7 @@ Decision
         render() {
             return (
                 <header>
-                    <SiteLogo/>
+                    {this.props.logo ? this.props.logo: <SiteLogo/>}
                     <MainNav/>
                     <UserAvatar/>
                 </header>
@@ -123,136 +123,126 @@ Decision
     export const MainNavWrapper = _MainNavWrapper;
 
 
-Now if we want to customize our ``_Header`` component, we can easily do it like
+Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimatedLogoWidget`` instead of ``SiteLogo``, we can do it as
 
 .. code-block:: js
 
-    // SiteLogo being updated in Header
-    class MyThemedHeader extends _Header {
-        render() {
-            return (
-                <header>
-                    {/* Replace <SiteLogo/> with a fancy widget */}
-                    <MyCustomAnimatedLogoWidget/>
-                    <MainNav/>
-                    <UserAvatar/>
-                </header>
-            );
-        }
+    const MyThemedHeader = (props) => {
+        return (<Header props={<MyCustomAnimatedLogoWidget/>} />)
     }
+
     // Custom theme:
     export const Header = MyThemedHeader;
-    export const MainNavWrapper = _MainNavWrapper;
 
 
 * We will generally prefer composition when extending components, however there can be certain scenarios, under which inheritance is the much better alternate.
 
-1. Inheritance becomes necessary when you want to customize a component, but there is no support via props. An example of this can be ``SiteLogo`` component, where the user wants to a Trademark logo next to the image. Since ``SiteLogo`` does not contains support for trademark logo, it needs to extended via inheritance as follows
+1. Inheritance becomes necessary when you want to customize a component, but there is no support via props. An example of this can be ``SiteLogoCircle`` component, where the user wants to a Trademark logo next to the image. Since ``SiteLogoCircle`` does not contains support for trademark logo, it needs to extended via inheritance as follows
 
-    .. code-block:: js
+.. code-block:: js
 
-        class SiteLogo extends React.Component {
-            render() {
-                <Logo>
-                    <Image src={this.props.image} />
-                </Logo>
-            }
+    class SiteLogoCircle extends React.PureComponent {
+        render() {
+            <CircleLogo>
+                <Image src={this.props.image} />
+            </CircleLogo>
         }
+    }
 
-        # if props were present
-        class SiteLogo extends React.Component {
-            render() {
-                <Logo>
-                    <Image src={this.props.image} />
-                    {this.props.trademark ? <TradeMarkLogo />:  null}
-                </Logo>
-            }
+    # if props were present
+    class SiteLogoCircle extends React.PureComponent {
+        render() {
+            <CircleLogo>
+                <Image src={this.props.image} />
+                {this.props.trademark ? <TradeMarkLogo />:  null}
+            </CircleLogo>
         }
+    }
 
-        # via inheritance
-        class SiteLogoWithTitle extends React.Component {
-            render() {
-                <Logo>
-                    <Image src={this.props.image} />
-                    <TradeMarkLogo />
-                </Logo>
-            }
+    # via inheritance
+    class SiteLogoCircleWithTitle extends SiteLogo {
+        render() {
+            <CircleLogo>
+                <Image src={this.props.image} />
+                <TradeMarkLogo />
+            </CircleLogo>
         }
+    }
 
 2. Inheritance becomes necessary when the original author is not aware of the customizations a component can have. An example of this can be Card component, where the author has a CardColor component which gives a background color to the upper half portion of the Card. Now in the custom theme, we want to show an image instead of the background color. This can be done via inheritance
 
-    .. code-block:: js
+.. code-block:: js
 
-        class Card extends React.Component {
+    class Card extends React.PureComponent {
 
-            viewCardDetail(courseId) {
-                // open course detail page
-            }
-
-            render() {
-                <Card>
-                    <CardColor color={this.props.color} />
-                    <CardBody>
-                        <CardTitle />
-                        <CardText />
-                        <Button onClick={this.viewCardDetail(this.props.courseId) />}
-                    </CardBody>
-                </Card>
-            }
+        viewCardDetail(courseId) {
+            // open course detail page
         }
 
-        ## overridden version
-        class ImageCard extends Card {
-            render() {
-                <Card>
-                    <CardImage image={this.props.imageUrl} />
-                    <CardBody>
-                        <CardTitle />
-                        <CardText />
-                        <Button onClick={this.viewCardDetail(this.props.courseId) />}
-                    </CardBody>
-                </Card>
-            }
+        render() {
+            <Card>
+                <CardColor color={this.props.color} />
+                <CardBody>
+                    <CardTitle />
+                    <CardText />
+                    <Button onClick={this.viewCardDetail(this.props.courseId) />}
+                </CardBody>
+            </Card>
         }
+    }
+
+    ## overridden version
+    class ImageCard extends Card {
+        render() {
+            <Card>
+                <CardImage image={this.props.imageUrl} />
+                <CardBody>
+                    <CardTitle />
+                    <CardText />
+                    <Button onClick={this.viewCardDetail(this.props.courseId) />}
+                </CardBody>
+            </Card>
+        }
+    }
 
 3. Inheritance often becomes necessary and useful, when we want to override the rendering functionality of any component, and still maintaining access to lifecycle code. Overriding functionality can include removing, re-ordering, replacing or inserting children. An example of this can be Navbar, where the default Navbar has a SearchForm which is left aligned. This Navbar component can now be inherited to place SearchForm as right aligned.
 
-    .. code-block:: js
+.. code-block:: js
 
-        class Navbar extends React.Component {
+    class Navbar extends React.PureComponent {
 
-            handleSubmit() {
-                // handle form submit here
-            }
-
-            render () {
-                <Nav>
-                    <NavbarLeft>
-                        <SiteTitle />
-                        <SearchForm onSubmit={this.handleSubmit}/>
-                    </NavbarLeft>
-                    <NavbarRight>
-                        <UserNav />
-                    </NavbarRight>
-                </Nav>
-            }
+        handleSubmit() {
+            // handle form submit here
         }
 
-        # override Navbar via inheritance
-        class CustomNavbar extends Navbar {
-
-            render () {
-                <Nav>
-                    <NavbarLeft>
-                        <SiteTitle />
-                    </NavbarLeft>
-                    <NavbarRight>
-                        <SearchForm onSubmit={this.handleSubmit}/>
-                        <UserNav />
-                    </NavbarRight>
-                </Nav>
-            }
+        render () {
+            <Nav>
+                <NavbarLeft>
+                    <SiteTitle />
+                    <SearchForm onSubmit={this.handleSubmit}/>
+                </NavbarLeft>
+                <NavbarRight>
+                    <UserNav />
+                </NavbarRight>
+            </Nav>
         }
+    }
+
+    # override Navbar via inheritance
+    class CustomNavbar extends Navbar {
+
+        render () {
+            <Nav>
+                <NavbarLeft>
+                    <SiteTitle />
+                </NavbarLeft>
+                <NavbarRight>
+                    <SearchForm onSubmit={this.handleSubmit}/>
+                    <UserNav />
+                </NavbarRight>
+            </Nav>
+        }
+    }
 
 * We will use methods and placeholders to add additional content to customizable components. These methods will be overridden from subclasses and will be clearly marked as part of the Theme API. We will announce breaking changes if there are any changes to these methods. We can take an example of the above ``DefaultTheme`` and see ``_MainNav`` where it has support to add additional nav links by overriding ``extraNavLinks`` function.
 
