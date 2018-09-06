@@ -163,44 +163,6 @@ Now if we want to customize our _Header component and include a heading of site'
 
 We can see that in the above example we are using composition since we are adding a component to the existing MyThemedHeader component.
 
-* We will provide support to add data or other components by using `props.children`. The `props.children` property is provided from React and is helpful when a component doesn't know its children ahead of time. An example of this can be
-
-.. code-block:: js
-
-    const Header = (props) => {
-        return (
-            <h1>{props.title}</h1>
-            {props.children}
-        )
-    }
-
-    // use
-    <Header title="Open Edx" >
-        <h4>Open Source MOOC platform</h4>
-    </Header>
-
-We can also pass data or components via custom properties in a similar fashion. For example, a Pane component can have left and right as properties which display additional components. The Pane component will look like
-
-.. code-block:: js
-
-    const Pane = (props) => {
-        return (
-            <div className="pane">
-                <div className="pane-left">
-                    {props.left}
-                </div>
-                <div className="pane-right">
-                    {props.right}
-                </div>
-            </div>
-
-        )
-    }
-
-    // use
-    <Pane left={<Image />} right={<Explanation />} />
-
-
 * We will use functions and placeholders to add additional content to customizable components. We can take an example of the above DefaultTheme and see _MainNav where it has support to add additional nav links by overriding `extraNavLinks` function.
 
 .. code-block:: js
