@@ -48,7 +48,7 @@ Decision
 
   2. Internal or non customizable components which will contain HTML and certain logic
 
-* We will build small modular components which will be non-customizable, stateless and contain HTML, and certain logic. We can see an example of a smaller component SiteLogo, which will later be used in a customizable component _Header.
+* We will build small modular components which will be non-customizable, stateless and contain HTML, and certain logic. We can see an example of a smaller component ``SiteLogo``, which will later be used in a customizable component ``_Header``.
 
 .. code-block:: js
 
@@ -58,7 +58,7 @@ Decision
         );
     }
 
-* We will build the complete UI out of the above small modular components. We will aim/prefer to use composition whenever possible. These customizable components will contain little or no HTML nor logic. We can see an example of a customizable component called the _Header component, which is formed by the composition of SiteLogo, MainNav and UserAvatar component.
+* We will build the complete UI out of the above small modular components. We will aim/prefer to use composition whenever possible. These customizable components will contain little or no HTML nor logic. We can see an example of a customizable component called the ``_Header`` component, which is formed by the composition of ``SiteLogo``, ``MainNav`` and ``UserAvatar`` component.
 
 .. code-block:: js
 
@@ -125,7 +125,7 @@ We can see this through an example where we have a theme, which has several comp
     export const MainNavWrapper = _MainNavWrapper;
 
 
-Now if we want to customize our _Header component, we can easily do it like
+Now if we want to customize our ``_Header`` component, we can easily do it like
 
 .. code-block:: js
 
@@ -146,9 +146,9 @@ Now if we want to customize our _Header component, we can easily do it like
     export const Header = MyThemedHeader;
     export const MainNavWrapper = _MainNavWrapper;
 
-We can see that in the above example we are using inheritance since we are updating MyThemedHeader to include MyCustomAnimatedLogoWidget instead of SiteLogo.
+We can see that in the above example we are using inheritance since we are updating ``MyThemedHeader`` to include ``MyCustomAnimatedLogoWidget`` instead of ``SiteLogo``.
 
-Now if we want to customize our _Header component and include a heading of site's title, we can do it like
+Now if we want to customize our ``_Header`` component and include a heading of site's title, we can do it like
 
 .. code-block:: js
 
@@ -163,7 +163,7 @@ Now if we want to customize our _Header component and include a heading of site'
 
 We can see that in the above example we are using composition since we are adding a component to the existing MyThemedHeader component.
 
-* We will use functions and placeholders to add additional content to customizable components. We can take an example of the above DefaultTheme and see _MainNav where it has support to add additional nav links by overriding `extraNavLinks` function.
+* We will use functions and placeholders to add additional content to customizable components. We can take an example of the above ``DefaultTheme`` and see ``_MainNav`` where it has support to add additional nav links by overriding ``extraNavLinks`` function.
 
 .. code-block:: js
 
@@ -185,11 +185,11 @@ We can see that in the above example we are using composition since we are addin
 
 * Each frontend (e.g. the LMS, os Studio) will have a global redux store that acts as a central place to hold the state of its UI.
 
-* We will consider the layout of the data in the redux store specific to each frontend(LMS, Studio, ecommerce, etc.) as a stable API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. We will provide the flexibility for themes to fetch data that's not part of the redux store from REST API's using custom redux actions and store it in their own separate redux store. We will announce breaking changes if the layout of the data changes in global store.
+* We will consider the layout of the data in the redux store specific to each frontend (LMS, Studio, ecommerce, etc.) as a stable API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. We will provide the flexibility for themes to fetch data that's not part of the redux store from REST API's using custom redux actions and store it in their own separate redux store. We will announce breaking changes if the layout of the data changes in global store.
 
 * Wherever we are developing a component that needs to use data from the redux store we will never do so directly in the component implementation. A separate component should be created that will be solely responsible for accessing the data from the store and passing it to component via props. In React parlance such a component is called a "Container" [2] component, and this term will be used henceforth in the OEP. A container is a react component that has a direct connection to the state managed by redux and access data from the state via mapStateToProps. This way we can keep both non redux connected version as well as redux connected version of the same component.
 
-* We will have support to compose any component into a container if it needs to access any data from the redux store, which it currently does not have access to. We can see this by an example where NavbarHeader component initially displays site title. This component now needs to display authenticated username, which is there in the redux store.
+* We will have support to compose any component into a container if it needs to access any data from the redux store, which it currently does not have access to. We can see this by an example where ``NavbarHeader`` component initially displays site title. This component now needs to display authenticated username, which is there in the redux store.
 
 .. code-block:: js
 
