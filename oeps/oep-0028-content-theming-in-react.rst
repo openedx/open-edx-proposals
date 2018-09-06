@@ -122,7 +122,6 @@ Decision
     export const MainNav = _MainNav;
     export const MainNavWrapper = _MainNavWrapper;
 
-
 Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimatedLogoWidget`` instead of ``SiteLogo``, we can do it as
 
 .. code-block:: js
@@ -134,6 +133,40 @@ Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimate
     // Custom theme:
     export const Header = MyThemedHeader;
 
+
+* We will provide support via props to control parts of the component when composing components. An example of this can be ``Button`` element
+
+.. code-block:: js
+
+    class Button extends React.PureComponent {
+        render() {
+            return <button
+                color={this.props.color}
+                size={this.props.size}
+                disable={this.props.isDisable}
+                onClick={this.props.onClickHandler}
+            />
+        }
+    }
+
+* We will use methods and placeholders to add additional content to customizable components when using inheritance. These methods will be overridden from subclasses and will be clearly marked as part of the Theme API. We will announce breaking changes if there are any changes to these methods. We can take an example of the above ``DefaultTheme`` and see ``_MainNav`` where it has support to add additional nav links by overriding ``extraNavLinks`` function.
+
+.. code-block:: js
+
+    // Customizable Main Navigation Area
+    class MyThemedNav extends _MainNav {
+        get extraNavLinks() {
+            return (
+                <React.Fragment>
+                    <a href="/about">About Us</a>
+                </React.Fragment>
+            );
+        }
+    }
+
+    // Custom theme:
+    export const MainNav = MyThemedNav;
+    export const MainNavWrapper = _MainNavWrapper;
 
 * We will generally prefer composition when extending components, however there can be certain scenarios, under which inheritance is the much better alternate.
 
@@ -243,41 +276,6 @@ Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimate
             </Nav>
         }
     }
-
-* We will provide support via props to control parts of the component when composing components. An example of this can be ``Button`` element
-
-.. code-block:: js
-
-    class Button extends React.PureComponent {
-        render() {
-            return <button
-                color={this.props.color}
-                size={this.props.size}
-                disable={this.props.isDisable}
-                onClick={this.props.onClickHandler}
-            />
-        }
-    }
-
-* We will use methods and placeholders to add additional content to customizable components when using inheritance. These methods will be overridden from subclasses and will be clearly marked as part of the Theme API. We will announce breaking changes if there are any changes to these methods. We can take an example of the above ``DefaultTheme`` and see ``_MainNav`` where it has support to add additional nav links by overriding ``extraNavLinks`` function.
-
-.. code-block:: js
-
-    // Customizable Main Navigation Area
-    class MyThemedNav extends _MainNav {
-        get extraNavLinks() {
-            return (
-                <React.Fragment>
-                    <a href="/about">About Us</a>
-                </React.Fragment>
-            );
-        }
-    }
-
-    // Custom theme:
-    export const MainNav = MyThemedNav;
-    export const MainNavWrapper = _MainNavWrapper;
-
 
 * Each frontend (e.g. the LMS, os Studio) will have a global redux store that acts as a central place to hold the state of its UI.
 
