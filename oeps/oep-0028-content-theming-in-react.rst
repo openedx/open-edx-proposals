@@ -149,7 +149,7 @@ Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimate
         }
     }
 
-    # if props were present
+    // if props were present
     class SiteLogoCircle extends React.PureComponent {
         render() {
             <CircleLogo>
@@ -159,7 +159,7 @@ Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimate
         }
     }
 
-    # via inheritance
+    // via inheritance
     class SiteLogoCircleWithTitle extends SiteLogo {
         render() {
             <CircleLogo>
@@ -191,7 +191,7 @@ Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimate
         }
     }
 
-    ## overridden version
+    // overridden version
     class ImageCard extends Card {
         render() {
             <Card>
@@ -228,7 +228,7 @@ Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimate
         }
     }
 
-    # override Navbar via inheritance
+    // override Navbar via inheritance
     class CustomNavbar extends Navbar {
 
         render () {
