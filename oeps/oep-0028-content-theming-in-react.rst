@@ -147,7 +147,7 @@ Now if we want to customize our ``_Header`` component, we can easily do it like
 
 * We will generally prefer composition when extending components, however there can be certain scenarios, under which inheritance is the much better alternate.
 
- - Inheritance becomes necessary when you want to customize a component, but there is no support via props. An example of this can be ``SiteLogo`` component, where the user wants to a Trademark logo next to the image. Since ``SiteLogo`` does not contains support for trademark logo, it needs to extended via inheritance as follows
+1. Inheritance becomes necessary when you want to customize a component, but there is no support via props. An example of this can be ``SiteLogo`` component, where the user wants to a Trademark logo next to the image. Since ``SiteLogo`` does not contains support for trademark logo, it needs to extended via inheritance as follows
 
     .. code-block:: js
 
@@ -179,7 +179,7 @@ Now if we want to customize our ``_Header`` component, we can easily do it like
             }
         }
 
- - Inheritance becomes necessary when the original author is not aware of the customizations a component can have. An example of this can be Card component, where the author has a CardColor component which gives a background color to the upper half portion of the Card. Now in the custom theme, we want to show an image instead of the background color. This can be done via inheritance
+2. Inheritance becomes necessary when the original author is not aware of the customizations a component can have. An example of this can be Card component, where the author has a CardColor component which gives a background color to the upper half portion of the Card. Now in the custom theme, we want to show an image instead of the background color. This can be done via inheritance
 
     .. code-block:: js
 
@@ -201,7 +201,7 @@ Now if we want to customize our ``_Header`` component, we can easily do it like
             }
         }
 
-        ## overriden version
+        ## overridden version
         class ImageCard extends Card {
             render() {
                 <Card>
@@ -215,7 +215,7 @@ Now if we want to customize our ``_Header`` component, we can easily do it like
             }
         }
 
- - Inheritance often becomes necessary and useful, when we want to override the rendering functionality of any component, and still maintaining access to lifecycle code. Overriding functionality can include removing, re-ordering, replacing or inserting children. An example of this can be Navbar, where the default Navbar has a SearchForm which is left aligned. This Navbar component can now be inherited to place SearchForm as right aligned.
+3. Inheritance often becomes necessary and useful, when we want to override the rendering functionality of any component, and still maintaining access to lifecycle code. Overriding functionality can include removing, re-ordering, replacing or inserting children. An example of this can be Navbar, where the default Navbar has a SearchForm which is left aligned. This Navbar component can now be inherited to place SearchForm as right aligned.
 
     .. code-block:: js
 
@@ -254,7 +254,7 @@ Now if we want to customize our ``_Header`` component, we can easily do it like
             }
         }
 
-* We will use functions and placeholders to add additional content to customizable components. We can take an example of the above ``DefaultTheme`` and see ``_MainNav`` where it has support to add additional nav links by overriding ``extraNavLinks`` function.
+* We will use methods and placeholders to add additional content to customizable components. These methods will be overridden from subclasses and will be clearly marked as part of the Theme API. We will announce breaking changes if there are any changes to these methods. We can take an example of the above ``DefaultTheme`` and see ``_MainNav`` where it has support to add additional nav links by overriding ``extraNavLinks`` function.
 
 .. code-block:: js
 
