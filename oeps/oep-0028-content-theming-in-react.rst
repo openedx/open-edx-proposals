@@ -127,21 +127,20 @@ Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimate
 .. code-block:: js
 
     const MyThemedHeader = (props) => {
-        return (<Header props={<MyCustomAnimatedLogoWidget/>} />)
+        return (<Header logo={<MyCustomAnimatedLogoWidget/>} />)
     }
 
     // Custom theme:
     export const Header = MyThemedHeader;
 
 
-* We will provide support via props to control parts of the component when composing components. An example of this can be ``Button`` element
+* We will provide support via props to control parts of the component when composing components. We can see this by an example of ``Button`` element
 
 .. code-block:: js
 
     class Button extends React.PureComponent {
         render() {
             return <button
-                color={this.props.color}
                 size={this.props.size}
                 disable={this.props.isDisable}
                 onClick={this.props.onClickHandler}
@@ -168,77 +167,7 @@ Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimate
     export const MainNav = MyThemedNav;
     export const MainNavWrapper = _MainNavWrapper;
 
-* We will generally prefer composition when extending components, however, there can be certain scenarios, under which inheritance is the much better alternative.
-
-1. Inheritance becomes necessary when you want to customize a component, but there is no support via props. An example of this can be ``SiteLogoCircle`` component, where the user wants to a Trademark logo next to the image. Since ``SiteLogoCircle`` does not contain support for trademark logo, it needs to extend via inheritance as follows
-
-.. code-block:: js
-
-    class SiteLogoCircle extends React.PureComponent {
-        render() {
-            <CircleLogo>
-                <Image src={this.props.image} />
-            </CircleLogo>
-        }
-    }
-
-    // if props were present
-    class SiteLogoCircle extends React.PureComponent {
-        render() {
-            <CircleLogo>
-                <Image src={this.props.image} />
-                {this.props.trademark ? <TradeMarkLogo />:  null}
-            </CircleLogo>
-        }
-    }
-
-    // via inheritance
-    class SiteLogoCircleWithTitle extends SiteLogo {
-        render() {
-            <CircleLogo>
-                <Image src={this.props.image} />
-                <TradeMarkLogo />
-            </CircleLogo>
-        }
-    }
-
-2. Inheritance becomes necessary when the original author is not aware of the customizations a component can have. An example of this can be Card component, where the author has a CardColor component which gives a background color to the upper half portion of the Card. Now in the custom theme, we want to show an image instead of the background color. This can be done via inheritance
-
-.. code-block:: js
-
-    class Card extends React.PureComponent {
-
-        viewCardDetail(courseId) {
-            // open course detail page
-        }
-
-        render() {
-            <Card>
-                <CardColor color={this.props.color} />
-                <CardBody>
-                    <CardTitle />
-                    <CardText />
-                    <Button onClick={this.viewCardDetail(this.props.courseId) />}
-                </CardBody>
-            </Card>
-        }
-    }
-
-    // overridden version
-    class ImageCard extends Card {
-        render() {
-            <Card>
-                <CardImage image={this.props.imageUrl} />
-                <CardBody>
-                    <CardTitle />
-                    <CardText />
-                    <Button onClick={this.viewCardDetail(this.props.courseId) />}
-                </CardBody>
-            </Card>
-        }
-    }
-
-3. Inheritance often becomes necessary and useful, when we want to override the rendering functionality of any component, and still maintaining access to lifecycle code. Overriding functionality can include removing, re-ordering, replacing or inserting children. An example of this can be Navbar, where the default Navbar has a SearchForm which is left aligned. This Navbar component can now be inherited to place SearchForm as right aligned.
+* We will generally prefer composition when extending components, however, there can be certain scenarios, under which inheritance is the much better alternative. One such use case can be when we want to override the rendering functionality of any component and still maintain access to the lifecycle code. This overriding functionality can include removing, re-ordering, replacing or inserting children. We can take an example of re-ordering functionality in the ``Navbar`` component, where the default ``Navbar`` has a ``SearchForm`` which is left aligned. We will inherit this to form a new component ``CustomNavbar`` where ``SearchForm`` will be right aligned.
 
 .. code-block:: js
 
@@ -277,11 +206,25 @@ Now if we want to customize our ``_Header`` component, and use ``MyCustomAnimate
         }
     }
 
+We can take inserting children as another use case of inheritance in the ``_MainNav`` component where ``extraNavLinks`` will be used to add more navigational links.
+
+.. code-block:: js
+
+    class MyThemedNav extends _MainNav {
+        get extraNavLinks() {
+            return (
+                <React.Fragment>
+                    <a href="/about">About Us</a>
+                </React.Fragment>
+            );
+        }
+    }
+
 * Each frontend (e.g. the LMS, os Studio) will have a global redux store that acts as a central place to hold the state of its UI.
 
 * We will consider the layout of the data in the redux store specific to each frontend (LMS, Studio, ecommerce, etc.) as a stable API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. We will provide the flexibility for themes to fetch data that are not part of the redux store from REST API's using custom redux actions and store it in their own separate redux store. We will announce breaking changes if the layout of the data changes in global store.
 
-* Wherever we are developing a component that needs to use data from the redux store we will never do so directly in the component implementation. A separate component should be created that will be solely responsible for accessing the data from the store and passing it to the component via props. In React parlance such a component is called a "Container" [2] component, and this term will be used henceforth in the OEP. A container is a react component that has a direct connection to the state managed by redux and access data from the state via mapStateToProps. This way we can keep both non redux connected version as well as the redux connected version of the same component. We can see this by an example where ``NavbarHeader`` component initially displays site title. This component now needs to display authenticated username, which is there in the redux store.
+* Wherever we are developing a component that needs to use data from the redux store we will never do so directly in the component implementation. A separate component should be created that will be solely responsible for accessing the data from the store and passing it to the component via props. In React parlance such a component is called a "Container" [2] component, and this term will be used henceforth in the OEP. A container is a react component that has a direct connection to the state managed by redux and access data from the state via mapStateToProps. This way we can keep both non redux connected version as well as the redux connected version of the same component. We can see this by an example where ``NavbarHeader`` component initially displays site title and how it is updated to ``NavbarHeaderContainer`` to display authenticated username, which is there in the redux store.
 
 .. code-block:: js
 
