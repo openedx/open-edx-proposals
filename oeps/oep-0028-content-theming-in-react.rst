@@ -48,7 +48,7 @@ Decision
 
   2. Internal or non-customizable components which will contain HTML and certain logic
 
-* We will build small modular components which will be non-customizable, stateless and contain HTML, and certain logic. We can see an example of a smaller component ``SiteLogo``, which will later be used in a customizable component ``_Header``.
+* We will build small modular components which will be non-customizable, stateless, contain HTML, and certain logic. A component will be defined as non customizable if it is only concerned with how things look and does not maintain any state of its own. In case they do, it will be UI state rather than data. They will be generally written as functional components, unless they need any data state or any lifecycle hook. They will receive data and callbacks via props and will have no dependencies on the rest of application. We can see an example of a smaller component ``SiteLogo``, which will later be used in a customizable component ``_Header``.
 
 .. code-block:: js
 
@@ -58,7 +58,7 @@ Decision
         );
     }
 
-* We will build the complete UI out of the above small modular components. We will aim/prefer to use composition whenever possible. These customizable components will contain little or no HTML nor logic. We can see an example of a customizable component called the ``_Header`` component, which is formed by the composition of ``SiteLogo``, ``MainNav`` and ``UserAvatar`` component.
+* We will build the complete UI out of various customizable components. These customizable components will contain small modular components, little or no HTML nor logic. A component will be termed as customizable if it contains various non customizable and reusable components. Customizable components will be concerned with how the things work and will generally maintain state. They will collect data and define callbacks, which will be passed to non customizable components via props. We can see an example of a customizable component called the ``_Header`` component, which is formed by the composition of ``SiteLogo``, ``MainNav`` and ``UserAvatar`` component.
 
 .. code-block:: js
 
@@ -73,6 +73,8 @@ Decision
             );
         }
     }
+
+* We will specify what are the customizable components, document whether the customization is available via custom props or overriding superclass method. We will announce breaking changes if any changes are made to the component. We will prefer that customizable components be only customized, however it is totally up to to the theme owner to customize any components that is not marked as customizable by edX.
 
 * When creating any complex UI Component we will try to break it down into the smallest reusable components, and build the component out of these small reusable pieces via composition/inheritance. We can see this through an example where we have a theme, which has several components for a default theme.
 
