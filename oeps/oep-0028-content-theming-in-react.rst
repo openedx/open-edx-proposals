@@ -74,7 +74,7 @@ Decision
         }
     }
 
-* We will specify what are the customizable components, document whether the customization is available via custom props or overriding superclass method. We will announce breaking changes if any changes are made to the component. We will prefer that customizable components be only customized, however it is totally up to to the theme owner to customize any components that is not marked as customizable by edX.
+* We will specify which components are customizable and document whether the customization is available via custom props or overriding superclass methods. We will announce breaking changes if any changes are made to customizable components. Users will still be able to override components which are not explicitly marked as customizable, but edX will provide no backwards compatibility guarantees for them.
 
 * When creating any complex UI Component we will try to break it down into the smallest reusable components, and build the component out of these small reusable pieces via composition/inheritance. We can see this through an example where we have a theme, which has several components for a default theme.
 
