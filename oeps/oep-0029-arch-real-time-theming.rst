@@ -48,7 +48,7 @@ A dynamic theming system will work in the following way.
 
 * All stylesheets that are produced by sass compilation will be stored using the django File storage API. Files will be stored on local filesystem in devstack and on S3/Swift in production environment. This will allow the django app to use the most recently compiled stylesheets without having to run sass recompilation on all edxapp VMs.
 
-* A stylesheet would be named as a compound key consisting of ``site_id``, ``sass_overrides_id``,`` stylesheet_name`` and ``input_sass_md5``. This will keep the styles consistent and allow using multiple versions.
+* A stylesheet would be named as a compound key consisting of ``site_id``, ``sass_overrides_id``, ``stylesheet_name`` and ``input_sass_md5``. This will keep the styles consistent and allow using multiple versions.
 
 * The ``sass_overrides_id`` field is a foreign key that points to customized sass variables. The sass overrides table will be similar to site configurations table in that any update will produce a new immutable record, with a new ID. Each record will have a status field that can be used for preview/publish control. We will reuse the existing LMS preview subdomain for previewing pending updates to the theme.
 
@@ -67,7 +67,7 @@ A dynamic theming system will work in the following way.
 Consequences
 ------------
 
-
+It's true that the real time theming systems are valuable and ideal from an admin/maintainer experience standpoint, but the technical complexity involved in enabling it for new and legacy systems may be a burden.
 
 References
 ----------
