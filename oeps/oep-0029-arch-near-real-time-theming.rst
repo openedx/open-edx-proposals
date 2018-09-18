@@ -60,12 +60,12 @@ A dynamic theming system will work in the following way.
 
 * When sass compilation completes, it will write the new stylesheets to storage, where django picks them up and starts using the new stylesheets.
 
-* When deploying a new instance, sass will still be complied using overridden values from the database. This will ensure that stylesheets are generated as part of the deployment process and not triggered via any admin action. The MD5 hashes will ensure that complied stylesheets don't interfere with each other.
+* When deploying a new instance, sass will still get automatically complied using overridden values from the database. This will ensure that stylesheets are generated as part of the deployment process and not triggered via any admin action. The MD5 hashes will ensure that complied stylesheets don't interfere with each other.
 
 Consequences
 ------------
 
-It's true that the real time theming systems are valuable and ideal from an admin/maintainer experience standpoint, but the technical complexity involved in enabling it for new and legacy systems may be a burden.
+It's true that the real time theming systems are valuable and ideal from an admin/maintainer experience standpoint. Site administrators will be able to change the look of Open edX without having to write theme code and redeploy their instance.
 
 References
 ----------
