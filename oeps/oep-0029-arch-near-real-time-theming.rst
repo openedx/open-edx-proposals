@@ -65,7 +65,7 @@ A dynamic theming system will work in the following way.
 Consequences
 ------------
 
-It's true that the real time theming systems are valuable and ideal from an admin/maintainer experience standpoint. Site administrators will be able to change the look of Open edX without having to write theme code and redeploy their instance.
+Real time theming systems are valuable and ideal from an admin/maintainer experience standpoint. Site administrators will be able to change the look of Open edX without having to write theme code and redeploy their instance.
 
 References
 ----------
