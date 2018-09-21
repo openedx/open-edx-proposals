@@ -74,7 +74,7 @@ Decision
         }
     }
 
-* We will specify which components are customizable and document whether the customization is available via custom props or overriding superclass methods. We will announce breaking changes if any changes are made to customizable components. Users will still be able to override components which are not explicitly marked as customizable, but edX will provide no backwards compatibility guarantees for them.
+* We will specify which components are customizable and document whether the customization is available via custom props or overriding superclass methods. We will announce breaking changes [2] if any changes are made to customizable components. Users will still be able to override components which are not explicitly marked as customizable, but edX will provide no backwards compatibility guarantees for them.
 
 * When creating any complex UI Component we will try to break it down into the smallest reusable components, and build the component out of these small reusable pieces via composition/inheritance. We can see this through an example where we have a theme, which has several components for a default theme.
 
@@ -222,11 +222,11 @@ We can take inserting children as another use case of inheritance in the ``_Main
         }
     }
 
-* Each frontend (e.g. the LMS, os Studio) will have a global redux store that acts as a central place to hold the state of its UI.
+* Each frontend (e.g. the LMS, or Studio) will have a global redux store that acts as a central place to hold the state of its UI.
 
 * We will consider the layout of the data in the redux store specific to each frontend (LMS, Studio, ecommerce, etc.) as a stable API. We will provide support to pre-fill the store with some common data like current user, current course, list of courses enrolled, etc. We will provide the flexibility for themes to fetch data that are not part of the redux store from REST API's using custom redux actions and store it in their own separate redux store. We will announce breaking changes if the layout of the data changes in global store.
 
-* Wherever we are developing a component that needs to use data from the redux store we will never do so directly in the component implementation. A separate component should be created that will be solely responsible for accessing the data from the store and passing it to the component via props. In React parlance such a component is called a "Container" [2] component, and this term will be used henceforth in the OEP. A container is a react component that has a direct connection to the state managed by redux and access data from the state via mapStateToProps. This way we can keep both non redux connected version as well as the redux connected version of the same component. We can see this by an example where ``NavbarHeader`` component initially displays site title and how it is updated to ``NavbarHeaderContainer`` to display authenticated username, which is there in the redux store.
+* Wherever we are developing a component that needs to use data from the redux store we will never do so directly in the component implementation. A separate component should be created that will be solely responsible for accessing the data from the store and passing it to the component via props. In React parlance such a component is called a "Container" [3] component, and this term will be used henceforth in the OEP. A container is a react component that has a direct connection to the state managed by redux and access data from the state via mapStateToProps. This way we can keep both non redux connected version as well as the redux connected version of the same component. We can see this by an example where ``NavbarHeader`` component initially displays site title and how it is updated to ``NavbarHeaderContainer`` to display authenticated username, which is there in the redux store.
 
 .. code-block:: js
 
@@ -275,5 +275,8 @@ References
 1. OEP-0023 Style Customization
       https://open-edx-proposals.readthedocs.io/en/latest/oep-0023-style-customization.html
 
-2. Container Components
+2. OEP-0021: Deprecation and Removal
+      https://open-edx-proposals.readthedocs.io/en/latest/oep-0021-proc-deprecation.html
+
+3. Container Components
       https://redux.js.org/basics/usagewithreact#presentational-and-container-components
