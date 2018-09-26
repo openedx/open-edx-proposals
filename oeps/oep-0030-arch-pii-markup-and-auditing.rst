@@ -103,6 +103,7 @@ The responsibility for identifying and appropriately labeling PII rests on the d
 
 - Avoid storing PII when it is not necessary
 - Ensure that any PII that is stored will be retired upon learner request *before* that information is stored in a production environment
+    - Exceptions may be made for classes of PII that at need to be kept for legal, financial auditing, or research purposes. Consult legal counsel for approval and annotate appropriately if you encounter such a case.
 - Ensure that any PII that is stored is annotated appropriately (see `Docstring Annotations`_ for details)
 - Run the PII documentation tool to update the PII documentation when they add, remove, or update a PII annotation (see `Documentation Tooling`_ for details)
 
@@ -113,7 +114,7 @@ It becomes the responsibility of code reviewers to confirm the developer asserti
 
 Responsibility for Third-party Service Integrations
 ---------------------------------------------------
-When dealing with third-parties that may store PII (ex. Optimizely, Google Analytics, Sailthru) the implementing developer(s) or team members should work with the drivers of the feature and legal to ensure that:
+When dealing with third-parties that may store PII (ex. Optimizely, Google Analytics, Sailthru) the implementing developer(s) or team members should work with the drivers of the feature and legal counsel to ensure that:
 
 - The third party has a legitimate need for that information to provide the necessary service
 - We send only the minimum necessary information to meet the goals of the feature
@@ -128,7 +129,7 @@ Docstring Annotations
 ---------------------
 **Python**
 
-When adding or modifying **any** data storing models (ex. Django model, MongoDB model) an annotation must be added stating whether the model does or does not store PII. The annotation should be added to the comments of the storage class where the data storage is defined, or the calling calling method / function if there is no storage class. Calls to third-party services that store data must be annotated to indicate the presence of PII.
+When adding or modifying **any** data storing models (ex. Django model, MongoDB model) an annotation must be added stating whether the model does or does not store PII. The annotation should be added to the comments of the storage class where the data storage is defined, or the calling method / function if there is no storage class. Calls to third-party services that store data must be annotated to indicate the presence of PII.
 
 It is important to note that under this OEP all Django model classes must be annotated with an assertion of PII / no PII to enable enforcement (see `Enforcement Tooling`_).
 
@@ -149,7 +150,7 @@ Example 1::
         .. pii:: Contains website and employer information about a linked User. Retired: Directly in the LMSAccountRetirementView endpoint.
         """
 
-If a project requires another project that stores PII, such Django being used in edx-platform, the developer must annotate the place(s) in code where that package is being called to store the PII with the same docstring annotation as if it were a storage class.
+If a project requires another project that stores PII, such as Django being used in edx-platform, the developer must annotate the place(s) in code where that package is being called to store the PII with the same docstring annotation as if it were a storage class.
 
 Example 2::
 
@@ -228,7 +229,7 @@ Several ways of making the locations of PII storage auditable were tested in for
 - Are relatively low-effort to implement and maintain
 - Have a very low likelihood of causing bugs
 
-Sphinx-style annotations were chosen due to Sphinx's wide adoption in the Python, Django, and edX ecosystems. While we have had challenges using Sphinx to document edx-platform several other Open edX repositories already use Sphinx to generate documentation. Even if we never update edx-platform to use Sphinx these identifiers are unique enough to allow us to audit them with a high degree of confidence.
+Sphinx-style annotations were chosen due to Sphinx's wide adoption in the Python, Django, and edX ecosystems. While we have had challenges using Sphinx to document edx-platform, several other Open edX repositories already use Sphinx to generate documentation. Even if we never update edx-platform to use Sphinx these identifiers are unique enough to allow us to audit them with a high degree of confidence.
 
 Tooling
 -------
