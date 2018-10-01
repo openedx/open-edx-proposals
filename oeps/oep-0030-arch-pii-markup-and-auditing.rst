@@ -34,7 +34,7 @@ The Open edX platform and related independently deployable applications (IDAs) m
 
 This OEP explicitly does not cover:
 
-- The retirement process itself
+- The process of deleting or anonymizing PII for users, also referred to in this document as "retirement" or "forgetting"
 - The process for cataloging PII stored in operational logs such as Splunk or New Relic
 - The process for cataloging PII stored in non-operational systems such as analytics databases
 
@@ -47,9 +47,9 @@ The primary goal of this OEP is to allow Open edX administrators and developers 
 #. Sharing the minimum personal data necessary
 #. Removing the maximum amount of stored personal information when requested
 #. Ensuring our 3rd party partners remove the maximum amount of stored personal information when requested
-#. Auditing and cataloging the information we already store to ensure that we are meeting our obligations with the data we already store
+#. Auditing and cataloging the information we already store to ensure that we are currently meeting our obligations
 #. Guarding against accidental storage of PII
-#. Guarding against adding storage of PII without a means of forgetting it
+#. Guarding against adding storage, processing, or transmission of PII without a means of retiring it
 
 Definitions
 ===========
@@ -77,7 +77,7 @@ Information that is considered PII in Open edX includes, but is not limited to:
 - Forum posts
 - Notes service entries
 
-Each case where we store data relating to a learner should be considered individually as to whether that information alone, or combined with other stored information can be used to identify a learner or violate their privacy. In some cases PII must be kept for legal reasons that supersede the need to forget. If there is any doubt about what constitutes PII or whether a specific piece of information can be safely forgotten, seek legal assistance.
+Each case where we store data relating to a learner should be considered individually as to whether that information alone, or combined with other stored information, can be used to identify a learner or violate their privacy. In some cases PII must be kept for legal reasons that supersede the need to forget. If there is any doubt about what constitutes PII or whether a specific piece of information can be safely forgotten, seek legal assistance.
 
 Open edX Ecosystem
 ------------------
@@ -92,7 +92,7 @@ Retirement
 ----------
 Retirement is the Open edX process for "forgetting" a learner. It is triggered at the learner's request, and runs a sequence of automated steps to remove or anonymize learner PII across the Open edX ecosystem, in addition to alerting partners and 3rd party partners that they also need to forget any learner data they may have associated with the learner.
 
-The retirement process is designed to be flexible and extendable based on the needs of each Open edX installation. For instance, to retire new PII that is being added to an LMS database the developer may just need to add a method that listens to one of the existing LMS retirement Django signals in order to be added to the process. The retirement code and process are not part of this OEP and are documented here(TBD).
+The retirement process is designed to be flexible and extendable based on the needs of each Open edX installation. For instance, to retire new PII that is being added to an LMS database the developer may just need to add a method that listens to one of the existing LMS retirement Django signals in order to be added to the process. The retirement code and process are not part of this OEP and will be documented elsewhere.
 
 Specification
 =============
@@ -110,7 +110,7 @@ The responsibility for identifying and appropriately labeling PII rests on the d
 
 Code Reviewer Responsibility
 ----------------------------
-It becomes the responsibility of code reviewers to confirm the developer assertions about the presence of PII in their pull request are accurate, that retirement steps and annotations are present and correct when necessary. This is especially important with pull requests coming from outside of edX, where the original developer may not know of this OEP and their responsibilities in regards to PII.
+It becomes the responsibility of code reviewers to confirm the developer assertions about the presence of PII in their pull request are accurate, and that retirement steps and annotations are present and correct when necessary. This is especially important with pull requests coming from outside of edX, where the original developer may not know of this OEP and their responsibilities in regards to PII.
 
 Responsibility for Third-party Service Integrations
 ---------------------------------------------------
@@ -118,8 +118,8 @@ When dealing with third-parties that may store PII (ex. Optimizely, Google Analy
 
 - The third party has a legitimate need for that information to provide the necessary service
 - We send only the minimum necessary information to meet the goals of the feature
-- The third party has an automated, usable way to request that they forget individual learner data (or has a retention policy that results in routine purging of such data)
-- The retirement process is updated to include the third party's forget API before the feature is launched
+- The third party has an automated, usable way to request that they forget individual learner data (or has a retention policy that results in the routine purging of such data within an acceptable period of time)
+- The retirement process is updated to include the third party's retirement API before the feature is launched
 
 Github Pull Request Templates
 -----------------------------
@@ -133,7 +133,7 @@ When adding or modifying **any** data storing models (ex. Django model, MongoDB 
 
 It is important to note that under this OEP all Django model classes must be annotated with an assertion of PII / no PII to enable enforcement (see `Enforcement Tooling`_).
 
-These annotation should take the form of a Sphinx-style docstring:
+These annotations should take the form of a Sphinx-style docstring:
 
 ``.. pii:: <description of the PII>. Retired: <location / process of retirement>``
 
@@ -150,7 +150,7 @@ Example 1::
         .. pii:: Contains website and employer information about a linked User. Retired: Directly in the LMSAccountRetirementView endpoint.
         """
 
-If a project requires another project that stores PII, such as Django being used in edx-platform, the developer must annotate the place(s) in code where that package is being called to store the PII with the same docstring annotation as if it were a storage class.
+If a project requires another project which stores PII, such as Django being used in edx-platform, the developer must annotate the place(s) in code where that package is being called to store the PII with the same docstring annotation as if it were a storage class.
 
 Example 2::
 
@@ -202,11 +202,11 @@ The tools should also export the list of annotations into a JSON-formatted file 
 
 This tool should be run as part of the test or build processes (depending on project needs) and diff'd against the current version to confirm that the RST and JSON files are up to date.
 
-It is desirable for this tool to use static analysis of the files instead of executing in a runtime context or in tests to make sure that all files are examined, and to prevent missing annotations in cases where configuration changes can exclude, confuse, or break imports, as in edx-platform.
+It is desirable for this tool to use static analysis of the files (instead of executing in a runtime context such as in unit tests) to make sure that all files are examined, and to prevent missing annotations in cases where configuration changes can exclude or break imports.
 
 Backporting Annotations
 -----------------------
-Annotations will need to be added to existing code across the Open edX ecosystem. It is acknowledged that this is significant work, but is beyond the scope of this OEP to determine the resourcing and timing of this effort. It is possible within the framework presented in this OEP to roll out a partial implementation of annotations and expanding on it over time.
+Annotations will need to be added to existing code across the Open edX ecosystem. It is acknowledged that this is significant work, but is beyond the scope of this OEP to determine the resourcing and timing of this effort. It is possible within the framework presented in this OEP to roll out a partial implementation of annotations and expand on it over time.
 
 Rationale
 =========
@@ -214,7 +214,7 @@ Storing new PII is a decision that should be carefully considered and taken seri
 
 Processes
 ---------
-The new processes for developers and reviewers represent the least invasive methods that we could devise to track this vital information with the accuracy it deserves. Developers are in the best position to know the context of the data that they are integrating, and are most empowered to call out the locations of that data storage close to the point of use. Developers also have the context necessary to best know how to "forget" the data that they are storing and whether deletion or anonymization is the best approach to use.
+The new processes for developers and reviewers represent the least invasive methods that we could devise to track this vital information with the accuracy it deserves. Developers are in the best position to know the context of the data that they are integrating, and are most empowered to call out the locations of that data storage close to the point of use. Developers also have the context necessary to best know how to retire the data that they are storing and whether deletion or anonymization is the best approach to use.
 
 The blocking nature of this process prevents complicated scenarios where learners may have completed the retirement process, but still have recently-added PII data stored in Open edX.
 
@@ -225,7 +225,7 @@ Several ways of making the locations of PII storage auditable were tested in for
 - Clearly show PII locations when working with source
 - Set us up for easily putting this information into automatically generated documentation in the future
 - Do not create Django migrations
-- Do not incur runtime costs, aside from tiny growth of code file sizes
+- Do not incur runtime costs
 - Are relatively low-effort to implement and maintain
 - Have a very low likelihood of causing bugs
 
@@ -249,7 +249,7 @@ Sphinx & Plugin
 ---------------
 An attempt was made to use `Sphinx <http://www.sphinx-doc.org/en/master/index.html>`_ to parse all of the docstrings in edx-platform for the custom ``.. pii:`` tag. While we were able to run Sphinx against the platform and create a plugin that highlighted PII, as well as a special page to view all PII found, the complexities of edx-platform configuration and Sphinx's need to import all modules created a number of errors that cause Sphinx to miss many annotations. Problems like mutually exclusive settings for LMS and CMS were not able to be resolved. Due to the critical nature of this data we are not comfortable offering an option that may miss annotations due to changes in configuration or code.
 
-This option may be workable with significant time investment and significant changes to edx-platform configuration, but would still not put the list of PII front-and-center in the repository. If we make a major push to get the platform Sphinx-compliant and this OEP is accepted, the PII annotation functionality would still be trivially workable in Sphinx.
+This option may be workable with significant time investment and significant changes to edx-platform configuration, but would still not put the list of PII front-and-center in the repository. If we make a major push to get the platform Sphinx-compliant and this OEP is accepted, the PII annotation functionality would still be trivially workable in Sphinx as another way to view PII annotations.
 
 Doxygen & Plugin
 ----------------
