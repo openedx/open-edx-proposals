@@ -7,11 +7,11 @@ OEP-30: PII Markup and Auditing
 +---------------+------------------------------------------------------------+
 | Title         | Personally Identifiable Information Markup and Auditing    |
 +---------------+------------------------------------------------------------+
-| Last Modified | 2018-09-19                                                 |
+| Last Modified | 2018-10-04                                                 |
 +---------------+------------------------------------------------------------+
 | Author        | Brian Mesick <bmesick@edx.org>                             |
 +---------------+------------------------------------------------------------+
-| Arbiter       | TBD                                                        |
+| Arbiter       | Alex Dusenbury <adusenbury@edx.org>                        |
 +---------------+------------------------------------------------------------+
 | Status        | Draft                                                      |
 +---------------+------------------------------------------------------------+
@@ -22,10 +22,12 @@ OEP-30: PII Markup and Auditing
 | Resolution    | `Original pull request`_                                   |
 +---------------+------------------------------------------------------------+
 | References    | - `NIST Special Publication 800-122 (pdf)`_                |
+|               | - `OEP-002`_                                               |
 +---------------+------------------------------------------------------------+
 
 .. _Original pull request: https://github.com/edx/open-edx-proposals/pull/
 .. _NIST Special Publication 800-122 (pdf): http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf
+.. _OEP-002: https://open-edx-proposals.readthedocs.io/en/latest/oep-0002-bp-repo-metadata.html
 
 Abstract
 ========
@@ -103,10 +105,10 @@ The responsibility for identifying and appropriately labeling PII rests on the d
 
 - Avoid storing PII when it is not necessary
 - Ensure that any PII that is stored will be retired upon learner request *before* that information is stored in a production environment
-    - Exceptions may be made for classes of PII that at need to be kept for legal, financial auditing, or research purposes. Consult legal counsel for approval and annotate appropriately if you encounter such a case.
+    - Exceptions may be made for classes of PII that need to be kept for legal, financial auditing, or research purposes. Consult legal counsel for approval and annotate appropriately if you encounter such a case.
 - Ensure that any PII that is stored is annotated appropriately (see `Docstring Annotations`_ for details)
-- Run the PII documentation tool to update the PII documentation when they add, remove, or update a PII annotation (see `Documentation Tooling`_ for details)
-
+- Run the PII documentation tool to update the PII documentation when you add, remove, or update a PII annotation (see `Documentation Tooling`_ for details)
+- Maintain openedx.yaml to keep the PII repository state up to date (see `Repository Maintenance`_ for details)
 
 Code Reviewer Responsibility
 ----------------------------
@@ -125,6 +127,12 @@ Github Pull Request Templates
 -----------------------------
 In order to assist developers in remembering to check all new data for PII, each Open edX repository that might store such data will have a GitHub pull request template that reminds the developer and reviewers to check for the addition of such data in their commits and asks them to affirmatively state that either no such data exists or that it does exist and that appropriate retirement steps are, or will be, ready to retire that data before the request is merged.
 
+Repository Maintenance
+----------------------
+Per `OEP-002`_ all Open edX repositories the `openedx.yaml` files containing metadata about the repository must be updated to contain the OEP state for this OEP inside the `oeps` dictionary. If a repository does not store PII it may simply mark `oep-0030: False` or `applicable: False` with a `reason` as outlined in the OEP-002 specification. The tooling that will inform and enforce out compliance with this OEP will rely on this metadata to determine which repositories to look at so it is vital that these values be kept up to date.
+
+The automatically run tooling should verify the presence and accuracy of `openedx.yaml`.
+
 Docstring Annotations
 ---------------------
 **Python**
@@ -135,11 +143,42 @@ It is important to note that under this OEP all Django model classes must be ann
 
 These annotations should take the form of a Sphinx-style docstring:
 
-``.. pii:: <description of the PII>. Retired: <location / process of retirement>``
+``.. pii:: <required description of the PII>``
 
-Or, if there is no PII:
+``.. pii_types:: <comma separated list of the types of PII stored here, required if the pii annotation exists>``
 
-``.. pii:: No PII``
+``.. pii_retirement:: <comma separated list of retirement types, required if the pii annotation exists>``
+
+``.. no-pii <:: optional description>``
+
+The potential values of `pii_types` are:
+
+- id (a unique identifier for the user that is shared across systems)
+- name (used for any part of the user's name)
+- username
+- password
+- location (used for any part of any type address or country stored)
+- phone_number (used for phone or fax numbers)
+- email_address
+- birth_date (used for any part of a stored birth date)
+- ip (IP address)
+- external_service (used for external service ids or links such as social media links or usernames, website links, etc)
+- biography (any type of free-form biography field)
+- gender
+- sex
+- image
+- video
+- biometric (measurable biological traits or characteristics such as height, weight, fingerprints, etc)
+- other (any identifying information not covered by other types, should be specified in the `pii` annotation)
+
+The potential values of `pii_retirement` are:
+
+- retained (intentionally kept for legal reasons)
+- local_api (an API exists in this repository for retiring this information)
+- consumer_api (the consumer of this data must implement an API for retiring this information)
+- third_party (a third party API exists to retire this data)
+
+These can be combined, so that a library that has a retirement API built in, but that requires integration into the consuming application would have `.. pii_retirement:: local_api, consumer_api`. Spaces between the entries are optional.
 
 Example 1::
 
@@ -147,14 +186,29 @@ Example 1::
         """
         Model to track API access for a user.
 
-        .. pii:: Contains website and employer information about a linked User. Retired: Directly in the LMSAccountRetirementView endpoint.
+        .. pii:: Stores website and employer information about a linked User.
+        .. pii_types:: external_service, other
+        .. pii_retirement:: local_api
+        """
+
+Example 2::
+
+    class NoPiiHere(Model):
+        """
+        This is an example model.
+
+        .. no-pii
         """
 
 If a project requires another project which stores PII, such as Django being used in edx-platform, the developer must annotate the place(s) in code where that package is being called to store the PII with the same docstring annotation as if it were a storage class.
 
-Example 2::
+Example 3::
 
-    # ..pii:: Learner email is sent to Segment in the following line and will be associated with analytics data. Retired: In Segment retirement step in Tubular.
+    # ..pii:: Learner email is sent to Segment in the following line and will
+    #         be associated with analytics data. We wrap the Segment
+    #         retirement call in the retire_mailings endpoint.
+    # ..pii_types:: email
+    # ..pii_retirement:: local_api, third_party
 
 The goal of this is to allow creation of `Documentation Tooling`_ which will automatically create documentation listing all of the known locations of PII in each repository.
 
@@ -166,7 +220,14 @@ Example 1::
 
     % if settings.LMS_SEGMENT_KEY:
         <!-- begin segment footer -->
-        <!-- .. pii:: The user is identified to Segment by username and email here, analytics data will be associated with this user based on their browsing. See Segment documentation for details. Retired: In Segment retirement step in Tubular -->
+        <!-- .. pii:: The user is identified to Segment by username and email
+                      here, analytics data will be associated with this user
+                      based on their browsing. See Segment documentation for
+                      details. The Segment retirement call is wrapped in the
+                      retire_mailings endpoint.
+             .. pii_types:: username, email_address
+             .. pii_retirement:: local_api, third_party
+         -->
         <script type="text/javascript">
         % if user.is_authenticated:
             ...
@@ -174,14 +235,20 @@ Example 1::
 Example 2::
 
     <script type="text/javascript">
-    // .. pii:: The user's address email address is sent to the billing provider here. Retired: This information is not retired as it is necessary to keep for legal and financial reporting reasons.
+    // .. pii:: The user's email address is sent to the billing provider here. This information is not retired as it is necessary to keep for legal and financial reporting reasons.
+    // .. pii_types:: email_address
+    // .. pii_retirement:: retained
     </script>
 
 
 Example 3::
 
     <script type="text/javascript">
-    /* .. pii:: Updates the user's email address with our email marketing provider. Retired: In the Tubular RETIRE_EMAIL step. */
+    /*
+        .. pii:: Updates the user's email address with our email marketing provider. Retired in the retire_mailings endpoint.
+        .. pii_types:: id, email_address
+        .. pii_retirement:: local_api
+    */
     </script>
 
 **Other Cases**
@@ -192,7 +259,11 @@ Enforcement Tooling
 -------------------
 A tool will be created and integrated into the Open edX test / build systems that will examine all Django models in the project and ensure that they have PII annotations. It is acknowledged that this tool will not handle all cases where PII is stored, but represents an effort to enforce best practices on the majority of places where PII is stored in the Open edX ecosystem.
 
-This tool may take the form of a test run inside the project which looks at all installed apps and their models for docstrings containing PII. Given that this list will contain many third party packages we will also need to maintain a list of packages and models that will not be checked, as well as a list of PII stored in those packages / models. These lists will need to be hand maintained by the developers adding or modifying packages. This mechanism will also allow the rollout of the annotations to take place over time.
+This tool may take the form of a test run inside the project which looks at all installed apps and their models for docstrings containing PII. Given that this list will contain many third party packages we will also need to maintain a list of packages and models that will not be checked, as well as a list of PII stored in those packages / models. These lists will need to be hand maintained by the developers adding or modifying packages, though the tooling may assist by generating a list of packages that need to be vetted. This mechanism will also allow the rollout of the annotations to take place over time.
+
+The tool's output will optionally include a report of the repository's annotation percentage along with details of which models are not covered. This will allow us to track and prioritize the annotization process.
+
+The tool will also optionally verify the presence of a `openedx.yaml` file in the top level of the repository and verify that it's `oep-30` dictionary is appropriate.
 
 Documentation Tooling
 ---------------------
