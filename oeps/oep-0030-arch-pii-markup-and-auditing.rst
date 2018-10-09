@@ -149,7 +149,7 @@ These annotations should take the form of a Sphinx-style docstring:
 
 ``.. pii_retirement:: <comma separated list of retirement types, required if the pii annotation exists>``
 
-``.. no-pii <:: optional description>``
+``.. no_pii <:: optional description>``
 
 The potential values of `pii_types` are:
 
@@ -168,7 +168,6 @@ The potential values of `pii_types` are:
 - sex
 - image
 - video
-- biometric (measurable biological traits or characteristics such as height, weight, fingerprints, etc)
 - other (any identifying information not covered by other types, should be specified in the `pii` annotation)
 
 The potential values of `pii_retirement` are:
@@ -197,7 +196,7 @@ Example 2::
         """
         This is an example model.
 
-        .. no-pii
+        .. no_pii
         """
 
 If a project requires another project which stores PII, such as Django being used in edx-platform, the developer must annotate the place(s) in code where that package is being called to store the PII with the same docstring annotation as if it were a storage class.
