@@ -7,7 +7,7 @@ OEP-0018: Python Dependency Management
 +-----------------+--------------------------------------------------------+
 | Title           | Python Dependencies Management                         |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2018-05-02                                             |
+| Last Modified   | 2018-10-16                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Jeremy Bowman <jbowman@edx.org>                        |
 +-----------------+--------------------------------------------------------+
@@ -303,9 +303,11 @@ Sometimes ``make upgrade`` or ``pip-compile`` will be unable to find a
 suitable version of a dependency for the output file because there are
 incompatible version constraints in the input files and/or the stated
 installation requirements of the other dependencies.  In cases like this,
-installing and running `pipdeptree`_ can help identify the conflicting
-constraints so at least one of them can be sufficiently relaxed such that
-a version of the dependency exists which satisfies them all.
+add the ``-v`` (or ``--verbose``) flag to ``pip-compile`` to get more
+detailed information about which dependencies imposed the conflicting
+constraints, so you can decide which package(s) to upgrade or pin to resolve
+the issue.  Installing and running `pipdeptree`_ can also sometimes help
+identify the problem.
 
 .. _pipdeptree: https://github.com/naiquevin/pipdeptree
 
