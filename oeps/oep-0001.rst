@@ -7,7 +7,7 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Title         | OEP Purpose and Guidelines                                   |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2018-07-03                                                   |
+| Last-Modified | 2018-11-06                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | Calen Pennington <cale@edx.org>,                             |
 |               | Joel Barciauskas <joel@edx.org>,                             |
@@ -25,6 +25,7 @@ OEP-1: OEP Purpose and Guidelines
 | Review Period | * 2016-03-26 - 2016-05-19, `open-edx-proposals#1`_           |
 |               | * 2018-02-05 - 2018-02-15, `open-edx-proposals#53`_          |
 |               | * 2018-05-02 - 2018-05-11, `open-edx-proposals#60`_          |
+|               | * 2018-11-06 - 2018-11-16, `open-edx-proposals#85`_          |
 +---------------+--------------------------------------------------------------+
 | Resolution    | `open-edx-proposals#1 resolution`_                           |
 +---------------+--------------------------------------------------------------+
@@ -35,6 +36,7 @@ OEP-1: OEP Purpose and Guidelines
 .. _open-edx-proposals#1: https://github.com/edx/open-edx-proposals/pull/1
 .. _open-edx-proposals#53: https://github.com/edx/open-edx-proposals/pull/53
 .. _open-edx-proposals#60: https://github.com/edx/open-edx-proposals/pull/60
+.. _open-edx-proposals#85: https://github.com/edx/open-edx-proposals/pull/85
 .. _open-edx-proposals#1 resolution: https://github.com/edx/open-edx-proposals/pull/1#issuecomment-220419055
 .. _PEP: https://www.python.org/dev/peps/pep-0001/
 .. _Architecture Decision Records: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
@@ -174,10 +176,15 @@ OEP Status
 ----------
 
 .. image:: oep-0001/state-flow.png
-  :alt: A flowchart of OEP statuses, from Draft to Under Review or Deferred,
-      from Deferred back to Draft, and from Under Review to Accepted, Rejected,
-      or Withdrawn. From Accepted, the next status is Final. A Final OEP can
-      be Replaced.
+  :alt: A flowchart of OEP statuses, from Draft to Under Review, then to
+      Accepted, Rejected, or Withdrawn. There are 2 transitional statuses from
+      Draft and Under Review: to/from Provisional and to/from Deferred. An
+      Accepted OEP can be Replaced.
+
+Draft
+~~~~~
+
+The Authors are working on an OEP and then reviewing it with an assigned Arbiter.
 
 Under Review
 ~~~~~~~~~~~~
@@ -194,14 +201,21 @@ upon review period.
 Deferred
 ~~~~~~~~
 
-An OEP can be assigned the status "Deferred" when no further progress is made
-on the OEP. If an OEP is deferred, the OEP Authors can change it back to
-"Under Review".
+No further progress is made on the OEP and so it is marked "Deferred". The OEP
+Authors can change it back to "Under Review" when it is in progress again.
+
+Provisional
+~~~~~~~~~~~
+
+The OEP is reviewed and generally agreed upon, but not yet fully "Accepted"
+since it hasn't been vetted and adopted in the platform. Once viable reference
+examples and platform adoption occurs, the OEP can transition back to Under
+Review and be Accepted.
 
 Rejected
 ~~~~~~~~
 
-An OEP can also be "Rejected" by the Arbiter. Perhaps after all is said and
+The OEP is "Rejected" by the Arbiter. Perhaps after all is said and
 done it was not a good idea. It is still important to have a record of this
 fact.
 
@@ -209,8 +223,8 @@ Withdrawn
 ~~~~~~~~~
 
 Similar to "Rejected", the "Withdrawn" status means that the OEP Authors
-themselves have decided that the OEP is actually a bad idea, or have accepted
-that a competing proposal is a better alternative.
+themselves have decided that the OEP is undesired or that a competing proposal
+is a better alternative.
 
 Replaced
 ~~~~~~~~~
@@ -233,10 +247,10 @@ rejected should still be merged, but should be marked with the "Rejected" status
 This preserves the rationale and description of the OEP in the generated
 documentation.
 
-Likewise, an OEP that is in "Under Review" status can be merged to capture a set of
-edits, and to make the proposal more visible to community comment. From that
-point, additional pull requests can be opened to edit the OEP, until it
-converges to being either "Accepted" or "Rejected".
+Likewise, an OEP that is in Under Review, Provisional, or Deferred statuses can
+be merged to capture a set of edits, and to make the proposal more visible to
+community comment. From that point, additional pull requests can be opened to
+edit the OEP, until it converges to being either "Accepted" or "Rejected".
 
 OEP Maintenance
 ---------------
@@ -479,3 +493,7 @@ Change History
   * Support alternative simpler templates.
 
 * Refactored description for OEP status and review.
+
+2018-11-06
+----------
+* Added a new "Provisional" status.
