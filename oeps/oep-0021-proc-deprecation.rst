@@ -216,7 +216,7 @@ engineering organization (`edx-code example`_):
         Hi there,
 
         We plan to deprecate and remove <*Short description of the technology*>.
-        We are targeting removal by <*Target Removal Date*>.
+        We are targeting removal after <*Target Removal Date*>.
 
         Please read https://openedx.atlassian.net/browse/<*DEPR-Number*> for
         more information and to post any questions/comments. The proposed
@@ -235,7 +235,7 @@ Post the following in the #open-edx-proposals and #general `openedx slack`_ chan
 
     *Removal of <*Technology Name*>:*
     We plan to deprecate and remove <*Short description of the technology*>.
-    We are targeting removal by <*Target Removal Date*>.
+    We are targeting removal after <*Target Removal Date*>.
 
     Please read https://openedx.atlassian.net/browse/<*DEPR-Number*> for
     more information and to post any questions/comments. The proposed
