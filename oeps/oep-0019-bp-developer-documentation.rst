@@ -23,6 +23,9 @@ OEP-0019: Developer Documentation
    * - Review Period
      - 2018-12-06 - 2018-12-20
 
+.. image:: oep-0019/write.png
+   :align: right
+
 .. contents::
    :local:
    :depth: 2
@@ -285,3 +288,6 @@ Next Steps
   repo or the cookiecutter-django-app_ repo for examples.
 
 .. _cookiecutter-django-app: https://github.com/edx/cookiecutter-django-app
+
+.. image:: oep-0019/quill.png
+   :align: center
