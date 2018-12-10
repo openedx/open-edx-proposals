@@ -1,31 +1,125 @@
 name,ring,quadrant,isNew,description
-OEPs,adopt,process,FALSE,"<p>Capture all edX platform technology decisions in a versioned and git-reviewed repository.  These include architectural decisions, best practices, and proposed processes.</p> <p>Decisions that are platform-wide should be captured centrally in <a href=""https://github.com/edx/open-edx-proposals"">open-edx-proposals</a>.  Decisions that do not have wider impact and are local to a specific git repository should be captured within that repo.</p> <p>Documenting decisions benefits future team members and allows alignment across teams throughout the open edX community. Doing so within a git repo allows decisions to be in synch with the code itself.</p><p>See <a href=""https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records"">Lightweight Architecture Decisions Records</a> for more information.</p>"
-Docker,trial,technology,TRUE,"<p>See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0005-arch-containerize-devstack.html"">OEP-5</a> for rationale for using containerization in developer environments.  See <a href=""https://github.com/edx/devstack"">devstack</a> for how to use docker devstack.</p>"
-Context-scoped xBlock Fields,hold,design pattern,FALSE,"<p>See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0006-arch-context-xblock-fields.html"">OEP-6</a> for rationale for having course-wide and context-wide settings for xBlocks.</p>"
-Vagrant,hold,technology,TRUE,"<p>See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0005-arch-containerize-devstack.html"">OEP-5</a> for rationale for using containerization in developer environments and scalability issues with Vagrant.  See <a href=""https://github.com/edx/devstack"">devstack</a> for how to use docker devstack instead of Vagrant.</p>"
-Python 3,adopt,technology,TRUE,"<p> See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0007-bp-migrate-to-python3.html"">OEP-7</a>.</p>"
-JS: install via NPM,assess,technology,TRUE,"<p> See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0011-bp-FED-technology.html"">OEP-11</a>.</p>"
-JS: build with React,assess,technology,TRUE,"<p> See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0011-bp-FED-technology.html"">OEP-11</a>.</p>"
-JS: bundle with Webpack,assess,technology,TRUE,"<p> See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0011-bp-FED-technology.html"">OEP-11</a>.</p>"
-JS: state management with Redux,assess,technology,TRUE,"<p> See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0011-bp-FED-technology.html"">OEP-11</a>.</p>"
-JS: style with Sass,assess,technology,TRUE,"<p> See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0011-bp-FED-technology.html"">OEP-11</a>.</p>"
-JS: bootstrap reusable components,assess,technology,TRUE,"<p> See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0016-bp-adopt-bootstrap.html"">OEP-16</a>.</p>"
-UI Fragment views,hold,design pattern,TRUE,"<p>Fragment Views, as described in <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0012-arch-fragment-views.html"">OEP-12</a>, require server-side rendering of front-end code.  This pattern worked well previously when edX fully adopted server-side rendering via Django templates.  However, as we shift to splitting frontend and backend, we need an alternative design model for pluggable user interfaces.</p>"
-Frontend Backend split,assess,design pattern,TRUE,"<p>As we assess React and its ecosystem for building front end technology, we are moving towards client-side rendering of our frontend views with a cleaner separation from backend APIs.</p>"
-Feature toggles,trial,design pattern,TRUE,"<p>See <a href=""http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html"">OEP-17</a>.</p>"
-Domain-driven design,assess,design pattern,TRUE,<p>TODO</p>
-xBlocks depend on Django,trial,design pattern,TRUE,"<p>xBlocks can use standard Django features, such as Django models and Django i18n services, without needing to depend on custom xBlock runtimes to provide these services.</p><p>Although this proposal is mentioned in OEP-12, it hasn't yet been widely announced nor formally captured as a decision.  Essentially, we have decided to allow xBlock developers to depend on Django directly rather than require all Django services and dependencies to be exported via xBlock Runtime services.  This allows them to use standard Django functionality and capabilities rather than us implementing home-grown solutions/wrappers in xBlock runtimes, APIs, etc.</p>"
-LMS: Block Transformers,adopt,framework,TRUE,"<p>LMS should use alternative read-optimized storage for course content, rather than using the less performant Modulestore.</p><p><a href=""https://openedx.atlassian.net/wiki/spaces/EDUCATOR/pages/34734111/Course+Block+Transformers"">Block Transformers</a> is a pluggable framework for pre-computed, de-normalized, read-optimized cache of Course Graphs to be used for fast-reads in the LMS; also re-computed on every Course Publish.</p><p>Motivation: The Modulestore infrastructure is not optimized for read-access as it is instead designed for versioning and read-write access. When retrieving course content from the Modulestore, the LMS faces unacceptable latency from (1) accessing data from Mongo, (2) instantiating xBlocks, and (3) traversing the course graph when resolving field inheritance.</p>"
-LMS: Course Overviews,adopt,design pattern,TRUE,"<p>LMS should use alternative read-optimized storage for course content, rather than using the less performant Modulestore.</p><p><a href=""https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/content/course_overviews/__init__.py"">Course Overviews</a> is a read-optimized LMS view/cache of Course Metadata that is stored in SQL and synchronized with the Modulestore on every Course Publish and periodically synchronized with Course Catalog data.</p><p>Motivation: The Modulestore infrastructure is not optimized for read-access as it is instead designed for versioning and read-write access. When retrieving course content from the Modulestore, the LMS faces unacceptable latency from (1) accessing data from Mongo, (2) instantiating xBlocks, and (3) traversing the course graph when resolving field inheritance.</p>"
-Isolated services,assess,design pattern,TRUE,"<p>Isolate services, especially in blocking user-facing requests. Follow the <a href=""https://www.reactivemanifesto.org/"">Reactive Manifesto</a> principles and have inter-service dependencies be asynchronous, without user-facing blocking calls from one service to another.</p><strong>Motivation</strong>
+Architecture Decision Records (ADRs),Adopt,Techniques,TRUE,"ADRs are local lightweight documents of technical decisions co-located with its corresponding code. They are much easier to maintain than traditional design documents since they are a running log of decisions without the need to update old decisions. They allow developers to understand the rationale behind the code and the archeological path to its current state. These records prove to be an <a href=""https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records"">invaluable technique</a> for engineering teams to onboard new members, to understand discovered historical traces, to refer back to past decisions, and to support external oversight.  See <a href=""https://github.com/edx/open-edx-proposals/pull/74/"">OEP-19: Developer Docs</a> for more information."
+Open edX Proposals (OEPs),Adopt,Techniques,FALSE,"OEPs are a collection of system-wide technology decisions accepted by edX engineers and the Open edX community. They come in the form of best practices, architecture designs, or processes. Inspired by <a href=""https://www.python.org/dev/peps/pep-0001/"">Python Enhancement Proposals (PEPs)</a>, each OEP provides its use cases and rationales. OEPs are described in <a href=""https://open-edx-proposals.readthedocs.io/en/latest/oep-0001.html"">OEP-1</a> and published in the <a href=""https://open-edx-proposals.readthedocs.io/en/latest/index.html"">OEP Index on Read the Docs</a>."
+Reactive Manifesto and Self-contained Systems,Adopt,Techniques,FALSE,"The <a href=""https://www.reactivemanifesto.org/"">Reactive Manifesto</a> advocates for asynchronous messaging between services in order to create a responsive, resilient, and elastic large-scale distributed system. In other words, there should be no user-facing blocking calls from one service to another and all inter-service dependencies should be asynchronous.
+</br></br>
+Combining these best practices with the principles of <a href=""http://scs-architecture.org/"">Self-Contained Systems</a>, we keep our microservices decoupled and simplify our overall system (with less need for Bulkheads and <a href=""https://martinfowler.com/bliki/CircuitBreaker.html"">Circuit breakers</a>).
+</br></br>
 <ul>
-<li><strong>Resiliency (via Isolation).</strong> By embracing the Message-driven and Asyncronous recommendations in the Reactive Manifesto, we keep our microservices decoupled and simplify our overall system (less need for Bulkheads and Circuit breakers).</li>
-<li></strong>Performance (via Local Views/Caches).</strong> Each microservice maintains its own data as it needs it - transforming it into whatever optimized structure/value that it needs.</li>
-<li><strong>Maintainability and Availability (via Clear Synchronization Points).</strong> Each microservice connection can have its own anti-corruption layer to validate and transform received data at a single point for all features within the microservice. Since this happens within a background process, previously validated and persisted synched-data can continue to be used in case of interface breakage - erring on the side of Eventual Consistency over Blocking Accuracy.</li>
-</ul>
-<strong>Alternatives</strong>
-<ul><li>One design alternative that is currently implemented by some features is to make blocking calls to the Catalog service from the LMS, but with timeouts and ephemeral caches in place. However, ephemeral caches should be considered only that - ephemeral - and cannot be guaranteed to always have the data that is needed to complete the request.  Also, automatically generated caches need to scale as the number of permutations of API request parameters increase.</li></ul>
-<strong>Exceptions</strong>
-<ul><li>Features that really need Consistency/Accuracy over Availability may need to make blocking calls to other Microservices.  For example, a purchasing workflow that needs accurate information about both product and pricing information may need to access the latest data from distributed services - and cannot rely on a synchronization process.</li>"
-Deprecate and Remove,assess,process,TRUE,"<p>To reverse the direction of the monolithic evolution of the edx-platform, it is necessary to have individual apps plugin to the platform and follow the S.O.D. of the SOLID principles as described in <a href=""https://github.com/edx/edx-platform/blob/dba976fc169f861db290cc4ac7db28d8d436c661/openedx/core/djangolib/django_plugins.py#L2-L37"">Django App Plugin</a>.  Additionally, to support the varying feature requirements and experimentation by the open edX community (and within edx.org), a plugin framework provides a powerful flexibility that keeps the edX core as an invulnerable and stable platform but a welcoming enabler.</p>"
-Automated Communication Engine (ACE),trial,framework,TRUE,"Use edX ACE as the notifications framework for automatically sending messages to users.  It provides a common extensible and scalable messaging framework for edX features that handles personalization, translations, policies and configurability."
+<li>*When <a href=""https://martinfowler.com/articles/microservice-trade-offs.html#consistency"">Eventual Consistency</a> is acceptable (or required) as in the case of autonomous applications, each microservice maintains its own (transformed and) optimized data as needed within its own bounded context.</li>
+<li>*On the other hand, when Authoritative and <a href=""https://en.wikipedia.org/wiki/CAP_theorem"">Accurate data</a> is needed, the frontend UI asynchronously retrieves the data from the owning microservice, with integration happening in the UI.</li>
+</ul>"
+Decouple deployment from release,Adopt,Techniques,FALSE,"<a href=""https://www.thoughtworks.com/radar/techniques/decoupling-deployment-from-release"">Decoupling deployment from release</a> is a useful technique for <a href=""http://martinfowler.com/bliki/ContinuousDelivery.html"">Continuous Delivery</a>. Use the term <i>Deployment</i> when referring to the act of deploying a change to application components or infrastructure. The term <i>Release</i> is used when a feature change is released to end users, with a business impact. Using techniques such as feature toggles and dark launches, we can deploy changes to production systems more frequently without releasing features. More-frequent deployments reduce the risk associated with change, while business stakeholders retain control over when features are released to end users. See <a href=""https://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html"">OEP-17 on edX's best practices for feature toggles</a>."
+Staged Rollouts,Adopt,Techniques,FALSE,"Gradually rolling out and monitoring a change is another useful technique for <a href=""http://martinfowler.com/bliki/ContinuousDelivery.html"">Continuous Delivery</a>. As described in <a href=""https://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html#use-case-3-ops-monitored-rollout"">OEP-17's use case of edX' feature toggles</a>, a staged rollout supports a controlled ability to reduce <a href=""https://www.thoughtworks.com/radar/techniques/focus-on-mean-time-to-recovery"">Mean Time to Recovery (MTTR)</a> in case of unexpected issues."
+Blue Green Deployment,Adopt,Techniques,FALSE,"<a href=""https://martinfowler.com/bliki/BlueGreenDeployment.html"">Blue Green Deployment</a> is yet another recommended technique for reliable <a href=""http://martinfowler.com/bliki/ContinuousDelivery.html"">Continuous Delivery</a> where taking software from its final stage of testing to live production can be a challenge. In order to minimize downtime, the blue-green deployment approach runs two production environments (blue and green). If the blue environment is live, prepare a new release in the green environment. Once the software is working in the green environment, you switch the router so that all incoming requests go to the green environment, with the blue one going idle.
+</br></br>
+Additionally, in the same vein as <i>Staged Rollouts</i>, a Blue Green deployment allows for a faster <a href=""https://www.thoughtworks.com/radar/techniques/focus-on-mean-time-to-recovery"">Mean Time to Recovery (MTTR)</a> since you have a duplicate environment to fall back to in case of an obviously immediate issue with a fresh release."
+Single Responsibility (of SOLID),Adopt,Techniques,FALSE,"<i>Modularity, componentization, cohesion, encapsulation, decomposition, separation of concerns, bounded contexts.</i>
+</br></br>
+These are all terms related to the art of creating intentional and explicit boundaries. Although it is a critical architectural requirement that seems straightforward on the surface and observed from the early days of computer science (<a href=""http://delivery.acm.org.libproxy.mit.edu/10.1145/370000/361623/p1053-parnas.pdf?ip=18.9.61.111&id=361623&acc=ACTIVE%20SERVICE&key=7777116298C9657D%2EDE5F786C30E1A3B4%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=877931468&CFTOKEN=15099768&__acm__=1482091678_014b7b6658937e370b7e2212e4fce58c"">Parnas 1972</a>), it is difficult in practice - as evidenced by the popular existence of monoliths, large incomprehensible classes and functions, and tightly coupled components.
+</br></br>
+<i>Gather together the things that change for the same reasons.</br>
+Separate those things that change for different reasons.</i>
+</br></br>
+The <a href=""https://en.wikipedia.org/wiki/Single_responsibility_principle"">Single Responsibility principle</a> of <a href=""https://en.wikipedia.org/wiki/SOLID"">SOLID</a> applies not only at the function, class, or module level, but also for <i>microfrontends</i> and <i>microservices</i> - resulting in long-term time-to-value for autonomous teams. It begins with the early investment of naming and documenting an object, and continues through its lifetime of continual refactoring and reassessing its responsibility and dependencies. This is an intentional counter-attack to an otherwise natural gravitation towards monolithic, tightly coupled, and thus slow to evolve systems.
+</br></br>
+<b>Goal:</b> <i>loosely coupled, highly cohesive</i> components.
+"
+Dependency Inversion (of SOLID),Adopt,Techniques,FALSE,"<i>High-level modules should not depend on low-level modules. Both should depend on abstractions.</i>
+</br></br>
+<i>Abstractions should not depend on details. Details should depend on abstractions.</i>
+</br></br>
+For longevity of a large-scale system, dependencies should go from low-level modules/details to higher level ones, and do so via the use of domain-relevant abstractions/interfaces. This <a href=""https://martinfowler.com/articles/dipInTheWild.html"">Dependency Inversion principle</a> is a tactical means for enabling a Plugin architecture for the core platform, where details are encapsulated within extensions and depend on the core, rather than the core depending on the details. Although this principle is paramount for taming the monolith, it should also be applied to satellite microservices as a means to sustain them.
+</br></br>
+Examples of details include: (a) concrete implementations of proctoring, video encoding, emailing, chatting, logging, etc, and (b) specific technological choices for storage, search, web frameworks, etc."
+Coding Standards,Adopt,Techniques,FALSE,"Follow edX conventions and coding standards for <a href=""https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/internationalization/index.html"">internationalization (i18n)</a>, <a href=""https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/conventions/accessibility.html"">accessibility (a11y)</a>, <a href=""https://docs.google.com/presentation/d/1XQwXjyQXz3TLu_9xkMCZyQlu4VMSFjUGxrg9MTXprWw/edit?usp=sharing"">clean code</a>, performance, <a href=""https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/style_guides/index.html"">language style guides</a>, testing, and security. Some of these are documented in the <a href=""https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/"">edX Developer Guide</a>."
+DDD Bounded Contexts and Subdomains,Assess,Techniques,TRUE,"Domain-driven Design (see <a href=""https://openedx.atlassian.net/wiki/spaces/AC/pages/679772564/Architecture+Recommended+Reading+List"">resources</a>) provides a fundamental perspective on designing software with an emphasis on modeling business needs with an ongoing partnership between engineers and knowledge experts. An understanding of its design principles leads to essential best practices on where/how to create boundaries around microservices and how they should interact (a.k.a., <a href=""https://martinfowler.com/bliki/BoundedContext.html"">Bounded Contexts</a>).
+</br></br>
+DDD Bounded Contexts are based on careful analysis of the use cases of the business and are classified into <i>Generic</i> (can be off-the-shelf/purchased, not likely to change), <i>Core</i> (competetive advantage, complex business logic, more likely to change), and <i>Supporting</i> (supports the core, can't be bought, with simpler business logic).  Since bounded contexts are formed based on use cases and not entities/data in the system, their boundaries are better suited for highly cohesive and loosely coupled microservices. The proposed <a href=""https://openedx.atlassian.net/wiki/spaces/AC/pages/663224968/edX+DDD+Bounded+Contexts"">bounded contexts and subdomains for edX</a> were formed based on edX use cases."
+DDD Ubiquitous Language,Assess,Techniques,TRUE,"DDD recommends having a consistent <a href=""https://martinfowler.com/bliki/UbiquitousLanguage.html"">Ubiquitous language</a> that is spoken and well understood within the confines of a <i>Bounded Context</i>. It allows for different semantics of the same term in different contexts, thereby supporting autonomous contexts, requiring precise namespaced communications, and allowing each context to have its own variation of a concept. A context-specific <a href=""https://openedx.atlassian.net/wiki/spaces/AC/pages/188032048/edX+DDD+Ubiquitous+Language"">ubiquitous language for edX</a> is still a work in progress."
+DDD Anti-corruption Layer,Assess,Techniques,TRUE,"In DDD, an <a href=""https://docs.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer"">anti-corruption layer</a> between bounded contexts is an intermediate abstraction layer that eliminates changes in one context to propagate into another. This design pattern will be highly useful as we build upon our monolith and eventually <a href=""https://developer.ibm.com/articles/cl-strangler-application-pattern-microservices-apps-trs/"">strangle legacy implementations</a>."
+"Intentional, Evolutionary Architecture vs Emergent Design",Trial,Techniques,TRUE,"While rapid development by autonomous agile teams create <a href=""https://www.scaledagileframework.com/agile-architecture/"">Emergent designs</a>, it must be continuously counterbalanced with <a href=""https://www.scaledagileframework.com/agile-architecture/"">Intentional architecture</a> that looks towards long-term sustainability of the system by considering its evolvability via principles of <a href=""https://openedx.atlassian.net/wiki/spaces/AC/pages/697597971/Building+Evolutionary+Architecture"">Evolutionary architecture</a>."
+Deprecations/Removals,Trial,Techniques,TRUE,"<i>Remove dead code wherever possible. It gets in the way and slows you down.</i>
+</br></br>
+<a href=""https://open-edx-proposals.readthedocs.io/en/latest/oep-0021-proc-deprecation.html"">OEP-0021: Deprecation and Removal</a> defines a clear and agreed upon process for removing legacy code, which we strongly encourage to follow and put into regular practice as part of the normal development lifecyle."
+Microfrontends,Trial,Techniques,TRUE,https://micro-frontends.org/
+Microservices,Trial,Techniques,TRUE,https://hackernoon.com/microservices-bounded-context-cohesion-what-do-they-have-in-common-1107b70342b3
+"Observability, not just Monitoring",Assess,Techniques,TRUE,https://medium.com/@copyconstruct/monitoring-and-observability-8417d1952e1c
+Consumer-driven Contract Testing,Assess,Techniques,TRUE,"<a href=""https://martinfowler.com/articles/consumerDrivenContracts.html"">Consumer-driven contracts</a> are an essential part of a mature microservice testing portfolio, enabling independent service deployments. When two independently developed services are collaborating, changes to the supplier’s API can cause failures for its consumers. Consuming services usually cannot test against live suppliers since such tests are slow and brittle. Consumer teams can protect themselves from these failures by providing their own tests to the supplier, who can then run all their consumers’ contract tests to determine if their changes are likely to cause problems."
+Developer Documentation,Assess,Techniques,TRUE,https://github.com/edx/open-edx-proposals/pull/74
+INCR tickets,Assess,Techniques,TRUE,https://open-edx-proposals.readthedocs.io/en/latest/oep-0025-proc-incremental-improvements.html
+Open Closed SOLID Principle,Assess,Techniques,TRUE,TBD
+Ownership,Assess,Techniques,TRUE,TBD
+PII Annotations,Assess,Techniques,TRUE,https://open-edx-proposals.readthedocs.io/en/latest/oep-0030-arch-pii-markup-and-auditing.html
+Versioning as a last resort,Assess,Techniques,TRUE,<i>liberal in what you accept and conservative in what you send</i></br</br>See https://martinfowler.com/articles/enterpriseREST.html#versioning.
+Ball of Mud Monolith,Hold,Techniques,FALSE,Distributed Monolith
+Entity-based Services,Hold,Techniques,FALSE,https://www.michaelnygard.com/blog/2017/12/the-entity-service-antipattern/
+Django 1.11,Adopt,Technologies,FALSE,
+Python 3,Adopt,Technologies,FALSE,See https://open-edx-proposals.readthedocs.io/en/latest/oep-0007-bp-migrate-to-python3.html
+Celery,Adopt,Technologies,FALSE,
+Kafka,Assess,Technologies,TRUE,
+Docker,Adopt,Technologies,FALSE,
+Ruby,Hold,Technologies,FALSE,
+MySQL,Adopt,Technologies,FALSE,
+MongoDB,Hold,Technologies,FALSE,
+Stevedore,Adopt,Technologies,FALSE,
+Vagrant,Hold,Technologies,FALSE,
+Django OAuth Toolkit (DOT),Adopt,Technologies,FALSE,See https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0002-migrate-to-dot.rst
+Django OAuth Provider (DOP),Hold,Technologies,FALSE,See https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0002-migrate-to-dot.rst
+New Relic,Trial,Technologies,FALSE,
+Segment,Trial,Technologies,FALSE,
+Google Analytics,Trial,Technologies,FALSE,
+Splunk,Trial,Technologies,FALSE,
+Amazon Web Services,Adopt,Technologies,FALSE,
+Elastic Search,Adopt,Technologies,FALSE,
+Restructured Text (rST),Adopt,Technologies,FALSE,
+Performance Tools,Adopt,Technologies,FALSE,See https://openedx.atlassian.net/wiki/spaces/PERF/pages/29688477/Performance+tools
+Jenkins,Trial,Technologies,FALSE,
+Travis,Adopt,Technologies,FALSE,
+Paver,Hold,Technologies,FALSE,
+Python 2,Hold,Technologies,FALSE,See https://open-edx-proposals.readthedocs.io/en/latest/oep-0007-bp-migrate-to-python3.html
+React,Adopt,FED Tech,FALSE,
+Jest,Trial,FED Tech,TRUE,
+Enzyme,Assess,FED Tech,TRUE,
+Gatsby,Assess,FED Tech,TRUE,
+CoffeeScript,Hold,FED Tech,FALSE,
+Backbone,Hold,FED Tech,FALSE,
+Jasmine,Hold,FED Tech,FALSE,
+Paragon,Trial,FED Tech,FALSE,
+UI Pattern Library,Hold,FED Tech,FALSE,
+Bootstrap,Assess,FED Tech,FALSE,
+Redux,Trial,FED Tech,FALSE,
+ES6,Trial,FED Tech,FALSE,
+NPM,Trial,FED Tech,FALSE,
+Webpack,Trial,FED Tech,FALSE,
+Sass,Trial,FED Tech,FALSE,
+Mako,Hold,FED Tech,FALSE,
+Django Template,Hold,FED Tech,FALSE,
+Greenkeeper,Assess,FED Tech,FALSE,
+Axios,Assess,FED Tech,TRUE,
+Babel,Adopt,FED Tech,FALSE,
+RequireJS,Hold,FED Tech,FALSE,
+Lettuce Tests,Hold,FED Tech,FALSE,
+Bokchoy Tests,Hold,FED Tech,FALSE,
+Underscore,Hold,FED Tech,FALSE,
+ACE Notifications Framework,Adopt,Frameworks,TRUE,See https://edx-ace.readthedocs.io/en/latest/
+Dependency Management,Trial,Frameworks,FALSE,See https://open-edx-proposals.readthedocs.io/en/latest/oep-0018-bp-python-dependencies.html
+Event Tracking,Assess,Frameworks,FALSE,See https://github.com/edx/event-tracking
+xBlocks,Trial,Frameworks,FALSE,See https://open.edx.org/xblocks
+xBlock Asides,Assess,Frameworks,FALSE,
+Block Transformers,Trial,Frameworks,FALSE,See https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/content/block_structure/__init__.py
+Django App Plugins,Assess,Frameworks,TRUE,See https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/plugins/README.rst
+OAuth+JWTs,Adopt,Frameworks,TRUE,See https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0003-use-jwt-as-oauth-tokens-remove-openid-connect.rst
+REST APIs,Adopt,Frameworks,FALSE,
+GraphQL APIs,Assess,Frameworks,FALSE,
+Real-time Events,Assess,Frameworks,TRUE,See https://github.com/edx/open-edx-proposals/pull/73
+Pub/Sub,Assess,Frameworks,TRUE,See https://github.com/edx/open-edx-proposals/pull/73
+OAuth Scopes,Adopt,Frameworks,FALSE,See https://open-edx-proposals.readthedocs.io/en/latest/oep-0004-arch-oauth-scopes.html
+Open ID Connect,Hold,Frameworks,FALSE,See https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0003-use-jwt-as-oauth-tokens-remove-openid-connect.rst
+LTI,Adopt,Frameworks,FALSE,
+Datadog,Hold,Technologies,FALSE,
+Blockstore,Assess,Frameworks,TRUE,
+Read the Docs,Adopt,Technologies,FALSE,
+Minimal Generalism,Trial,Techniques,FALSE,"A term coined by Michael Nygard, Minimal Generalism Often people don't think through the comparative cost of building now to building later. One approach I use when mentoring developers in this situation is to ask them to imagine the refactoring they would have to do later to introduce the capability when it's needed. Often that thought experiment is enough to convince them that it won't be significantly more expensive to add it later. Another result from such an imagining is to add something that's easy to do now, adds minimal complexity, yet significantly reduces the later cost. Using lookup tables for error messages rather than inline literals are an example that are simple yet make later translations easier to support."
+Extreme YAGNI,Hold,Techniques,FALSE,"In the spirit of moving fast and maintaining optionality with <a href=""http://wirfs-brock.com/blog/2011/01/18/agile-architecture-myths-2-architecture-decisions-should-be-made-at-the-last-responsible-moment/"">delayed decisions</a>, we sometimes follow: <a href=""https://martinfowler.com/bliki/Yagni.html"">You Ain't Gonna Need It (YAGNI)</a> so don't bother implementing it now.  However, YAGNI assumes ongoing proactive refactoring efforts where you reevaluate, refactor, and evolve software as you develop it.  Even with this scout attitude, however, it is difficult to refactor once you have physically separate boundaries - such as with <i>microservices</i> and <i>microfrontends</i>.  Therefore, we should consider and trial <i>Minimal Generalism</i> rather than YAGNI."
+Django Waffle,Trial,Technologies,FALSE,
