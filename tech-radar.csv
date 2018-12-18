@@ -52,7 +52,7 @@ Open Closed SOLID Principle,Assess,Techniques,TRUE,TBD
 Ownership,Assess,Techniques,TRUE,TBD
 PII Annotations,Assess,Techniques,TRUE,https://open-edx-proposals.readthedocs.io/en/latest/oep-0030-arch-pii-markup-and-auditing.html
 Versioning as a last resort,Assess,Techniques,TRUE,<i>liberal in what you accept and conservative in what you send</i></br</br>See https://martinfowler.com/articles/enterpriseREST.html#versioning.
-Ball of Mud Monolith,Hold,Techniques,FALSE,Distributed Monolith
+Ball of Mud Monolith,Hold,Techniques,FALSE,TBD; Distributed Monolith; https://openedx.atlassian.net/wiki/spaces/AC/pages/921862290/Bounded+Contexts+Maturity+Model
 Entity-based Services,Hold,Techniques,FALSE,https://www.michaelnygard.com/blog/2017/12/the-entity-service-antipattern/
 Django 1.11,Adopt,Technologies,FALSE,
 Python 3,Adopt,Technologies,FALSE,See https://open-edx-proposals.readthedocs.io/en/latest/oep-0007-bp-migrate-to-python3.html
@@ -79,24 +79,24 @@ Travis,Adopt,Technologies,FALSE,
 Paver,Hold,Technologies,FALSE,
 Python 2,Hold,Technologies,FALSE,See https://open-edx-proposals.readthedocs.io/en/latest/oep-0007-bp-migrate-to-python3.html
 React,Adopt,FED Tech,FALSE,
-Jest,Trial,FED Tech,TRUE,
-Enzyme,Assess,FED Tech,TRUE,
+Jest,Adopt,FED Tech,TRUE,
+Enzyme,Adopt,FED Tech,TRUE,
 Gatsby,Assess,FED Tech,TRUE,
 CoffeeScript,Hold,FED Tech,FALSE,
 Backbone,Hold,FED Tech,FALSE,
 Jasmine,Hold,FED Tech,FALSE,
-Paragon,Trial,FED Tech,FALSE,
+Paragon,Adopt,FED Tech,FALSE,
 UI Pattern Library,Hold,FED Tech,FALSE,
-Bootstrap,Assess,FED Tech,FALSE,
-Redux,Trial,FED Tech,FALSE,
-ES6,Trial,FED Tech,FALSE,
-NPM,Trial,FED Tech,FALSE,
-Webpack,Trial,FED Tech,FALSE,
-Sass,Trial,FED Tech,FALSE,
+Bootstrap,Adopt,FED Tech,FALSE,
+Redux,Adopt,FED Tech,FALSE,
+ES6,Adopt,FED Tech,FALSE,
+NPM,Adopt,FED Tech,FALSE,
+Webpack,Adopt,FED Tech,FALSE,
+Sass,Adopt,FED Tech,FALSE,
 Mako,Hold,FED Tech,FALSE,
 Django Template,Hold,FED Tech,FALSE,
 Greenkeeper,Assess,FED Tech,FALSE,
-Axios,Assess,FED Tech,TRUE,
+Axios,Adopt,FED Tech,TRUE,
 Babel,Adopt,FED Tech,FALSE,
 RequireJS,Hold,FED Tech,FALSE,
 Lettuce Tests,Hold,FED Tech,FALSE,
@@ -120,6 +120,8 @@ LTI,Adopt,Frameworks,FALSE,
 Datadog,Hold,Technologies,FALSE,
 Blockstore,Assess,Frameworks,TRUE,
 Read the Docs,Adopt,Technologies,FALSE,
-Minimal Generalism,Trial,Techniques,FALSE,"A term coined by Michael Nygard, Minimal Generalism Often people don't think through the comparative cost of building now to building later. One approach I use when mentoring developers in this situation is to ask them to imagine the refactoring they would have to do later to introduce the capability when it's needed. Often that thought experiment is enough to convince them that it won't be significantly more expensive to add it later. Another result from such an imagining is to add something that's easy to do now, adds minimal complexity, yet significantly reduces the later cost. Using lookup tables for error messages rather than inline literals are an example that are simple yet make later translations easier to support."
+Minimal Generalism,Trial,Techniques,FALSE,"Minimal Generalism, a term coined by Michael Nygard, in contrast to <i>Extreme YAGNI</i>, reminds us that for certain aspects of a feature it is worthwhile (in the long run) to invest a bit more in generalizing the implementation today than later. Here's an excerpt from <a href=""https://martinfowler.com/bliki/Yagni.html"">Martin Fowler's YAGNI page</a> that gives examples:
+</br></br>
+Often people don't think through the comparative cost of building now to building later. One approach I use when mentoring developers in this situation is to ask them to imagine the refactoring they would have to do later to introduce the capability when it's needed. Often that thought experiment is enough to convince them that it won't be significantly more expensive to add it later. Another result from such an imagining is to add something that's easy to do now, adds minimal complexity, yet significantly reduces the later cost. Using lookup tables for error messages rather than inline literals are an example that are simple yet make later translations easier to support."
 Extreme YAGNI,Hold,Techniques,FALSE,"In the spirit of moving fast and maintaining optionality with <a href=""http://wirfs-brock.com/blog/2011/01/18/agile-architecture-myths-2-architecture-decisions-should-be-made-at-the-last-responsible-moment/"">delayed decisions</a>, we sometimes follow: <a href=""https://martinfowler.com/bliki/Yagni.html"">You Ain't Gonna Need It (YAGNI)</a> so don't bother implementing it now.  However, YAGNI assumes ongoing proactive refactoring efforts where you reevaluate, refactor, and evolve software as you develop it.  Even with this scout attitude, however, it is difficult to refactor once you have physically separate boundaries - such as with <i>microservices</i> and <i>microfrontends</i>.  Therefore, we should consider and trial <i>Minimal Generalism</i> rather than YAGNI."
 Django Waffle,Trial,Technologies,FALSE,
