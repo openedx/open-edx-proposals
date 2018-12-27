@@ -88,8 +88,10 @@ following states.
 
 *  Proposed_ - The starting state when removal is considered, analyzed, and
    documented.
-*  Communicated_ - The proposal is announced and its corresponding JIRA
-   ticket is updated with community feedback until the target Accepted date.
+*  Communicated_ - The proposal is announced to the general Open edX community
+   via the broadcast mechanisms defined below.  Specific notifications are
+   sent to all identified stakeholders.  The corresponding JIRA ticket
+   is updated with community feedback until the target Accepted date.
 *  Accepted_ - The proposal is officially accepted after addressing community
    feedback and aligning on a timeline.
 *  Deprecated_ - If required, the code is updated and marked as deprecated.
