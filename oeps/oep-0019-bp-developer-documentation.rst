@@ -261,8 +261,14 @@ When a page is archived:
 
 * The page and its contents are no longer included in normal searches, thus keeping our search results decluttered.
 * The page no longer appears in Google searches.
-* Links to the old page are automatically forwarded to its new location in the Archived space (unless the old page's
-  containing space is entirely deleted).
+* Links to the old page are automatically forwarded to its new location in the 
+  Archived space (unless the old page's containing space is entirely deleted).
+
+You can search for archived pages using Confluence's advanced search. From the 
+Confluence search panel, select **Advanced Search**, then select **Search archived spaces**.
+
+.. image:: oep-0019/confluence-archive-search.png
+   :align: left
 
 .. _Space Archive: https://confluence.atlassian.com/doc/archive-a-space-284368719.html
 .. _`Archive: Engineering`: https://openedx.atlassian.net/wiki/spaces/ArchiveEng/overview
