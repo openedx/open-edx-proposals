@@ -45,10 +45,10 @@ development and developer onboarding.
 This is a problem shared by the software engineering industry and many have
 learned the benefits of investing in code removal:
 
-* It is undeniable that unnecessary code, like any other code, requires 
+* It is undeniable that unnecessary code, like any other code, requires
   maintenance over time. It costs time and money. [OREILLY]_
 
-* Extra code also makes it harder to learn the project, and requires extra 
+* Extra code also makes it harder to learn the project, and requires extra
   understanding and navigating. [OREILLY]_
 
 * It is harder to refactor, simplify, or optimize your program when it is bogged
@@ -62,7 +62,7 @@ learned the benefits of investing in code removal:
 * Dead code discourages a culture of treating the software as soft, and therefore
   always open to revision and improvement. [INFOQ]_
 
-Given the above, we define a common language and process to remove unneeded 
+Given the above, we define a common language and process to remove unneeded
 code. That code may be superseded by a new implementation or may be deemed no
 longer necessary and supported. Following this process guarantees alignment
 across all stakeholders and full execution.
@@ -80,7 +80,7 @@ Process States
    :align: center
    :alt: A diagram that shows the state flow transitions. The process starts in
     the Proposed state and goes through the *Communicated*, *Accepted*,
-    *Deprecated*, *Removing*, and *Removed* states. If the proposal isn't 
+    *Deprecated*, *Removing*, and *Removed* states. If the proposal isn't
     *Accepted*, the state transitions directly from *Proposed* to *Abandoned*.
 
 As shown in the diagram above, the code removal process flows through the
@@ -88,8 +88,10 @@ following states.
 
 *  Proposed_ - The starting state when removal is considered, analyzed, and
    documented.
-*  Communicated_ - The proposal is announced and its corresponding JIRA
-   ticket is updated with community feedback until the target Accepted date.
+*  Communicated_ - The proposal is announced to the general Open edX community
+   via the broadcast mechanisms defined below.  Specific notifications are
+   sent to all identified stakeholders.  The corresponding JIRA ticket
+   is updated with community feedback until the target Accepted date.
 *  Accepted_ - The proposal is officially accepted after addressing community
    feedback and aligning on a timeline.
 *  Deprecated_ - If required, the code is updated and marked as deprecated.
@@ -138,7 +140,9 @@ Analyze
 When proposing a removal, consider the following analysis:
 
 * Usage - Which users and services are currently using the code proposed for
-  removal on your own open edX instance?
+  removal on your own open edX instance?  Perform a quick search across the edX
+  codebase to gauge the level of impact and identify potential stakeholders.
+  https://github.com/search?q=org%3Aedx+sample&type=Code
 * Replacement - What, if any, is a viable replacement for the code being removed?
 * Migration path - If there is existing high usage in the community, what is a
   viable automated migration path from the deprecated code to the removed code?
@@ -157,7 +161,7 @@ considers the timing of the next `Open edX named release`_.
 
 .. image:: oep-0021/timeline.png
    :align: center
-   :alt: A diagram that suggests having a 2 week time period between the 
+   :alt: A diagram that suggests having a 2 week time period between the
     *Proposed* and *Accepted* states, giving the community enough time to provide
     feedback. After which, the *Deprecated*, *Removing*, and *Removed* transition
     periods will vary by the type and scope of the technical change.
@@ -212,7 +216,7 @@ engineering organization (`edx-code example`_):
 
     Subject: Deprecation/Removal: <*Technology Name*> <*DEPR-Number*>
 
-    Body: 
+    Body:
         Hi there,
 
         We plan to deprecate and remove <*Short description of the technology*>.
@@ -271,7 +275,7 @@ update the state of the **DEPR** ticket to *Accepted*.
 Deprecated
 ----------
 
-If you decided to mark the code for deprecation during your Analyze_ or 
+If you decided to mark the code for deprecation during your Analyze_ or
 `Monitor Feedback`_ phases, invest time in doing so and update the state of the
 **DEPR** ticket to *Deprecated* once that is completed.
 
