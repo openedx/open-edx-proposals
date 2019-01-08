@@ -288,7 +288,32 @@ This section summarizes the requirements for long-term developer documentation.
 Format
 ~~~~~~
 
-We will use `Restructured Text (rST)`_ for all developer documentation.
+We will use `reStructuredText (rST)`_ for all developer documentation.
+
+* rST scales up: it can be used for anything from docstrings to single-page
+  documents to books to multi-volume book sets.
+
+* rST has a rich feature set, including inter-document links, table of
+  contents, auto-collection of code documentation, list-formatted tables,
+  semantic markup, and multiple output formats.
+
+* A single documentation format enables consistency.  It also avoids conversion
+  to rST when we require its additional features.  Our experience has shown
+  that these two benefits of standardization keep down the overall cost of
+  documentation maintenance.
+
+* rST is the standard markup format for Python project documentation.
+
+* rST does not suffer from incompatible implementations, with different
+  features supported differently by different renderers.
+
+* GitHub renders rST natively.
+
+More details on these points are in Eric Holscher's `why rST over Markdown for
+documentation`_ blog post.
+
+.. _why rST over Markdown for documentation: http://ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/
+
 
 Best practices
 ^^^^^^^^^^^^^^
@@ -302,7 +327,17 @@ Best practices
 Learning rST
 ^^^^^^^^^^^^
 
+* If you are familiar with Markdown:
+  
+  * Here is edX's `cheatsheet comparing rST to Markdown`_.
+
+  * Here is `another comparison of Markdown and rST`_.
+
 * See the `reStructuredText (rST) Primer`_.
+
+.. _cheatsheet comparing rST to Markdown: https://github.com/edx/mdrst/blob/master/mdrst.rst
+.. _another comparison of Markdown and rST: https://gist.github.com/dupuy/1855764
+
 
 Helpful rST-related tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -311,19 +346,19 @@ Helpful rST-related tools
 
 * PyCharm_ provides an rST editor and preview panel. 
 
-* `Online reStructured Text editor`_ helps, but isn't perfect.
+* `Online reStructuredText editor`_ helps, but isn't perfect.
 
 * `Online table generator`_ (supports multiple formats).
 
-* Pandoc_ can be used to convert between many formats, like Google Doc to rST.
+* Pandoc_ can be used to convert between many formats, like Google Doc or Markdown to rST.
 
 * Other options are listed on stackoverflow_.
 
-.. _Restructured Text (RST): http://docutils.sourceforge.net/rst.html
+.. _reStructuredText (RST): http://docutils.sourceforge.net/rst.html
 .. _reStructuredText (rST) Primer: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _Visual Studio Code: https://marketplace.visualstudio.com/items?itemName=tht13.rst-vscode
 .. _PyCharm: https://www.jetbrains.com/help/pycharm/restructured-text.html
-.. _Online reStructured Text editor: http://rst.ninjs.org/
+.. _Online reStructuredText editor: http://rst.ninjs.org/
 .. _Online table generator: http://truben.no/table/
 .. _Pandoc: https://pandoc.org/
 .. _stackoverflow: https://stackoverflow.com/a/2747041
@@ -335,11 +370,10 @@ Markdown Format
 ~~~~~~~~~~~~~~~
 
 We are choosing to not use `Markdown (MD)`_ for documentation. A single format enables consistency, and avoids
-conversions to rST when requiring additional features. Here is an interesting blog post on `why rST over Markdown for
-documentation`_.
+conversions to rST when requiring additional features. See the `Format`_ section for more details.
+The `Learning rST`_ section has resources comparing Markdown and rST.
 
 .. _Markdown (MD): https://www.markdownguide.org/
-.. _why rST over Markdown for documentation: http://ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/
 
 Confluence
 ~~~~~~~~~~
