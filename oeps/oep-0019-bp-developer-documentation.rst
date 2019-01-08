@@ -56,67 +56,169 @@ Decisions
    :alt: A diagram that shows the different types of documentation and their
     relationships. This is further described below.
 
-Agile Documentation Needs
+Agile Documentation Types
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 With Agile development and `Clean Code`_, we can minimize documentation (and its maintainence) since code should
-be readable and self-documenting. However, for long-term maintainence of a platform, the following developer
+be readable and self-documenting. However, for long-term maintainence of a platform, the following types of developer
 documentation are still needed:
 
-1. **System-wide Decisions and Best Practices (OEPs)** are necessary to establish coherency
-   and efficiency with minimal centralized governance across a long-term maintained platform.
-   
-   * As described in OEP-1_, system-wide technical decisions, best practices, and development
-     processes are captured in the `open-edx-proposals`_ repo.
-
-2. **Architecture Decision Records (ADRs)** are local lightweight documents of
-   technical decisions co-located with its corresponding code. They are needed to 
-   understand the rationale behind the code and the archeological path to its current state. 
-   These records prove to be an `invaluable technique`_ for engineering teams to onboard
-   new members, to understand discovered historical traces, to refer back to past decisions,
-   and to support external oversight.
-   
-   * Note: Since ADRs are inherently a historical trail of technical decisions, by design,
-     they do not need ongoing maintainence.
-
-   * Example: A `local decisions`_ folder will be created as a top-level folder in a repo
-     and/or as subfolders of a repo, depending on the size of the repo's codebase. The goal
-     is to keep the decisions in as close proximity to the code as possible for their discovery
-     and usage.
-
-3. **READMEs** provide a top-level summary and intentional purpose of the repo or app.
-
-   * The README.rst includes a description of the *responsibility* of that component. This is important
-     so that future development remains within the boundaries of the intention of the author rather than
-     the component evolving in incongruent ways. In the event that the responsibility of the component
-     changes, the README.rst needs to be updated.
-
-   * The README may also serve as an index to the published docs of the component.
-
-4. **How-To Documentation** provides step-by-step instruction in enabling and using a feature.
-
-   * These will be stored in Github co-located with the relevant code.
-
-5. **API Documentation** provide information on interfaces for integrating with or enhancing the platform.
-   These should be automatically generated, as possible. For example:
-
-   * REST API interfaces will be automatically generated using Swagger_.
-   * The Open edX Learning Exchange (OLX) format should be automatically generated.
-   * Plugin interfaces (e.g., Proctoring integration) should be automatically generated using Sphinx_.
-
 .. _Clean Code: https://www.oreilly.com/library/view/clean-code/9780136083238/
-.. _OEP-1: https://open-edx-proposals.readthedocs.io/en/latest/oep-0001.html
+
+.. contents::
+   :local:
+   :depth: 1
+
+OEPs
+^^^^
+
+.. list-table::
+   :widths: 15 75 
+
+   * - **Description**
+     - Open edX Proposals (OEPs) are a collection of system-wide technology decisions made by the Open edX
+       community, in the form of best practices, architecture designs, and processes.
+   * - **Answers the questions**
+     - 
+       * *What are the best practices and processes for developing on the Open edX platform?*
+       * *How does system-wide framework X work on the Open edX platform? (e.g., Analytics, Authorization, etc).*
+       * *Why was system-wide technology X or design Y chosen for the Open edX platform?*
+   * - **Rationale**
+     - To establish software development coherency and efficiency with minimal centralized governance
+       across a long-term maintained platform.
+   * - **Location in GitHub**
+     - Stored and reviewed in the `open-edx-proposals`_ GitHub repo; published to `Open edX Proposals Read The Docs`_.
+   * - **Maintainence**
+     - OEP-1_ describes the OEP review process. They will be maintained by the `edX Architecture team`_.
+
 .. _open-edx-proposals: https://github.com/edx/open-edx-proposals
+.. _Open edX Proposals Read The Docs: https://open-edx-proposals.readthedocs.io
+.. _OEP-1: https://open-edx-proposals.readthedocs.io/en/latest/oep-0001.html
+.. _edX Architecture team: https://openedx.atlassian.net/wiki/spaces/AC/pages/439353453/Architecture+Team
+
+ADRs
+^^^^
+
+.. list-table::
+   :widths: 15 75 
+
+   * - **Description**
+     - Inspired by `Nygard's post`_, Architecture Decision Records (ADRs) are local lightweight documents of
+       technical decisions co-located with their corresponding code. They provide rationale behind the code and
+       the archeological path to their current state. The status of an ADR can be:
+
+       * **draft** if the decision is still preliminary and in experimental phase
+       * **accepted** once it is agreed upon
+       * **superseded** with a reference to its replacement if a later ADR changes or reverses the decision
+   * - **Answers the questions**
+     - 
+       * *What technical decisions were made for the component/feature in this repo/app/folder?*
+       * *Why does this component/feature do X?*
+   * - **Rationale**
+     - These records prove to be an `invaluable technique`_ for engineering teams to onboard
+       new members, to understand discovered historical traces, to refer back to past decisions,
+       and to support external oversight.
+   * - **Location in GitHub**
+     - A `local decisions`_ folder will be created within a **docs** folder in the repo/app/folder. 
+       The goal is to keep the decisions in as close proximity to the code as possible for their
+       discovery and usage.
+   * - **Maintainence**
+     - Since ADRs are inherently a historical trail of technical decisions, by design, they do not need
+       ongoing maintainence.
+
+.. _`Nygard's post`: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
 .. _invaluable technique: https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
 .. _local decisions: https://github.com/edx/credentials/tree/master/docs/decisions
+
+READMEs
+^^^^^^^
+
+.. list-table::
+   :widths: 15 75 
+
+   * - **Description**
+     - READMEs provide a top-level summary and intentional purpose of the repo/app/folder.
+   * - **Answers the questions**
+     - 
+       * *What is the responsibility and purpose of this component?*
+       * *What are the terms and definitions of this component's ubiquitous language?*
+       * *How can I navigate the documentation within and related to this component?*
+   * - **Rationale**
+     - The future evolution and development of a component remains within the intended
+       boundaries of the component's responsibility. Otherwise, it invites unintended complexity
+       and incongruity.
+   * - **Location in GitHub**
+     - Since GitHub automatically renders the contents of the repo's top-level README.rst file
+       on the repo's home page, README files will be located at the top-level of their corresponding
+       repo/app/folder.
+   * - **Maintainence**
+     - The development team that owns the component should keep its README updated.
+
+How-Tos
+^^^^^^^
+
+.. list-table::
+   :widths: 15 75 
+
+   * - **Description**
+     - How-To documents provide relatively long-term step-by-step instructions in using a 
+       feature/component/etc. For instructions that are expected to be ephemeral and short-lived,
+       other alternatives such as `Etsy's FYIs`_ can be explored.
+   * - **Answers the questions**
+     - 
+       * *How do I install/enable/use/test/etc this component?*
+   * - **Rationale**
+     - To provide concise recipe-style instructions to users of the component so they can
+       get started quickly without needing to understand the technical nuances and code of
+       the component.
+   * - **Location in GitHub**
+     - A how_tos_ folder will be created within a **docs** folder in the repo/app/folder. 
+       The goal is to keep the How-Tos in synch with the code so that (1) developers running
+       older versions of the code have the appropriately versioned information and (2) developers
+       updating the component have easy access to update the corresponding How-Tos.
+   * - **Maintainence**
+     - The developer and code reviewer that updates the component will be responsible for updating
+       the relevant How-Tos in that repo (preferably in the same PR as the code changes).
+
+.. _how_tos: https://github.com/edx/edx-platform/tree/master/openedx/core/djangoapps/oauth_dispatch/docs/how_tos
+.. _`Etsy's FYIs`: https://codeascraft.com/2018/10/10/etsys-experiment-with-immutable-documentation/
+
+APIs
+^^^^
+
+.. list-table::
+   :widths: 15 75 
+
+   * - **Description**
+     - API documentation provide information on interfaces for integrating with or enhancing the
+       platform.
+   * - **Answers the questions**
+     - 
+       * *What are the public and supported APIs for this component?*
+       * *What are the request/response/authentication/etc protocol for this component?*
+   * - **Rationale**
+     - Developers that use and integrate with the component have a clearly defined and consistenly
+       documented interface.
+   * - **Location and tools**
+     - The documentation of APIs should be automatically generated and extracted from the code
+       and its annotations. For example:
+
+       * REST API interfaces should be automatically generated using Swagger_.
+       * The Open edX Learning Exchange (OLX) format should be automatically generated.
+       * Plugin interfaces (e.g., Proctoring integration) should be automatically generated using Sphinx_.
+       * Public APIs (e.g., supported Javascript libraries, supported Python APIs) should be automatically
+         generated using Sphinx_.
+   * - **Maintainence**
+     - Since they are automatically generated, API documentation do not need additional maintainence
+       and will be in synch with their corresponding code.
+
 .. _Swagger: https://swagger.io/
 .. _Sphinx: http://www.sphinx-doc.org/en/master/
 
-Tools and Location
-~~~~~~~~~~~~~~~~~~
+Requirements
+~~~~~~~~~~~~
 
-The recommended tools and locations for developer documentation are described below, inlined with the
-requirements they meet.
+This section summarizes the requirements for long-term developer documentation.
 
 * **Discoverable**. Users must be able to find the documentation that is relevant to their needs. This 
   calls for a high-level index and search mechanism for finding content.
@@ -141,13 +243,16 @@ requirements they meet.
   * **Co-located**. The closer the documentation lives with its corresponding code, the more likely it will be
     kept up-to-date.
 
-    * Repo-specific documentation will live within a "docs" folder within its repo. This includes local
-      "decisions", "how-tos", and README.rst. Documentation should not live within the code itself (e.g., in
-      an __init__.py python module).
+    * For repo-specific documentation:
 
-    * System-wide decisions will live within the open-edx-proposals_ repo.
+      * ADRs_ and How-Tos_ will live within **docs** folder(s) within the repo.
+      * READMEs_ will be located as top-level documents in the repo/folder/app.
+      * Documentation should not live within the code itself (e.g., in __init__.py modules).
 
-    * Other system-wide documentation will live within the edx-developer-docs_ repo.
+    * For system-wide documentation:
+    
+      * OEPs_ will live within the open-edx-proposals_ repo.
+      * If other system-wide documentation is needed, they will live within the edx-developer-docs_ repo.
 
   * **Exported Diagrams**. In order to keep diagrams updated across time, they will need to be exported
     from whichever tool they were created in, with the exported version maintained in Github.
@@ -160,9 +265,9 @@ requirements they meet.
 
   * **Reviewed**. They will be properly reviewed as defined by that repo's process.
 
-  * **Tagged**. They will be appropriately in-synch with its corresponding code. When an open edX instance
-    is running a specific named release, they can refer to the matching documentation for that version of the
-    codebase.
+  * **Tagged**. They will be appropriately in-synch with their corresponding code. For example,
+    when an open edX instance runs an older named release, the operator can refer to the matching
+    documentation for that version of the codebase.
 
   * **Source Controlled**. They will have the advantages of having source-control backed files, including sharing
     across multiple developers and robust storage.
@@ -239,7 +344,7 @@ Confluence Usage and Migration
 
 We will continue to use Confluence for transitory and "edX private" documentation needs since it is already a
 hub of communication for both edX employees and the Open edX community. However, the long-term types of developer
-documentation listed in `Agile Documentation Needs`_ will need to migrate to their new locations.
+documentation listed in `Agile Documentation Types`_ will need to migrate to their new locations.
 
 Migration
 ~~~~~~~~~~
@@ -268,7 +373,6 @@ You can search for archived pages using Confluence's advanced search. From the
 Confluence search panel, select **Advanced Search**, then select **Search archived spaces**.
 
 .. image:: oep-0019/confluence-archive-search.png
-   :align: left
 
 .. _Space Archive: https://confluence.atlassian.com/doc/archive-a-space-284368719.html
 .. _`Archive: Engineering`: https://openedx.atlassian.net/wiki/spaces/ArchiveEng/overview
