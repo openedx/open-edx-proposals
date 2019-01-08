@@ -309,17 +309,20 @@ Helpful rST-related tools
 
 * `Visual Studio Code`_ works pretty well.
 
+* PyCharm_ provides an rST editor and preview panel. 
+
 * `Online reStructured Text editor`_ helps, but isn't perfect.
 
 * `Online table generator`_ (supports multiple formats).
 
-* `Pandoc`_ can be used to convert between many formats, like Google Doc to rST.
+* Pandoc_ can be used to convert between many formats, like Google Doc to rST.
 
 * Other options are listed on stackoverflow_.
 
 .. _Restructured Text (RST): http://docutils.sourceforge.net/rst.html
 .. _reStructuredText (rST) Primer: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _Visual Studio Code: https://marketplace.visualstudio.com/items?itemName=tht13.rst-vscode
+.. _PyCharm: https://www.jetbrains.com/help/pycharm/restructured-text.html
 .. _Online reStructured Text editor: http://rst.ninjs.org/
 .. _Online table generator: http://truben.no/table/
 .. _Pandoc: https://pandoc.org/
