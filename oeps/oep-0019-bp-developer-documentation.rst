@@ -36,6 +36,11 @@ Context
 Developers who work on the Open edX platform, both inside and outside of edX, need accurate and current documentation
 about platform architecture, APIs, and development best practices.
 
+**Developer documentation** is defined as written specification, instructions, and resources for software developers
+who extend and contribute to the Open edX platform. It does not include documentation resources targeted for
+edX learners, educators, researchers, and Open edX operators. Those are out of scope of this OEP and maintained
+by the edX documentation team at docs.edx.org_.
+
 Developer documentation is inconsistent and poorly maintained. Documents are also difficult to find. They
 exist in multiple locations, including `Read the Docs`_, GitHub_ repositories, Confluence_ wiki, and `Google Docs`_.
 
@@ -110,6 +115,9 @@ ADRs
        * **draft** if the decision is still preliminary and in experimental phase
        * **accepted** once it is agreed upon
        * **superseded** with a reference to its replacement if a later ADR changes or reverses the decision
+
+       **Note:** Unlike code comments that focus on immediately surrounding code, ADRs provide the big picture
+       context.
    * - **Answers the questions**
      - 
        * *What technical decisions were made for the component/feature in this repo/app/folder?*
@@ -238,7 +246,7 @@ This section summarizes the requirements for long-term developer documentation.
       developer documentation index listed above.
 
 * **Maintainable**. Writers, editors, and reviewers must be able to create and modify documentation without
-  too much effort. Anyone, inside or outside of edX, should have the ability to contribute to documentation.
+  too much effort.
 
   * **Co-located**. The closer the documentation lives with its corresponding code, the more likely it will be
     kept up-to-date.
@@ -263,7 +271,9 @@ This section summarizes the requirements for long-term developer documentation.
 * **Version Controlled**. Documentation must be maintained under version control in Github, for the
   following reasons:
 
-  * **Reviewed**. They will be properly reviewed as defined by that repo's process.
+  * **Reviewed**. They will be properly reviewed as defined by that repo's process. Anyone in the Open edX
+    community with access to the repo will have the ability to add, update, fix, and contribute to
+    documentation by following the repo's review and maintainence process.
 
   * **Tagged**. They will be appropriately in-synch with their corresponding code. For example,
     when an open edX instance runs an older named release, the operator can refer to the matching
@@ -273,7 +283,7 @@ This section summarizes the requirements for long-term developer documentation.
     across multiple developers and robust storage.
 
 .. _edx-developer-docs: https://github.com/edx/edx-developer-docs
-.. _docs.edx.org: docs.edx.org
+.. _docs.edx.org: https://docs.edx.org/
 
 Format
 ~~~~~~
