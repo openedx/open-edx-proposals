@@ -31,7 +31,7 @@ OEP-0019: Developer Documentation
    :depth: 2
 
 Context
--------
+*******
 
 Developers who work on the Open edX platform, both inside and outside of edX, need accurate and current documentation
 about platform architecture, APIs, and development best practices.
@@ -55,14 +55,14 @@ that a developer may add to clarify or rationalize a code segment are also out o
 
 
 Decisions
----------
+*********
 
 .. image:: oep-0019/developer_docs.png
    :alt: A diagram that shows the different types of documentation and their
     relationships. This is further described below.
 
 Agile Documentation Types
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=========================
 
 With Agile development and `Clean Code`_, we can minimize documentation (and its maintainence) since code should
 be readable and self-documenting. However, for long-term maintainence of a platform, the following types of developer
@@ -75,7 +75,7 @@ documentation are still needed:
    :depth: 1
 
 OEPs
-^^^^
+====
 
 .. list-table::
    :widths: 15 75 
@@ -102,7 +102,7 @@ OEPs
 .. _edX Architecture team: https://openedx.atlassian.net/wiki/spaces/AC/pages/439353453/Architecture+Team
 
 ADRs
-^^^^
+----
 
 .. list-table::
    :widths: 15 75 
@@ -139,7 +139,7 @@ ADRs
 .. _local decisions: https://github.com/edx/credentials/tree/master/docs/decisions
 
 READMEs
-^^^^^^^
+-------
 
 .. list-table::
    :widths: 15 75 
@@ -163,7 +163,7 @@ READMEs
      - The development team that owns the component should keep its README updated.
 
 How-Tos
-^^^^^^^
+-------
 
 .. list-table::
    :widths: 15 75 
@@ -192,7 +192,7 @@ How-Tos
 .. _`Etsy's FYIs`: https://codeascraft.com/2018/10/10/etsys-experiment-with-immutable-documentation/
 
 APIs
-^^^^
+----
 
 .. list-table::
    :widths: 15 75 
@@ -224,7 +224,7 @@ APIs
 .. _Sphinx: http://www.sphinx-doc.org/en/master/
 
 Requirements
-~~~~~~~~~~~~
+============
 
 This section summarizes the requirements for long-term developer documentation.
 
@@ -286,7 +286,7 @@ This section summarizes the requirements for long-term developer documentation.
 .. _docs.edx.org: https://docs.edx.org/
 
 Format
-~~~~~~
+======
 
 We will use `reStructuredText (rST)`_ for all developer documentation.
 
@@ -316,7 +316,7 @@ documentation`_ blog post.
 
 
 Best practices
-^^^^^^^^^^^^^^
+--------------
 
 * We strongly recommend keeping line length between 80 and 120 characters. Keeping it less than 120
   leaves room for future edits.
@@ -325,7 +325,7 @@ Best practices
   as a reference example.
 
 Learning rST
-^^^^^^^^^^^^
+------------
 
 * If you are familiar with Markdown:
   
@@ -340,7 +340,7 @@ Learning rST
 
 
 Helpful rST-related tools
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 * `Visual Studio Code`_ works pretty well.
 
@@ -364,10 +364,10 @@ Helpful rST-related tools
 .. _stackoverflow: https://stackoverflow.com/a/2747041
 
 Rejected alternatives
----------------------
+*********************
 
 Markdown Format
-~~~~~~~~~~~~~~~
+===============
 
 We are choosing to not use `Markdown (MD)`_ for documentation. A single format enables consistency, and avoids
 conversions to rST when requiring additional features. See the `Format`_ section for more details.
@@ -376,7 +376,7 @@ The `Learning rST`_ section has resources comparing Markdown and rST.
 .. _Markdown (MD): https://www.markdownguide.org/
 
 Confluence
-~~~~~~~~~~
+==========
 
 Currently edX uses Confluence_ for storing both long-term and short-term developer documentation. Confluence does
 provide a WYSIWYG editor, which makes its relatively easy to create and edit documents. Its transitory nature also
@@ -387,14 +387,14 @@ of our developer documentation.
 
 
 Confluence Usage and Migration
-------------------------------
+******************************
 
 We will continue to use Confluence for transitory and "edX private" documentation needs since it is already a
 hub of communication for both edX employees and the Open edX community. However, the long-term types of developer
 documentation listed in `Agile Documentation Types`_ will need to migrate to their new locations.
 
 Migration
-~~~~~~~~~~
+=========
 
 When migrating content from Confluence to GitHub, we will:
 
@@ -403,7 +403,7 @@ When migrating content from Confluence to GitHub, we will:
 #. Archive_ the old page, as explained below.
 
 Archive
-~~~~~~~
+=======
 
 For sustainable maintainence of Confluence documents, ongoing cleanup will be implemented using Confluence's
 useful `Space Archive`_ feature. All engineering related documents will be archived to the private
@@ -425,7 +425,7 @@ Confluence search panel, select **Advanced Search**, then select **Search archiv
 .. _`Archive: Engineering`: https://openedx.atlassian.net/wiki/spaces/ArchiveEng/overview
 
 Index
-~~~~~
+=====
 
 Since we will continue to use Confluence for certain types of documents, we will maintain the following 2
 top-level indices for engineering related documents:
@@ -437,7 +437,7 @@ top-level indices for engineering related documents:
 .. _Engineering (Internal): https://openedx.atlassian.net/wiki/spaces/ENG/overview
 
 Next Steps
-----------
+**********
 
 * **Publishing**: The intention is to have all rST documents published to `Read the Docs`_.
 * **Validation**: The intention is to have all rST document changes in all repositories automatically
