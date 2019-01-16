@@ -76,7 +76,7 @@ Technology Selection
 
    **Rationale**: edX JavaScript should be written consistent with the latest
    ECMA-262 specification in order to ensure future support, the largest
-   community and the availability of modern features. At current, the ECMA-262
+   community and the availability of modern features. Currently, the ECMA-262
    edition 6 (ES6) is the edition with the largest support and should be used.
    To support this syntax in older browsers, use `Babel`_. Babel may also be
    configured to add syntax extensions widely adopted by the community of our
@@ -115,7 +115,7 @@ Technology Selection
 
 5. **JavaScript projects should publish a package.lock file**
 
-   **Rationale**: To keep dependencies up-to-date and builds consistent JavaScript
+   **Rationale**: To keep dependencies up-to-date and builds consistent, JavaScript
    projects should allow patch and minor upgrades in their package.json file and
    commit a package-lock.json file. The package-lock.json file will keep a full list
    of dependencies and their version, ensuring when built for deployments the
@@ -171,13 +171,13 @@ Technology Selection
    Axios should be used to provide a consistent API.
 
    The `fetch`_ API was considered but Axios was chosen for its more
-   intuitive API, particularly when handling with HTTP errors with rejected
+   intuitive API, particularly when handling HTTP errors with rejected
    promises.
 
 11. **Server-side content should be rendered with Django Templates**
 
    **Rationale**: Although it is advised to use client side templating with
-   React, see `Use React and Redux`_,  when renderig on the server Django templates
+   React, see `Use React and Redux`_,  when rendering on the server Django templates
    should be used. There are many template languages available for Django,
    but the simplest option is to use the built-in Django template engine.
    The Open edX codebase has a mixture of Django and Mako templates, but the
