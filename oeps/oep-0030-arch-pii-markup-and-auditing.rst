@@ -7,7 +7,7 @@ OEP-30: PII Markup and Auditing
 +---------------+------------------------------------------------------------+
 | Title         | Personally Identifiable Information Markup and Auditing    |
 +---------------+------------------------------------------------------------+
-| Last Modified | 2018-10-04                                                 |
+| Last Modified | 2019-01-24                                                 |
 +---------------+------------------------------------------------------------+
 | Author        | Brian Mesick <bmesick@edx.org>                             |
 +---------------+------------------------------------------------------------+
@@ -19,13 +19,15 @@ OEP-30: PII Markup and Auditing
 +---------------+------------------------------------------------------------+
 | Created       | 2018-08-29                                                 |
 +---------------+------------------------------------------------------------+
-| Resolution    | `Original pull request`_                                   |
+| Resolution    | - `Original pull request`_                                 |
+|               | - `Update pull request`_                                   |
 +---------------+------------------------------------------------------------+
 | References    | - `NIST Special Publication 800-122 (pdf)`_                |
 |               | - `OEP-002`_                                               |
 +---------------+------------------------------------------------------------+
 
-.. _Original pull request: https://github.com/edx/open-edx-proposals/pull/
+.. _Original pull request: https://github.com/edx/open-edx-proposals/pull/81
+.. _Update pull request: https://github.com/edx/open-edx-proposals/pull/101
 .. _NIST Special Publication 800-122 (pdf): http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf
 .. _OEP-002: https://open-edx-proposals.readthedocs.io/en/latest/oep-0002-bp-repo-metadata.html
 
@@ -141,19 +143,24 @@ When adding or modifying **any** data storing models (ex. Django model, MongoDB 
 
 It is important to note that under this OEP all Django model classes must be annotated with an assertion of PII / no PII to enable enforcement (see `Enforcement Tooling`_).
 
-These annotations should take the form of a Sphinx-style docstring:
+These annotations should take the form of Sphinx-style docstrings. In the case where PII is present, the following group of 3 annotations must be used together:
 
-``.. pii:: <required description of the PII>``
+.. code-block::
 
-``.. pii_types:: <comma separated list of the types of PII stored here, required if the pii annotation exists>``
+    .. pii:: <required description of the PII>
 
-``.. pii_retirement:: <comma separated list of retirement types, required if the pii annotation exists>``
+    .. pii_types:: <comma separated list of the types of PII stored here, required if the pii annotation exists>
 
-``.. no_pii <:: optional description>``
+    .. pii_retirement:: <comma separated list of retirement types, required if the pii annotation exists>
+
+In the case where no PII exists in a Django model, the following single annotation is used:
+
+.. code-block::
+
+    .. no_pii:: <optional description>
 
 The potential values of `pii_types` are:
 
-- id (a unique identifier for the user that is shared across systems)
 - name (used for any part of the user's name)
 - username
 - password
@@ -173,9 +180,9 @@ The potential values of `pii_types` are:
 The potential values of `pii_retirement` are:
 
 - retained (intentionally kept for legal reasons)
-- local_api (an API exists in this repository for retiring this information)
-- consumer_api (the consumer of this data must implement an API for retiring this information)
-- third_party (a third party API exists to retire this data)
+- local_api (information can be retired using an API/code which exists in this repository)
+- consumer_api (information must be retired in the encompassing project which must implement an API/code for retiring this information)
+- third_party (information must be retired using an existing third party API)
 
 These can be combined, so that a library that has a retirement API built in, but that requires integration into the consuming application would have `.. pii_retirement:: local_api, consumer_api`. Spaces between the entries are optional.
 
@@ -196,16 +203,14 @@ Example 2::
         """
         This is an example model.
 
-        .. no_pii
+        .. no_pii::
         """
 
-If a project requires another project which stores PII, such as Django being used in edx-platform, the developer must annotate the place(s) in code where that package is being called to store the PII with the same docstring annotation as if it were a storage class.
+If a project requires another project which stores PII, such as Segment being used in edx-platform, the developer must annotate the place(s) in code where that package is being called to store the PII with the same docstring annotation as if it were a storage class.
 
 Example 3::
 
-    # ..pii:: Learner email is sent to Segment in the following line and will
-    #         be associated with analytics data. We wrap the Segment
-    #         retirement call in the retire_mailings endpoint.
+    # ..pii:: Learner email is sent to Segment in the following line and will be associated with analytics data. We wrap the Segment retirement call in the retire_mailings endpoint.
     # ..pii_types:: email
     # ..pii_retirement:: local_api, third_party
 
@@ -219,11 +224,7 @@ Example 1::
 
     % if settings.LMS_SEGMENT_KEY:
         <!-- begin segment footer -->
-        <!-- .. pii:: The user is identified to Segment by username and email
-                      here, analytics data will be associated with this user
-                      based on their browsing. See Segment documentation for
-                      details. The Segment retirement call is wrapped in the
-                      retire_mailings endpoint.
+        <!-- .. pii:: The user is identified to Segment by username and email here. See Segment documentation for details. The Segment retirement call is wrapped in the retire_mailings endpoint.
              .. pii_types:: username, email_address
              .. pii_retirement:: local_api, third_party
          -->
@@ -256,13 +257,11 @@ It is likely that other use cases will come up that encompass new languages and 
 
 Enforcement Tooling
 -------------------
-A tool will be created and integrated into the Open edX test / build systems that will examine all Django models in the project and ensure that they have PII annotations. It is acknowledged that this tool will not handle all cases where PII is stored, but represents an effort to enforce best practices on the majority of places where PII is stored in the Open edX ecosystem.
+A tool will be created and integrated into the Open edX test / build systems that will examine all Django models in a project and ensure that they have PII annotations. It is acknowledged that this tool will not handle all cases where PII is stored, but represents an effort to enforce best practices on the majority of places where PII is stored in the Open edX ecosystem.
 
-This tool may take the form of a test run inside the project which looks at all installed apps and their models for docstrings containing PII. Given that this list will contain many third party packages we will also need to maintain a list of packages and models that will not be checked, as well as a list of PII stored in those packages / models. These lists will need to be hand maintained by the developers adding or modifying packages, though the tooling may assist by generating a list of packages that need to be vetted. This mechanism will also allow the rollout of the annotations to take place over time.
+This tool will instantiate a development-like Django environment inside the project and use Django introspection to look at all installed apps and their models for docstrings containing PII. Given that this list will contain many third party packages we will also need to maintain a list of the PII stored in those apps and models. This "safelist" will need to be hand maintained by the developers adding or modifying packages, though the tooling does assist by generating an initial list of packages that need to be vetted. This mechanism will also allow the rollout of the annotations to take place over time across our own packages.
 
-The tool's output will optionally include a report of the repository's annotation percentage along with details of which models are not covered. This will allow us to track and prioritize the annotization process.
-
-The tool will also optionally verify the presence of a `openedx.yaml` file in the top level of the repository and verify that it's `oep-30` dictionary is appropriate.
+The tool's output will optionally include a report of the repository's model annotation percentage along with details of which models are not covered, and fail if the repository does not meet a configurable minimum percentage. These potential coverage failures will allow us to track and prioritize the annotization process.
 
 Documentation Tooling
 ---------------------
@@ -273,6 +272,10 @@ The tools should also export the list of annotations into a JSON-formatted file 
 This tool should be run as part of the test or build processes (depending on project needs) and diff'd against the current version to confirm that the RST and JSON files are up to date.
 
 It is desirable for this tool to use static analysis of the files (instead of executing in a runtime context such as in unit tests) to make sure that all files are examined, and to prevent missing annotations in cases where configuration changes can exclude or break imports.
+
+Organization-wide Tooling
+-------------------------
+A tool will be created or enhanced that will be usable at the Github organization level to provide org-wide insight into our stored PII. It should be a wrapper around the Documentation tool, allowing all repos in an org to be cloned and searched for annotations. The tool will also optionally verify the presence of a `openedx.yaml` file in the top level of the repository and verify that it's `oep-30` dictionary matches the state of the repository.
 
 Backporting Annotations
 -----------------------
@@ -311,7 +314,12 @@ The proposed updates do not introduce any known backward incompatibilities, but 
 
 Reference Implementation
 ========================
-(This section will link to an edX platform pull request after the OEP is accepted and an implementation written.)
+The `Code Annotations`_ project is a reference implementation containing working versions of the Enforcement Tool (called the Django Model Search Tool) and Documentation Tool (called the Static Search Tool). Documentation on how to use Code Annotations and implementation specific details can be found here: https://code-annotations.readthedocs.org/
+
+The `Organization-wide Tooling`_ does not yet have a reference implementation.
+
+.. _Code Annotations: https://github.com/edx/code-annotations
+
 
 Rejected Alternatives
 =====================
