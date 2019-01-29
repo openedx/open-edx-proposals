@@ -93,14 +93,6 @@ Archive Steps
 3. Create an IT help ticket to update the description of the repository to
    begin with ``[ARCHIVED]``.
 
-4. Create a DevOps ticket to change the status of the repo to "non-monitored"
-   in Gemnasium, and to remove any integration or webhooks that DevOps may be
-   maintaining.
-
-In the future, the step of changing the monitored status of a repository in
-Gemnasium could be automated using Gemansium APIs and keying off of the
-``archived`` value in openedx.yaml.
-
 README Archive Statement
 ------------------------
 Include this statement in the README.rst file:
