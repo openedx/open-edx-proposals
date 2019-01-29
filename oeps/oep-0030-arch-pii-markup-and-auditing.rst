@@ -147,17 +147,17 @@ These annotations should take the form of Sphinx-style docstrings. In the case w
 
 .. code-block::
 
-    .. pii:: <required description of the PII>
+    .. pii: <required description of the PII>
 
-    .. pii_types:: <comma separated list of the types of PII stored here, required if the pii annotation exists>
+    .. pii_types: <comma separated list of the types of PII stored here, required if the pii annotation exists>
 
-    .. pii_retirement:: <comma separated list of retirement types, required if the pii annotation exists>
+    .. pii_retirement: <comma separated list of retirement types, required if the pii annotation exists>
 
 In the case where no PII exists in a Django model, the following single annotation is used:
 
 .. code-block::
 
-    .. no_pii:: <optional description>
+    .. no_pii: <optional description>
 
 The potential values of `pii_types` are:
 
@@ -184,7 +184,7 @@ The potential values of `pii_retirement` are:
 - consumer_api (information must be retired in the encompassing project which must implement an API/code for retiring this information)
 - third_party (information must be retired using an existing third party API)
 
-These can be combined, so that a library that has a retirement API built in, but that requires integration into the consuming application would have `.. pii_retirement:: local_api, consumer_api`. Spaces between the entries are optional.
+These can be combined, so that a library that has a retirement API built in, but that requires integration into the consuming application would have `.. pii_retirement: local_api, consumer_api`. Spaces between the entries are optional.
 
 Example 1::
 
@@ -192,9 +192,9 @@ Example 1::
         """
         Model to track API access for a user.
 
-        .. pii:: Stores website and employer information about a linked User.
-        .. pii_types:: external_service, other
-        .. pii_retirement:: local_api
+        .. pii: Stores website and employer information about a linked User.
+        .. pii_types: external_service, other
+        .. pii_retirement: local_api
         """
 
 Example 2::
@@ -203,16 +203,16 @@ Example 2::
         """
         This is an example model.
 
-        .. no_pii::
+        .. no_pii:
         """
 
 If a project requires another project which stores PII, such as Segment being used in edx-platform, the developer must annotate the place(s) in code where that package is being called to store the PII with the same docstring annotation as if it were a storage class.
 
 Example 3::
 
-    # ..pii:: Learner email is sent to Segment in the following line and will be associated with analytics data. We wrap the Segment retirement call in the retire_mailings endpoint.
-    # ..pii_types:: email
-    # ..pii_retirement:: local_api, third_party
+    # ..pii: Learner email is sent to Segment in the following line and will be associated with analytics data. We wrap the Segment retirement call in the retire_mailings endpoint.
+    # ..pii_types: email
+    # ..pii_retirement: local_api, third_party
 
 The goal of this is to allow creation of `Documentation Tooling`_ which will automatically create documentation listing all of the known locations of PII in each repository.
 
@@ -224,9 +224,9 @@ Example 1::
 
     % if settings.LMS_SEGMENT_KEY:
         <!-- begin segment footer -->
-        <!-- .. pii:: The user is identified to Segment by username and email here. See Segment documentation for details. The Segment retirement call is wrapped in the retire_mailings endpoint.
-             .. pii_types:: username, email_address
-             .. pii_retirement:: local_api, third_party
+        <!-- .. pii: The user is identified to Segment by username and email here. See Segment documentation for details. The Segment retirement call is wrapped in the retire_mailings endpoint.
+             .. pii_types: username, email_address
+             .. pii_retirement: local_api, third_party
          -->
         <script type="text/javascript">
         % if user.is_authenticated:
@@ -235,9 +235,9 @@ Example 1::
 Example 2::
 
     <script type="text/javascript">
-    // .. pii:: The user's email address is sent to the billing provider here. This information is not retired as it is necessary to keep for legal and financial reporting reasons.
-    // .. pii_types:: email_address
-    // .. pii_retirement:: retained
+    // .. pii: The user's email address is sent to the billing provider here. This information is not retired as it is necessary to keep for legal and financial reporting reasons.
+    // .. pii_types: email_address
+    // .. pii_retirement: retained
     </script>
 
 
@@ -245,9 +245,9 @@ Example 3::
 
     <script type="text/javascript">
     /*
-        .. pii:: Updates the user's email address with our email marketing provider. Retired in the retire_mailings endpoint.
-        .. pii_types:: id, email_address
-        .. pii_retirement:: local_api
+        .. pii: Updates the user's email address with our email marketing provider. Retired in the retire_mailings endpoint.
+        .. pii_types: id, email_address
+        .. pii_retirement: local_api
     */
     </script>
 
