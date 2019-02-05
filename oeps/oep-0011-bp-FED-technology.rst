@@ -7,13 +7,14 @@ OEP-11: Front End Technology Standards
 +---------------+--------------------------------------------------+
 | Title         | Front End Technology Standards                   |
 +---------------+--------------------------------------------------+
-| Last Modified | 2017-03-06                                       |
+| Last Modified | 2018-02-22                                       |
 +---------------+--------------------------------------------------+
-| Author        | Andy Armstrong <andya@edx.org>                   |
+| Author        | Andy Armstrong <andya@edx.org>,                  |
+|               | George Babey <gbabey@edx.org>                    |
 +---------------+--------------------------------------------------+
 | Arbiter       | Matt Drayer <mattdrayer@edx.org>                 |
 +---------------+--------------------------------------------------+
-| Status        | Draft                                            |
+| Status        | Accepted                                            |
 +---------------+--------------------------------------------------+
 | Type          | Best Practice                                    |
 +---------------+--------------------------------------------------+
@@ -66,8 +67,7 @@ Technology Selection
    React also has a strong testing story. React components can be tested in
    isolation with unit tests using `Jest`_ and `Enzyme`_.
 
-   See `React at edX`_ for more details on the evaluation process that led to
-   this technology selection. Other modern frameworks considered for use
+   Other modern frameworks considered for use
    included Polymer and Angular. See `Reasons for rejecting Angular`_  and
    `Reasons for rejecting Polymer`_ for an exploration of why these
    alternatives do not work as well as React for edX.
@@ -93,15 +93,7 @@ Technology Selection
    `Reasons for rejecting CoffeeScript`_ and
    `Reasons for rejecting TypeScript`_ for more detail.
 
-3. **JavaScript libraries should be installed via npm**
-
-   **Rationale**: It is important that JavaScript libraries are kept
-   up-to-date, and one key component is to make it as simple as possible
-   to perform upgrades. Projects that use npm maintain all of their
-   library requirements in a single `package.json` file, which can be
-   easily changed as the versions change.
-
-4. **JavaScript code should follow the edX ESLint configuration**
+3. **JavaScript code should follow the edX ESLint configuration**
 
    **Rationale**: In order to standardize and enforce Open edX's JavaScript
    coding style across multiple codebases, edX has published an ESLint
@@ -113,12 +105,20 @@ Technology Selection
    is in use. Both configs may be used in the same codebase through the
    use of `ESLint configuration cascading`_.
 
+4. **JavaScript libraries should be installed via npm**
+
+   **Rationale**: It is important that JavaScript libraries are kept
+   up-to-date, and one key component is to make it as simple as possible
+   to perform upgrades. Projects that use npm maintain all of their
+   library requirements in a single `package.json` file, which can be
+   easily changed as the versions change.
+
 5. **JavaScript projects should publish a package.lock file**
 
    **Rationale**: To keep dependencies up-to-date and builds consistent, JavaScript
    projects should allow patch and minor upgrades in their package.json file and
    commit a package-lock.json file. The package-lock.json file will keep a full list
-   of dependencies and their version, ensuring when built for deployments the
+   of dependencies and their versions, ensuring when built for deployments the
    version of libraries are consistent. This follows the same pattern used in edX
    Python code - see `OEP 18`_ for more information. For more information on 
    package-lock files see `Package Lock`_.
@@ -162,7 +162,13 @@ Technology Selection
 
    You can find out more about Sass in the official `Sass documentation`_.
 
-10. **API calls should be made with edX Frontend Auth Client or Axios**
+10. **Bootstrap for styling consistency**
+
+  **Rationale**: In order accelerate development, and provide a more consistent
+  user experience for our users, Open edX will adopt Bootstrap 4 to style its web
+  applications. For more details, see `OEP-16: Bootstrap Adoption`_.
+
+11. **API calls should be made with the edX Frontend Auth Client or Axios**
    
    **Rationale**: The `edX Frontend Auth Client`_ simplifies the process of
    talking to edX APIs by using Axios inteceptors and handling JWT Cookie
@@ -174,7 +180,7 @@ Technology Selection
    intuitive API, particularly when handling HTTP errors with rejected
    promises.
 
-11. **Server-side content should be rendered with Django Templates**
+12. **Server-side content should be rendered with Django Templates**
 
    **Rationale**: Although it is advised to use client side templating with
    React, see `Use React and Redux`_,  when rendering on the server Django templates
@@ -268,7 +274,6 @@ Rejected Alternatives
 .. _Greenkeeper: https://greenkeeper.io/
 .. _Jest: https://jestjs.io/
 .. _JSX: https://facebook.github.io/react/docs/introducing-jsx.html
-.. _Modernizing the edX front end stack: https://openedx.atlassian.net/wiki/display/FEDX/Modernizing+the+edX+front+end+stack
 .. _oep 18: https://open-edx-proposals.readthedocs.io/en/latest/oep-0018-bp-python-dependencies.html
 .. _package lock: https://docs.npmjs.com/files/package-locks
 .. _Polymer: https://www.polymer-project.org/
@@ -279,3 +284,4 @@ Rejected Alternatives
 .. _Typescript: https://www.typescriptlang.org/
 .. _Webpack: https://webpack.github.io/
 .. _Web Components: https://www.webcomponents.org/
+.. _OEP-16: Bootstrap Adoption: https://open-edx-proposals.readthedocs.io/en/latest/oep-0016-bp-adopt-bootstrap.html
