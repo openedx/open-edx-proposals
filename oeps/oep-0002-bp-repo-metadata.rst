@@ -7,7 +7,7 @@ OEP-2: Repository Metadata
 +---------------+-------------------------------------------+
 | Title         | Repository Metadata                       |
 +---------------+-------------------------------------------+
-| Last-Modified | 2016-10-13                                |
+| Last-Modified | 2019-02-11                                |
 +---------------+-------------------------------------------+
 | Author        | Calen Pennington <cale@edx.org>           |
 +---------------+-------------------------------------------+
@@ -78,10 +78,8 @@ following fields:
     it is assumed to be ``False``, unless the reporting tool can auto-detect
     accordance.
 
-.. track-pulls should be moved to a separate OEP
-
-``track-pulls``: boolean (optional)
-    Whether or not this repository should be tracked for creation of OSPR tickets.
+``track-pulls``: obsolete
+    This key is obsolete, please remove if found.
 
 ``openedx-release``: defined by :doc:`OEP-10 <oep-0010>`.
     See :doc:`OEP-10 <oep-0010>` for details.
