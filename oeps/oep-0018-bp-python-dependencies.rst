@@ -7,7 +7,7 @@ OEP-0018: Python Dependency Management
 +-----------------+--------------------------------------------------------+
 | Title           | Python Dependencies Management                         |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2018-10-16                                             |
+| Last Modified   | 2019-02-20                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Jeremy Bowman <jbowman@edx.org>                        |
 +-----------------+--------------------------------------------------------+
@@ -400,6 +400,9 @@ packages from URLs whenever possible:
   partially worked around via a post-processing script for the generated
   requirements files; an example can be found in `edx-platform`_ at
   ``scripts/post-pip-compile.sh``.
+* When installing a package from PyPI, pip will not pull requirements
+  from URLs for security reasons (the content of the URLs can
+  change). It will only pull requirements from PyPI.
 
 .. _Non-editable URL installations: https://github.com/jazzband/pip-tools/issues/355
 .. _relative local paths are expanded to absolute paths: https://github.com/jazzband/pip-tools/issues/204
