@@ -7,11 +7,12 @@ OEP-7: Migrating to Python 3
 +---------------+-----------------------------------------------+
 | Title         | Migrating to Python 3                         |
 +---------------+-----------------------------------------------+
-| Last-Modified | 2017-01-23                                    |
+| Last-Modified | 2019-02-01                                    |
 +---------------+-----------------------------------------------+
-| Author        | Cliff Dyer <cdyer@edx.org>                    |
+| Author        | Cliff Dyer <cdyer@edx.org>,                   |
+|               | Jeremy Bowman <jbowman@edx.org>               |
 +---------------+-----------------------------------------------+
-| Arbiter       | Jeremy Bowman <jbowman@edx.org>               |
+| Arbiter       | Christopher Pappas <cpappas@edx.org>          |
 +---------------+-----------------------------------------------+
 | Status        | Accepted                                      |
 +---------------+-----------------------------------------------+
@@ -28,7 +29,7 @@ Abstract
 ========
 
 With primary development of Python occurring on Python 3, and with Python 2
-scheduled for end-of-life in 2020, edX needs to plan for a transition of all of
+scheduled for end-of-life on January 1st, 2020, edX needs to plan for a transition of all of
 our code to Python 3.  Open edX is a large project, spanning many applications
 over even more github repositories, with even more dependencies on third party
 libraries.  This document outlines how we plan to scope the problem, socialize
@@ -40,9 +41,9 @@ as possible, and meets the needs of our stakeholders.
 Rationale
 =========
 
-    * Python 2 will only receive support from the Python core devs until 2020.
-    * Django will only support Python 2 until 1.11LTS (which is also supported
-      until 2020).
+    * Python 2 will only receive support from the Python core developers until January 1st, 2020.
+    * Django will only support Python 2 through 1.11LTS (which is supported
+      until April 2020).
     * New features are being made available on Python 3 first, and are only
       sometimes backported to Python 2.
     * New syntax extensions (``async``/``await``, ``yield from``, and the ``@``
@@ -56,7 +57,7 @@ Rationale
       panic later, diverting valuable resources from other important work.
     * The longer we wait, the more code we will produce that needs to be
       migrated.
-    * Using Python 3 gives us a strong story as a leader in the Python and open
+    * Using Python 2 hurts our story as a leader in the Python and open
       source communities.
     * Python 3 makes for more compelling job postings [Citation needed]
 
@@ -92,7 +93,7 @@ with Six_ as a compatibility layer if they will be used by projects that run on
 Python 2.  Open source libraries we maintain that are generally useful beyond
 our services should also maintain compatibility with Python 2 until support for
 Python 2 is dropped by the core developers, which is scheduled to happen in
-April 2020.
+January 2020.
 
 Deployable projects only need to support a single version of Python.  Libraries
 will often need to support a range of versions.  Libraries written in Python 3
@@ -101,18 +102,15 @@ should only support version 2.7.  Future version deprecations are outside the
 scope of this document.
 
 The end goal is for all of our services to be deployed under Python 3 or
-replaced by newer services before the April 2020 end of support.
+replaced by newer services before the January 2020 end of support.
 
 
 Migrating code
 ++++++++++++++
 
-All new code in Python 2 codebases should be written to be compatible with Python 3.  There
-are two major libraries to help work with compatibility differences.  Both have
-their uses, so rather than mandating one over the other, we offer situations
-where each one is preferable.  The two options are Six_, and Future_.
-
-Six_ is a simple compatibility library.  If something works differently in
+All new code in Python 2 codebases should be written to be compatible with
+Python 3.  Six_ is a simple compatibility library that makes this easier.
+If something works differently in
 Python 2 and Python 3, you import six, and use functions that it provides
 rather than the ambiguous code.  Rather than using Python 3's ``str`` class,
 which would be interpreted as a bytestring in Python 2, you use
@@ -121,25 +119,13 @@ which would be interpreted as a bytestring in Python 2, you use
 ``six.moves.*``.  The compatibility layer is intrusive throughout the code base,
 but it is explicit, easy to find, and easy to control.
 
-Future, on the other hand, tries to allow developers to write Python 3 native
-code as much as possible, while restricting most compatibility boilerplate to
-the file's imports.  To get an unambiguous text object, you do add ``from
-builtins import str``.  Most stdlib imports can just be imported using their
-Python 3 name, and future handles adding compatibility shims in the right place
-for Python 2.  Dictionaries still need to use a ``future.utils.viewitems(d)``
-shim, as there's no way to override dict literals.  The goal is to make the
-code look as much as possible like native Python 3 code, and to make the
-compatibility layer easy to remove when dropping Python 2 support.  The
-downside is that it is not always obvious when future is being used, which
-could lead to hard-to-debug issues when maintaining a cross-compatible future
-codebase.
+Many of the simpler changes needed to update Python 2 code to also support
+Python 3 can be made automatically by the `python-modernize`_ script.  For
+example::
 
-Our general recommendation is to use future if a repository can reasonably be
-converted and drop Python 2 support within a short time frame (roughly two
-months).  If the project cannot be converted quickly, or will need to maintain
-support for Python 2 for a while after conversion, six is a better option, as
-the explictness of the compatibility code will make it easier to find
-compatibility issues, and to avoid introducing new issues.
+    python-modernize -w path/to/package
+
+.. _python-modernize: https://pypi.org/project/modernize/
 
 Third-party dependencies
 ------------------------
@@ -150,10 +136,11 @@ third-party library support using `Can I Use Python 3`_, either as a website or
 library.  This will sometimes show inaccurate
 results, as it depends upon self-reporting of library compatibility (via the
 library's ``setup.py`` classifiers), but will help guide our investigations and
-scope out the amount of work required.  Results can be tracked in the
-`Compatibility Audit wiki page`_.
+scope out the amount of work required.  Results can be tracked in
+`requires.io`_ (for example, here are the
+`results for edx-platform <https://requires.io/github/edx/edx-platform/requirements/?branch=master>`_).
 
-.. _Compatibility Audit wiki page: https://openedx.atlassian.net/wiki/display/ENG/Compatibility+Audit
+.. _requires.io: https://requires.io/
 
 If a required library does not support Python 3, we have a few options:
 
@@ -165,8 +152,8 @@ Which path is best may depend on the enthusiasm of the maintainers for
 supporting Python 3, the amount of resources we want to commit to the project,
 and the availability and quality of alternatives.
 
-__future__ imports
-------------------
+\_\_future__ imports
+--------------------
 
 All files should have the main ``__future__`` imports at the top to regularize
 some behaviors that differ by default between Python 2 and 3.
@@ -186,7 +173,7 @@ Text handling is the largest area of difficulty in porting Python.  Where
 possible, we will use unambiguous text or byte objects.  In most cases, text
 should be preferred.  Bytes should only be used when you can answer the
 question: "Do I need this specific sequence of bytes."  The most
-error-resistant way to acheive this is to use what is called a "unicode
+error-resistant way to achieve this is to use what is called a "unicode
 sandwich."  This means that as soon as you receive data from a file or network
 interface, it should be converted to text. Your code should then treat it as
 text for as long as possible, only encoding it back to bytes when sending it to
@@ -224,7 +211,7 @@ decisions should be made on a per-project basis, and adhered to by all
 developers working on that project.
 
 One potential 'gotcha' to look out for is in your ``setup.py`` files. Per the
-documentation for distutils_, none of the string values for metdata fields may
+documentation for distutils_, none of the string values for metadata fields may
 be unicode. This has the potential to cause problems_ when using a python 3
 ready distribution in a python 2 project.
 
@@ -243,15 +230,6 @@ objects in Python 3) are created with b-prefixed string literals, such as
 inconsistent behavior anyway.  If they are needed for libraries that require
 different types for different version of Python, they be created with text
 (unicode) objects and explicitly encoded to bytes for Python 2.
-
-.. code:: python3
-
-    from __future__ import unicode_literals
-    from future.utils import native_str
-
-    x = native_str('foo')
-
-Or if non-ascii characters need to be encoded:
 
 .. code:: python3
 
@@ -290,38 +268,10 @@ incrementally migrate large files, without introducing breaking changes.
 Builtins
 --------
 
-To support changing functionality in builtin Python commands, we recommend
-using the functionality provided by the chosen compatibility library for your
-project.
-
-In the future_ library, existing builtins are shadowed with imports from the
-``builtins`` package.  On Python 3, this imports the original builtin objects,
-while on Python 2, they import updated versions that match the Python 3
-semantics.
-
-.. code:: python3
-
-   from builtins import object, range, str, bytes  # pylint: disable=redefined-builtins
-
-The futurize script (phase 2) should add these imports where needed, but the
-pylint pragma will need to be added manually.
-
 The Python standard library has been shuffled around a bit in the move to
-Python 3.  Future provides a few methods to manage this.  For packages in
-Python 3 that use a name that was not used in Python 2, installing future
-allows you to just use the Python 3 name of the package.  If the name was
-already used in Python 2, the new version can be installed from ``future.moves``
-or ``future.backports``.
-
-Do not use the provided ``futures.stdlib.install_aliases()``.  It monkey-patches
-the standard library, and makes it more difficult to iteratively migrate
-different parts of the codebase.
-
-With ``six``, the recommended behavior is to use the default builtin for object,
-but to use ``six.text_type``, ``six.binary_type``.  Most other changed
-functionality is described in the list of renames under
-``six.moves`` in the
-documentaion.  The recommended way to use this is just to put ``import six``
+Python 3.  With ``six``, most changed
+functionality is described in the list of renames under ``six.moves`` in the
+documentation.  The recommended way to use this is just to put ``import six``
 at the top of the file, and use the fully-qualified names, in order to be
 clear about where we are using compatibility code.
 
@@ -341,7 +291,7 @@ Where possible, ``six`` is the recommended solution.
 Dictionaries and iterables views
 --------------------------------
 
-Instead of using ``d.iterkeys()``, use ``future.utils.viewkeys(d)`` or
+Instead of using ``d.iterkeys()``, use
 ``six.viewkeys(d)``.  If you need a list, use ``list(*.viewkeys(d))``.  Other
 similar functions exist for ``itervalues()`` and ``iteritems()``.  These
 changes cannot be made cleanly in the import headers, and will require more
@@ -403,12 +353,7 @@ Other problems
 --------------
 
 If you find other incompatibilities, a shim will likely be found as part of
-``six``.  For incompatibilies with no other solution, edX will maintain a
-repository of compatibility shims (edx-compat?).  Ideally, all edx-maintained
-code that implements different behavior based on Python version will be in this
-repo.
-
-When writing code that explicitly switches based on version, do
+``six``.  When writing code that explicitly switches based on version, do
 
 .. code:: python3
 
@@ -489,10 +434,15 @@ the services that require them.  If external libraries need minor updates to
 support Python 3 that we can perform, we should opt to push those changes
 upstream rather than forking projects when possible.
 
-Code conversion should be automated as much as possible.  The future_ library
-includes a ``futurize`` executable that will do much of the legwork.  As we gain
+Code conversion should be automated as much as possible.  The modernize_ package
+includes a ``python-modernize`` executable that will do much of the legwork.  As we gain
 experience migrating code, we will develop a sense as to how aggressively we
-can use ``futurize``, and what other work needs to be done.
+can use ``python-modernize``, and what other work needs to be done.  There is
+a page on the Open edX Confluence wiki capturing the current state of
+`updating edx-platform to work under Python 3`_
+
+.. _modernize: https://pypi.org/project/modernize/
+.. _updating edx-platform to work under Python 3: https://openedx.atlassian.net/wiki/spaces/AC/pages/939065888/edx-platform+Python+3+Upgrade+Plan
 
 
 Deprecating Python 2
