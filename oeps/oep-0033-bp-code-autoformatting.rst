@@ -61,9 +61,11 @@ The current recommended formatters are:
     - CSS/SASS: `prettier`_
     - HTML: `prettier`_
     - JSON: `prettier`_
+    - PHP: `prettier-php`_
 
 .. _black: https://github.com/ambv/black
 .. _prettier: https://prettier.io/
+.. _prettier-php: https://github.com/prettier/plugin-php
 .. _`edx/edx-lint`: https://github.com/edx/edx-lint
 
 Consequences
