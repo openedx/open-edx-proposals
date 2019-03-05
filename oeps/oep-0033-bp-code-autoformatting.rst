@@ -93,7 +93,7 @@ References
 
 An example ``tox.ini``:
 
-.. code-block:: config
+.. code-block::
 
     [testenv:format]
     basepython =
