@@ -37,7 +37,7 @@ are fewer places for commentary around what amounts to personal preference
 (which might then instigate unnecessary debate).
 
 In short, more consistent, less ambiguous standards for code formatting
-make for more production code reviews and waste less time on inconsequential
+make for more productive code reviews and waste less time on inconsequential
 details.
 
 Decision
@@ -50,6 +50,10 @@ can be integrated with editors to free developers from having to think about
 code formatting). These formatting standards will be applied across all
 OpenEdX-authored repositories.
 
+Selected tools should, ideally, require minimal configuration. Any required
+configuration should be added to `edx/edx-lint`_ in order to allow it to
+be centralized and standardized across repositories in the OpenEdX ecosystem.
+
 The current recommended formatters are:
 
     - Python: `black`_
@@ -59,6 +63,7 @@ The current recommended formatters are:
 
 .. _black: https://github.com/ambv/black
 .. _prettier: https://prettier.io/
+.. _`edx/edx-lint`: https://github.com/edx/edx-lint
 
 Consequences
 ------------
@@ -78,3 +83,9 @@ References
 `gofmt`_ was the first code-autoformatter to gain wide-scale acceptance.
 
 .. _gofmt: https://blog.golang.org/go-fmt-your-code
+
+`Black editor integration`_
+`Prettier editor integration`_
+
+.. _Black editor integration: https://github.com/ambv/black#editor-integration
+.. _Prettier editor integration: https://prettier.io/docs/en/editors.html
