@@ -60,6 +60,7 @@ The current recommended formatters are:
     - Javascript: `prettier`_
     - CSS/SASS: `prettier`_
     - HTML: `prettier`_
+    - JSON: `prettier`_
 
 .. _black: https://github.com/ambv/black
 .. _prettier: https://prettier.io/
@@ -89,3 +90,22 @@ References
 
 .. _Black editor integration: https://github.com/ambv/black#editor-integration
 .. _Prettier editor integration: https://prettier.io/docs/en/editors.html
+
+An example ``tox.ini``:
+
+.. code-block:: config
+
+    [testenv:format]
+    basepython =
+        python3.6
+    deps=black
+    commands=
+        black .
+
+    [testenv:check-format]
+    basepython =
+        python3.6
+    deps=black
+    commands=
+        black . --check
+
