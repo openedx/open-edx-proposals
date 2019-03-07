@@ -77,7 +77,7 @@ history. Users with auto-formatters configured in their editors working
 in a repo that is not yet OEP-33 compliant will need to disable their
 autoformatter, or risk large-scale changes that are unrelated to their
 current tasks. All OpenEdX code will be formatted consistently and
-unambiguously. Developers will not have will not have arguments about
+unambiguously. Developers will not have arguments about
 code layout.
 
 References
