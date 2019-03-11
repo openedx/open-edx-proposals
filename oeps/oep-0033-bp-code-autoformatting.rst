@@ -68,6 +68,20 @@ The current recommended formatters are:
 .. _prettier-php: https://github.com/prettier/plugin-php
 .. _`edx/edx-lint`: https://github.com/edx/edx-lint
 
+Formatting should exposed via the standard ``Makefile`` commands
+``format`` (which should autoformat all code in the repository)
+and ``check-format`` (which should validate that all code in the
+repository is formatted). ``check-format`` should also be called
+as part of ``make quality``.
+
+When bulk-formatting the entire repo for the first time, all changes should
+be done in as few commits as possible (ideally, only one). Then, the
+commit hashes should be added to a ``.git-blame-ignore-revs`` file.
+This will allow the `git hyper-blame`_ tool to ignore them by default,
+to preserve the easy ability to see who changed particular file lines.
+
+.. _git hyper-blame: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/git-hyper-blame.html
+
 Consequences
 ------------
 
