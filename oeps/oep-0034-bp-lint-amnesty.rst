@@ -68,3 +68,11 @@ change that introduces non-local violations would still be flagged in CI
 Adding the amnesty markers on every affected line will also make it clearer
 to developers working inside the codebase where they can change code to
 lower violations.
+
+References
+----------
+
+There is a `prototype tool`_ for granting lint amnesty in `edx/edx-lint`_.
+
+.. _prototype tool: https://github.com/edx/edx-lint/blob/master/edx_lint/cmd/amnesty.py
+.. _`edx/edx-lint`: https://github.com/edx/edx-lint
