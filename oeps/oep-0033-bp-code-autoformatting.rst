@@ -25,7 +25,7 @@ OEP-33: Code Autoformatting
 Context
 -------
 
-In a large software project or ecosystem like the OpenEdX codebase, consistency
+In a large software project or ecosystem like the Open edX codebase, consistency
 of code formatting makes it easier to read the code. In an ecosystem with many
 contributors, maintaining that consistency requires automated tools (such as
 linters), consistent code review, or both. In general, minimizing the number
@@ -48,11 +48,11 @@ formatters will have both a lint-mode (that will be run in continuous
 integration to ensure consistent formatting) and an autoformat mode (which
 can be integrated with editors to free developers from having to think about
 code formatting). These formatting standards will be applied across all
-OpenEdX-authored repositories.
+Open edX-authored repositories.
 
 Selected tools should, ideally, require minimal configuration. Any required
 configuration should be added to `edx/edx-lint`_ in order to allow it to
-be centralized and standardized across repositories in the OpenEdX ecosystem.
+be centralized and standardized across repositories in the Open edX ecosystem.
 
 The current recommended formatters are:
 
@@ -85,12 +85,12 @@ to preserve the easy ability to see who changed particular file lines.
 Consequences
 ------------
 
-There will be commits to all OpenEdX repositories that cause large-scale
+There will be commits to all Open edX repositories that cause large-scale
 reformatting without functional changes. This will muddy the blame-file
 history. Users with auto-formatters configured in their editors working
 in a repo that is not yet OEP-33 compliant will need to disable their
 autoformatter, or risk large-scale changes that are unrelated to their
-current tasks. All OpenEdX code will be formatted consistently and
+current tasks. All Open edX code will be formatted consistently and
 unambiguously. Developers will not have arguments about
 code layout.
 
