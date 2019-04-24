@@ -45,7 +45,7 @@ Decision
 
 In all repositories, we will grant amnesty to all existing linting violations.
 This includes pylint, xsslint, pycodestyle, and any other linting programs
-currently in use. Lints being granted amnesty will be marked with on a
+currently in use. Lints being granted amnesty will be marked on a
 per-line basis in order to disable them (in whatever way is appropriate
 for the relevant linting tool). It will also be marked with an inline comment
 ``lint-amnesty``. For example, when granting amnesty to a pylint violation,
