@@ -56,6 +56,7 @@ Specification
 
 A layer 7 routing application will be chosen that meets the following
 requirements:
+
 * High performance connection management capabilities, including support
   for slow clients or backends, and wire-speed throughput.
 * SSL termination on the router.
@@ -68,19 +69,13 @@ This layer 7 routing application will be deployed on a common hostname.
 Services will begin to move API and user endpoints behind this layer 7 router
 after declaring their top level routing path. eg.
 
-  * the LMS would occupy /courses
-  * prospectus would occupy /course, /school, /micromasters
-  * ecommerce would occupy /basket
-  * studio would occupy /studio 
+* the LMS would occupy /courses
+* prospectus would occupy /course, /school, /micromasters
+* ecommerce would occupy /basket
+* studio would occupy /studio 
 
 links between services would begin to point to the new endpoints, and old endpoints
 serve 301 redirects.
-
-Rationale
-=========
-
-This architecture is a common way to deploy microservices. 
-  * https://www.nginx.com/resources/glossary/layer-7-load-balancing/
 
 
 
