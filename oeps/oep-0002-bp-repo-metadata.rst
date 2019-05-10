@@ -10,8 +10,9 @@ OEP-2: Repository Metadata
 | Last-Modified | 2019-02-11                                |
 +---------------+-------------------------------------------+
 | Author        | Calen Pennington <cale@edx.org>           |
+|               | Feanil Patel <feanil@edx.org>             |
 +---------------+-------------------------------------------+
-| Arbiter       | Eddie Fagin <eddie@edx.org>               |
+| Arbiter       | Calen Pennington <cale@edx.org>           |
 +---------------+-------------------------------------------+
 | Status        | Accepted                                  |
 +---------------+-------------------------------------------+
@@ -48,7 +49,10 @@ Each repo in the Open edX system will include a file ``openedx.yaml``, with the
 following fields:
 
 ``owner``: string (required unless ``archived`` is ``True``)
-    The github user/team responsible for the repository.
+    The github user responsible for the repository.
+
+``supporting_teams``: list of strings (optional)
+    The github team that is supporting the owner for this repository.
 
 ``nick``: string (optional)
     A short-name for the repository used by reporting tools created by the
@@ -98,7 +102,12 @@ For example, in the `edx-platform`_ repo, the file might look like:
     # openedx.yaml
 
     ---
-    owner: edx/teaching-and-learning
+    owner: nasthagiri
+    supporting_teams:
+        - platform-core
+        - platform-core-extensions
+        - platform-authn
+        - platform-courseware
     nick: edx
     tags:
         - core
