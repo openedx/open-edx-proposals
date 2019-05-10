@@ -2,23 +2,24 @@
 OEP-36: Microservice Routing Layer
 ===================================
 
-+---------------+-------------------------------------------+
-| OEP           | :doc:`oep-0036-microservice-routing-layer`|
-+---------------+-------------------------------------------+
-| Title         | Microservice Routing Layer                |
-+---------------+-------------------------------------------+
-| Last-Modified | 2019-04-25                                |
-+---------------+-------------------------------------------+
-| Author        | Fred Smith <derf@edx.org>           |
-+---------------+-------------------------------------------+
-| Arbiter       |                |
-+---------------+-------------------------------------------+
-| Status        | Provisional                               |
-+---------------+-------------------------------------------+
-| Type          | Architecture                              |
-+---------------+-------------------------------------------+
-| Created       | 2019-04-25                                |
-+---------------+-------------------------------------------+
+.. list-table::
+
+  * - OEP
+    - :doc:`oep-0036-microservice-routing-layer`
+  * - Title
+    - Microservice Routing Layer
+  * - Last-Modified
+    - 2019-04-25
+  * - Author
+    - Fred Smith <derf@edx.org>
+  * - Arbiter
+    - 
+  * - Status
+    - Provisional
+  * - Type
+    - Architecture
+  * - Created
+    - 2019-04-25
 
 Abstract
 ========
@@ -77,6 +78,11 @@ after declaring their top level routing path. eg.
 links between services would begin to point to the new endpoints, and old endpoints
 serve 301 redirects.
 
+Possible additional functionality that may be implemented at the l7 router:
+
+* Authentication
+* Rate limiting
+* Web Application Firewall
 
 
 Backwards Compatibility
