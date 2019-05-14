@@ -13,7 +13,7 @@ OEP-36: Microservice Routing Layer
   * - Author
     - Fred Smith <derf@edx.org>
   * - Arbiter
-    - 
+    - David Joy <djoy@edx.org>
   * - Status
     - Provisional
   * - Type
