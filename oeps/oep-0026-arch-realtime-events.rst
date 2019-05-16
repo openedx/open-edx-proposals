@@ -3,7 +3,7 @@ OEP-0026: Real-time Events
 ==========================
 
 +-----------------+--------------------------------------------------------+
-| OEP             | :doc:`OEP-0026 </oeps/oep-0026-realtime-events>`       |
+| OEP             | :doc:`OEP-0026 <oep-0026-realtime-events>`             |
 +-----------------+--------------------------------------------------------+
 | Title           | Real-time Events                                       |
 +-----------------+--------------------------------------------------------+
@@ -130,32 +130,12 @@ For details on integrating with Caliper, please see the `Caliper Real-time Event
 
 .. _Caliper Real-time Events: oep-0026/caliper-realtime-events.rst
 
-Anonymized User ID
-==================
+Unique User ID
+==============
 
-In order to uniquely identify a user in the Open edX system with a long-term and non-revealing identifier, an *Anonymized User ID* will be generated as a  SHA-256 hash of the Open edX user_id. The Open edX user_id is the **id** value of the user's row in the `Django auth_user`_ table in the Open edX LMS.
+The *LMS user_id* will be used to uniquely identify a user in the Open edX system. This decision is detailed in `OEP-32: Unique Identifier for Users`_.
 
-As mentioned in `Using consistent user identifiers in Segment events`_, other user identifiers in the Open edX platform aren't perfectly suited for inclusion in externally sent events:
-
-.. list-table::
-   :header-rows: 1
-
-   * - Identifier
-     - Limitations
-   * - username
-     - Often contains PII, such as user's name or year of birth.
-   * - LMS user_id
-     - Information leakage of auth_user table with easily guessable values; tied
-       down to implementation of the housing database.
-   * - email address
-     - Is PII and modifiable by the user.
-   * - anonymous user_id
-     - It is currently constructed by hashing the user's LMS user_id with the
-       Django server's *SECRET_KEY* value. This value will change when the
-       *SECRET_KEY* is rotated.
-
-.. _Django auth_user: https://docs.djangoproject.com/en/2.0/topics/auth/default/#user-objects
-.. _Using consistent user identifiers in Segment events: https://openedx.atlassian.net/wiki/spaces/AN/pages/144441849/Using+consistent+user+identifiers+in+Segment+events
+.. _OEP-32: Unique Identifier for Users: oep-0032-arch-unique-identifier-for-users.rst
 
 Eventing Components
 ===================
