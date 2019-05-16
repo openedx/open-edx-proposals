@@ -15,7 +15,7 @@ OEP-36: Microservice Routing Layer
   * - Arbiter
     - David Joy <djoy@edx.org>
   * - Status
-    - Provisional
+    - Draft
   * - Type
     - Architecture
   * - Created
