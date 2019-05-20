@@ -62,7 +62,7 @@ because it is no longer in use, the following steps should be followed.
 
 Transfer to New Owner if Interest
 ---------------------------------
-First, if the repository is public, and a part of openedx releases follow these
+First, if the repository is public, and a part of openedx releases, follow these
 steps to see if anyone would like to take ownership of it:
 
 1. Send an email to edx-code@googlegroups.com announcing that the repository
@@ -92,7 +92,7 @@ Archive Steps
    archived is set to True.
 
 3. Create an IT help ticket to update the description of the repository to
-   begin with ``[ARCHIVED]`` and for the repository to be archive per `github's
+   begin with ``[ARCHIVED]`` and for the repository to be archived per `github's
    archive process`_
 
 .. _github's archive process: https://help.github.com/en/articles/archiving-repositories
@@ -213,4 +213,4 @@ Change History
 ----------
 
 * Updated to use github's archive capability.
-* Don't as the community about public repos in the edx org that are not a part of openedx.
+* Don't ask the community about public repos in the edx org that are not a part of openedx.
