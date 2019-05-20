@@ -10,8 +10,9 @@ OEP-14: Archiving edX Github Repositories
 | Last Modified | 2017-01-18                                               |
 +---------------+----------------------------------------------------------+
 | Author        | Christina Roberts <christina@edx.org>                    |
+|               | Feanil Patel <feanil@edx.org>                            |
 +---------------+----------------------------------------------------------+
-| Arbiter       | Eddie Fagin <eddie@edx.org>                              |
+| Arbiter       | Nimisha Asthagiri <nasthagiri@edx.org>                   |
 +---------------+----------------------------------------------------------+
 | Status        | Accepted                                                 |
 +---------------+----------------------------------------------------------+
@@ -61,8 +62,8 @@ because it is no longer in use, the following steps should be followed.
 
 Transfer to New Owner if Interest
 ---------------------------------
-First, if the repository is public, follow these steps to see if anyone would like
-to take ownership of it:
+First, if the repository is public, and a part of openedx releases, follow these
+steps to see if anyone would like to take ownership of it:
 
 1. Send an email to edx-code@googlegroups.com announcing that the repository
    will be archived, and inquiring if anyone would like to take ownership of
@@ -91,7 +92,10 @@ Archive Steps
    archived is set to True.
 
 3. Create an IT help ticket to update the description of the repository to
-   begin with ``[ARCHIVED]``.
+   begin with ``[ARCHIVED]`` and for the repository to be archived per `github's
+   archive process`_
+
+.. _github's archive process: https://help.github.com/en/articles/archiving-repositories
 
 README Archive Statement
 ------------------------
@@ -204,3 +208,9 @@ Change History
 ----------
 
 * Added steps for repositories that live in the edX org, but are forks of other, independent repositories
+
+2019-05-16
+----------
+
+* Updated to use github's archive capability.
+* Don't ask the community about public repos in the edx org that are not a part of openedx.
