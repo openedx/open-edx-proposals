@@ -122,15 +122,6 @@ file format, there are a few guidelines each of these files should follow:
   its primary purpose(s) in this context.  These comments typically start at
   the 37th character, which allows enough room for most package name plus
   constraint specifications while keeping the comments visually aligned.
-* Version constraints should only be used to exclude dependency versions which
-  are known (or strongly suspected) to not work in this context.
-* Indirect dependencies (used by dependencies but not directly by the code in
-  the repository itself) should not be listed unless a constraint is needed to
-  enforce a compatible version; these are automatically detected and captured
-  elsewhere as described below.
-* `Environment markers`_ should be used as necessary to indicate dependencies
-  which should only be installed on specific operating systems, Python
-  versions, etc.
 * Avoid direct links to packages in local directories, GitHub, or other version
   control systems if at all possible; all dependencies should be installed
   from `PyPI`_.  If you think you're in one of the rare circumstances where
@@ -173,7 +164,7 @@ base dependencies also need to be specified there.  These can be derived from
         Return True if the requirement line is a package requirement;
         that is, it is not blank, a comment, a URL, or an included file.
         """
-        return line and not line.startswith(('-r', '#', '-e', 'git+'))
+        return line and not line.startswith(('-r', '#', '-e', 'git+', '-c'))
 
 This can be used to define ``install_requires`` as follows::
 
@@ -183,6 +174,45 @@ This can be used to define ``install_requires`` as follows::
 .. _cookiecutter-django-app: https://github.com/edx/cookiecutter-django-app/tree/master/%7B%7Bcookiecutter.repo_name%7D%7D/requirements
 .. _Environment markers: https://www.python.org/dev/peps/pep-0508/#environment-markers
 .. _PyPI: https://pypi.org/
+
+Imposing Constraints on Dependencies
+------------------------------------
+
+Although we usually want to use the latest available version of our
+dependencies in order to take advantage of the latest bug fixes, performance
+improvements, and security fixes, we sometimes need to impose some constraints
+on the version to be used.  These should be collected in
+``requirements/constraints.txt`` so they can be imposed uniformly across all
+the repository's requirements files; this is done via a ``-c constraints.txt``
+line just under the summary comment of each ``*.in`` file in the
+``requirements`` directory.  Some guidelines to keep in mind when populating
+this file:
+
+* Version constraints should only be used to exclude dependency versions which
+  are known (or strongly suspected) to not work in at least one context.
+* Constraints on indirect dependencies (used by dependencies but not directly
+  by the code in the repository itself) can be added if needed to enforce a
+  compatible version.
+* `Environment markers`_ should be used as necessary to indicate dependencies
+  which should only be installed on specific operating systems, Python
+  versions, etc.
+* If a dependency is maintained by edX and only used in a few repositories,
+  consider if it should stay pinned to a specific version to facilitate
+  managing new releases.  Best practice is to avoid making
+  backwards-incompatible new releases whenever possible, but this can require
+  excessive effort for a package only used in 1-2 repositories.
+* Each constraint should be preceded by a comment explaining why the
+  constraint has been imposed.  If there is an issue (either in Jira or an
+  upstream issue tracker) for resolving the problem, a link to it should be
+  included in the comment.
+* Minimum versions should generally not be included here; ``pip-compile``
+  always tries to use the latest compatible version in the generated
+  requirements files.  If minimum versions need to be specified for use in
+  ``setup.py``, those constraints should go in ``requirements/base.in`` as
+  explained above.
+
+This file should be periodically reviewed to determine if some of the
+constraints are no longer required.
 
 Generate Exact Dependency Specifications
 ----------------------------------------
@@ -208,6 +238,13 @@ the constraints in the direct dependencies files.  These generated files are
 then used anywhere that runs a command to install dependencies: ``tox.ini``,
 ``.travis.yml``, the ``requirements`` make target (for updating a local
 development environment), etc.
+
+By default ``pip-compile`` uses a cache of calculated dependency relationships
+to improve the performance of subsequent runs.  Unfortunately, the results of
+this cache are sometimes used even after a new package release has changed the
+set of packages it depends on.  To avoid generating incorrect requirements
+files due to this, it's best to always use the ``--rebuild`` option when
+running ``pip-compile``.
 
 .. _pip-tools: https://github.com/jazzband/pip-tools
 
@@ -320,13 +357,12 @@ it can be appropriate:
   manner.
 
 In most other circumstances, the package should be added to PyPI instead.  If
-you do need to include a package at a URL, it should be editable (start with
-"-e ") and have both the package name and version specified (end with
-"#egg=NAME==VERSION").  For example:
+you do need to include a package at a URL, it should have both the package
+name and version specified (end with "#egg=NAME==VERSION").  For example:
 
 .. code-block:: none
 
-    -e git+https://github.com/edx/edx-ora2.git@2.1.15#egg=ora2==2.1.15
+    git+https://github.com/edx/edx-ora2.git@2.1.15#egg=ora2==2.1.15
 
 Rationale
 =========
@@ -388,10 +424,9 @@ packages from URLs whenever possible:
   help.
 * Package URLs tend to be long and difficult to read, with the actual name of
   the package hidden in the middle or not even present at all.
-* As of this writing, ``pip-tools`` still has some bugs in handling packages
-  installed from local directories or URLs that require special care to work
-  around.  `Non-editable URL installations`_ are not supported, and
-  `relative local paths are expanded to absolute paths`_.  These can be
+* As of this writing, ``pip-tools`` still has a bug in handling packages
+  installed from local directories that requires special care to work
+  around: `relative local paths are expanded to absolute paths`_.  This can be
   partially worked around via a post-processing script for the generated
   requirements files; an example can be found in `edx-platform`_ at
   ``scripts/post-pip-compile.sh``.
@@ -399,7 +434,6 @@ packages from URLs whenever possible:
   from URLs for security reasons (the content of the URLs can
   change). It will only pull requirements from PyPI.
 
-.. _Non-editable URL installations: https://github.com/jazzband/pip-tools/issues/355
 .. _relative local paths are expanded to absolute paths: https://github.com/jazzband/pip-tools/issues/204
 .. _edx-platform: https://github.com/edx/edx-platform
 
