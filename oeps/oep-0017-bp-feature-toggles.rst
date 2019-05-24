@@ -1,11 +1,11 @@
 =========================
-OEP-0017: Feature Toggles
+OEP-17: Feature Toggles
 =========================
 
 .. This is the template to use when you start a new OEP.
 
 +-----------------+-----------------------------------------------------+
-| OEP             | :doc:`OEP-0017 </oeps/OEP-0017-bp-feature-toggles>` |
+| OEP             | :doc:`OEP-17 </oeps/OEP-0017-bp-feature-toggles>`   |
 +-----------------+-----------------------------------------------------+
 | Title           | Feature Toggles                                     |
 +-----------------+-----------------------------------------------------+
