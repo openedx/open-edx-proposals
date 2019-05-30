@@ -146,6 +146,27 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
 3. As much as possible, Best Practices should be autodetected, but because they will
    often involve a judgement call, autodetection shouldn't be mandatory.
 
+The ``tags`` structure is very open ended but there are a few tags that are currently
+in wide use and are provided here so that they can be used consistently.
+
+``webservice``:
+    Indicate that this repository is the root of a webservice.  eg. It can serve
+    HTTP content.
+
+``library``:
+    The repository is an installable package that is reusable but doesn't run standalone.
+    eg. a pip installable pyton package
+
+``backend-service``:
+    A service that is run as a part of openedx but is not really interacted with
+    by the end-users.  eg. xqwatcher or ecommerce-worker
+
+``backend-tooling``:
+    Scripts or configuration used in conjunction with services or in support of openedx.
+
+``xblock``:
+    Indicating that a repo contains an xblock or xblock related tooling.
+
 
 Change History
 ==============
