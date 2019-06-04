@@ -1,11 +1,11 @@
 =========================================
-OEP-14: Archiving edX Github Repositories
+OEP-14: Archiving edX GitHub Repositories
 =========================================
 
 +---------------+----------------------------------------------------------+
 | OEP           | :doc:`OEP-14 </oeps/oep-0014-proc-archive-repos.rst>`    |
 +---------------+----------------------------------------------------------+
-| Title         | Archiving edX Github Repositories                        |
+| Title         | Archiving edX GitHub Repositories                        |
 +---------------+----------------------------------------------------------+
 | Last Modified | 2017-01-18                                               |
 +---------------+----------------------------------------------------------+
@@ -42,7 +42,7 @@ Motivation
 
 Recently openedx.yaml files were added to edX repositories per `OEP-2`_. In the
 course of deciding owners for those repositories, there was an `ORA PR
-Discussion`_ about how best to handle deprecated or obsolete repositories; in
+Discussion`_ about how best to handle deprecated or obsolete repositories. In
 particular, do obsolete repositories need owners, and how can repositories be
 clearly marked as present for archive purposes only?
 
@@ -54,16 +54,19 @@ required for actively maintained repositories.
 
 .. _OEP-2: https://open-edx-proposals.readthedocs.io/en/latest/oep-0002.html
 
+
 Specification
 =============
 
 When a repository under the `edx organization`_ will no longer be maintained
 because it is no longer in use, the following steps should be followed.
 
+
 Transfer to New Owner if Interest
 ---------------------------------
-First, if the repository is public, and a part of openedx releases, follow these
-steps to see if anyone would like to take ownership of it:
+
+First, if the repository is public, and a part of Open edX releases, follow
+these steps to see if anyone would like to take ownership of it:
 
 1. Send an email to edx-code@googlegroups.com announcing that the repository
    will be archived, and inquiring if anyone would like to take ownership of
@@ -82,8 +85,10 @@ steps to see if anyone would like to take ownership of it:
    into the `edx organization`_ and follow the `Archive Steps`_ below for the
    forked repo.
 
+
 Archive Steps
 -------------
+
 1. Update the README.rst file in the repository to state that it is archived,
    using the `README Archive Statement`_ below.
 
@@ -92,13 +97,15 @@ Archive Steps
    archived is set to True.
 
 3. Create an IT help ticket to update the description of the repository to
-   begin with ``[ARCHIVED]`` and for the repository to be archived per `github's
+   begin with ``[ARCHIVED]`` and for the repository to be archived per `GitHub's
    archive process`_
 
-.. _github's archive process: https://help.github.com/en/articles/archiving-repositories
+.. _GitHub's archive process: https://help.github.com/en/articles/archiving-repositories
+
 
 README Archive Statement
 ------------------------
+
 Include this statement in the README.rst file:
 
     This repository has been archived and is no longer supported—use it at your
@@ -106,12 +113,16 @@ Include this statement in the README.rst file:
     issues, and security updates will not be provided. Pull requests against
     this repository will also not be merged.
 
+
 For Repos that are Forks
 ------------------------
-If the repository is a fork of an upstream repository that is not within the edX organization, and will no longer be maintained, it can be deleted with the following steps.
 
-1. Review any differences between the upstream parent and the forked repo. Capture anything
-   that should be kept for historical purposes.
+If the repository is a fork of an upstream repository that is not within the
+edX organization, and will no longer be maintained, it can be deleted with the
+following steps.
+
+1. Review any differences between the upstream parent and the forked repo.
+   Capture anything that should be kept for historical purposes.
 
 2. Ensure that there are no edX dependencies on this repository.
 
@@ -126,10 +137,12 @@ openedx.yaml. It does not require introducing a new organization that is
 maintained by edX, and the source code remains easily visible and searchable
 (see `Rejected Alternatives`_).
 
+
 Backward Compatibility
 ======================
 
 This proposal does not introduce any backward compatibility issues.
+
 
 Reference Implementation
 ========================
@@ -139,6 +152,7 @@ The `Discussions Hackathon repository`_ has been updated to conform to the
 
 .. _Discussions Hackathon repository: https://github.com/edx/discussions
 
+
 Rejected Alternatives
 =====================
 
@@ -147,15 +161,17 @@ There are a couple variations of this proposal that were originally discussed in
 and notifying the open source community are essentially the same; the major
 differences from the proposed process are outlined below.
 
+
 Alternative 1: Transfer Repository
 ----------------------------------
+
 Transfer the obsolete repository to a new organization: edx-archived.
 
 Pros:
 
 - `edx organization`_ is no longer littered with unsupported/obsolete
   repositories.
-- Github search results within the `edx organization`_ do not include matches
+- GitHub search results within the `edx organization`_ do not include matches
   in archived repositories. This could decrease confusion, especially since
   repo descriptions are not included in search results.
 - Gemnasium monitoring may cease automatically (although this would need to be
@@ -171,8 +187,10 @@ Reasons rejected:
 
 .. _Facebook: https://github.com/facebookarchive
 
+
 Alternative 2: Create Archive Branch
 ------------------------------------
+
 Move the code from the master branch to an archived branch,
 while leaving the repository itself within `edx organization`_.
 
@@ -187,7 +205,7 @@ Pros:
 Reasons rejected:
 
 - Non-intuitive, and could be confusing for developers to understand the state
-  of the code, as cloning the repo or viewing it on Github would show an empty
+  of the code, as cloning the repo or viewing it on GitHub would show an empty
   repository (Note: this could possibly be improved by changing the default
   branch for the repository, but that might reintroduce the Gemansium monitoring
   issue).
@@ -212,5 +230,5 @@ Change History
 2019-05-16
 ----------
 
-* Updated to use github's archive capability.
-* Don't ask the community about public repos in the edx org that are not a part of openedx.
+* Updated to use GitHub's archive capability.
+* Don't ask the community about public repos in the edx org that are not a part of Open edX.
