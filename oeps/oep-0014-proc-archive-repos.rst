@@ -92,9 +92,14 @@ Archive Steps
 1. Update the README.rst file in the repository to state that it is archived,
    using the `README Archive Statement`_ below.
 
-2. Add ``archived: True`` to openedx.yaml (creating the file if necessary). Note
-   that it is not necessary for the openedx.yaml file to define an owner when
-   archived is set to True.
+2. Update the openedx.yaml file, creating it if necessary:
+
+   - Add ``archived: True``.
+
+   - Remove the ``openedx-release`` key if it is present.
+
+   - It is not necessary for the openedx.yaml file to define an owner
+     for archived repos.
 
 3. Create an IT help ticket to update the description of the repository to
    begin with ``[ARCHIVED]`` and for the repository to be archived per `GitHub's
