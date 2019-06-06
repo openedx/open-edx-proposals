@@ -123,15 +123,18 @@ For Repos that are Forks
 ------------------------
 
 If the repository is a fork of an upstream repository that is not within the
-edX organization, and will no longer be maintained, it can be deleted with the
-following steps.
+edX organization, and will no longer be maintained, it can be transferred to
+the edx-unsupported organization.
 
-1. Review any differences between the upstream parent and the forked repo.
-   Capture anything that should be kept for historical purposes.
+1. If you have the permissions on GitHub, simply transfer the repo to the
+   edx-unsupported organization.  If you don't have permissions, file an IT
+   ticket to have it done.
 
-2. Ensure that there are no edX dependencies on this repository.
+2. Once the repo is in the edx-unsupported organization, archive it.
 
-3. Submit an IT help ticket to have it deleted.
+The reason we transfer forks, but archive our original code, is so that GitHub
+searches will still find code we authored.  We don't delete the forks because
+they are still needed by older unsupported Open edX installations.
 
 
 Rationale
@@ -171,6 +174,10 @@ Alternative 1: Transfer Repository
 ----------------------------------
 
 Transfer the obsolete repository to a new organization: edx-archived.
+
+.. note::
+    We now use the edx-unsupported organization for forks that we no longer
+    maintain.
 
 Pros:
 
