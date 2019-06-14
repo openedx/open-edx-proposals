@@ -24,12 +24,12 @@ OEP-36: Microservice Routing Layer
 Abstract
 ========
 
-Proposes a key openedx component that will connect users to applications using a layer 7 (application layer/URL Based) routing framework. 
+Proposes a key Open edX component that will connect users to applications using a layer 7 (application layer/URI Based) routing framework. 
 
 Motivation
 ==========
 
-Microservices are currently implemented using layer 4 (DNS) based routing. Each microservice occupies a unique hostname, with dedicated ELB or CDN infrastructure to support routing user traffic to the service. This pattern is simple to monitor, deploy, and manage, but slow and expensive to build, and regularly causes problems with cross service user information sharing. In addition, modifying or splitting a monolithic service into microservices results in confusing URL changes and costly migrations.
+Microservices are currently implemented using layer 4 (DNS) based routing. Each microservice occupies a unique hostname, with dedicated ELB or CDN infrastructure to support routing user traffic to the service. This pattern is simple to monitor, deploy, and manage, but slow and expensive to build, and regularly causes problems with cross service user information sharing. In addition, modifying or splitting a monolithic service into microservices results in confusing URI changes and costly migrations.
 
 Specification
 =============
@@ -46,9 +46,9 @@ This layer 7 routing application will be deployed on a common hostname.
 Rationale
 =========
 
-A layer 7 routing layer would allow us to separate the user facing URL or API endpoint from the backend implementation. It would allow microservices to exist that only manage a small number of endpoints, without requiring developers to build out load balancing or CDN infrastructure. 
+A layer 7 routing layer would allow us to separate the user facing URI or API endpoint from the backend implementation. It would allow microservices to exist that only manage a small number of endpoints, without requiring developers to build out load balancing or CDN infrastructure. 
 
-This change will allow developers, openedx operators and resellers to deploy new openedx sites quicker and easier than they currently can.  The router will provide a map for people to understand which services they need to deploy.
+This change will allow developers, Open edX operators and resellers to deploy new Open edX sites quicker and easier than they currently can.  The router will provide a map for people to understand which services they need to deploy.
 
 
 Service layers of concern
@@ -84,7 +84,7 @@ Services will begin to move API and user endpoints behind this layer 7 router af
 
 links between services would begin to point to the new endpoints, and old endpoints serve 301 redirects.
 
-Old URLs will be migrated using 301 redirects, which will automatically migrate users browsers to the new endpoints. For an overlapping time period, both URLs will be maintained and function, so that services can transition to the new schema.
+Old URIs will be migrated using 301 redirects, which will automatically migrate users browsers to the new endpoints. For an overlapping time period, both URIs will be maintained and function, so that services can transition to the new schema.
 
 Definitions
 =====
@@ -92,7 +92,7 @@ Definitions
 Microservice
 ---
 
-A microservice is a web application that supports a specific task or business goal.  For the purposes of this proposal, this term encompasses django applications, IDAs, Microfrontends, rails applications, and any other service that supports a specific task or business goal in the openedx stack.
+A microservice is a web application that supports a specific task or business goal.  For the purposes of this proposal, this term encompasses django applications, IDAs, Microfrontends, rails applications, and any other service that supports a specific task or business goal in the Open edX stack.
 
 Layer 7
 ---
