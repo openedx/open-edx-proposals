@@ -7,11 +7,11 @@ OEP-0037: Test Data
 +-----------------+--------------------------------------------------------+
 | Title           | Test Data Management                                   |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2019-06-07                                             |
+| Last Modified   | 2019-06-18                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Jeremy Bowman <jbowman@edx.org>                        |
 +-----------------+--------------------------------------------------------+
-| Arbiter         |  <@edx.org>                |
+| Arbiter         | Bill DeRusha <bill@edx.org>                            |
 +-----------------+--------------------------------------------------------+
 | Status          | Draft                                                  |
 +-----------------+--------------------------------------------------------+
@@ -19,7 +19,7 @@ OEP-0037: Test Data
 +-----------------+--------------------------------------------------------+
 | Created         | 2019-06-07                                             |
 +-----------------+--------------------------------------------------------+
-| `Review Period` | 2019-06-10 to 2019-06-24                               |
+| `Review Period` | 2019-06-19 to 2019-07-03                               |
 +-----------------+--------------------------------------------------------+
 | `Resolution`    |                                                        |
 +-----------------+--------------------------------------------------------+
@@ -91,17 +91,17 @@ Whether defining it from scratch or basing it on a dump of data from an
 existing environment, at some point code needs to be written which will
 populate the data stores of each relevant IDA in order to perform the desired
 test or development task.  For relational data in simple unit tests, this is
-often done via the `factory_boy`_ package (and custom model factories using
-it) directly in ``setUpTestData`` or ``setUp``.  For development data (or
-more complex test setup which could be useful to reproduce in a development
-environment), the setup code should instead reside in its own Python function
-or static method.  For example:
+often done in Python via the `factory_boy`_ package (and custom model
+factories using it) directly in ``setUpTestData`` or ``setUp``.  For
+development data (or more complex test setup which could be useful to
+reproduce in a development environment), the setup code should instead reside
+in its own function or static method.  For example:
 
 .. code-block:: python
 
     def account_retirement_example(data):
-        data.test_user = UserFactory()
-        data.test_superuser = SuperuserFactory()
+        data.test_user = UserFactory.create()
+        data.test_superuser = SuperuserFactory.create()
         data.original_email = data.test_user.email
 
         # Misc. setup
@@ -110,6 +110,9 @@ or static method.  For example:
         UserOrgTagFactory.create(user=data.test_user, key='cat', value='dog')
 
         CourseEnrollmentAllowedFactory.create(email=data.original_email)
+
+(JavaScript tests seeking to stub out data returned from a server can use
+similar functions utilizing a package like `rosie`_ or `factory-girl`_.)
 
 Setting attributes of the provided argument like this allows the test object
 or class to be provided when used in a unit test (so assertions can be written
@@ -121,12 +124,24 @@ course import.
 
 Only the attributes needed to perform the intended task should be specified;
 the factory class should take care of setting reasonable defaults for the
-rest.  This means that when a model changes, often only the factory will need
-to be updated rather than every test data set using that model.
+rest.  The `Faker`_ package can be used by factories to generate
+reasonable-looking values for many common types of data.  By auto-populating
+many of the fields this way, when a model changes often only the factory will
+need to be updated rather than every data set using that model.
+
+The function can take one or more positional arguments if useful for using it
+in different contexts.  It could for example create records linked to a
+provided existing user, or populate them based on information loaded from a
+YAML file found at the provided path.  Keyword-only arguments should usually
+be avoided, as they are more difficult to use from the kind of general-purpose
+management commands and ``make`` targets described below.
 
 .. _factory_boy: https://factoryboy.readthedocs.io/en/latest/index.html
+.. _rosie: https://www.npmjs.com/package/rosie
+.. _factory-girl: https://www.npmjs.com/package/factory-girl
 .. _SimpleNamespace: https://docs.python.org/3/library/types.html#types.SimpleNamespace
 .. _OLX: https://edx.readthedocs.io/projects/edx-open-learning-xml/en/latest/index.html
+.. _Faker: https://faker.readthedocs.io/en/stable/
 
 Loading Data
 ------------
@@ -158,12 +173,53 @@ into all of the relevant IDAs, a devstack ``make`` target can be used:
 Most data sets should attempt to use a standard function path in each IDA to
 allow use of this generic data loading command, but particularly complex cases
 may use custom management commands and/or devstack ``make`` targets (perhaps
-even taking arguments to specify parameters of the generated data set).
+even taking arguments to specify parameters of the generated data set).  Data
+functions which take arguments can reduce the number of such custom commands
+needed.  Passing arguments could look like this:
+
+.. code-block:: bash
+
+    ./manage.py load_test_data test_data.from_dev_data_v1 path/to/file.yaml
+    make load_test_data DATA_FUNCTION=test_data.from_dev_data_v1 DATA_FUNCTION_ARGS=http://domain.org/path/to/file.yaml
 
 Each data loading function should be executed during the respective IDA's test
 suite, in order to ensure that it stays functional across schema and code
 changes.  This also makes it clear what change triggered failure to load the
 data, making it much faster to make the appropriate fixes.
+
+Data Files
+----------
+
+When creating a more complex data set, especially one containing data to be
+loaded into multiple Open edX services, it is often best to describe the data
+in a YAML file.  The path or URL of this file can then be passed as an
+argument to each data loading function which uses the information in it to
+create database records for a particular service as shown above.  Requirements
+for such data sets vary widely, so we won't attempt to enforce a single
+standard schema for them, but each such file should declare the name of the
+schema it has chosen to use.  Such a file might look like this:
+
+.. code-block:: yaml
+
+    schema: dev_data_v1
+    users:
+        - admin
+        - staff
+        - student
+    enrollments:
+        - course: course-v1:edx+T101+2017_Q1
+          user: student
+        - course: course-v1:edx+MD101+2018_Q3
+          user: staff
+    ...
+
+These data files should be as minimal as possible, containing just enough
+information for a data loading function familiar with this format to
+generate appropriate records using factory classes to fill in reasonable
+defaults for anything not explicitly specified.  This allows a single file
+to describe a data set which can be loaded into multiple services to allow
+testing cross-service functionality without binding the data set too closely
+to the current code or schema of any of those services.
 
 Rationale
 =========
@@ -192,17 +248,6 @@ data fixtures.  We don't yet have good tools to do this conversion
 automatically, so at first this will be a mostly manual process (but should
 save us much time later in maintaining the data set through schema
 migrations and code changes).
-
-Although it's tempting to think that the data for all IDAs in a particular
-data set should reside in the same place, that would require detailed
-knowledge of the inner workings of each IDA to reside somewhere external
-to their repositories.  Instead we've opted for consistent naming for a data
-set, with a generic loading command to cover most cases but the option of
-using custom data loading commands when necessary, and just enough knowledge
-in the ``devstack`` repository to make it easy to load a named data set across
-all services.  A similar script can be developed to load a named data set in
-sandboxes without needing to change the data set itself or each IDA's data
-load command.
 
 Backward Compatibility
 ======================
