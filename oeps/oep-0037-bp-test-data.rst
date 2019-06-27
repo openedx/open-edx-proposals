@@ -33,7 +33,7 @@ Open edX test cases and development environments.
 Motivation
 ==========
 
-When testing or developing an Open edX service, it us usually necessary
+When testing or developing an Open edX service, it is usually necessary
 to have some data already loaded and configured: users, courses, grades, etc.
 This is true for unit tests, browser automation tests, load tests,
 development work in devstack, and more.  There are many different ways of
@@ -89,9 +89,9 @@ Creating Data
 
 Whether defining it from scratch or basing it on a dump of data from an
 existing environment, at some point code needs to be written which will
-populate the data stores of each relevant IDA in order to perform the desired
-test or development task.  For relational data in simple unit tests, this is
-often done in Python via the `factory_boy`_ package (and custom model
+populate the data stores of each relevant service in order to perform the
+desired test or development task.  For relational data in simple unit tests,
+this is often done in Python via the `factory_boy`_ package (and custom model
 factories using it) directly in ``setUpTestData`` or ``setUp``.  For
 development data (or more complex test setup which could be useful to
 reproduce in a development environment), the setup code should instead reside
@@ -146,8 +146,8 @@ management commands and ``make`` targets described below.
 Loading Data
 ------------
 
-Each IDA should provide a ``load_test_data`` management which takes dotted
-paths to one or more test data generation functions as arguments.  For
+Each IDA should provide a ``load_test_data`` management command which takes
+dotted paths to one or more test data generation functions as arguments.  For
 example, the command to load the example data above into the LMS might look
 something like this:
 
