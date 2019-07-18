@@ -52,17 +52,19 @@ The specification describes the technical details of the Architecture, Best
 Practice or Process proposed by the OEP. If the proposal includes a new API,
 specify its syntax and semantics.
 
-* Commit messages
-** The first line should be no longer than 50 characters
-** The second line should be no longer than 72 characters
-** The first line should concisely describe the reason for the change
-** The first line should include the JIRA Issue ID, if there is a JIRA Issue
-* Branch names
-** Feature branch names should be prefixed with the creating user's github
+Commit messages
+---------------
+* The first line should be no longer than 50 characters
+* The second line should be no longer than 72 characters
+* The first line should concisely describe the reason for the change
+* The first line should include the JIRA Issue ID, if there is a JIRA Issue
+Branch names
+------------
+* Feature branch names should be prefixed with the creating user's github
    username and a slash
-** If there is an associated JIRA Issue the Issue ID should be next before
+* If there is an associated JIRA Issue the Issue ID should be next before
    another slash
-** Example: username/proj-1234/descriptive name
+* Example: username/proj-1234/descriptive name
 
 # TODO: Good and Bad Examples?
 
