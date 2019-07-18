@@ -60,10 +60,8 @@ Commit messages
 * The first line should include the JIRA Issue ID, if there is a JIRA Issue
 Branch names
 ------------
-* Feature branch names should be prefixed with the creating user's github
-   username and a slash
-* If there is an associated JIRA Issue the Issue ID should be next before
-   another slash
+* Feature branch names should be prefixed with the creating user's github username and a slash
+* If there is an associated JIRA Issue the Issue ID should be next before another slash
 * Example: username/proj-1234/descriptive name
 
 # TODO: Good and Bad Examples?
