@@ -205,7 +205,7 @@ Don’t make me think
 
 Steve Krug, the author of “Don’t Make Me Think”, says: “Your objective
 should always be to eliminate instructions entirely by making everything
-self-explanatory, or as close to it as possible.” This principal should
+self-explanatory, or as close to it as possible.” This principle should
 also be applied to data modeling. Data models should have descriptive
 names clearly identifying the data that the model holds. The field names
 should make sense to most people familiar with the domain, without
