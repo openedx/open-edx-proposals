@@ -1,69 +1,30 @@
-.. vim: syntax=rst
-
-===============================
-
-OEP-38:
-
-===============================
+======================================
+OEP-38:  Data Modeling Best Practices
+======================================
 
 +---------------+------------------------------------------------------------+
-
-| OEP | :doc:` |
-
+| OEP           | :doc: `OEP-0038 <oep-0038-data-modeling>`                  |
 +---------------+------------------------------------------------------------+
-
-| Title | Data Modeling Best Practices |
-
+| Title         | Data Modeling Best Practices                               |
 +---------------+------------------------------------------------------------+
-
-| Last Modified | 2019-08-01 |
-
+| Last Modified | 2019-08-01                                                 |
 +---------------+------------------------------------------------------------+
-
-| Author | Brian Beggs <bbeggs@edx.org> |
-
+| Author        | Brian Beggs <bbeggs@edx.org>                               |
 +---------------+------------------------------------------------------------+
-
-| Arbiter | Albemarle |
-
+| Arbiter       | Albemarle                                                  |
 +---------------+------------------------------------------------------------+
-
-| Status | Provisional |
-
+| Status        | Provisional                                                |
 +---------------+------------------------------------------------------------+
-
-| Type | Architecture |
-
+| Type          | Best Practices                                             |
 +---------------+------------------------------------------------------------+
-
-| Created | 2019-05-01 |
-
+| Created       | 2019-05-01                                                 |
 +---------------+------------------------------------------------------------+
-
-| Review Period | 2019-08-01 - 2019/08/16 |
-
+| Review Period | 2019-08-01 - 2019/08/16                                    |
 +---------------+------------------------------------------------------------+
-
-| Resolution | - 'Original pull request' |
-
-| | - 'Update pull request' |
-
+| Resolution    | 'Original pull request' m                                  |       
 +---------------+------------------------------------------------------------+
-
-| References | - 'OEP-002' |
-
-+---------------+------------------------------------------------------------+
-
-
-.. \_Original pull request:
-
-.. \_Update pull request:
-
-.. \_OEP-002:
-https://open-edx-proposals.readthedocs.io/en/latest/oep-0002-bp-repo-metadata.html
 
 Abstract
-
 ========
 
 In order to obtain the highest possible value from data collected in the
@@ -102,16 +63,8 @@ This OEP explicitly does not cover:
 
 -  Event data
 
-Motivation
-
-==========
-
-The goal of this OEP is to provide a framework about how to think about
-data modeling at edX and provide guidelines on what should and should
-not be done when creating data models.
 
 Definitions
-
 ===========
 
 BI - Business intelligence. Technologies, applications and practices for
@@ -149,8 +102,8 @@ models or updating existing models in the edX ecosystem.
 IDA - “Independently Deployed Application”. Similar to a microservice or
 stand alone application.
 
-OpenedX Ecosystem
 
+OpenedX Ecosystem
 ------------------
 
 Used in this document, the phrase "OpenedX Ecosystem" includes the
@@ -163,11 +116,10 @@ installation (e.g.,. edx.org). This includes:
 
 - Backend systems such as data analytics and operational logging
 
-- Third party services used to extend functionality of applications,
-such as Optimizely, Google Analytics, and Sailthru
+- Third party services used to extend functionality of applications, such as Optimizely, Google Analytics, and Sailthru
+
 
 Specification
-
 =============
 
 Guiding Principles
@@ -430,13 +382,7 @@ Some things are exempt from this process:
       justification, as there may be many downstream changes that will
       need to change as well.
 
-Reference Implementation
-
-========================
-
-Rejected Alternatives
-
-=====================
 
 
 
+                 
