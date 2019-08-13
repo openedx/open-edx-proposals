@@ -28,7 +28,7 @@ Abstract
 ========
 
 In order to obtain the highest possible value from data collected in the
-edX ecosystem, this document attempts to provide guiding thoughts and
+OpenedX ecosystem, this document attempts to provide guiding thoughts and
 principles on data modeling.
 
 These data modeling guidelines are broken down into three sections:
@@ -51,7 +51,7 @@ should be applied as the basic standard for all applications in the
 OpenedX ecosystem.
 
 Data Best Practices - These practices are designed to help teams create
-rich and efficient data models within the edX ecosystem. They are not
+rich and efficient data models within the OpenedX ecosystem. They are not
 standards but guidelines to help teams think about how they are storing
 data.
 
@@ -82,7 +82,7 @@ CUD - Create, Update, Delete. These are some of the actions that may
 happen to data in a database system.
 
 Data Best Practices - These practices are designed to help teams create
-rich and efficient data models within the edX ecosystem. They are not
+rich and efficient data models within the OpenedX ecosystem. They are not
 standards but guidelines to help teams think about how to store data.
 
 Data Dimension - A Data Dimension is a set of data attributes pertaining
@@ -97,7 +97,7 @@ corresponding information systems in organizations.
 
 Data Modeling Standards - The most basic and standard design principles
 for data modeling. These standards must be adhered to when creating new
-models or updating existing models in the edX ecosystem.
+models or updating existing models in the OpenedX ecosystem.
 
 IDA - “Independently Deployed Application”. Similar to a microservice or
 stand alone application.
@@ -146,7 +146,7 @@ Use industry best practices
 
 Data stored in the OpenEdX ecosystem should adhere to industry best
 practices. For example, since an industry best practice uses numerical
-identifiers to identify rows of data, the edX ecosystem should also use
+identifiers to identify rows of data, the OpenedX ecosystem should also use
 numerical identifiers. Adhering to industry best practices and the
 practices outlined in this document ensures our data is approachable for
 experienced engineers and new hires alike and allows us to leverage 3rd
@@ -218,7 +218,7 @@ reconstruct the state of the application at various times.
 Data Modeling Standards
 -----------------------
 
-All models in the edX ecosystem should have:
+All models in the OpenedX ecosystem should have:
 
 -  A Primary Key
 
