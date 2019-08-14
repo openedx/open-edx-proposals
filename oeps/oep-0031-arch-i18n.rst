@@ -1,6 +1,6 @@
-##############################
-OEP-0031: Internationalization
-##############################
+###################################################
+OEP-0031: Internationalization For React Front Ends
+###################################################
 
 .. list-table::
 
@@ -31,7 +31,7 @@ OEP-0031: Internationalization
 Motivation
 ##########
 
-Internationalization (i18n) is a vital part of unlocking content for users around the globe and effectively supporting our business partners. In order to help us reuse localized components from app to app, the different parts of the edX codebase should align on a consistent handling of i18n. This document covers our approach to internationalizing new front-end applications and components written in React.
+Internationalization (i18n) is a vital part of unlocking content for users around the globe and effectively supporting our business partners. In order to help us reuse localized components from app to app, the different parts of the edX codebase should align on a consistent handling of i18n. This document covers our approach to internationalizing new front-end applications and components written in React. This document doesn't necessarily cover internationalization for other technologies, such as the Django templates in edx-platform.
 
 ###########
 Terminology
@@ -40,6 +40,8 @@ Terminology
 We will use the term *localized* to refer to a view of a web page that is customized with a user-appropriate language, time zone, number format, and currency. We will use the term *internationalized* to refer to a web page that is designed to have its text, dates, prices, etc. easily swapped out in order to create different localized versions.
 
 In this OEP we use the terms *locale* and *language* more or less interchangeably. However, note that this document mainly addresses making code multilingual, i.e., the issue of presenting the same content in different languages. Considering ways to make it multi-regional, to allow for presenting different content for different countries, is out of scope for this OEP.
+
+*Transifex* is the third-party system that lets us upload messages for translation and download the translations to incorporate them into our software. Except where Transifex-specific concerns are noted, this document will still apply if we change translation systems.
 
 #############
 Specification
@@ -128,7 +130,7 @@ Previous i18n implementations have sometimes used the English text as the messag
 Cross-Site Scripting Vulnerability
 ==================================
 
-Because translated strings often contain placeholders that will be filled in at render time, possibly using user input, localization is a potential opening for cross-site scripting (XSS) attacks. The react-intl functions exposed by frontend-i18n are be XSS-safe.
+Because translated strings often contain placeholders that will be filled in at render time, possibly using user input, localization is a potential opening for cross-site scripting (XSS) attacks. The react-intl functions exposed by frontend-i18n are XSS-safe.
 
 Mapping Server Codes To Messages
 ================================
@@ -163,7 +165,7 @@ We will use `react-intl <https://github.com/yahoo/react-intl>`_ to international
 Alternatives Considered
 =======================
 
-An alternative choice we considered was `i18next <https://react.i18next.com/>`_. It comes with plug-and-play functionality to determine a user's locale, babel scripts for various translation management schemes, and a lot of other supporting code. It also exposes a much cleaner interface for getting a translated message as a plain string. However, we would have had to write a custom solution for extracting translator comments, and it outputs a format that edX's translation provider, Transifex, can't work with.
+An alternative choice we considered was `i18next <https://react.i18next.com/>`_. It comes with plug-and-play functionality to determine a user's locale, babel scripts for various translation management schemes, and a lot of other supporting code. It also exposes a much cleaner interface for getting a translated message as a plain string. However, we would have had to write a custom solution for extracting translator comments, and it outputs a format that Transifex can't work with.
 
 ************************
 Reference Implementation
