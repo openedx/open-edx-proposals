@@ -252,8 +252,7 @@ All models in the OpenedX ecosystem should have:
    -  Over-indexing data could actually make the database less
          performant (slower writes/updates)
 
--  History for models involved with enrollments, or anything that may
-      have an effect on financial payments or transactions.
+-  History for models involved with enrollments, courses and course metadata, or data involving financial payments and transactions.
 
 -  History using django-simple-history
 
