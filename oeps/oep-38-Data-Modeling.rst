@@ -135,9 +135,8 @@ refine and improve their courses. The data we collect today may be used
 to gain new educational insights we have yet to realize. Decision making
 at edX should be data-driven and based on this collected data.
 
-This data is one of our most valuable assets and it should be and it
-should be a first-order concern. Save everything (disk is cheap). Fire
-lots of events. The more data we are able to collect about users,
+This data is one of our most valuable assets and it
+should be a first-order concern. Save everything (disk is cheap). The more data we are able to collect about users,
 behavior, and system state now, the more opportunities we’ll have to
 improve our decision-making in the future.
 
@@ -163,11 +162,11 @@ names clearly identifying the data that the model holds. The field names
 should make sense to most people familiar with the domain, without
 needing much clarifying documentation.
 
-Prioritize ease of analysis
+Consider the analytics user
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For every hour of engineer-time spent creating a data model, several
-thousand more are spent using the model and analyzing its data. Taking
+For every hour of engineer-time spent creating a data model. Many
+more are spent using the model and analyzing its data. Taking
 the time to consider how the data will be used, and thoughtfully design
 our data representation, can potentially save many hours during the
 analysis phase.
@@ -188,6 +187,8 @@ organization:
 Due to the potentially high cost of changing a model, it pays to get it
 as correct as possible the first time.
 
+
+
 Think about the person who will analyze this data later and the person
 who manages the system day to day. (That person could possibly be future
 you!) Try to do as much careful design up front to make your quality of
@@ -196,24 +197,13 @@ life better later.
 History is best (but events are a close second)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Accuracy is best when history about a change is captured at the database
-level when the change happens. Changes in data relating to business
-continuity should be stored historically where the change is made,
-preferably in the same system as the system of record. This allows us to
-reconstruct the data at different points with much greater reliability.
+Historical data accuracy is best when history about a change is captured at the database level. Changes in data relating to financial systems (e.g. enrollments, payments, course price changes) should be stored historically where the change is made, preferably in the same system as the system of record. This allows us to reconstruct the data at different points with much greater reliability.
 
 If, for some reason, it is not possible to create history at the time of
 entry (for example, if we expect the table to become too large or the
-writes to be too frequent), We recommend that an event be issued in its
+writes to be too frequent), it is recommended that an event be issued in its
 place.
 
-Fire events for CUD operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-We highly recommend firing events for any create, update or delete (CUD)
-operations that happen within the OpenedX ecosystem. The cost of firing
-and storing these events is low, and will allow teams in the future to
-reconstruct the state of the application at various times.
 
 Data Modeling Standards
 -----------------------
@@ -235,9 +225,13 @@ All models in the OpenedX ecosystem should have:
 
    -  Use UTC time.
 
-   -  Created date should be named: “created_date”
+   -  The preferred method for doing this in OpenedX Django applications is to inherit the "TimeStampedModel" class.
 
-   -  Updated date should be named: “modified_date”
+   -  If for some reason you can not inherit from "TimeStampedModel" use the following naming conventions:
+
+      -  Created date should be named: “created”
+
+      -  Updated date should be named: “modified”
 
 -  Use a numeric foreign key(s)
 
