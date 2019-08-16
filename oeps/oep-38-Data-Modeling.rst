@@ -308,8 +308,7 @@ Store everything
 
 -  Storage is cheap!
 
--  If you are unsure whether you should store something in the database,
-      add history, or fire an event, the answer is almost always yes
+-  If you are unsure whether you should store something in the database or add history the answer is almost always yes. Store the data and add history. It can be removed later if it is found unnecessary.
 
 -  Still not sure? The default answer is yes.
 
