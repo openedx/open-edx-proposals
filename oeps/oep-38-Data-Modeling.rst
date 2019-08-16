@@ -254,7 +254,7 @@ All models in the OpenedX ecosystem should have:
 
 -  History for models involved with enrollments, courses and course metadata, or data involving financial payments and transactions.
 
--  History using django-simple-history
+-  History using django-simple-history_. .. _django-simple-history: https://django-simple-history.readthedocs.io/en/latest/
 
    -  Should capture the ID of the user who made the change
 
