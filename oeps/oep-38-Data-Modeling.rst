@@ -227,7 +227,7 @@ All models in the OpenedX ecosystem should have:
 
    -  The preferred method for doing this in OpenedX Django applications is to inherit the "TimeStampedModel" class.
 
-   -  If for some reason you can not inherit from "TimeStampedModel" use the following naming conventions:
+   -  If for some reason you can not inherit from "TimeStampedModel use the following naming conventions:
 
       -  Created date should be named: “created”
 
@@ -235,7 +235,7 @@ All models in the OpenedX ecosystem should have:
 
 -  Use a numeric foreign key(s)
 
-   -  Data should be joined on other foreign keys
+   -  Data should be joined on primary keys
 
    -  Do not join on things such as username, email address, or other
          dimensions of data that may change over time.
