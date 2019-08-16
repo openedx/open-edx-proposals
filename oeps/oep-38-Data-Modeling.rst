@@ -235,10 +235,14 @@ All models in the OpenedX ecosystem should have:
 
 -  Use a numeric foreign key(s)
 
-   -  Data should be joined on primary keys
+   -  Data should be joined using primary keys wherever possible
+
+   -  When designing 
 
    -  Do not join on things such as username, email address, or other
-         dimensions of data that may change over time.
+         dimensions of data that may change over time
+
+   -  Do not join on PII
 
 -  The minimum number of indexes possible to make the table/queries
       performant
@@ -247,9 +251,6 @@ All models in the OpenedX ecosystem should have:
 
    -  Over-indexing data could actually make the database less
          performant (slower writes/updates)
-
-   -  You should use as many indexes as you need to make the application
-         performant and no more.
 
 -  History for models involved with enrollments, or anything that may
       have an effect on financial payments or transactions.
