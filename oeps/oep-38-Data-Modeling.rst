@@ -291,7 +291,7 @@ Deleting data:
 -  It is better to have a column to mark the record as inactive than to
       remove the data from the system using the SQL delete keyword.
 
-   -  Please note that GDPR may require the data be deleted. If a field
+   -  Please note that GDPR may require that data be deleted. If a field
          is determined to contain PII and falls under the realm of GDPR,
          That data should be deleted from the system.
 
