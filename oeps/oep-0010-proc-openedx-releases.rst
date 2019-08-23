@@ -7,7 +7,7 @@ OEP-10: Open edX Releases
 +---------------+---------------------------------------------------+
 | Title         | Open edX Releases                                 |
 +---------------+---------------------------------------------------+
-| Last Modified | 2018-08-22                                        |
+| Last Modified | 2019-08-23                                        |
 +---------------+---------------------------------------------------+
 | Author        | Ned Batchelder <ned@edx.org>                      |
 +---------------+---------------------------------------------------+
@@ -67,6 +67,9 @@ components that might be useful to discuss, of various sizes:
 - Feature: large applications have major features which are configurable, and
   should be called out explicitly if their support status is different than the
   application they are a part of.
+
+- Library: code that is named as a dependency of another application, service,
+  or library.
 
 
 Levels of support
@@ -147,6 +150,11 @@ Involving repos in the Open edX build process
 ``openedx-release`` key is an optional dictionary governing the participation
 of the repo in the Open edX release process.
 
+Repos for applications and IDAs that are part of the Open edX software need to
+have the ``openedx-release`` key.   Libraries that are part of Open edX do not
+need the key, because they will be pulled in by whatever component uses them as
+a dependency.
+
 ``openedx-release``: dictionary (optional)
 
     Possible keys:
@@ -155,12 +163,14 @@ of the repo in the Open edX release process.
         The name of the release-from branch in this repo. This is the branch
         that will be tagged when an Open edX release is made.
 
+    Obsolete keys:
+
     ``requirements``
         This key is obsolete, and can be removed.
 
     ``parent-repo``
-        This key is obsolete. Repos marked with this key should have the entire
-        ``openedx-release`` key removed.
+        This key is obsolete. It was used by libraries. Repos marked with this
+        key should have the entire ``openedx-release`` key removed.
 
 
 Installing Open edX
