@@ -7,7 +7,7 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Title         | OEP Purpose and Guidelines                                   |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2018-11-06                                                   |
+| Last-Modified | 2019-08-27                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | Calen Pennington <cale@edx.org>,                             |
 |               | Joel Barciauskas <joel@edx.org>,                             |
@@ -156,21 +156,20 @@ The pull request title should be of the form "OEP-XXXX: <OEP title>", where
 Step 3. Review with Arbiter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once an OEP has been accepted by an Arbiter, establish begin and end review
-dates with your Arbiter, making it officially "Under Review". Once this
-state is achieved, we recommend announcing the OEP to the community in the
-following channels:
+Once an Arbiter has been assigned to your OEP, establish begin and end review
+dates with your Arbiter, making it officially "Under Review". Once this state
+is achieved, announce the OEP to the community in the following channels:
 
-* `edx-code`_ mailing list, with "OEP", its number and its title in the 
-  subject line.
-* `open-edx-proposals Slack channel`_.
+* Create a topic in the `Announcements - Architecture category`_ in Discourse,
+  with "OEP", its number and its title in the subject line.
+* `#open-edx-proposals Slack channel`_.
 
-The rest of the Open edX community is given the opportunity to comment on the OEP.
+The Open edX community is given the opportunity to comment on the OEP.
 The Arbiter serves to keep the discussion on track and to bring the review
 process to a final resolution.
 
+.. _Announcements - Architecture category: https://discuss.openedx.org/c/announcements/architecture
 .. _open-edx-proposals Slack channel: https://openedx.slack.com/messages/C1L370YTZ/details/
-.. _edx-code: https://groups.google.com/forum/#!forum/edx-code
 
 OEP Status
 ----------
@@ -442,6 +441,12 @@ an oep-XXXX/ directory, where "XXXX" is the OEP number.
 Change History
 ==============
 
+2019-08-27
+----------
+
+* Changed announcement process from email to Discourse.
+* Minor clarifications to wording.
+
 2016-08-24
 ----------
 
@@ -482,6 +487,7 @@ Change History
 
 2018-05-05
 ----------
+
 * Further simplify process
 
   * Reduce steps in submission process
@@ -496,4 +502,5 @@ Change History
 
 2018-11-06
 ----------
+
 * Added a new "Provisional" status.
