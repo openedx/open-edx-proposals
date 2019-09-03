@@ -169,7 +169,7 @@ The Arbiter serves to keep the discussion on track and to bring the review
 process to a final resolution.
 
 .. _Announcements - Architecture category: https://discuss.openedx.org/c/announcements/architecture
-.. _open-edx-proposals Slack channel: https://openedx.slack.com/messages/C1L370YTZ/details/
+.. _#open-edx-proposals Slack channel: https://openedx.slack.com/messages/C1L370YTZ/details/
 
 OEP Status
 ----------
