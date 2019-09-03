@@ -68,14 +68,14 @@ Transfer to New Owner if Interest
 First, if the repository is public, and a part of Open edX releases, follow
 these steps to see if anyone would like to take ownership of it:
 
-1. Send an email to edx-code@googlegroups.com announcing that the repository
+1. Post a notice to `Open edX Deprecation Announcements`_ announcing that the repository
    will be archived, and inquiring if anyone would like to take ownership of
    the repo. If there are no responses after 2 work days, skip to `Archive
    Steps`_.
 
 2. If someone does wish to take ownership of the repository, email the internal
    edX developers mailing list to see if there are any objections. If there are
-   no objections after 2 work days, post to edx-code@googlegroups.com that the
+   no objections after 2 work days, post to `Open edX Deprecation Announcements`_ that the
    transfer will take place.
 
 3. Create an IT help ticket for the repository to be transferred to the new
@@ -84,6 +84,8 @@ these steps to see if anyone would like to take ownership of it:
 4. Once the transfer has occurred, create a fork of the transferred repository
    into the `edx organization`_ and follow the `Archive Steps`_ below for the
    forked repo.
+
+.. _Open edX Deprecation Announcements: https://discuss.openedx.org/c/announcements/deprecation
 
 
 Archive Steps
