@@ -11,8 +11,9 @@ OEP-21: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>,                             |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
+|                 | Diana Huang <dkh@edx.org>                              |
 +-----------------+--------------------------------------------------------+
-| Arbiter         | Diana Huang <dhuang@edx.org>                           |
+| Arbiter         | Matt Tuchfarber <mtuchfarber@edx.org>                  |
 +-----------------+--------------------------------------------------------+
 | Status          | Accepted                                               |
 +-----------------+--------------------------------------------------------+
@@ -206,13 +207,10 @@ Announce
 Announce your proposal to deprecate and remove to the following communication
 channels.
 
-To edx-code
-^^^^^^^^^^^
+To the Open edX Discourse
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Send an email to edx-code_ using the following template, bcc-ing your own
-engineering organization (`edx-code example`_):
-
-    To: edx-code@googlegroups.com
+Post a message to `Open edX Discourse Deprecation Announcements`_, using the following template:
 
     Subject: Deprecation/Removal: <*Technology Name*> <*DEPR-Number*>
 
@@ -229,8 +227,8 @@ engineering organization (`edx-code example`_):
         Thanks,
         <*Your name*>
 
-.. _edx-code: https://groups.google.com/forum/#!forum/edx-code
-.. _edx-code example: https://groups.google.com/d/msg/edx-code/779kAKas2Yw/jU7vGHu8CgAJ
+
+.. _Open edX Discourse Deprecation Announcements: https://discuss.openedx.org/c/announcements/deprecation
 
 To openedx.slack.com
 ^^^^^^^^^^^^^^^^^^^^
