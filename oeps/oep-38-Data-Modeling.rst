@@ -40,9 +40,7 @@ These data modeling guidelines are broken down into three sections:
 -  Best Practices
 
 Guiding Principles - This section is intended to give the reader a
-framework to think about data modeling at edX. While no specific
-instructions are given in this section, it should act as a framework to
-help the reader think about data modeling on the whole at edX.
+framework to think about data modeling at edX.
 
 Data modeling standards - The core guidelines that everyone must adhere
 to when creating new data models at edX. These standards are designed to
@@ -130,10 +128,10 @@ Data is an asset
 
 edX uses data to decide which people should receive marketing emails,
 who passes or fails a course, or how much to pay our partners. Our
-partners use our data to target users who fit certain criteria and to
-refine and improve their courses. The data we collect today may be used
-to gain new educational insights we have yet to realize. Decision making
-at edX should be data-driven and based on this collected data.
+partners use our data to target users and to
+refine and improve their courses. The data we collect today is being
+used to advance academic research about online learning and pedagogy.
+Decision making at edX should be data-driven and based on this collected data.
 
 This data is one of our most valuable assets and it
 should be a first-order concern. Save everything (disk is cheap). The more data we are able to collect about users,
@@ -212,22 +210,20 @@ All models in the OpenedX ecosystem should have:
 
 -  A Primary Key
 
-   -  Should be named: “id”
+   -  It is recommended to use use :code:`BigAutoField`_.
+.. _BigAutoField: https://docs.djangoproject.com/en/2.2/ref/models/fields/#bigautofield
 
-   -  Use numeric based identifiers
-
-   -  A key size large enough so the keys will not run out for a very
-         long time.
-
-   -  Do not use composite based primary keys. Use a primary key column
+   -  Do not use composite based primary keys. Use a primary key column.
 
 -  Updated and created timestamps
 
-   -  Use UTC time.
+   -  The preferred method for doing this in OpenedX Django applications is to inherit the :code:`TimeStampedModel`_. class.
+.. _TimeStampedModel: https://django-model-utils.readthedocs.io/en/latest/models.html#timestampedmodel
 
-   -  The preferred method for doing this in OpenedX Django applications is to inherit the "TimeStampedModel" class.
+   - Time should be stored in UTC time by setting :code:`USE_TZ=True`_. in your python config.
+.. _USE_TZ=True: https://docs.djangoproject.com/en/2.2/topics/i18n/timezones/#overview
 
-   -  If for some reason you can not inherit from "TimeStampedModel use the following naming conventions:
+   -  If for some reason you can not inherit from :code:`TimeStampedModel`_. use the following naming conventions:
 
       -  Created date should be named: “created”
 
@@ -237,20 +233,17 @@ All models in the OpenedX ecosystem should have:
 
    -  Data should be joined using primary keys wherever possible
 
-   -  When designing 
-
-   -  Do not join on things such as username, email address, or other
-         dimensions of data that may change over time
+   -  Do not join on things such as username, email address, or other dimensions of data that may change over time
 
    -  Do not join on PII
 
--  The minimum number of indexes possible to make the table/queries
-      performant
+   - Joining between IDAs should be done by using an Universally unique identifier (UUID)
+
+-  The minimum number of indexes possible to make the table/queries performant
 
    -  Indexes cost space and have their own set of performance concerns.
 
-   -  Over-indexing data could actually make the database less
-         performant (slower writes/updates)
+   -  Over-indexing data could actually make the database less performant (slower writes/updates)
 
 -  History for models involved with enrollments, courses and course metadata, or data involving financial payments and transactions.
 
@@ -293,7 +286,12 @@ Deleting data:
 
    -  Please note that GDPR may require that data be deleted. If a field
          is determined to contain PII and falls under the realm of GDPR,
-         That data should be deleted from the system.
+         That data should be deleted of obfuscated from the system.
+
+Preserving uniqueness:
+
+   - If a model needs to preserve uniquness between many fields use :code:`unique_together`_.
+.. _unique_together: https://docs.djangoproject.com/en/2.2/ref/models/options/#unique-together
 
 Don’t trap the data
 
