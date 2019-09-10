@@ -258,17 +258,20 @@ All models in the OpenedX ecosystem should have:
 
    -  Date & time of the change
 
-   -  ID of the user who initiated the change
+   -  The foreign key of of the user who initiated the change
 
 -  The correct data type for a column.
 
-   -  Don’t use a long when an Int or bool would do.
+   -  Don’t use a :code:`IntegerField` when a :code:`BooleanField` would do.
 
-   -  Use Integers for your keys
+   -  Use :code:`BigIntegerField`_. for your foreign keys
 
-   -  Don’t store an int as varchar
+   -  Don’t store an Integer field as :code:`CharField`_..
+.. _CharField: https://docs.djangoproject.com/en/2.2/ref/models/fields/#charfield
 
--  Don’t mix types in a column
+-  Each column in a table should only store a single fact or dimension
+
+   - If a column could be a mix of integer data and character data it is best to store these items as 2 different fields in the database
 
 -  Annotations
 
@@ -276,17 +279,29 @@ All models in the OpenedX ecosystem should have:
       using `code
       annotations <https://github.com/edx/code-annotations>`__\  following \ `OEP-30 <https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0030-arch-pii-markup-and-auditing.rst>`__
 
+- Sane Default values
+
+   - A model should have default values that make sense for the application
+
+   - For example if you are adding a boolean to flag that a learner has not yet activated their account, the default value
+     should be set to False, not None.
+
 Best Practices 
 ~~~~~~~~~~~~~~~
 
 Deleting data:
 
 -  It is better to have a column to mark the record as inactive than to
-      remove the data from the system using the SQL delete keyword.
+      remove the data from the system using the SQL delete keyword. These models should use Django's
+      :code:`SoftDeletableModel`_.
+.. _SoftDeletableModel: https://django-model-utils.readthedocs.io/en/latest/models.html#softdeletablemodel
+
 
    -  Please note that GDPR may require that data be deleted. If a field
          is determined to contain PII and falls under the realm of GDPR,
-         That data should be deleted of obfuscated from the system.
+         That data should be deleted of obfuscated from the system. `For more information about GDPR and how to delete user data from edx please refer to this documentation`_.
+.. _For more information about GDPR and how to delete user data from edx please refer to this documentation:_For more information about GDPR and how to delete user data from edx please refer to this documentation: https://openedx.atlassian.net/wiki/spaces/PLAT/pages/930021733/User+Retirement+Tutorial+for+Developers
+
 
 Preserving uniqueness:
 
@@ -298,9 +313,10 @@ Don’t trap the data
 -  Each piece of information should have its own column. Avoid storing
       data in blob fields or as JSON in the database.
 
+- Another example is a concatenated string with a seperator. It is best to treat these data items in 2 distinct fields.
+
 -  Don’t store encoded (pickle, json, other) objects in the database! If
-      you need to run the python environment to decode the data, the
-      data is worthless.
+      you need to run the python environment to decode the data, analyists who use SQL will have a difficult time querying nd decoding this data.
 
 Store everything
 
@@ -310,8 +326,7 @@ Store everything
 
 -  Still not sure? The default answer is yes.
 
-Views should access models via methods on those models, instead of
-querying managers directly.
+CRUD operations should access models via methods on models (where they exist), instead of querying managers directly.
 
 -  For example, prefer creating something like
       CourseEnrollment.is_enrolled(...) rather than having views check
@@ -326,19 +341,19 @@ querying managers directly.
 
 Enforce logical constraints at the database layer.
 
--  If your code expects a 1:1 relationship, make that a unique
-      constraint in the database instead of trying to just enforce it in
-      Python.
+-  Don’t allow impossible states to be represented in the database.
 
--  Python will not save you from race conditions. Database constraints
-      will.
+-  If your code expects a 1:1 relationship, use Django's :code:`Unique`_. instead of trying to enforce the constraint in
+      Python.
+.. _Unique: https://docs.djangoproject.com/en/2.2/ref/models/fields/#unique
+
+-  Python will not save you from race conditions. Database constraints will.
 
 -  For example, an enrollment should have a unique constraint on
       (course_id, user_id), since a given user should only have one
-      enrollment per course.
+      enrollment per course. In this case you should use Django's :code:`unique_together`_
 
--  This is a smaller version of “don’t allow impossible states to be
-      represented in the database”.
+
 
 Developer Responsibility
 
