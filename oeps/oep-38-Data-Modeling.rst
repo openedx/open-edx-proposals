@@ -193,96 +193,95 @@ should adhere. When creating new applications or models please ensure the models
 Use a numeric primary key
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   -  It is recommended to use use :code:`BigAutoField`_.
+-  It is recommended to use use :code:`BigAutoField`_.
 .. _BigAutoField: https://docs.djangoproject.com/en/2.2/ref/models/fields/#bigautofield
 
-   -  Do not use composite based primary keys. Use a primary key column.
+-  Do not use composite based primary keys. Use a primary key column.
 
 Have updated and created timestamps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   -  The preferred method for doing this in OpenedX Django applications is to inherit the :code:`TimeStampedModel`_. class.
+-  The preferred method for doing this in OpenedX Django applications is to inherit the :code:`TimeStampedModel`_. class.
 .. _TimeStampedModel: https://django-model-utils.readthedocs.io/en/latest/models.html#timestampedmodel
 
-   - Time should be stored in UTC time by setting :code:`USE_TZ=True`_. in your python config.
+- Time should be stored in UTC time by setting :code:`USE_TZ=True`_. in your python config.
 .. _USE_TZ=True: https://docs.djangoproject.com/en/2.2/topics/i18n/timezones/#overview
 
-   -  If for some reason you can not inherit from :code:`TimeStampedModel`_. use the following naming conventions:
+-  If for some reason you can not inherit from :code:`TimeStampedModel`_. use the following naming conventions:
 
-      -  Created date should be named: “created”
+   -  Created date should be named: “created”
 
-      -  Updated date should be named: “modified”
+   -  Updated date should be named: “modified”
 
 Use numeric foreign key(s)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   -  Data should be joined using primary keys wherever possible
+-  Data should be joined using primary keys wherever possible
 
-   -  Do not join on things such as username, email address, or other dimensions of data that may change over time
+-  Do not join on things such as username, email address, or other dimensions of data that may change over time
 
-   -  Do not join on PII
+-  Do not join on PII
 
-   - Joining between IDAs should be done by using an Universally unique identifier (UUID)
+- Joining between IDAs should be done by using an Universally unique identifier (UUID)
 
-   - In Django use `Attributes for fields with relations`_. to identify and link models with relationships.
-
+- In Django use `Attributes for fields with relations`_. to identify and link models with relationships.
 .. __Attributes for fields with relations: https://docs.djangoproject.com/en/2.2/ref/models/fields/#module-django.db.models.fields.related
 
 History for models involved with enrollments, courses and course metadata, or data involving financial payments and transactions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   -  History using django-simple-history_. .. _django-simple-history: https://django-simple-history.readthedocs.io/en/latest/
+-  History using django-simple-history_. .. _django-simple-history: https://django-simple-history.readthedocs.io/en/latest/
 
-   -  Remember to `backfill history`_. for existing models.
+-  Remember to `backfill history`_. for existing models.
 
 .. _backfill history: https://django-simple-history.readthedocs.io/en/latest/quick_start.html#existing-projects
 
-   -  Where Django simple history is not an option, the following data
-      should be captured:
+-  Where Django simple history is not an option, the following data should be captured:
 
-      -  Fields that were changed
+   -  Fields that were changed
 
-      -  Date & time of the change
+   -  Date & time of the change
 
-      -  The foreign key of of the user who initiated the change
+   -  The foreign key of of the user who initiated the change
 
 Use the correct data type for a column
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   -  Don’t use a :code:`IntegerField` when a :code:`BooleanField` would do.
+-  Don’t use a :code:`IntegerField` when a :code:`BooleanField` would do.
 
-   -  Use :code:`BigIntegerField`_. for your foreign keys
+-  Use :code:`BigIntegerField`_. for your foreign keys
 
-   -  Don’t store an Integer field as :code:`CharField`_..
+-  Don’t store an Integer field as :code:`CharField`_..
 .. _CharField: https://docs.djangoproject.com/en/2.2/ref/models/fields/#charfield
 
 Each column in a table should only store a single fact or dimension
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   - If a column could be a mix of integer data and character data it is best to store these items as 2 different fields in the database
+- If a column could be a mix of integer data and character data it is best to store these items as 2 different fields in the database
 
 Models should be Annotated for PII
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   -  All models in the OpenedX ecosystem should be tagged for PII
+-  All models in the OpenedX ecosystem should be tagged for PII
       using `code
       annotations <https://github.com/edx/code-annotations>`__\  following \ `OEP-30 <https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0030-arch-pii-markup-and-auditing.rst>`__
 
 Have sane default values
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-   - A model should have default values that make sense for the application
+- A model should have default values that make sense for the application
 
-   - For example if you are adding a boolean to flag that a learner has not yet activated their account, the default value
-     should be set to False, not None.
+- For example if you are adding a boolean to flag that a learner has not yet activated their account, the default value should be set to False, not None.
 
 The database layer should preserving uniqueness
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   - If a model needs to preserve uniquness between many fields use :code:`unique_together`_.
+- If a model needs to preserve uniquness between many fields use :code:`unique_together`_.
 .. _unique_together: https://docs.djangoproject.com/en/2.2/ref/models/options/#unique-together
 
-Best Practices 
+
+
+Best Practices
 --------------
 These practices are designed to help teams create rich and efficient data models within the OpenedX ecosystem.
 They are notstandards but guidelines to help teams think about how they are storing data.
