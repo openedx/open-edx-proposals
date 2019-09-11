@@ -262,9 +262,10 @@ Each column in a table should only store a single fact or dimension
 Models should be Annotated for PII
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  All models in the OpenedX ecosystem should be tagged for PII
-      using `code
-      annotations <https://github.com/edx/code-annotations>`__\  following \ `OEP-30 <https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0030-arch-pii-markup-and-auditing.rst>`__
+-  All models in the OpenedX ecosystem should be tagged for PII using `code annotations`_. by following OEP-30_.
+.. _code annotations: https://github.com/edx/code-annotations>
+.. _OEP-30: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0030-arch-pii-markup-and-auditing.rst
+
 
 Have sane default values
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -298,7 +299,7 @@ Deleting data
 -  Please note that GDPR may require that data be deleted. If a field
          is determined to contain PII and falls under the realm of GDPR,
          That data should be deleted of obfuscated from the system. `For more information about GDPR and how to delete user data from edx please refer to this documentation`_.
-.. _For more information about GDPR and how to delete user data from edx please refer to this documentation:_For more information about GDPR and how to delete user data from edx please refer to this documentation: https://openedx.atlassian.net/wiki/spaces/PLAT/pages/930021733/User+Retirement+Tutorial+for+Developers
+.. _For more information about GDPR and how to delete user data from edx please refer to this documentation: https://openedx.atlassian.net/wiki/spaces/PLAT/pages/930021733/User+Retirement+Tutorial+for+Developers
 
 
 Don’t trap the data
