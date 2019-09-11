@@ -31,29 +31,10 @@ In order to obtain the highest possible value from data collected in the
 OpenedX ecosystem, this document attempts to provide guiding thoughts and
 principles on data modeling.
 
-These data modeling guidelines are broken down into three sections:
+.. contents::
 
--  Guiding Principles
-
--  Data Modeling Standards
-
--  Best Practices
-
-Guiding Principles - This section is intended to give the reader a
-framework to think about data modeling at edX.
-
-Data modeling standards - The core guidelines that everyone must adhere
-to when creating new data models at edX. These standards are designed to
-ensure edX can gain the highest value and insights from the data. They
-should be applied as the basic standard for all applications in the
-OpenedX ecosystem.
-
-Data Best Practices - These practices are designed to help teams create
-rich and efficient data models within the OpenedX ecosystem. They are not
-standards but guidelines to help teams think about how they are storing
-data.
-
-This OEP explicitly does not cover:
+What this OEP explicitly does not cover
+=======================================
 
 -  Data warehousing
 
@@ -65,39 +46,39 @@ This OEP explicitly does not cover:
 Definitions
 ===========
 
-BI - Business intelligence. Technologies, applications and practices for
+**BI** - Business intelligence. Technologies, applications and practices for
 the collection, integration, analysis, and presentation of business
 information. The purpose of Business Intelligence is to support better
 business decision making.
 
-Composite Key - in the context of relational databases, a composite key
+**Composite Key** - in the context of relational databases, a composite key
 is a combination of two or more columns in a table that can be used to
 uniquely identify each row in the table. Uniqueness is only guaranteed
 when the columns are combined; when taken individually, the columns do
 not guarantee uniqueness.
 
-CUD - Create, Update, Delete. These are some of the actions that may
+**CUD** - Create, Update, Delete. These are some of the actions that may
 happen to data in a database system.
 
-Data Best Practices - These practices are designed to help teams create
+**Data Best Practices** - These practices are designed to help teams create
 rich and efficient data models within the OpenedX ecosystem. They are not
 standards but guidelines to help teams think about how to store data.
 
-Data Dimension - A Data Dimension is a set of data attributes pertaining
+**Data Dimension** - A Data Dimension is a set of data attributes pertaining
 to something of interest to a business. Dimensions are things like
 "customers", "products", "stores" and "time". For users of Data
 Warehouses, data dimensions are entry points to numeric facts (e.g.
 sale, profit, revenue) that a business wishes to monitor.
 
-Data Modeling - A process used to define and analyze data requirements
+**Data Modeling** - A process used to define and analyze data requirements
 needed to support the business processes within the scope of
 corresponding information systems in organizations.
 
-Data Modeling Standards - The most basic and standard design principles
+**Data Modeling Standards** - The most basic and standard design principles
 for data modeling. These standards must be adhered to when creating new
 models or updating existing models in the OpenedX ecosystem.
 
-IDA - “Independently Deployed Application”. Similar to a microservice or
+**IDA** - “Independently Deployed Application”. Similar to a microservice or
 stand alone application.
 
 
@@ -122,6 +103,7 @@ Specification
 
 Guiding Principles
 ------------------
+This section is intended to give the reader a framework to think about data modeling at edX.
 
 Data is an asset
 ~~~~~~~~~~~~~~~~
@@ -166,14 +148,14 @@ Consider the analytics user
 For every hour of engineer-time spent creating a data model. Many
 more are spent using the model and analyzing its data. Taking
 the time to consider how the data will be used, and thoughtfully design
-our data representation, can potentially save many hours during the
+a data representation, can potentially save many hours during the
 analysis phase.
 
 This is especially true since changing data models, once they are in
 use, can be time-consuming. A data model change in a core application
 can affect many other systems. Small changes to a data model could
 possibly cause hours or days of work for different teams throughout the
-organization:
+organization. An example of the types of work that may occur while changing a model:
 
 -  Data engineering and Analytics to update their workflows
 
@@ -184,8 +166,6 @@ organization:
 
 Due to the potentially high cost of changing a model, it pays to get it
 as correct as possible the first time.
-
-
 
 Think about the person who will analyze this data later and the person
 who manages the system day to day. (That person could possibly be future
@@ -206,16 +186,20 @@ place.
 Data Modeling Standards
 -----------------------
 
-All models in the OpenedX ecosystem should have:
+The standards below are designed to ensure edX can gain the highest value and insights from the data.
+The application of these standards is the most basic level of support that all application in the OpenedX ecosystem
+should adhere. When creating new applications or models please ensure the models being created comform to the following.
 
--  A Primary Key
+Use a numeric primary key
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
    -  It is recommended to use use :code:`BigAutoField`_.
 .. _BigAutoField: https://docs.djangoproject.com/en/2.2/ref/models/fields/#bigautofield
 
    -  Do not use composite based primary keys. Use a primary key column.
 
--  Updated and created timestamps
+Have updated and created timestamps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    -  The preferred method for doing this in OpenedX Django applications is to inherit the :code:`TimeStampedModel`_. class.
 .. _TimeStampedModel: https://django-model-utils.readthedocs.io/en/latest/models.html#timestampedmodel
@@ -229,7 +213,8 @@ All models in the OpenedX ecosystem should have:
 
       -  Updated date should be named: “modified”
 
--  Use a numeric foreign key(s)
+Use numeric foreign key(s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    -  Data should be joined using primary keys wherever possible
 
@@ -239,28 +224,30 @@ All models in the OpenedX ecosystem should have:
 
    - Joining between IDAs should be done by using an Universally unique identifier (UUID)
 
--  The minimum number of indexes possible to make the table/queries performant
+   - In Django use `Attributes for fields with relations`_. to identify and link models with relationships.
 
-   -  Indexes cost space and have their own set of performance concerns.
+.. __Attributes for fields with relations: https://docs.djangoproject.com/en/2.2/ref/models/fields/#module-django.db.models.fields.related
 
-   -  Over-indexing data could actually make the database less performant (slower writes/updates)
+History for models involved with enrollments, courses and course metadata, or data involving financial payments and transactions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  History for models involved with enrollments, courses and course metadata, or data involving financial payments and transactions.
+   -  History using django-simple-history_. .. _django-simple-history: https://django-simple-history.readthedocs.io/en/latest/
 
--  History using django-simple-history_. .. _django-simple-history: https://django-simple-history.readthedocs.io/en/latest/
+   -  Remember to `backfill history`_. for existing models.
 
-   -  Should capture the ID of the user who made the change
+.. _backfill history: https://django-simple-history.readthedocs.io/en/latest/quick_start.html#existing-projects
 
--  Where Django simple history is not an option, the following data
+   -  Where Django simple history is not an option, the following data
       should be captured:
 
-   -  Fields that were changed
+      -  Fields that were changed
 
-   -  Date & time of the change
+      -  Date & time of the change
 
-   -  The foreign key of of the user who initiated the change
+      -  The foreign key of of the user who initiated the change
 
--  The correct data type for a column.
+Use the correct data type for a column
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    -  Don’t use a :code:`IntegerField` when a :code:`BooleanField` would do.
 
@@ -269,27 +256,39 @@ All models in the OpenedX ecosystem should have:
    -  Don’t store an Integer field as :code:`CharField`_..
 .. _CharField: https://docs.djangoproject.com/en/2.2/ref/models/fields/#charfield
 
--  Each column in a table should only store a single fact or dimension
+Each column in a table should only store a single fact or dimension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    - If a column could be a mix of integer data and character data it is best to store these items as 2 different fields in the database
 
--  Annotations
+Models should be Annotated for PII
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    -  All models in the OpenedX ecosystem should be tagged for PII
       using `code
       annotations <https://github.com/edx/code-annotations>`__\  following \ `OEP-30 <https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0030-arch-pii-markup-and-auditing.rst>`__
 
-- Sane Default values
+Have sane default values
+~~~~~~~~~~~~~~~~~~~~~~~~
 
    - A model should have default values that make sense for the application
 
    - For example if you are adding a boolean to flag that a learner has not yet activated their account, the default value
      should be set to False, not None.
 
-Best Practices 
-~~~~~~~~~~~~~~~
+The database layer should preserving uniqueness
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Deleting data:
+   - If a model needs to preserve uniquness between many fields use :code:`unique_together`_.
+.. _unique_together: https://docs.djangoproject.com/en/2.2/ref/models/options/#unique-together
+
+Best Practices 
+--------------
+These practices are designed to help teams create rich and efficient data models within the OpenedX ecosystem.
+They are notstandards but guidelines to help teams think about how they are storing data.
+
+Deleting data
+~~~~~~~~~~~~~
 
 -  It is better to have a column to mark the record as inactive than to
       remove the data from the system using the SQL delete keyword. These models should use Django's
@@ -297,18 +296,14 @@ Deleting data:
 .. _SoftDeletableModel: https://django-model-utils.readthedocs.io/en/latest/models.html#softdeletablemodel
 
 
-   -  Please note that GDPR may require that data be deleted. If a field
+-  Please note that GDPR may require that data be deleted. If a field
          is determined to contain PII and falls under the realm of GDPR,
          That data should be deleted of obfuscated from the system. `For more information about GDPR and how to delete user data from edx please refer to this documentation`_.
 .. _For more information about GDPR and how to delete user data from edx please refer to this documentation:_For more information about GDPR and how to delete user data from edx please refer to this documentation: https://openedx.atlassian.net/wiki/spaces/PLAT/pages/930021733/User+Retirement+Tutorial+for+Developers
 
 
-Preserving uniqueness:
-
-   - If a model needs to preserve uniquness between many fields use :code:`unique_together`_.
-.. _unique_together: https://docs.djangoproject.com/en/2.2/ref/models/options/#unique-together
-
 Don’t trap the data
+~~~~~~~~~~~~~~~~~~~
 
 -  Each piece of information should have its own column. Avoid storing
       data in blob fields or as JSON in the database.
@@ -319,6 +314,7 @@ Don’t trap the data
       you need to run the python environment to decode the data, analyists who use SQL will have a difficult time querying nd decoding this data.
 
 Store everything
+~~~~~~~~~~~~~~~~
 
 -  Storage is cheap!
 
@@ -326,7 +322,10 @@ Store everything
 
 -  Still not sure? The default answer is yes.
 
-CRUD operations should access models via methods on models (where they exist), instead of querying managers directly.
+Use methods on models to access data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- CRUD operations should access models via methods on models (where they exist), instead of querying managers directly.
 
 -  For example, prefer creating something like
       CourseEnrollment.is_enrolled(...) rather than having views check
@@ -339,7 +338,8 @@ CRUD operations should access models via methods on models (where they exist), i
 -  This also reduces the likelihood that people will query models in a
       non-performant way (e.g. sorting by an unindexed field).
 
-Enforce logical constraints at the database layer.
+Enforce logical constraints at the database layer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Don’t allow impossible states to be represented in the database.
 
@@ -353,30 +353,35 @@ Enforce logical constraints at the database layer.
       (course_id, user_id), since a given user should only have one
       enrollment per course. In this case you should use Django's :code:`unique_together`_
 
+Keep indexes to a minimum
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Create indexes only on the fields necessary to make queries performant
+
+-  Keep in mind that indexes cost space and have their own set of performance concerns.
+
+-  Over-indexing data could actually make the database less performant (slower writes/updates)
+
 
 
 Developer Responsibility
-
-------------------------
+========================
 
 It is the responsibility of the developer to adhere to all of the
 standards in the Data Modeling Standards section of this document.
 
 Code Reviewer Responsibility
-
-----------------------------
+============================
 
 The code reviewer is responsible for ensuring the standards set forth in
 the Data Modeling Standards section of this document are met.
 
 Responsibility for Third-party Service Integrations
-
----------------------------------------------------
+===================================================
 
 Not sure… Adhere to the same standards.
 
 Backward Compatibility
-
 ======================
 
 Data models that are not within the standards of this document should be
