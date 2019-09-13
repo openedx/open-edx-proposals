@@ -213,10 +213,12 @@ Have updated and created timestamps
 
    -  Updated date should be named: “modified”
 
-Use numeric foreign key(s)
+Foreign keys
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Data should be joined using primary keys wherever possible
+
+-  Foreign keys should use a naming convention of :code:`<object_name>_id` where object name is the name of the table of the foreign key relationship.
 
 -  Do not join on things such as username, email address, or other dimensions of data that may change over time
 
