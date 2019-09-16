@@ -7,7 +7,7 @@ OEP-2: Repository Metadata
 +---------------+-------------------------------------------+
 | Title         | Repository Metadata                       |
 +---------------+-------------------------------------------+
-| Last-Modified | 2019-02-11                                |
+| Last-Modified | 2019-08-23                                |
 +---------------+-------------------------------------------+
 | Author        | Calen Pennington <cale@edx.org>           |
 |               | Feanil Patel <feanil@edx.org>             |
@@ -85,8 +85,11 @@ following fields:
 ``track-pulls``: obsolete
     This key is obsolete, please remove if found.
 
-``openedx-release``: defined by :doc:`OEP-10 <oep-0010>`.
-    See :doc:`OEP-10 <oep-0010>` for details.
+``openedx-release``: defined by :doc:`OEP-10 <oep-0010-proc-openedx-releases>`.
+    Define this key if your repo is an application or IDA that is part of
+    Open edX releases.  Omit this key if your repo is a library, or is not part
+    of Open edX releases.  See :doc:`OEP-10 <oep-0010-proc-openedx-releases>`
+    for details.
 
 ``archived``: boolean (optional)
     If ``True``, this specifies that this repository is archived and no longer
