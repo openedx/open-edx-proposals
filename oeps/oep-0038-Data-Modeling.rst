@@ -7,19 +7,19 @@ OEP-38:  Data Modeling Best Practices
 +---------------+------------------------------------------------------------+
 | Title         | Data Modeling Best Practices                               |
 +---------------+------------------------------------------------------------+
-| Last Modified | 2019-09-11                                                 |
+| Last Modified | 2019-09-19                                                 |
 +---------------+------------------------------------------------------------+
 | Author        | Brian Beggs <bbeggs@edx.org>                               |
 +---------------+------------------------------------------------------------+
 | Arbiter       | Albemarle                                                  |
 +---------------+------------------------------------------------------------+
-| Status        | Provisional                                                |
+| Status        | Under Review                                               |
 +---------------+------------------------------------------------------------+
 | Type          | Best Practices                                             |
 +---------------+------------------------------------------------------------+
 | Created       | 2019-05-01                                                 |
 +---------------+------------------------------------------------------------+
-| Review Period | 2019-08-01 - 2019/08/16                                    |
+| Review Period | 2019-08-01 - 2019/10/01                                    |
 +---------------+------------------------------------------------------------+
 | Resolution    | 'Original pull request'                                    |       
 +---------------+------------------------------------------------------------+
@@ -290,6 +290,14 @@ Best Practices
 --------------
 These practices are designed to help teams create rich and efficient data models within the OpenedX ecosystem.
 They are not standards but guidelines to help teams think about how they are storing data.
+
+Columns should store only exactly what the name describes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- The name of a column in a table should accurately describe the data in that table.
+
+- If a column is named course_id it should only store the course_id. Not the course_key, not a numeric value, not a timestamp. Just the course_id. Conversely if a column is named course_run_key it should store the course run key, not the course_id.
+
 
 Deleting data
 ~~~~~~~~~~~~~
