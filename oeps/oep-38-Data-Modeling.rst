@@ -60,6 +60,8 @@ not guarantee uniqueness.
 **CUD** - Create, Update, Delete. These are some of the actions that may
 happen to data in a database system.
 
+**CRUD** - Create, Read, Update, Delete. Same as CUD but with the *Read* operation added.
+
 **Data Best Practices** - These practices are designed to help teams create
 rich and efficient data models within the OpenedX ecosystem. They are not
 standards but guidelines to help teams think about how to store data.
@@ -78,7 +80,7 @@ corresponding information systems in organizations.
 for data modeling. These standards must be adhered to when creating new
 models or updating existing models in the OpenedX ecosystem.
 
-**IDA** - “Independently Deployed Application”. Similar to a microservice or
+**IDA** - Independently Deployed Application. Similar to a microservice or
 stand alone application.
 
 
@@ -187,7 +189,7 @@ Data Modeling Standards
 -----------------------
 
 The standards below are designed to ensure edX can gain the highest value and insights from the data.
-The application of these standards is the most basic level of support that all application in the OpenedX ecosystem
+The application of these standards is the most basic level of support to which all applications in the OpenedX ecosystem
 should adhere. When creating new applications or models please ensure the models being created comform to the following.
 
 Use a numeric primary key
@@ -224,7 +226,7 @@ Foreign keys
 
 -  Do not join on PII
 
-- Joining between IDAs should be done by using an Universally unique identifier (UUID)
+- Joining between IDAs should be done by using a universally unique identifier (UUID)
 
 - In Django use `Attributes for fields with relations`_. to identify and link models with relationships.
 .. __Attributes for fields with relations: https://docs.djangoproject.com/en/2.2/ref/models/fields/#module-django.db.models.fields.related
@@ -279,7 +281,7 @@ Have sane default values
 The database layer should preserving uniqueness
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- If a model needs to preserve uniquness between many fields use :code:`unique_together`_.
+- If a model needs to preserve uniqueness between many fields use :code:`unique_together`_.
 .. _unique_together: https://docs.djangoproject.com/en/2.2/ref/models/options/#unique-together
 
 
@@ -287,7 +289,7 @@ The database layer should preserving uniqueness
 Best Practices
 --------------
 These practices are designed to help teams create rich and efficient data models within the OpenedX ecosystem.
-They are notstandards but guidelines to help teams think about how they are storing data.
+They are not standards but guidelines to help teams think about how they are storing data.
 
 Deleting data
 ~~~~~~~~~~~~~
@@ -300,7 +302,7 @@ Deleting data
 
 -  Please note that GDPR may require that data be deleted. If a field
          is determined to contain PII and falls under the realm of GDPR,
-         That data should be deleted of obfuscated from the system. `For more information about GDPR and how to delete user data from edx please refer to this documentation`_.
+         That data should be deleted from the system, or obfuscated from the system. `For more information about GDPR and how to delete user data from edx please refer to this documentation`_.
 .. _For more information about GDPR and how to delete user data from edx please refer to this documentation: https://openedx.atlassian.net/wiki/spaces/PLAT/pages/930021733/User+Retirement+Tutorial+for+Developers
 
 
@@ -310,10 +312,10 @@ Don’t trap the data
 -  Each piece of information should have its own column. Avoid storing
       data in blob fields or as JSON in the database.
 
-- Another example is a concatenated string with a seperator. It is best to treat these data items in 2 distinct fields.
+- Another example is a concatenated string with a separator. It is best to treat these data items in 2 distinct fields.
 
 -  Don’t store encoded (pickle, json, other) objects in the database! If
-      you need to run the python environment to decode the data, analyists who use SQL will have a difficult time querying nd decoding this data.
+      you need to run the python environment to decode the data, analyists who use SQL will have a difficult time querying and decoding this data.
 
 Store everything
 ~~~~~~~~~~~~~~~~
