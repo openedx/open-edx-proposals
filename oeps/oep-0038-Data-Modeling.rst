@@ -28,7 +28,7 @@ Abstract
 ========
 
 In order to obtain the highest possible value from data collected in the
-OpenedX ecosystem, this document attempts to provide guiding thoughts and
+Open edX ecosystem, this document attempts to provide guiding thoughts and
 principles on data modeling.
 
 .. contents::
@@ -63,7 +63,7 @@ happen to data in a database system.
 **CRUD** - Create, Read, Update, Delete. Same as CUD but with the *Read* operation added.
 
 **Data Best Practices** - These practices are designed to help teams create
-rich and efficient data models within the OpenedX ecosystem. They are not
+rich and efficient data models within the Open edX ecosystem. They are not
 standards but guidelines to help teams think about how to store data.
 
 **Data Dimension** - A Data Dimension is a set of data attributes pertaining
@@ -78,17 +78,17 @@ corresponding information systems in organizations.
 
 **Data Modeling Standards** - The most basic and standard design principles
 for data modeling. These standards must be adhered to when creating new
-models or updating existing models in the OpenedX ecosystem.
+models or updating existing models in the Open edX ecosystem.
 
 **IDA** - Independently Deployed Application. Similar to a microservice or
 stand alone application.
 
 
-OpenedX Ecosystem
+Open edX Ecosystem
 ------------------
 
-Used in this document, the phrase "OpenedX Ecosystem" includes the
-services that comprise and support the running of an OpenedX
+Used in this document, the phrase "Open edX Ecosystem" includes the
+services that comprise and support the running of an Open edX
 installation (e.g.,. edx.org). This includes:
 
 - The LMS and Studio
@@ -127,7 +127,7 @@ Use industry best practices
 
 Data stored in the OpenEdX ecosystem should adhere to industry best
 practices. For example, since an industry best practice uses numerical
-identifiers to identify rows of data, the OpenedX ecosystem should also use
+identifiers to identify rows of data, the Open edX ecosystem should also use
 numerical identifiers. Adhering to industry best practices and the
 practices outlined in this document ensures our data is approachable for
 experienced engineers and new hires alike and allows us to leverage 3rd
@@ -189,7 +189,7 @@ Data Modeling Standards
 -----------------------
 
 The standards below are designed to ensure edX can gain the highest value and insights from the data.
-The application of these standards is the most basic level of support to which all applications in the OpenedX ecosystem
+The application of these standards is the most basic level of support to which all applications in the Open edX ecosystem
 should adhere. When creating new applications or models please ensure the models being created comform to the following.
 
 Use a numeric primary key
@@ -203,7 +203,7 @@ Use a numeric primary key
 Have updated and created timestamps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  The preferred method for doing this in OpenedX Django applications is to inherit the :code:`TimeStampedModel`_. class.
+-  The preferred method for doing this in Open edX Django applications is to inherit the :code:`TimeStampedModel`_. class.
 .. _TimeStampedModel: https://django-model-utils.readthedocs.io/en/latest/models.html#timestampedmodel
 
 - Time should be stored in UTC time by setting :code:`USE_TZ=True`_. in your python config.
@@ -266,7 +266,7 @@ Each column in a table should only store a single fact or dimension
 Models should be Annotated for PII
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  All models in the OpenedX ecosystem should be tagged for PII using `code annotations`_. by following OEP-30_.
+-  All models in the Open edX ecosystem should be tagged for PII using `code annotations`_. by following OEP-30_.
 .. _code annotations: https://github.com/edx/code-annotations>
 .. _OEP-30: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0030-arch-pii-markup-and-auditing.rst
 
