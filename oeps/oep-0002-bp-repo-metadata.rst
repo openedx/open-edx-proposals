@@ -7,7 +7,7 @@ OEP-2: Repository Metadata
 +---------------+-------------------------------------------+
 | Title         | Repository Metadata                       |
 +---------------+-------------------------------------------+
-| Last-Modified | 2019-08-23                                |
+| Last-Modified | 2019-10-29                                |
 +---------------+-------------------------------------------+
 | Author        | Calen Pennington <cale@edx.org>           |
 |               | Feanil Patel <feanil@edx.org>             |
@@ -45,14 +45,13 @@ same as those that apply to a standalone Django service or to a Django app.
 Specification
 =============
 
-Each repo in the Open edX system will include a file ``openedx.yaml``, with the
-following fields:
+Each repo will include a file ``openedx.yaml``, with the following keys:
 
 ``owner``: string (required unless ``archived`` is ``True``)
-    The github user responsible for the repository.
+    The GitHub user responsible for the repository.
 
 ``supporting_teams``: list of strings (optional)
-    The github team that is supporting the owner for this repository.
+    The GitHub teams supporting the owner for this repository.
 
 ``nick``: string (optional)
     A short-name for the repository used by reporting tools created by the
@@ -66,21 +65,24 @@ following fields:
 ``oeps``: dictionary (optional)
     A list of keys corresponding to Best Practice OEPs (in the format
     ``oep-n``). Each value would be one of ``True``, ``False``, or a reason
-    dictionary. ``True`` and ``False`` would indicate accordance (or lack
-    thereof) with the specified OEP. A reason dictionary provides more detailed
+    dictionary. ``True`` or ``False`` indicate compliance (or lack
+    thereof) with the specified OEP.
+
+    A reason dictionary provides more detailed
     information. It can contain a boolean ``state``, a boolean ``applicable``,
-    and a string ``reason``. If the OEP is not applicable to this repository,
-    the reason dictionary can simply contain a single value of ``False`` for the
-    ``applicable`` key. A ``False`` value for ``applicable`` indicates the OEP
-    will never be applicable to this repository. For example: an OEP that
-    defines a best practices for Javascript testing would be marked as not
-    applicable in a python command line tool's repository. If the ``state`` is
-    ``False`` a ``reason`` value must be included that explains why. If the
-    ``state`` is ``True`` or ``applicable`` is ``False`` the ``reason`` can
-    optionally provide more information. The ``reason`` value will be displayed
-    in reporting tools. If an OEP isn't listed in the ``oeps`` dictionary, then
-    it is assumed to be ``False``, unless the reporting tool can auto-detect
-    accordance.
+    and a string ``reason``.
+
+    -  If the OEP is not currently applicable to this repository, the reason
+       dictionary can simply contain a single value of ``False`` for the
+       ``applicable`` key.  For example: an OEP that defines best practices
+       for JavaScript testing would be marked as not applicable in a Python
+       command line tool's repository.
+    -  If the ``state`` is ``False`` a ``reason`` value must be included that explains why.
+    -  If the ``state`` is ``True`` or ``applicable`` is ``False`` the ``reason`` can
+       optionally provide more information. The ``reason`` value will be displayed
+       in reporting tools. If an OEP isn't listed in the ``oeps`` dictionary, then
+       it is assumed to be ``False``, unless the reporting tool can auto-detect
+       accordance.
 
 ``track-pulls``: obsolete
     This key is obsolete, please remove if found.
@@ -173,6 +175,11 @@ in wide use and are provided here so that they can be used consistently.
 
 Change History
 ==============
+
+2019-10-29
+----------
+
+* Minor formatting and wording changes for clarity.
 
 2017-01-18
 ----------
