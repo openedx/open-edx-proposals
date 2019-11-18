@@ -14,7 +14,7 @@ OEP-2: Repository Metadata
    * - Authors
      - Calen Pennington, Feanil Patel, Nimisha Asthagiri
    * - Arbiter
-     - Calen Pennington
+     - Calen Pennington <cale@edx.org>
    * - Status
      - Accepted
    * - Type
@@ -69,6 +69,28 @@ Each repo will include a file ``openedx.yaml``, with the following keys:
 ``archived``: boolean (optional)
     If ``True``, this specifies that this repository is archived and no longer maintained by edX.
 
+Tags
+----
+
+The ``tags`` structure is very open ended but there are a few tags that are currently in wide use and are provided here so that they can be used consistently.
+
+``webservice``:
+    Indicate that this repository is the root of a webservice.  eg. It can serve HTTP content.
+
+``library``:
+    The repository is an installable package that is reusable but doesn't run standalone. eg. a pip installable pyton package
+
+``backend-service``:
+    A service that is run as a part of openedx but is not really interacted with by the end-users.  eg. xqwatcher or ecommerce-worker
+
+``backend-tooling``:
+    Scripts or configuration used in conjunction with services or in support of openedx.
+
+``xblock``:
+    Indicating that a repo contains an xblock or xblock related tooling.
+
+Example
+-------
 
 For example, in the `edx-platform`_ repo, the file might look like:
 
@@ -115,23 +137,6 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
 1. Adding a new OEP that few repositories will support, initially. We shouldn't need to update all repositories to detect if they are in accordance, we should be able to assume that they aren't, or automatically detect whether they are.
 2. Repositories may have specific requirements that force them to not implement a best practice. The tools should be able to present that reasoning to anyone looking across repositories, and the reasons should be documented in the repositories themselves.
 3. As much as possible, Best Practices should be autodetected, but because they will often involve a judgement call, autodetection shouldn't be mandatory.
-
-The ``tags`` structure is very open ended but there are a few tags that are currently in wide use and are provided here so that they can be used consistently.
-
-``webservice``:
-    Indicate that this repository is the root of a webservice.  eg. It can serve HTTP content.
-
-``library``:
-    The repository is an installable package that is reusable but doesn't run standalone. eg. a pip installable pyton package
-
-``backend-service``:
-    A service that is run as a part of openedx but is not really interacted with by the end-users.  eg. xqwatcher or ecommerce-worker
-
-``backend-tooling``:
-    Scripts or configuration used in conjunction with services or in support of openedx.
-
-``xblock``:
-    Indicating that a repo contains an xblock or xblock related tooling.
 
 
 Change History
