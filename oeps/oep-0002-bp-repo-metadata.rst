@@ -75,19 +75,53 @@ Tags
 The ``tags`` structure is very open ended but there are a few tags that are currently in wide use and are provided here so that they can be used consistently.
 
 ``webservice``:
-    Indicate that this repository is the root of a webservice.  eg. It can serve HTTP content.
+    The repository is the root of a webservice that serves HTTP content.
 
-``library``:
-    The repository is an installable package that is reusable but doesn't run standalone. eg. a pip installable pyton package
+    Code runs in production web servers and has publicly accessible views/APIs for end-users.
+
+    eg. credentials
+
+``frontend-app``:
+    The repository primarily contains code for a frontend application.
+
+    Code runs in production devices (such as web browsers and mobile devices) and is publicly accessible by end-users.
+
+    eg. frontend-app-profile, edx-app-ios
+
+``framework``:
+    The repository contains shared functionality that form a common framework used by multiple services or apps in the platform.
+
+    Code runs in production, behind the scenes, (intended to be) globally used throughout the platform.
+
+    eg. edx-drf-extensions, edx-ace, frontend-platform, paragon
 
 ``backend-service``:
-    A service that is run as a part of openedx but is not really interacted with by the end-users.  eg. xqwatcher or ecommerce-worker
+    A service that is run as part of the platform but is not directly accessed by end-users.
+
+    Code runs in production backend servers, typically within the firewall, and provides APIs for access by public-facing ``webservices``.
+
+    eg. xqueue-watcher, ecommerce-worker
 
 ``backend-tooling``:
-    Scripts or configuration used in conjunction with services or in support of openedx.
+    The repository contains scripts or configuration used in conjunction with backend services or in support of openedx.
+
+    Code does *not* run in production.
+
+    eg. ecommerce-scripts, repo-tools, testeng-ci
+
+``library``:
+    The repository is an installable package that is reusable but doesn't run standalone. eg. a pip installable python package
+
+    Code runs in production, behind the scenes, locally used by a part of the platform.
+
+    eg. frontend-component-footer, edx-milestones, user-util
 
 ``xblock``:
-    Indicating that a repo contains an xblock or xblock related tooling.
+    The repository contains an xblock or xblock related tooling.
+
+    Code runs in LMS and Studio as part of course run content.
+
+    eg. xblock-review, staff_graded-xblock
 
 Example
 -------
