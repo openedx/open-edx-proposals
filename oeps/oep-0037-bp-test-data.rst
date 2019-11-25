@@ -46,7 +46,7 @@ There are a few different aspects of test data management, each of which has dif
 Reusing Data
 ------------
 
-Once a development or production environment has been populated with a data set comprehensive enough to exercise certain functionality in Open edX, it can be useful to "save it" for later use.  The first step is to make sure that any `PII`_ has been stripped from the data.  This is a particular concern for production data that may include customer information, but even development data may include a developer's email address and other personal information.  Tools such as `dj_anonymizer`_ can be useful in making a first pass at stripping such PII, but it should be followed by manual verification against the `OEP-30`_ annotations.
+Once a development environment has been populated with a data set comprehensive enough to exercise certain functionality in Open edX, it can be useful to "save it" for later use.  The first step is to make sure that any `PII`_ has been stripped from the data.  Even development data may include a developer's email address and other personal information.  Tools such as `dj_anonymizer`_ can be useful in making a first pass at stripping such PII, but it should be followed by manual verification against the `OEP-30`_ annotations.
 
 Once PII has been removed, an attempt can be made to export just the needed data.  This may be a combination of course export to OLX and generation of fixtures from selected relational data using a utility such as `django-fixture-magic`_.  These fixtures should not be saved verbatim, but rather used as a guide for producing Python code that generates roughly equivalent data using ``factory_boy`` as described below.
 
@@ -120,6 +120,8 @@ Most data sets should attempt to use a standard function path in each IDA to all
     make load_test_data DATA_FUNCTION=test_data.from_dev_data_v1 DATA_FUNCTION_ARGS=http://domain.org/path/to/file.yaml
 
 Each data loading function should be executed during the respective IDA's test suite, in order to ensure that it stays functional across schema and code changes.  This also makes it clear what change triggered failure to load the data, making it much faster to make the appropriate fixes.
+
+Because the test data doesn't contain primary keys, loading the same data a second time into an environment will usually result in a second copy of the test data being created in it.  If there is desire for a set of test data that can be updated or reset in an environment in which it already exists, its data loading functions should be deliberately written to be capable of either deleting or updating any data they previously loaded (via known field value lookups, etc.)
 
 Data Files
 ----------
