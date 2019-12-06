@@ -27,12 +27,12 @@ OEP-XXXX: OEP Template
 +-----------------+--------------------------------------------------------+
 | Created         | <date created on, in YYYY-MM-DD format>                |
 +-----------------+--------------------------------------------------------+
-| `Review Period` | <start - target end dates for review>                  |
+| Review Period   | <start - target end dates for review>                  |
 +-----------------+--------------------------------------------------------+
-| `Resolution`    | <links to any discussions where the final              |
+| Resolution      | <links to any discussions where the final              |
 |                 | status was decided>                                    |
 +-----------------+--------------------------------------------------------+
-| `References`    | <links to any other relevant discussions               |
+| References      | <links to any other relevant discussions               |
 |                 | or relevant related materials>                         |
 +-----------------+--------------------------------------------------------+
 
@@ -45,10 +45,10 @@ this Open edX proposal (OEP) addresses.
 Motivation
 ==========
 
-The motivation is critical for OEPs that will change Open edX. Explain why the
-existing architecture or process is inadequate to address the problem that the
-OEP solves, or why adopting the best practice would significantly improve Open
-edX.
+The motivation is critical for OEPs that will change any part of the Open edX
+ecosystem. Explain why the existing architecture or process is inadequate to
+address the problem that the OEP solves, or why adopting the best practice
+would significantly improve the Open edX world.
 
 Specification
 =============

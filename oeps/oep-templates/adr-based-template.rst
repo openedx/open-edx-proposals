@@ -27,7 +27,7 @@ OEP-XXXX: OEP Template
 +-----------------+--------------------------------------------------------+
 | Created         | <date created on, in YYYY-MM-DD format>                |
 +-----------------+--------------------------------------------------------+
-| `Review Period` | <start - target end dates for review>                  |
+| Review Period   | <start - target end dates for review>                  |
 +-----------------+--------------------------------------------------------+
 
 Context

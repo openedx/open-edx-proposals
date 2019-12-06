@@ -27,7 +27,7 @@ OEP-XXXX: OEP Template
 +-----------------+--------------------------------------------------------+
 | Created         | <date created on, in YYYY-MM-DD format>                |
 +-----------------+--------------------------------------------------------+
-| `Review Period` | <start - target end dates for review>                  |
+| Review Period   | <start - target end dates for review>                  |
 +-----------------+--------------------------------------------------------+
 
 Abstract
@@ -43,11 +43,11 @@ List links to the external location(s) where the technical design and discussion
 are actually captured and stored.  For example, in:
 
 * a wiki in the `Architecture Notes and Thoughts space in Confluence`_
-* a Discourse discussion on `ed Xchange`_
+* a Discourse discussion on `discuss.openedx.org`_
 * a public Google doc
 
 .. _Open edX Architecture space in Confluence: https://openedx.atlassian.net/wiki/spaces/AC/pages/65667085/Architecture+Notes+and+Thoughts
-.. _ed Xchange: https://edxchange.opencraft.com/
+.. _discuss.openedx.org: https://discuss.openedx.org
 
 Decisions
 ---------
