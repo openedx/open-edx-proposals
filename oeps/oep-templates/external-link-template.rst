@@ -4,31 +4,31 @@ OEP-XXXX: OEP Template
 
 .. This OEP template is recommended when content is externally linked.
 
-+-----------------+--------------------------------------------------------+
-| OEP             | :doc:`OEP-XXXX </oeps/oep-XXXX-YYYY-ZZZZ>`             |
-|                 |                                                        |
-|                 | * <XXXX is the next available OEP number>              |
-|                 | * <YYYY is the abbreviated Type: proc | bp | arch>     |
-|                 | * <ZZZZ is a brief (< 5 words) version of the title>   |
-+-----------------+--------------------------------------------------------+
-| Title           | <OEP title>                                            |
-+-----------------+--------------------------------------------------------+
-| Last Modified   | <date string, in YYYY-MM-DD format>                    |
-+-----------------+--------------------------------------------------------+
-| Authors         | <list of authors' real names and                       |
-|                 | optionally, email addresses>                           |
-+-----------------+--------------------------------------------------------+
-| Arbiter         | <Arbiter's real name and email address>                |
-+-----------------+--------------------------------------------------------+
-| Status          | <Draft | Under Review | Deferred | Accepted |          |
-|                 | Rejected | Withdrawn | Final | Replaced>               |
-+-----------------+--------------------------------------------------------+
-| Type            | <Architecture | Best Practice | Process>               |
-+-----------------+--------------------------------------------------------+
-| Created         | <date created on, in YYYY-MM-DD format>                |
-+-----------------+--------------------------------------------------------+
-| Review Period   | <start - target end dates for review>                  |
-+-----------------+--------------------------------------------------------+
+.. list-table::
+   :widths: 25 75
+
+   * - OEP
+     - :doc:`OEP-XXXX </oeps/oep-XXXX-YYYY-ZZZZ>`
+
+       * <XXXX is the next available OEP number>
+       * <YYYY is the abbreviated Type: proc | bp | arch>
+       * <ZZZZ is a brief (< 5 words) version of the title>
+   * - Title
+     - <OEP title>
+   * - Last Modified
+     - <date string, in YYYY-MM-DD format>
+   * - Authors
+     - <list of authors' real names and optionally, email addresses>
+   * - Arbiter
+     - <Arbiter's real name and email address>
+   * - Status
+     - <Draft | Under Review | Deferred | Accepted | Rejected | Withdrawn | Final | Replaced>
+   * - Type
+     - <Architecture | Best Practice | Process>
+   * - Created
+     - <date created on, in YYYY-MM-DD format>
+   * - Review Period
+     - <start - target end dates for review>
 
 Abstract
 --------
