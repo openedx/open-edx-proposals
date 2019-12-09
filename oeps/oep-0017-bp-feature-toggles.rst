@@ -481,6 +481,9 @@ In order to provide a useful and informative administrative report of the existi
      - Date the toggle was last set/unset in the system; to easily find all unused toggles.
      - Derived from relational tables
 
+See `documentation`_ for specific details of embedding this information in source files.
+
+
 Testing
 -------
 
@@ -560,6 +563,31 @@ Long-lived Use Cases
    * - `Open edX option`_
         Toggle should be tested in both states on master, but only needs to be tested in a single state on Stage (whatever is on Prod).
      - .. image:: oep-0017/test_openedx.png
+
+
+Documentation
+-------------
+
+Toggles are documented in the source files where they are defined.  We use an annotation syntax that allows automated tools to collect and aggregate the documentation.
+
+Documentation annotations can be embedded in comments adjacent to the definition of the toggle, or in Python docstrings.  Each line starts with two dots and a field name, which begins with "toggle_".  For example::
+
+    # .. toggle_name: require_course_email_auth
+    # .. toggle_implementation: ConfigurationModel
+    # .. toggle_default: True (enabled)
+    # .. toggle_description: If the flag is enabled, course-specific authorization is required,
+    # and the course_id is either not provided or not authorized, the feature is not available.
+    # .. toggle_category: bulk email
+    # .. toggle_use_cases:  open_edx
+    # .. toggle_creation_date: 2016-05-05
+    # .. toggle_expiration_date: None
+    # .. toggle_warnings: None
+    # .. toggle_tickets: None
+    # .. toggle_status: supported
+    @python_2_unicode_compatible
+    class BulkEmailFlag(ConfigurationModel):
+        ...
+
 
 Removal
 -------
