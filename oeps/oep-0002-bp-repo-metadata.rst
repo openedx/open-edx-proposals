@@ -10,7 +10,7 @@ OEP-2: Repository Metadata
    * - Title
      - Repository Metadata
    * - Last Modified
-     - 2019-11-14
+     - 2019-12-11
    * - Authors
      - Calen Pennington, Feanil Patel, Nimisha Asthagiri
    * - Arbiter
@@ -37,19 +37,30 @@ Bear in mind that particular classes of Open edX repositories may have different
 Specification
 =============
 
+Keys
+----
+
 Each repo will include a file ``openedx.yaml``, with the following keys:
 
-``owner``: string (required unless ``archived`` is ``True``)
-    The GitHub user responsible for the repository.
+``owner``: dictionary (required)
+    This key contains information about the assigned owner of this repository.
 
-``supporting_teams``: list of strings (optional)
-    The GitHub teams supporting the owner for this repository.
+    ``type``: string (required)
+        The value of this key must be either ``team`` or ``repo``. It indicates which ownership model applies to this repository, and therefore which of these two keys should exist with a non-empty value.
+
+        **Note:** As much as possible, repos should be owned by higher-level repos, with only the highest-level repos owned by teams.
+
+    ``team``: string (optional)
+        The GitHub team responsible for this repository, prefixed with the Github organization (e.g., ``edx/arch-bom``). If this value is set, this repository contains high-level, business-aligned functionality that is suitable for direct ownership designation to an individual responsible team.
+
+    ``repo``: string (optional)
+        The GitHub repo responsible for this repository, prefixed with the Github organization (e.g., ``edx/XBlock``). If this value is set, this repository contains lower-level technical functionality that is affiliated with another primary owning higher-level repository.
 
 ``nick``: string (optional)
-    A short-name for the repository used by reporting tools created by the edX Open Source team. Should be 3-4 characters, because this value is used in charts with very limited space on their axes.
+    A short-name for this repository. This is used by reporting tools created by the edX Open Source team. Should be 3-4 characters, because this value is used in charts with very limited space on their axes.
 
 ``tags``: list of strings (optional)
-    Used to group repositories by in reporting tools. Sample tags: core, mobile analytics.
+    This key is used to annotate repositories, for example to categorize them for automated reporting tools. See Tags_.
 
 ``oeps``: dictionary (optional)
     A list of keys corresponding to Best Practice OEPs (in the format ``oep-n``). Each value would be one of ``True``, ``False``, or a reason dictionary. ``True`` or ``False`` indicate compliance (or lack thereof) with the specified OEP.
@@ -60,14 +71,20 @@ Each repo will include a file ``openedx.yaml``, with the following keys:
     -  If the ``state`` is ``False`` a ``reason`` value must be included that explains why.
     -  If the ``state`` is ``True`` or ``applicable`` is ``False`` the ``reason`` can optionally provide more information. The ``reason`` value will be displayed in reporting tools. If an OEP isn't listed in the ``oeps`` dictionary, then it is assumed to be ``False``, unless the reporting tool can auto-detect accordance.
 
-``track-pulls``: obsolete
-    This key is obsolete, please remove if found.
-
-``openedx-release``: defined by :doc:`OEP-10 <oep-0010-proc-openedx-releases>`.
+``openedx-release``: defined by :doc:`OEP-10 <oep-0010-proc-openedx-releases>` (optional)
     Define this key if your repo is an application or IDA that is part of Open edX releases.  Omit this key if your repo is a library, or is not part of Open edX releases.  See :doc:`OEP-10 <oep-0010-proc-openedx-releases>` for details.
 
 ``archived``: boolean (optional)
     If ``True``, this specifies that this repository is archived and no longer maintained by edX.
+
+Obsolete Keys
+*************
+
+``track-pulls``:
+    This key is obsolete, please remove if found.
+
+``supporting_teams``: list of strings
+    This is an obsolete key that was used to specify Github handles for teams supporting the owner of the repository. This is now deprecated in favor of the updated ``owner`` dictionary. As a reasonable migration of this key, set ``owner.type`` to *team*, ``owner.value`` to the first value in ``supporting_teams``, and then remove ``supporting_teams``.
 
 Tags
 ----
@@ -75,19 +92,65 @@ Tags
 The ``tags`` structure is very open ended but there are a few tags that are currently in wide use and are provided here so that they can be used consistently.
 
 ``webservice``:
-    Indicate that this repository is the root of a webservice.  eg. It can serve HTTP content.
+    The repository is the root of a webservice that serves HTTP content.
 
-``library``:
-    The repository is an installable package that is reusable but doesn't run standalone. eg. a pip installable pyton package
+    Code runs in production web servers and has publicly accessible views/APIs for end-users.
+
+    eg. credentials
+
+``frontend-app``:
+    The repository primarily contains code for a frontend application.
+
+    Code runs in production devices (such as web browsers and mobile devices) and is publicly accessible by end-users.
+
+    eg. frontend-app-profile, edx-app-ios
+
+``framework``:
+    The repository contains shared functionality that forms part of a common framework used by multiple services or apps in the platform.
+
+    Code runs in production, behind the scenes, (intended to be) globally used throughout the platform.
+
+    eg. edx-drf-extensions, edx-ace, frontend-platform, paragon
 
 ``backend-service``:
-    A service that is run as a part of openedx but is not really interacted with by the end-users.  eg. xqwatcher or ecommerce-worker
+    A service that is run as part of the platform but is not directly accessed by end-users.
+
+    Code runs in production backend servers, typically within the firewall, and provides APIs for access by public-facing ``webservices``.
+
+    eg. xqueue-watcher, ecommerce-worker
 
 ``backend-tooling``:
-    Scripts or configuration used in conjunction with services or in support of openedx.
+    The repository contains scripts or configuration used in conjunction with backend services or in support of openedx.
+
+    Code does *not* run in production.
+
+    eg. ecommerce-scripts, repo-tools, testeng-ci
+
+``library``:
+    The repository is an installable package that is reusable but doesn't run standalone. eg. a pip installable python package
+
+    Code runs in production, behind the scenes, locally used by a part of the platform.
+
+    eg. frontend-component-footer, edx-milestones, user-util
 
 ``xblock``:
-    Indicating that a repo contains an xblock or xblock related tooling.
+    The repository contains an xblock or xblock related tooling.
+
+    Code runs in LMS and Studio as part of course run content.
+
+    eg. xblock-review, staff_graded-xblock
+
+Ownership
+---------
+While the responsibilities of an owner are outside the scope of this OEP, a repository's metadata should provide sufficient information to identify and discover the repository's owner.
+
+Granularity of Code Ownership
+*****************************
+Rather than designating human owners to each and every repository, we designate owners to only high-level and business-aligned repositories as described in ``owner.team`` in Keys_. All other repositories are indirectly owned by owners of the high-level repositories. This indirect relationship is described in the ``owner.repo`` designation in Keys_. See `Ownership Rationale`_.
+
+Granularity of Human Owners
+***************************
+We choose to assign singular "healthy" teams as owners, rather than individuals or other organizational structures (such as working groups or edX "themes"). We consider a team size of 5-6 people as "healthy". See `Ownership Rationale`_.
 
 Example
 -------
@@ -101,12 +164,9 @@ For example, in the `edx-platform`_ repo, the file might look like:
     # openedx.yaml
 
     ---
-    owner: nasthagiri
-    supporting_teams:
-        - platform-core
-        - platform-core-extensions
-        - platform-authn
-        - platform-courseware
+    owner:
+        type: team
+        team: edx/arch-bom
     nick: edx
     tags:
         - core
@@ -130,7 +190,13 @@ For example, in the `edx-platform`_ repo, the file might look like:
 Rationale
 =========
 
+Keys Rationale
+--------------
+
 The keys in ``openedx.yaml`` were derived from existing repository metadata collected by edx.org.
+
+OEPs Rationale
+--------------
 
 The design of the ``oeps`` dictionary was guided by a couple of use cases:
 
@@ -138,9 +204,30 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
 2. Repositories may have specific requirements that force them to not implement a best practice. The tools should be able to present that reasoning to anyone looking across repositories, and the reasons should be documented in the repositories themselves.
 3. As much as possible, Best Practices should be autodetected, but because they will often involve a judgement call, autodetection shouldn't be mandatory.
 
+Ownership Rationale
+-------------------
+
+Keeping the granularity of **code ownership to high-level repositories** affords us:
+
+#. Stronger collaboration on ownership with business functions since a high-level repo is directly aligned to a business need.
+#. Minimization of bookkeeping maintenance as code and owners evolve. However, we will need to ensure that all lower-level repos are still owned indirectly via high-level repos.
+
+Keeping the granularity of **human owners to individual teams** affords us:
+
+#. Using existing organizational structures that have scrum processes in-place and cross-functional communication channels to follow through on their ownership responsibilities.
+#. Robust and longer-lasting owner relationships that overcome the absences and attrition of individuals.
 
 Change History
 ==============
+
+2019-12-11
+----------
+
+* New practices for ownership bookkeeping and designation in our repositories:
+
+  * Ownership is assigned to squads (i.e., teams with 5-6 people each) as opposed to individuals.
+  * Owners are assigned at the granularity of higher-level, business-aligned functionality (user-facing services, user-facing apps, and system-wide frameworks).
+  * Lower-level repos are indirectly assigned owners through assignment to dependent higher-level repos.
 
 2019-10-29
 ----------
