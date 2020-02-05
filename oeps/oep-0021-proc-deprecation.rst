@@ -56,7 +56,7 @@ learned the benefits of investing in code removal:
   down by zombie code. [OREILLY]_
 
 * There is a danger that someone inadvertently involves the 'dormant' code and
-  introduces bugs. [SO]_
+  introduces bugs. [SO]_ [SEC]_
 
 * Dead code makes the runtime footprint larger than it needs to be. [INFOQ]_
 
@@ -344,4 +344,5 @@ References
 
 .. [OREILLY] https://www.oreilly.com/library/view/becoming-a-better/9781491905562/ch04.html
 .. [SO] https://stackoverflow.com/a/15700228
+.. [SEC] https://www.sec.gov/litigation/admin/2013/34-70694.pdf
 .. [INFOQ] https://www.infoq.com/news/2017/02/dead-code
