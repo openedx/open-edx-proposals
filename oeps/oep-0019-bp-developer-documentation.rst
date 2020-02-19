@@ -3,7 +3,7 @@ OEP-19: Developer Documentation
 #################################
 
 .. list-table::
-  
+
    * - OEP
      - :doc:`OEP-0019 </oeps/oep-0019>`
    * - Title
@@ -70,12 +70,12 @@ OEPs
 ----
 
 .. list-table::
-   :widths: 15 75 
+   :widths: 15 75
 
    * - **Description**
      - Open edX Proposals (OEPs) are a collection of system-wide technology decisions made by the Open edX community, in the form of best practices, architecture designs, and processes.
    * - **Answers the questions**
-     - 
+     -
        * *What are the best practices and processes for developing on the Open edX platform?*
        * *How does system-wide framework X work on the Open edX platform? (e.g., Analytics, Authorization, etc).*
        * *Why was system-wide technology X or design Y chosen for the Open edX platform?*
@@ -95,7 +95,7 @@ ADRs
 ----
 
 .. list-table::
-   :widths: 15 75 
+   :widths: 15 75
 
    * - **Description**
      - Inspired by `Nygard's post`_, Architecture Decision Records (ADRs) are local lightweight documents of technical decisions co-located with their corresponding code. They provide rationale behind the code and the archeological path to their current state. The status of an ADR can be:
@@ -106,7 +106,7 @@ ADRs
 
        **Note:** Unlike code comments that focus on immediately surrounding code, ADRs provide the big picture context.
    * - **Answers the questions**
-     - 
+     -
        * *What technical decisions were made for the component/feature in this repo/app/folder?*
        * *Why does this component/feature do X?*
    * - **Rationale**
@@ -129,12 +129,12 @@ READMEs
 -------
 
 .. list-table::
-   :widths: 15 75 
+   :widths: 15 75
 
    * - **Description**
      - READMEs provide a top-level summary and intentional purpose of the repo/app/folder.
    * - **Answers the questions**
-     - 
+     -
        * *What is the responsibility and purpose of this component?*
        * *What are the terms and definitions of this component's ubiquitous language?*
        * *How can I navigate the documentation within and related to this component?*
@@ -149,12 +149,12 @@ How-Tos
 -------
 
 .. list-table::
-   :widths: 15 75 
+   :widths: 15 75
 
    * - **Description**
      - How-To documents provide relatively long-term step-by-step instructions in using a feature/component/etc. For instructions that are expected to be ephemeral and short-lived, other alternatives such as `Etsy's FYIs`_ can be explored.
    * - **Answers the questions**
-     - 
+     -
        * *How do I install/enable/use/test/etc this component?*
    * - **Rationale**
      - To provide concise recipe-style instructions to users of the component so they can get started quickly without needing to understand the technical nuances and code of the component.
@@ -170,12 +170,12 @@ APIs
 ----
 
 .. list-table::
-   :widths: 15 75 
+   :widths: 15 75
 
    * - **Description**
      - API documentation provide information on interfaces for integrating with or enhancing the platform.
    * - **Answers the questions**
-     - 
+     -
        * *What are the public and supported APIs for this component?*
        * *What are the request/response/authentication/etc protocol for this component?*
    * - **Rationale**
@@ -203,7 +203,7 @@ This section summarizes the requirements for long-term developer documentation.
   * **Search**. For the time-being, we will make use of Google and GitHub's search functionality for finding content since all developer documentation will be in GitHub.  Certain IDEs may also have tools for searching.
 
   * **Index**. In the future, we will invest time in a better automated indexing tool to aggregate and structure the documentation. For the time being, we will manually create and maintain documentation indices at:
-    
+
     * edx-developer-docs_ will include the landing page for developer documentation and be a container of orphaned and cross-repo developer documentation.
 
     * docs.edx.org_ will be the main landing page for *all* Open edX documentation, including a link to the developer documentation index listed above.
@@ -216,10 +216,10 @@ This section summarizes the requirements for long-term developer documentation.
 
       * ADRs_ and How-Tos_ will live within **docs** folder(s) within the repo.
       * READMEs_ will be located as top-level documents in the repo/folder/app.
-      * Documentation should not live within the code itself (e.g., in __init__.py modules).
+      * Module docstrings should only be used to describe code living in the __init__.py module.
 
     * For system-wide documentation:
-    
+
       * OEPs_ will live within the open-edx-proposals_ repo.
       * If other system-wide documentation is needed, they will live within the edx-developer-docs_ repo.
 
@@ -268,7 +268,7 @@ Best practices
 * We strongly recommend that rST documents **auto-wrap** rather than have fixed line lengths (of 120, for example), for the following reasons:
 
   * Both GitHub and popular IDEs_ support rendering of auto-wrapped files.
-  * Auto-wrapping allows renderers to be responsive, automatically format according to the reader's view width, and better supports split-window mode of development. 
+  * Auto-wrapping allows renderers to be responsive, automatically format according to the reader's view width, and better supports split-window mode of development.
   * Developers don't need to spend time continually reformatting lines whenever they edit their documents in order to remain within fixed line length limits.
   * Although GitHub's diff-ing capabilities are currently better when line breaks exist, this seeming advantage actually disappears when developers reformat lines in a paragraph to adjust to line length limits.
 
@@ -278,7 +278,7 @@ Learning rST
 ------------
 
 * If you are familiar with Markdown:
-  
+
   * Here is edX's `cheatsheet comparing rST to Markdown`_.
   * Here is `another comparison of Markdown and rST`_.
 
@@ -369,7 +369,7 @@ Index
 
 Since we will continue to use Confluence for certain types of documents, we will maintain the following two top-level indices for engineering related documents:
 
-* `Architecture and Engineering`_ for public documents 
+* `Architecture and Engineering`_ for public documents
 * `Engineering (Internal)`_ for "edX private" documents
 
 .. _Architecture and Engineering: https://openedx.atlassian.net/wiki/spaces/AC/overview
