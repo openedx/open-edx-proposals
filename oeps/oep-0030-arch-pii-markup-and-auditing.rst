@@ -131,7 +131,7 @@ In order to assist developers in remembering to check all new data for PII, each
 
 Repository Maintenance
 ----------------------
-Per `OEP-002`_ all Open edX repositories the `openedx.yaml` files containing metadata about the repository must be updated to contain the OEP state for this OEP inside the `oeps` dictionary. If a repository does not store PII it may simply mark `oep-0030: False` or `applicable: False` with a `reason` as outlined in the OEP-002 specification. The tooling that will inform and enforce out compliance with this OEP will rely on this metadata to determine which repositories to look at so it is vital that these values be kept up to date.
+Per `OEP-002`_ all Open edX repositories the `openedx.yaml` files containing metadata about the repository must be updated to contain the OEP state for this OEP inside the `oeps` dictionary. If a repository does not store PII it may simply mark `oep-0030: False` or `applicable: False` with a `reason` as outlined in the OEP-002 specification. The tooling that will inform and enforce our compliance with this OEP will rely on this metadata to determine which repositories to look at so it is vital that these values be kept up to date.
 
 The automatically run tooling should verify the presence and accuracy of `openedx.yaml`.
 
@@ -145,8 +145,6 @@ It is important to note that under this OEP all Django model classes must be ann
 
 These annotations should take the form of Sphinx-style docstrings. In the case where PII is present, the following group of 3 annotations must be used together:
 
-.. code-block::
-
     .. pii: <required description of the PII>
 
     .. pii_types: <comma separated list of the types of PII stored here, required if the pii annotation exists>
@@ -154,8 +152,6 @@ These annotations should take the form of Sphinx-style docstrings. In the case w
     .. pii_retirement: <comma separated list of retirement types, required if the pii annotation exists>
 
 In the case where no PII exists in a Django model, the following single annotation is used:
-
-.. code-block::
 
     .. no_pii: <optional description>
 
@@ -275,7 +271,7 @@ It is desirable for this tool to use static analysis of the files (instead of ex
 
 Organization-wide Tooling
 -------------------------
-A tool will be created or enhanced that will be usable at the Github organization level to provide org-wide insight into our stored PII. It should be a wrapper around the Documentation tool, allowing all repos in an org to be cloned and searched for annotations. The tool will also optionally verify the presence of a `openedx.yaml` file in the top level of the repository and verify that it's `oep-30` dictionary matches the state of the repository.
+A tool will be created or enhanced that will be usable at the Github organization level to provide org-wide insight into our stored PII. It should be a wrapper around the Documentation tool, allowing all repos in an org to be cloned and searched for annotations. The tool will also optionally verify the presence of a `openedx.yaml` file in the top level of the repository and verify that its `oep-30` dictionary matches the state of the repository.
 
 Backporting Annotations
 -----------------------
