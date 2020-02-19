@@ -58,7 +58,7 @@ Decisions
 Agile Documentation Types
 =========================
 
-With Agile development and `Clean Code`_, we can minimize documentation (and its maintainence) since code should be readable and self-documenting. However, for long-term maintainence of a platform, the following types of developer documentation are still needed:
+With Agile development and `Clean Code`_, we can minimize documentation (and its maintenance) since code should be readable and self-documenting. However, for long-term maintenance of a platform, the following types of developer documentation are still needed:
 
 .. _Clean Code: https://www.oreilly.com/library/view/clean-code/9780136083238/
 
@@ -83,7 +83,7 @@ OEPs
      - To establish software development coherency and efficiency with minimal centralized governance across a long-term maintained platform.
    * - **Location in GitHub**
      - Stored and reviewed in the `open-edx-proposals`_ GitHub repo; published to `Open edX Proposals Read The Docs`_.
-   * - **Maintainence**
+   * - **Maintenance**
      - OEP-1_ describes the OEP review process. They will be maintained by the `edX Architecture team`_.
 
 .. _open-edx-proposals: https://github.com/edx/open-edx-proposals
@@ -104,8 +104,7 @@ ADRs
        * **accepted** once it is agreed upon
        * **superseded** with a reference to its replacement if a later ADR changes or reverses the decision
 
-       **Note:** Unlike code comments that focus on immediately surrounding code, ADRs provide the big picture
-       context.
+       **Note:** Unlike code comments that focus on immediately surrounding code, ADRs provide the big picture context.
    * - **Answers the questions**
      - 
        * *What technical decisions were made for the component/feature in this repo/app/folder?*
@@ -115,15 +114,16 @@ ADRs
        new members, to understand discovered historical traces, to refer back to past decisions,
        and to support external oversight.
    * - **Location in GitHub**
-     - A `local decisions`_ folder will be created within a **docs** folder in the repo/app/folder. 
+     - A local folder named **decisions** will be created within a **docs** folder in the repo/app/folder
+       (for example, the `edx/credentials/docs/decisions`_ folder).
        The goal is to keep the decisions in as close proximity to the code as possible for their
        discovery and usage.
-   * - **Maintainence**
-     - Since ADRs are inherently a historical trail of technical decisions, by design, they do not need ongoing maintainence.
+   * - **Maintenance**
+     - Since ADRs are inherently a historical trail of technical decisions, by design, they do not need ongoing maintenance.
 
 .. _`Nygard's post`: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
 .. _invaluable technique: https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
-.. _local decisions: https://github.com/edx/credentials/tree/master/docs/decisions
+.. _edx/credentials/docs/decisions: https://github.com/edx/credentials/tree/master/docs/decisions
 
 READMEs
 -------
@@ -142,7 +142,7 @@ READMEs
      - The future evolution and development of a component remains within the intended boundaries of the component's responsibility. Otherwise, it invites unintended complexity and incongruity.
    * - **Location in GitHub**
      - Since GitHub automatically renders the contents of the repo's top-level README.rst file on the repo's home page, README files will be located at the top-level of their corresponding repo/app/folder.
-   * - **Maintainence**
+   * - **Maintenance**
      - The development team that owns the component should keep its README updated.
 
 How-Tos
@@ -160,7 +160,7 @@ How-Tos
      - To provide concise recipe-style instructions to users of the component so they can get started quickly without needing to understand the technical nuances and code of the component.
    * - **Location in GitHub**
      - A how_tos_ folder will be created within a **docs** folder in the repo/app/folder. The goal is to keep the How-Tos in synch with the code so that (1) developers running older versions of the code have the appropriately versioned information and (2) developers updating the component have easy access to update the corresponding How-Tos.
-   * - **Maintainence**
+   * - **Maintenance**
      - The developer and code reviewer that updates the component will be responsible for updating the relevant How-Tos in that repo (preferably in the same PR as the code changes).
 
 .. _how_tos: https://github.com/edx/edx-platform/tree/master/openedx/core/djangoapps/oauth_dispatch/docs/how_tos
@@ -187,8 +187,8 @@ APIs
        * The Open edX Learning Exchange (OLX) format should be automatically generated.
        * Plugin interfaces (e.g., Proctoring integration) should be automatically generated using Sphinx_.
        * Public APIs (e.g., supported Javascript libraries, supported Python APIs) should be automatically generated using Sphinx_.
-   * - **Maintainence**
-     - Since they are automatically generated, API documentation do not need additional maintainence and will be in synch with their corresponding code.
+   * - **Maintenance**
+     - Since they are automatically generated, API documentation do not need additional maintenance and will be in synch with their corresponding code.
 
 .. _Swagger: https://swagger.io/
 .. _Sphinx: http://www.sphinx-doc.org/en/master/
@@ -200,7 +200,7 @@ This section summarizes the requirements for long-term developer documentation.
 
 * **Discoverable**. Users must be able to find the documentation that is relevant to their needs. This calls for a high-level index and search mechanism for finding content.
 
-  * **Search**. For the time-being, we will make use of Google and Github's search functionality for finding content since all developer documentation will be in Github.  Certain IDEs may also have tools for searching.
+  * **Search**. For the time-being, we will make use of Google and GitHub's search functionality for finding content since all developer documentation will be in GitHub.  Certain IDEs may also have tools for searching.
 
   * **Index**. In the future, we will invest time in a better automated indexing tool to aggregate and structure the documentation. For the time being, we will manually create and maintain documentation indices at:
     
@@ -223,14 +223,14 @@ This section summarizes the requirements for long-term developer documentation.
       * OEPs_ will live within the open-edx-proposals_ repo.
       * If other system-wide documentation is needed, they will live within the edx-developer-docs_ repo.
 
-  * **Exported Diagrams**. In order to keep diagrams updated across time, they will need to be exported from whichever tool they were created in, with the exported version maintained in Github.
+  * **Exported Diagrams**. In order to keep diagrams updated across time, they will need to be exported from whichever tool they were created in, with the exported version maintained in GitHub.
 
     * draw.io diagrams will be exported and imported as XML files.
     * Lucidchart diagrams will be exported and imported as Visio (VDX) files.
 
-* **Version Controlled**. Documentation must be maintained under version control in Github, for the following reasons:
+* **Version Controlled**. Documentation must be maintained under version control in GitHub, for the following reasons:
 
-  * **Reviewed**. They will be properly reviewed as defined by that repo's process. Anyone in the Open edX community with access to the repo will have the ability to add, update, fix, and contribute to documentation by following the repo's review and maintainence process.
+  * **Reviewed**. They will be properly reviewed as defined by that repo's process. Anyone in the Open edX community with access to the repo will have the ability to add, update, fix, and contribute to documentation by following the repo's review and maintenance process.
 
   * **Tagged**. They will be appropriately in-synch with their corresponding code. For example, when an open edX instance runs an older named release, the operator can refer to the matching documentation for that version of the codebase.
 
@@ -326,7 +326,7 @@ We are choosing to not use `Markdown (MD)`_ for documentation. A single format e
 Confluence
 ==========
 
-Currently edX uses Confluence_ for storing both long-term and short-term developer documentation. Confluence does provide a WYSIWYG editor, which makes its relatively easy to create and edit documents. Its transitory nature also provides an impetus to rapidly writing down notes and thoughts. Given this, we do expect some hesitancy with transitioning to writing rST files in GitHub. However, as described in this OEP, GitHub provides the benefits of versioning, reviewing, release-tagging, and co-locating, which we expect will result in better quality and maintainence of our developer documentation.
+Currently edX uses Confluence_ for storing both long-term and short-term developer documentation. Confluence does provide a WYSIWYG editor, which makes its relatively easy to create and edit documents. Its transitory nature also provides an impetus to rapidly writing down notes and thoughts. Given this, we do expect some hesitancy with transitioning to writing rST files in GitHub. However, as described in this OEP, GitHub provides the benefits of versioning, reviewing, release-tagging, and co-locating, which we expect will result in better quality and maintenance of our developer documentation.
 
 
 Confluence Usage and Migration
@@ -348,12 +348,12 @@ When migrating content from Confluence to GitHub, we will:
 Archive
 =======
 
-For sustainable maintainence of Confluence documents, ongoing cleanup will be implemented using Confluence's
+For sustainable maintenance of Confluence documents, ongoing cleanup will be implemented using Confluence's
 useful `Space Archive`_ feature. All engineering related documents will be archived to the private `Archive: Engineering`_ space.
 
 When a page is archived:
 
-* The page and its contents are no longer included in normal searches, thus keeping our search results decluttered.
+* The page and its contents are no longer included in normal searches, thus keeping our search results de-cluttered.
 * The page no longer appears in Google searches.
 * Links to the old page are automatically forwarded to its new location in the Archived space (unless the old page's containing space is entirely deleted).
 
