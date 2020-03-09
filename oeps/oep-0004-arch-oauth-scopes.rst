@@ -2,28 +2,30 @@
 OEP-4: Application Authorization (Scopes)
 =========================================
 
-+---------------+-------------------------------------------+
-| OEP           | :doc:`OEP-4 <oep-0004-arch-oauth-scopes>` |
-+---------------+-------------------------------------------+
-| Title         | Application Authorization (Scopes)        |
-+---------------+-------------------------------------------+
-| Last Modified | 2016-10-13                                |
-+---------------+-------------------------------------------+
-| Author        | Eddie Fagin (eddie@edx.org)               |
-+---------------+-------------------------------------------+
-| Arbiter       | Dave Ormsbee (dave@edx.org)               |
-+---------------+-------------------------------------------+
-| Status        | Accepted                                  |
-+---------------+-------------------------------------------+
-| Type          | Architecture                              |
-+---------------+-------------------------------------------+
-| Created       | 2016-06-20                                |
-+---------------+-------------------------------------------+
+.. list-table::
+   :widths: 25 75
+
+   * - OEP
+     - :doc:`OEP-4 <oep-0004-arch-oauth-scopes>`
+   * - Title
+     - Application Authorization (Scopes)
+   * - Last Modified
+     - 2016-10-13
+   * - Author
+     - Eddie Fagin (eddie@edx.org)
+   * - Arbiter
+     - Dave Ormsbee (dave@edx.org)
+   * - Status
+     - Approved
+   * - Type
+     - Architecture
+   * - Created
+     - 2016-06-20
 
 Abstract
 ========
 
-Open edX application authorization guidelines. 
+Open edX application authorization guidelines.
 
 The Open edX platform currently has the capability to act as an OAuth2 [#rfc6749]_ provider (which is distinctly different from its OAuth2 client capability i.e. the "login with Social Network X" feature).
 
@@ -35,17 +37,13 @@ This proposal puts forward a strategy that is is straightforward for both applic
 
 The goals of the proposed strategy are to:
 
-* restrict the behavior of external applications that need to integrate with an
-  Open edX deployment, in line with the principle of "least privilege"
+* restrict the behavior of external applications that need to integrate with an Open edX deployment, in line with the principle of "least privilege"
 
-* enable more of those applications with low friction (optimize for ease of
-  integration over ease of development)
+* enable more of those applications with low friction (optimize for ease of integration over ease of development)
 
-* centralize legislation of authorization platform-wide, but federate and
-  decentralize enforcement
+* centralize legislation of authorization platform-wide, but federate and decentralize enforcement
 
-* avoid dictating technology and protocol choices, but have clear guidance for
-  implementation practices
+* avoid dictating technology and protocol choices, but have clear guidance for implementation practices
 
 Motivation
 ==========
@@ -69,25 +67,24 @@ Specification
 Data model
 ----------
 
-============ ==================================================================
-Object       Description
-============ ==================================================================
-service user an Open edX account created solely for server-to-server
-             integrations; can have multiple associated applications
-application  an autonomous system that needs to integrate with an Open edX
-             platform, owned by a single service user
-resource     named grouping of related capabilities. Will generally (not
-             always) be a noun like "catalog"
-action       describes a high-level behavior and will generally be "read" or
-             "write", but resources may use non-standard definitions where
-             absolutely necessary (should be the exception)
-scope        a single authorization (naming convention: ``resource:action``)
-             for an application relative to an Open edX instance; should only
-             describe broad application authorization (as opposed to, say,
-             fine-grained user authorizations)
-access token a temporary credential that grants a set of scopes to an
-             application
-============ ==================================================================
+.. list-table::
+   :widths: 25 75
+   :header-rows: 1
+
+   * - Object
+     - Description
+   * - service user
+     - an Open edX account created solely for server-to-server integrations; can have multiple associated applications
+   * - application
+     - an autonomous system that needs to integrate with an Open edX platform, owned by a single service user
+   * - resource
+     - named grouping of related capabilities. Will generally (not always) be a noun like "catalog"
+   * - action
+     - describes a high-level behavior and will generally be "read" or "write", but resources may use non-standard definitions where absolutely necessary (should be the exception)
+   * - scope
+     - a single authorization (naming convention: ``resource:action``) for an application relative to an Open edX instance; should only describe broad application authorization (as opposed to, say, fine-grained user authorizations)
+   * - access token
+     - a temporary credential that grants a set of scopes to an application
 
 I sketched these relationships out in the diagram below. Note that instead of using "read/write" as actions, I noted the HTTP verbs instead, just to give a sense for the implementation details we've got in mind at this point. Same ideas though.
 
@@ -97,45 +94,33 @@ I sketched these relationships out in the diagram below. Note that instead of us
 
 Governance
 ----------
-* Centralize the complete list of scopes but decentralize the associated
-  metadata and definitions
 
-* The central documented list of scopes must be readily available to
-  application developers and service owners, and kept up to date
+* Centralize the complete list of scopes but decentralize the associated metadata and definitions
 
-* Centralize application and token management but decentralize token
-  enforcement
+* The central documented list of scopes must be readily available to application developers and service owners, and kept up to date
 
-* Centralize common implementation patterns as we encounter them (logging,
-  enforcement, etc)
+* Centralize application and token management but decentralize token enforcement
 
-* Access tokens may have one or more scopes associated to them by the central
-  authorization service; tokens should be functionally opaque to applications
+* Centralize common implementation patterns as we encounter them (logging, enforcement, etc)
 
-* Scopes should cover all RESTful web API endpoints [#REST]_ within a service,
-  and may also cover other endpoints as desired by the service team
+* Access tokens may have one or more scopes associated to them by the central authorization service; tokens should be functionally opaque to applications
 
-* Resources should not leak implementation details or internal names, i.e.,
-  instead of ``otto_cart``, consider just ``cart`` or ``shopping_cart``
+* Scopes should cover all RESTful web API endpoints [#REST]_ within a service, and may also cover other endpoints as desired by the service team
 
-* Resources should not, on the other hand, be too broad to be useful, i.e.,
-  instead of ``courseware``, consider ``discussions`` or ``catalog`` or
-  whatever specific resource is of interest
+* Resources should not leak implementation details or internal names, i.e., instead of ``otto_cart``, consider just ``cart`` or ``shopping_cart``
+
+* Resources should not, on the other hand, be too broad to be useful, i.e., instead of ``courseware``, consider ``discussions`` or ``catalog`` or whatever specific resource is of interest
 
 Open questions
 --------------
-* Where, exactly, are we going to maintain the list of all scopes, and which
-  scopes should we start with?
 
-* How will we manage scope metadata, such as the human-readable "this is the
-  permission you're authorizing" text for the OAuth pop-up (and localization
-  considerations)?
+* Where, exactly, are we going to maintain the list of all scopes, and which scopes should we start with?
 
-* What is a good strategy for application lifecycle management, such as the
-  recommended approval flow for key creation and revocation?
+* How will we manage scope metadata, such as the human-readable "this is the permission you're authorizing" text for the OAuth pop-up (and localization considerations)?
 
-* What work is required to implement this proposal across the Open edX
-  platform, including (but not limited to) the `edx-platform`_ codebase?
+* What is a good strategy for application lifecycle management, such as the recommended approval flow for key creation and revocation?
+
+* What work is required to implement this proposal across the Open edX platform, including (but not limited to) the `edx-platform`_ codebase?
 
 .. _`edx-platform`: https://github.com/edx/edx-platform
 
