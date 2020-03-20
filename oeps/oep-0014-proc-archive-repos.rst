@@ -91,6 +91,13 @@ these steps to see if anyone would like to take ownership of it:
 Archive Steps
 -------------
 
+These steps should be followed for all repos within the edX organization(forks
+included). After some experiments with keeping archived repos in the ``edx``
+organization, we've learned that having abandoned code show up in searches
+hinders work to understand the current state of the system and the risk around
+new work, particularly deprecations and API changes. Thus we decided to move all
+archived repositories to a separate org.
+
 1. Update the README.rst file in the repository to state that it is archived,
    using the `README Archive Statement`_ below.
 
@@ -103,9 +110,14 @@ Archive Steps
    - It is not necessary for the openedx.yaml file to define an owner
      for archived repos.
 
-3. Create an IT help ticket to update the description of the repository to
-   begin with ``[ARCHIVED]`` and for the repository to be archived per `GitHub's
-   archive process`_
+3. Unless you have the relevant permissions to the work in this step, create an
+   IT help ticket and ask them to do the following:
+
+   - Update the description of the repository to begin with ``[ARCHIVED]``
+
+   - Move the repository to the edx-unsupported organization
+
+   - Archive the repository per `GitHub's archive process`_
 
 .. _GitHub's archive process: https://help.github.com/en/articles/archiving-repositories
 
@@ -121,31 +133,27 @@ Include this statement in the README.rst file:
     this repository will also not be merged.
 
 
-For Repos that are Forks
-------------------------
-
-If the repository is a fork of an upstream repository that is not within the
-edX organization, and will no longer be maintained, it can be transferred to
-the edx-unsupported organization.
-
-1. If you have the permissions on GitHub, simply transfer the repo to the
-   edx-unsupported organization.  If you don't have permissions, file an IT
-   ticket to have it done.
-
-2. Once the repo is in the edx-unsupported organization, archive it.
-
-The reason we transfer forks, but archive our original code, is so that GitHub
-searches will still find code we authored.  We don't delete the forks because
-they are still needed by older unsupported Open edX installations.
-
-
 Rationale
 =========
 
-The proposed process leverages the already-existing ``archived`` flag in
-openedx.yaml. It does not require introducing a new organization that is
-maintained by edX, and the source code remains easily visible and searchable
-(see `Rejected Alternatives`_).
+We previously archived in place and move to this previously rejected alternative
+based on lessons learned in going through the deprecation process and major
+upgrades(Python 3, Django 2.x)
+
+Pros:
+
+- `edx organization`_ is no longer littered with unsupported/obsolete
+  repositories.
+- GitHub search results within the `edx organization`_ do not include matches
+  in archived repositories. This could decrease confusion, especially since
+  repo descriptions are not included in search results.
+- Gemnasium monitoring may cease automatically (although this would need to be
+  confirmed).
+- Pattern followed by `Facebook`_, and thus might be familiar to others.
+
+(see `Rejected Alternatives`_ for other options we considered).
+
+.. _Facebook: https://github.com/facebookarchive
 
 
 Backward Compatibility
@@ -172,35 +180,24 @@ and notifying the open source community are essentially the same; the major
 differences from the proposed process are outlined below.
 
 
-Alternative 1: Transfer Repository
-----------------------------------
+Alternative 1: Archive In Place
+-------------------------------
 
-Transfer the obsolete repository to a new organization: edx-archived.
-
-.. note::
-    We now use the edx-unsupported organization for forks that we no longer
-    maintain.
+Use Github's archive feature and updated documentation to archive the repository
+in place.
 
 Pros:
 
-- `edx organization`_ is no longer littered with unsupported/obsolete
-  repositories.
-- GitHub search results within the `edx organization`_ do not include matches
-  in archived repositories. This could decrease confusion, especially since
-  repo descriptions are not included in search results.
-- Gemnasium monitoring may cease automatically (although this would need to be
-  confirmed).
-- Pattern followed by `Facebook`_, and thus might be familiar to others.
+- Old code hasn't moved so it can be easily found.
+- Old code can show up in searches to find historical context.
 
 Reasons rejected:
 
-- This creates another organization that edX must maintain and adds
-  administrative overhead.
-- It could be difficult for people to find the code through search, though
-  forwarding links would work for anyone who already linked to the repositories.
-
-.. _Facebook: https://github.com/facebookarchive
-
+- Through some experience with this method, we've learned that it's less
+  valuable than we expected.
+- Being able to know whether code is alive or dead is really helpful when making
+  major changes and if dead code can't easily be filtered from searches it
+  slows us down.
 
 Alternative 2: Create Archive Branch
 ------------------------------------
@@ -246,3 +243,9 @@ Change History
 
 * Updated to use GitHub's archive capability.
 * Don't ask the community about public repos in the edx org that are not a part of Open edX.
+
+2020-03-20
+----------
+
+* Decide to use the new edx-unsupported org for all archived repos. Old way we
+  were doing things is now recorded as Alternative 1: Archive In Place.
