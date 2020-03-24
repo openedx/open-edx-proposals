@@ -102,15 +102,13 @@ Other Recommendations
 ~~~~~~~~~~~~~~~~~~~~~
 
 * Format dates as YYYY-MM-DD. As an example, 2020-03-21.
-* If you do nothing else, list deprecations, removals, and any breaking changes in your changelog.
+* All notable changes must be included in your changelog. Deprecations, removals, and breaking changes are always notable changes.
 * It is both acceptable and appropriate to clean up changelog entries at any time to add clarifications or customize messaging for the audience of the changelog when needed.
 
 Example Changelog
 ~~~~~~~~~~~~~~~~~
 
-Here is an example CHANGELOG.rst.
-
-.. note:: Although this example includes versions, based on the decisions below our changelog entries would typically only include dates, because our versioned changelogs are managed using GitHub Releases.
+Here is an example CHANGELOG.rst for `Application and Non-Library Repositories`_, which have no versions.
 
 ::
 
@@ -120,21 +118,24 @@ Here is an example CHANGELOG.rst.
   All notable changes to this project will be documented in this file.
 
   The format is based on recommendations in `OEP-44`_.
-  This project adheres to `Semantic Versioning`_.
 
   .. _OEP-44: https://open-edx-proposals.readthedocs.io/en/latest/oep-0044-bp-changelogs.html
-  .. _Semantic Versioning: https://semver.org/spec/v2.0.0.html
 
-  [2.0.0] - 2020-03-21
-  --------------------
+  2020-03-21
+  ----------
+
+  Optional summary text for this date's entry.
 
   Removed
   ~~~~~~~
 
-  * Removed deprecated function `xxx`. See DEPR-XXX for details.
+  * Removed deprecated function. See DEPR-XXX for details.
+  * Removed deprecated feature YYY.
 
-  [2.0.0] - 2020-03-21
-  --------------------
+    * Optional additional text about this change, including breaking change or any other details useful to the reader of the changelog. For example, you might also provide details of an alternative to the deprecated feature (if there is one), or a link to these details.
+
+  2020-03-21
+  ----------
 
   Added
   ~~~~~
@@ -147,7 +148,6 @@ Notable Differences
 The following are notable differences between the recommendations of this OEP and the `keepachangelog.com`_ recommendations:
 
 * We use GitHub Releases in certain cases, as you'll see below, for developer efficiency purposes.
-* Because we typically release every change for libraries, we don't get any benefit from an "Unreleased" section.
 * We sometimes use automation that uses git commit messages for changelog messages. As noted above, it is acceptable and appropriate to clean these up as needed.
 
 Library Repositories
@@ -166,20 +166,23 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 * *MINOR* version when you *add functionality in a backwards compatible manner*, and
 * *PATCH* version when you make *backwards compatible bug fixes*.
 
-Every published version should have a corresponding entry in the changelog, but not necessarily in CHANGELOG.rst.
+Every published package should have a corresponding changelog entry for the new version.
 
 One of the most important rules when choosing whether to increment the MAJOR, MINOR, or PATCH version, is that backward incompatible changes always result in a new MAJOR version, and never a MINOR or PATCH version.
 
-* You must increment the MAJOR version for backward incompatible changes, even if you think it is unlikely to affect anyone. You can simply note in the changelog entry why it is backward incompatible and why you think it is unlikely to affect anyone.
-* If a backward incompatible change is found in a MINOR or PATCH version after publishing, first update the changelog and communicate immediately.  Next, a new MINOR or PATCH version should immediately be released which reverts this change, and it should be moved to a new MAJOR version.
-* If you decide that reverting will cause more harm for some reason, make sure you clearly communicate this decision.
+You must increment the MAJOR version for backward incompatible changes, even if you think it is unlikely to affect anyone. You can simply note in the changelog entry why it is backward incompatible and why you think it is unlikely to affect anyone.
+
+If you find a backward incompatible change in a MINOR or PATCH version after publishing the package, please update the changelog and communicate the inconsistency. Additionally, you have the following options:
+
+* A new MINOR or PATCH version can be immediately released to revert the change, and the change can be restored with a new MAJOR version. Or,
+* If you decide that reverting will cause more harm for some reason, and you do not intend to revert, please let this be a part of your communication.
 
 The reason it is important that only MAJOR versions include backward incompatible change is because when people upgrade dependencies, some will only read changelogs for MAJOR versions because of the potential backward incompatibilities, and may not read notes for MINOR or PATCH upgrades.
 
 Frontend Libraries
 ~~~~~~~~~~~~~~~~~~
 
-Like all Open edX repositories, frontend libraries should also include a CHANGELOG.rst. However, as you'll see below, this file may simply point to the GitHub Releases. Here is an example CHANGELOG.rst::
+Like all Open edX repositories, frontend libraries should also include a CHANGELOG.rst. However, as you'll see below, this file will simply point to the GitHub Releases. Here is an example CHANGELOG.rst::
 
   Changelog
   =========
@@ -224,7 +227,7 @@ Like all Open edX repositories, Python libraries should also include a CHANGELOG
 
 Many Python libraries publish packages to PyPI when a version is tagged. Publishing a GitHub Release both tags the version and allows one to write an appropriate changelog message. This is the recommended process at this time.
 
-Every published release should have a corresponding changelog entry.
+Every published package should have a corresponding changelog entry for the new version.
 
 Application and Non-Library Repositories
 ----------------------------------------
@@ -235,25 +238,6 @@ Since this code has no versions, the recommendations differ in the following way
 
 * The changelog entries will live in the CHANGELOG.rst file, following the recommendations detailed in `Changelogs and Changelog Entries`_.
 * Changelog entries should start with a date, rather than a date and version, because these repositories are not versioned.
-
-Changelog for edx-platform
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The edx-platform repository should have a CHANGELOG.rst, just like all other repositories.
-
-* Many notes that could potentially live in the edx-platform CHANGELOG.rst get added to the `Open Edx Release Planning`_ pages which have historically been created for each named release. Worst case, edx-platform notes are manually added to the CHANGELOG.rst instead, and at least the documentation stays more closely tied to the code.
-
-* Entries could be grouped by day if they could be added at a faster cadence (see `Tooling and Automation`_). Otherwise, date ranges should be used.
-
-* Attempting to add changelog entries at a very faster cadence without automation is likely to cause too many merge conflict issues. However, this should not stop people from adding entries immediately so we can learn.
-
-* As with all changelogs, it is acceptable and appropriate to clean up or enhance or add changelog entries as necessary.
-
-* More work is clearly required to determine how to iterate and improve the process for a CHANGELOG.rst in edx-platform.
-
-* The CHANGELOG.rst will also likely need to be broken into multiple files, but that can be a local decision.
-
-.. _Open Edx Release Planning: https://openedx.atlassian.net/wiki/spaces/COMM/pages/13205845/Open%2BedX%2BRelease%2BPlanning
 
 Tooling and Automation
 ----------------------
@@ -282,7 +266,14 @@ In some cases, like `edx/configuration CHANGELOG`_, adding dates would add clari
 Rejected Alternatives
 =====================
 
-An alternative for Python Library Respositories, rather than using GitHub Releases, would be to add changelog entries directly into the CHANGELOG.rst. Given that `Frontend Libraries`_ are already using GitHub Releases, and many Python libraries already use the GitHub Releases, it seems simpler to be consistent.
+For `Application and Non-Library Repositories`_, the only real alternatives to a CHANGELOG.rst are:
+
+#. Keeping changelog details in Confluence or some other location, or
+#. Not keeping any changelog at all.
+
+The first of these alternatives goes against our developer documentation recommendations, by not co-locating documentation with its code. The second alternative makes it impossible to learn about important changes without a great deal of hunting through commit comments.
+
+For `Python Libraries`_, an alternative to using GitHub Releases would be to add individual changelog entries directly into the CHANGELOG.rst. Given that `Frontend Libraries`_ are already using GitHub Releases, and many Python libraries already use the GitHub Releases, it seems simpler to be consistent. Additionally, repositories that have used both GitHub Releases and entries in the CHANGELOG.rst tend to have inconsistent usage, where various entries get dropped from one or the other. It is also simpler to point the CHANGELOG.rst to GitHub Releases than to point GitHub Releases to the CHANGELOG.rst or to stop people from adding GitHub Releases.
 
 References
 ==========
