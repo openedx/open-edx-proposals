@@ -151,10 +151,7 @@ string using Python's default behavior: lowercase and and dash-separated.
 `source <https://github.com/cloudevents/spec/blob/master/spec.md#source-1>`_
 -----------------------------------------------------------------------------
 
-Example:
 
-If it is being hosted under a different domain, is the source expected to be
-different?
 
 
 `specversion <https://github.com/cloudevents/spec/blob/master/spec.md#specversion>`_
@@ -255,6 +252,8 @@ majority of the time, but some events might have ``text/xml``.
 `time <https://github.com/cloudevents/spec/blob/master/spec.md#time>`_
 ----------------------------------------------------------------------
 
+Example: ``"2020-02-23T09:00:00Z"``
+
 Timestamp that the event occurred, in UTC using `RFC 3339
 <https://tools.ietf.org/html/rfc3339>`_. If this event was sent because we
 created a new row in the database, we should pull this ``time`` directly from
@@ -277,7 +276,7 @@ A callback is when you create a message with an ID or URL that you expect the
 consumer to make a synchronous call to when it receives the message. This is
 commonly used when an event represents some change that is too large to
 practically fit into the 64K message. For instance, we currently emit a generic
-"course_published" Django signal whenever data is published in Studio, leading
+``course_published`` Django signal whenever data is published in Studio, leading
 to a cascade of calls from various apps to the ModuleStore in order to extract
 the content data that they need.
 
@@ -298,7 +297,7 @@ load that my service is placing on the REST endpoint serving this user
 information. Is that safe? Who knows?
 
 One thing to consider is whether we can emit multiple events that better target
-specific consumer use cases. Let's take the "course_published" event as an
+specific consumer use cases. Let's take the ``course_published`` event as an
 example. Some listeners only care about schedule changes, because they have to
 account for when a course starts and ends. Search indexing really only wants to
 know the exact bit of content that was modified so that it can update that text.
