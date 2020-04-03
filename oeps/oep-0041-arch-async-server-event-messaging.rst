@@ -117,8 +117,8 @@ example:
 .. code-block:: javascript
 
   {
-    "id": "83f8287e-56c2-11ea-a800-f2189839bdb6",
-    "source": "course-discovery???"
+    "id": "b3b3981e-7544-11ea-b663-acde48001122",
+    "source": "???"
     "specversion": "1.0",
     "time": "2020-02-23T09:00:00Z",
     "type": "org.openedx.catalog.v1.course.created"
