@@ -121,7 +121,7 @@ example:
     "source": "???"
     "specversion": "1.0",
     "time": "2020-02-23T09:00:00Z",
-    "type": "org.openedx.catalog.v1.course.created"
+    "type": "org.openedx.catalog.course.created.v1"
     "data": {
         // message specific payload here
     }
