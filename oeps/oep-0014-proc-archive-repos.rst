@@ -47,7 +47,11 @@ This discussion resurfaced related to edX's usage of Gemnasium to report the usa
 Specification
 =============
 
-When a repository under the `edx organization`_ will no longer be maintained because it is no longer in use, the following steps should be followed.
+When a repository under the `edx organization`_ will no longer be maintained by edx Inc. because it is no longer in use by the latest version of the Open edX platform, the following steps should be followed.
+
+This process is not for repositories that are currently still in use by either the latest version of the Open edX platform or by edX Inc. the company.  If a repository is in use, but planned to be removed, it should go through the `deprecation process`_ and when that is completed it can be archived as described by the process below.
+
+.. _deprecation process: https://open-edx-proposals.readthedocs.io/en/latest/oep-0021-proc-deprecation.html
 
 
 Transfer to New Owner if Interest
