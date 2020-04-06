@@ -137,6 +137,14 @@ description of the conventions Open edX will use for that field. All Open edX
 events should have all of the fields specified below (even if some are
 considered optional in the CloudEvents spec).
 
+`dataschema <https://github.com/cloudevents/spec/blob/master/spec.md#dataschema>`_
+----------------------------------------------------------------------------------
+
+Example:
+
+
+
+
 `id <https://github.com/cloudevents/spec/blob/master/spec.md#id>`_
 ------------------------------------------------------------------
 
@@ -150,6 +158,9 @@ string using Python's default behavior: lowercase and and dash-separated.
 
 `source <https://github.com/cloudevents/spec/blob/master/spec.md#source-1>`_
 -----------------------------------------------------------------------------
+
+Example:
+
 
 
 
@@ -207,13 +218,21 @@ Example: ``course``
 
 The name of an entity that the event applies to. Examples might be ``course``,
 ``student``, ``enrollment``, ``order``, etc. Subjects may be namespaced, so
-``special_exam.proctored.allowance`` could be a subject. A subject should always
-mean the same thing within a Domain, but can mean different things across
-domains. For instance, what the LMS (``learning`` domain) calls a ``course``
-maps to what the ``catalog`` domain would call a ``course_run``. We should try
-to be consistent where possible, but each domain ultimately gets to decide what
-its terms means, and we should be careful when mapping a concept in one domain
-to concepts in another domain.
+``special_exam.proctored.allowance`` could be a subject.
+
+A subject should always mean the same thing within a Domain, but can mean
+different things across domains. For instance, what the LMS (``learning``
+domain) calls a ``course`` might map to what the ``catalog`` domain would call a
+``course_run``. We should try to be consistent where possible, but each domain
+ultimately gets to decide what its terms mean, and we should be careful when
+translating a concept from one domain to another. For instance, the
+``content_authoring`` and ``learning`` domains might both have a concept of a
+"due date" for an assignment. But while the ``content_authoring`` due date is
+determined only by the content author, the ``learning`` due date might take into
+account a student's cohort, individual due date extensions, accessibility
+allowances, and any number of other things. Both domains may call it ``due``,
+but the due date information from ``content_authoring`` is just an input to the
+more complex due date information in ``learning``.
 
 Action
 ~~~~~~
@@ -222,10 +241,16 @@ Example: ``created``
 
 This is the action that occurred for the event. Some of most common ones will be
 ``created``, ``updated``, and ``deleted``, but many applications will want more
-specific actions like ``declined``, ``started``, ``verified``, etc. Actions
-should be past tense, to better align with our existing conventions around
-Django signals and learning analytics events (we're not completely consistent,
-but we tend towards past tense).
+specific actions like ``declined``, ``started``, ``verified``, etc. Applications
+should prefer these more specific actions when possible, since they are usually
+clearer for listeners and don't requiring knowing implementation details. For
+instance, it is preferable to have a ``registration.completed`` event than to
+have a ``registration.updated`` event and leave it to clients to check the
+resulting message's payload for ``status: "complete"``.
+
+Actions should be past tense, to better align with our existing conventions
+around Django signals and learning analytics events (we're not completely
+consistent, but we tend towards past tense).
 
 Major Version
 ~~~~~~~~~~~~~
@@ -269,6 +294,35 @@ should have the *exact* same timestamp.
 Message Content Data Guidelines
 ===============================
 
+These are general guidelines to consider when creating your messages. There can
+always be exceptional circumstances and use cases that require going against one
+of these guidelines, but try to default to these guidelines unless you're really
+sure about what you're doing.
+
+One Producer Service Per Event Type
+-----------------------------------
+
+Each event type should be emitted by one, and only one, service. That service is
+the source of truth for whatever entity the event describes. If course-discovery
+emits an event describing when a course starts (e.g.
+``org.openedx.catalog.course.start_date.changed``), it is *not* appropriate for
+the LMS to send potentially conflicting information using that same event type.
+
+Two services may have similar sounding events. The course-discovery service
+(``catalog`` domain) might emit a ``org.openedx.catalog.course.created.v1``
+event when a catalog entry for a course is created, while Studio
+(``content_authoring`` domain) might emit a
+``org.openedx.content_authoring.course.created.v1`` event when course content is
+first authored there. These are similar, related events, but they are not the
+same event type.
+
+Events are Created by the Owning Domain
+---------------------------------------
+
+
+
+
+
 Avoid Callbacks
 ---------------
 
@@ -283,18 +337,18 @@ the content data that they need.
 Callbacks threaten performance and stability because they reduce a service's
 ability to control its own load. For instance, a sudden increase in Courseware
 traffic might generate a burst of student analytics events. If this stream of
-events overwhelms my service's ability to consume them, the queue may start to
-back up with unread events. Yet this shouldn't cause my service to fail, since
+events overwhelms your service's ability to consume them, the queue may start to
+back up with unread events. Yet this shouldn't cause your service to fail, since
 it still gets to control how quicky it consumes events off of that queue. It has
 the freedom to either slowly catch up (if the burst was a momentary spike), or
-to scale up additional workers to handle the higher throughput. My service's
+to scale up additional workers to handle the higher throughput. Your service's
 decision to scale up or down does not directly impact other services.
 
 Things change when we introduce a callback to this same scenario. Say the
 analytics events now include a callback URL to get basic user information. In
-this scenario, doubling the consumers that my service has now also doubles the
-load that my service is placing on the REST endpoint serving this user
-information. Is that safe? Who knows?
+this scenario, doubling the consumers that your service has now also doubles the
+load that your service is placing on the REST endpoint serving this user
+information. Is that safe to do?
 
 One thing to consider is whether we can emit multiple events that better target
 specific consumer use cases. Let's take the ``course_published`` event as an
@@ -311,6 +365,71 @@ when a user changes their profile information might include a URL to the S3
 location of their new profile picture. Just keep in mind that messages may be
 read long after they're generated, and any presigned S3 URLs you generate might
 be expired by the time a consumer gets them.
+
+
+Architectural Goals
+===================
+
+Asynchronous messaging is often promoted as a way to decouple services from each
+other and make them more resilient to failure. What does that mean for Open edX
+in concrete terms? How does this OEP align with the Achitecture Manifesto?
+
+Autonomy beats Coordination -> Control over domain messaging, individually versioned messages.
+
+Extensions/Plugins -> Encouraging further decoupling by elminating even code dependencies
+
+Data Redundancy beats Coupling Acorss Contexts
+
+Loosely Coupled Codebase (versioning, repeating yourself, separate classes for minor version
+updates, mixed together?)
+
+Asynchronous Messaging beats Synchronous Requests
+
+Eliminate Expensive, Batch Synchronization
+------------------------------------------
+
+We currently have processes that make extremely expensive requests across
+services to synchronize data, particularly from course-discovery. Aside from
+being wasteful (relatively few entries actually change between these batches),
+it is also difficult to properly scale for. Most auto-scaling is built to
+trigger once particular thresholds around CPU are hit, and does not deal well
+with momentary bursts of load that are 5-10X normal levels. We are forced into
+some combination of over-provisioning and/or accepting periodic spikes in
+overall service latency. In a situation where we are already running near
+capacity, a spike like this might be enough to trigger a cascade of failures.
+
+Eliminate Blocking, Synchronous Requests
+----------------------------------------
+
+
+
+
+Reduce the need for Plugins
+---------------------------
+
+`Django app plugins <https://github.com/edx/edx-platform/tree/master/openedx/core/djangoapps/plugins>`_
+exist to help decouple core edx-platform code from third party extensions. But
+in some cases, the only reason the plugin needs to exist at all is because there
+is no other way to get notifications for important lifecycle events like user
+registration, course enrollment, score changes, etc. Having a stable set of
+event APIs will allow many of these to exist as independently deployed services
+that don't need to be run in the same process as the LMS.
+
+
+
+Simplify Integration to External Systems
+----------------------------------------
+
+( Remove direct dependencies between parts of the system. )
+
+
+
+
+
+
+* easier to substitute other systems
+* don't have to add as much to edx-platform itself.
+
 
 
 Scratch Notes
@@ -334,6 +453,8 @@ cases, schedule data, etc.)
 
 1. Self-contained, without history
 2. PII
+Only one producer per event.
+
 4. No RPC
 5. Exchange = Domain, routing key = event type. Namespacing excessive?
 6. Shouldn't emit before data is committed to the database. on_commit practice?
@@ -357,6 +478,7 @@ Documentation
 
 (AsyncAPI)
 
+Security
 
 Top level concerns:
 
