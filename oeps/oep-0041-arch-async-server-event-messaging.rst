@@ -140,9 +140,10 @@ considered optional in the CloudEvents spec).
 `dataschema <https://github.com/cloudevents/spec/blob/master/spec.md#dataschema>`_
 ----------------------------------------------------------------------------------
 
-Example:
+Example: ???
 
-
+WIP: This would link to documentation? Fill this out after we flesh out that
+portion of this OEP.
 
 
 `id <https://github.com/cloudevents/spec/blob/master/spec.md#id>`_
@@ -159,10 +160,12 @@ string using Python's default behavior: lowercase and and dash-separated.
 `source <https://github.com/cloudevents/spec/blob/master/spec.md#source-1>`_
 -----------------------------------------------------------------------------
 
-Example:
+Example: ``"https://openedx.org/events/catalog"``
 
-
-
+WIP: It's required that this field exist and recommended that it be an absolute
+URI. Use an openedx.org domain? Should there be extra information to indicate
+things like the site it comes from (in the whitelabel sense?). Or have that info
+in the data section?
 
 
 `specversion <https://github.com/cloudevents/spec/blob/master/spec.md#specversion>`_
@@ -289,6 +292,16 @@ actions. Do call ``datetime.now()`` if the event happens and has no
 corresponding database changes. If you are sending out multiple event messages
 describing the same occurance (e.g. a version 1 and version 2 of an event), they
 should have the *exact* same timestamp.
+
+Payload Metadata
+================
+
+The ``data`` attribute contains the application-specific message data.
+
+WIP: Do we require a common metadata header everywhere? In which case, we
+wouldn't be able to use other content types, which is probably fine? Need
+minor version info here, plus maybe site information (e.g. white label?). Some
+kind of global context information?
 
 
 Message Content Data Guidelines
