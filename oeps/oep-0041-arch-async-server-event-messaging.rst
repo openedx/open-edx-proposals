@@ -118,7 +118,7 @@ example:
 
   {
     "id": "b3b3981e-7544-11ea-b663-acde48001122",
-    "source": "???"
+    "source": "https://discovery.edx.org/events"
     "specversion": "1.0",
     "time": "2020-02-23T09:00:00Z",
     "type": "org.openedx.catalog.course.created.v1"
@@ -160,13 +160,10 @@ string using Python's default behavior: lowercase and and dash-separated.
 `source <https://github.com/cloudevents/spec/blob/master/spec.md#source-1>`_
 -----------------------------------------------------------------------------
 
-Example: ``"https://openedx.org/events/catalog"``
+Example: ``"https://courses.edx.org/events"``
 
-WIP: It's required that this field exist and recommended that it be an absolute
-URI. Use an openedx.org domain? Should there be extra information to indicate
-things like the site it comes from (in the whitelabel sense?). Or have that info
-in the data section?
-
+This is an absolute URI that represents the URL of the server emitting the
+event. It does not have
 
 `specversion <https://github.com/cloudevents/spec/blob/master/spec.md#specversion>`_
 ------------------------------------------------------------------------------------
@@ -186,6 +183,10 @@ describing the type of event, but recommends that it be prefixed with a
 reverse-DNS name for namespacing purposes. We will use a period-separated
 hierarchical name comprising with the format ``{Reverse DNS}-{Architecture
 Domain}-{Subject}-{Action}-{Major Version}``.
+
+``version``
+-----------
+
 
 
 Reverse DNS
@@ -277,6 +278,19 @@ format of ``data`` attribute. It should be ``application/json`` the vast
 majority of the time, but some events might have ``text/xml``.
 
 
+``minorversion``
+----------------
+
+Example: ``2``
+
+This is the one extension attribute we would be introducing to CloudEvents and
+represents a minor version in semver reckoning, meaning that it increments when
+we have made backwards compatible additions to the message payload in the
+``data`` attribute. Values can only be integers. The initial value for
+``minorversion`` should be ``0``. There is no corresponding ``majorversion``
+because that information is encoded into the message type.
+
+
 `time <https://github.com/cloudevents/spec/blob/master/spec.md#time>`_
 ----------------------------------------------------------------------
 
@@ -293,15 +307,6 @@ corresponding database changes. If you are sending out multiple event messages
 describing the same occurance (e.g. a version 1 and version 2 of an event), they
 should have the *exact* same timestamp.
 
-Payload Metadata
-================
-
-The ``data`` attribute contains the application-specific message data.
-
-WIP: Do we require a common metadata header everywhere? In which case, we
-wouldn't be able to use other content types, which is probably fine? Need
-minor version info here, plus maybe site information (e.g. white label?). Some
-kind of global context information?
 
 
 Message Content Data Guidelines
