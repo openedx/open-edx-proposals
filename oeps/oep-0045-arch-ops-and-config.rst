@@ -79,6 +79,16 @@ For managing microservice architectures containers are an industry standard for 
 
 For operators who don’t want to run in Docker containers the Dockerfile acts as documentation for the system dependencies they will need to recreate.  Everything an operator needs to know about how to set up their environment is all in one place rather than distributed across multiple overlapping and overriding files.
 
+In order to function as documentation for operators Dockerfiles will be well-commented and use `native Dockerfile syntax`_ to describe the image.  No Ansible should be run as part of the image build. Similarly, bash scripts should be avoided. If they must be used due to a limitation of the Dockerfile commands, the scripts must live within the same codebase as the Dockerfile.
+
+
+.. _native Dockerfile syntax: https://docs.docker.com/engine/reference/builder/#dockerfile-reference
+
+**Docker Images**
+
+edX will provide Docker images for applications that captures the latest code on the master branch as well as images representing named releases.  edX will not provide these images for named releases prior to the acceptance and implementation of this OEP which is Juniper at time of writing.
+
+
 Configuration
 *************
  
@@ -97,21 +107,21 @@ Additionally it is not clear which settings are required to be overridden and wh
 
 
 *  ``__init__.py`` - Sourcing our config from this file within the settings directory takes advantage of django defaults and means that settings will be picked up automatically without needing to specify ``--settings`` anywhere.  This entry point would import ``required.py``, ``defaults.py``, and the code to override both from a config file.
-*  ``required.py`` - all settings which are required to run and do not have a reasonable production-ready default.  EG LMS_BASE_URL which will be different per environment.
+*  ``required.py`` - all settings which are required to run and do not have a reasonable production-ready default, e.g. LMS_BASE_URL which will be different per environment.
 *  ``defaults.py`` - all settings other settings which will have production-ready defaults
 
 The settings defined in ``required.py`` and ``defaults.py`` files are mutually exclusive, representing all application specific settings as well as installed library settings whose values either must be provided or whose defaults are not considered production-ready.
 
-``required.py`` variables will all be initialized to ``NONE`` and the application will not start unless they are set.  This allows operators to fail fast rather than finding out about an unset value when users exercise those breaking codepaths. Application developers are encouraged to keep the list of required settings to a minimum.
+``required.py`` variables will all be initialized to ``None`` and the application will not start unless they are set.  This allows operators to fail fast rather than finding out about an unset value when users exercise those breaking codepaths. Application developers are encouraged to keep the list of required settings to a minimum.
 
 This new settings structure obviates the need for any other python files in the settings directory (such as ``devstack.py``, ``test.py``, etc).  The values currently set in those files should be moved to a corresponding ``devstack.yml``, ``test.yml``, etc in the same settings directory.  This gives developers and operators more consistency across environments since the same code paths are being executed with different values.
 
 
 **Config file**
 
-Applications will be configured by a yaml file containing all of the settings variable overrides specified by the operator (including both required settings and secrets as well as default value overrides).  The file is made known to the application by an environment variable, ``<APPNAME>_CFG_PATH``, with the path to the file.  Versions of this config yaml may be provided in the application repo for certain environments such as development and test.  However, for all other environments (EG production), the file will need be managed elsewhere.
+Applications will be configured by a yaml file containing all of the settings variable overrides specified by the operator (including both required settings and secrets as well as default value overrides).  The file is made known to the application by an environment variable, ``<APPNAME>_CFG_PATH``, with the path to the file.  Versions of this config yaml may be provided in the application repo for certain environments such as development and test.  However, for all other environments (e.g. production), the file will need be managed elsewhere.
 
-Since defaults are provided by the application, many smaller deployments should not need to do much more than provide the required settings to operate.  For development environments the config will likely change the defaults to more development appropriate values. EG debug settings, log levels, email settings etc.
+Since defaults are provided by the application, many smaller deployments should not need to do much more than provide the required settings to operate.  For development environments the config will likely change the defaults to more development appropriate values, e.g. debug settings, log levels, email settings etc.
  
 **Config file generation & management**
 
@@ -150,3 +160,10 @@ Jumping to Kubernetes
 Kubernetes is an open source container orchestration platform pioneered by Google.  While it often occupies the same conversation space as containers because it is a powerful way to manage them, it is a huge increase in complexity and expertise required to operate.  For most installations Kubernetes is currently too much overhead/learning curve for the value.  The edX organization may opt to explore deploying Docker containers this way in the future and would love to collaborate with operators who also decide to use Kubernetes to compare notes.
 
 
+
+Implementation Strategy
+=======================
+
+Discussion of implentation of this OEP will happen in a `separate Pull Request`_ .
+
+.. _separate Pull Request: https://github.com/edx/open-edx-proposals/pull/144
