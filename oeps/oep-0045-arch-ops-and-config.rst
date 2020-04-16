@@ -164,6 +164,27 @@ Kubernetes is an open source container orchestration platform pioneered by Googl
 Implementation Strategy
 =======================
 
-Discussion of implentation of this OEP will happen in a `separate Pull Request`_ .
+**Container implementation strategy**
+- Dockerfiles can be added to repos with no impact on existing deployments
+- Discussion Topic 1
+- Discussion Topic 2
+- Discussion Topic 3
 
-.. _separate Pull Request: https://github.com/edx/open-edx-proposals/pull/144
+**Config implementation strategy**
+- Plugins
+- Devstack
+- Production
+- Discussion Topic 1
+- Discussion Topic 2
+- Discussion Topic 3
+
+**Documentation implementation strategy**
+- BTR working group has already started laying some groundwork here. How should we leverage it?
+- Discussion Topic 1
+- Discussion Topic 2
+- Discussion Topic 3
+
+**Other implementation concerns**
+- Discussion Topic 1
+- Discussion Topic 2
+- Discussion Topic 3
