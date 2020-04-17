@@ -13,15 +13,15 @@ OEP-45: Configuring and Operating Open edX
    * - Authors
      - Bill DeRusha
    * - Arbiter
-     - ???
+     - Felipe Montoya 
    * - Status
-     - Draft
+     - Under Review
    * - Type
      - Architecture
    * - Created
      - 2020-04-06
    * - Review Period
-     - ???
+     - 2020-04-17 - 2020-05-04
 
 .. contents::
    :local:
