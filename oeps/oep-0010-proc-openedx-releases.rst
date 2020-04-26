@@ -7,7 +7,7 @@ OEP-10: Open edX Releases
 +---------------+---------------------------------------------------+
 | Title         | Open edX Releases                                 |
 +---------------+---------------------------------------------------+
-| Last Modified | 2019-08-23                                        |
+| Last Modified | 2020-04-26                                        |
 +---------------+---------------------------------------------------+
 | Author        | Ned Batchelder <ned@edx.org>                      |
 +---------------+---------------------------------------------------+
@@ -163,6 +163,13 @@ a dependency.
         The name of the release-from branch in this repo. This is the branch
         that will be tagged when an Open edX release is made.
 
+    ``maybe``
+        A boolean, but only ever "true" if present.  This key is created by the
+        repo initialization tool (cookiecutter).  If it is present, the repo
+        will be skipped during releases, but will be flagged so the release
+        manager can start a conversation with the repo owner to determine if
+        the repo should be included.
+
     Obsolete keys:
 
     ``requirements``
@@ -232,5 +239,7 @@ components onto the machine.
 
 Change History
 ==============
+
+2020-04-26: Added the "maybe" key for "openedx-release".
 
 2018-08-22: Installation details adjusted to match current Hawthorn realities.
