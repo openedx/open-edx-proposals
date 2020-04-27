@@ -125,7 +125,7 @@ This new settings structure obviates the need for any other python files in the 
 
 **Config file**
 
-Applications will be configured by a yaml file containing all of the settings variable overrides specified by the operator (including both required settings and secrets as well as default value overrides). The file is made known to the application by an environment variable, ``<APPNAME>_CFG_PATH``, with the path to the file. Versions of this config yaml may be provided in the application repo for certain environments such as development and test. However, for all other environments (e.g. production), the file will need be managed elsewhere.
+Applications will be configured by a yaml file containing all of the settings variable overrides specified by the operator (including both required settings and secrets as well as default value overrides). The file is made known to the application by an environment variable, ``<APPNAME>_CFG_PATH``, with the path to the file. Versions of this config yaml may be provided in the application repo for certain environments such as development and test. However, for all other environments (e.g. production), the file will need to be managed elsewhere.
 
 Since defaults are provided by the application, many smaller deployments should not need to do much more than provide the required settings to operate. For development environments the config will likely change the defaults to more development appropriate values, e.g. debug settings, log levels, email settings etc.
  
