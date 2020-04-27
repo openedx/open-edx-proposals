@@ -73,13 +73,19 @@ For managing microservice architectures containers are an industry standard for 
 * **Improved application development.**  Allows developers to run a more production-like environment locally, preventing discrepancies between environments.
 * **Speed.** Start, create, replicate or destroy containers in seconds. Increases velocity for development, deployment, and production operations.
 * **Operational simplicity/consistency.**  By isolating application processes from the host OS it is simpler to manage and maintain the host OS. Homogeneous administration of heterogeneous components, reduces the range of skill sets required to operate environments.
-
+* **Rich Tooling Ecosystem.**  The rich ecosystem of tools and integrations available make containers an easy and powerful deployment solution.
 
 **Clear System Dependency Documentation**
 
 For operators who don’t want to run in Docker containers the Dockerfile acts as documentation for the system dependencies they will need to recreate. Everything an operator needs to know about how to set up their environment is all in one place rather than distributed across multiple overlapping and overriding files.
 
-In order to function as documentation for operators Dockerfiles will be well-commented and use `native Dockerfile syntax`_ to describe the image. No Ansible should be run as part of the image build. Similarly, bash scripts should be avoided. If they must be used due to a limitation of the Dockerfile commands, the scripts must live within the same codebase as the Dockerfile.
+In order to function as documentation for operators Dockerfiles will be well-commented, use `native Dockerfile syntax`_ to describe the image, and never require private resources to build. This means: 
+
+* No Ansible should be run as part of the image build.
+* Similarly, bash scripts should be avoided.
+* If scripts must be used due to a limitation of the Dockerfile commands, the scripts must live within the same codebase as the Dockerfile.
+* Default ARG and CMD values should meet the needs of most users without modification.
+* Private or custom install requirements, patches, ARGs, CMD values, etc. should be included via a separately managed Dockerfile built on top of the Open edX image for that codebase.
 
 
 .. _native Dockerfile syntax: https://docs.docker.com/engine/reference/builder/#dockerfile-reference
