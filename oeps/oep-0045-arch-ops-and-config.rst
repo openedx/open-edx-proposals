@@ -114,11 +114,11 @@ Additionally it is not clear which settings are required to be overridden and wh
 
 *  ``__init__.py`` - Sourcing our config from this file within the settings directory takes advantage of django defaults and means that settings will be picked up automatically without needing to specify ``--settings`` anywhere. This entry point would import ``required.py``, ``defaults.py``, and the code to override both from a config file.
 *  ``required.py`` - all settings which are required to run and do not have a reasonable production-ready default, e.g. LMS_BASE_URL which will be different per environment.
-*  ``defaults.py`` - all settings other settings which will have production-ready defaults
+*  ``defaults.py`` - other settings which will have production-ready defaults
 
 The settings defined in ``required.py`` and ``defaults.py`` files are mutually exclusive, representing all application specific settings as well as installed library settings whose values either must be provided or whose defaults are not considered production-ready.
 
-``required.py`` variables will all be initialized to ``None`` and the application will not start unless they are set. This allows operators to fail fast rather than finding out about an unset value when users exercise those breaking codepaths. Application developers are encouraged to keep the list of required settings to a minimum.
+``required.py`` variables must be overridden by operators.  The application will check that operators provided these values not start unless they are set. This allows operators to fail fast rather than finding out about an unset value when users exercise those breaking codepaths. Application developers are encouraged to keep the list of required settings to a minimum.
 
 This new settings structure obviates the need for any other python files in the settings directory (such as ``devstack.py``, ``test.py``, etc). The values currently set in those files should be moved to a corresponding ``devstack.yml``, ``test.yml``, etc in the same settings directory. This gives developers and operators more consistency across environments since the same code paths are being executed with different values.
 
