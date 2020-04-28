@@ -92,7 +92,7 @@ In order to function as documentation for operators Dockerfiles will be well-com
 
 **Docker Images**
 
-edX will provide Docker images for applications that captures the latest code on the master branch as well as images representing named releases. edX will not provide these images for named releases prior to the acceptance and implementation of this OEP which is Juniper at time of writing.
+edX will provide Docker images for applications that captures the latest code on the master branch as well as images representing named releases. edX will not provide these images for named releases prior to the acceptance and implementation of this OEP (Aspen through and including Juniper at time of writing).
 
 
 Configuration
@@ -102,7 +102,7 @@ Configuration
 
 Having a single artifact that runs with different configurations increases stability by improving development parity with other deployment environments. edX applications already support configuration overrides via a yaml file for production environments, but development and test environments tend to configure the application using different code paths via a settings/devstack.py or settings/test.py file.
 
-Additionally it is not clear which settings are required to be overridden and which settings have values that may technically work but are inappropriate for production systems. To alleviate these issues edX django applications will adopt the following settings structure:
+Additionally it is not clear which settings are required to be overridden and which settings have values that may technically work but are inappropriate for production systems. To alleviate these issues edX Django applications will adopt the following settings structure:
 
 .. code-block:: text
 
@@ -112,7 +112,7 @@ Additionally it is not clear which settings are required to be overridden and wh
   └── defaults.py
 
 
-*  ``__init__.py`` - Sourcing our config from this file within the settings directory takes advantage of django defaults and means that settings will be picked up automatically without needing to specify ``--settings`` anywhere. This entry point would import ``required.py``, ``defaults.py``, and the code to override both from a config file.
+*  ``__init__.py`` - Sourcing our config from this file within the settings directory takes advantage of Django defaults and means that settings will be picked up automatically without needing to specify ``--settings`` anywhere. This entry point would import ``required.py``, ``defaults.py``, and the code to override both from a config file.
 *  ``required.py`` - all settings which are required to run and do not have a reasonable production-ready default, e.g. LMS_BASE_URL which will be different per environment.
 *  ``defaults.py`` - other settings which will have production-ready defaults
 
@@ -147,7 +147,7 @@ A clear manual of operations will exist in the form of RST files in an ``operati
  
 In the same vein as not dictating how operators create and manage their application config files, operators will also be expected to manage how they execute the operations documented in the manual.
 
-.. _this commit: https://github.com/openedx-btr-wg/edx-platform/commit/        18effd83f983f497ca0a1535108fa41dc50d06a2#diff-ca02329742db0a77612a18ba1260d178R1-R39
+.. _this commit: https://github.com/openedx-btr-wg/edx-platform/commit/18effd83f983f497ca0a1535108fa41dc50d06a2#diff-ca02329742db0a77612a18ba1260d178R1-R39
 
 
 Alternatives Considered
