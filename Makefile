@@ -227,3 +227,19 @@ pseudoxml:
 .PHONY: develop
 develop:
 	sphinx-autobuild -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html -p $(PORT) --ignore '.git/**' --open-browser
+
+# Order is very important in this list: files must appear after everything they include!
+REQ_FILES = \
+	requirements/pip-tools \
+	requirements/base \
+	requirements/development
+upgrade: ## update the pip requirements files to use the latest releases satisfying our constraints
+	pip install -qr requirements/pip-tools.txt
+	@ export REBUILD='--rebuild'; \
+	for f in $(REQ_FILES); do \
+		echo ; \
+		echo "== $$f ===============================" ; \
+		echo "pip-compile -v --no-emit-trusted-host --no-index $$REBUILD --upgrade -o $$f.txt $$f.in"; \
+		pip-compile -v --no-emit-trusted-host --no-index $$REBUILD --upgrade -o $$f.txt $$f.in || exit 1; \
+		export REBUILD=''; \
+	done

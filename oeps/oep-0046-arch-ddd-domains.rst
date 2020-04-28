@@ -193,6 +193,13 @@ specific dates, and with the **Business Subdomain** to group learning content
 created by **educators** in the **Content Authoring** Subdomain into units that match
 learners educational goals.
 
+
+The Big Picture
+===============
+
+.. image:: oep-0046/domains.svg
+
+
 Learning Content Subdomains
 ===========================
 
@@ -220,9 +227,6 @@ Bounded Contexts
    - - Bounded Context
      - Type
      - Description
-   - - Catalog Content Authoring
-     - generic
-     - Catalog Content Authoring (generic) allows educators to create higher-level learning contexts, such as Courses and Programs, which includes metadata related to those contexts.
    - - Course Run Authoring
      -	supporting
      - Course Run Authoring (supporting) allows educators to launch a Course Run. This includes the ability to override configuration settings and fields, including dates and grading policy.
@@ -282,6 +286,11 @@ Bounded Contexts
     - Learning Enrollments allows learners to see which learning materials they have access to, and which experience they have
       for that content. It also provides fulfillment services for the various Business Subdomains by allowing them to request
       enrollment of a user into an experience of particular learning content.
+
+Infrastructure Subdomains
+=========================
+
+These Subdomains provide key Open edX infrastructure shared by the other Subdomains.
 
 Analytics
 ---------
@@ -394,10 +403,10 @@ Bounded Contexts
 
 Masters
 -------
-  **Supporting** Subdomain
+**Supporting** Subdomain
 
-  Masters allows educators and learners to manage and engage in bundled packages (programs) of learning
-  linked to institutional credit.
+Masters allows educators and learners to manage and engage in bundled packages (programs) of learning
+linked to institutional credit.
 
 Users:
   - Masters Learners

@@ -1,2 +1,1 @@
-edx-sphinx-theme==1.0.1
-sphinx==1.4.8
+-r requirements/base.txt
