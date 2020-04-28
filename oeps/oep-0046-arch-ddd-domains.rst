@@ -278,6 +278,13 @@ Use Cases:
   - **Educator.3** Actionable Data and Feedback
   - **Admin.1** Actionable Data and Feedback
 
+Users
+-----
+**Generic** Subdomain
+
+Users allows users to manage their personal profile and demographic inforamtion, and
+provides authentication services to other Subdomains.
+
 
 Business Subdomains
 ===================
