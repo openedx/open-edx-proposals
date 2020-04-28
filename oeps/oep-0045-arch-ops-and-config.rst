@@ -102,7 +102,7 @@ Configuration
 
 Having a single artifact that runs with different configurations increases stability by improving development parity with other deployment environments. edX applications already support configuration overrides via a yaml file for production environments, but development and test environments tend to configure the application using different code paths via a settings/devstack.py or settings/test.py file.
 
-Additionally it is not clear which settings are required to be overridden and which settings have values that may technically work but are inappropriate for production systems. To alleviate these issue edX django applications will adopt the following settings structure:
+Additionally it is not clear which settings are required to be overridden and which settings have values that may technically work but are inappropriate for production systems. To alleviate these issues edX django applications will adopt the following settings structure:
 
 .. code-block:: text
 
@@ -118,7 +118,7 @@ Additionally it is not clear which settings are required to be overridden and wh
 
 The settings defined in ``required.py`` and ``defaults.py`` files are mutually exclusive, representing all application specific settings as well as installed library settings whose values either must be provided or whose defaults are not considered production-ready.
 
-``required.py`` variables must be overridden by operators.  The application will check that operators provided these values not start unless they are set. This allows operators to fail fast rather than finding out about an unset value when users exercise those breaking codepaths. Application developers are encouraged to keep the list of required settings to a minimum.
+``required.py`` variables must be overridden by operators.  The application will check that operators provided these values, and will not start unless they are set. This allows operators to fail fast rather than finding out about an unset value when users exercise those breaking codepaths. Application developers are encouraged to keep the list of required settings to a minimum.
 
 This new settings structure obviates the need for any other python files in the settings directory (such as ``devstack.py``, ``test.py``, etc). The values currently set in those files should be moved to a corresponding ``devstack.yml``, ``test.yml``, etc in the same settings directory. This gives developers and operators more consistency across environments since the same code paths are being executed with different values.
 
@@ -127,7 +127,7 @@ This new settings structure obviates the need for any other python files in the 
 
 Applications will be configured by a yaml file containing all of the settings variable overrides specified by the operator (including both required settings and secrets as well as default value overrides). The file is made known to the application by an environment variable, ``<APPNAME>_CFG_PATH``, with the path to the file. Versions of this config yaml may be provided in the application repo for certain environments such as development and test. However, for all other environments (e.g. production), the file will need to be managed elsewhere.
 
-Since defaults are provided by the application, many smaller deployments should not need to do much more than provide the required settings to operate. For development environments the config will likely change the defaults to more development appropriate values, e.g. debug settings, log levels, email settings etc.
+Since defaults are provided by the application, many smaller deployments should not need to do much more than provide the required settings to operate. For development environments the config will likely change the defaults to more development appropriate values, e.g. debug settings, log levels, email settings, etc.
  
 **Config file generation & management**
 
@@ -143,9 +143,9 @@ The settings found in both the ``required.py`` and ``defaults.py`` files will be
 Operations Manuals
 ******************
 
-A clear manual of operations will exist in the form of RST files in an ``operations`` directory within the ``documentation`` directory for that application. See `this commit`_ for an example provided by the Open edX Build-Test-Release working group. The operations docs will cover common operations such as how to run the application for web traffic or as an async worker and how to manage the applications underlying database schema. It will also include a list of potential maintenance tasks operators may want to leverage such as clearing sessions or applying security patches. Finally it will include the list of ad-hoc management commands operators can use to help handle edge case or one-time operations.
+A clear manual of operations will exist in the form of RST files in an ``operations`` directory within the ``documentation`` directory for that application. See `this commit`_ for an example provided by the Open edX Build-Test-Release working group. The operations docs will cover common operations such as how to run the application for web traffic or as an async worker and how to manage the application's underlying database schema. It will also include a list of potential maintenance tasks operators may want to leverage such as clearing sessions or applying security patches. Finally it will include the list of ad-hoc management commands operators can use to help handle edge case or one-time operations.
  
-In the same vein as not dictating how operators create and manage their application config files, so too will operators be expected to manage how they execute the operations documented in the manual.
+In the same vein as not dictating how operators create and manage their application config files, operators will also be expected to manage how they execute the operations documented in the manual.
 
 .. _this commit: https://github.com/openedx-btr-wg/edx-platform/commit/        18effd83f983f497ca0a1535108fa41dc50d06a2#diff-ca02329742db0a77612a18ba1260d178R1-R39
 
@@ -158,7 +158,7 @@ Refactor configuration
 
 Refactoring the configuration repo to reduce the amount of shared code and making it easier to read and understand what is being run when you execute a particular playbook.
 
-This approach was rejected due to the sheer volume of work required to make this change in an environment that is inherently difficult to test. Also because while it would improve ease of use, it would only provide parity in terms of functionality. Moving to containers will also improve ease of use as well as unlocking many potential future enhancements.
+This approach was rejected due to the sheer volume of work required to make this change in an environment that is inherently difficult to test. Also, while it would improve ease of use, it would only provide parity in terms of functionality. Moving to containers will also improve ease of use and unlock many potential future enhancements.
 
 Jumping to Kubernetes
 *********************
