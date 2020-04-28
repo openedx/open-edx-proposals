@@ -10,7 +10,7 @@ OEP-46: Domain-Driven-Design Domains
   - - Title
     - Domain-Driven-Design (DDD) Domains
   - - Last Modified
-    - 2020-04-23
+    - 2020-04-28
   - - Authors
     - Cale Pennington <cale@edx.org>
   - - Arbiter
@@ -141,7 +141,40 @@ Use Cases:
 Specification
 *************
 
-The Open edX system consists of the following bounded contexts
+The Open edX system consists of the following bounded contexts.
+
+Terminology and Behaviors
+=========================
+Subdomain:
+  A group of related bounded contexts. A Subdomain is **Core** if it is a key differentiator for
+  Open edX, **Supporting** if it has Open edX specifics, but isn't **Core**, or **Generic** if
+  it has no Open edX business context.
+
+  There should be **no** synchronous communication between separate subdomains.
+
+Bounded Context:
+  A single service inside a Subdomain. Each Bounded Context owns its own data storage,
+  has its own Ubiquitous Language that describes all of the entities owned by that service,
+  and uses Anti-Corruption Layers to translate incoming objects into that language.
+
+  Bounded Contexts within a Subdomain **should** use asynchronous communication with
+  other Bounded Contexts in the same Subdomain, but may elect to use synchronous
+  communication if required.
+
+  Like Subdomains, **core** Bounded Contexts in a Subdomain implement the
+  key Open edX business logic for that Subdomain. **supporting** Contexts
+  have Open edX logic, but are not **core** to their Subdomain, and **generic**
+  contexts should be replaceable and contain no Open edX business logic.
+
+Ubiquitous Language:
+  The set of terms and definitions that defines the entities and relationships
+  within a Bounded Context. These terms may not have the same definitions across
+  different Bounded Contexts.
+
+Anti-Corruption Layer:
+  A layer around the edge of a Bounded Context that converts entities and information
+  retrieved from other Bounded Contexts in the same Subdomain into the Ubiquitous Language
+  of this Bounded Context.
 
 Learning Content Subdomains
 ===========================
