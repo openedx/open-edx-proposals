@@ -176,6 +176,23 @@ Anti-Corruption Layer:
   retrieved from other Bounded Contexts in the same Subdomain into the Ubiquitous Language
   of this Bounded Context.
 
+Overall Behavior Flows
+======================
+
+A **learner** engages with a **Business Subdomain** to find learning content that meets their
+learning goals. They purchase that learning content via whatever mode is appropriate
+for that **Business Subdomain** (direct purchase, free enrollment, subscriptions, etc).
+The **Business Subdomain** requests fulfillment from the **Learner Subdomain** to allow the
+**learner** access to their selected learning content.
+
+An **educator** engages with the **Content Authoring** Subdomain to author learning content
+and make it available to the **Learning** subdomain.
+
+An **administrator** engages with the **Learning** Subdomain to set up learning content with
+specific dates, and with the **Business Subdomain** to group learning content
+created by **educators** in the **Content Authoring** Subdomain into units that match
+learners educational goals.
+
 Learning Content Subdomains
 ===========================
 
