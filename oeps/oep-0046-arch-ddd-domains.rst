@@ -255,31 +255,33 @@ Bounded Contexts
 ~~~~~~~~~~~~~~~~
 
 .. list-table::
-   :widths: 10 10 70
+  :widths: 10 10 70
 
-   - - Bounded Context
-     - Type
-     - Description
-   - - Consuming Learning Content
-     - core
-     - Consuming Learning Content (core) is the primary context where learners engage with content in personalized learning pathways.  This includes functionality such as:
+  - - Bounded Context
+    - Type
+    - Description
+  - - Consuming Learning Content
+    - core
+    - Consuming Learning Content (core) is the primary context where learners engage with content in personalized learning pathways.  This includes functionality such as:
 
-        - Completion / Progress
-        - Digital Journal
-        - Grades
-        - xBlocks (each as its own separate micro-context): Video, CAPA, ORA, etc.
-
-   - - Social Learning
-     - generic
-     - Social Learning (generic) provides a service for collaboration and interactivity between learners and educators.
-
-   - - Support Learning
-     - supporting
-     - Support Learning (supporting) allows educators to administer and manage learners and learning contexts (courses, programs, etc).
-
-   - - Learning Credentials
-     - supporting
-     - Learning Credentials (supporting) allows learners and educators to access and manage credentials/certifications achieved from learning.
+      - Completion / Progress
+      - Digital Journal
+      - Grades
+      - xBlocks (each as its own separate micro-context): Video, CAPA, ORA, etc.
+  - - Social Learning
+    - generic
+    - Social Learning (generic) provides a service for collaboration and interactivity between learners and educators.
+  - - Support Learning
+    - supporting
+    - Support Learning (supporting) allows educators to administer and manage learners and learning contexts (courses, programs, etc).
+  - - Learning Credentials
+    - supporting
+    - Learning Credentials (supporting) allows learners and educators to access and manage credentials/certifications achieved from learning.
+  - - Learning Enrollments
+    - supporting
+    - Learning Enrollments allows learners to see which learning materials they have access to, and which experience they have
+      for that content. It also provides fulfillment services for the various Business Subdomains by allowing them to request
+      enrollment of a user into an experience of particular learning content.
 
 Analytics
 ---------
@@ -301,6 +303,19 @@ Users
 
 Users allows users to manage their personal profile and demographic inforamtion, and
 provides authentication services to other Subdomains.
+
+
+Catalog
+-------
+**Supporting** Subdomain
+
+Catalog Content is a service for storing catalog data with interfaces for retrieval and
+storage. It contains both metadata about Course Runs (used for marketing by the Business Subdomains)
+and metadata about groups of Course Runs (Courses) and groups of Courses (Programs).
+
+The interfaces provided to this are synchronous (incoming) and asynchronous (outgoing),
+allowing for Contexts in other Subdomains to publish new data and then listen for changes
+that are relevant to their needs.
 
 
 Business Subdomains
@@ -337,9 +352,6 @@ Bounded Contexts
   - - Marketing
     - generic
     - Marketing (generic) provides a portal for learners to discover higher-level learning contexts, such as Courses and Programs.
-  - - Catalog Content
-    - supporting
-    - Catalog Content (supporting) is a service for storing catalog data with interfaces for searching and discovery.  
   - - Catalog Content Authoring
     - generic
     - Catalog Content Authoring (generic) allows educators to author and manage their catalog content.
@@ -372,7 +384,7 @@ Bounded Contexts
   - - Enterprise Admin
     - supporting
     - TBD
-  - - Enterprise Catalog
+  - - Enterprise Catalog Authoring
     - supporting
     - TBD
   - - Enterprise Enrollments
