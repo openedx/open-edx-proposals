@@ -14,7 +14,7 @@ OEP-42: Authentication
    * - Authors
      - Robert Raposa, Nimisha Asthagiri, Julia Eskew
    * - Arbiter
-     - ???
+     - Jinder Singh
    * - Status
      - Draft
    * - Type
@@ -22,7 +22,7 @@ OEP-42: Authentication
    * - Created
      - 2020-02-28
    * - `Review Period`
-     - 2020-02-28 - 2020-03-15
+     - 2020-04-30 - 2020-05-15
 
 Context
 =======
