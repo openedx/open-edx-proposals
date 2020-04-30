@@ -16,7 +16,7 @@ OEP-42: Authentication
    * - Arbiter
      - Jinder Singh
    * - Status
-     - Draft
+     - Under Review
    * - Type
      - Architecture
    * - Created
