@@ -199,7 +199,7 @@ For a given Python Library repository, if a decision is made to add changelog en
 Application and Non-Library Repositories
 ----------------------------------------
 
-Unlike with libraries, application and non-library repositories contain code or files that are not versioned.
+Unlike with libraries, application and non-library repositories contain code or files that are not versioned. Examples of these respositories include edx-platform and our other IDAs, like ecommerce, discovery, etc.
 
 Since this code has no versions, the recommendations are as follows:
 
