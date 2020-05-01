@@ -31,18 +31,18 @@ OEP-45: Configuring and Operating Open edX
 Abstract
 ========
 
-Wherever possible, The edX organization will provide and manage Docker images as the medium for packaging operating dependencies of Open edX applications rather than providing Ansible playbooks.
+Wherever possible, The edX organization will provide and manage Docker images as the medium for packaging operating dependencies of Open edX independently deployable application (IDA) rather than providing Ansible playbooks.
 
-The configuration for running applications in different environments will be done through a config file per unique [application, environment] combination. How those files are generated and managed is the responsibility of each operator.
+The configuration for running IDAs in different environments will be done through a config file per unique [application, environment] combination. How those files are generated and managed is the responsibility of each operator.
 
-All standard operations for running and managing any Open edX application will be documented. How those procedures are executed is the responsibility of each operator.
+All standard operations for running and managing any Open edX IDA will be documented. How those procedures are executed is the responsibility of each operator.
 
-Wherever possible, operating concerns will live within the codebase they are concerned with. Thus it should be expected that all applications will provide the following:
+Wherever possible, operating concerns will live within the codebase they are concerned with. Thus it should be expected that all IDAs will provide the following:
 
 * A Dockerfile from which the container image can be built.
-* A documented settings file with production-ready defaults.
-* A documented settings file with all of the configuration values that must be defined by the operator.
-* An operations manual documenting standard operations required to run and maintain the application.
+* Documented settings files distinguishing required values without defaults (like secrets) from other settings which will defaults reasonable for most production installations.
+* An operations manual documenting standard operations required to run and maintain the IDA.
+* A changelog to document differences in settings, operating concerns, and application functionality from release to release.
 
 Context
 =======
@@ -56,7 +56,7 @@ The end result is that the configuration repo has grown into a sprawling codebas
 The proposal below outlines how we can create a cleaner, more intuitive interface for operating Open edX and in doing so help both edX.org and the Open edX community at large achieve better outcome at a faster pace. In brief it is:
 
 * Use Dockerfiles to capture system dependencies and operate the resulting images in all environments.
-* Simplify and standardize how to configure an application.
+* Simplify and standardize how to configure an IDA.
 * Document standard operations.
 
  
@@ -69,7 +69,7 @@ For managing microservice architectures containers are an industry standard for 
 
 * **Increased portability.**  Run on any host OS that supports containers.
 * **Greater efficiency.**  Ability to safely run multiple containers on the same hardware allows cost savings through efficient use of resources.
-* **Improved security.** Containers improve security by isolating applications from the host system and from each other.
+* **Improved security.** Containers improve the default level of security by isolating applications from the host system and from each other.
 * **Improved application development.**  Allows developers to run a more production-like environment locally, preventing discrepancies between environments.
 * **Speed.** Start, create, replicate or destroy containers in seconds. Increases velocity for development, deployment, and production operations.
 * **Operational simplicity/consistency.**  By isolating application processes from the host OS it is simpler to manage and maintain the host OS. Homogeneous administration of heterogeneous components, reduces the range of skill sets required to operate environments.
@@ -92,7 +92,7 @@ In order to function as documentation for operators Dockerfiles will be well-com
 
 **Docker Images**
 
-edX will provide Docker images for applications that captures the latest code on the master branch as well as images representing named releases. edX will not provide these images for named releases prior to the acceptance and implementation of this OEP (Aspen through and including Juniper at time of writing).
+edX will provide Docker images for IDAs that captures the latest code on the master branch as well as images representing named releases. edX will not provide these images for named releases prior to the acceptance and implementation of this OEP (Aspen through and including Juniper at time of writing).
 
 
 Configuration
@@ -100,9 +100,9 @@ Configuration
  
 **Django settings**
 
-Having a single artifact that runs with different configurations increases stability by improving development parity with other deployment environments. edX applications already support configuration overrides via a yaml file for production environments, but development and test environments tend to configure the application using different code paths via a settings/devstack.py or settings/test.py file.
+Having a single artifact that runs with different configurations increases stability by improving development parity with other deployment environments. edX IDAs already support configuration overrides via a yaml file for production environments, but development and test environments tend to configure the IDA using different code paths via a settings/devstack.py or settings/test.py file.
 
-Additionally it is not clear which settings are required to be overridden and which settings have values that may technically work but are inappropriate for production systems. To alleviate these issues edX Django applications will adopt the following settings structure:
+Additionally it is not clear which settings are required to be overridden and which settings have values that may technically work but are inappropriate for production systems. To alleviate these issues edX Django IDAs will adopt the following settings structure:
 
 .. code-block:: text
 
@@ -116,7 +116,7 @@ Additionally it is not clear which settings are required to be overridden and wh
 *  ``required.py`` - all settings which are required to run and do not have a reasonable production-ready default, e.g. LMS_BASE_URL which will be different per environment.
 *  ``defaults.py`` - other settings which will have production-ready defaults
 
-The settings defined in ``required.py`` and ``defaults.py`` files are mutually exclusive, representing all application specific settings as well as installed library settings whose values either must be provided or whose defaults are not considered production-ready.
+The settings defined in ``required.py`` and ``defaults.py`` files are mutually exclusive, representing all IDA specific settings as well as installed library settings whose values either must be provided or whose defaults are not considered production-ready.
 
 ``required.py`` variables must be overridden by operators.  The application will check that operators provided these values, and will not start unless they are set. This allows operators to fail fast rather than finding out about an unset value when users exercise those breaking codepaths. Application developers are encouraged to keep the list of required settings to a minimum.
 
@@ -125,9 +125,9 @@ This new settings structure obviates the need for any other python files in the 
 
 **Config file**
 
-Applications will be configured by a yaml file containing all of the settings variable overrides specified by the operator (including both required settings and secrets as well as default value overrides). The file is made known to the application by an environment variable, ``<APPNAME>_CFG_PATH``, with the path to the file. Versions of this config yaml may be provided in the application repo for certain environments such as development and test. However, for all other environments (e.g. production), the file will need to be managed elsewhere.
+IDAs will be configured by a yaml file containing all of the settings variable overrides specified by the operator (including both required settings and secrets as well as default value overrides). The file is made known to the IDA by an environment variable, ``<APPNAME>_CFG_PATH``, with the path to the file. Versions of this config yaml may be provided in the application repo for certain environments such as development and test. However, for all other environments (e.g. production), the file will need to be managed elsewhere.
 
-Since defaults are provided by the application, many smaller deployments should not need to do much more than provide the required settings to operate. For development environments the config will likely change the defaults to more development appropriate values, e.g. debug settings, log levels, email settings, etc.
+Since defaults are provided by the IDA, many smaller deployments should not need to do much more than provide the required settings to operate. For development environments the config will likely change the defaults to more development appropriate values, e.g. debug settings, log levels, email settings, etc.
  
 **Config file generation & management**
 
@@ -143,9 +143,9 @@ The settings found in both the ``required.py`` and ``defaults.py`` files will be
 Operations Manuals
 ******************
 
-A clear manual of operations will exist in the form of RST files in an ``operations`` directory within the ``documentation`` directory for that application. See `this commit`_ for an example provided by the Open edX Build-Test-Release working group. The operations docs will cover common operations such as how to run the application for web traffic or as an async worker and how to manage the application's underlying database schema. It will also include a list of potential maintenance tasks operators may want to leverage such as clearing sessions or applying security patches. Finally it will include the list of ad-hoc management commands operators can use to help handle edge case or one-time operations.
+A clear manual of operations will exist in the form of RST files in an ``operations`` directory within the ``documentation`` directory for that IDA. See `this commit`_ for an example provided by the Open edX Build-Test-Release working group. The operations docs will cover common operations such as how to run the IDA for web traffic or as an async worker and how to manage the IDA's underlying database schema. It will also include a list of potential maintenance tasks operators may want to leverage such as clearing sessions or applying security patches. Finally it will include the list of ad-hoc management commands operators can use to help handle edge case or one-time operations.
  
-In the same vein as not dictating how operators create and manage their application config files, operators will also be expected to manage how they execute the operations documented in the manual.
+In the same vein as not dictating how operators create and manage their IDA config files, operators will also be expected to manage how they execute the operations documented in the manual.
 
 .. _this commit: https://github.com/openedx-btr-wg/edx-platform/commit/18effd83f983f497ca0a1535108fa41dc50d06a2#diff-ca02329742db0a77612a18ba1260d178R1-R39
 
