@@ -27,17 +27,12 @@ OEP-47: Semantic Versioning
    :local:
    :depth: 3
 
-Context
+Summary
 =======
 
-Many or all of the Open edX installable libraries, including both JavaScript and Python libraries, already use version numbers similar to those described by the `Semantic Versioning v2`_ specification. This OEP codifies this best practice, as well as providing additional guidance around proper versioning.
+This OEP recommends following the `Semantic Versioning v2`_ specification when versioning any Open edX installable libraries.
 
-Decision
-========
-
-All Open edX installable libraries will generally follow the `Semantic Versioning v2`_ specification.
-
-Versioned code should use a MAJOR.MINOR.PATCH format for versioning. Here is the most relevant part from the summary in the `Semantic Versioning v2`_ specification:
+The most relevant part from the summary of the `Semantic Versioning v2`_ specification:
 
     Given a version number MAJOR.MINOR.PATCH, increment the:
 
@@ -45,39 +40,39 @@ Versioned code should use a MAJOR.MINOR.PATCH format for versioning. Here is the
     * *MINOR* version when you *add functionality in a backwards compatible manner*, and
     * *PATCH* version when you make *backwards compatible bug fixes*.
 
-One of the most important rules when choosing whether to increment the MAJOR, MINOR, or PATCH version, is that backward incompatible changes always result in a new MAJOR version, and never a MINOR or PATCH version.
+Some additional tips are called out in `Backward Incompatible Changes`_ and `Tooling and Automation`_.
 
-You must increment the MAJOR version for backward incompatible changes, even if you think it is unlikely to affect anyone. You can simply note in the changelog entry why it is backward incompatible and why you think it is unlikely to affect anyone.
+Context
+=======
 
-If you find a backward incompatible change in a MINOR or PATCH version after publishing the package, please update the changelog and communicate the inconsistency. Additionally, you have the following options:
+Many or all of the Open edX installable libraries already use versions similar to the `Semantic Versioning v2`_ specification. This OEP simply codifies this best practice, and provides additional guidance.
 
-* A new MINOR or PATCH version can be immediately released to revert the change, and the change can be restored with a new MAJOR version. Or,
-* If you decide that reverting will cause more harm for some reason, and you do not intend to revert, please let this be a part of your communication.
+Backward Incompatible Changes
+=============================
 
-The reason it is important that only MAJOR versions include backward incompatible change is because when people upgrade dependencies, some people will only read changelogs for MAJOR versions because of the potential backward incompatibilities, and may not read notes for MINOR or PATCH upgrades.
+In addition to the general rule for incrementing versions in the `Summary`_, here is some additional information about backward incompatible versions.
+
+Backward incompatible changes always result in a new MAJOR version, and not a MINOR or PATCH version. This is important because it alerts humans to learn about the change before upgrading.
+
+* Even if you think the breaking change is unlikely to affect anyone, you can simply note that fact in the changelog entry.
+* If you later find a backward incompatible change in a MINOR or PATCH version after publishing the package, please update the changelog and communicate the inconsistency. Additionally, you could do one of the following:
+
+    * A new MINOR or PATCH version could be released to revert the change, and the change can then be restored with a new MAJOR version. Or,
+    * If you decide that reverting will cause more harm for some reason, and you do not intend to revert, please let this be a part of your communication.
+
+Don't be concerned with the MAJOR version getting too high, it is just a number. If you are concerned about people having to read about incompatible changes too often, you could find ways to avoid the breaking change or deprecate and group several breaking changes at a later point.
 
 Tooling and Automation
 ======================
 
-The following provides information about related tooling, but is not necessarily part of the decision.
+* A checklist item in a pull-request template can remind people of any manual steps.
+* Some frontend libraries have been using an npm package called `semantic-release`_. The `semantic-release`_ package automates incrementing the version appropriately for each PR merge, based on a well formatted commit comment.
 
-Frontend Libraries
-------------------
+  * One important formatting detail is to include "BREAKING CHANGE" at the beginning of a line in the commit description to get a new major version.
 
-All new frontend libraries have been using an npm package called `semantic-release`_.
-
-The `semantic-release`_ package automates incrementing the version appropriately for each PR merge, based on a well formatted commit comment. See the `semantic-release`_ README for details. A pre-commit hook is typically run to ensure the commit message is appropriately formatted for `semantic-release`_.
-
-* One important formatting detail is to include "BREAKING CHANGE" at the beginning of a line in the commit description to get a new major version.
+* Other tools can be added here over time.
 
 .. _semantic-release: https://github.com/semantic-release/semantic-release
-
-Python Libraries
-----------------
-
-Unlike with frontend libraries, most of the Open edX Python libraries require the version to be manually updated.
-
-A repository's pull-request template is a great way to remind people to update the version when this must be done manually.
 
 References
 ==========
