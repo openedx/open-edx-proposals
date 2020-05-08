@@ -30,6 +30,10 @@ OEP-44: Changelogs
 Summary
 =======
 
+.. note::
+
+    This OEP is on hold at this time while some of these recommendations are first trialed in some repositories.
+
 This OEP contains recommendations rather than requirements for changelogs.
 
 * The recommendation is for each repository to have a CHANGELOG.rst.
