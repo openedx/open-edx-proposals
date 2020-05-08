@@ -11,7 +11,7 @@ OEP-44: Changelogs
    * - Last Modified
      - 2020-04-30
    * - Authors
-     - Robert Raposa
+     - Robert Raposa <rraposa@edx.org>
    * - Arbiter
      - ???
    * - Status
