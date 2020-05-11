@@ -152,10 +152,10 @@ Since changelog messages are for developers and consumers of your code, good cha
        Note: This example changelog entry assumes there were no other changes for this version.
    * - Fix SyntaxError in UserLogout class
      - Fix 500 error during logout
-   * - **BREAKING CHANGE** Remove the dry_run parameter in the public foobarize API method. This parameter is deprecated in favour of the no_apply parameter. See docs for details.
-     - Rename dry_run parameter
-   * - Add a set_foobarizer method to Foo's public API. This is particularly useful for developers trying to foobarize their users. See docs for details.
-     - Add set_foobarizer method to api.Foo
+   * - Rename dry_run parameter
+     - **BREAKING CHANGE** Remove the dry_run parameter in the public foobarize API method. This parameter is deprecated in favour of the no_apply parameter. See docs for details.
+   * - Add set_foobarizer method to api.Foo
+     - Add a set_foobarizer method to Foo's public API. This is particularly useful for developers trying to foobarize their users. See docs for details.
 
 Github Releases
 ~~~~~~~~~~~~~~~
