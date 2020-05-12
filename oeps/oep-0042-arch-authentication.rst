@@ -27,7 +27,7 @@ OEP-42: Authentication
 Context
 =======
 
-Authentication in the Open edX platform has historically been complicated and inconsistent. A variety of efforts have been accomplished to attempt to simplify, consolidate, and standardize the methods of authentication and authorization used.
+Authentication in the Open edX platform has historically been complicated and inconsistent. A variety of efforts have been accomplished to attempt to simplify, consolidate, and standardize the methods of authentication used.
 
 There has not yet existed a single reference for the variety of decisions made, as well as an index to documentation related to authentication. This OEP attempts to rectify that by being an ongoing source of truth.
 
@@ -37,10 +37,14 @@ Defined Terms
 Authentication (AuthN)
 ----------------------
 
-Authentication is the verification of the identity of a user, which typically happens at a “login” application point.
+Authentication is the verification of the identity of a user, which typically initiates at a “login” application point. Authentication is required whenever we need to identify a client/caller/user/etc.
 
 Authorization (AuthZ)
 ---------------------
+
+.. note::
+
+  Authorization is generally out of scope of this OEP. This definition is here to clarify the difference from Authentication.
 
 Authorization is the granting of permission of a certain user to perform specific operations in an application. A user can also delegate an application to be authorized to perform operations on their behalf without being logged in or authenticated, which is the basis of OAuth.
 
@@ -62,7 +66,7 @@ From the `Wikipedia article on Identity provider`_:
 Independently Deployable Application (IDA)
 ------------------------------------------
 
-An internal edX definition used to describe separate applications that make up a complete Open edX installation. Examples of IDAs are: LMS + Studio (edx-platform), Insights, ECommerce, Credentials, etc.
+An Open edX specific term used to describe separate applications that make up a complete Open edX installation. Examples of IDAs are: LMS + Studio (edx-platform), Insights, ECommerce, Credentials, etc.
 
 JSON Web Token (JWT)
 --------------------
@@ -85,6 +89,10 @@ An authorization framework that enables applications to obtain limited access to
 OpenID Connect (OIDC)
 ---------------------
 
+.. note::
+
+  We are no longer using OpenID Connect. This definition is only to provide context for historical decisions to move away from OpenID Connect.
+
 From `OpenID Connect Discovery 1.0`_ document:
 
   OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 [RFC6749] protocol. It enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
@@ -95,12 +103,12 @@ From `OpenID Connect Discovery 1.0`_ document:
 Decisions
 =========
 
-There are a number of authentication and authorization related decisions that have been made. This OEP is meant to be updated over time as we gain more information, including links to other related Architectural Decisions Records (ADRs).
+There are a number of authentication related decisions that have been made. This OEP is meant to be updated over time as we gain more information, including links to other related `Architectural Decision Records (ADRs)`_.
 
 Single Identity Provider and OAuth Authorization Server
 -------------------------------------------------------
 
-The LMS will act as the sole identity provider and OAuth authorization server for all other surrounding IDAs. The LMS can provide information about the identity of the user to the other IDAs for account creation purposes. The LMS also provides Single Sign-On (SSO) and Single Logout (SLO) to automatically log in and out IDA users.
+The LMS will act as the sole identity provider and OAuth authorization server for all other surrounding IDAs. The LMS can provide information about the identity of the user to the other IDAs. The LMS also provides Single Sign-On (SSO) and Single Logout (SLO) to automatically log in and out IDA users.
 
 The implementation can primarily be found in:
 
@@ -109,11 +117,11 @@ The implementation can primarily be found in:
 OAuth2 and JWTs
 ---------------
 
-The currently supported and recommended method of authentication and authorization is an OAuth 2.0 implementation using JSON web tokens (JWTs) as OAuth tokens.
+The currently supported and recommended method of authentication is an OAuth 2.0 implementation using `JSON Web Tokens (JWTs)`_ as OAuth tokens.
 
 Here are a variety of details around this decision:
 
-* Standardize on the Django OAuth Toolkit (DOT) library to support our OAuth2 implementation.
+* Standardize on the `Django OAuth Toolkit (DOT) library`_ to support our OAuth2 implementation.
 
   * Read the `ADR on Django OAuth Toolkit (DOT)`_.
 
@@ -129,60 +137,56 @@ Here are a variety of details around this decision:
 
 Implementation of all the OAuth2/JWT APIs supported by DOT in the LMS Identity Provider can be found in `oauth_dispatch (edx-platform)`_.
 
-* As of the Juniper Open edX release, the deprecated implementation of OAuth2 using OpenID Connect (OIDC) and the Django OAuth Provider (DOP) library has been fully removed. See this `oauth_dispatch as router ADR`_ for additional details of how this transition was implemented in edx-platform, and to better understand the history of ``oauth_dispatch``.
+* As of the Juniper Open edX release, the deprecated implementation of OAuth2 using OpenID Connect (OIDC) and the `Django OAuth2 Provider (DOP) library`_ has been fully removed. See this `oauth_dispatch as router ADR`_ for additional details of how this transition was implemented in edx-platform, and to better understand the history of ``oauth_dispatch``.
 
+.. _JSON Web Tokens (JWTs): https://tools.ietf.org/html/rfc7519
+.. _Django OAuth Toolkit (DOT) library: https://django-oauth-toolkit.readthedocs.io/en/latest/
 .. _ADR on Django OAuth Toolkit (DOT): https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0002-migrate-to-dot.rst
 .. _ADR to use JWTs as OAuth Tokens: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0003-use-jwt-as-oauth-tokens-remove-openid-connect.rst
 .. _ADR on Asymmetric JWTs: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0008-use-asymmetric-jwts.rst
 .. _JWT Cookies ADR: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0009-jwt-in-session-cookie.rst
 .. _oauth_dispatch (edx-platform): https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/README.rst
+.. _Django OAuth2 Provider (DOP) library: https://django-oauth2-provider.readthedocs.io/en/latest/
 .. _oauth_dispatch as router ADR: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0004-oauth-dispatch-as-router.rst#L33
 
 
 OAuth2 and Bearer Tokens
 ------------------------
 
-This section refers to Bearer Tokens as documented in `OAuth 2.0 RFC: Bearer Token Usage`_.
+This section refers to Bearer Tokens as documented in `OAuth 2.0 RFC: Bearer Token Usage`_. These tokens are sent using "Bearer" in the Authorization header field in the request. In contrast, our JWTs are sent using "JWT" in the Authorization header field.
 
-Currently, only the mobile applications (iOS and Android) should continue to use Bearer Tokens. In this method, the LMS issues a token to the mobile apps and the mobile apps include this token in their header when hitting IDA endpoints. The IDAs verify the token and either service or reject the request, based on the token validity.
-
-The communications between the browser, LMS, and IDA must all use TLS in order to keep the token secure, as anyone with the token can make a restricted IDA request.
+Currently, only the mobile applications (iOS and Android) continue to use Bearer Tokens. In this method, the LMS issues a token to the mobile apps and the mobile apps include this token in their header when hitting IDA endpoints. The IDAs verify the token and either service or reject the request, based on the token validity.
 
 All other usage of Bearer Tokens in Open edX has been deprecated. Mobile applications may one day move to JWTs as well, but that is a larger effort.
 
 .. _`OAuth 2.0 RFC: Bearer Token Usage`: https://tools.ietf.org/html/rfc6750
 
+OAuth2 Token Security
+---------------------
+
+The communications between the browser, LMS, and IDA must all use `Transport Layer Security (TLS)`_ in order to keep the OAuth2 token secure, as anyone with the token can make a restricted IDA request.
+
+This applies to all OAuth2 tokens, including those discussed in `OAuth2 and JWTs`_ and `OAuth2 and Bearer Tokens`_.
+
+.. _Transport Layer Security (TLS): https://en.wikipedia.org/wiki/Transport_Layer_Security
+
 Social (and Other) Authentication
 ---------------------------------
 
-Open edX platform also supports several social authentication methods, such as Google, Facebook, and LinkedIn, along with other campus/business-specific authentication methods, including LTI and SAML. These external authentication methods are used to integrate or link your edX identity to another network identity. However, once the identity link is established and an Open edX account is created, the LMS still functions as usual as the idP for all satellite IDAs, and the authentication method remains the same.
+Open edX platform also supports several social authentication methods, such as Google, Facebook, and LinkedIn, along with other campus/business-specific authentication methods, including `SAML`_. These external authentication methods are used to integrate or link your edX identity to another network identity. However, once the identity link is established and an Open edX account is created, the LMS still functions as usual as the idP for all satellite IDAs, and uses Open edX (non-social) authentication methods described above.
 
-Code handling for LTI/SAML authentication, as well as python-social-auth login, such as Google, Facebook, etc., can be found in `third_party_auth (edx-platform)`. This implementation is supported by the `python-social-auth library`_.
+The code for supporting third party authentication (SAML, Google, Facebook, etc), where the initiating identity provider is _not_ the Open edX LMS, is located in `third_party_auth (edx-platform)`_. This implementation is supported by the `python-social-auth library`_.
 
+.. _SAML: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
 .. _third_party_auth (edx-platform): https://github.com/edx/edx-platform/tree/master/common/djangoapps/third_party_auth
 .. _python-social-auth library: https://github.com/omab/python-social-auth
-
-OAuth2 and Authorization
-------------------------
-
-Although OAuth2 is an "authorization framework", this OEP primarily deals with `Authentication (AuthN)`_, and not `Authorization (AuthZ)`_. A future OEP is warranted to cover Authorization in Open edX.  Until that time, here are some important authorization related decisions:
-
-* `OEP-4: Application Authorization (Scopes)`_ (Accepted)
-* `OEP-9: User Authorization (Permissions)`_ (Provisional)
-* `Role Based Access Control (RBAC) Library and ADR`_
-* `Courseware: Use bridgekeeper for Permissions and Tracks`_
-
-.. _`OEP-4: Application Authorization (Scopes)`: https://open-edx-proposals.readthedocs.io/en/latest/oep-0004-arch-oauth-scopes.html
-.. _`OEP-9: User Authorization (Permissions)`: https://open-edx-proposals.readthedocs.io/en/latest/oep-0009-bp-permissions.html
-.. _Role Based Access Control (RBAC) Library and ADR: https://github.com/edx/edx-rbac/blob/master/docs/decisions/0001-role-based-access-control.rst
-.. _`Courseware: Use bridgekeeper for Permissions and Tracks`: https://github.com/edx/edx-platform/blob/master/lms/djangoapps/courseware/docs/decisions/0003-permissions-via-bridgekeeper.rst
 
 Standardized Libraries and Utilities
 ------------------------------------
 
 This section details a variety of authentication related libraries and utilities that Open edX has standardized on. It is important to keep to these standards in order to help keep Open edX more secure.
 
-For any of the following solutions, it is important to avoid creating local alternatives inside an IDA. If a local alternative exists, it should either be deprecated and replaced by these standards, or requires an ADR explaining why the exception is necessary and how the security of Open edX will continue to be ensured.
+For any of the following solutions, it is important to avoid creating local alternatives inside an IDA. If a local alternative exists, it should either be deprecated and replaced by these standards, or requires an `Architectural Decision Record (ADR)`_ explaining why the exception is necessary and how the security of Open edX will continue to be ensured.
 
 API Providers: Authentication Classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -204,11 +208,10 @@ The following are all DRF Authentication classes.
    * - `BearerAuthentication (edx-drf-extensions)`_
      - Deprecated, except mobile
    * - `BasicAuthentication (django-rest-framework)`_
-     - * Status Unknown
-       * Default for Blockstore, Video Pipeline, and Discovery
-       * Should this just be valid on specific endpoints for specific purposes?
+     - * Exceptions Only
+       * Requires an `Architectural Decision Record (ADR)`_ explaining why it is required.
 
-Note: Our implementation of JwtAuthentication is based on a fork of `JSONWebTokenAuthentication (django-rest-framework-jwt)`_ that supports Django 2.2.
+Note: Our JwtAuthentication class is a subclass of JSONWebTokenAuthentication, which can be found in `drf-jwt`_, an open source fork of django-rest-framework-jwt that supports Django 2.2.
 
 .. _Django REST Framework (DRF): https://www.django-rest-framework.org/
 .. _Authentication with Django REST Framework (DRF): https://www.django-rest-framework.org/api-guide/authentication/#authentication
@@ -216,7 +219,7 @@ Note: Our implementation of JwtAuthentication is based on a fork of `JSONWebToke
 .. _SessionAuthentication (django-rest-framework): https://www.django-rest-framework.org/api-guide/authentication/#sessionauthentication
 .. _BasicAuthentication (django-rest-framework): https://www.django-rest-framework.org/api-guide/authentication/#basicauthentication
 .. _BearerAuthentication (edx-drf-extensions): https://github.com/edx/edx-drf-extensions/blob/4d0f4de80681e5826cfbe3041ea4cda6cff87640/edx_rest_framework_extensions/auth/bearer/authentication.py#L18
-.. _JSONWebTokenAuthentication (django-rest-framework-jwt): https://pypi.org/project/drf-jwt/
+.. _drf-jwt: https://pypi.org/project/drf-jwt/
 
 Authenticated API Clients
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -252,3 +255,10 @@ Although some of the work required to make these decisions a reality have been c
 * Deprecation and removal of authentication libraries and utilities that are not part of our `Standardized Libraries and Utilities`_. Because removal can be costly and may not always get prioritized, start with appropriately marking functions and classes as deprecated to help minimize the contagion factor.
 
 .. _ADR section on removing JWT_ISSUERs: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0008-use-asymmetric-jwts.rst#remove-jwt_issuers
+
+References
+==========
+
+* `Architectural Decision Records (ADRs)`_
+
+.. _Architectural Decision Records (ADRs): https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#adrs
