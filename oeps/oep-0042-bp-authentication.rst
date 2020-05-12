@@ -18,7 +18,7 @@ OEP-42: Authentication
    * - Status
      - Under Review
    * - Type
-     - Architecture
+     - Best Practice
    * - Created
      - 2020-02-28
    * - `Review Period`
