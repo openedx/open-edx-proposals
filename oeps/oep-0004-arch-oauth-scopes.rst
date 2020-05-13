@@ -10,7 +10,7 @@ OEP-4: Application Authorization (Scopes)
    * - Title
      - Application Authorization (Scopes)
    * - Last Modified
-     - 2020-03-23
+     - 2020-05-13
    * - Author
      - Eddie Fagin (eddie@edx.org)
    * - Arbiter
@@ -45,7 +45,7 @@ The goals of the proposed strategy are to:
 
 * avoid dictating technology and protocol choices, but have clear guidance for implementation practices
 
-See `Current Scopes and Filters`_ for documentation of existing Open edX scopes and filters.
+See `Scope and Filter Implementation`_ for additional decisions around the implementation in Open edX.
 
 Motivation
 ==========
@@ -131,96 +131,45 @@ There are no backwards compatibility issues with rolling out a centralized scope
 
 However, there *might* be issues once we start enforcing scopes on individual service endpoints, as existing client applications that once might have had broader access may get suddenly cut off from data sources that we didn't know were being used. We will need to spend time up front understanding current access patterns in order to estimate the impact of this potentially breaking change and in order to correctly retrofit scopes onto existing application keys.
 
-Current Scopes and Filters
-==========================
+Scope and Filter Implementation
+===============================
 
-This section documents the active scopes and filters used for Open edX endpoints.
+Additional decisions around scopes:
 
-For more details regarding how scopes are enforced in the LMS and other IDAs, see the `ADR on Enforcing Scopes in LMS APIs`_.
+* `Use JWT as OAuth Tokens ADR`_: Details how scopes can add additional claims to the user's JWT OAuth Token.
+* `ADR on Enforcing Scopes in LMS APIs`_: Details how scopes are enforced in the LMS and other IDAs.
+* `Third-Party Auth Scope ADR`_
 
-For more detail on how filters are used to add an additional layer of authorization, see this section of an `ADR on Organization and Users as Filters in OAuth Tokens`_ and this `ADR on More General Filter Support`_.
-
-.. _ADR on Enforcing Scopes in LMS APIs: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0006-enforce-scopes-in-LMS-APIs.rst
-.. _ADR on Organization and Users as Filters in OAuth Tokens: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0007-include-organizations-in-tokens.rst#2-organization-and-users-as-filters-in-oauth-tokens
-.. _ADR on More General Filter Support: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0011-scope-filter-support.rst
-
-Claim Authorization
--------------------
-
-The following scopes are used to add additional claims to the user's JWT OAuth Token. See the `Use JWT as OAuth Tokens ADR`_ for details on this decision.
+See ``OAUTH2_DEFAULT_SCOPES`` and ``OAUTH2_PROVIDER['SCOPES']`` for the `current default and additional scopes`_ defined in the LMS.
 
 .. _Use JWT as OAuth Tokens ADR: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0003-use-jwt-as-oauth-tokens-remove-openid-connect.rst#jwt-token
+.. _ADR on Enforcing Scopes in LMS APIs: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0006-enforce-scopes-in-LMS-APIs.rst
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 75
+.. _current default and additional scopes: https://github.com/edx/edx-platform/search?q=OAUTH2_DEFAULT_SCOPES&unscoped_q=OAUTH2_DEFAULT_SCOPES
 
-   * - Scope
-     - Claims added to JWT Payload
-   * - email*
-     - * *email*: user's email address
-   * - profile*
-     - * *name*: user's name in their edX profile
-       * *family_name*: user's last name
-       * *given_name*: user's first name
-       * *administrator*: whether user is_staff
-   * - user_id
-     - * *user_id*: The user's LMS user id
+Filters provide an additional layer of authorization. Here are some related decisions:
 
-**\*** Designates a default scope in the table above.
+* `ADR on Organization and Users as Filters in OAuth Tokens`_: This section of the ADR explains filters.
+* `ADR on More General Filter Support`_
 
-Endpoint Authorization
-----------------------
-
-The following scopes and filters are used to provide authorization to API endpoints as described in this OEP.
-
-.. list-table::
-   :header-rows: 1
-   :widths: 20 60 20
-
-   * - Scope
-     - Description
-     - Usage
-   * - certificates:read
-     - * Authorizes reading a user's course certificates.
-     - * `CertificatesDetailView`_
-   * - grades:read
-     - * Authorizes reading grades for a user's enrolled courses.
-     - * `CourseGradesView`_
-   * - read*
-     - * Provides no specific authorization.
-     -
-   * - tpa:read
-     - * Authorizes reading of third-party auth data.
-       * See the `Third-Party Auth Scope ADR`_ for more details.
-     - * `UserMappingView`_
-   * - write*
-     - * Provides no specific authorization.
-     -
-
-**\*** Designates a default scope in the table above.
+.. _ADR on Organization and Users as Filters in OAuth Tokens: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0007-include-organizations-in-tokens.rst#2-organization-and-users-as-filters-in-oauth-tokens
+.. _ADR on More General Filter Support: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0011-scope-filter-support.rst
 
 .. list-table::
    :header-rows: 1
    :widths: 25 75
 
    * - Filter
-     - Description
+     - ADR
    * - content_org:<org_id>
-     - * Limits permissions to the current course's organization.
-       * See this `Organization and User Filters in OAuth Tokens ADR Section`_ for more details.
+     - `Organization and User Filters in OAuth Tokens ADR Section`_
    * - tpa_provider:<provider_id>
-     - * Limits permissions to the given provider id.
-       * See the `Third-Party Auth Scope ADR`_ for more details.
+     - `Third-Party Auth Scope ADR`_
    * - user:me
-     - * For a token created on behalf of a user (not created via a Client Credentials grant type), this filter restricts the token specifically for the granting user.
-       * See this `Organization and User Filters in OAuth Tokens ADR Section`_ for more details.
+     - `Organization and User Filters in OAuth Tokens ADR Section`_
 
-.. _CertificatesDetailView: https://github.com/edx/edx-platform/blob/02b900cf641e75332fad3a4ebf3f3c7c6aa156d5/lms/djangoapps/certificates/apis/v0/views.py#L32
-.. _CourseGradesView: https://github.com/edx/edx-platform/blob/ad2192e7fe9c3298cb82e3f3cc35b0e3e0c25924/lms/djangoapps/grades/rest_api/v1/views.py#L40
-.. _Third-Party Auth Scope ADR: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0012-scope-and-filter-for-third-party-auth.rst
-.. _UserMappingView: https://github.com/edx/edx-platform/blob/acce8baca4809e45ae25b009b449a51df3428faf/common/djangoapps/third_party_auth/api/views.py#L267
 .. _Organization and User Filters in OAuth Tokens ADR Section: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0007-include-organizations-in-tokens.rst#2-organization-and-users-as-filters-in-oauth-tokens
+.. _Third-Party Auth Scope ADR: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0012-scope-and-filter-for-third-party-auth.rst
 
 Rejected Alternatives
 =====================
@@ -232,7 +181,7 @@ N/A
 Change History
 ==============
 
-2020-03-23: Add `Current Scopes and Filters`_ section.
+2020-03-23: Add `Scope and Filter Implementation`_ section.
 
 .. rubric:: Footnotes
 
