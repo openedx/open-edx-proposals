@@ -42,12 +42,12 @@ Motivation
 Domain Driven Design presents a description of the Open edX system that can
 be used to clarify decisions in the following areas:
 
-  - Communication
-    - Should these two components communicate synchronously or asynchronously?
-    - Is this API using the same terminology that my component is?
-  - Level of effort
-    - Should we consider buying this component rather than custom building it?
-    - Is this component something an Open edX operator might want to replace?
+- Communication
+  - Should these two components communicate synchronously or asynchronously?
+  - Is this API using the same terminology that my component is?
+- Level of effort
+  - Should we consider buying this component rather than custom building it?
+  - Is this component something an Open edX operator might want to replace?
 
 Use Cases
 =========
@@ -72,19 +72,15 @@ Motivation:
 
 Use Cases:
   **Educator.1** Easy Authoring  *(Core)*:
-
     - Extensible educational blocks
     - Course Design (Structure - outline, etc)
     - Educational Blocks (Teaching components and Assessment)
 
-
   **Educator.2** Administration of Courses *(Core)*:
-
     - Launch a course run.
     - Collect revenue share.
 
   **Educator.3** Actionable Data and Feedback *(Supporting)*
-
     - What are my students doing
 
   **Educator.4** Communities of Practice *(Supporting or Generic?)*
@@ -94,9 +90,9 @@ Use Cases:
 Learners
 --------
 
-  - Consume content to achieve learning outcomes.
-  - Determining learning pathway.
-    - Inside and outside of course.
+- Consume content to achieve learning outcomes.
+- Determining learning pathway.
+  - Inside and outside of course.
 
 Motivation:
   - I want to learn, so that I can improve my life (career change, improve my job, raise, change roles, fulfill educational requirements).
@@ -104,13 +100,14 @@ Motivation:
   - I want to connect with others in similar fields of interest.
 
 Use Cases:
-  **Learner.1** Discovery: Find the right course/program to help them achieve their goals *(Supporting or Generic?)*
+  **Learner.1** Discovery: *(Supporting or Generic?)*
+    - Find the right course/program to help them achieve their goals.
 
   **Learner.2** Achieve Learning Outcomes *(Core)*:
-
     - Rigor/quality of instruction
 
-  **Learner.3** Support through their learning pathway – progress, messaging, social *(Supporting or Generic?)*
+  **Learner.3** Support through their learning pathway *(Supporting or Generic?)*
+    – progress, messaging, social
 
   **Learner.4** Proof of Learning, credentials/certifications *(Supporting or Generic?)*
 
@@ -130,11 +127,9 @@ Motivations:
 
 Use Cases:
   **Admin.1** Actionable Data and Feedback *(Supporting)*:
-
     - Am I getting my money's worth
 
   **Admin.2** Setting up edX for their org *(Supporting)*:
-
     - Curation
     - Integration
 
