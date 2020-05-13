@@ -442,12 +442,20 @@ Bounded Contexts
 Rationale
 *********
 
-The rationale adds to the specification by describing the events or
-requirements that led to the proposal, what influenced the design, and why
-particular design decisions were made. The rationale could provide evidence
-of consensus within the community and discuss important objections or
-concerns raised during discussion. It could identify any related work, 
-for example, how the feature is supported in other systems.
+The overriding goal for this division of the systems is to allow for increased change
+velocity in each of the systems, without requiring coordination or dependent changes
+in other systems.
+
+For instance, by separating enrollments in learning content from program enrollment (in
+the Masters subdomain) or purchasing decisions (in the B2C subdomain), we allow
+those business subdomains to experiment with alternative business models more easily.
+As they experiment, the Learning subdomain simply has to provide a stable platform
+on which to fulfill purchases from the various business domains, rather than needing
+to be tied into the specifics of how users are being given those enrollments.
+
+Similarly, by separating the various business subdomains into discrete units, they are
+free to experiment with alternative payment models without being tied to the same
+commerce platform decisions.
 
 Backward Compatibility
 **********************
@@ -457,20 +465,19 @@ An OEP that introduces backward incompatibilities must describe the
 incompatibilities, with their severity and an explanation of how you propose to
 address these incompatibilities.
 
-Reference Implementation
-************************
-
-The reference implementation must be completed before any OEP is given "Final"
-status, but it need not be completed before the OEP is "Accepted". While there is
-merit to the approach of reaching consensus on the specification and rationale
-before writing code, the principle of "rough consensus and running code" is
-still useful when it comes to resolving many discussions.
-
 Rejected Alternatives
 *********************
 
-This statement describes any alternative designs or implementations that were
-considered and rejected, and why they were not chosen.
+Catalog in B2C
+==============
+
+In prior versions, the Course Catalog lived in the B2C Subdomain, because it was primarily
+used as a source of data for the B2C Marketing service. However, that led to additional
+questions if any other Business Subdomain wanted to market an existing course to their
+specific audiences. As such, the Course Catalog was moved to infrastructure, and
+given responsibility for Programs (collections of Courses), but without any of the
+domain knowledge of what particular Courses or Programs were being used for.
+
 
 Change History
 **************
