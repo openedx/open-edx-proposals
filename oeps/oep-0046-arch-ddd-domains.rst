@@ -145,7 +145,13 @@ Subdomain:
   Open edX, **Supporting** if it has Open edX specifics, but isn't **Core**, or **Generic** if
   it has no Open edX business context.
 
-  There should be **no** synchronous communication between separate subdomains.
+  There should be **no** synchronous communication between separate subdomains. Any
+  exceptions to this must be documented in this OEP.
+
+  Business logic should also **not** be distributed between subdomains. For instance,
+  if the Marketing or Purchasing systems need to calculate a discount, it should be based
+  solely on data in their databases, and code in their repositories, rather than
+  requiring api calls to other subdomains.
 
 Bounded Context:
   A single service inside a Subdomain. Each Bounded Context owns its own data storage,
