@@ -24,10 +24,18 @@ OEP-42: Authentication
    * - `Review Period`
      - 2020-04-30 - 2020-05-15
 
+.. contents::
+   :local:
+   :depth: 2
+
 Summary
 =======
 
-Provides the current best practices for authentication in the Open edX platform, including :ref:`summarizing authentication decisions<Decisions>` made across the platform, and documenting authentication related `Standardized Libraries and Utilities`_.
+Provides the current best practices for authentication in the Open edX platform, including:
+
+* A summary of authentication design and `Decisions`_.
+* A list of `Standardized Libraries and Utilities`_.
+* A glossary of `Defined Terms`_.
 
 Context
 =======
