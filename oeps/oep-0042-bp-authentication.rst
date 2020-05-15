@@ -27,6 +27,7 @@ Provides the current best practices for authentication in the Open edX platform.
      - 2020-04-30 - 2020-05-15
 
 | Provides the current best practices for authentication in the Open edX platform. This includes a summary of authentication design and `Decisions`_, and a list of `Standardized Libraries and Utilities`_.
+|
 
 .. contents::
    :local:
