@@ -10,13 +10,13 @@ OEP-42: Authentication
    * - Title
      - Authentication
    * - Last Modified
-     - 2020-02-28
+     - 2020-05-15
    * - Authors
      - Robert Raposa, Nimisha Asthagiri, Julia Eskew
    * - Arbiter
      - Jinder Singh
    * - Status
-     - Under Review
+     - Accepted
    * - Type
      - Best Practice
    * - Created
