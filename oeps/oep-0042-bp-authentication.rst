@@ -24,12 +24,15 @@ OEP-42: Authentication
    * - `Review Period`
      - 2020-04-30 - 2020-05-15
 
+Summary
+=======
+
+Provides the current best practices for authentication in the Open edX platform, including :ref:`summarizing authentication decisions<Decisions>` made across the platform, and documenting authentication related `Standardized Libraries and Utilities`_.
+
 Context
 =======
 
-Authentication in the Open edX platform has historically been complicated and inconsistent. A variety of efforts have been accomplished to attempt to simplify, consolidate, and standardize the methods of authentication used.
-
-There has not yet existed a single reference for the variety of decisions made, as well as an index to documentation related to authentication. This OEP attempts to rectify that by being an ongoing source of truth.
+Authentication in the Open edX platform has historically been complicated and inconsistent. A variety of efforts have been accomplished to attempt to simplify, consolidate, and standardize the methods of authentication used. To date, there has not yet existed a single reference for the variety of decisions made, as well as an index to documentation related to authentication.
 
 Defined Terms
 =============
@@ -153,13 +156,17 @@ Implementation of all the OAuth2/JWT APIs supported by DOT in the LMS Identity P
 OAuth2 and Bearer Tokens
 ------------------------
 
-This section refers to Bearer Tokens as documented in `OAuth 2.0 RFC: Bearer Token Usage`_. These tokens are sent using "Bearer" in the Authorization header field in the request. In contrast, our JWTs are sent using "JWT" in the Authorization header field.
+This section refers to Bearer Tokens as documented in `OAuth 2.0 RFC: Bearer Token Usage`_.
+
+In this section, Bearer Tokens refers to tokens sent with "Bearer" in the Authorization request header. In contrast, our JWTs are sent using "JWT" in the Authorization request header. Note that the `Authorization request header`_ contains the credentials used to *authenticate* a user, even though it uses the term *authorization*.
+
 
 Currently, only the mobile applications (iOS and Android) continue to use Bearer Tokens. In this method, the LMS issues a token to the mobile apps and the mobile apps include this token in their header when hitting IDA endpoints. The IDAs verify the token and either service or reject the request, based on the token validity.
 
 All other usage of Bearer Tokens in Open edX has been deprecated. Mobile applications may one day move to JWTs as well, but that is a larger effort.
 
 .. _`OAuth 2.0 RFC: Bearer Token Usage`: https://tools.ietf.org/html/rfc6750
+.. _Authorization request header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization
 
 OAuth2 Token Security
 ---------------------
