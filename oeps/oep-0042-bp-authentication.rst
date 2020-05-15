@@ -2,8 +2,6 @@
 OEP-42: Authentication
 ######################
 
-Provides the current best practices for authentication in the Open edX platform. This includes a summary of authentication design and `Decisions`_, and a list of `Standardized Libraries and Utilities`_.
-
 .. list-table::
    :widths: 25 75
 
@@ -26,9 +24,6 @@ Provides the current best practices for authentication in the Open edX platform.
    * - `Review Period`
      - 2020-04-30 - 2020-05-15
 
-| Provides the current best practices for authentication in the Open edX platform. This includes a summary of authentication design and `Decisions`_, and a list of `Standardized Libraries and Utilities`_.
-|
-
 .. contents::
    :local:
    :depth: 2
@@ -36,7 +31,7 @@ Provides the current best practices for authentication in the Open edX platform.
 Summary
 =======
 
-Provides the current best practices for authentication in the Open edX platform. This includes a summary of authentication design and `Decisions`_, and a list of `Standardized Libraries and Utilities`_.
+Provides the current best practices for authentication in the Open edX platform. This includes a summary of authentication related `decisions`_, including a list of `standardized libraries and utilities`_.
 
 Context
 =======
