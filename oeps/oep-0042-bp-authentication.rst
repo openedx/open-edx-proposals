@@ -31,7 +31,7 @@ OEP-42: Authentication
 Summary
 =======
 
-**Summary of decisions:**
+**Decision highlights:**
 
 * Authentication is provided by an OAuth 2.0 implementation using `JSON Web Tokens (JWTs)`_ as OAuth tokens.
 * The LMS will be the single Identity Provider and will provide only asymmetrically signed JWTs.
