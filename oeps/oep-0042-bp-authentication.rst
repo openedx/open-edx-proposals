@@ -10,7 +10,7 @@ OEP-42: Authentication
    * - Title
      - Authentication
    * - Last Modified
-     - 2020-05-15
+     - 2020-05-26
    * - Authors
      - Robert Raposa, Nimisha Asthagiri, Julia Eskew
    * - Arbiter
@@ -31,7 +31,20 @@ OEP-42: Authentication
 Summary
 =======
 
-Provides the current best practices for authentication in the Open edX platform. This includes a summary of authentication related `decisions`_, including a list of `standardized libraries and utilities`_.
+**Summary of decisions:**
+
+* Authentication is provided by an OAuth 2.0 implementation using `JSON Web Tokens (JWTs)`_ as OAuth tokens.
+* The LMS will be the single Identity Provider and will provide only asymmetrically signed JWTs.
+* JWTs can be sent via a request header, or using JWT Cookies for use with microfrontends.
+* At this time, mobile authentication continues to use (non-JWT) Bearer Authentication.
+* Open edX supports social and other third-party authentication.
+
+**Useful tools:**
+
+* To make authenticated requests, use `OAuthAPIClient`_ for Python and `@edx/frontend-platform/auth`_ for microfrontends.
+* To require authentication for a REST endpoint, use the `JwtAuthentication`_ class.
+
+For more details on Open edX best practices around authentication, see the rest of the OEP.
 
 Context
 =======
@@ -212,13 +225,13 @@ The following are all DRF Authentication classes.
 
    * - Authentication Class
      - Status
-   * - `JwtAuthentication (edx-drf-extensions)`_
+   * - `JwtAuthentication`_ (edx-drf-extensions)
      - Supported
-   * - `SessionAuthentication (django-rest-framework)`_
+   * - `SessionAuthentication`_ (django-rest-framework)
      - Supported
-   * - `BearerAuthentication (edx-drf-extensions)`_
+   * - `BearerAuthentication`_ (edx-drf-extensions)
      - Deprecated, except mobile
-   * - `BasicAuthentication (django-rest-framework)`_
+   * - `BasicAuthentication`_ (django-rest-framework)
      - * Exceptions Only
        * Requires an `Architectural Decision Record (ADR)`_ explaining why it is required.
 
@@ -226,10 +239,10 @@ Note: Our JwtAuthentication class is a subclass of JSONWebTokenAuthentication, w
 
 .. _Django REST Framework (DRF): https://www.django-rest-framework.org/
 .. _Authentication with Django REST Framework (DRF): https://www.django-rest-framework.org/api-guide/authentication/#authentication
-.. _JwtAuthentication (edx-drf-extensions): https://github.com/edx/edx-drf-extensions/blob/4d0f4de80681e5826cfbe3041ea4cda6cff87640/edx_rest_framework_extensions/auth/jwt/authentication.py#L25
-.. _SessionAuthentication (django-rest-framework): https://www.django-rest-framework.org/api-guide/authentication/#sessionauthentication
-.. _BasicAuthentication (django-rest-framework): https://www.django-rest-framework.org/api-guide/authentication/#basicauthentication
-.. _BearerAuthentication (edx-drf-extensions): https://github.com/edx/edx-drf-extensions/blob/4d0f4de80681e5826cfbe3041ea4cda6cff87640/edx_rest_framework_extensions/auth/bearer/authentication.py#L18
+.. _JwtAuthentication: https://github.com/edx/edx-drf-extensions/blob/4d0f4de80681e5826cfbe3041ea4cda6cff87640/edx_rest_framework_extensions/auth/jwt/authentication.py#L25
+.. _SessionAuthentication: https://www.django-rest-framework.org/api-guide/authentication/#sessionauthentication
+.. _BasicAuthentication: https://www.django-rest-framework.org/api-guide/authentication/#basicauthentication
+.. _BearerAuthentication: https://github.com/edx/edx-drf-extensions/blob/4d0f4de80681e5826cfbe3041ea4cda6cff87640/edx_rest_framework_extensions/auth/bearer/authentication.py#L18
 .. _drf-jwt: https://pypi.org/project/drf-jwt/
 
 Authenticated API Clients
@@ -237,11 +250,11 @@ Authenticated API Clients
 
 The following are supported API clients that handle authentication using the supported methods documented in this OEP.
 
-* `OAuthAPIClient (edx-rest-api-client)`_: A Python client for making authenticated server-to-server calls.
-* `@edx/frontend-platform/auth (frontend-platform)`_: A JavaScript client for making authenticated calls from a micro-frontend.
+* `OAuthAPIClient`_ (edx-rest-api-client): A Python client for making authenticated server-to-server calls.
+* `@edx/frontend-platform/auth`_ (frontend-platform): A JavaScript client for making authenticated calls from a micro-frontend.
 
-.. _OAuthAPIClient (edx-rest-api-client): https://github.com/edx/edx-rest-api-client/blob/518e7291f2e90d6b9dce0f943749d59fa5c1fa42/edx_rest_api_client/client.py#L181
-.. _@edx/frontend-platform/auth (frontend-platform): https://github.com/edx/frontend-platform/blob/master/README.md
+.. _OAuthAPIClient: https://github.com/edx/edx-rest-api-client/blob/518e7291f2e90d6b9dce0f943749d59fa5c1fa42/edx_rest_api_client/client.py#L181
+.. _@edx/frontend-platform/auth: https://github.com/edx/frontend-platform/blob/master/README.md
 
 OAuth Backend
 ~~~~~~~~~~~~~
