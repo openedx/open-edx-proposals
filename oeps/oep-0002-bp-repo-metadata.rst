@@ -42,10 +42,10 @@ Keys
 
 Each repo will include a file ``openedx.yaml``, with the following keys:
 
-``owner``: dictionary (required)
+``owner``: dictionary (optional)
     This key contains information about the assigned owner of this repository.
 
-    ``type``: string (required)
+    ``type``: string (optional)
         The value of this key must be either ``team`` or ``repo``. It indicates which ownership model applies to this repository, and therefore which of these two keys should exist with a non-empty value.
 
         **Note:** As much as possible, repos should be owned by higher-level repos, with only the highest-level repos owned by teams.
