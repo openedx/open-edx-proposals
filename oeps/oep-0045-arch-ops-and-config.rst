@@ -11,11 +11,11 @@ OEP-45: Configuring and Operating Open edX
    * - Last Modified
      - 2020-04-06
    * - Authors
-     - Bill DeRusha
+     - Bill DeRusha <bill@edx.org>
    * - Arbiter
-     - Felipe Montoya 
+     - Felipe Montoya <felipe.montoya@edunext.co>
    * - Status
-     - Under Review
+     - Provisional
    * - Type
      - Architecture
    * - Created
@@ -31,7 +31,7 @@ OEP-45: Configuring and Operating Open edX
 Abstract
 ========
 
-Wherever possible, The edX organization will provide and manage Docker images as the medium for packaging operating dependencies of Open edX independently deployable application (IDA) rather than providing Ansible playbooks.
+Wherever possible, the edX organization will provide and manage Docker images as the medium for packaging operating dependencies of an Open edX independently deployable application (IDA) rather than providing Ansible playbooks.
 
 The configuration for running IDAs in different environments will be done through a config file per unique [application, environment] combination. How those files are generated and managed is the responsibility of each operator.
 
@@ -43,6 +43,11 @@ Wherever possible, operating concerns will live within the codebase they are con
 * Documented settings files distinguishing required values without defaults (like secrets) from other settings which will defaults reasonable for most production installations.
 * An operations manual documenting standard operations required to run and maintain the IDA.
 * A changelog to document differences in settings, operating concerns, and application functionality from release to release.
+
+As code is moved to this new paradigm it is important to note that we strive to maintain or improve upon the state of operations without sacrificing features or visibility.  If operations code is removed from one place it must either have a home in some other public place better aligned with this OEP (EG package installation in Dockerfiles) or no longer be needed at all in this model (EG `conditional ansible commands`_ for installing packages on particular operating
+systems).
+
+.. _conditional ansible commands: https://github.com/edx/configuration/blob/ada15bec6e0269042380e340e65675640983e6ba/playbooks/roles/newrelic_infrastructure/tasks/main.yml#L44-L52
 
 Context
 =======
@@ -94,6 +99,8 @@ In order to function as documentation for operators Dockerfiles will be well-com
 
 edX will provide Docker images for IDAs that captures the latest code on the master branch as well as images representing named releases. edX will not provide these images for named releases prior to the acceptance and implementation of this OEP (Aspen through and including Juniper at time of writing).
 
+Operators will be able to use these provided images as a base for any private or custom images they need to build for their environments.
+
 
 Configuration
 *************
@@ -131,7 +138,7 @@ Since defaults are provided by the IDA, many smaller deployments should not need
  
 **Config file generation & management**
 
-Due to the varied needs and processes of different operators, how the config files are created, managed, or otherwise end up on the server is up to the operator and will depend greatly on their deployment strategy.
+Due to the varied needs and processes of different operators, how the config files are created, managed, or otherwise end up on the server is up to the operator and will depend greatly on their deployment strategy. With a consistent method for configuring IDAs it will be reasonable to have tooling to assist with migrating between releases, but the implementation of such tooling is outside the scope of this proposal.
  
 **Documentation of settings**
 
@@ -143,11 +150,23 @@ The settings found in both the ``required.py`` and ``defaults.py`` files will be
 Operations Manuals
 ******************
 
-A clear manual of operations will exist in the form of RST files in an ``operations`` directory within the ``documentation`` directory for that IDA. See `this commit`_ for an example provided by the Open edX Build-Test-Release working group. The operations docs will cover common operations such as how to run the IDA for web traffic or as an async worker and how to manage the IDA's underlying database schema. It will also include a list of potential maintenance tasks operators may want to leverage such as clearing sessions or applying security patches. Finally it will include the list of ad-hoc management commands operators can use to help handle edge case or one-time operations.
+A clear manual of operations will exist in the form of RST files in an ``operations`` directory within the ``docs`` directory (as per `OEP-19`_) for that IDA. See `this commit`_ for an example provided by the Open edX Build-Test-Release working group. The operations docs will cover common operations such as how to run the IDA for web traffic or as an async worker and how to manage the IDA's underlying database schema. It will also include a list of potential maintenance tasks operators may want to leverage such as clearing sessions or applying security patches. Finally it will include the list of ad-hoc management commands operators can use to help handle edge case or one-time operations.
  
 In the same vein as not dictating how operators create and manage their IDA config files, operators will also be expected to manage how they execute the operations documented in the manual.
 
+.. _OEP-19: https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html
 .. _this commit: https://github.com/openedx-btr-wg/edx-platform/commit/18effd83f983f497ca0a1535108fa41dc50d06a2#diff-ca02329742db0a77612a18ba1260d178R1-R39
+
+
+Industry Best Practices
+***********************
+
+The recommendations above are heavily inspired by the following resources:
+
+* https://12factor.net/
+* https://code.djangoproject.com/wiki/SplitSettings
+* https://github.com/openedx-btr-wg/edx-platform/tree/btr-wg/reference-manual
+* https://github.com/openfun/richie/blob/master/src/richie/apps/core/defaults.py
 
 
 Alternatives Considered
@@ -165,6 +184,11 @@ Jumping to Kubernetes
 
 Kubernetes is an open source container orchestration platform pioneered by Google. While it often occupies the same conversation space as containers because it is a powerful way to manage them, it is a huge increase in complexity and expertise required to operate. For most installations Kubernetes is currently too much overhead/learning curve for the value. The edX organization may opt to explore deploying Docker containers this way in the future and would love to collaborate with operators who also decide to use Kubernetes to compare notes.
 
+
+Configuration via Environment Variables
+***************************************
+
+There are many django project which configure their applications by grabbing the settings value from an environment variable otherwise using a default.  While this is technically feasible, the platform relies on setting many complex data structures (lists & dicts) and to do so using ENV VARS would be quite challenging to manage and thus was declined as an option to pursue.
 
 
 Implementation Strategy
