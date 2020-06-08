@@ -44,7 +44,6 @@ Each repo will include a file ``openedx.yaml``, with the following keys:
 
 ``owner``: dictionary (optional)
     This key contains information about the assigned owner of this repository.
-    **Note:** Initially, the key served two purposes: assigning ownership of the repository and as a "who to contact" for repo related issues. Ownership info has now been moved to an edx internal location. As for contact info, this is still WIP. We plan on adding contact point to repos at some point in the future. The exact location is still to be determined, possible in openedx.yaml or CODEOWNERS file.
 
     ``type``: string (optional)
         The value of this key must be either ``team`` or ``repo``. It indicates which ownership model applies to this repository, and therefore which of these two keys should exist with a non-empty value.
@@ -220,6 +219,12 @@ Keeping the granularity of **human owners to individual teams** affords us:
 
 Change History
 ==============
+
+2020-06-08
+----------
+
+* Made Owner key optional
+  * Initially, the key served two purposes: assigning ownership of the repository and as a "who to contact" for repo related issues. Ownership info has now been moved to an edx internal location. As for contact info, this is still WIP. We plan on adding contact point to repos at some point in the future. The exact location is still to be determined, possible in openedx.yaml or CODEOWNERS file.
 
 2019-12-11
 ----------
