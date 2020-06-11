@@ -31,16 +31,12 @@ OEP-46: Domain-Driven-Design Domains
 Abstract
 ********
 
-Open edX is a large software project with a number of different teams working
-various portions of it. Using Domain Driven Designs (and in particular, Bounded
-Contexts) to enumerate the distinct portions of the system and how they can
-interact will allow teams to work with minimal coordination.
+Open edX is a large software project with a number of different teams working various portions of it. Using Domain Driven Designs (and in particular, Bounded Contexts) to enumerate the distinct portions of the system and how they can interact will allow teams to work with minimal coordination.
 
 Motivation
 **********
 
-Domain Driven Design presents a description of the Open edX system that can
-be used to clarify decisions in the following areas:
+Domain Driven Design presents a description of the Open edX system that can be used to clarify decisions in the following areas:
 
 - Communication
   - Should these two components communicate synchronously or asynchronously?
@@ -58,58 +54,33 @@ The Open edX system consists of the following bounded contexts.
 Terminology and Behaviors
 =========================
 Subdomain:
-  A group of related bounded contexts. A Subdomain is **Core** if it is a key differentiator for
-  Open edX, **Supporting** if it has Open edX specifics, but isn't **Core**, or **Generic** if
-  it has no Open edX business context.
+  A group of related bounded contexts. A Subdomain is **Core** if it is a key differentiator for Open edX, *Supporting** if it has Open edX specifics, but isn't **Core**, or **Generic** if it has no Open edX business context.
 
-  There should be **no** synchronous communication between separate subdomains. Any
-  exceptions to this must be documented in this OEP.
+  There should be **no** synchronous communication between separate subdomains. Any exceptions to this must be documented in this OEP.
 
-  Business logic should also **not** be distributed between subdomains. For instance,
-  if the Marketing or Purchasing systems need to calculate a discount, it should be based
-  solely on data in their databases, and code in their repositories, rather than
-  requiring api calls to other subdomains.
+  Business logic should also **not** be distributed between subdomains. For instance, if the Marketing or Purchasing systems need to calculate a discount, it should be based solely on data in their databases, and code in their repositories, rather than requiring api calls to other subdomains.
 
 Bounded Context:
-  A single service inside a Subdomain. Each Bounded Context owns its own data storage,
-  has its own Ubiquitous Language that describes all of the entities owned by that service,
-  and uses Anti-Corruption Layers to translate incoming objects into that language.
+  A single service inside a Subdomain. Each Bounded Context owns its own data storage, has its own Ubiquitous Language that describes all of the entities owned by that service, and uses Anti-Corruption Layers to translate incoming objects into that language.
 
-  Bounded Contexts within a Subdomain **should** use asynchronous communication with
-  other Bounded Contexts in the same Subdomain, but may elect to use synchronous
-  communication if required.
+  Bounded Contexts within a Subdomain **should** use asynchronous communication with other Bounded Contexts in the same Subdomain, but may elect to use synchronous communication if required.
 
-  Like Subdomains, **core** Bounded Contexts in a Subdomain implement the
-  key Open edX business logic for that Subdomain. **supporting** Contexts
-  have Open edX logic, but are not **core** to their Subdomain, and **generic**
-  contexts should be replaceable and contain no Open edX business logic.
+  Like Subdomains, **core** Bounded Contexts in a Subdomain implement the key Open edX business logic for that Subdomain. **supporting** Contexts have Open edX logic, but are not **core** to their Subdomain, and **generic**  contexts should be replaceable and contain no Open edX business logic.
 
 Ubiquitous Language:
-  The set of terms and definitions that defines the entities and relationships
-  within a Bounded Context. These terms may not have the same definitions across
-  different Bounded Contexts.
+  The set of terms and definitions that defines the entities and relationships within a Bounded Context. These terms may not have the same definitions across different Bounded Contexts.
 
 Anti-Corruption Layer:
-  A layer around the edge of a Bounded Context that converts entities and information
-  retrieved from other Bounded Contexts in the same Subdomain into the Ubiquitous Language
-  of this Bounded Context.
+  A layer around the edge of a Bounded Context that converts entities and information retrieved from other Bounded Contexts in the same Subdomain into the Ubiquitous Language of this Bounded Context.
 
 Overall Behavior Flows
 ======================
 
-A **learner** engages with a **Business Subdomain** to find learning content that meets their
-learning goals. They purchase that learning content via whatever mode is appropriate
-for that **Business Subdomain** (direct purchase, free enrollment, subscriptions, etc).
-The **Business Subdomain** requests fulfillment from the **Learner Subdomain** to allow the
-**learner** access to their selected learning content.
+A **learner** engages with a **Business Subdomain** to find learning content that meets their learning goals. They purchase that learning content via whatever mode is appropriate for that **Business Subdomain** (direct purchase, free enrollment, subscriptions, etc). The **Business Subdomain** requests fulfillment from the **Learner Subdomain** to allow the **learner** access to their selected learning content.
 
-An **educator** engages with the **Content Authoring** Subdomain to author learning content
-and make it available to the **Learning** subdomain.
+An **educator** engages with the **Content Authoring** Subdomain to author learning content and make it available to the **Learning** subdomain.
 
-An **administrator** engages with the **Learning** Subdomain to set up learning content with
-specific dates, and with the **Business Subdomain** to group learning content
-created by **educators** in the **Content Authoring** Subdomain into units that match
-learners educational goals.
+An **administrator** engages with the **Learning** Subdomain to set up learning content with specific dates, and with the **Business Subdomain** to group learning content created by **educators** in the **Content Authoring** Subdomain into units that match learners educational goals.
 
 
 The Big Picture
@@ -127,7 +98,7 @@ Content Authoring
 -----------------
 **Core** Subdomain
 
-Content Authoring (core) allows educators to create, modify, discover, package, annotate (tag), and share learning content.  Learning content may be packaged from multiple content sources.
+Content Authoring (core) allows educators to create, modify, discover, package, annotate (tag), and share learning  content.  Learning content may be packaged from multiple content sources.
 
 Users:
   - Course teams
@@ -225,20 +196,15 @@ Catalog
 -------
 **Supporting** Subdomain
 
-Catalog Content is a service for storing catalog data with interfaces for retrieval and
-storage. It contains both metadata about Course Runs (used for marketing by the Business Subdomains)
-and metadata about groups of Course Runs (Courses) and groups of Courses (Programs).
+Catalog Content is a service for storing catalog data with interfaces for retrieval and storage. It contains both metadata about Course Runs (used for marketing by the Business Subdomains) and metadata about groups of Course Runs (Courses) and groups of Courses (Programs).
 
-The interfaces provided to this are synchronous (incoming) and asynchronous (outgoing),
-allowing for Contexts in other Subdomains to publish new data and then listen for changes
-that are relevant to their needs.
+The interfaces provided to this are synchronous (incoming) and asynchronous (outgoing), allowing for Contexts in other Subdomains to publish new data and then listen for changes that are relevant to their needs.
 
 
 Business Subdomains
 ===================
 
-These subdomains are focused on various ways of allowing Learners to find and purchase
-learning content experiences.
+These subdomains are focused on various ways of allowing Learners to find and purchase learning content experiences.
 
 
 B2C (Business to Consumer)
@@ -305,8 +271,7 @@ Masters
 -------
 **Supporting** Subdomain
 
-Masters allows educators and learners to manage and engage in bundled packages (programs) of learning
-linked to institutional credit.
+Masters allows educators and learners to manage and engage in bundled packages (programs) of learning linked to institutional credit.
 
 Users:
   - Masters Learners
@@ -336,28 +301,16 @@ Bounded Contexts
 Rationale
 *********
 
-The overriding goal for this division of the systems is to allow for increased change
-velocity in each of the systems, without requiring coordination or dependent changes
-in other systems.
+The overriding goal for this division of the systems is to allow for increased change velocity in each of the systems, without requiring coordination or dependent changes in other systems.
 
-For instance, by separating enrollments in learning content from program enrollment (in
-the Masters subdomain) or purchasing decisions (in the B2C subdomain), we allow
-those business subdomains to experiment with alternative business models more easily.
-As they experiment, the Learning subdomain simply has to provide a stable platform
-on which to fulfill purchases from the various business domains, rather than needing
-to be tied into the specifics of how users are being given those enrollments.
+For instance, by separating enrollments in learning content from program enrollment (in the Masters subdomain) or purchasing decisions (in the B2C subdomain), we allow those business subdomains to experiment with alternative business models more easily. As they experiment, the Learning subdomain simply has to provide a stable platform on which to fulfill purchases from the various business domains, rather than needing to be tied into the specifics of how users are being given those enrollments.
 
-Similarly, by separating the various business subdomains into discrete units, they are
-free to experiment with alternative payment models without being tied to the same
-commerce platform decisions.
+Similarly, by separating the various business subdomains into discrete units, they are free to experiment with alternative payment models without being tied to the same commerce platform decisions.
 
 Backward Compatibility
 **********************
 
-This statement identifies whether the proposed change is backward compatible.
-An OEP that introduces backward incompatibilities must describe the
-incompatibilities, with their severity and an explanation of how you propose to
-address these incompatibilities.
+This statement identifies whether the proposed change is backward compatible. An OEP that introduces backward incompatibilities must describe the incompatibilities, with their severity and an explanation of how you propose to address these incompatibilities.
 
 Rejected Alternatives
 *********************
@@ -365,16 +318,10 @@ Rejected Alternatives
 Catalog in B2C
 ==============
 
-In prior versions, the Course Catalog lived in the B2C Subdomain, because it was primarily
-used as a source of data for the B2C Marketing service. However, that led to additional
-questions if any other Business Subdomain wanted to market an existing course to their
-specific audiences. As such, the Course Catalog was moved to infrastructure, and
-given responsibility for Programs (collections of Courses), but without any of the
-domain knowledge of what particular Courses or Programs were being used for.
+In prior versions, the Course Catalog lived in the B2C Subdomain, because it was primarily used as a source of data for the B2C Marketing service. However, that led to additional questions if any other Business Subdomain wanted to market an existing course to their specific audiences. As such, the Course Catalog was moved to infrastructure, and given responsibility for Programs (collections of Courses), but without any of the domain knowledge of what particular Courses or Programs were being used for.
 
 
 Change History
 **************
 
-A list of dated sections that describes a brief summary of each revision of the
-OEP.
+A list of dated sections that describes a brief summary of each revision of the OEP.
