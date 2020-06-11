@@ -22,7 +22,7 @@ OEP-46: Domain-Driven-Design Domains
   - - Created
     - 2020-04-23
   - - Review Period
-    - 2020-04-23 - 2020-05-30
+    - 2020-04-23 - ???
   - - Resolution
     - 
   - - References
@@ -49,89 +49,6 @@ be used to clarify decisions in the following areas:
   - Should we consider buying this component rather than custom building it?
   - Is this component something an Open edX operator might want to replace?
 
-Use Cases
-=========
-
-In order to clarify the Subdomains used by Open edX, the following are usecases identified
-as being important to edX, and to the Open edX project.
-
-Educators
----------
-- Authoring learning components to later be delivered to a learner.
-- Rich eco-system of learning components.
-
-Motivation:
-  - I want to teach millions of learners around the world, and know my time is a good investment. 
-  - I want to improve as an educator.
-  - I want to elevate my brand and attract millions and millions.
-  - I want to connect with and learn from a community of educators.
-  - I want to make money.
-  - I want to do academic research and publish some papers. 
-  - I want to effectively, and easily do my job (course build, course run, learner management, data review).
-    - Effectively includes ability to pick and choose learning components.
-
-Use Cases:
-  **Educator.1** Easy Authoring  *(Core)*:
-    - Extensible educational blocks
-    - Course Design (Structure - outline, etc)
-    - Educational Blocks (Teaching components and Assessment)
-
-  **Educator.2** Administration of Courses *(Core)*:
-    - Launch a course run.
-    - Collect revenue share.
-
-  **Educator.3** Actionable Data and Feedback *(Supporting)*
-    - What are my students doing
-
-  **Educator.4** Communities of Practice *(Supporting or Generic?)*
-
-  **Educator.5** Supporting Learners (Community and Mentorship) *(Supporting or Generic?)*
-
-Learners
---------
-
-- Consume content to achieve learning outcomes.
-- Determining learning pathway.
-  - Inside and outside of course.
-
-Motivation:
-  - I want to learn, so that I can improve my life (career change, improve my job, raise, change roles, fulfill educational requirements).
-  - I am a lifelong learner.
-  - I want to connect with others in similar fields of interest.
-
-Use Cases:
-  **Learner.1** Discovery: *(Supporting or Generic?)*
-    - Find the right course/program to help them achieve their goals.
-
-  **Learner.2** Achieve Learning Outcomes *(Core)*:
-    - Rigor/quality of instruction
-
-  **Learner.3** Support through their learning pathway *(Supporting or Generic?)*
-    – progress, messaging, social
-
-  **Learner.4** Proof of Learning, credentials/certifications *(Supporting or Generic?)*
-
-Admins
-------
-
-Motivations:
-  Enterprise Admins:
-    - I want to effectively, and easily do my job (course curation, employee management, data review).
-    - I want to know my time and my employee's time is a good investment.
-    - I want to upskill my employees.
-    - I want to validate completion of internal requirements (legal / business policies).
-    - I want to retain my employees (a benefit).
-    - I want to create a pathway for my employees.
-  Educator Admins:
-    - I want to effectively, and easily do my job (learner management, data review).
-
-Use Cases:
-  **Admin.1** Actionable Data and Feedback *(Supporting)*:
-    - Am I getting my money's worth
-
-  **Admin.2** Setting up edX for their org *(Supporting)*:
-    - Curation
-    - Integration
 
 Specification
 *************
@@ -216,8 +133,6 @@ Users:
   - Course teams
   - Instructional designers
 
-Use Cases:
-  - **Educator.1** Easy Authoring
 
 Bounded Contexts
 ~~~~~~~~~~~~~~~~
@@ -250,11 +165,6 @@ Learning allows learners to consume content and perform actions in a learning ac
 Users: 
   - Learners
   - Admins
-
-Use Cases:
-  - **Learner.2** Achieve Learning Outcomes
-  - **Learner.3** Support through their learning pathway – progress, messaging, social
-  - **Educator.5** Supporting Learners (Community and Mentorship)
 
 Bounded Contexts
 ~~~~~~~~~~~~~~~~
@@ -303,10 +213,6 @@ Users:
   - Course teams
   - Course Admins
 
-Use Cases:
-  - **Educator.3** Actionable Data and Feedback
-  - **Admin.1** Actionable Data and Feedback
-
 Users
 -----
 **Generic** Subdomain
@@ -346,10 +252,6 @@ Users:
   - Course Admins
   - Marketing
 
-Use Cases:
-  **Learner.1** Discovery: Find the right course/program to help them achieve their goals
-
-
 Bounded Contexts
 ~~~~~~~~~~~~~~~~
 
@@ -378,9 +280,6 @@ Enterprise
 Users:
   - Enterprise Learners
   - Enterprise Admins
-
-Use Cases:
-  - **Admin.1** Actionable Data and Feedback
 
 Bounded Contexts
 ~~~~~~~~~~~~~~~~
@@ -413,11 +312,6 @@ Users:
   - Masters Learners
   - Masters Admins
   - Credit Organizations
-
-Use Cases:
-  - "Learner.4 Proof of Learning, credentials/certifications"
-  - "Educator.2 Administration of Courses"
-
 
 Bounded Contexts
 ~~~~~~~~~~~~~~~~
