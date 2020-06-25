@@ -5,7 +5,7 @@ Developer Documentation
 Overview
 ********
 
-Documentation can live in lot's of places, we want to be clear about which documentation lives where most of the time so that finding docs is easier.  In general, keep the documents as close to the thing that they are describing as possible.
+* Keep developer documentation as close to the thing you are describing as possible to make it easier to find and maintain.
 
 Details
 ****
@@ -14,13 +14,13 @@ Details
 
   * API docs should be in swagger format.
 
-  * **Everything else should be RSTs**.  Yes, you already know markdown but RST is more powerful and robust and that is what we have chosen to use for consistency across the whole platform.  This_ is a good resources for learning RST.
+* **Everything else should be RSTs**.  This_ is a good resources for learning RST.
 
 * Process docs such as scrum notes, retros, personal notes should not live in the repo and should generally be in confluence.
 
-* Sometimes documents span repos, if a document is relevant to multiple repos that are related to each other, pick the most sensible of the repose to put the doc in.  Link all the relevant repos in the doc and link back from all the repos to the doc to make it easier to find in either direction.
+* If a document is relevant to multiple repos, pick the most sensible repo to put the doc in, and provide back links from the other repos.
 
-* If a document is relevant to everyone, it should be in the OEP_ repo which is where we document things that are relevant to all of  openedx.  Things like best practices for dependency management, where we should put different kinds of documentation, etc.
+* If a document is relevant to a large part of Open edX, it should live in the OEP_ repo.  Things like best practices for dependency management, where we should put different kinds of documentation, etc.
 
 
 All the details
