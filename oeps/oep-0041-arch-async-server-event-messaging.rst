@@ -64,7 +64,7 @@ Motivation
 Open edX has multiple services that need to copy data or take specific actions
 when certain events occur in other services. For example:
 
-* The start date of a course exists in both the Catalog domain represented by
+* The start date of a course exists in both the Catalog subdomain represented by
   the course-discovery service, as well as in the LMS, where its value is used
   to help determine whether an enrolled student will have access to the content.
 * Other services often have a user table, with data replicated from the LMS
@@ -194,7 +194,7 @@ services that are part of the standard distribution of Open edX should use
 application, and "worker" will be used for events emitted by asynchronous tasks
 such as celery workers.
 
-Message clients should avoid interpreting this value or make switching logic
+Message clients should avoid interpreting this value or making switching logic
 based on where a message is coming from. These values can change without warning
 as services are split, consolidated, renamed, and refactored. It is also
 possible that the source of an event will be moved to a third party system that
@@ -254,9 +254,9 @@ The next part of the ``type`` hierarchy is the Subdomain. Examples of this are:
 * credentials
 * learning
 
-It is the expectation that there are relatively few domains, and that they will
-roughly match deployed services. Domain names should be lower cased and use
-underscores if they are more than one word.
+It is the expectation that there are relatively few subdomains, and that they
+will roughly match deployed services. Subdomain names should be lower cased and
+use underscores if they are more than one word.
 
 Subject
 ~~~~~~~
@@ -267,17 +267,17 @@ The name of an entity that the event applies to. Examples might be ``course``,
 ``student``, ``enrollment``, ``order``, etc. Subjects may be namespaced, so
 ``special_exam.proctored.allowance`` could be a subject.
 
-A subject should always mean the same thing within a Domain, but can mean
-different things across domains. For instance, what the LMS (``learning``
-domain) calls a ``course`` might map to what the ``catalog`` domain would call a
-``course_run``. We should try to be consistent where possible, but each domain
-ultimately gets to decide what its terms mean, and we should be careful when
-translating a concept from one domain to another. For instance, the
-``content_authoring`` and ``learning`` domains might both have a concept of a
-"due date" for an assignment. But while the ``content_authoring`` due date is
-determined only by the content author, the ``learning`` due date might take into
-account a student's cohort, individual due date extensions, accessibility
-allowances, and any number of other things. Both domains may call it ``due``,
+A subject should always mean the same thing within a subdomain, but can mean
+different things across subdomains. For instance, what the LMS (``learning``
+subdomain) calls a ``course`` might map to what the ``catalog`` subdomain would
+call a ``course_run``. We should try to be consistent where possible, but each
+subdomain ultimately gets to decide what its terms mean, and we should be
+careful when translating a concept from one subdomain to another. For instance,
+the ``content_authoring`` and ``learning`` subdomains might both have a concept
+of a "due date" for an assignment. But while the ``content_authoring`` due date
+is determined only by the content author, the ``learning`` due date might take
+into account a student's cohort, individual due date extensions, accessibility
+allowances, and any number of other things. Both subdomains may call it ``due``,
 but the due date information from ``content_authoring`` is just an input to the
 more complex due date information in ``learning``.
 
@@ -341,9 +341,9 @@ sure about what you're doing.
 Events are Created by the Owning Subdomain
 ------------------------------------------
 
-Teams at edX are broadly aligned to domains and roughly mapped to services.
-Services should not emit events for other domains. For instance, the ecommerce
-service is its own subdomain and should not be emitting ``catalog`` or
+Teams at edX are broadly aligned to subdomains and roughly mapped to services.
+Services should not emit events for other subdomains. For instance, the
+ecommerce service is its own subdomain and should not be emitting ``catalog`` or
 ``learning`` events. It is sometimes the case that a subdomain encompasses
 multiple services (e.g. Studio and Blockstore both operate on the
 ``content_authoring`` subdomain).
@@ -359,9 +359,9 @@ emits an event describing when a course starts (e.g.
 the LMS to send potentially conflicting information using that same event type.
 
 Two services may have similar sounding events. The course-discovery service
-(``catalog`` domain) might emit a ``org.openedx.catalog.course.created.v1``
+(``catalog`` subdomain) might emit a ``org.openedx.catalog.course.created.v1``
 event when a catalog entry for a course is created, while Studio
-(``content_authoring`` domain) might emit a
+(``content_authoring`` subdomain) might emit a
 ``org.openedx.content_authoring.course.created.v1`` event when course content is
 first authored there. These are similar, related events, but they are not the
 same event type.
