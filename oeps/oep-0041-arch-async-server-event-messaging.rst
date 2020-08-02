@@ -140,15 +140,6 @@ events should have all of the fields specified below (even if some are
 considered optional in the CloudEvents spec).
 
 
-`dataschema <https://github.com/cloudevents/spec/blob/master/spec.md#dataschema>`_
-----------------------------------------------------------------------------------
-
-Example: ???
-
-WIP: This would link to documentation? Fill this out after we flesh out that
-portion of this OEP.
-
-
 `datacontenttype <https://github.com/cloudevents/spec/blob/master/spec.md#datacontenttype>`_
 --------------------------------------------------------------------------------------------
 
