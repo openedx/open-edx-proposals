@@ -1,6 +1,6 @@
-=============================================
-OEP-41: Asynchronous Server Event Messaging
-=============================================
+================================================
+OEP-41: Asynchronous Server Event Message Format
+================================================
 
 .. list-table::
    :widths: 25 75
@@ -8,7 +8,7 @@ OEP-41: Asynchronous Server Event Messaging
    * - OEP
      - :doc:`OEP-41 </oeps/oep-0041-arch-async-server-event-messaging.rst>`
    * - Title
-     - Asynchronous Server Messaging
+     - Asynchronous Server Event Message Format
    * - Last Modified
      - 2020-02-23
    * - Authors
