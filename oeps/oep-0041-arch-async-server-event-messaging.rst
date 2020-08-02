@@ -306,9 +306,11 @@ Example: ``v1``
 
 The last portion is the major version of the message, starting with ``v1``. All
 messages will have a major and minor version, with the minor version encoded in
-the ``data`` attribute (todo: link to where we discuss that). New fields may be
-added to a message without incrementing the major version, but all additions
-*must* be backwards compatible.
+the ``minorversion`` attribute. New fields may be added to a message without
+incrementing the major version, but all additions *must* be backwards
+compatible. If you increment this to make a backwards-incompatible change, you
+will be expected to have a transition period where you are emitting the previous
+major version event as well as the new one.
 
 
 `time <https://github.com/cloudevents/spec/blob/master/spec.md#time>`_
@@ -326,7 +328,6 @@ actions. Do call ``datetime.now()`` if the event happens and has no
 corresponding database changes. If you are sending out multiple event messages
 describing the same occurance (e.g. a version 1 and version 2 of an event), they
 should have the *exact* same timestamp.
-
 
 
 Message Content Data Guidelines
