@@ -16,7 +16,7 @@ OEP-41: Asynchronous Server Event Message Format
    * - Arbiter
      - Christopher Pappas <cpappas@edx.org>
    * - Status
-     - Draft
+     - Accepted
    * - Type
      - Architecture
    * - Created
@@ -24,9 +24,7 @@ OEP-41: Asynchronous Server Event Message Format
    * - Review Period
      - 2020-08-17
    * - Resolution
-     - ?
-   * - References
-     - ?
+     - Accepted
 
 --------
 Abstract
@@ -120,10 +118,12 @@ example:
 
   {
     "id": "b3b3981e-7544-11ea-b663-acde48001122",
-    "source": "https://discovery.edx.org/events"
+    "type": "org.openedx.catalog.course.created.v1",
     "specversion": "1.0",
     "time": "2020-02-23T09:00:00Z",
-    "type": "org.openedx.catalog.course.created.v1"
+    "source": "/openedx/discovery/web",
+    "sourcehost": "edx.devstack.lms",
+    "minorversion": 2,
     "data": {
         // message specific payload here
     }
