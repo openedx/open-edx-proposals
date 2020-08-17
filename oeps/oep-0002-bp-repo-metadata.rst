@@ -10,7 +10,7 @@ OEP-2: Repository Metadata
    * - Title
      - Repository Metadata
    * - Last Modified
-     - 2019-12-11
+     - 2020-08-17
    * - Authors
      - Calen Pennington, Feanil Patel, Nimisha Asthagiri
    * - Arbiter
@@ -42,20 +42,6 @@ Keys
 
 Each repo will include a file ``openedx.yaml``, with the following keys:
 
-``owner``: dictionary (optional)
-    This key contains information about the assigned owner of this repository.
-
-    ``type``: string (optional)
-        The value of this key must be either ``team`` or ``repo``. It indicates which ownership model applies to this repository, and therefore which of these two keys should exist with a non-empty value.
-
-        **Note:** As much as possible, repos should be owned by higher-level repos, with only the highest-level repos owned by teams.
-
-    ``team``: string (optional)
-        The GitHub team responsible for this repository, prefixed with the Github organization (e.g., ``edx/arch-bom``). If this value is set, this repository contains high-level, business-aligned functionality that is suitable for direct ownership designation to an individual responsible team.
-
-    ``repo``: string (optional)
-        The GitHub repo responsible for this repository, prefixed with the Github organization (e.g., ``edx/XBlock``). If this value is set, this repository contains lower-level technical functionality that is affiliated with another primary owning higher-level repository.
-
 ``nick``: string (optional)
     A short-name for this repository. This is used by reporting tools created by the edX Open Source team. Should be 3-4 characters, because this value is used in charts with very limited space on their axes.
 
@@ -85,6 +71,19 @@ Obsolete Keys
 
 ``supporting_teams``: list of strings
     This is an obsolete key that was used to specify Github handles for teams supporting the owner of the repository. This is now deprecated in favor of the updated ``owner`` dictionary. As a reasonable migration of this key, set ``owner.type`` to *team*, ``owner.value`` to the first value in ``supporting_teams``, and then remove ``supporting_teams``.
+
+``owner``: dictionary
+    This key used to contain information about the assigned owner of this repository.
+
+    ``type``: string (optional)
+        The value of this key would be either ``team`` or ``repo``. It indicated which ownership model applied to this repository, and therefore which of these two keys would exist with a non-empty value.
+
+    ``team``: string (optional)
+        The GitHub team responsible for this repository, prefixed with the Github organization (e.g., ``edx/arch-bom``). If this value was set, this repository contained high-level, business-aligned functionality that was suitable for direct ownership designation to an individual responsible team.
+
+    ``repo``: string (optional)
+        The GitHub repo responsible for this repository, prefixed with the Github organization (e.g., ``edx/XBlock``). If this value was set, this repository contained lower-level technical functionality that was affiliated with another primary owning higher-level repository.
+
 
 Tags
 ----
@@ -140,18 +139,6 @@ The ``tags`` structure is very open ended but there are a few tags that are curr
 
     eg. xblock-review, staff_graded-xblock
 
-Ownership
----------
-While the responsibilities of an owner are outside the scope of this OEP, a repository's metadata should provide sufficient information to identify and discover the repository's owner.
-
-Granularity of Code Ownership
-*****************************
-Rather than designating human owners to each and every repository, we designate owners to only high-level and business-aligned repositories as described in ``owner.team`` in Keys_. All other repositories are indirectly owned by owners of the high-level repositories. This indirect relationship is described in the ``owner.repo`` designation in Keys_. See `Ownership Rationale`_.
-
-Granularity of Human Owners
-***************************
-We choose to assign singular "healthy" teams as owners, rather than individuals or other organizational structures (such as working groups or edX "themes"). We consider a team size of 5-6 people as "healthy". See `Ownership Rationale`_.
-
 Example
 -------
 
@@ -164,9 +151,6 @@ For example, in the `edx-platform`_ repo, the file might look like:
     # openedx.yaml
 
     ---
-    owner:
-        type: team
-        team: edx/arch-bom
     nick: edx
     tags:
         - core
@@ -204,21 +188,13 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
 2. Repositories may have specific requirements that force them to not implement a best practice. The tools should be able to present that reasoning to anyone looking across repositories, and the reasons should be documented in the repositories themselves.
 3. As much as possible, Best Practices should be autodetected, but because they will often involve a judgement call, autodetection shouldn't be mandatory.
 
-Ownership Rationale
--------------------
-
-Keeping the granularity of **code ownership to high-level repositories** affords us:
-
-#. Stronger collaboration on ownership with business functions since a high-level repo is directly aligned to a business need.
-#. Minimization of bookkeeping maintenance as code and owners evolve. However, we will need to ensure that all lower-level repos are still owned indirectly via high-level repos.
-
-Keeping the granularity of **human owners to individual teams** affords us:
-
-#. Using existing organizational structures that have scrum processes in-place and cross-functional communication channels to follow through on their ownership responsibilities.
-#. Robust and longer-lasting owner relationships that overcome the absences and attrition of individuals.
-
 Change History
 ==============
+
+2020-08-17
+----------
+
+* Moved the Owner key to the ``Obsolete Keys`` section and removed no longer relevant ownership rationale and information.
 
 2020-06-08
 ----------
