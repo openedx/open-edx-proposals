@@ -31,7 +31,7 @@ Abstract
 --------
 
 This OEP describes the general format and conventions Open edX should use in
-asynchornous event messaging across services. These events would be emitted when
+asynchronous event messaging across services. These events would be emitted when
 a service has taken some action to data that it owns, and that other services
 would be interested in. This could be a course publish, a user enrollment,
 updates to catalog metadata, etc.
