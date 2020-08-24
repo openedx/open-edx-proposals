@@ -367,6 +367,10 @@ event when a catalog entry for a course is created, while Studio
 first authored there. These are similar, related events, but they are not the
 same event type.
 
+To help prevent naming collisions, the set of messages will be centralized into
+a separate repository (or possibly a separate repository per logical subdomain).
+The details of this would be worked out in a follow-on OEP.
+
 
 Avoid Callbacks
 ---------------
