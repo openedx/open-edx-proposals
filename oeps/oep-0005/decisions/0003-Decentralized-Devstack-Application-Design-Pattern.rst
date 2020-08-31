@@ -1,11 +1,10 @@
-Decentralized Devstack Design Pattern
-=====================================
+Decentralized Devstack Application Design Pattern
+=================================================
 
 Status
 ------
 
 Draft
-
 
 Goal for pattern
 ----------------
