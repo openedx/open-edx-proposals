@@ -31,4 +31,4 @@ edx/devstack repo: rejected because DD is meant to eventually displace current d
 
 edx/edx-developer-docs repository: These acts as central repositories for platform wide documentation, so this was heavily considered and still might eventually be the right location for the DD's how-tos .
 
-In edx-cookiecutters/cookiecutter-django-ida/docs/decentralized_devstack: While the cookiecutter-django-ida will eventually be modified based on DD decisions, this cookiecutter is just one of many places that will be modified. Eventually, links should be created from the cookiecutters that point of location of these decisions.
+In edx-cookiecutters/cookiecutter-django-ida/docs/decentralized_devstack: This was rejected because this cookiecutter is just one of many places that will be modified. Eventually, links should be created from the cookiecutter that point of location of these decisions.
