@@ -51,12 +51,11 @@ Improve Current Devstack: TODO: give quick summary of why this was rejected
 Sources
 -------
 
-Apologizes: some of this might just be available to edX employees.
 
 `Devstack 2.0 One-Pager`_: Document explaining scope of Devstack 2.0 work
 
 `Decentralized DevStack Team Report`_: Document explaining work done by Devstack spike team
 
-.. _Devstack 2.0 One-Pager: https://docs.google.com/document/d/1DFOeFciqfFBXltZFyFEuQcArRpAh5XcP_yG2Bs7-TUI/edit?ts=5f10b819
+.. _Devstack 2.0 One-Pager: https://openedx.atlassian.net/wiki/spaces/AC/pages/1791885668/Devstack+2.0+One-Pager
 
-.. _Decentralized DevStack Team Report: https://docs.google.com/document/d/18QfA3zv7RCb-wjHws4egOE1wFLNa6GiCqBGKBTejss0/edit#
+.. _Decentralized DevStack Team Report: https://openedx.atlassian.net/wiki/spaces/AC/pages/1792901294/Decentralized+DevStack+Team+Report+-+July+2020
