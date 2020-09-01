@@ -21,7 +21,7 @@ Context
 Decision
 --------
 
-Place DD documentation/decisions in edx/open-edx-proposals/oeps/oep-0005. Eventually, these decisions will be used to update OEP-5.
+Place DD documentation(general decisions, general how-tos) in edx/open-edx-proposals/oeps/oep-0005. Eventually, these decisions will be used to update OEP-5.
 
 
 Rejected Alternatives
@@ -29,6 +29,6 @@ Rejected Alternatives
 
 edx/devstack repo: rejected because DD is meant to eventually displace current devstack. This was rejected to avoid creating dependencies between the two.
 
-edx/edx-developer-docs repository: These acts as central repositories for platform wide documentation, so this was heavily considered and still might eventually be the right location for the DD's how-tos .
+edx/edx-developer-docs repository: This as central repositories for platform wide documentation. This was heavily considered and still might eventually be the right location for the DD's how-tos.
 
 In edx-cookiecutters/cookiecutter-django-ida/docs/decentralized_devstack: This was rejected because this cookiecutter is just one of many places that will be modified. Eventually, links should be created from the cookiecutter that point of location of these decisions.

@@ -19,7 +19,7 @@ The following pain points have been identified in our current development enviro
 - The system resources required to run the stack are more than some edX-issued laptops can handle. 
 Dockerfiles and corresponding images are opaque to developers and challenging to change/troubleshoot.
 
-Some of the challenges listed above are due to the design of the devstack development environment itself.  Others are inherent in the design of the applications.  Both will need to evolve to solve for all of the most common pain points.  
+Some of the challenges listed above are due to the design of the devstack development environment itself. Others are inherent in the design of the applications.  Both will need to evolve to solve for all of the most common pain points.  
 
 
 Decisions
