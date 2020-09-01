@@ -51,7 +51,6 @@ Improve Current Devstack: TODO: give quick summary of why this was rejected
 Sources
 -------
 
-
 `Devstack 2.0 One-Pager`_: Document explaining scope of Devstack 2.0 work
 
 `Decentralized DevStack Team Report`_: Document explaining work done by Devstack spike team
