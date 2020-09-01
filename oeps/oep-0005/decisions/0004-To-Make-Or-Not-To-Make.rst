@@ -14,14 +14,14 @@ Context
 For Decentralized Devstack, an common interface is necessary to enable a OpenedX Developer to add contributions to the many independent services in Open edX codebase.
 
 Options
--------
+~~~~~~~
 
 1. The current Devstack uses make targets as an basic interface for developers.
 
 2. Use docker-compose commands directly
 
 Case for and against make targets
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`````````````````````````````````
 
 For:
 
@@ -40,7 +40,7 @@ Against:
 - comes with maintanence costs
 
 Case for and against docker-compose commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+````````````````````````````````````````````
 
 For:
 
@@ -58,8 +58,8 @@ Against:
 Decision
 --------
 
-The case for switching to just docker-compose commands is stronger.
+The case for moving away from make targets and using docker-compose is stronger.
 
-For initial protype, we will attempt to interface with DD through docker-compose commands directly. To make it easier for developers to transition from make targets to docker-compose, how_to docs explaining to how work with DD will be created.
+For initial protype, we will attempt to interface with DD through docker-compose commands directly. How_to docs should be created to help developers use dockerk-compose commands.
 
-If we find difficulty to this approach, it will be easy to add a make interface.
+This decision will be reevaluated after prototyping with enterprise-catalog.
