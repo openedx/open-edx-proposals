@@ -11,11 +11,11 @@ Accepted
 Context
 -------
 
-For Decentralized Devstack, a common interface for is necessary to enable an OpenedX Developer to add contributions to the many back-end services in Open edX codebase.
+For Decentralized Devstack, a common interface is necessary to enable an OpenedX Developer to add contributions to the many back-end services in Open edX codebase.
 
-.. Note:: This ADR's scope is very limited to developer facing make interface for docker and does not address questions on other make interfaces.
+.. note:: This ADR's scope is very limited to developer facing make interface for docker and does not address questions on other make interfaces.
 
-.. Note:: This decision has a shelf life of the enterprise-catalog prototype and will be reevaluated as we continue testing decentralized devstack.
+.. note:: This decision has a shelf life of the enterprise-catalog prototype and will be reevaluated as we continue testing decentralized devstack.
 
 The current devstack wraps some common docker-compose commands with make targets.
 
@@ -33,7 +33,7 @@ Some of the make targets that are deemed unnecessary:
 Options
 ~~~~~~~
 
-1. Follow the pattern of current Devstack, which uses make targets as an basic interface for developers.
+1. Follow the pattern of current Devstack, which uses make targets as a basic interface for developers.
 
 2. Use docker-compose commands directly
 
