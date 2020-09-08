@@ -33,7 +33,7 @@ Some of the make targets that are deemed unnecessary:
 Options
 ~~~~~~~
 
-1. Continue wrapping docker-compose commands with make targets
+1. Follow the pattern of current Devstack, which uses make targets as an basic interface for developers.
 
 2. Use docker-compose commands directly
 
