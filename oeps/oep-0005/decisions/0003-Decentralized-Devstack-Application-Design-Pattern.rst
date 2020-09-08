@@ -9,7 +9,7 @@ Draft
 
 Goal for pattern
 ----------------
-- Have a standard way to spin up a local development environment for dockerized applications.
+- Have a standard way to spin up a local dockerized development environment.
 - Use industry standard tools in standard ways.
 - Be easy to understand for new developers.
 
