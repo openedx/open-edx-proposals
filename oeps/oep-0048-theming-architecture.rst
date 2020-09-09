@@ -31,15 +31,6 @@ OEP-0048: Theming Architecture
 Context
 -------
 
-Outcome:
-
-- People who want to theme Open edX know how to do it, and why it's done this way
-- It's clear that edX.org also uses this mechanism
-- It is clear what theming means and does not mean
-
-Definitions:
-
-
 The ability to customize the Open edX platform to reflect a custom brand and visual style is a critically important feature for the Open edX community. The comprehensive theming system built into edx-platform has served theming needs for several years. It is imperfect and unofficially supported, but it has worked.
 
 Meanwhile, the edX organization has invested in a new microfrontend architecture that features many small, independently deployable microfrontend applications (MFEs). By the end of this technical transition, most of the Open edX user interface will be delivered by these MFEs.
@@ -58,32 +49,26 @@ This pipeline will unlock the ability to easily configure MFEs, but MFEs don't c
 
 As MFEs serve more and more of the platform user interface, a system for theming them must be created. An ideal theming solution would apply to both MFEs and edx-platform itself.
 
-
-
-
-
-- Theming on edX platform.
-- Transition to microfrontends
-- Styling of MFEs today. Paragon.
-- What is Paragon. SCSS Framework and component library based on Bootstrap. Paragon is themeable in the way that Bootstrap is, via SCSS.
-- The edx.org theme lives in the Paragon project and is hardcoded into with MFEs.
-
-Theming system is required for Open edX operators to adopt microfrontends that are replacing portions of edx-platform.
-Ideally the theming system applieds to both edx-platform and all mfes.
-
-
-This section describes the forces at play, including technological, political,
-social, and project local. These forces are probably in tension, and should
-be called out as such. The language in this section is value-neutral. It is
-simply describing facts.
-
 Decision
 --------
 
-This section describes our response to the forces described in the Context.
-It is stated in full sentences, with active voice. "We will ..."
+We will create a new project that defines a branding package interface and default implementation for branding and theming Open edX applications. This branding package will contain a node module that contains a defined set of files and directories. It will be published to npm as `@edx/brand-openedx`.
 
-.. image:: oep-0026/use_cases.png
+Brand packages will be installed in edx-platform and all MFEs via npm aliased as `@edx/brand`. By default MFEs and edx-platform will be configured to include the default branding package, `@edx/brand-openedx`. `package.json` files in MFEs and edx-platform will reflect this::js
+
+  "dependencies": {
+    ..
+    "@edx/brand": "npm:@edx/brand-openedx@latest",
+    ..
+  }
+
+Those who wish to customize the branding of their Open edX installation,including edx.org, will create a package that implements this branding package interface. The edx.org branding package will be made public on github at `edx/brand-edx.org`.
+
+Build pipelines will be responsible for swapping the aliased "@edx/brand" package with the configured one. edX.org relies upon the build scripts in the tubular repository to do this. See line 2 and line 3. edx-platform does not
+
+What aobut edx-platform
+
+.. image:: oep-0048/branding_architecture_overview.png
 
 Plan
 ----
