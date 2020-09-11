@@ -19,7 +19,7 @@ Since this is the begining of DD, the methods of providing necessary data to a g
 Decision
 --------
 
-In lieu of general method to provide data and in need to develop and test quickly, we've decided to place necessary lms mongo and sql data dumps in /decentralized_devstack/data_dump directory. The hope is to use this temporary data dump for testing and if this method proves promising, develop a more general solution for providing data.
+In lieu of general method to provide data and in need to develop and test quickly, we've decided to place necessary lms mongo and sql data dumps in /decentralized_devstack/data_dump directory in repository with application code. The hope is to use this temporary data dump for testing and if this method proves promising, develop a more general solution for providing data.
 
 Consequences
 ------------
