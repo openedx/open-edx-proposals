@@ -73,12 +73,12 @@ Build and deploy pipelines will be responsible for overriding the default brandi
   # Format to install from a directory
   npm install @edx/brand@file:./brand-edx.org
 
-edX.org relies upon the build scripts in the `edx/tubular <https://github.com/edx/tubular>`_ repository to do this for MFEs (`This function <https://github.com/edx/tubular/blob/master/tubular/scripts/frontend_utils.py#L66>`_  does the work of overriding npm packages). The build and deploy pipeline for Open edX will do something similar.
+edX.org relies upon the build scripts in the `edx/tubular <https://github.com/edx/tubular>`_ repository to do this for MFEs (`See this function <https://github.com/edx/tubular/blob/master/tubular/scripts/frontend_utils.py#L66>`_ for detail). The build and deploy pipeline for Open edX will be responsible for doing this in a similar way.
 
 Consequences
 ------------
 
-After this work is completed, all Open edX applications should use brand packages to reference all brand or theme assets.
+After this work is completed, all Open edX applications should use brand packages to reference brand or theme assets.
 
 References
 ----------
