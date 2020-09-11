@@ -35,7 +35,7 @@ Options
 
 1. Follow the pattern of current Devstack, which uses make targets as a basic interface for developers.
 
-2. Use docker-compose commands directly
+2. Use docker-compose commands directly for managing images and containers
 
 Case for and against make targets
 `````````````````````````````````
@@ -47,7 +47,7 @@ For:
   * If we don't create a make interface now, services might create their on make interface, which might/will result in non-standard make experience
 
 - make targets decrease verbosity and memorization
-- Can be used to enable a UI across projects based on different tech stacks
+- can be used to enable a UI across projects based on different tech stacks
 - Provide a "canonical example" of how to do those operations
 
 Against:
@@ -78,6 +78,7 @@ Against:
   * if it becomes impossible to keep Dockerfile and docker-compose.yml simple, either how_to docs will become super confusing or services will create their own interface
 
 - another tool for developers to learn. Increase in learning curve.
+- could increase switching cost if we ever decide to move to something else
 
 Decision
 --------
@@ -92,6 +93,7 @@ Main reasons for decision:
   * makes debugging easier by allowing you to directly use resources on the interwebs
   * standardization by using external standard
 
+- developers will learn how to use this essential technology during normal work rather than have to learn it only during debugging
 
 For initial prototype, we will attempt to interface with DD through docker-compose commands directly. How_to docs should be created to help developers use docker-compose commands.
 
