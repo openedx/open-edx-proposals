@@ -21,11 +21,13 @@ OEP-14: Archiving edX GitHub Repositories
 | Created       | 2017-01-09                                               |
 +---------------+----------------------------------------------------------+
 | `References`  | `ORA PR Discussion`_,                                    |
-|               | `Initial Archiving Discussions`_                         |
+|               | `Initial Archiving Discussions`_,                        |
+|               | `Moving More Repos to edx-unsupported`_                  |
 +---------------+----------------------------------------------------------+
 
 .. _ORA PR Discussion: https://github.com/edx/edx-ora/pull/187
 .. _Initial Archiving Discussions: https://openedx.atlassian.net/wiki/display/IT/Proposed+Github+Deprecation+Process
+.. _Moving More Repos to edx-unsupported: https://openedx.atlassian.net/browse/ARCHBOM-1481
 
 Abstract
 ========
@@ -92,6 +94,11 @@ These steps should be followed for all repos within the edX organization(forks i
    - Move the repository to the edx-unsupported organization
 
    - Archive the repository per `GitHub's archive process`_
+
+.. note::
+    Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, delete the old copy of the fork before you move the new repo to edx-unsupported.
+
+    This may break some older version of Open edX.  Some combination of copying branches between forks, renaming branches, and changing unsupported versions of Open edX would have to be done to keep things working.  We opt not to take on this extra work by default thought may do so under extenuating circumstances.
 
 .. _GitHub's archive process: https://help.github.com/en/articles/archiving-repositories
 
