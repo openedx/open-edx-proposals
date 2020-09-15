@@ -208,3 +208,8 @@ Change History
 ----------
 
 * Decide to use the new edx-unsupported org for all archived repos. Old way we were doing things is now recorded as Alternative 1: Archive In Place.
+
+2020-09-15
+----------
+
+* Updated to provide more details around archiving the same fork multiple times.
