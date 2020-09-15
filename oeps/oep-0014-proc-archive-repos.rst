@@ -96,11 +96,11 @@ These steps should be followed for all repos within the edX organization(forks i
    - Archive the repository per `GitHub's archive process`_
 
 .. note::
-    Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, delete the old copy of the fork before you move the new repo to edx-unsupported.
+    Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, if possible un-archive the old fork and update it.  If you've already made a new fork, delete the old copy of the fork before you move the new repo to edx-unsupported.
 
     This may break some older version of Open edX.  Some combination of copying branches between forks, renaming branches, and changing unsupported versions of Open edX would have to be done to keep things working.  We opt not to take on this extra work by default though may do so under extenuating circumstances.
 
-    One such circumstance is if the previous fork is being used by a supported Open edX named release. In this case, one option would be to port any referenced branches in the old fork to the new fork before deleting the old for.
+    One such circumstance is if the previous fork is being used by a supported Open edX named release. In this case, one option would be to port any referenced branches in the old fork to the new fork before deleting the old fork.
 
 .. _GitHub's archive process: https://help.github.com/en/articles/archiving-repositories
 
