@@ -21,11 +21,13 @@ OEP-14: Archiving edX GitHub Repositories
 | Created       | 2017-01-09                                               |
 +---------------+----------------------------------------------------------+
 | `References`  | `ORA PR Discussion`_,                                    |
-|               | `Initial Archiving Discussions`_                         |
+|               | `Initial Archiving Discussions`_,                        |
+|               | `Moving More Repos to edx-unsupported`_                  |
 +---------------+----------------------------------------------------------+
 
 .. _ORA PR Discussion: https://github.com/edx/edx-ora/pull/187
 .. _Initial Archiving Discussions: https://openedx.atlassian.net/wiki/display/IT/Proposed+Github+Deprecation+Process
+.. _Moving More Repos to edx-unsupported: https://openedx.atlassian.net/browse/ARCHBOM-1481
 
 Abstract
 ========
@@ -92,6 +94,13 @@ These steps should be followed for all repos within the edX organization(forks i
    - Move the repository to the edx-unsupported organization
 
    - Archive the repository per `GitHub's archive process`_
+
+.. note::
+    Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, if possible un-archive the old fork and update it.  If you've already made a new fork, delete the old copy of the fork before you move the new repo to edx-unsupported.
+
+    This may break some older version of Open edX.  Some combination of copying branches between forks, renaming branches, and changing unsupported versions of Open edX would have to be done to keep things working.  We opt not to take on this extra work by default though may do so under extenuating circumstances.
+
+    One such circumstance is if the previous fork is being used by a supported Open edX named release. In this case, one option would be to port any referenced branches in the old fork to the new fork before deleting the old fork.
 
 .. _GitHub's archive process: https://help.github.com/en/articles/archiving-repositories
 
@@ -199,3 +208,8 @@ Change History
 ----------
 
 * Decide to use the new edx-unsupported org for all archived repos. Old way we were doing things is now recorded as Alternative 1: Archive In Place.
+
+2020-09-15
+----------
+
+* Updated to provide more details around archiving the same fork multiple times.
