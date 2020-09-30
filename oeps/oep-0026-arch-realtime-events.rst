@@ -120,16 +120,12 @@ In order to enable a plug-n-play ecosystem with various external services (adap
 xAPI Integration
 ~~~~~~~~~~~~~~~~
 
-For details on integrating with xAPI, please see the `xAPI Real-time Events`_ design document.
-
-.. _xAPI Real-time Events: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0026/xapi-realtime-events.rst
+For details on integrating with xAPI, please see the :ref:`xapi_realtime_events` design document.
 
 Caliper Integration
 ~~~~~~~~~~~~~~~~~~~
 
-For details on integrating with Caliper, please see the `Caliper Real-time Events`_ design document.
-
-.. _Caliper Real-time Events: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0026/caliper-realtime-events.rst
+For details on integrating with Caliper, please see the :ref:`caliper_realtime_events` design document.
 
 Unique User ID
 ==============
