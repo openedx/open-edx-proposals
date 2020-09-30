@@ -68,7 +68,7 @@ events collected from multiple sources. This document focuses on #1 with the nee
 .. image:: oep-0026/adaptive_learning_lms_basic.png
    :alt: The left-hand side of the data flow diagram shows how the Open edX LMS sends events to an intermediary "Eventing" component, which forwards those events to adaptive engines. The right-hand side shows how the Open edX LMS queries the adaptive engines for "what's next" via an intermediary "Adaptive Experiences" component.
 
-Use Case: Enterprise 
+Use Case: Enterprise
 ~~~~~~~~~~~~~~~~~~~~
 
 **Requirement:** Near-real-time communications (*minutes*)
@@ -122,14 +122,14 @@ xAPI Integration
 
 For details on integrating with xAPI, please see the `xAPI Real-time Events`_ design document.
 
-.. _xAPI Real-time Events: oep-0026/xapi-realtime-events.rst
+.. _xAPI Real-time Events: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0026/xapi-realtime-events.rst
 
 Caliper Integration
 ~~~~~~~~~~~~~~~~~~~
 
 For details on integrating with Caliper, please see the `Caliper Real-time Events`_ design document.
 
-.. _Caliper Real-time Events: oep-0026/caliper-realtime-events.rst
+.. _Caliper Real-time Events: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0026/caliper-realtime-events.rst
 
 Unique User ID
 ==============
@@ -143,7 +143,7 @@ Eventing Components
 
 While the exact technical framework and tools for supporting real-time events *at scale* is to be determined, we can begin with implementing the various components of the eventing service from a modular perspective so they can be adopted into any scalable infrastructure (e.g., an Apache framework). So while we propose a framework in this section, each subcomponent is expected to be independent and modular so it can be recomposed as needed.
 
-The proposed framework integrates into and builds upon the features of the `Open edX Event Tracking`_ library. The library's RoutingBackend_ provides powerful and flexible tools with its two fundamental building blocks of `processors and backends`_. The diagram below depicts a possibility of using these tools to implement our real-time Eventing subsytem. 
+The proposed framework integrates into and builds upon the features of the `Open edX Event Tracking`_ library. The library's RoutingBackend_ provides powerful and flexible tools with its two fundamental building blocks of `processors and backends`_. The diagram below depicts a possibility of using these tools to implement our real-time Eventing subsytem.
 
 .. _Open edX Event Tracking: https://github.com/edx/event-tracking
 .. _RoutingBackend: https://github.com/edx/event-tracking/blob/03bedd4c4f269c65f266f7e95621a9c1b91f908d/eventtracking/backends/routing.py#L11
@@ -245,7 +245,7 @@ Here are a list of current Open edX frameworks that are related to "eventing" bu
 
 * **Event tracking** - The current `event-tracking library`_ captures events that are fired using its tracker_ (Python) APIs and routes them to all configured pre-processors and backends. Current core backends include a MongoBackend_ (persisted database), a LoggerBackend_ (a.k.a., "tracking  logs" of persisted files and SegmentBackend_ (external service called segment.com_ that collects and routes events).
 
-  This OEP makes use of the `event-tracking library`_ as an integration point with the rest of the Open edX platform, and proposes a new backend that supports real-time delivery of events. 
+  This OEP makes use of the `event-tracking library`_ as an integration point with the rest of the Open edX platform, and proposes a new backend that supports real-time delivery of events.
 
 .. _event-tracking library: https://github.com/edx/event-tracking
 .. _tracker: https://event-tracking.readthedocs.io/en/latest/user_guide/design.html
