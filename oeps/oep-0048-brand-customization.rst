@@ -11,19 +11,19 @@ OEP-0048: Brand Customization
    * - Title
      - Brand Customization
    * - Last Modified
-     - <date string, in YYYY-MM-DD format>
+     - 2020-10-06
    * - Authors
-     - <list of authors' real names and optionally, email addresses>
+     - Adam Butterworth <abutterworth@edx.org>, Aura Milena Alba <aura.alba@edunext.co>
    * - Arbiter
-     - <Arbiter's real name and email address>
+     - Kshitij Sobti <kshitij@opencraft.com>
    * - Status
      - Draft
    * - Type
      - Architecture
    * - Created
-     - <date created on, in YYYY-MM-DD format>
+     - 2020-09-09
    * - Review Period
-     - <start - target end dates for review>
+     - 2020-10-12 - 2020-10-26
    * - Replaces
      - OEP-23 Style Customization
 
@@ -52,7 +52,9 @@ As MFEs serve more and more of the platform user interface, a system for brandin
 Decision
 --------
 
-We will create a new project that defines a branding package interface and a default implementation for branding and theming Open edX applications. A branding package will be a node module that contains a defined set of files and directories. The default implementation will be available on Github at `edx/brand-openedx <https://github.com/edx/openedx>`_ and published to npm as `@edx/brand-openedx`.
+We will create a new project that defines a branding package interface and a default implementation for branding and theming Open edX applications. The brand package will have the capability to customize assets referred to in the SASS theme like main colors, fonts, and particular backgrounds. It will also include specific image assets such as logo and favicon.
+
+A branding package will be a node module that contains a defined set of files and directories. The default implementation will be available on Github at `edx/brand-openedx <https://github.com/edx/openedx>`_ and published to npm as `@edx/brand-openedx`.
 
 Brand packages will be installed in edx-platform and all MFEs via npm, aliased as `@edx/brand`.
 
