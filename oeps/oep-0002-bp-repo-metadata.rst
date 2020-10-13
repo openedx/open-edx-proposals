@@ -42,9 +42,6 @@ Keys
 
 Each repo will include a file ``openedx.yaml``, with the following keys:
 
-``nick``: string (optional)
-    A short-name for this repository. This is used by reporting tools created by the edX Open Source team. Should be 3-4 characters, because this value is used in charts with very limited space on their axes.
-
 ``tags``: list of strings (optional)
     This key is used to annotate repositories, for example to categorize them for automated reporting tools. See Tags_.
 
@@ -83,6 +80,9 @@ Obsolete Keys
 
     ``repo``: string (optional)
         The GitHub repo responsible for this repository, prefixed with the Github organization (e.g., ``edx/XBlock``). If this value was set, this repository contained lower-level technical functionality that was affiliated with another primary owning higher-level repository.
+
+``nick``:
+    This key is obsolete, please remove if found. It was a short-name for this repository, used by reporting tools.
 
 
 Tags
@@ -151,7 +151,6 @@ For example, in the `edx-platform`_ repo, the file might look like:
     # openedx.yaml
 
     ---
-    nick: edx
     tags:
         - core
         - xblock
@@ -191,16 +190,20 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
 Change History
 ==============
 
+2020-10-13
+----------
+
+* Move the ``nick`` key to the `Obsolete Keys`_ section.
+
 2020-08-17
 ----------
 
-* Moved the Owner key to the ``Obsolete Keys`` section and removed no longer relevant ownership rationale and information.
+* Move the ``owner`` key to the `Obsolete Keys`_ section and removed no longer relevant ownership rationale and information.
 
 2020-06-08
 ----------
 
-* Made Owner key optional
-  * Initially, the key served two purposes: assigning ownership of the repository and as a "who to contact" for repo related issues. Ownership info has now been moved to an edx internal location. As for contact info, this is still WIP. We plan on adding contact point to repos at some point in the future. The exact location is still to be determined, possible in openedx.yaml or CODEOWNERS file.
+* Make the ``owner`` key optional. Initially, the key served two purposes: assigning ownership of the repository and as a "who to contact" for repo related issues. Ownership info has now been moved to an edX internal location. As for contact info, this is still a work-in-progress. We plan on adding contact point to repos at some point in the future. The exact location is still to be determined, possibly in openedx.yaml or CODEOWNERS file.
 
 2019-12-11
 ----------
