@@ -23,7 +23,7 @@ OEP-0048: Brand Customization
    * - Created
      - 2020-09-09
    * - Review Period
-     - 2020-10-12 - 2020-10-26
+     - 2020-10-12 - 2020-10-30
    * - Replaces
      - OEP-23 Style Customization
 
@@ -39,9 +39,9 @@ The UI in MFEs are primarily built using the Paragon SCSS and React library base
 
 Today, MFEs hardcode the inclusion of the edx.org Paragon theme. Custom themes and branding are difficult to apply. Why is this the case?
 
-A key distinction between the MFEs edX has created and server-rendered pages is that MFEs are built, static applications. It may be better to think of MFEs as "web app generators" rather than web applications themselves. They are given a configuration as input and they output static html, javascript, and css that is then deployed to the web.
+A key distinction between the MFEs created for Open edX and server-rendered pages is that MFEs are built, static applications. It may be better to think of MFEs as "web app generators" rather than web applications themselves. They are given a configuration as input and they output static html, javascript, and css that is then deployed to the web.
 
-Whereas a server application can read a configuration file when a user requests a page, an edX MFE does not. A pipeline builds and deploys the MFE with a configuration. If the configuration changes, the pipeline must be rerun and the MFE redeployed.
+Whereas a server application can read a configuration file when a user requests a page, an Open edX MFE does not. A pipeline builds and deploys the MFE with a configuration. If the configuration changes, the pipeline must be rerun and the MFE redeployed.
 
 MFEs lack the kind configurability available in Open edX's server applications because edX does not share a common build and deploy system with the community. Work to create an MFE build pipeline for the community is currently underway.
 
