@@ -43,7 +43,7 @@ A key distinction between the MFEs created for Open edX and server-rendered page
 
 Whereas a server application can read a configuration file when a user requests a page, an Open edX MFE does not. A pipeline builds and deploys the MFE with a configuration. If the configuration changes, the pipeline must be rerun and the MFE redeployed.
 
-MFEs lack the kind configurability available in Open edX's server applications because edX does not share a common build and deploy system with the community. Work to create an MFE build pipeline for the community is currently underway.
+MFEs lack the kind configurability available in Open edX's server applications because edX does not share a common build and deploy system with the community. Work to create an MFE build pipeline for the community is currently underway and outside the scope of this proposal.
 
 This pipeline will unlock the ability to easily configure MFEs, but MFEs don't currently offer a way to configure a custom theme.
 
