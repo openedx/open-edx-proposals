@@ -17,7 +17,7 @@ OEP-0048: Brand Customization
    * - Arbiter
      - Kshitij Sobti <kshitij@opencraft.com>
    * - Status
-     - Draft
+     - Provisional
    * - Type
      - Architecture
    * - Created
