@@ -303,5 +303,5 @@ that there is significant resistance against either adding a second issue
 tracker that edX employees would need to routinely use and monitor, or moving
 core edX development from JIRA to a different issue tracker.
 
-Change Historyf
+Change History
 ==============
