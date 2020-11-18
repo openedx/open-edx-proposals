@@ -36,10 +36,10 @@ TL;DR
 
 .. _The Incremental Improvements (INCR) JIRA project: https://openedx.atlassian.net/jira/software/c/projects/INCR/issues/INCR-570?filter=allopenissues
 
-High-Level INCR Workflow Process
---------------------------------
+High-Level INCR Jira Workflow Process
+-------------------------------------
 
-* Tickets must meet the requirements for the INCR Jira project outlined in the `Specification`_ section of this document.
+* Tickets must meet the requirements for the INCR Jira project outlined in the `Specification`_ section of this document. For tickets that don't meet these requirements, please see suggestions for alternate workflow in the section: `How Should Related Non-INCR Work Be Coordinated?`_
 * INCR tickets should only be written for the parts of the project for which they are appropriate (those that can realistically be broken into smaller tasks and don’t require more extensive knowledge of existing code).
 * Work on INCR tickets can be done by but not limited to: Developers (experienced with Open edX or wanting more experience), computer programming students, hackathon teams, new edX technical employees, etc.
 
@@ -308,4 +308,4 @@ core edX development from JIRA to a different issue tracker.
 Change History
 ==============
 
-11-18-2020 TL;DR section added to opening of doc.
+11-18-2020 - TL;DR section added to opening of doc.
