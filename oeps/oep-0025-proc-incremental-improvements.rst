@@ -308,4 +308,4 @@ core edX development from JIRA to a different issue tracker.
 Change History
 ==============
 
-TL;DR added to opening of doc
+TL;DR added to opening of doc.
