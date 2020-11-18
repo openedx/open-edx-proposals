@@ -308,4 +308,4 @@ core edX development from JIRA to a different issue tracker.
 Change History
 ==============
 
-TL;DR section added to opening of doc.
+11-18-2020 TL;DR section added to opening of doc.
