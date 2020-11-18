@@ -7,7 +7,7 @@ OEP-25: Incremental Improvements
 +-----------------+----------------------------------------------------------+
 | Title           | Incremental Improvements                                 |
 +-----------------+----------------------------------------------------------+
-| Last Modified   | 2018-08-30                                               |
+| Last Modified   | 2020-11-18                                               |
 +-----------------+----------------------------------------------------------+
 | Authors         | Jeremy Bowman <jbowman@edx.org>                          |
 +-----------------+----------------------------------------------------------+
@@ -28,6 +28,7 @@ OEP-25: Incremental Improvements
 
 TL;DR
 =====
+
 * **edX is continually looking to up its game in preemptively implementing repairs and solutions:** To date, we have largely relied on ourselves for major framework upgrades and replacing deprecated code, but most of these big projects require time and effort on many smaller routine tasks in order to complete.
 * **Open edX can tap into its community to make better progress toward these long-term objectives:** By breaking down routine tasks for these large or ongoing projects, we can create bite-sized actions accessible to contributors from many backgrounds, requiring no specific prior knowledge of how the Open edX code is structured.
 * **JIRA can help coordinate this effort:**  `The Incremental Improvements (INCR) JIRA project`_ allows for a standardized ticket workflow to ensure task requirements and goals are explicitly outlined for contributors to pick up and go.
@@ -37,9 +38,10 @@ TL;DR
 
 High-Level INCR Workflow Process
 --------------------------------
-* Tickets must meet the requirements for the INCR Jira project outlined in the `Specification`_ section of this document
-* INCR tickets should only be written for the parts of the project for which they are appropriate (those that can realistically be broken into smaller tasks and don’t require more extensive knowledge of existing code
-* Work on INCR tickets can be done by (but not limited to): Developers (experienced with Open edX or wanting more experience, computer programming students, hackathon teams, new edX technical employees, etc.
+
+* Tickets must meet the requirements for the INCR Jira project outlined in the `Specification`_ section of this document.
+* INCR tickets should only be written for the parts of the project for which they are appropriate (those that can realistically be broken into smaller tasks and don’t require more extensive knowledge of existing code).
+* Work on INCR tickets can be done by but not limited to: Developers (experienced with Open edX or wanting more experience), computer programming students, hackathon teams, new edX technical employees, etc.
 
 .. image:: oep-0025/INCR_workflow.png
 
@@ -305,3 +307,5 @@ core edX development from JIRA to a different issue tracker.
 
 Change History
 ==============
+
+TL;DR added to opening of doc
