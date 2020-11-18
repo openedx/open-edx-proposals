@@ -26,6 +26,23 @@ OEP-25: Incremental Improvements
 
 .. _Original pull request: https://github.com/edx/open-edx-proposals/pull/66#pullrequestreview-151034037
 
+TL;DR
+=====
+* **edX is continually looking to up its game in preemptively implementing repairs and solutions:** To date, we have largely relied on ourselves for major framework upgrades and replacing deprecated code, but most of these big projects require time and effort on many smaller routine tasks in order to complete.
+* **Open edX can tap into its community to make better progress toward these long-term objectives:** By breaking down routine tasks for these large or ongoing projects, we can create bite-sized actions accessible to contributors from many backgrounds, requiring no specific prior knowledge of how the Open edX code is structured.
+* **JIRA can help coordinate this effort:**  `The Incremental Improvements (INCR) JIRA project`_ allows for a standardized ticket workflow to ensure task requirements and goals are explicitly outlined for contributors to pick up and go.
+* **Quality over quantity:** Not all project tasks will fit into the INCR workflow specifications, but those that are identified as appropriate can be entered into the ticket flow for completion by contributors. To avoid dilution of effort, tickets should be limited to a modest amount at any given time and agreed upon prior to creation via an Open edX forum (such as a team Slack channel).
+
+.. _The Incremental Improvements (INCR) JIRA project: https://openedx.atlassian.net/jira/software/c/projects/INCR/issues/INCR-570?filter=allopenissues
+
+High-Level INCR Workflow Process
+--------------------------------
+* Tickets must meet the requirements for the INCR Jira project outlined in the `Specification`_ section of this document
+* INCR tickets should only be written for the parts of the project for which they are appropriate (those that can realistically be broken into smaller tasks and don’t require more extensive knowledge of existing code
+* Work on INCR tickets can be done by (but not limited to): Developers (experienced with Open edX or wanting more experience, computer programming students, hackathon teams, new edX technical employees, etc.
+
+.. image:: oep-0025/INCR_workflow.png
+
 Abstract
 ========
 
