@@ -67,7 +67,7 @@ The `Agent`_ who initiated an `Event`_, typically a `Person`_. A Caliper agent i
 
 The **Agent** can have many fields like name, dateCreated, dateModified but to keep the payload size minimal we will only use **id** and **type** which are the required fields.
 
-**Id** is a valid IRI string capable of returning a representation of the resource. Keeping the learner’s privacy in mind, we can send an Open edX anonymized unique identifier of the learner (`Anonymized User Id`_).
+**Id** is a valid IRI string capable of returning a representation of the resource. Keeping the learner’s privacy in mind, we can send an Open edX anonymized unique identifier of the learner (:ref:`oep-26-user-id`).
 
 **Type** specifies the type of the agent. It’s mostly “Person” but can also be “Organization” or “SoftwareApplication”. We can use the generic “Agent” if no suitable type is available.
 
@@ -76,7 +76,7 @@ The **Agent** can have many fields like name, dateCreated, dateModified but to k
 ::
 
       {
-            "id": "http://openedx.org/users/user-v1:<anonymized-user-id>",
+            "id": "https://openedx.org/users/user-v1:<anonymized-user-id>",
             "type": "Person",
             "dateCreated": "2018-08-01T06:00:00.000Z",
             "dateModified": "2018-09-02T11:30:00.000Z"
@@ -87,7 +87,6 @@ The **Agent** can have many fields like name, dateCreated, dateModified but to k
 .. _Person: https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#person
 .. _Entity: https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#entity
 .. _IRI: https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#iriDef
-.. _Anonymized User Id: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0026-arch-realtime-events.rst#anonymized-user-id
 
 Action
 ~~~~~~
@@ -124,7 +123,7 @@ Example:
             "startedAtTime": "2018-11-15T10:15:00.000Z",
             "endedAtTime": "2018-11-15T10:55:12.000Z",
             "duration": "PT40M12S"
-      },
+      }
 
 .. _Term: https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#termDef
 

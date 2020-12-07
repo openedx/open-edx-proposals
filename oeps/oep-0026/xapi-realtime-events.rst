@@ -15,9 +15,9 @@ We have chosen xAPI as one of the primary communication standards for real-time 
 .. _widespread industry support and usage: https://xapi.com/adopters/
 .. _xAPI Architecture Overview: https://www.adlnet.gov/research/performance-tracking-analysis/experience-api/xapi-architecture-overview/
 
-.. Note:: Although xAPI specifies a standardized format, it is a low-level transaction schema and relies on higher-level "profiles" applied on top of it. So the profiles for specific Activities, Verbs, Contexts, etc used by Open edX need to be contractually maintained. This can be ensured by a community maintained Validator_ component.
+.. Note:: Although xAPI specifies a standardized format, it is a low-level transaction schema and relies on higher-level "profiles" applied on top of it. So the profiles for specific Activities, Verbs, Contexts, etc used by Open edX need to be contractually maintained. This can be ensured by a community maintained :ref:`oep-26-validator` component.
 
-.. _Validator: ..//oep-0026-arch-realtime-events.rst#validator
+.. _oep-26-lrs:
 
 Learning Record Store (LRS) - Future
 ====================================
@@ -42,13 +42,11 @@ xAPI Actor
 ~~~~~~~~~~
 Although the **Actor** field can be either an *Agent* or a *Group*, we will primarily support only the *Agent* type, which is used for individuals performing an activity (`xAPI Verb`_ on an `xAPI Object`_).
 
-An Actor can be identified using `Friend of a Friend (FOAF)`_ vocabulary with either: (1) `email address`_, (2) `hash of email address`_, (3) `OpenID URI`_, or (4) `account`_ with a *homepage*-scoped identifier.  One of these is sent along with the Actor's "name". To be mindful of learner privacy, we will initially take a conservative approach and only send #3, with an Open edX anonymized unique identifier of the learner (`Anonymized User ID`_).
+An Actor can be identified using `Friend of a Friend (FOAF)`_ vocabulary with either: (1) `email address`_, (2) `hash of email address`_, (3) `OpenID URI`_, or (4) `account`_ with a *homepage*-scoped identifier.  One of these is sent along with the Actor's "name". To be mindful of learner privacy, we will initially take a conservative approach and only send #3, with an Open edX anonymized unique identifier of the learner (:ref:`oep-26-user-id`).
 
 In the future, if certain external systems require `Personally Identifiable Information (PII)`_, like the learner's email address or name, then those may be conditionally sent with appropriate permissions. Adaptive engines, however, do not need PII.
 
-Initially, we will exclude the "name" field. However, if we find that xAPI JSON parsers assume this field always exists, then we can include the field but provide a non-PII value, such as a copy of the `Anonymized User ID`_.
-
-.. _Anonymized User ID: ..//oep-0026-arch-realtime-events.rst#anonymized-user-id
+Initially, we will exclude the "name" field. However, if we find that xAPI JSON parsers assume this field always exists, then we can include the field but provide a non-PII value, such as a copy of the :ref:`oep-26-user-id`.
 
 Example
 ^^^^^^^
@@ -58,9 +56,9 @@ Here is an example of an **Actor** JSON value that we would generate:
 ::
 
     "actor": {
-        “objectType”: “Agent”,
-        “openid”: “openedx.org/users/user-v1:<anonymized-user-id>”,
-        "name": “openedx.org/users/user-v1:<anonymized-user-id>”  # only include this field if necessary
+        "objectType": "Agent",
+        "openid": "https://openedx.org/users/user-v1:<anonymized-user-id>",
+        "name": "https://openedx.org/users/user-v1:<anonymized-user-id>"  # only include this field if necessary
     }
 
 See `Deep Dive: Actor/Agent`_ for more information on xAPI Actors.
@@ -91,7 +89,7 @@ Here is an example of a **Verb** JSON value that we would generate:
 ::
 
     "verb": {
-        "id": "http://adlnet.gov/expapi/verbs/answered",
+        "id": "http://adlnet.gov/expapi/verbs/answered"
     }
 
 .. Note:: To keep the size of events as small as possible, we choose to avoid extraneous fields. For example, we intentionally exclude a "display" field in the example above.
@@ -139,11 +137,11 @@ Here is an example of a **Context** JSON value that we would generate:
 ::
 
     "context": {
-        "registration": "openedx.org/enrollments/enrollment-v1:<anonymized-enrollment-id>",
+        "registration": "https://openedx.org/enrollments/enrollment-v1:<anonymized-enrollment-id>",
         "contextActivities": {
-            “parent”: [{
-                “objectType”: “Activity”,
-                “id”: “https://openedx.org/courses/course-v1:openedx+origami-folding+1T2018"
+            "parent": [{
+                "objectType": "Activity",
+                "id": "https://openedx.org/courses/course-v1:openedx+origami-folding+1T2018"
             }]
         }
     }
@@ -166,8 +164,8 @@ The **Result** field specifies the score the user earned on an activity.  Here i
             "min": 0,
             "max": 50,
             "raw": 10,
-            "scaled": .20
-        }
+            "scaled": 0.20
+        },
         "response": "foo"
     }
 
