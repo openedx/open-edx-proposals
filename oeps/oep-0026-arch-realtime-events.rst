@@ -63,7 +63,7 @@ Integration with Adaptive Engines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As an iterative path to this future, the immediate goal is to enable integrations with external adaptive engines. In the far future, we may also implement our own open-sourced adaptive engines. But in the meantime, we would like to establish standard APIs that (1) adaptive engines can use to receive real-time events from the Open edX LMS, (2) the Open edX LMS can use to query adaptive engines on what to present to learners, and (3) train adaptive engines based on standard
-events collected from multiple sources. This document focuses on #1 with the need to send scalable and real-time updates to adaptive engines. This is depicted by the left-hand flow in the diagram below. #3 is described in `LRS (Future)`_.
+events collected from multiple sources. This document focuses on #1 with the need to send scalable and real-time updates to adaptive engines. This is depicted by the left-hand flow in the diagram below. #3 is described in :ref:`oep-26-lrs`.
 
 .. image:: oep-0026/adaptive_learning_lms_basic.png
    :alt: The left-hand side of the data flow diagram shows how the Open edX LMS sends events to an intermediary "Eventing" component, which forwards those events to adaptive engines. The right-hand side shows how the Open edX LMS queries the adaptive engines for "what's next" via an intermediary "Adaptive Experiences" component.
@@ -127,12 +127,12 @@ Caliper Integration
 
 For details on integrating with Caliper, please see the :ref:`caliper_realtime_events` design document.
 
-Unique User ID
-==============
+.. _oep-26-user-id:
 
-The *LMS user_id* will be used to uniquely identify a user in the Open edX system. This decision is detailed in `OEP-32: Unique Identifier for Users`_.
+Anonymized User ID
+==================
 
-.. _OEP-32: Unique Identifier for Users: oep-0032-arch-unique-identifier-for-users.rst
+The *LMS user_id* will be used to uniquely identify a user in the Open edX system. This decision is detailed in :ref:`oep-32`.
 
 Eventing Components
 ===================
@@ -195,6 +195,8 @@ Translator Processor
 
 Each communication protocol has its own Translator component. This component is responsible for translating from an Open edX event schema to the schema for the target communication protocol.
 
+.. _oep-26-validator:
+
 Validator Processor
 ~~~~~~~~~~~~~~~~~~~
 
@@ -223,16 +225,13 @@ Decisions & Consequences
 
   A big consideration and concern that is sorely missing from this version of the OEP is explicit recommendations on the infrastructure that will be used to support scalability. On one hand, the advantage is that this agnostic approach allows Open edX instances to reuse the core capabilities (and modular subcomponents) without being tied to a specific scalable technology. On the other hand, we run the risk of needing to reimplement initial implementations if a chosen technology's design is fundamentally counter to our choice of boundaries.
 
-* **Emphasis on user privacy** - We are taking a conservative approach by minimizing the PII that is sent to consumers. The trade-off is that consumers may find the received user identifiers limiting. However, at this time, it's unclear whether adaptive engines, which are written generically for all users, need PII to be effective. They need the ability to bind events together and track pathways and progress for users, but they can do so with any unique identifier - hence the introduction of the `Anonymized User ID`_.
+* **Emphasis on user privacy** - We are taking a conservative approach by minimizing the PII that is sent to consumers. The trade-off is that consumers may find the received user identifiers limiting. However, at this time, it's unclear whether adaptive engines, which are written generically for all users, need PII to be effective. They need the ability to bind events together and track pathways and progress for users, but they can do so with any unique identifier - hence the introduction of the :ref:`oep-26-user-id`.
 
   For Enterprise and other use cases, sharing PII may be required. We have chosen to keep those use cases in mind, but not target them initially, with the understanding that future work would be needed to address those needs.
 
-* **Deferring implementation of an LRS** - As mentioned in `LRS (Future)`_, we are consciously postponing implementation of an Open edX specific LRS at this time. Although the need for an LRS may be forthcoming, this initial iteration defers this work.
+* **Deferring implementation of an LRS** - As mentioned in :ref:`oep-26-lrs`, we are consciously postponing implementation of an Open edX specific LRS at this time. Although the need for an LRS may be forthcoming, this initial iteration defers this work.
 
   As a consequence, adaptive engines may need to maintain their own LRS if they need to refer back to previous events. Given our business research to date, it seems many adaptive engines are already maintaining their own custom-optimized storage of event data.
-
-.. _`LRS (Future)`: oep-0026/xapi-realtime-events.rst#learning-record-store-lrs-future
-
 
 Related Open edX Frameworks
 ---------------------------
