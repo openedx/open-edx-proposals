@@ -7,7 +7,7 @@ OEP-21: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2018-10-26                                             |
+| Last Modified   | 2020-12-09                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>,                             |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
@@ -23,6 +23,26 @@ OEP-21: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Review Period   | 2018-06-06 - 2018-06-20                                |
 +-----------------+--------------------------------------------------------+
+
+TL;DR
+=====
+
+* **Removing unneeded or legacy code is crucial to optimizing programs and reducing costs:** Having dead or broken code laying around can inadvertently introduce bugs, cause the runtime footprint to be larger than necessary, and cost time and money to maintain. Additionally, unneeded code may make it more difficult to understand or navigate a project.
+* **It’s important to know exactly when and what to remove:** Some code may be outdated and can be replaced with a new implementation, or some may have very low usage and is not worth holding on to. It’s important to analyze to what extent the code is no longer needed and what (if any) ripple effects it could have elsewhere.
+* **Communicating out proposed changes can help guide the path to depreciation/removal:** It is crucial to let others know you believe there’s code needing removal and how you plan to go about it. Inform individual stakeholders and use Open edX community channels such as Slack and Discourse to let others know your proposed plan. Collect and monitor feedback to avoid potential disruptions to other code/projects.
+* **The formal process outlined in this document can help make deprecation and removal projects happen more proactively:** Having a defined process and common language takes the guesswork out and allows for easier access to get rid of dead code. The steps outlined in this document regarding analysis, communication and documentation will help guide the process, and by using DEPR tickets in JIRA (see `Document`_ process), these projects can be clearly tracked providing transparency on progress.
+
+High-Level Overview of Code Removal Process
+-------------------------------------------
+* For further details on each of these steps, please see `Process States`_ and `Timeline`_. For DEPR ticket details, please refer to the `Document`_ process.
+.. image:: oep-0021/Removal-Workflow.png
+   :align: center
+
+Best Practices for Proposing Code for Removal
+---------------------------------------------
+* For further details on each of these steps, please see `Proposed`_ section. For DEPR ticket details, please refer to the `Document`_ process.
+.. image:: oep-0021/Best-Practices.png
+   :align: center
 
 Abstract
 ========
@@ -77,30 +97,9 @@ Open edX platform.
 Process States
 --------------
 
-.. image:: oep-0021/state-flow.png
-   :align: center
-   :alt: A diagram that shows the state flow transitions. The process starts in
-    the Proposed state and goes through the *Communicated*, *Accepted*,
-    *Deprecated*, *Removing*, and *Removed* states. If the proposal isn't
-    *Accepted*, the state transitions directly from *Proposed* to *Abandoned*.
+Per the `workflow chart`_, the next sections go through the details of each state and transition.
 
-As shown in the diagram above, the code removal process flows through the
-following states.
-
-*  Proposed_ - The starting state when removal is considered, analyzed, and
-   documented.
-*  Communicated_ - The proposal is announced to the general Open edX community
-   via the broadcast mechanisms defined below.  Specific notifications are
-   sent to all identified stakeholders.  The corresponding JIRA ticket
-   is updated with community feedback until the target Accepted date.
-*  Accepted_ - The proposal is officially accepted after addressing community
-   feedback and aligning on a timeline.
-*  Deprecated_ - If required, the code is updated and marked as deprecated.
-*  Removing_ - A team has started removing the code.
-*  Removed_ - The code removal process is fully completed.
-*  **Abandoned** - The code removal process was aborted and will not complete.
-
-The next sections go through the details of each state and transition.
+.. _workflow chart: oep-0021/Removal-Workflow.png
 
 Proposed
 --------
