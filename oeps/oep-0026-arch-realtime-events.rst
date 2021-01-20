@@ -214,9 +214,9 @@ Admin UI
 
 The administration component is responsible for allowing the Open edX site administrator to configure the list and permissions of registered event consumers.
 
-Eventually, the registry of consumers may become a self-service portal where consumers may initiate their request for access. However, initially, this can be a simple interface, possibly implemented in `Django Admin`_.
+Eventually, the registry of consumers may become a self-service portal where consumers may initiate their request for access. However, initially, we can simply store the settings as `Django Settings`_ since they will be easier for site-administrators to manage.  Any database storage of the routing rules can be done as a part of self-service portal work.
 
-.. _Django Admin: https://docs.djangoproject.com/en/1.11/ref/contrib/admin/
+.. _Django Settings: https://docs.djangoproject.com/en/3.0/topics/settings/
 
 Decisions & Consequences
 ------------------------
