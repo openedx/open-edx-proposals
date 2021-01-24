@@ -439,11 +439,17 @@ The following would be great to have once the TODO list above is taken care of:
 Decisions
 ---------
 
-Adopt Tutor as the community-maintained replacement for ``edx/configuration`` for production deployments, with the
-knowledge that it needs to be `further developed <#omissions>`__ in order to achieve all the described `criteria
-<#criteria>`__.
+1. Adopt Tutor as the community-maintained replacement for ``edx/configuration`` for production deployments, with the
+   knowledge that it needs to be `further developed <#omissions>`__ in order to achieve all the described `criteria
+   <#criteria>`__.
 
-The above decision will be made public in order to garner support for code contributions.
+2. For the following release, Lilac, ``edx/configuration`` will be supported but marked as deprecated, and Tutor will be
+   supported for the first time.
+
+3. For the release after Lilac, Maple, ``edx/configuration`` will be no longer supported, and Tutor be the only
+   supported installation method.
+
+The above decisions will be made public in order to garner support for code contributions.
 
 
 Alternatives
