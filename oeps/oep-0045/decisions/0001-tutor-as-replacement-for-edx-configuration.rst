@@ -33,10 +33,11 @@ Any replacement for ``edx/configuration`` must provide the following:
 5.  Support for customizing of the installation, from themes to edx-platform forks, including installation of custom
     requirements
 6.  A documented way to migrate existing deployments from the native installation
+7.  Provides an Open edX development environment with features on-par with the official devstack's
 
 And importantly:
 
-7.  The project must be healthy, with thoughtful technical leadership, a well-organized, maintainable codebase, and an
+8.  The project must be healthy, with thoughtful technical leadership, a well-organized, maintainable codebase, and an
     active community
 
 
@@ -231,7 +232,137 @@ matter of launching a new Tutor stack (with all the desired customization applie
 databases, then importing them.  Nevertheless, the exact steps need to be performed, tested, and written down.
 
 
-Criterion 7. Project health
+Criterion 7. Open edX development environment
+.............................................
+
+There is `specific documentation <https://docs.tutor.overhang.io/dev.html#development>`__ on using Tutor as an
+Open edX development environment.
+
+Support for master
+``````````````````
+
+Like the production version, Tutor does not currently support runnning the ``master`` branch of ``edx-platform`` for
+development.
+
+Setup procedure
+```````````````
+
+To achieve a similar setup to the official devstack's, where the LMS, CMS and workers run in detached containers from a
+locally checked out ``edx-platform``, and the code of the devstack itself (i.e, Tutor) is also locally modifiable, you
+must:
+
+1. Create a self-contained workspace for the devstack, check out Tutor and install requirements:
+
+   .. code-block::
+
+      export WORKSPACE=~/workspace
+      mkdir -p $WORKSPACE
+      cd $WORKSPACE
+      git clone git@github.com:overhangio/tutor.git
+      cd tutor
+      pip install -e .
+
+2. Follow Tutor's instructions to prepare the default development environment, setting ``TUTOR_ROOT`` so configuration
+   is stored independently, and making sure to answer "no" when asked if this is a production environment:
+
+   .. code-block::
+
+      export TUTOR_ROOT=${WORKSPACE}/tutor_root
+      tutor local quickstart
+      tutor local stop
+      tutor images build --no-cache openedx-dev
+
+3. Because the master branch of ``edx-platform`` is not supported at the time of writing, one must clone Open edX at the
+   latest supported release *tag*:
+
+   .. code-block::
+
+      cd $WORKSPACE
+      git clone -b open-release/koa.1 git@github.com:edx/edx-platform.git
+
+   .. note::
+
+      Note that branches based off of ``master``, or even ``koa.master``, will not work in production.  As noted
+      `in the documentation <https://docs.tutor.overhang.io/configuration.html#running-a-fork-of-edx-platform>`__, "Tutor
+      will attempt to apply security and bug fix patches that might already be included", and possibly fail.
+
+4. Create a docker-compose override file for the development environment:
+
+   .. code-block::
+
+      vim ${TUTOR_ROOT}/env/dev/docker-compose.override.yml
+
+   And configure it so that your local checkout of ``edx-platform`` is bind-mounted in the correct directory by all
+   relevant containers:
+
+   .. code-block::
+
+      version: "3.7"
+      services:
+        lms:
+          volumes:
+            - ${WORKSPACE}/edx-platform/:/openedx/edx-platform
+        cms:
+          volumes:
+            - ${WORKSPACE}/edx-platform/:/openedx/edx-platform
+        lms-worker:
+          volumes:
+            - ${WORKSPACE}/edx-platform/:/openedx/edx-platform
+        cms-worker:
+          volumes:
+            - ${WORKSPACE}/edx-platform/:/openedx/edx-platform
+
+5. Prepare the ``edx-platform`` repository inside the LMS container:
+
+   .. code-block::
+
+      tutor dev run lms bash
+      pip install -r requirements/edx/development.txt
+      npm install
+      openedx-assets build --env=dev
+      exit
+
+6. You'll need to init the dev environment.  (This is taken care of by ``tutor local quickstart`` for the local
+   production environment, and even though the same databases are used for the development environment, apparently the
+   ``GRANT`` command needs to be run again when MySQL runs on a different container.)
+
+   .. code-block::
+
+      tutor dev init
+
+7. And finally, to start the LMS, CMS, and workers in the background:
+
+   .. code-block::
+
+      tutor dev start -d
+
+Code and asset reloading
+````````````````````````
+
+When ``edx-platform`` is mounted as described above, changes made to python files are reloaded immediately.
+
+Template and asset changes are also available immediately, but a browser refresh may be necessary.
+
+Debugging and testing
+`````````````````````
+
+It is possible to `run an interactive debugger <https://docs.tutor.overhang.io/dev.html#debug-edx-platform>`__, as well
+as `running unit tests locally <https://docs.tutor.overhang.io/dev.html#running-edx-platform-unit-tests>`__.
+
+.. note::
+
+   As noted in the Tutor documentation and elsewhere in this ADR, a few (35 out of roughly 17,000) ``edx-platform``
+   tests are currently failing.  This is known issue, though these same tests are reported to also fail when run in the
+   official devstack.
+
+Custom development
+``````````````````
+
+The development environment supports installation and development of `custom python packages
+<https://docs.tutor.overhang.io/dev.html#xblock-and-edx-platform-plugin-development>`__ (such as XBlocks or
+``edx-platform`` plugins), as well as `custom themes <https://docs.tutor.overhang.io/dev.html#customised-themes>`__.
+
+Criterion 8. Project health
 ...........................
 
 Tutor as an open source project is `3 and a half years old
@@ -258,14 +389,15 @@ Conclusion of the evaluation
 Positives
 `````````
 
-At the time of writing, Tutor is the only existing alternative to ``edx/configuration``. Luckily for the community, it
-ticks a lot of the boxes that qualify a good replacement:
+At the time of writing, Tutor is the only existing alternative to ``edx/configuration`` with a maintainer that is active
+in the community. It ticks a lot of the boxes that qualify a good replacement:
 
 -  It can do single-server production deployments well
 -  It allows for automated deployment as well as, or better than, ``edx/configuration``
 -  It supports Koa, and new releases are added quickly
 -  It allows for theme customization, running edx-platform forks, and installing custom requirements
 -  It is extensible via plugins
+-  It can be used as a lightweight, efficient Open edX development environment
 -  Actively maintained by a committed developer; codebase has no technical debt
 -  Licensed under the AGPL v3
 
@@ -296,12 +428,12 @@ work hinges precisely on whether this community can pool resources to maintain i
 Wishlist
 ````````
 
-The following would be great to have once the TODO list above is taken care of, as they're not currently present in
-either Tutor or ``edx/configuration``:
+The following would be great to have once the TODO list above is taken care of:
 
 -  Support the deployment of most MFEs
 -  There should be a way to reuse the same base LMS image with different themes without having to bake them into the
    image
+-  An easier-to-set-up devstack-like local development environment
 
 
 Decisions
@@ -322,7 +454,7 @@ These are open source Open edX deployment projects that also aim to replace ``ed
 -  `Open edX Docker <https://github.com/openfun/openedx-docker>`__: maintained by France Université Numérique, aims to
    provide a Dockerfile that installs a complete Open edX.  Used in production with OpenShift.
 -  `Derex <https://github.com/Abstract-Tech/derex.runner/>`__: partly based on Tutor, also uses Dockerfiles and
-   ``docker-compose`` do launch Open edX instances.
+   ``docker-compose`` to launch Open edX instances.
 
 And it is worth mentioning that:
 
