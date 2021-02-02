@@ -1,0 +1,165 @@
+
+=============================
+OEP-0049: Django App Patterns
+=============================
+
+.. list-table::
+   :widths: 25 75
+
+   * - OEP
+     - :doc:`OEP-0045 </oeps/oep-0049>`
+   * - Title
+     - Django App Patterns
+   * - Last Modified
+     - 2021-01-29
+   * - Authors
+     - Matt Tuchfarber <mtuchfarber@edx.org>
+   * - Arbiter
+     - TBD
+   * - Status
+     - Draft
+   * - Type
+     - Architecture
+   * - Created
+     - 2021-01-29
+   * - Review Period
+     - TBD
+
+Abstract
+--------
+Proposes a common set of code patterns for Open edX Django apps.
+
+Motiviation
+-----------
+As our number of Django apps continue to grow in our many services, we want to coalesce around a couple of standard design patterns to both make switching between codebases easier and to help untangle some of the links between codebases we have today. These decisions should be considered "best practices" or the default patterns, and should only be violated if the code base requires it.
+
+Decision
+--------
+All of our Django apps should have a common structure. This structure consists of a combination of default Django-style code and Open edX-style code. This document will only attempt to detail the common Open edX patterns that we would like to see everywhere, ignoring Django-default items (e.g. ``admin.py``, ``urls.py``, etc) and situation-specific items (e.g. a separate ``constants.py`` file).
+
+Listed below are each of the files or folders your app should contain and what they should consist of.
+
+
+README.rst
+++++++++++
+Each app should contain a README.rst to explain it's use. See full details of what should go in the README.rst in OEP-0019_
+
+.. _OEP-0019: https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#readmes
+
+.. ___init__.py:
+__init__.py
++++++++++++
+The ``__init__.py`` file should either be blank if the app is a plugin, or contain a single line defining the ``default_app_config`` for the app. This ``default_app_config`` should point to the ``AppConfig`` located in ``<app_name>/apps.py``.
+
+Unlike many packages, ``__init__.py`` should *not* be used to as the way to export the app's public methods. These should be exported using ``api.py`` (and thus imported as ``from path.to.app.api import public_function``). See api.py_ below.
+
+For example:
+
+.. code-block:: python
+
+  default_app_config = "service_name.apps.app_name.apps.CustomAppConfig"
+
+
+.. _apps.py:
+apps.py
++++++++
+The ``apps.py`` file should contain a subclass of a Django ``AppConfig``. The AppConfig should set the app's name to it's full path (e.g. ``name = "service_name.apps.app_name"``) and should (optionally) have an overriding ``ready()`` function which initializes the app. This initialization also often includes setting up Django signals.
+
+For example:
+
+.. code-block:: python
+
+  class MyAppConfig(AppConfig):
+      """
+      Application Configuration for MyApp.
+      """
+      name = "service_name.apps.app_name"
+
+      # (optional) Set up plugin. See https://github.com/edx/edx-django-utils/tree/master/edx_django_utils/plugins
+
+      def ready(self):
+          """
+          Connect handlers to recalculate grades.
+          """
+          from .signals import handlers
+
+.. _api.py:
+api.py
+++++++
+This should be single point of entry for other Python code to talk to your app. This is *not* a Rest API, this is a Python API (see rest_api_). Some rules for ``api.py`` are as follows:
+
+1. API methods defined in ``api.py`` should be well-named, self-consistent, and relevant to its own domain (without exposing technical and implementation details)
+2. An app's Django models and other internal data structures should not be exposed via its Python APIs.
+3. Ideally, tests should use only Python APIs declared in other apps' ``api.py`` files. However, if an app's API is needed *only* for testing, then test-relevant Python APIs should be defined/exported in an intentional Python module called ``api_for_tests.py``.
+
+
+Not exposing an app's data structures can be tricky because it's very easy to expose them without meaning to. Therefore there are a couple common strategies we employ.
+
+1. When importing internal app code to be used in the ``api.py`` file, prefix it with an underscore so it's clear it's for internal use only.
+
+2. Create a ``data.py`` file to house simple data objects that can be passed from your app's function to the calling app. By creating these objects, we can avoid both passing Django model objects or querysets directly and having to serialize data. Other apps may import data classes from ``data.py`` in additional to functionality from ``api.py``. See data.py_ for more details.
+
+For example:
+
+.. code-block:: python
+
+    from django.conf.settings import UNSUPPORTED_PROGRAM_UUIDS
+
+    from .data import ProgramData
+    from .models_api import get_programs as _get_programs
+
+    def get_supported_programs():
+        """
+        Gets all programs that aren't in UNSUPPORTED_PROGRAM_UUIDS settings
+        """
+        all_programs = _get_programs() # returns queryset
+        supported_programs [
+          ProgramData(
+            uuid=program.uuid,
+            title=program.title,
+            status=program.status
+          )
+          for program in all_programs
+          if program.uuid not in UNSUPPORTED_PROGRAM_UUIDS
+        ]
+        return supported_programs
+
+.. _data.py:
+data.py
++++++++
+This file should include the public data structures for the app that can be passed between apps without exposing internal features. These should be used instead of sending Django model objects or querysets to apps that call the functions in ``api.py``. This file should not import anything other than stdlib modules, so that it may be imported by any other app without issue. These data objects should be simple objects with all business logic handled by ``api.py``. They may however perform simple validation, as long as it is self-contained (doesn't reach out to database, network, or any code outside of the class)
+
+For example:
+
+.. code-block:: python
+
+
+    from dataclasses import dataclass
+    from enum import Enum
+
+    def ProgramStatus(Enum):
+        ACTIVE = "active"
+        RETIRED = "retired"
+
+    @dataclass
+    class ProgramData:
+        uuid: str
+        title: str
+
+.. _models_api.py:
+models_api.py
++++++++++++++
+.. Reviewer NOTE: I don't feel like I entirely understand models_api.py. My main issue is I don't understand the benefit of the additional layer versus api.py just calling ``Thing.objects.get()``.
+
+
+.. _rest_api:
+rest_api/
++++++++++
+Each app should self-contain it's related REST API, meaning it should live within the app and not in a separate "api" app where it would mingle with other apps' REST API code. Since the Python API is using ``api.py``, the REST API code (often Django Rest Framework) should live in a ``rest_api`` folder.
+
+.. Reviewer NOTE: Do we want to detail what a standard ``rest_api`` looks like? For example having a serializers.py, permissions.py, versioned folders of APIs, etc. I'm not sure how much of that is common DRF and how much is Open edX.
+
+
+Consequences
+------------
+At this time, there is no plan to enforce any of these guidelines. The vast majority of current Open edX code doesn't yet meet these guidelines, and there will always be exceptions to the rule. The hope is that as developers write new code or refactor existing code, they follow these patterns as best they can. We also hope that code reviewers will ensure these guidelines are followed in the code they approve.
