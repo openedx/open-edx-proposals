@@ -211,10 +211,10 @@ implementation of triggers from both kinds will be pursued.
 References
 ==========
 
-This OEP was first discussed and presented to the community via a public google
-doc. The discussion held there is included into the present proposal.
+This OEP was first discussed and presented to the community via `a public google doc`_.
+The discussion held there is included into the present proposal.
 
-.. _OpenedX extensions framework in Google Docs: https://docs.google.com/document/d/1jhnudz6AVtVt0ZSRSwOwj9gJ0lsDDn_8mUCPehLPzLw/edit#
+.. _a public google doc: https://docs.google.com/document/d/1jhnudz6AVtVt0ZSRSwOwj9gJ0lsDDn_8mUCPehLPzLw/edit#
 
 
 Change History
