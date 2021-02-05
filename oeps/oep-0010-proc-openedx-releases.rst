@@ -7,7 +7,7 @@ OEP-10: Open edX Releases
 +---------------+---------------------------------------------------+
 | Title         | Open edX Releases                                 |
 +---------------+---------------------------------------------------+
-| Last Modified | 2020-04-26                                        |
+| Last Modified | 2021-02-05                                        |
 +---------------+---------------------------------------------------+
 | Author        | Ned Batchelder <ned@edx.org>                      |
 +---------------+---------------------------------------------------+
@@ -26,6 +26,22 @@ OEP-10: Open edX Releases
 
 ..
     - Expectations for component owners
+
+
+TL;DR
+========
+
+* **Open edX is packaged into named releases which occur approximately every 6 months:** Releases are named alphabetically: Dogwood, Eucalyptus, Ficus, Gingko, etc.; these named releases also have follow-on releases appropriately numbered (Eucalyptus.2, Eucalyptus.3, etc.). Additional detail on creating releases / involving repos may be found in `Release creation`_.
+* **Dependencies and support are important to keep in mind, especially when choosing which version to use:** Open edX software is built on layers of additional software supported by their creators. An Open edX release is supported by edX until the next release, and developers must support any supporting layers for the entirety of an Open edX named release (approx. 6 months). A calendar of known dependencies and their overlap with Open edX can be found `here`__.
+* **Installing Open edX:** Open edX supports the following installation options. Note that none of the supported installation methods are intended for production (see `Installing Open edX`_ for more detail): 
+
+  * Devstack: for developers planning to modify Open edX code.
+  * Native: for adopters looking to experiment with Open edX in a non-production environment. Also useful as a starting point for people designing their production deployment.
+
+.. __: https://docs.google.com/spreadsheets/d/11DheEtMDGrbA9hsUvZ2SEd4Cc8CaC4mAfoV8SVaLBGI 
+
+.. image:: oep-0010/comp-visual-black.png
+   :align: center
 
 
 Abstract
