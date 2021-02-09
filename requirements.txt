@@ -1,2 +1,0 @@
-edx-sphinx-theme==1.5.0
-sphinx==1.4.8
