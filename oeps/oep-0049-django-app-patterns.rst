@@ -15,7 +15,7 @@ OEP-0049: Django App Patterns
    * - Authors
      - Matt Tuchfarber <mtuchfarber@edx.org>
    * - Arbiter
-     - TBD
+     - Jinder Singh
    * - Status
      - Draft
    * - Type
@@ -99,30 +99,45 @@ Not exposing an app's data structures can be tricky because it's very easy to ex
 
 2. Create a ``data.py`` file to house simple data objects that can be passed from your app's function to the calling app. By creating these objects, we can avoid both passing Django model objects or querysets directly and having to serialize data. Other apps may import data classes from ``data.py`` in additional to functionality from ``api.py``. See data.py_ for more details.
 
+Using Django's Paginator class can help keep cross-app retrievals performant without passing Querysets around.
+
 For example:
 
 .. code-block:: python
 
-    from django.conf.settings import UNSUPPORTED_PROGRAM_UUIDS
+  from django.conf.settings import UNSUPPORTED_PROGRAM_UUIDS
+  from django.db.models import Q
 
-    from .data import ProgramData
-    from .models_api import get_programs as _get_programs
+  from .data import ProgramData
+  from .models_api import get_programs as _get_programs
 
-    def get_supported_programs():
-        """
-        Gets all programs that aren't in UNSUPPORTED_PROGRAM_UUIDS settings
-        """
-        all_programs = _get_programs() # returns queryset
-        supported_programs [
+  def get_supported_programs(page_size=None, page=None):
+      """
+      Gets all programs that aren't in UNSUPPORTED_PROGRAM_UUIDS settings
+
+      Returns a page of results if page_size is specified
+      """
+      # _get_programs() returns a queryset
+      q_supported_programs = _get_programs().exclude(
+          uuid__in=UNSUPPORTED_PROGRAM_UUIDS
+      )
+
+      if page_size:
+          # passing a queryset to a paginator allows it to stay performant on large tables
+          program_paginator = Paginator(q_supported_programs, page_size)
+          # get_page returns the first page if page is None
+          supported_programs = program_paginator.get_page(page)
+      else:
+          supported_programs = q_supported_programs
+
+      return [
           ProgramData(
-            uuid=program.uuid,
-            title=program.title,
-            status=program.status
+              uuid=program.uuid,
+              title=program.title,
+              status=program.status
           )
-          for program in all_programs
-          if program.uuid not in UNSUPPORTED_PROGRAM_UUIDS
-        ]
-        return supported_programs
+          for program in supported_programs
+      ]
 
 .. _data.py:
 data.py
