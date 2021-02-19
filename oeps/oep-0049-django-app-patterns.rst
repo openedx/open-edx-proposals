@@ -106,7 +106,6 @@ For example:
 .. code-block:: python
 
   from django.conf.settings import UNSUPPORTED_PROGRAM_UUIDS
-  from django.db.models import Q
 
   from .data import ProgramData
   from .models_api import get_programs as _get_programs
@@ -149,31 +148,63 @@ For example:
 .. code-block:: python
 
 
-    from dataclasses import dataclass
-    from enum import Enum
+  from dataclasses import dataclass
+  from enum import Enum
 
-    def ProgramStatus(Enum):
-        ACTIVE = "active"
-        RETIRED = "retired"
+  import attr
 
-    @dataclass
-    class ProgramData:
-        uuid: str
-        title: str
+  def ProgramStatus(Enum):
+      ACTIVE = "active"
+      RETIRED = "retired"
 
-.. _models_api.py:
-models_api.py
-+++++++++++++
-.. Reviewer NOTE: I don't feel like I entirely understand models_api.py. My main issue is I don't understand the benefit of the additional layer versus api.py just calling ``Thing.objects.get()``.
+  @attr.attrs(frozen=True)
+  class ProgramData:
+      uuid: str = attr.attrib(
+          validator=[attr.validators.instance_of(str)]
+      )
+      title: str = attr.attrib(
+          validator=[attr.validators.instance_of(str)]
+      )
+      status: str = attr.attrib(
+          validator=[
+              attr.validators.instance_of(str),
+              attr.validators.in_(ProgramStatus)
+          ]
+      )
 
+  # Alternatively if you don't need field validation, conversion, or other attrs benefits:
+
+  @dataclass(frozen=True)
+  class ProgramData:
+      uuid: str
+      title: str
+      status: str
 
 .. _rest_api:
 rest_api/
 +++++++++
-Each app should self-contain it's related REST API, meaning it should live within the app and not in a separate "api" app where it would mingle with other apps' REST API code. Since the Python API is using ``api.py``, the REST API code (often Django Rest Framework) should live in a ``rest_api`` folder.
+If an app will have it's own REST API, it should live in a folder called ``rest_api`` to distinguish it from the ``api.py`` file used for intra-app communication.
 
-.. Reviewer NOTE: Do we want to detail what a standard ``rest_api`` looks like? For example having a serializers.py, permissions.py, versioned folders of APIs, etc. I'm not sure how much of that is common DRF and how much is Open edX.
+APIs should be versioned and the serializers and permissions associated with that version should be kept inside that version's folder. This prevents breakages when an API needs to be updated.
 
+An example of a common folder structure for a versioned REST API::
+
+  app_name
+  ├── rest_api
+  │   ├── v1
+  │   │   ├── permissions.py
+  │   │   ├── serializers.py
+  │   │   ├── urls.py
+  │   │   └── views.py
+  │   └── urls.py
+  ├── urls.py
+  └── views.py  # existing legacy non-REST APIs
+
+
+.. _signals:
+signals/
++++++++++
+If an app is consuming Django Signals from other apps in the service, it should include a ``signals.py`` file which includes all of it's signal handlers.
 
 Consequences
 ------------
