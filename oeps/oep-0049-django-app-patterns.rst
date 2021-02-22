@@ -23,7 +23,7 @@ OEP-0049: Django App Patterns
    * - Created
      - 2021-01-29
    * - Review Period
-     - TBD
+     - 2021-02-22 - 2021-03-10
 
 Abstract
 --------
