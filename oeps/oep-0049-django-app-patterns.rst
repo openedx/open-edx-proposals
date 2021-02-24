@@ -29,7 +29,7 @@ Abstract
 --------
 Proposes a common set of code patterns for Open edX Django apps.
 
-Motiviation
+Motivation
 -----------
 As our number of Django apps continue to grow in our many services, we want to coalesce around a couple of standard design patterns to both make switching between codebases easier and to help untangle some of the links between codebases we have today. These decisions should be considered "best practices" or the default patterns, and should only be violated if the code base requires it.
 
@@ -42,7 +42,7 @@ Listed below are each of the files or folders your app should contain and what t
 
 README.rst
 ++++++++++
-Each app should contain a README.rst to explain it's use. See full details of what should go in the README.rst in OEP-0019_
+Each app should contain a README.rst to explain its use. See full details of what should go in the README.rst in OEP-0019_
 
 .. _OEP-0019: https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#readmes
 
@@ -63,7 +63,7 @@ For example:
 .. _apps.py:
 apps.py
 +++++++
-The ``apps.py`` file should contain a subclass of a Django ``AppConfig``. The AppConfig should set the app's name to it's full path (e.g. ``name = "service_name.apps.app_name"``) and should (optionally) have an overriding ``ready()`` function which initializes the app. This initialization also often includes setting up Django signals.
+The ``apps.py`` file should contain a subclass of a Django ``AppConfig``. The AppConfig should set the app's name to its full path (e.g. ``name = "service_name.apps.app_name"``) and should (optionally) have an overriding ``ready()`` function which initializes the app. Any imports that need to happen during app initialization (such as signals_) need to happen inside the ``ready`` function or else there's risk of circular imports.
 
 For example:
 
@@ -90,7 +90,6 @@ This should be single point of entry for other Python code to talk to your app. 
 
 1. API methods defined in ``api.py`` should be well-named, self-consistent, and relevant to its own domain (without exposing technical and implementation details)
 2. An app's Django models and other internal data structures should not be exposed via its Python APIs.
-3. Ideally, tests should use only Python APIs declared in other apps' ``api.py`` files. However, if an app's API is needed *only* for testing, then test-relevant Python APIs should be defined/exported in an intentional Python module called ``api_for_tests.py``.
 
 
 Not exposing an app's data structures can be tricky because it's very easy to expose them without meaning to. Therefore there are a couple common strategies we employ.
@@ -106,6 +105,7 @@ For example:
 .. code-block:: python
 
   from django.conf.settings import UNSUPPORTED_PROGRAM_UUIDS
+  from django.core.paginator import Paginator
 
   from .data import ProgramData
   from .models_api import get_programs as _get_programs
@@ -183,7 +183,7 @@ For example:
 .. _rest_api:
 rest_api/
 +++++++++
-If an app will have it's own REST API, it should live in a folder called ``rest_api`` to distinguish it from the ``api.py`` file used for intra-app communication.
+If an app will have its own REST API, it should live in a folder called ``rest_api`` to distinguish it from the ``api.py`` file used for intra-app communication.
 
 APIs should be versioned and the serializers and permissions associated with that version should be kept inside that version's folder. This prevents breakages when an API needs to be updated.
 
@@ -200,11 +200,23 @@ An example of a common folder structure for a versioned REST API::
   ├── urls.py
   └── views.py  # existing legacy non-REST APIs
 
+Because URL stucture and namespacing can be a debate on it's own, this OEP does not attempt to suggest any URL structure or namespacing.
+
 
 .. _signals:
 signals/
 +++++++++
-If an app is consuming Django Signals from other apps in the service, it should include a ``signals.py`` file which includes all of it's signal handlers.
+If an app is consuming Django Signals from other apps or creating its own Signals, it should include a ``signals`` directory which will include both its signal handlers and Signals it owns. If possible, the signal handlers should only be thin layer between the signal and more generalized functions in the app. This way we can keep business logic out of the "plumbing". The signals directory should look like::
+
+  app_name
+  ├── signals
+  │   │   ├── signals.py  # for defining new signals
+  │   │   ├── handlers.py  # for listening to existing signals
+
+.. _tasks:
+tasks/ or tasks.py
+++++++++++++++++++
+If an app contains long running tasks (i.e. tasks that run outside of a request, often a celery task), they should live in in either either a ``tasks.py`` file or a ``tasks`` folder.
 
 Consequences
 ------------
