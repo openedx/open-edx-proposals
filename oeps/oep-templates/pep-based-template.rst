@@ -22,7 +22,7 @@ OEP-XXXX: OEP Template
    * - Arbiter
      - <Arbiter's real name and email address>
    * - Status
-     - <Draft | Under Review | Deferred | Accepted | Rejected | Withdrawn | Final | Replaced>
+     - <Draft | Under Review | Deferred | Provisional | Accepted | Rejected | Withdrawn | Final | Replaced>
    * - Type
      - <Architecture | Best Practice | Process>
    * - Created
