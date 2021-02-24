@@ -17,13 +17,13 @@ OEP-0049: Django App Patterns
    * - Arbiter
      - Jinder Singh
    * - Status
-     - Draft
+     - Under Review
    * - Type
      - Architecture
    * - Created
      - 2021-01-29
    * - Review Period
-     - TBD
+     - 2021-02-22 - 2021-03-10
 
 Abstract
 --------
