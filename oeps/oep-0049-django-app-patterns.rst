@@ -200,7 +200,7 @@ An example of a common folder structure for a versioned REST API::
   ├── urls.py
   └── views.py  # existing legacy non-REST APIs
 
-Because URL stucture and namespacing can be a debate on it's own, this OEP does not attempt to suggest any URL structure or namespacing.
+Because API conventions (including URL structure, namespacing, and versioning) are separate concerns than the app structure, please reference https://openedx.atlassian.net/wiki/spaces/AC/pages/18350757/edX+REST+API+Conventions for any questions.
 
 
 .. _signals:
