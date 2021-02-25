@@ -234,7 +234,7 @@ Event Field Mapping
 
 Please see the `Open edx xAPI Events`_ document for a detailed view of the mapping between the above Open edX events and their equivalent Open edX xAPI formats.
 
-.. _Open edx xAPI Events: https://docs.google.com/spreadsheets/d/1Qx-1NkpCHXkWh8AagwHD5vzyBCdRXQVof10Ent_EDms/edit?usp=sharing
+.. _Open edx xAPI Events: https://docs.google.com/spreadsheets/d/1oTClCxuUj1vCzytbmjDaHWFmcI6JZDqqJtZmYVwnOTA/view
 
 Implementation Note
 ~~~~~~~~~~~~~~~~~~~
