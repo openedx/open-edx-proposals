@@ -209,7 +209,7 @@ Event Field Mapping
 Please see the `Open edX Caliper Events`_ document for a detailed view of the mapping between the above Open edX events and their equivalent Open edX Caliper formats.
 
 
-.. _Open edX Caliper Events: https://docs.google.com/spreadsheets/d/1z_1IGFVDF-wZToKS2EGXFR3s0NXoh6tTKhEtDkevFEM/edit?usp=sharing
+.. _Open edX Caliper Events: https://docs.google.com/spreadsheets/d/1MgHddOO6G33sSpknvYi-aXuLiBmuKTfHmESsXpIiuU8/view
 
 .. |ecosystem| image:: ./caliper_ecosystem.png
    :width: 6.5in
