@@ -49,9 +49,7 @@ Each app should contain a README.rst to explain its use. See full details of wha
 .. ___init__.py:
 __init__.py
 +++++++++++
-The ``__init__.py`` file should either be blank if the app is a plugin, or contain a single line defining the ``default_app_config`` for the app. This ``default_app_config`` should point to the ``AppConfig`` located in ``<app_name>/apps.py``.
-
-Unlike many packages, ``__init__.py`` should *not* be used to as the way to export the app's public methods. These should be exported using ``api.py`` (and thus imported as ``from path.to.app.api import public_function``). See api.py_ below.
+The ``__init__.py`` file should contain a line for the ``default_app_config`` for the app, or o. This ``default_app_config`` should point to the ``AppConfig`` located in ``<app_name>/apps.py``. It may also contain small app details such as a version. However, unlike many packages, ``__init__.py`` should *not* be used to as the way to export the app's public methods. These should be exported using ``api.py`` (and thus imported as ``from path.to.app.api import public_function``). See api.py_ below.
 
 For example:
 
