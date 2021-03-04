@@ -37,6 +37,29 @@ Decision
 --------
 All of our Django apps should have a common structure. This structure consists of a combination of default Django-style code and Open edX-style code. This document will only attempt to detail the common Open edX patterns that we would like to see everywhere, ignoring Django-default items (e.g. ``admin.py``, ``urls.py``, etc) and situation-specific items (e.g. a separate ``constants.py`` file).
 
+The common Django files and folders this **won't** set preferences for are:
+
+.. list-table::
+   :widths: 25 60 15
+
+   * - admin.py
+     - The additions to the Django admin site live here
+     - `Docs <https://docs.djangoproject.com/en/3.1/ref/contrib/admin/>`_
+   * - migrations/
+     - The migrations for the models live here
+     - `Docs <https://docs.djangoproject.com/en/3.1/topics/migrations/>`_
+   * - management/
+     - The management commands live here
+     - `Docs <https://docs.djangoproject.com/en/3.1/howto/custom-management-command/>`_
+   * - models.py
+     - The Django ORM models live here
+     - `Docs <https://docs.djangoproject.com/en/3.1/topics/db/models/>`_
+   * - urls.py
+     - The URL structure of your app is defined here
+     - `Docs <https://docs.djangoproject.com/en/3.1/topics/http/urls/>`_
+
+More detailed
+
 Listed below are each of the files or folders your app should contain and what they should consist of.
 
 
@@ -49,7 +72,7 @@ Each app should contain a README.rst to explain its use. See full details of wha
 .. ___init__.py:
 __init__.py
 +++++++++++
-The ``__init__.py`` file should contain a line for the ``default_app_config`` for the app, or o. This ``default_app_config`` should point to the ``AppConfig`` located in ``<app_name>/apps.py``. It may also contain small app details such as a version. However, unlike many packages, ``__init__.py`` should *not* be used to as the way to export the app's public methods. These should be exported using ``api.py`` (and thus imported as ``from path.to.app.api import public_function``). See api.py_ below.
+The ``__init__.py`` file should contain a line for the ``default_app_config`` for the app. This ``default_app_config`` should point to the ``AppConfig`` located in ``<app_name>/apps.py``. It may also contain small app details such as a version. However, unlike many packages, ``__init__.py`` should *not* be used to as the way to export the app's public methods. These should be exported using ``api.py`` (and thus imported as ``from path.to.app.api import public_function``). See api.py_ below.
 
 For example:
 
@@ -146,7 +169,6 @@ For example:
 .. code-block:: python
 
 
-  from dataclasses import dataclass
   from enum import Enum
 
   import attr
@@ -169,14 +191,6 @@ For example:
               attr.validators.in_(ProgramStatus)
           ]
       )
-
-  # Alternatively if you don't need field validation, conversion, or other attrs benefits:
-
-  @dataclass(frozen=True)
-  class ProgramData:
-      uuid: str
-      title: str
-      status: str
 
 .. _rest_api:
 rest_api/
