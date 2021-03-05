@@ -16,17 +16,18 @@ OEP-0051: Conventional Commits
    * - Arbiter
      - Feanil Patel
    * - Status
-     - Draft
+     - Accepted
    * - Type
      - Best Practice
    * - Created
      - 2021-02-01
    * - Review Period
-     - To Be Determined
+     - Until 2021-03-15
    * - Resolution
      - TK
    * - References
-     - TK
+     - `Conventional Commits`_
+     - `Change Transparency`_
 
 
 Abstract
@@ -34,7 +35,7 @@ Abstract
 
 Commits should be clearly labeled for their effect on consumers of the repository.  To do this, we adopt the `Conventional Commits`_ guidelines, which detail structured commit messages that clarify the impact of each commit.
 
-This is part of our Change Transparency initiative.
+This is part of our `Change Transparency`_ initiative.
 
 Motivation
 ==========
@@ -71,9 +72,9 @@ We use these commit types:
 
 * **chore**: a repetitive mechanical task such as updating requirements or translations.
 
-* **docs**: documentation-only changes. Documentation changes for other types of work should  be included in those commits.
+* **docs**: documentation-only changes. Documentation changes for other types of work should  be included in those commits. This includes more than the formal docs for a repo, it also covers READMEs, ADRs, docstrings, and so on.
 
-* **feat**: a new feature, or a change to an existing feature. Anything that changes the set of features.
+* **feat**: a new feature, or a change to an existing feature. Anything that changes the set of features.  Public API entry points and their behavior are part of the feature set of a product, so changes to those should be marked with "feat".
 
 * **fix**: bug fixes, including changes to the behavior of features, and changes that remove or mitigate security vulnerabilities.
 
@@ -86,6 +87,7 @@ We use these commit types:
 * **style**: improve the styling of the code.
 
 * **test**: test-only changes. Adds missing tests or corrects existing tests. Tests accompanying other types of changes go into those commits.
+
 
 Breaking changes include an exclamation point as part of the type::
 
@@ -101,7 +103,7 @@ The `Conventional Commits`_ spec includes a parenthesized scope after the type. 
 Subject
 -------
 
-Commit message subjects should be short.  Put more information in the body of the commit message to fully explain your change.
+Commit message subjects should be short enough to fit on one line.  We aren't putting a hard limit on character length, but 70 characters is a good time to turn your attention to the body of the commit message.  Put more information in the body of the commit message to fully explain your change.  Jira or GitHub issue numbers can be included at the end of the subject.
 
 Body
 ----
@@ -152,6 +154,19 @@ The existing Conventional Commits standard is a familiar and widely adopted stan
 
 We've adapted the guidelines to our own projects, and started small.
 
+Here's an example of a conventional commit, with a one-line subject, and details in the body::
+
+    build: private.txt files weren't handled properly
+
+    The requirements/edx/private.txt file is for dev's own private package
+    needs.  There are two installation mechanisms in edx-platform, and
+    neither handled the file properly:
+
+    - `paver install_prereqs` had the wrong file name.  The file was moved
+      almost three years ago, and paver wasn't kept up.
+
+    - `make requirements` used `private.*` which included private.in, which
+      pip-sync balks at.
 
 Change History
 ==============
@@ -162,4 +177,5 @@ Change History
 
 
 .. _Conventional Commits: https://www.conventionalcommits.org
+.. _Change Transparency: https://github.com/edx/open-edx-proposals/pull/180
 .. _Angular commit message format: https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format
