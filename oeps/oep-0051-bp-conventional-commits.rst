@@ -48,12 +48,13 @@ Commit messages are the closest text to the change itself.  The more
 information-rich we can make commit messages, the more useful they will be.
 
 
-Specfication
+Specification
 ============
 
 We are adopting the `Conventional Commits`_ spec, with our own adjustments.
 
-.. note:: Many people are familiar with the `Angular commit message format`_, which uses conventional commits and inspired the Conventional Commits spec.  We are **not** adopting the Angular rules.
+.. note::
+   Many people are familiar with the `Angular commit message format`_, which uses conventional commits and inspired the Conventional Commits spec.  We are **not** adopting the Angular rules.
 
 Git commit messages have these parts::
 
@@ -88,12 +89,14 @@ We use these commit types:
 
 * **test**: test-only changes. Adds missing tests or corrects existing tests. Tests accompanying other types of changes go into those commits.
 
+* **exp**: experimental or exploratory changes that are not meant to be permanent.  Occasionally changes have to be pushed to GitHub or even production that are intended to be short-lived. For example, debugging continuous integration, or ad-hoc debugging on live systems.
+
 
 Breaking changes include an exclamation point as part of the type::
 
     feat!: removed the ability to author courses
 
-Ideally, a single commit won't mix these types together.  If a commit does, use the most important type in the commit message.  The priority order for the types is generally: revert, feat, fix, perf, docs, test, build, refactor, style, chore.
+Ideally, a single commit won't mix these types together.  If a commit does, use the most important type in the commit message.  The priority order for the types is generally: revert, feat, fix, perf, docs, test, build, refactor, style, chore, exp.
 
 Scope
 -----
@@ -110,7 +113,7 @@ Body
 
 The subject of the commit is rarely enough information to fully understand the commit.  The body can contain as much information as you like.  Be generous.  Take a moment to think about what you would want to know if someone else had authored this commit.
 
-The more information you can put in the body of the commit message, the better. It's not unreasonable to have two paragraphs of explanation in the body.
+The more information you can put in the body of the commit message, the better. It's not unreasonable to have two paragraphs of explanation in the body.  Especially important are the reasons for the change, or other factors that won't be apparent from the code itself.
 
 Breaking changes especially should have detailed information about the implications and alternatives.
 
@@ -144,7 +147,7 @@ __ https://github.com/conventional-commits/conventionalcommits.org/issues
 Tooling
 =======
 
-One of the advantages of formalized commit messages is using them as input to tooling and conformance checkers.  We will investgate tooling in the future, and are making no recommendations now.
+One of the advantages of formalized commit messages is using them as input to tooling and conformance checkers.  We will investigate tooling in the future, and are making no recommendations now.
 
 
 Rationale
