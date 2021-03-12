@@ -94,7 +94,7 @@ We use these commit types:
 
 Breaking changes include an exclamation point as part of the type::
 
-    feat!: removed the ability to author courses
+    feat!: remove the ability to author courses
 
 Ideally, a single commit won't mix these types together.  If a commit does, use the most important type in the commit message.  The priority order for the types is generally: revert, feat, fix, perf, docs, test, build, refactor, style, chore, exp.
 
@@ -159,7 +159,7 @@ We've adapted the guidelines to our own projects, and started small.
 
 Here's an example of a conventional commit, with a one-line subject, and details in the body::
 
-    build: private.txt files weren't handled properly
+    build: handle private.txt files properly
 
     The requirements/edx/private.txt file is for dev's own private package
     needs.  There are two installation mechanisms in edx-platform, and
