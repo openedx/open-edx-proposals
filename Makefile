@@ -227,3 +227,21 @@ pseudoxml:
 .PHONY: develop
 develop:
 	sphinx-autobuild -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html -p $(PORT) --ignore '.git/**' --open-browser
+
+# Define PIP_COMPILE_OPTS=-v to get more information during make upgrade.
+PIP_COMPILE = pip-compile --rebuild --upgrade $(PIP_COMPILE_OPTS)
+
+upgrade: export CUSTOM_COMPILE_COMMAND=make upgrade
+upgrade: ## update the pip requirements files to use the latest releases satisfying our constraints
+	pip install -qr requirements/pip_tools.txt
+	# Make sure to compile files after any other files they include!
+	$(PIP_COMPILE) -o requirements/pip_tools.txt requirements/pip_tools.in
+	$(PIP_COMPILE) -o requirements/base.txt requirements/base.in
+	$(PIP_COMPILE) -o requirements/dev.txt requirements/dev.in
+
+.PHONY: requirements
+requirements:
+	pip install -r requirements/base.txt
+
+dev-requirements:
+	pip install -r requirements/dev.txt
