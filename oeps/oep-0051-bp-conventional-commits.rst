@@ -26,9 +26,13 @@ OEP-0051: Conventional Commits
    * - Resolution
      - TK
    * - References
-     - `Conventional Commits`_
-     - `Change Transparency`_
+     -
+       - `Conventional Commits`_
+       - `Change Transparency`_
 
+.. contents::
+   :local:
+   :depth: 1
 
 Abstract
 ========
