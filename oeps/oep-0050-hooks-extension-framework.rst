@@ -30,8 +30,8 @@ Abstract
 To sustain the growth of the Open edX ecosystem, the business rules of the
 platform must be open for extension following the open-closed principle. This
 OEP specifies a solution using what is commonly referred to as hooking. That is
-the definition of a stable set of places in the code (triggers) where externally
-defined actions (via plugins) can take place.
+the definition of a stable set of places in the code (triggers) where functions
+defined via plugins can take place.
 
 
 Motivation
@@ -69,14 +69,15 @@ and certification. Conversely, the authors life cycle will have a list of places
 during the creation and publication of courses. These places, called triggers
 will be written to the edx-platform code.
 Now, anyone that wants to extend the functionality of the platform at one of
-those places, can define a function, called an action, to be called when the
-trigger is executed. The sum of a trigger and action will be referred to as a
-hook.
+those places, can define a function, called an action or filter, to be called
+when the trigger is executed. The sum of a trigger and action will be referred
+to as a hook.
 
 Triggers, broadly fit into two categories:
 
-* Triggers that allow actions called at this time to affect the application
-  flow via their results.
+* Triggers that allow actions called at this time to affect the application flow
+  via their results. In this case, the actions called at the time will be called
+  filters.
 * Triggers that will not allow the application flow to be altered by the
   actions called.
 
@@ -127,18 +128,22 @@ members to extend the platform, but it could even become a way for the
 installation at edx.org to implement its particular business rules in a way that
 is sufficiently separated from the Open edX core.
 
-This proposal draws heavy inspiration from WordPress, in which `two types of hooks`_
-are defined. In there the name action and filter are separated but they make the
-same distinction of whether the return object of the action will in some way
-affect the application flow. This is conceptually very important since actions
-are meant to be called with some context data, act on it, and return silently to
-the trigger location. Filters on the other hand are designed so that they are
-given some context data, act on it, and return a modified version for the rest
-of the core-code to use in the next steps of execution. Hooks are used within
-WordPress to support almost all the forms in which it can be extended and are
-the basis of the very successful marketplace for plugins and themes. Given that
-Open edX already has a variety of theming capabilities and options we have opted
-here not to include any hooks that are meant to be used for theming.
+This proposal draws heavy inspiration from WordPress, in which the same
+`two types of hooks`_ are defined. Leveraging the Python/Django based technology
+of open edX makes actions a great candidate to be executed asynchronously in a
+different process as they are meant to be called with some context data, act on
+it, and return silently to the trigger location.
+Filters on the other hand are designed so that they are given some context data,
+act on it, and return a modified version for the rest of the core-code to use in
+the next steps of execution. We intend to make the two kinds of hooks
+interchangeable such that developers are not limited by the framework but
+instead given maximum flexibility on its usage to attain their extension goals.
+
+Hooks are used within WordPress to support almost all the forms in which it can
+be extended and are the basis of the very successful marketplace for plugins and
+themes. Given that Open edX already has a variety of theming capabilities and
+options we have opted here not to include any hooks that are meant to be used
+for theming.
 
 This proposal does not copy the model verbatim, since the open edX platform uses
 a different base technology which already allows for many extension points.
