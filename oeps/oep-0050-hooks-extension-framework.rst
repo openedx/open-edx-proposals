@@ -98,15 +98,18 @@ list of public triggers, which should follow a path of deprecation first and
 preferably be given an optional hook where the same context information or code
 execution path can be accessed.
 
-The mechanism by which a trigger is connected to an action will be a
+The mechanism by which a trigger is connected to an action/filter will be a
 configurable python wrapper also contained in the platform core and by design
 must consider that:
 
 * Most actions will be implemented in plugins.
-* The order of execution for multiple actions listening on a trigger must be
-  respected, and the results of previously executed actions should be made
-  available to the current action.
+* The order of execution for multiple actions/filters listening on a trigger
+  must be respected, and the results of previously executed filters/actions
+  should be made available to the current filter/action.
 * Actions should be easy to execute in an asynchronous way.
+* The results of executing actions or filters in an asynchronous way will be
+  ignored by the calling process. The will not modify the flow of the application
+
 
 The wrapper should present functions to register the trigger call, to call the
 configured actions as a pipeline, and to defer calling the functions as async
