@@ -14,7 +14,7 @@ OEP-0050: Hooks extension framework
    * - Authors
      - Felipe Montoya <felipe.montoya@edunext.co>
    * - Arbiter
-     - < TBD >
+     - Nizar Mahmoud <nizar@opencraft.com>
    * - Status
      - Draft
    * - Type
@@ -231,5 +231,5 @@ Change History
 28 July 2020 - Felipe Montoya.
 Initial version made public for the community at the google docs file.
 
-04 Februaty 2021 - Felipe Montoya
+04 February 2021 - Felipe Montoya
 Converted to Draft OEP
