@@ -23,7 +23,7 @@ OEP-0049: Django App Patterns
    * - Created
      - 2021-01-29
    * - Review Period
-     - 2021-02-22 - 2021-03-10
+     - 2021-02-22 - 2021-04-10
 
 .. contents::
      :local:
