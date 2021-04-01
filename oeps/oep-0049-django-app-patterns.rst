@@ -25,6 +25,10 @@ OEP-0049: Django App Patterns
    * - Review Period
      - 2021-02-22 - 2021-03-10
 
+.. contents::
+     :local:
+     :depth: 2
+
 Abstract
 --------
 Proposes a common set of code patterns for Open edX Django apps.
@@ -74,7 +78,8 @@ __init__.py
 +++++++++++
 The ``__init__.py`` file should contain a line for the ``default_app_config`` for the app. This ``default_app_config`` should point to the ``AppConfig`` located in ``<app_name>/apps.py``. It may also contain small app details such as a version. However, unlike many packages, ``__init__.py`` should *not* be used to as the way to export the app's public methods. These should be exported using ``api.py`` (and thus imported as ``from path.to.app.api import public_function``). See api.py_ below.
 
-For example:
+Example
+~~~~~~~
 
 .. code-block:: python
 
@@ -86,7 +91,8 @@ apps.py
 +++++++
 The ``apps.py`` file should contain a subclass of a Django ``AppConfig``. The AppConfig should set the app's name to its full path (e.g. ``name = "service_name.apps.app_name"``) and should (optionally) have an overriding ``ready()`` function which initializes the app. Any imports that need to happen during app initialization (such as signals_) need to happen inside the ``ready`` function or else there's risk of circular imports.
 
-For example:
+Example
+~~~~~~~
 
 .. code-block:: python
 
@@ -110,7 +116,7 @@ api.py
 This should be single point of entry for other Python code to talk to your app. This is *not* a Rest API, this is a Python API (see rest_api_). Some rules for ``api.py`` are as follows:
 
 1. API methods defined in ``api.py`` should be well-named, self-consistent, and relevant to its own domain (without exposing technical and implementation details)
-2. An app's Django models and other internal data structures should not be exposed via its Python APIs.
+2. An app's Django models and other internal data structures should not be exposed via its Python APIs (unless performance requires it).
 
 
 Not exposing an app's data structures can be tricky because it's very easy to expose them without meaning to. Therefore there are a couple common strategies we employ.
@@ -119,9 +125,14 @@ Not exposing an app's data structures can be tricky because it's very easy to ex
 
 2. Create a ``data.py`` file to house simple data objects that can be passed from your app's function to the calling app. By creating these objects, we can avoid both passing Django model objects or querysets directly and having to serialize data. Other apps may import data classes from ``data.py`` in additional to functionality from ``api.py``. See data.py_ for more details.
 
-Using Django's Paginator class can help keep cross-app retrievals performant without passing Querysets around.
+Performance caveat
+~~~~~~~~~~~~~~~~~~
+While there are many situations that the above solution works well for, there are a number of situations where the need for performance outweighs the preference for strong code boundaries. In these situations, APIs may return querysets of models so the code consuming the API may efficiently filter and retrieve the data. We don't have solutions that keep strong boundaries and have good performance today, but are working towards them.
 
-For example:
+If you simply need to page your results and want to keep code boundaries intact, you can use Django's Paginator class to keep the retrievals performant without passing Querysets around.
+
+Example
+~~~~~~~
 
 .. code-block:: python
 
@@ -129,16 +140,34 @@ For example:
   from django.core.paginator import Paginator
 
   from .data import ProgramData
-  from .models_api import get_programs as _get_programs
+  from .models import Program as _Program
 
-  def get_supported_programs(page_size=None, page=None):
+  def get_supported_programs_simple():
+    """
+    Gets all programs that aren't in UNSUPPORTED_PROGRAM_UUIDS settings
+
+    Returns a page of results if page_size is specified
+    """
+    supported_programs = _Program.objects.exclude(
+        uuid__in=UNSUPPORTED_PROGRAM_UUIDS
+    )
+
+    return [
+        ProgramData(
+            uuid=program.uuid,
+            title=program.title,
+            status=program.status
+        )
+        for program in supported_programs
+    ]
+
+  def get_supported_programs_paged(page_size=None, page=None):
       """
       Gets all programs that aren't in UNSUPPORTED_PROGRAM_UUIDS settings
 
       Returns a page of results if page_size is specified
       """
-      # _get_programs() returns a queryset
-      q_supported_programs = _get_programs().exclude(
+      q_supported_programs = _Program.objects.exclude(
           uuid__in=UNSUPPORTED_PROGRAM_UUIDS
       )
 
@@ -164,7 +193,8 @@ data.py
 +++++++
 This file should include the public data structures for the app that can be passed between apps without exposing internal features. These should be used instead of sending Django model objects or querysets to apps that call the functions in ``api.py``. This file should not import anything other than stdlib modules, so that it may be imported by any other app without issue. These data objects should be simple objects with all business logic handled by ``api.py``. They may however perform simple validation, as long as it is self-contained (doesn't reach out to database, network, or any code outside of the class)
 
-For example:
+Example
+~~~~~~~
 
 .. code-block:: python
 
