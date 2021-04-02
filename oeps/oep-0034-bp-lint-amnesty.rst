@@ -10,6 +10,7 @@ OEP-34: Lint Amnesty
 | Last Modified   | 2019-03-12                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Calen Pennington <cale@edx.org>                        |
+|                 | Feanil Patel <feanil@edx.org>                          |
 +-----------------+--------------------------------------------------------+
 | Arbiter         | Usama Sadiq <usadiq@edx.org>                           |
 +-----------------+--------------------------------------------------------+
@@ -72,7 +73,7 @@ lower violations.
 References
 ----------
 
-There is a `prototype tool`_ for granting lint amnesty in `edx/edx-lint`_.
+There is a `tool`_ for granting lint amnesty in `edx/edx-lint`_.
 
-.. _prototype tool: https://github.com/edx/edx-lint/blob/master/edx_lint/cmd/amnesty.py
+.. _tool: https://github.com/edx/edx-lint/blob/master/edx_lint/cmd/amnesty.py
 .. _`edx/edx-lint`: https://github.com/edx/edx-lint
