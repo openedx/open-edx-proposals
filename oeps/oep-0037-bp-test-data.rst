@@ -1,6 +1,6 @@
-===================
-OEP-0037: Test Data
-===================
+===========================
+OEP-0037: Devstack Dev Data
+===========================
 
 .. list-table::
    :widths: 25 75
@@ -8,7 +8,7 @@ OEP-0037: Test Data
    * - OEP
      - :doc:`OEP-37 </oeps/oep-0037-bp-test-data>`
    * - Title
-     - Test Data Management
+     - Devstack Dev Data
    * - Last Modified
      - 2019-11-25
    * - Authors
@@ -41,7 +41,7 @@ This OEP attempts to provide the guidance needed to manage this data logically a
 Specification
 =============
 
-There are a few different aspects of test data management, each of which has different tools that can make it more painless:
+There are a few different aspects of dev data management, each of which has different tools that can make it more painless:
 
 Reusing Data
 ------------
@@ -94,60 +94,55 @@ The function can take one or more positional arguments if useful for using it in
 Loading Data
 ------------
 
-Each IDA should provide a ``load_test_data`` management command which takes dotted paths to one or more test data generation functions as arguments.  For example, the command to load the example data above into the LMS might look something like this:
+
+The data to be loaded should be defined in a yaml file and each IDA should provide a ``load_dev_data`` management command which takes path to yaml files.  For example, the command to load the example data above into the LMS might look something like this:
 
 .. code-block:: bash
 
-    ./manage.py lms load_test_data test_data.retirement.account_retirement_example
+    ./manage.py lms load_dev_data /tmp/example.yaml
 
-If there was corresponding data that needs to be loaded into ecommerce when testing this functionality in devstack, there would be an equivalent command in the ecommerce repository to load that from a matching function:
 
-.. code-block:: bash
-
-    ./manage.py load_test_data test_data.retirement.account_retirement_example
-
-And to simplify running all the commands needed to load a complex data set into all of the relevant IDAs, a devstack ``make`` target can be used:
+If there was corresponding data that needs to be loaded into another IDA(i.e ecommerce) when testing this functionality in devstack, there would be an equivalent command in the ecommerce repository:
 
 .. code-block:: bash
 
-    make load_test_data DATA_FUNCTION=test_data.retirement.account_retirement_example
+    ./manage.py load_dev_data /tmp/example2.yaml
 
-Most data sets should attempt to use a standard function path in each IDA to allow use of this generic data loading command, but particularly complex cases may use custom management commands and/or devstack ``make`` targets (perhaps even taking arguments to specify parameters of the generated data set).  Data functions which take arguments can reduce the number of such custom commands needed.  Passing arguments could look like this:
+To keeping data loading modular, dev data specification for each IDA should live in its own yaml file.
 
-.. code-block:: bash
-
-    ./manage.py load_test_data test_data.from_dev_data_v1 path/to/file.yaml
-    make load_test_data DATA_FUNCTION=test_data.from_dev_data_v1 DATA_FUNCTION_ARGS=http://domain.org/path/to/file.yaml
+Each ``load_dev_data`` management command should take the specification from the yaml file and call on the data generation fuctions that correspond to keys in yaml file.
 
 Each data loading function should be executed during the respective IDA's test suite, in order to ensure that it stays functional across schema and code changes.  This also makes it clear what change triggered failure to load the data, making it much faster to make the appropriate fixes.
 
-Because the test data doesn't contain primary keys, loading the same data a second time into an environment will usually result in a second copy of the test data being created in it.  If there is desire for a set of test data that can be updated or reset in an environment in which it already exists, its data loading functions should be deliberately written to be capable of either deleting or updating any data they previously loaded (via known field value lookups, etc.)
+Because the dev data doesn't contain primary keys, loading the same data a second time into an environment will usually result in a second copy of the dev data being created in it.  If there is desire for a set of dev data that can be updated or reset in an environment in which it already exists, its data loading functions should be deliberately written to be capable of either deleting or updating any data they previously loaded (via known field value lookups, etc.)
 
 Data Files
 ----------
 
-When creating a more complex data set, especially one containing data to be loaded into multiple Open edX services, it is often best to describe the data in a YAML file.  The path or URL of this file can then be passed as an argument to each data loading function which uses the information in it to create database records for a particular service as shown above.  Requirements for such data sets vary widely, so we won't attempt to enforce a single standard schema for them, but each such file should declare the name of the schema it has chosen to use.  Such a file might look like this:
+Devstack dev data will be specified in a YAML file.  The path or URL of this file is passed to the ``load_dev_data`` management command, which uses the information in it to call the appropriate data generation function to create database records for a particular service as shown above. Such a file might look like this:
 
 .. code-block:: yaml
 
-    schema: dev_data_v1
-    users:
-        - admin
-        - staff
-        - student
-    enrollments:
-        - course: course-v1:edx+T101+2017_Q1
-          user: student
-        - course: course-v1:edx+MD101+2018_Q3
-          user: staff
+   users:
+    - username: verified
+      email: verified@example.com
+    - username: robot1
+      email: robot1@example.com
+  enrollments:
+    - username: verified
+      course_id: 'course-v1:edX+DemoX+Demo_Course'
+      mode: verified
+    - username: robot1
+      course_id: 'course-v1:edX+DemoX+Demo_Course'
+      mode: verified
     ...
 
-These data files should be as minimal as possible, containing just enough information for a data loading function familiar with this format to generate appropriate records using factory classes to fill in reasonable defaults for anything not explicitly specified.  This allows a single file to describe a data set which can be loaded into multiple services to allow testing cross-service functionality without binding the data set too closely to the current code or schema of any of those services.
+These data files should be as minimal as possible, containing just enough info for a data loading function familiar with this format to generate appropriate records using factory classes to fill in reasonable defaults for anything not explicitly specified.  This allows a single file to describe a data set which can be loaded into multiple services to allow testing cross-service functionality without binding the data set too closely to the current code or schema of any of those services.
 
 Rationale
 =========
 
-Django provides utilities for managing data fixtures as JSON, XML, or YAML documents, but we and most other large projects have found such fixtures difficult to maintain over time; they need to be updated with most schema changes, require the specification of primary keys which are likely to conflict with existing data, and are structured in a way that makes it difficult to group together related test data of different models.  We have chosen in our unit tests to use ``factory_boy`` instead, and it has served us well enough that we should try using it for development data sets as well.  Having a good set of data factories should make it much easier to maintain our test data over time, and much of this work has already been done for the unit tests of each service.
+Django provides utilities for managing data fixtures as JSON, XML, or YAML documents, but we and most other large projects have found such fixtures difficult to maintain over time; they need to be updated with most schema changes, require the specification of primary keys which are likely to conflict with existing data, and are structured in a way that makes it difficult to group together related dev data of different models.  We have chosen in our unit tests to use ``factory_boy`` instead, and it has served us well enough that we should try using it for development data sets as well.  Having a good set of data factories should make it much easier to maintain our dev data over time, and much of this work has already been done for the unit tests of each service.
 
 Even utilizing ``factory_boy``, manually creating a set of data comprehensive enough to use a wide range of Open edX features in devstack is very challenging.  Using real data which was created during normal usage of Open edX can dramatically reduce the time needed to create a data set, but runs a high risk of leaking `PII`_ and once captured as detailed fixtures exhibits all the same problems noted above for standard Django fixtures.  So we want the ability to anonymize and dump subsets of data from an existing environment, but should convert it to data-loading code rather than rigid data fixtures.  We don't yet have good tools to do this conversion automatically, so at first this will be a mostly manual process (but should save us much time later in maintaining the data set through schema migrations and code changes).
 
