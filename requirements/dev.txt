@@ -6,109 +6,109 @@
 #
 alabaster==0.7.12
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 babel==2.9.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 certifi==2020.12.5
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 chardet==4.0.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 docutils==0.16
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 edx-sphinx-theme==2.0.0
-    # via -r requirements/base.txt
+    # via -r base.txt
 idna==2.10
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 imagesize==1.2.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 jinja2==2.11.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 livereload==2.6.3
     # via sphinx-autobuild
 markupsafe==1.1.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   jinja2
 packaging==20.9
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 pygments==2.7.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 pyparsing==2.4.7
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   packaging
 pytz==2021.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   babel
 requests==2.25.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 six==1.15.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-sphinx-theme
     #   livereload
 snowballstemmer==2.1.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 sphinx-autobuild==2020.9.1
-    # via -r requirements/dev.in
+    # via -r dev.in
 sphinx==3.4.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-sphinx-theme
     #   sphinx-autobuild
 sphinxcontrib-applehelp==1.0.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 sphinxcontrib-devhelp==1.0.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 sphinxcontrib-htmlhelp==1.0.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 sphinxcontrib-jsmath==1.0.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 sphinxcontrib-qthelp==1.0.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 sphinxcontrib-serializinghtml==1.1.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   sphinx
 tornado==6.1
     # via livereload
-urllib3==1.26.3
+urllib3==1.26.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 
 # The following packages are considered to be unsafe in a requirements file:

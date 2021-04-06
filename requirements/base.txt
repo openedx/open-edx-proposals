@@ -15,7 +15,7 @@ chardet==4.0.0
 docutils==0.16
     # via sphinx
 edx-sphinx-theme==2.0.0
-    # via -r requirements/base.in
+    # via -r base.in
 idna==2.10
     # via requests
 imagesize==1.2.0
@@ -40,7 +40,7 @@ snowballstemmer==2.1.0
     # via sphinx
 sphinx==3.4.3
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   edx-sphinx-theme
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
@@ -54,7 +54,7 @@ sphinxcontrib-qthelp==1.0.3
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.4
     # via sphinx
-urllib3==1.26.3
+urllib3==1.26.4
     # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
