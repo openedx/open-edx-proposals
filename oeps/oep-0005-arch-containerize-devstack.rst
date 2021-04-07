@@ -232,6 +232,19 @@ environment, and was the prototype implementation of this OEP. However, it
 will need modification to fully meet the specifications of this OEP.
 
 
+Related Decisions
+=================
+
+The following related decisions modify or enhance this OEP, but have not yet been fully incorporated as updates to this OEP:
+
+.. toctree::
+   :caption: OEP-5 Decisions
+   :maxdepth: 1
+   :glob:
+
+   oep-0005/decisions/*
+
+
 Change History
 ==============
 
