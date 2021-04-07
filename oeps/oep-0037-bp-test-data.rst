@@ -121,7 +121,6 @@ Data Files
 
 Dev data for an individual IDA will be specified in a YAML file.  The path or URL of this file is passed to the ``load_dev_data`` management command, which uses the information in it to call the appropriate data generation function to create database records for a particular service as shown above.
 
-
 These data files should be as minimal as possible, containing just enough information for a data loading function familiar with this format to generate appropriate records using factory classes to fill in reasonable defaults for anything not explicitly specified. This is to increase robustness to code changes and to keep the maintanance cost of these files as low as possible.
 
 Such a file might look like this:
