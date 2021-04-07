@@ -56,6 +56,14 @@ project = u'Open edX Proposals'
 author = edx_theme.AUTHOR
 copyright = edx_theme.COPYRIGHT
 
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "edx", # Username
+    "github_repo": "open-edx-proposals", # Repo name
+    "github_version": "master", # Version
+    "conf_py_path": "/oeps/", # Path in the checkout to the docs root
+}
+
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
