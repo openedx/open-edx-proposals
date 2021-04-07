@@ -29,12 +29,12 @@ OEP-0037: Devstack Dev Data
 Abstract
 ========
 
-Proposes best practices in creating and maintaining sample data for use in Open edX test cases and development environments.
+Proposes best practices in creating and maintaining sample dev data for use in Open edX test cases and development environments.
 
 Motivation
 ==========
 
-When testing or developing an Open edX service, it is usually necessary to have some data already loaded and configured: users, courses, grades, etc.  This is true for unit tests, browser automation tests, load tests, development work in devstack, and more.  There are many different ways of creating and loading such data, and in the absence of concrete guidance on best practices, many of them have been (inconsistently) used in Open edX.  This makes it difficult to decide how to prepare such data, to learn how to load it when needed, and also to keep it working correctly as the code changes over time.
+When testing or developing an Open edX service, it is usually necessary to have some dev data already loaded and configured: users, courses, grades, etc.  This is true for unit tests, browser automation tests, load tests, development work in devstack, and more.  There are many different ways of creating and loading such data, and in the absence of concrete guidance on best practices, many of them have been (inconsistently) used in Open edX.  This makes it difficult to decide how to prepare such dev data, to learn how to load it when needed, and also to keep it working correctly as the code changes over time.
 
 This OEP attempts to provide the guidance needed to manage this data logically and consistently in order to streamline development, refactoring, and automated testing.
 
@@ -46,7 +46,7 @@ There are a few different aspects of dev data management, each of which has diff
 Reusing Data
 ------------
 
-Once a development environment has been populated with a data set comprehensive enough to exercise certain functionality in Open edX, it can be useful to "save it" for later use.  The first step is to make sure that any `PII`_ has been stripped from the data.  Even development data may include a developer's email address and other personal information.  Tools such as `dj_anonymizer`_ can be useful in making a first pass at stripping such PII, but it should be followed by manual verification against the `OEP-30`_ annotations.
+Once a development environment has been populated with a dev data set comprehensive enough to exercise certain functionality in Open edX, it can be useful to "save it" for later use.  The first step is to make sure that any `PII`_ has been stripped from the data.  Even development data may include a developer's email address and other personal information.  Tools such as `dj_anonymizer`_ can be useful in making a first pass at stripping such PII, but it should be followed by manual verification against the `OEP-30`_ annotations.
 
 Once PII has been removed, an attempt can be made to export just the needed data.  This may be a combination of course export to OLX and generation of fixtures from selected relational data using a utility such as `django-fixture-magic`_.  These fixtures should not be saved verbatim, but rather used as a guide for producing Python code that generates roughly equivalent data using ``factory_boy`` as described below.
 
@@ -95,14 +95,14 @@ Loading Data
 ------------
 
 
-The data to be loaded should be defined in a yaml file and each IDA should provide a ``load_dev_data`` management command which takes path to yaml files.  For example, the command to load the example data above into the LMS might look something like this:
+The dev data to be loaded should be specified in a yaml file and each IDA should provide a ``load_dev_data`` management command which takes path to yaml files.  For example, the command to load the example data above into the LMS might look something like this:
 
 .. code-block:: bash
 
     ./manage.py lms load_dev_data /tmp/example.yaml
 
 
-If there was corresponding data that needs to be loaded into another IDA(i.e ecommerce) when testing this functionality in devstack, there would be an equivalent command in the ecommerce repository:
+If there was corresponding dev data that needs to be loaded into another IDA(i.e ecommerce) when testing this functionality in devstack, there would be an equivalent command in the ecommerce repository:
 
 .. code-block:: bash
 
@@ -117,9 +117,14 @@ Each data loading function should be executed during the respective IDA's test s
 Because the dev data doesn't contain primary keys, loading the same data a second time into an environment will usually result in a second copy of the dev data being created in it.  If there is desire for a set of dev data that can be updated or reset in an environment in which it already exists, its data loading functions should be deliberately written to be capable of either deleting or updating any data they previously loaded (via known field value lookups, etc.)
 
 Data Files
-----------
+~~~~~~~~~~
 
-Devstack dev data will be specified in a YAML file.  The path or URL of this file is passed to the ``load_dev_data`` management command, which uses the information in it to call the appropriate data generation function to create database records for a particular service as shown above. Such a file might look like this:
+Dev data for an individual IDA will be specified in a YAML file.  The path or URL of this file is passed to the ``load_dev_data`` management command, which uses the information in it to call the appropriate data generation function to create database records for a particular service as shown above.
+
+
+These data files should be as minimal as possible, containing just enough information for a data loading function familiar with this format to generate appropriate records using factory classes to fill in reasonable defaults for anything not explicitly specified. This is to increase robustness to code changes and to keep the maintanance cost of these files as low as possible.
+
+Such a file might look like this:
 
 .. code-block:: yaml
 
@@ -136,8 +141,6 @@ Devstack dev data will be specified in a YAML file.  The path or URL of this fil
       course_id: 'course-v1:edX+DemoX+Demo_Course'
       mode: verified
     ...
-
-These data files should be as minimal as possible, containing just enough info for a data loading function familiar with this format to generate appropriate records using factory classes to fill in reasonable defaults for anything not explicitly specified.  This allows a single file to describe a data set which can be loaded into multiple services to allow testing cross-service functionality without binding the data set too closely to the current code or schema of any of those services.
 
 Rationale
 =========
