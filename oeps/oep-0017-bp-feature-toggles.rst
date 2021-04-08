@@ -10,7 +10,7 @@ OEP-17: Feature Toggles
    * - Title
      - Feature Toggles
    * - Last Modified
-     - 2018-03-20
+     - 2021-04-08
    * - Authors
      - Nimisha Asthagiri <nimisha@edx.org>
    * - Arbiter
@@ -102,9 +102,9 @@ Once the team is confident about their change and the change is released to all 
 .. _Mean Time to Recovery (MTTR): https://www.thoughtworks.com/radar/techniques/focus-on-mean-time-to-recovery
 .. _canary release: https://martinfowler.com/bliki/CanaryRelease.html
 
-Use Case 4: Ops - Graceful Degradation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _Ops - Graceful Degradation: `Use Case 4: Ops - Graceful Degradation`_
+Use Case 4: Ops - Circuit Breaker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _Ops - Circuit Breaker: `Use Case 4: Ops - Circuit Breaker`_
 
 In certain cases, the development team (in consultation with the operations team) may choose to extend the lifetime of an Ops toggle in the codebase even after releasing its gated feature. A small number of such long-lived Ops "kill switches" provide operators dynamic controls to gracefully degrade the system under high load.  Operators can use these circuit-breaker capabilities either preemptively in the anticipation of a high-demand event or in response to taming an unanticipated high load or attack.
 
@@ -180,7 +180,7 @@ The following diagram summarizes the various use cases along 2 axes: feature mat
 The diagram also labels which use cases are primarily driven by engineering teams (E) and/or business product teams (B).
 
 .. image:: oep-0017/feature_maturity_longevity.png
-   :alt: A diagram that shows the toggle use cases on a graph with 2 axes for feature maturity and longevity and 4 quadrants to break up the permutation categories. In the short-term and low-maturity quadrant, we have the following use cases: incremental release, ops monitored rollout, and beta testing. In the short-term and high-maturity quadrant, we have launch date and parts of opt-out and open edX option use cases. In the long-term and high-maturity quadrant, we have ops graceful degradation, long-term business, and parts of opt-out and open edX option use cases.
+   :alt: A diagram that shows the toggle use cases on a graph with 2 axes for feature maturity and longevity and 4 quadrants to break up the permutation categories. In the short-term and low-maturity quadrant, we have the following use cases: incremental release, ops monitored rollout, and beta testing. In the short-term and high-maturity quadrant, we have launch date and parts of opt-out and open edX option use cases. In the long-term and high-maturity quadrant, we have ops circuit breaker, long-term business, and parts of opt-out and open edX option use cases.
 
 Example Transition of Use Case
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -265,7 +265,7 @@ The range of toggle types and toggle durations are:
    * - 9
      - *Is this an expensive but non-vital functionality that would be useful to disable gracefully in a future event of high load or attack? If so, does the availability of the control outweigh the costs of maintaining the toggle?*
      - Engineering
-     - * `Ops - Graceful Degradation`_
+     - * `Ops - Circuit Breaker`_
        * Switch Toggle
        * Forever
 
@@ -375,28 +375,38 @@ For long-term sustainability and operational success, a Feature toggle framework
 Details
 ~~~~~~~
 
-The framework, currently started in the waffle_utils_ app in edx-platform, is a viable starting point for addressing the Requirements_. It already has basic support for Requirements_ 1-8. Details below describe what would be needed for the remaining requirements.
+The framework, which lives in edx-toggles_, is a viable starting point for addressing the Requirements_. Some features only available in the waffle_utils_ app in edx-platform are noted below. It has basic support for Requirements_ 1-8,11,12. Details below describe what would be needed for the remaining requirements.
+
+.. _edx-toggles: https://github.com/edx/edx-toggles
 
 Framework Classes
 ^^^^^^^^^^^^^^^^^
 
 The framework provides the following classes for the required toggle types:
 
-* WaffleSwitch_ class
+* SettingToggle and SettingDictToggle classes
 
-  * supports the "Switch" toggle type
-  * though recommend using WaffleFlag_ instead since it has more support for testing
+  * supports the "Switch" toggle type.
+  * supports configuration as code.
 
-* WaffleFlag_ class
+* WaffleSwitch class
 
-  * supports the "Switch" toggle type
+  * supports the "Switch" toggle type.
+  * though recommend using WaffleFlag instead since it has more support for testing.
+
+* WaffleFlag class
+
+  * supports the "Switch" toggle type.
   * supports the "Rollout" toggle type for `Ops - Monitored Rollout`_ with support for percentage rollouts.
   * supports the "Group" toggle type with `Beta Testing`_ for certain users.
 
-* CourseWaffleFlag_ class
+* CourseWaffleFlag class
 
-  * supports whatever WaffleFlag_ class supports.
+  * supports whatever WaffleFlag class supports.
   * supports the "Group" toggle type with `Beta Testing`_ for course-level overrides and Opt-out_ for certain courses.
+  * only available in edx-platform in waffle_utils_.
+
+See `how to choose the right toggle class`_ for more details on each of these classes
 
 Eventually, the following classes should be added if/when needed:
 
@@ -409,14 +419,12 @@ Eventually, the following classes should be added if/when needed:
   * supports the "Group" toggle type with `Beta Testing`_ for user-provider (enterprise) organization-level overrides.
 
 .. _waffle_utils: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/waffle_utils/__init__.py
-.. _WaffleSwitch: https://github.com/edx/edx-platform/blob/fb5ca89f4befa305681ea325d817333e875ea16c/openedx/core/djangoapps/waffle_utils/__init__.py#L172
-.. _WaffleFlag: https://github.com/edx/edx-platform/blob/fb5ca89f4befa305681ea325d817333e875ea16c/openedx/core/djangoapps/waffle_utils/__init__.py#L275
-.. _CourseWaffleFlag: https://github.com/edx/edx-platform/blob/fb5ca89f4befa305681ea325d817333e875ea16c/openedx/core/djangoapps/waffle_utils/__init__.py#L312
+.. _how to choose the right toggle class: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/implement_the_right_toggle_type.html#implementing-the-right-toggle-class
 
 Req 8: Non-collision
 ^^^^^^^^^^^^^^^^^^^^
 
-The waffle_utils_ classes require namespaces. The namespace should be unique to each Django app so it doesn't collide with other installed apps in the system.
+The edx-toggles_ classes require namespaces. The namespace should be unique to each Django app so it doesn't collide with other installed apps in the system.
 
 Req 9: Multi-tenancy
 ^^^^^^^^^^^^^^^^^^^^
@@ -433,11 +441,12 @@ If business-sensitive toggles are used that need to have limited access, the fra
 Req 11: Discoverability
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The framework needs to be able to discover all waffle_utils_ classes declared in all installed Django apps in the system. Initially, the discoverability can be scoped to within each microservice, but ultimately accessed via a centralized tool across all distributed services.
+The framework needs to be able to discover all edx-toggles_ classes declared in all installed Django apps in the system. Initially, the discoverability can be scoped to within each microservice, but ultimately accessed via a centralized tool across all distributed services.
 
-To support this, the framework can make use of the `Django App Plugin`_ design pattern and search for waffle_utils_ classes declared in all installed apps. This requires that every app that uses waffle_utils_ declares its usages in a standard module (i.e., config.py) or configure its location (in its apps.py module).
+To support this, the framework will use a combination of the following:
 
-.. _Django App Plugin: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/plugins/README.rst
+* The ability to find annotated toggles in code.
+* The ability to have each service report on feature toggles and their state.
 
 Req 12: Report
 ^^^^^^^^^^^^^^
@@ -450,25 +459,22 @@ In order to provide a useful and informative administrative report of the existi
    * - Report data
      - Purpose
      - Data source
+   * - Name
+     - The name of the feature toggle.
+     - In code, by developer
    * - Description
      - Brief human-readable information about its usage and context.
      - In code, by developer
-   * - Feature Category
-     - Optional field to group interdependent toggles.
+   * - Implementation
+     - The class used to implement the feature toggles.
      - In code, by developer
    * - All Use Cases
      - Lists one or more `Use Cases`_ to specify all expected usages of this toggle.
      - In code, by developer
-   * - Current Use Case(s)
-     - A subset of "All Use Cases" to specify the current `Use Cases`_ of this toggle.
-     - In code, by developer; optionally editable via admin interface.
-   * - Toggle Type
-     - One of Switch, Rollout, or Group to further clarify the toggle's usage.
-     - In code, by developer
    * - Created in Code Date
      - Required field to specify the date the toggle was added to the codebase; to easily find all stale toggles.
      - In code, by developer
-   * - Expiration Date
+   * - Target Removal Date
      - Optional field to specify target date of removal; to easily find all expired toggles.
      - In code, by developer
    * - Current Setting(s)
@@ -554,7 +560,7 @@ Long-lived Use Cases
 
    * - Use Case
      - Test Plan
-   * - Opt-out_, `Ops - Graceful Degradation`_, `VIP / White Label`_
+   * - Opt-out_, `Ops - Circuit Breaker`_, `VIP / White Label`_
         Toggle must be tested indefinitely in both states on both master and stage, since it may be in either state in any production environment.
      - .. image:: oep-0017/test_opt_out.png
    * - `Open edX option`_
@@ -592,31 +598,43 @@ Related work
 Backward Compatibility
 ======================
 
-In order to support the Report and Discoverability requirements, existing feature toggles that use waffle_utils_ will need to migrate to the new framework. This migration should be done in a shortly focused effort as soon as the framework is ready.
+In order to support the Report and Discoverability requirements, existing feature toggles that use waffle_utils_ will need to migrate to the edx-toggles_ framework. This migration should be done in a shortly focused effort as soon as the framework is ready.
 
-Existing feature toggles that don't use waffle_utils_ will need to gradually migrate over as possible.
+Existing feature toggles that don't use edx-toggles_ will need to gradually migrate over as possible.
 
 Non-Django Applications
 -----------------------
 
-edX applications that are not written in Django (for examply Ruby on Rails or Drupal applications) are currently considered technical debt. There is expectation they will eventually be rewritten or migrated. If in the meantime they need to use feature toggles, they cannot use Django-based waffle_utils_ and should therefore have their own application-specific feature toggle best practices document that applies to their own application.
+edX applications that are not written in Django (for examply Ruby on Rails or Drupal applications) are currently considered technical debt. There is expectation they will eventually be rewritten or migrated. If in the meantime they need to use feature toggles, they cannot use Django-based edx-toggles_ and should therefore have their own application-specific feature toggle best practices document that applies to their own application.
 
 Reference Implementation
 ========================
 
-The waffle_utils_ app in edx-platform is a starting point for the framework.  As described above, however, additional enhancements are needed to support Requirements_ 9-12.
+The edx-toggles_ repo is the starting point for the framework. Some features, as noted below, are only available in the waffle_utils_ app in edx-platform.  As described above, however, additional enhancements are needed to support Requirements_ 9-10, and 13.
 
-Here are a few examples of usages of the waffle_utils_ classes:
+Here are a few examples of usages of the toggle classes:
 
-* WaffleSwitch_: A Switch toggle that was introduced for `grading enhancements`_ but was removed after being confident of its usage.
+.. note::
 
-* WaffleFlag_: A Rollout toggle introduced for a `user-facing change`_ accompanied by a developer TODO comment with a backlog ticket number as a reminder to remove.
+    The following examples are out of date, because they don't include the new annotations used for reporting. See `how to document feature toggles`_ for more details.
 
-* CourseWaffleFlag_: Group toggles that were introduced for user-facing changes to allow `course-wide Beta Testing and Opt-outs`_.
+* WaffleSwitch: A Switch toggle that was introduced for `grading enhancements`_ but was removed after being confident of its usage.
 
+* WaffleFlag: A Rollout toggle introduced for a `user-facing change`_ accompanied by a developer TODO comment with a backlog ticket number as a reminder to remove.
+
+* CourseWaffleFlag: Group toggles that were introduced for user-facing changes to allow `course-wide Beta Testing and Opt-outs`_. CourseWaffleFlag is only available in edx-platform.
+
+Updated documentation on feature toggles and reporting:
+
+* See `how to choose the right toggle class`_ for the latest details on our feature toggle classes.
+* See `how to document feature toggles`_.
+* See `how to enable feature toggle reports for an IDA`_.
+
+.. _how to document feature toggles: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/documenting_new_feature_toggles.html
 .. _grading enhancements: https://github.com/edx/edx-platform/pull/16082
 .. _user-facing change: https://github.com/edx/edx-platform/blob/6db93fc791fd2fb52ce705d47320e7868a937587/openedx/features/learner_profile/__init__.py#L13
 .. _course-wide Beta Testing and Opt-outs: https://github.com/edx/edx-platform/blob/6db93fc791fd2fb52ce705d47320e7868a937587/openedx/features/course_experience/__init__.py#L13-L44
+.. _how to enable feature toggle reports for an IDA: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/adding_new_ida_to_toggle_report.html
 
 Rejected Alternatives
 =====================
@@ -636,9 +654,13 @@ Specifying toggle configuration in environment variables or command-line argumen
 Configuration Files
 -------------------
 
-Storing toggle configuration in separate files allows the configuration to be decoupled from the code and allows different deployments to override values.  However, any change to the configuration requires a redeploy of the application.
+Storing toggle configuration in separate files allows the configuration to be decoupled from the code and allows different deployments to override values. However, any change to the configuration requires a redeploy of the application (see note with update).
 
-Many features in the edX platform use `JSON Configuration files`_ to store their settings, including toggle configuration. It is recommended that features instead use a more dynamically configurable alternative such as `Configuration Models`_ or Feature Toggles, unless (1) the setting is security-sensitive or (2) is guaranteed to not need to change for a given open edX deployment.
+.. note::
+
+    **UPDATE:** Since first written, edX has implemented immediate updates to configuration changes that don't require full deployment. We have thus implemented some feature toggles based on Django settings. See `how to choose the right toggle class`_ for details.
+
+Many features in the edX platform use `JSON Configuration files`_ to store their settings, including toggle configuration. It is recommended that features instead use a more dynamically configurable alternative such as Feature Toggles or `Configuration Models`_, unless (1) the setting is security-sensitive or (2) is guaranteed to not need to change for a given Open edX deployment.
 
 Examples of security-sensitive data are secret credentials (API keys, private keys, etc) and private network identifiers (AWS S3 bucket names, external service hostname, etc).
 
@@ -671,7 +693,7 @@ Distributed Configuration
 
 There are various open-source service discovery and distributed configuration libraries that provide a flexible key-value storage to manage Feature Toggles amongst other dynamic configuration settings. For example, Zookeeper_, Consul_, and etcd_ are viable options.
 
-Unlike Waffle and Config Models, these services provide out-of-the-box support for centrally managing and synchronizing configuration changes across all microservices in a distributed system. This is where we ultimately want to be.
+Unlike Waffle and Config Models, these services provide out-of-the-box support for centrally managing and synchronizing configuration changes across all microservices in a distributed system. This is where we ultimately want to be. **UPDATE:** See `Configuration Files`_.
 
 However, since we expect that migrating our platform to use such a service will be a large undertaking, we are postponing that effort to a later date. In the meantime, this OEP focuses on enabling teams to align on a common strategy for dynamically configuring and managing application-specific Feature Toggles.
 
@@ -681,3 +703,12 @@ However, since we expect that migrating our platform to use such a service will 
 
 Change History
 ==============
+
+2021-04-08
+----------
+
+* Renamed "Graceful Degradation" to "Circuit Breaker", which was decided to be a more standard name for this use case.
+* Added reference to the new edx-toggles library and its discoverability and reporting features, including
+its how-to documents.
+* Updated our use of Django Settings for feature toggles, now that we can more easily deploy configuration changes.
+* Removed some of the links to specific classes in favor of how-tos which are more likely to be kept up to date.
