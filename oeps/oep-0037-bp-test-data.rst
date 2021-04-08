@@ -174,6 +174,19 @@ Rejected Alternatives
 .. _django-sanitized-dump: https://github.com/andersinno/django-sanitized-dump
 .. _model-mommy: https://model-mommy.readthedocs.io/en/latest/
 
+
+Related Decisions
+=================
+
+The following related decisions modify or enhance this OEP, but have not yet been fully incorporated as updates to this OEP:
+
+.. toctree::
+   :caption: OEP-37 Decisions
+   :maxdepth: 1
+   :glob:
+
+   oep-0037/decisions/*
+
 Change History
 ==============
 
