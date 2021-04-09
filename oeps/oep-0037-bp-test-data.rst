@@ -1,6 +1,6 @@
-===========================
-OEP-0037: Devstack Dev Data
-===========================
+==================
+OEP-0037: Dev Data
+==================
 
 .. list-table::
    :widths: 25 75
@@ -95,20 +95,20 @@ Loading Data
 ------------
 
 
-The dev data to be loaded should be specified in a yaml file and each IDA should provide a ``load_dev_data`` management command which takes path to yaml files.  For example, the command to load the example data above into the LMS might look something like this:
+The dev data to be loaded should be specified in a yaml file and each IDA should provide a ``load_dev_data`` management command which takes a path to yaml files.  For example, the command to load the example data above into the LMS might look something like this:
 
 .. code-block:: bash
 
     ./manage.py lms load_dev_data /tmp/example.yaml
 
 
-If there was corresponding dev data that needs to be loaded into another IDA(i.e ecommerce) when testing this functionality in devstack, there would be an equivalent command in the ecommerce repository:
+If there is corresponding dev data that needs to be loaded into another IDA(i.e, ecommerce) when testing this functionality in devstack, there would be an equivalent command in the ecommerce repository:
 
 .. code-block:: bash
 
     ./manage.py load_dev_data /tmp/example2.yaml
 
-To keeping data loading modular, dev data specification for each IDA should live in its own yaml file.
+To keep data loading modular, the dev data specification for each IDA should live in its own yaml file.
 
 Each ``load_dev_data`` management command should take the specification from the yaml file and call on the data generation fuctions that correspond to keys in yaml file.
 
