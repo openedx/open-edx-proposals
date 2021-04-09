@@ -86,7 +86,7 @@ features:
 * When the task is complete, the task requester will be sent an email to that
   effect (including a link to the task status page).
 * The user will be able to cancel a task. Celery's
-  `revoke <http://docs.celeryproject.org/en/latest/userguide/workers.html#revoke-revoking-tasks>`_
+  `revoke <https://docs.celeryproject.org/en/latest/userguide/workers.html#revoke-revoking-tasks>`_
   command will be used to cancel a task which hasn't started execution yet,
   and the implementation of this OEP will include an API which tasks should
   use periodically to determine if execution should be aborted.

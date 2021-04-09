@@ -171,7 +171,7 @@ considers the timing of the next `Open edX named release`_.
 * **Accepted** on Day 14 *(depending on influx of feedback)*
 * **Deprecated/Removing/Removed** - from Day 15 onwards *(depending on resources and technology being removed)*
 
-.. _Open edX named release: http://open-edx-proposals.readthedocs.io/en/latest/oep-0010-proc-openedx-releases.html
+.. _Open edX named release: https://open-edx-proposals.readthedocs.io/en/latest/oep-0010-proc-openedx-releases.html
 
 Document
 ~~~~~~~~
@@ -292,13 +292,13 @@ Here are some common ways to mark a technology as deprecated:
 
 * Feature toggles - Set the “Expiration Date” as described in OEP-17_.
 
-* Github repo - See `OEP-14 <http://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html>`_
+* Github repo - See `OEP-14 <https://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html>`_
 
 * XBlock - For edx.org specifically, see `Deprecating xBlock for the edX website`_.
 
 .. _warnings.warn: https://docs.python.org/2/library/warnings.html#warnings.warn
-.. _OEP-17: http://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html
-.. _OEP-14: http://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html
+.. _OEP-17: https://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html
+.. _OEP-14: https://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html
 .. _Deprecating xBlock for the edX website: https://openedx.atlassian.net/wiki/spaces/ENG/pages/723550424/Deprecating+and+Disabling+an+XBlock+for+the+edX+website
 
 Removing

@@ -58,4 +58,4 @@ References
 List any additional references here that would be useful to the future reader.
 See `Documenting Architecture Decisions`_ for further input.
 
-.. _Documenting Architecture Decisions: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+.. _Documenting Architecture Decisions: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions

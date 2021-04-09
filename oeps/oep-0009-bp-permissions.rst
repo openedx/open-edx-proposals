@@ -189,8 +189,8 @@ permission to anonymous users and assumes that there are no ``view_*``
 permissions relevant to viewing or listing objects; those points can be
 changed if desired by creating a subclass, for example:
 
-.. _DjangoObjectPermissions: http://www.django-rest-framework.org/api-guide/permissions/#djangoobjectpermissions
-.. _set the permissions policy: http://www.django-rest-framework.org/api-guide/permissions/#setting-the-permission-policy
+.. _DjangoObjectPermissions: https://www.django-rest-framework.org/api-guide/permissions/#djangoobjectpermissions
+.. _set the permissions policy: https://www.django-rest-framework.org/api-guide/permissions/#setting-the-permission-policy
 
 .. code-block:: python
 
@@ -244,8 +244,8 @@ proposed above for mapping permissions to Q objects might look as follows:
 Such a class would be used in a view's `filter_backends`_ attribute or
 could be used by default for all view classes which don't override it.
 
-.. _BasePermission: http://www.django-rest-framework.org/api-guide/permissions/#custom-permissions
-.. _filter_backends: http://www.django-rest-framework.org/api-guide/filtering/#setting-filter-backends
+.. _BasePermission: https://www.django-rest-framework.org/api-guide/permissions/#custom-permissions
+.. _filter_backends: https://www.django-rest-framework.org/api-guide/filtering/#setting-filter-backends
 
 Rationale
 =========

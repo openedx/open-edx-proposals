@@ -257,7 +257,7 @@ Here are a list of current Open edX frameworks that are related to "eventing" bu
 
 .. _Reactive Manifesto: https://www.reactivemanifesto.org/
 .. _Messaging Patterns for Event-Driven Microservices: https://content.pivotal.io/blog/messaging-patterns-for-event-driven-microservices
-.. _Django Celery: http://docs.celeryproject.org/en/latest/django/
+.. _Django Celery: https://docs.celeryproject.org/en/latest/django/
 
 * **Notifications and messaging framework** - It is also not the intention of this OEP's real-time eventing framework to support real-time messaging to users. The Open edX `Automated Communication Engine (ACE)`_ is a Django library that supports personalized delivery of user-targeted messages. It is a pluggable and modular framework that supports multiple delivery channels with theme-aware and user-language-aware message templates.
 
