@@ -121,7 +121,7 @@ ADRs
    * - **Maintenance**
      - Since ADRs are inherently a historical trail of technical decisions, by design, they do not need ongoing maintenance.
 
-.. _`Nygard's post`: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+.. _`Nygard's post`: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
 .. _invaluable technique: https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
 .. _edx/credentials/docs/decisions: https://github.com/edx/credentials/tree/master/docs/decisions
 

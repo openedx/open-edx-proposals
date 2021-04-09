@@ -542,7 +542,7 @@ A list of dated sections that describes a brief summary of each revision of the 
 .. _How we switched our template rendering engine to React: https://engineering.pinterest.com/blog/how-we-switched-our-template-rendering-engine-react
 .. _Nunjucks Asynchronous Support: https://mozilla.github.io/nunjucks/api.html#asynchronous-support
 .. _jQuery-XBlock: https://github.com/edx-solutions/jquery-xblock
-.. _OEP-6 Context-scoped XBlock Fields: http://open-edx-proposals.readthedocs.io/en/latest/oep-0006.html
+.. _OEP-6 Context-scoped XBlock Fields: https://open-edx-proposals.readthedocs.io/en/latest/oep-0006.html
 .. _Pluggable UI hackathon project: https://github.com/edx/edx-platform/pull/14122
 .. _React Native: https://facebook.github.io/react-native/
 .. _Web Components: http://webcomponents.org/
