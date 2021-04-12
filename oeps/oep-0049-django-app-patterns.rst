@@ -145,8 +145,6 @@ Example
   def get_supported_programs_simple():
     """
     Gets all programs that aren't in UNSUPPORTED_PROGRAM_UUIDS settings
-
-    Returns a page of results if page_size is specified
     """
     supported_programs = _Program.objects.exclude(
         uuid__in=UNSUPPORTED_PROGRAM_UUIDS
