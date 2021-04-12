@@ -21,7 +21,7 @@ In the future, we hope to move these dev data generation functions into a plugin
 Consequences
 ------------
 
-- Dev data generation is centralized to `load_dev_data`management command in each IDA
+- Dev data generation is centralized to `load_dev_data` management command in each IDA
 - The file will grow larger as new data is supported
 - `load_dev_data` management command will be modified everytime new data is supported
 
