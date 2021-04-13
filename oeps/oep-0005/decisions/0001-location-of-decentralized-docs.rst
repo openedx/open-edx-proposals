@@ -4,7 +4,7 @@ Location of Decentralized Devstack Docs
 Status
 ------
 
-Superceded by `Decision 0005`_
+Superceded by :doc:`0005-centralized-devstack.rst`
 
 Context
 -------
