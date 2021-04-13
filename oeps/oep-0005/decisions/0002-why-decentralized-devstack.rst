@@ -4,7 +4,7 @@ Why Decentralized Devstack
 Status
 ------
 
-Accepted
+Superceded by :doc:`0005-centralized-devstack.rst`
 
 Context
 -------
