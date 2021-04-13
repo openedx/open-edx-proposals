@@ -4,7 +4,7 @@ Location of Decentralized Devstack Docs
 Status
 ------
 
-Accepted
+Superceded by `Decision 0005`_
 
 Context
 -------
@@ -35,3 +35,5 @@ edx/devstack repo: rejected because DD is meant to eventually displace current d
 edx/edx-developer-docs repository: This as central repositories for platform wide documentation. This was heavily considered and still might eventually be the right location for the DD's how-tos.
 
 In edx-cookiecutters/cookiecutter-django-ida/docs/decentralized_devstack: This was rejected because this cookiecutter is just one of many places that will be modified. Eventually, links should be created from the cookiecutter that point of location of these decisions.
+
+.. _Decision 0005: https://github.com/edx/open-edx-proposals/tree/master/oeps/oep-0005/decisions/0005-centralized-devstack.rst

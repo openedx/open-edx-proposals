@@ -4,7 +4,7 @@ Why Decentralized Devstack
 Status
 ------
 
-Accepted
+Superceded by `Decision 0005`_
 
 Context
 -------
@@ -58,3 +58,5 @@ Sources
 .. _Devstack 2.0 One-Pager: https://openedx.atlassian.net/wiki/spaces/AC/pages/1791885668/Devstack+2.0+One-Pager
 
 .. _Decentralized DevStack Team Report: https://openedx.atlassian.net/wiki/spaces/AC/pages/1792901294/Decentralized+DevStack+Team+Report+-+July+2020
+
+.. _Decision 0005: https://github.com/edx/open-edx-proposals/tree/master/oeps/oep-0005/decisions/0005-centralized-devstack.rst
