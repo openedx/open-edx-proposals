@@ -9,7 +9,7 @@ Accepted
 Context
 -------
 
-Devstack currently has no standard way of creating dev data. Overtime, developers have figured out their own ways to create data for local development. Recently, `OEP-37`_ was proposed, which suggests a standardized method for creating dev data. We decided the proposal was good enough to warrant a prototype and during the prototyping phase, we ran into the question of how much of this method we want to centralize into devstack, vs keep things decentralized by keeping as much as is possible in each IDAs.
+Devstack currently has no standard way of creating dev data. Over time, developers have figured out their own ways to create data for local development. Recently, `OEP-37`_ was proposed, which suggests a standardized method for creating dev data. We decided the proposal was good enough to warrant a prototype and during the prototyping phase, we ran into the question of how much of this method we want to centralize into devstack, vs keep things decentralized by keeping as much as is possible in each IDAs.
 
 Specifically, this ADR pertains to question of where to put yaml files specifiying what data to load into the devstack development environment. As it is implemented, each IDA will have its own yaml files which lay out what data to create for that IDA.
 
