@@ -20,11 +20,13 @@ chardet==4.0.0
     # via
     #   -r requirements/base.txt
     #   requests
+colorama==0.4.4
+    # via sphinx-autobuild
 docutils==0.16
     # via
     #   -r requirements/base.txt
     #   sphinx
-edx-sphinx-theme==2.0.0
+edx-sphinx-theme==2.1.0
     # via -r requirements/base.txt
 idna==2.10
     # via
@@ -48,7 +50,7 @@ packaging==20.9
     # via
     #   -r requirements/base.txt
     #   sphinx
-pygments==2.7.4
+pygments==2.8.1
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -73,9 +75,9 @@ snowballstemmer==2.1.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-sphinx-autobuild==2020.9.1
+sphinx-autobuild==2021.3.14
     # via -r requirements/dev.in
-sphinx==3.4.3
+sphinx==3.5.4
     # via
     #   -r requirements/base.txt
     #   edx-sphinx-theme
@@ -106,7 +108,7 @@ sphinxcontrib-serializinghtml==1.1.4
     #   sphinx
 tornado==6.1
     # via livereload
-urllib3==1.26.3
+urllib3==1.26.4
     # via
     #   -r requirements/base.txt
     #   requests
