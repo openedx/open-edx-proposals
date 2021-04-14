@@ -4,7 +4,7 @@ Centralization of Development Data Yaml files
 Status
 ------
 
-Draft
+Accepted
 
 Context
 -------
