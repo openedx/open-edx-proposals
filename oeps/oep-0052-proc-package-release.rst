@@ -65,7 +65,7 @@ Github Release Summary and Description
    * Improvements
 * It is a good practice to use plain language and add any additional resources if needed to make it more comprehensive
 
-Rejected Alternatives
-=====================
+Other Alternatives Considered
+=============================
 
 We considered triggering a PyPI release on Tag creation as we used to do in Travis. But we observed that engineers sometimes forget to create a Github Release when they tag a commit so we have some PyPI releases without any Github release in parallel. As the best practice is to create a Github Release whenever a PyPI release is triggered, we selected Github Release as the event triggering the action instead of Tagging.
