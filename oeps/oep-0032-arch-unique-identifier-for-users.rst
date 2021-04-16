@@ -12,7 +12,7 @@ OEP-32: Unique Identifier for Users
    * - Title
      - Unique Identifier for Users
    * - Last Modified
-     - 2019-05-15
+     - 2021-04-16
    * - Authors
      - Brian Wilson, Robert Raposa, Nimisha Asthagiri
    * - Arbiter
@@ -33,8 +33,12 @@ We will use the *LMS user_id* to uniquely identify a user in the Open edX system
 
 The *LMS user_id* should be used for all internal events. Additionally, the *LMS user_id* can be used for public events, REST APIs, and JavaScript APIs.
 
-.. _Django auth_user: https://docs.djangoproject.com/en/2.0/topics/auth/default/#user-objects
+.. warning::
 
+    A new external user id should still be used with third-parties under certain circumstances. This is especially important when the user id is sent along with other `Personally Identifiable Information (PII)`_. See the `ADR for the edx-platform external_user_ids Django app`_ for more details.
+
+.. _Django auth_user: https://docs.djangoproject.com/en/2.0/topics/auth/default/#user-objects
+.. _ADR for the edx-platform external_user_ids Django app: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/external_user_ids/docs/decisions/0001-externalid.rst
 
 Context
 =======
