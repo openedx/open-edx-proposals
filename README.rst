@@ -12,3 +12,13 @@ archive of large and broadly relevant choices made for the platform.
 View the published list of `Open edX Proposals (OEPs)`_ on ReadTheDocs.
 
 .. _Open edX Proposals (OEPs): https://open-edx-proposals.readthedocs.io
+
+Testing locally
+---------------
+
+To test locally in a Python virtual env::
+
+  # Note: if this fails, you may first need to run: pip install sphinx
+  make requirements
+  
+  make html
