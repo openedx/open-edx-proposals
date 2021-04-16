@@ -16,10 +16,10 @@ The following pain points have been identified in our current development enviro
 - Operational concerns like schema migrations, data seeding, and configuration are opaque and not consistent between applications.
 - The centralized and unversioned nature of the devstack means that changes made by one team can cause unintended  knock-on effects for other teams
 - The operations required to setup devstack take a long time even when someone knows exactly what to do.  Longer if there is trial and error involved for engineers who are new to interacting with the stack.
-- The system resources required to run the stack are more than some edX-issued laptops can handle. 
-Dockerfiles and corresponding images are opaque to developers and challenging to change/troubleshoot.
+- The system resources required to run the stack are more than some edX-issued laptops can handle.
+- Dockerfiles and corresponding images are opaque to developers and challenging to change/troubleshoot.
 
-Some of the challenges listed above are due to the design of the devstack development environment itself. Others are inherent in the design of the applications.  Both will need to evolve to solve for all of the most common pain points.  
+Some of the challenges listed above are due to the design of the devstack development environment itself. Others are inherent in the design of the applications.  Both will need to evolve to solve for all of the most common pain points.
 
 
 Decisions
