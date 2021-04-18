@@ -10,7 +10,7 @@ OEP-0050: Hooks extension framework
    * - Title
      - Open edX Hooks Extension Framework
    * - Last Modified
-     - 2021-02-04
+     - 2021-04-17
    * - Authors
      - Felipe Montoya <felipe.montoya@edunext.co>
    * - Arbiter
@@ -30,7 +30,7 @@ Abstract
 To sustain the growth of the Open edX ecosystem, the business rules of the
 platform must be open for extension following the open-closed principle. This
 OEP specifies a solution using what is commonly referred to as hooking. That is
-the definition of a stable set of places in the code (triggers) where functions
+the definition of a stable set of places in the code (hooks) where functions
 defined via plugins can take place.
 
 
@@ -63,61 +63,58 @@ extendable platforms for the web today for many years already, WordPress.
 Specification
 =============
 
-The core of this proposed framework is the definition of a stable list of places
-in the life cycle of the learners registration, login, enrollment, course usage,
-and certification. Conversely, the authors life cycle will have a list of places
-during the creation and publication of courses. These places, called triggers
-will be written to the edx-platform code.
-Now, anyone that wants to extend the functionality of the platform at one of
-those places, can define a function, called an action or filter, to be called
-when the trigger is executed. The sum of a trigger and action will be referred
-to as a hook.
+The core of this proposed framework is to define a stable list of places, called
+hooks from now on, in the life cycle of the learners registration, login,
+enrollment, course usage, and certification. Conversely, the authors life cycle
+will have a list of hooks during the creation and publication of courses.
 
-Triggers, broadly fit into two categories:
+According to the expectations of the calling location, hooks can be split into
+two, namely events and filters. Events run when called at a given location and
+return nothing. Filters on the other hand are passed data and are expected to
+return something. This something will be used by the platform code. The most
+common case is to be passed data and return the same of somewhat changed, but
+similar data. Other common case would be to receive data and raise an exception
+in accordance with the definition of the hook. Most likely to completely halt
+the process that would happen after the hook.
 
-* Triggers that allow actions called at this time to affect the application flow
-  via their results. In this case, the actions called at the time will be called
-  filters.
-* Triggers that will not allow the application flow to be altered by the
-  actions called.
+The documentation for the available hooks at any point should be kept in-code at
+https://github.com/edx/edx-platform/tree/master/docs/guides. This location
+should contain a document that covers the design principles and details that did
+not land in the OEP as well as the final decisions made in the OEP. Also will
+index the list of hooks and their current status. It should not cover the
+history and all the previous states of the framework. It should reflect the
+latest way of thinking and examples of how to use the framework.
 
-Although the first document contains a list of the proposed hooks, we now
-proposed that the documentation for this is kept in-code at https://github.com/edx/edx-platform/tree/master/docs/guides.
-This location should contain a document that covers the design principles and
-details that did not land in the OEP as well as the final decisions made in the
-OEP. Also will index the list of hooks and their current status. It should not
-cover the history and all the previous states of the framework. It should
-reflect the latest way of thinking and examples of how to use the framework.
+Given the public promise made by the framework, the signature of the functions
+(input/output) of every hook should be maintained in a stable way. The same
+applies for additions or removals from the list of public triggers, which should
+follow a path of deprecation first and preferably be given an optional hook
+where the same context information or code execution path can be accessed.
 
-Additionally, a directory in the same location will include individual files
-that cover each available trigger.
+Registering more than one function for a hook should be possible. This creates
+two different interfaces given that filters are expected to return something and
+the platform should act accordingly. Due to this different nature, the mechanism
+by which a developer connects to a hook differs from events to filters.
 
-The signature of the functions (input/output) of every trigger should be
-maintained in a stable way. The same applies for additions or removals from the
-list of public triggers, which should follow a path of deprecation first and
-preferably be given an optional hook where the same context information or code
-execution path can be accessed.
+Events will be called via Django signals. There will be a new library that
+defines a list of semantically meaningful signals based on higher-level events
+and platform concepts. This library will be imported at the platform code and
+will, when possible, replace the current signals the platform already emits.
+Developers that want to use a hook, should also import this library at the
+plugins where they are writing the functions that connect to the event.
 
-The mechanism by which a trigger is connected to an action/filter will be a
-configurable python wrapper also contained in the platform core and by design
-must consider that:
+For filters, the possibility of registering more than one function makes some
+sort of reducing routine for the results necessary. Therefore the proposal is to
+make them work as a pipeline, so the results of the previously executed function
+should be made available to the next function. Doing so makes the calling order
+of its registered functions important and thus it must be respected. This is not
+supported by Django signals and for this case, the mechanism to register
+functions will be the Django settings module.
 
-* Most actions will be implemented in plugins.
-* The order of execution for multiple actions/filters listening on a trigger
-  must be respected, and the results of previously executed filters/actions
-  should be made available to the current filter/action.
-* Actions should be easy to execute in an asynchronous way.
-* The results of executing actions or filters in an asynchronous way will be
-  ignored by the calling process. The will not modify the flow of the application
-
-
-The wrapper should present functions to register the trigger call, to call the
-configured actions as a pipeline, and to defer calling the functions as async
-tasks when configured. This wrapper should make the triggers, especially those
-that do not allow for application flow change, to be compatible with the Async
-Event Messaging described in OEP-41.
-In terms of error handling, it should allow the configuration of silent failures
-letting operators know the source of the error.
+When possible, hooks should be compatible with the Async Event Messaging
+described in OEP-41.
+In terms of error handling, the implementation should allow the configuration of
+silent failures letting operators know the source of the error.
 
 
 Rationale
@@ -128,28 +125,22 @@ at specific, pre-defined spots. Many of the business rules of an installation
 can be altered and extended if the right spots are allowed to be extended by
 open edX plugins. Initially, this proposal is meant as a way for community
 members to extend the platform, but it could even become a way for the
-installation at edx.org to implement its particular business rules in a way that
-is sufficiently separated from the Open edX core.
+installation at edx.org to implement some of its particular business rules in a
+way that is sufficiently separated from the Open edX core.
 
-This proposal draws heavy inspiration from WordPress, in which the same
-`two types of hooks`_ are defined. Leveraging the Python/Django based technology
-of open edX makes actions a great candidate to be executed asynchronously in a
-different process as they are meant to be called with some context data, act on
-it, and return silently to the trigger location.
-Filters on the other hand are designed so that they are given some context data,
-act on it, and return a modified version for the rest of the core-code to use in
-the next steps of execution. We intend to make the two kinds of hooks
-interchangeable such that developers are not limited by the framework but
-instead given maximum flexibility on its usage to attain their extension goals.
+This proposal draws heavy inspiration from WordPress, although it does not copy
+the concepts verbatim and leaves some space for leveraging the possibilities
+that Python and Django have to offer. For example, events are great candidates
+for asynchronous execution in a different process as they are meant to be called
+with some context data, act on it, and return silently to the trigger location.
+Developers are encouraged to use the pattern of deferring to async tasks
+immediately using celery.
 
 Hooks are used within WordPress to support almost all the forms in which it can
 be extended and are the basis of the very successful marketplace for plugins and
 themes. Given that Open edX already has a variety of theming capabilities and
 options we have opted here not to include any hooks that are meant to be used
 for theming.
-
-This proposal does not copy the model verbatim, since the open edX platform uses
-a different base technology which already allows for many extension points.
 This proposal deals primarily with the specific spots in the code execution that
 for many initiatives have been identified as the critical points that would
 allow them to adopt this technology without requiring modifications to the core.
@@ -159,61 +150,114 @@ stevedore already allow the addition of code in a very clean way. This proposal
 builds on top of this, only trying to standardize and grow the current
 capabilities of the platform.
 
-.. _two types of hooks: https://developer.wordpress.org/plugins/hooks/#actions-vs-filters
-
 
 Performance Considerations
 --------------------------
 
 This proposal is a double-edged sword. By allowing plugins to install code on so
-many and so varied places of the application performance could be completely
-destroyed to the point of making the platform unusable.
+many and so varied places of the application, performance could be hindered.
 
 This is a very important topic, but we believe that any responsible
 implementation of a hook must keep its own consequences and risks in check.
 In other words, it is up to the users of the hooks framework to be mindful of
-the performance of the platform by connecting to the appropriate triggers and
-optimizing their actions to the appropriate scale their Open edX instance runs on.
+the performance of the platform by connecting to the appropriate hooks and
+optimizing their functions to the appropriate scale their Open edX instance runs
+at.
 
-Using asynchronous tasks to fulfill the actions and moreover connecting actions
-to the triggers in a way that is directly asynchronous is strongly recommended.
-The initial implementation must include sufficient tooling to make this possible
-and encourage it.
+Receiving an event signal and immediately registering an async task using celery
+is a well-known pattern through the code and strongly recommended.
+Making this a core part of the configurations was removed from the proposal to
+make the framework less complicated in its implementation.
 
-Alternatively, in the core platform code, the actual exposition of each
-particular trigger could be configured (via flags or settings) so that even for
-scales at which the simple lookup for the actions that might be connected to a
-particular trigger could have performance implications is accounted for.
+Also in the core platform code, the actual exposition of each particular hook
+could be configured (via flags or settings) so that even for big scales, at
+which the simple lookup for the functions or sending of the signals for a hook
+could have performance implications, is accounted for.
+
+Django 3.2 has just been released including the capabilities needed to use async
+patterns in the execution of views via coroutines. The usage of async await
+would be very beneficial for performance in both events and filters that are I/O
+heavy. The mechanism for calling filters should be implemented in a way that
+makes usage of this pattern possible. For the case of events, we expect Django
+to already implement their signals in the best possible way.
+
+Distributing the business logic into separate repos that are finally run in the
+same process, might be difficult to debug. The implementation of this proposal
+should include tools to track performance data as well as a glimpse into the
+current receivers of an event.
+
+
+Use Cases
+---------
+
+To further explain the sort of use cases that this proposal makes possible, we
+propose certain examples made easy by this framework.
+
+#. Generating a certificate in a third party system
+
+   The Event that fires after a certificate is generated in the platform is the
+   perfect place to call upon a service such as https://www.accredible.com/ or
+   https://www.sertifier.com to generate an external certificate. The same
+   applies to a badge in any badging system.
+
+#. Making enrollment possible for "premium" users in all courses
+
+   A Filter right before the enrollment could check the user metadata or call an
+   external system to determine if they are in a business tier that allows a
+   paying user to enroll in any course for an online academy. This use case
+   would require the hook called before the enrollment to support halting the
+   process as one of its responses to what the filter returns.
+
+#. Adding context information for an enterprise customer to a certificate
+
+   When rendering a certificate, a particular template that is stored in the
+   database may require certain information that is only available for users of
+   the particular course the certificate belongs to. This very custom logic can
+   be separated from the core platform repository via a Filter.
 
 
 Backward Compatibility
 ======================
 
-The only extension point that will be affected by this OEP is the
-REGISTRATION_EXTENSION_FORM. This extension point should still be supported
-until a clear migration path to the corresponding hook is well defined and
-documented.
+The only current extension point that could be affected by this OEP is the
+REGISTRATION_EXTENSION_FORM. We suggest that this extension point continues to
+be supported until it is clear that migrating this to hooks is possible, and the
+migration path to the corresponding hook is well defined and documented.
 
 
 Reference Implementation
 ========================
 
 The reference implementation must be completed before this OEP is given "Final"
-status. This document will be updated as the implementation progresses.
+status. It is not necessary for the "accepted" status.
+
+The current implementation can be found at:
+
+* The library repository: https://github.com/eduNEXT/openedx-hooks
+* The documentation PR: https://github.com/edx/edx-platform/pull/27157
+* PRs including the library and using it to define the first hooks: https://github.com/edx/edx-platform/pulls?q=is%3Apr+%22BD-32%22
+
+This document will be updated as the implementation progresses.
 
 
 Rejected Alternatives
 =====================
 
 * Django Signals was initially considered as the primary mechanism to connect
-triggers and actions, but was ultimately discarded due to the lack of control
-of the execution order when more than one action is listening for a trigger.
+both events and filters. It was eventually discarded for the filters part of the
+framework due to the lack of ordering capabilities required for the reducing of
+results when multiple functions are registered in a filter.
 
-* It was considered to split this OEP into two. One handling the triggers that
-do not allow for flow modification and then a second handling those that do.
+* It was considered to split this OEP into two. One handling the hooks that
+are of the event kind and then a second handling the filter kind.
 This was however rejected fearing that the proposal could be stuck only after
-the first iteration and never reach its full potential. Instead a phased
-implementation of triggers from both kinds will be pursued.
+the first iteration and never reach its full potential. Instead, a phased
+implementation of hooks from both kinds will be pursued.
+
+* Adding celery directly in the tooling in order to make the calling of async
+tasks as trivial as a configuration flag was initially considered. This added
+extra dependencies at several locations and did not resolve the general issue of
+serializing some complex objects such as requests and Django Users.
 
 
 References
@@ -222,7 +266,10 @@ References
 This OEP was first discussed and presented to the community via `a public google doc`_.
 The discussion held there is included into the present proposal.
 
+A thread in the `openedx discourse server`_ served as the main feedback loop.
+
 .. _a public google doc: https://docs.google.com/document/d/1jhnudz6AVtVt0ZSRSwOwj9gJ0lsDDn_8mUCPehLPzLw/edit#
+.. _openedx discourse server: https://discuss.openedx.org/t/configuration-for-the-hooks-extension-framework/4527
 
 
 Change History
@@ -233,3 +280,9 @@ Initial version made public for the community at the google docs file.
 
 04 February 2021 - Felipe Montoya
 Converted to Draft OEP
+
+24 March 2021 - Felipe Montoya
+Adding an official arbiter
+
+17 April 2021 - Felipe Montoya
+Updating based on feedback from the community and edX arch team.
