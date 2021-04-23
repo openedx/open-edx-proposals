@@ -708,7 +708,6 @@ Change History
 ----------
 
 * Renamed "Graceful Degradation" to "Circuit Breaker", which was decided to be a more standard name for this use case.
-* Added reference to the new edx-toggles library and its discoverability and reporting features, including
-its how-to documents.
+* Added reference to the new edx-toggles library and its discoverability and reporting features, including its how-to documents.
 * Updated our use of Django Settings for feature toggles, now that we can more easily deploy configuration changes.
 * Removed some of the links to specific classes in favor of how-tos which are more likely to be kept up to date.
