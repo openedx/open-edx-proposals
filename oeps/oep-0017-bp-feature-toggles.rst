@@ -10,7 +10,7 @@ OEP-17: Feature Toggles
    * - Title
      - Feature Toggles
    * - Last Modified
-     - 2021-04-08
+     - 2021-04-26
    * - Authors
      - Nimisha Asthagiri <nimisha@edx.org>
    * - Arbiter
@@ -624,12 +624,19 @@ Here are a few examples of usages of the toggle classes:
 
 * CourseWaffleFlag: Group toggles that were introduced for user-facing changes to allow `course-wide Beta Testing and Opt-outs`_. CourseWaffleFlag is only available in edx-platform.
 
+Updated examples of feature toggle reporting:
+
+* Sample `readthedocs documention for edx-platform feature toggles`_.
+* Based on `annotated toggles in the edx-platform codebase`_.
+
 Updated documentation on feature toggles and reporting:
 
 * See `how to choose the right toggle class`_ for the latest details on our feature toggle classes.
 * See `how to document feature toggles`_.
 * See `how to enable feature toggle reports for an IDA`_.
 
+.. _readthedocs documention for edx-platform feature toggles: https://edx.readthedocs.io/projects/edx-platform-technical/en/latest/featuretoggles.html
+.. _annotated toggles in the edx-platform codebase: https://github.com/edx/edx-platform/search?q=toggle_name
 .. _how to document feature toggles: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/documenting_new_feature_toggles.html
 .. _grading enhancements: https://github.com/edx/edx-platform/pull/16082
 .. _user-facing change: https://github.com/edx/edx-platform/blob/6db93fc791fd2fb52ce705d47320e7868a937587/openedx/features/learner_profile/__init__.py#L13
@@ -703,6 +710,11 @@ However, since we expect that migrating our platform to use such a service will 
 
 Change History
 ==============
+
+2021-04-26
+----------
+
+* Added additional links to the reference implementation section.
 
 2021-04-08
 ----------
