@@ -24,7 +24,8 @@ Decision
 Place DD documentation(general decisions, general how-tos) in edx/open-edx-proposals/oeps/oep-0005. Eventually, these decisions will be used to update OEP-5.
 
 .. note::
-Any documentation specific to a particular repo should still go in that repo regardless of its relation to DD.
+
+    Any documentation specific to a particular repo should still go in that repo regardless of its relation to DD.
 
 
 Rejected Alternatives

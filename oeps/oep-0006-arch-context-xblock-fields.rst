@@ -64,9 +64,7 @@ being proposed):
 The ``BlockScope`` can have the following values:
 
 * ``USAGE``: "The data is related to a particular use of a block in a course."
-* ``DEFINITION``: "The data is related to the definition of the block" (one
-block definition can be used multiple times in a course or even among multiple
-courses).
+* ``DEFINITION``: "The data is related to the definition of the block" (one block definition can be used multiple times in a course or even among multiple courses).
 * ``TYPE``: "The data is related to all instances of this type of XBlock."
 * ``ALL``: "The data is common to all blocks."
 
@@ -220,6 +218,7 @@ An example follows:
    </course>
 
 The reasoning behind the above provisional spec is as follows:
+
 * Conceptually, in the OLX format, all course content and all XBlock fields are
   serialized as XML nodes, within a root ``<course>`` node `(docs)`_. The entire
   course's XML may be in a single course.xml file or spread out into multiple
