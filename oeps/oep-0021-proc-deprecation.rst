@@ -217,14 +217,17 @@ Post a message to `Open edX Discourse Deprecation Announcements`_, using the fol
         Hi there,
 
         We plan to deprecate and remove <*Short description of the technology*>.
-        We are targeting removal after <*Target Removal Date*>.
 
         Please read https://openedx.atlassian.net/browse/<*DEPR-Number*> for
         more information and to post any questions/comments. The proposed
         deadline for comments before acceptance is <*Target Accepted Date*>.
 
+        Once the ticket is accepted, removal can happen at any time.
+
         Thanks,
         <*Your name*>
+
+Once the message is posted, include a link to the Discourse thread in the DEPR ticket.
 
 
 .. _Open edX Discourse Deprecation Announcements: https://discuss.openedx.org/c/announcements/deprecation
@@ -236,11 +239,11 @@ Post the following in the #open-edx-proposals and #general `openedx slack`_ chan
 
     *Removal of <*Technology Name*>:*
     We plan to deprecate and remove <*Short description of the technology*>.
-    We are targeting removal after <*Target Removal Date*>.
 
     Please read https://openedx.atlassian.net/browse/<*DEPR-Number*> for
     more information and to post any questions/comments. The proposed
     deadline for comments before acceptance is <*Target Accepted Date*>.
+    Once the ticket is accepted, removal can happen at any time.
 
 .. _`openedx slack`: http://openedx-slack-invite.herokuapp.com/
 
@@ -313,8 +316,7 @@ During this phase, remember the following:
 * Remove related code from all places, including the frontend, APIs, and
   the backend, perhaps even in that order.
 * Remove any related documentation on docs.edx.org_ and elsewhere.
-* Continue to update the ticket with any delays or issues that may arise, being
-  mindful of the target *Removed* date set on the **DEPR** ticket.
+* Continue to update the ticket with any delays or issues that may arise.
 
 .. _docs.edx.org: http://docs.edx.org/
 
