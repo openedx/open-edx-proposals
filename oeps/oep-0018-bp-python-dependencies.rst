@@ -117,7 +117,8 @@ file format, there are a few guidelines each of these files should follow:
 
 * The file should start with a brief comment explaining the context in which
   these dependencies are needed.  Examples can be found in the
-  `cookiecutter-django-app`_ repository.
+  `edx-cookiecutters`_ repository, e.g. under
+  ``python-template/{{cookiecutter.placeholder_repo_name}}/requirements/``.
 * Each listed dependency should have a brief end-of-line comment explaining
   its primary purpose(s) in this context.  These comments typically start at
   the 37th character, which allows enough room for most package name plus
@@ -133,16 +134,16 @@ file format, there are a few guidelines each of these files should follow:
   requirements file for the larger set of dependencies. For example,
   ``test.in`` often includes a line like the following to ensure that the same
   versions of packages used in production for a service will also be used when
-  testing it:
-
-.. code-block:: python
+  testing it::
 
   -r base.txt                         # Core dependencies of the service being tested
 
 If the repository contains a ``setup.py`` file defining a Python package, the
 base dependencies also need to be specified there.  These can be derived from
 ``requirements/base.in`` with a Python function declared in
-``setup.py`` itself, such as the following::
+``setup.py`` itself, such as the following:
+
+.. code-block:: python
 
     def load_requirements(*requirements_paths):
         """
@@ -166,12 +167,14 @@ base dependencies also need to be specified there.  These can be derived from
         """
         return line and not line.startswith(('-r', '#', '-e', 'git+', '-c'))
 
-This can be used to define ``install_requires`` as follows::
+This can be used to define ``install_requires`` as follows:
+
+.. code-block:: python
 
     install_requires=load_requirements('requirements/base.in'),
 
 .. _requirements file: https://pip.readthedocs.io/en/1.1/requirements.html
-.. _cookiecutter-django-app: https://github.com/edx/cookiecutter-django-app/tree/master/%7B%7Bcookiecutter.repo_name%7D%7D/requirements
+.. _edx-cookiecutters: https://github.com/edx/edx-cookiecutters
 .. _Environment markers: https://www.python.org/dev/peps/pep-0508/#environment-markers
 .. _PyPI: https://pypi.org/
 
@@ -243,8 +246,8 @@ By default ``pip-compile`` uses a cache of calculated dependency relationships
 to improve the performance of subsequent runs.  Unfortunately, the results of
 this cache are sometimes used even after a new package release has changed the
 set of packages it depends on.  To avoid generating incorrect requirements
-files due to this, it's best to always use the ``--rebuild`` option when
-running ``pip-compile``.
+files due to this, it's best to always use the ``--rebuild`` option for the
+first run of ``pip-compile`` during an upgrade.
 
 .. _pip-tools: https://github.com/jazzband/pip-tools
 
@@ -275,13 +278,10 @@ Each Open edX repository should have the following:
 * At least one designated maintainer who receives notifications of the
   generated pull requests and will merge or fix them as needed.  This
   maintainer should scan the changelog for each upgraded package to look for
-  changes that merit closer inspection; services like `requires.io`_ and
-  `AllMyChanges.com`_ can make this easier.  The default maintainer may be the
-  "owner" from `openedx.yaml` as specified in
-  :doc:`OEP-2 <oep-0002-bp-repo-metadata>`.
+  changes that merit closer inspection; services like `requires.io`_
+  can make this easier.
 
 .. _requires.io: https://requires.io/
-.. _AllMyChanges.com: https://allmychanges.com/
 
 Making Deliberate Changes to Dependencies
 -----------------------------------------
@@ -358,9 +358,7 @@ it can be appropriate:
 
 In most other circumstances, the package should be added to PyPI instead.  If
 you do need to include a package at a URL, it should have both the package
-name and version specified (end with "#egg=NAME==VERSION").  For example:
-
-.. code-block:: none
+name and version specified (end with "#egg=NAME==VERSION").  For example::
 
     git+https://github.com/edx/edx-ora2.git@2.1.15#egg=ora2==2.1.15
 
@@ -442,7 +440,7 @@ Reference Implementation
 
 Many of the Open edX repositories have already begun to comply with the
 recommendations outlined here.  In particular, repositories generated using
-`cookiecutter-django-app`_ should already be configured correctly.  These may
+`edx-cookiecutters`_ should already be configured correctly.  These may
 also be useful for reference:
 
 * `django-user-tasks <https://github.com/edx/django-user-tasks>`_
