@@ -184,18 +184,44 @@ Imposing Constraints on Dependencies
 Although we usually want to use the latest available version of our
 dependencies in order to take advantage of the latest bug fixes, performance
 improvements, and security fixes, we sometimes need to impose some constraints
-on the version to be used.  These should be collected in
-``requirements/constraints.txt`` so they can be imposed uniformly across all
-the repository's requirements files; this is done via a ``-c constraints.txt``
-line just under the summary comment of each ``*.in`` file in the
-``requirements`` directory.  Some guidelines to keep in mind when populating
-this file:
+on the version to be used. These constraints can either be placed directly on
+the existing dependency in the ``*.in`` file or as a new entry in
+``requirements/constraints.txt``:
+
+* If it is a constraint on a dependency listed in **a library's base.in**,
+  the constraint should be added to the existing dependency line.
+
+  * This allows constraints to be advertised via ``setup.py`` and taken
+    into account in dependency resolution of relying packages.
+  * If a package advertises an extra feature, constraints should be similarly
+    placed in the extra's corresponding ``*.in`` file.
+
+* All other constraints should instead be added to
+  ``requirements/constraints.txt``.
+
+  * The ``*.in`` files must include the line ``-c constraints.txt`` just below
+    their summary comment. This allows constraints to be shared uniformly
+    across multiple files. (The ``-c`` flag keeps the constraints from being
+    interpreted as dependencies.)
+  * Most constraints could be listed either here or in ``*.in`` files directly,
+    but the constraints file was historically preferred and so continuing to
+    prefer it reduces churn. The only case where the constraints file is
+    specifically required is when multiple ``*.in`` files declare the same
+    dependency, but in such a situation it is generally preferred to rearrange
+    things so that one ``*.in`` pulls in the other's ``*.txt`` file  using a
+    ``-r`` line, and only list the dependency in the latter.
+
+Some guidelines to keep in mind when adding constraints:
 
 * Version constraints should only be used to exclude dependency versions which
   are known (or strongly suspected) to not work in at least one context.
 * Constraints on indirect dependencies (used by dependencies but not directly
   by the code in the repository itself) can be added if needed to enforce a
-  compatible version.
+  compatible version. If these indirect dependencies are relevant to the base
+  dependencies in a library, then the dependency should be made explicit in
+  ``base.in`` along with a constraint and a comment explaining that it is only
+  listed for the constraint, and should be removed entirely once the constraint
+  is no longer needed.
 * `Environment markers`_ should be used as necessary to indicate dependencies
   which should only be installed on specific operating systems, Python
   versions, etc.
@@ -208,14 +234,18 @@ this file:
   constraint has been imposed.  If there is an issue (either in Jira or an
   upstream issue tracker) for resolving the problem, a link to it should be
   included in the comment.
-* Minimum versions should generally not be included here; ``pip-compile``
+* Minimum versions are generally not necessary for IDAs since ``pip-compile``
   always tries to use the latest compatible version in the generated
-  requirements files.  If minimum versions need to be specified for use in
-  ``setup.py``, those constraints should go in ``requirements/base.in`` as
-  explained above.
+  requirements files; if ``make upgrade`` produces a downgrade in the compiled
+  dependencies, it should be carefully investigated before committing.
+  For library packages, on the other hand, dependency resolution is performed
+  outside of the library's codebase, and specifying minimum version constraints
+  in ``base.in`` when the code depends on newer features is the only way to
+  ensure that a version conflict is detected when the IDA's dependency
+  resolution occurs.
 
-This file should be periodically reviewed to determine if some of the
-constraints are no longer required.
+These constraints should be periodically reviewed to determine if some of them
+are no longer required.
 
 Generate Exact Dependency Specifications
 ----------------------------------------
