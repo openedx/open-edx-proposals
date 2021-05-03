@@ -235,7 +235,7 @@ Some guidelines to keep in mind when adding constraints:
   upstream issue tracker) for resolving the problem, a link to it should be
   included in the comment.
 * Minimum constraints are required in some circumstances, and should be avoided
-  in others.
+  in others. (They generally will not need a comment.) Guidelines for when to use:
 
   * For IDAs, minimum versions are generally not necessary since ``pip-compile``
     always tries to use the latest compatible version in the generated
