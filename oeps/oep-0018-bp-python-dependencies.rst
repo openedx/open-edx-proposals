@@ -186,7 +186,7 @@ dependencies in order to take advantage of the latest bug fixes, performance
 improvements, and security fixes, we sometimes need to impose some constraints
 on the version to be used. These constraints can either be placed directly on
 the existing dependency in the ``*.in`` file or as a new entry in
-``requirements/constraints.txt``:
+``requirements/constraints.txt``, according to the following rules:
 
 * If it is a constraint on a dependency listed in **a library's base.in**,
   the constraint should be added to the existing dependency line.
@@ -234,17 +234,22 @@ Some guidelines to keep in mind when adding constraints:
   constraint has been imposed.  If there is an issue (either in Jira or an
   upstream issue tracker) for resolving the problem, a link to it should be
   included in the comment.
-* Minimum versions are generally not necessary for IDAs since ``pip-compile``
-  always tries to use the latest compatible version in the generated
-  requirements files; if ``make upgrade`` produces a downgrade in the compiled
-  dependencies, it should be carefully investigated before committing.
-  For library packages, on the other hand, dependency resolution is performed
-  outside of the library's codebase, and specifying minimum version constraints
-  in ``base.in`` when the code depends on newer features is the only way to
-  ensure that a version conflict is detected when the IDA's dependency
-  resolution occurs.
+* Minimum constraints are required in some circumstances, and should be avoided
+  in others.
 
-These constraints should be periodically reviewed to determine if some of them
+  * For IDAs, minimum versions are generally not necessary since ``pip-compile``
+    always tries to use the latest compatible version in the generated
+    requirements files; if ``make upgrade`` produces a downgrade in the compiled
+    dependencies, it should be carefully investigated before committing.
+  * For library packages, minimum versions should be specified when a committer
+    recognizes that their changes depend on a particular version of a package,
+    particularly when it is a relatively new version. With libraries, dependency
+    resolution is performed in the context of a relying package, and specifying
+    minimum version constraints in ``base.in`` is the only way to
+    ensure that a version conflict is detected when the IDA's dependency
+    resolution occurs.
+
+Maximum or exact-version constraints should be periodically reviewed to determine if some of them
 are no longer required.
 
 Generate Exact Dependency Specifications
