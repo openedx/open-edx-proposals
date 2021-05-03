@@ -7,14 +7,14 @@ OEP-34: Lint Amnesty
 +-----------------+--------------------------------------------------------+
 | Title           | Lint Amnesty                                           |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2019-03-12                                             |
+| Last Modified   | 2021-05-04                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Calen Pennington <cale@edx.org>                        |
 |                 | Feanil Patel <feanil@edx.org>                          |
 +-----------------+--------------------------------------------------------+
 | Arbiter         | Usama Sadiq <usadiq@edx.org>                           |
 +-----------------+--------------------------------------------------------+
-| Status          | Draft                                                  |
+| Status          | Accepted                                               |
 +-----------------+--------------------------------------------------------+
 | Type            | Best Practice                                          |
 +-----------------+--------------------------------------------------------+
@@ -26,14 +26,14 @@ OEP-34: Lint Amnesty
 Context
 -------
 
-All software has bugs. Linting can identify a subset of those bugs (and
+All softwares have bugs. Linting can identify a subset of those bugs (and
 stylistic issues) statically before the code is merged to master or
 released to production. At edX, we strive to keep violations minimal or
 at zero, but for certain codebases, such as edx-platform, we have a large
 backlog of violations. We use a cap to limit adding new violations, but
 it must be updated manually, and so it only incrementally forces the
 number of violations down. We also disallow new code changes that introduce
-violations *in the lines that were changed*
+violations *in the lines that were changed*.
 
 Certain violations are dependent on a context larger than just the line
 that the warning is on. For instance, a code change might delete a class
@@ -52,7 +52,7 @@ for the relevant linting tool). It will also be marked with an inline comment
 ``lint-amnesty``. For example, when granting amnesty to a pylint violation,
 it would look like ``# lint-amnesty, pylint: disable=my-error``.
 
-Once all lints have been granted amnesty, CI will be used to ensure that
+Once all violations have been granted amnesty, CI will be used to ensure that
 no new violations are added. If a linter is upgraded or a new rule is
 added, then all new violations will either be fixed or granted amnesty
 as well.
