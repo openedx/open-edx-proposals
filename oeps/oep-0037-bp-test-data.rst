@@ -16,15 +16,13 @@ OEP-37: Dev Data
    * - Arbiter
      - Bill DeRusha <bill@edx.org>, Feanil Patel <feanil@edx.org>
    * - Status
-     - Under Review
+     - Deferred
    * - Type
      - Best Practice
    * - Created
      - 2019-06-07
    * - Review Period
      - 2019-06-19 to 2019-11-25
-   * - Resolution
-     - Provisional
 
 Abstract
 ========
