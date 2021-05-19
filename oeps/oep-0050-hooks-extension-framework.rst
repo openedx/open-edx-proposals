@@ -44,7 +44,7 @@ open edX instance in a way that is consistent and repeatable.
 
 Since the creation of the plugin framework different initiatives in the
 community have demonstrated success by adopting this pattern. This OEP extends
-the range of possible extensions that the patter can hold sustainably.
+the range of possible extensions that the pattern can hold sustainably.
 
 Adopters of the Open edX technology as a way of delivering online courses very
 often require that certain changes are made to the codebase by changing the
@@ -228,8 +228,8 @@ migration path to the corresponding hook is well defined and documented.
 Reference Implementation
 ========================
 
-The reference implementation must be completed before this OEP is given "Final"
-status. It is not necessary for the "accepted" status.
+The reference implementation must be completed before this OEP is given "Accepted"
+status. It is not necessary for the "Provisional" status.
 
 The current implementation can be found at:
 
