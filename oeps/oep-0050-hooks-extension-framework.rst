@@ -16,7 +16,7 @@ OEP-0050: Hooks extension framework
    * - Arbiter
      - Nizar Mahmoud <nizar@opencraft.com>
    * - Status
-     - Draft
+     - Provisional
    * - Type
      - Architecture
    * - Created
