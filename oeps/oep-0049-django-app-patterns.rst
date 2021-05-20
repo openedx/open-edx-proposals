@@ -258,6 +258,10 @@ tasks/ or tasks.py
 ++++++++++++++++++
 If an app contains long running tasks (i.e. tasks that run outside of a request, often a celery task), they should live in in either either a ``tasks.py`` file or a ``tasks`` folder.
 
+Do note that even if you expose your tasks through ``api.py`` to be used by other components, any celery routing should
+still be configured with the ``tasks`` import name, as the celery identifier for your task (as set by the celery
+decorator) is based off the original file.
+
 Consequences
 ------------
 At this time, there is no plan to enforce any of these guidelines. The vast majority of current Open edX code doesn't yet meet these guidelines, and there will always be exceptions to the rule. The hope is that as developers write new code or refactor existing code, they follow these patterns as best they can. We also hope that code reviewers will ensure these guidelines are followed in the code they approve.
