@@ -7,7 +7,7 @@ OEP-14: Archiving edX GitHub Repositories
 +---------------+----------------------------------------------------------+
 | Title         | Archiving edX GitHub Repositories                        |
 +---------------+----------------------------------------------------------+
-| Last Modified | 2017-01-18                                               |
+| Last Modified | 2021-05-25                                               |
 +---------------+----------------------------------------------------------+
 | Author        | Christina Roberts <christina@edx.org>                    |
 |               | Feanil Patel <feanil@edx.org>                            |
@@ -77,19 +77,11 @@ Archive Steps
 
 These steps should be followed for all repos within the edX organization(forks included). After some experiments with keeping archived repos in the ``edx`` organization, we've learned that having abandoned code show up in searches hinders work to understand the current state of the system and the risk around new work, particularly deprecations and API changes. Thus we decided to move all archived repositories to a separate org.
 
-1. Update the README.rst file in the repository to state that it is archived, using the `README Archive Statement`_ below.
+1. (Recommended) Update the README.rst file in the repository to state that it is archived, using the `README Archive Statement`_ below.
 
-2. Update the openedx.yaml file, creating it if necessary:
+2. Unless you have the relevant permissions to the work in this step, create an IT help ticket and ask them to do the following:
 
-   - Add ``archived: True``.
-
-   - Remove the ``openedx-release`` key if it is present.
-
-   - It is not necessary for the openedx.yaml file to define an owner for archived repos.
-
-3. Unless you have the relevant permissions to the work in this step, create an IT help ticket and ask them to do the following:
-
-   - Update the description of the repository to begin with ``[ARCHIVED]``
+   - Update the description of the repository to begin with ``[ARCHIVED]`` (TODO: Do we do this or need to???)
 
    - Move the repository to the edx-unsupported organization
 
@@ -115,6 +107,7 @@ Include this statement in the README.rst file:
 
     This repository has been archived and is no longer supported—use it at your own risk. This repository may depend on out-of-date libraries with security issues, and security updates will not be provided. Pull requests against this repository will also not be merged.
 
+It is also recommended that you add a brief note about why the repo is being archived, and what it serving as its replacement (where applicable). This may be as simple as a linking to the appropriate DEPR ticket.
 
 Rationale
 =========
