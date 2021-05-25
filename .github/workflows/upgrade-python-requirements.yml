@@ -35,6 +35,7 @@ jobs:
       - name: make upgrade
         run: |
           cd $GITHUB_WORKSPACE
+          pip install sphinx
           make upgrade
 
       - name: setup testeng-ci
