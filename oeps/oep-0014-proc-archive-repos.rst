@@ -81,11 +81,11 @@ These steps should be followed for all repos within the edX organization(forks i
 
 2. Unless you have the relevant permissions to the work in this step, create an IT help ticket and ask them to do the following:
 
+   - Archive the repository per `GitHub's archive process`_
+
    - Move the repository to the edx-unsupported organization
 
       - If the repo is not coming from the `edx github org`_ then before moving it, rename it with a prefix of the source org's name. For example the ``notifier`` repo in the ``edx-solutions`` org wolud be renamed to ``edx-solutions-notifier`` before moving.
-
-   - Archive the repository per `GitHub's archive process`_
 
 .. note::
     Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, if possible un-archive the old fork and update it.  If you've already made a new fork, delete the old copy of the fork before you move the new repo to edx-unsupported.
