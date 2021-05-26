@@ -57,9 +57,6 @@ Each repo will include a file ``openedx.yaml``, with the following keys:
 ``openedx-release``: defined by :doc:`OEP-10 <oep-0010-proc-openedx-releases>` (optional)
     Define this key if your repo is an application or IDA that is part of Open edX releases.  Omit this key if your repo is a library, or is not part of Open edX releases.  See :doc:`OEP-10 <oep-0010-proc-openedx-releases>` for details.
 
-``archived``: boolean (optional)
-    If ``True``, this specifies that this repository is archived and no longer maintained by edX.
-
 Obsolete Keys
 *************
 
@@ -83,6 +80,9 @@ Obsolete Keys
 
 ``nick``:
     This key is obsolete, please remove if found. It was a short-name for this repository, used by reporting tools.
+
+``archived``: boolean (optional)
+    If ``True``, this specifies that this repository is archived and no longer maintained by edX.
 
 
 Tags
@@ -189,6 +189,11 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
 
 Change History
 ==============
+
+2021-05-26
+----------
+
+* Move the ``archived`` key to the `Obsolete Keys`_ section.
 
 2020-10-13
 ----------

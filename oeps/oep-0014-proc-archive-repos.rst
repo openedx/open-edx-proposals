@@ -81,8 +81,6 @@ These steps should be followed for all repos within the edX organization(forks i
 
 2. Unless you have the relevant permissions to the work in this step, create an IT help ticket and ask them to do the following:
 
-   - Update the description of the repository to begin with ``[ARCHIVED]`` (TODO: Do we do this or need to???)
-
    - Move the repository to the edx-unsupported organization
 
       - If the repo is not coming from the `edx github org`_ then before moving it, rename it with a prefix of the source org's name. For example the ``notifier`` repo in the ``edx-solutions`` org wolud be renamed to ``edx-solutions-notifier`` before moving.
@@ -209,3 +207,9 @@ Change History
 ----------
 
 * Updated to provide more details around archiving the same fork multiple times.
+
+2021-05-26
+----------
+
+* Removed step of adding ``[ARCHIVED]`` to the repo name. Github's "archive this repo" setting is now available and is a sufficient indicator.
+* Removed ``openedx.yaml`` update steps, since the rest of the archive process is sufficient.
