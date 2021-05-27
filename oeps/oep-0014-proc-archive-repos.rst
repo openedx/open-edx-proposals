@@ -77,7 +77,7 @@ Archive Steps
 
 These steps should be followed for all repos within the edX organization(forks included). After some experiments with keeping archived repos in the ``edx`` organization, we've learned that having abandoned code show up in searches hinders work to understand the current state of the system and the risk around new work, particularly deprecations and API changes. Thus we decided to move all archived repositories to a separate org.
 
-1. (Recommended) Update the README.rst file in the repository to state that it is archived, using the `README Archive Statement`_ below.
+1. Update the README.rst file in the repository to add a brief note about why the repo is being archived, and what is serving as its replacement (where applicable). This may be as simple as a linking to the appropriate DEPR ticket.
 
 2. Unless you have the relevant permissions to the work in this step, create an IT help ticket and ask them to do the following:
 
@@ -97,15 +97,6 @@ These steps should be followed for all repos within the edX organization(forks i
 .. _GitHub's archive process: https://help.github.com/en/articles/archiving-repositories
 .. _edx github org: https://github.com/edx
 
-
-README Archive Statement
-------------------------
-
-Include this statement in the README.rst file:
-
-    This repository has been archived and is no longer supported—use it at your own risk. This repository may depend on out-of-date libraries with security issues, and security updates will not be provided. Pull requests against this repository will also not be merged.
-
-It is also recommended that you add a brief note about why the repo is being archived, and what it serving as its replacement (where applicable). This may be as simple as a linking to the appropriate DEPR ticket.
 
 Rationale
 =========
@@ -212,4 +203,5 @@ Change History
 ----------
 
 * Removed step of adding ``[ARCHIVED]`` to the repo name. Github's "archive this repo" setting is now available and is a sufficient indicator.
+* Removed step of adding paragraph to README about what archiving means now that we use Github's "archived" marker; the concept of an unmaintained repository and its dangers should be familiar to developers. Keep recommendation to add an explanation of *why* it was archived.
 * Removed ``openedx.yaml`` update steps, since the rest of the archive process is sufficient.
