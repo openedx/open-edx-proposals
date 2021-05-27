@@ -7,7 +7,7 @@ OEP-14: Archiving edX GitHub Repositories
 +---------------+----------------------------------------------------------+
 | Title         | Archiving edX GitHub Repositories                        |
 +---------------+----------------------------------------------------------+
-| Last Modified | 2017-01-18                                               |
+| Last Modified | 2021-05-27                                               |
 +---------------+----------------------------------------------------------+
 | Author        | Christina Roberts <christina@edx.org>                    |
 |               | Feanil Patel <feanil@edx.org>                            |
@@ -77,25 +77,15 @@ Archive Steps
 
 These steps should be followed for all repos within the edX organization(forks included). After some experiments with keeping archived repos in the ``edx`` organization, we've learned that having abandoned code show up in searches hinders work to understand the current state of the system and the risk around new work, particularly deprecations and API changes. Thus we decided to move all archived repositories to a separate org.
 
-1. Update the README.rst file in the repository to state that it is archived, using the `README Archive Statement`_ below.
+1. Update the README.rst file in the repository to add a brief note about why the repo is being archived, and what is serving as its replacement (where applicable). This may be as simple as a linking to the appropriate DEPR ticket.
 
-2. Update the openedx.yaml file, creating it if necessary:
+2. Unless you have the relevant permissions to perform this step, create an IT help ticket and ask them to do the following:
 
-   - Add ``archived: True``.
-
-   - Remove the ``openedx-release`` key if it is present.
-
-   - It is not necessary for the openedx.yaml file to define an owner for archived repos.
-
-3. Unless you have the relevant permissions to the work in this step, create an IT help ticket and ask them to do the following:
-
-   - Update the description of the repository to begin with ``[ARCHIVED]``
+   - Archive the repository per `GitHub's archive process`_
 
    - Move the repository to the edx-unsupported organization
 
       - If the repo is not coming from the `edx github org`_ then before moving it, rename it with a prefix of the source org's name. For example the ``notifier`` repo in the ``edx-solutions`` org wolud be renamed to ``edx-solutions-notifier`` before moving.
-
-   - Archive the repository per `GitHub's archive process`_
 
 .. note::
     Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, if possible un-archive the old fork and update it.  If you've already made a new fork, delete the old copy of the fork before you move the new repo to edx-unsupported.
@@ -106,14 +96,6 @@ These steps should be followed for all repos within the edX organization(forks i
 
 .. _GitHub's archive process: https://help.github.com/en/articles/archiving-repositories
 .. _edx github org: https://github.com/edx
-
-
-README Archive Statement
-------------------------
-
-Include this statement in the README.rst file:
-
-    This repository has been archived and is no longer supported—use it at your own risk. This repository may depend on out-of-date libraries with security issues, and security updates will not be provided. Pull requests against this repository will also not be merged.
 
 
 Rationale
@@ -216,3 +198,10 @@ Change History
 ----------
 
 * Updated to provide more details around archiving the same fork multiple times.
+
+2021-05-27
+----------
+
+* Removed step of adding ``[ARCHIVED]`` to the repo name. Github's "archive this repo" setting is now available and is a sufficient indicator.
+* Removed step of adding paragraph to README about what archiving means now that we use Github's "archived" marker; the concept of an unmaintained repository and its dangers should be familiar to developers. Keep recommendation to add an explanation of *why* it was archived.
+* Removed ``openedx.yaml`` update steps, since the rest of the archive process is sufficient.
