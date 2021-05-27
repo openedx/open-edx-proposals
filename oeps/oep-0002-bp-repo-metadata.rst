@@ -10,7 +10,7 @@ OEP-2: Repository Metadata
    * - Title
      - Repository Metadata
    * - Last Modified
-     - 2020-08-17
+     - 2021-05-26
    * - Authors
      - Calen Pennington, Feanil Patel, Nimisha Asthagiri
    * - Arbiter
