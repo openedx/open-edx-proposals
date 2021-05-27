@@ -79,7 +79,7 @@ These steps should be followed for all repos within the edX organization(forks i
 
 1. Update the README.rst file in the repository to add a brief note about why the repo is being archived, and what is serving as its replacement (where applicable). This may be as simple as a linking to the appropriate DEPR ticket.
 
-2. Unless you have the relevant permissions to the work in this step, create an IT help ticket and ask them to do the following:
+2. Unless you have the relevant permissions to perform this step, create an IT help ticket and ask them to do the following:
 
    - Archive the repository per `GitHub's archive process`_
 
