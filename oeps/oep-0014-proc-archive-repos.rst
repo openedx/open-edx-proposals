@@ -7,7 +7,7 @@ OEP-14: Archiving edX GitHub Repositories
 +---------------+----------------------------------------------------------+
 | Title         | Archiving edX GitHub Repositories                        |
 +---------------+----------------------------------------------------------+
-| Last Modified | 2021-05-25                                               |
+| Last Modified | 2021-05-27                                               |
 +---------------+----------------------------------------------------------+
 | Author        | Christina Roberts <christina@edx.org>                    |
 |               | Feanil Patel <feanil@edx.org>                            |
@@ -199,7 +199,7 @@ Change History
 
 * Updated to provide more details around archiving the same fork multiple times.
 
-2021-05-26
+2021-05-27
 ----------
 
 * Removed step of adding ``[ARCHIVED]`` to the repo name. Github's "archive this repo" setting is now available and is a sufficient indicator.
