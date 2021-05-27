@@ -10,7 +10,7 @@ OEP-2: Repository Metadata
    * - Title
      - Repository Metadata
    * - Last Modified
-     - 2021-05-26
+     - 2021-05-27
    * - Authors
      - Calen Pennington, Feanil Patel, Nimisha Asthagiri
    * - Arbiter
@@ -190,7 +190,7 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
 Change History
 ==============
 
-2021-05-26
+2021-05-27
 ----------
 
 * Move the ``archived`` key to the `Obsolete Keys`_ section.
