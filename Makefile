@@ -9,11 +9,6 @@ PAPER           =
 BUILDDIR        = _build
 PORT            = 9050
 
-# User-friendly check for sphinx-build
-ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
-$(error The '$(SPHINXBUILD)' command was not found. Make sure you have Sphinx installed, then set the SPHINXBUILD environment variable to point to the full path of the '$(SPHINXBUILD)' executable. Alternatively you can add the directory with the executable to your PATH. If you don't have Sphinx installed, grab it from http://sphinx-doc.org/)
-endif
-
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
@@ -228,11 +223,16 @@ pseudoxml:
 develop:
 	sphinx-autobuild -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html -p $(PORT) --ignore '.git/**' --open-browser
 
+COMMON_CONSTRAINTS_TXT=requirements/common_constraints.txt
+.PHONY: $(COMMON_CONSTRAINTS_TXT)
+$(COMMON_CONSTRAINTS_TXT):
+	wget -O "$(@)" https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt || touch "$(@)"
+
 # Define PIP_COMPILE_OPTS=-v to get more information during make upgrade.
 PIP_COMPILE = pip-compile --rebuild --upgrade $(PIP_COMPILE_OPTS)
 
 upgrade: export CUSTOM_COMPILE_COMMAND=make upgrade
-upgrade: ## update the pip requirements files to use the latest releases satisfying our constraints
+upgrade: $(COMMON_CONSTRAINTS_TXT)  ## update the pip requirements files to use the latest releases satisfying our constraints
 	pip install -qr requirements/pip_tools.txt
 	# Make sure to compile files after any other files they include!
 	$(PIP_COMPILE) -o requirements/pip_tools.txt requirements/pip_tools.in
