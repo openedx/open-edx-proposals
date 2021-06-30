@@ -12,8 +12,10 @@ certifi==2021.5.30
     # via requests
 chardet==4.0.0
     # via requests
-docutils==0.17.1
-    # via sphinx
+docutils==0.16
+    # via
+    #   -c requirements/common_constraints.txt
+    #   sphinx
 edx-sphinx-theme==2.1.0
     # via -r requirements/base.in
 idna==2.10
@@ -54,7 +56,7 @@ sphinxcontrib-qthelp==1.0.3
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
-urllib3==1.26.5
+urllib3==1.26.6
     # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
