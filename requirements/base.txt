@@ -24,7 +24,7 @@ jinja2==3.0.1
     # via sphinx
 markupsafe==2.0.1
     # via jinja2
-packaging==20.9
+packaging==21.0
     # via sphinx
 pygments==2.9.0
     # via sphinx
@@ -38,7 +38,7 @@ six==1.16.0
     # via edx-sphinx-theme
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==4.0.2
+sphinx==4.0.3
     # via
     #   -r requirements/base.in
     #   edx-sphinx-theme
