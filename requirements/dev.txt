@@ -16,7 +16,7 @@ certifi==2021.5.30
     # via
     #   -r requirements/base.txt
     #   requests
-chardet==4.0.0
+charset-normalizer==2.0.3
     # via
     #   -r requirements/base.txt
     #   requests
@@ -28,7 +28,7 @@ docutils==0.17.1
     #   sphinx
 edx-sphinx-theme==3.0.0
     # via -r requirements/base.txt
-idna==2.10
+idna==3.2
     # via
     #   -r requirements/base.txt
     #   requests
@@ -62,7 +62,7 @@ pytz==2021.1
     # via
     #   -r requirements/base.txt
     #   babel
-requests==2.25.1
+requests==2.26.0
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -75,7 +75,7 @@ snowballstemmer==2.1.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-sphinx==4.0.3
+sphinx==4.1.2
     # via
     #   -r requirements/base.txt
     #   edx-sphinx-theme
