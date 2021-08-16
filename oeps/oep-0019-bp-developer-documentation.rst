@@ -35,11 +35,11 @@ Context
 
 Developers who work on the Open edX platform, both inside and outside of edX, need accurate and current documentation about platform architecture, APIs, and development best practices.
 
-**Developer documentation** is defined as written specification, instructions, and resources for software developers who extend and contribute to the Open edX platform. It does not include documentation resources targeted for edX learners, educators, researchers, and Open edX operators. Those are out of scope of this OEP and maintained by the edX documentation team at docs.edx.org_.
+**Developer documentation** is defined as written specification, instructions, and resources for software developers who extend and contribute to the Open edX platform. It does not include documentation resources targeted for edX learners, educators, researchers, and Open edX operators. Those are out of scope of this OEP and maintained at docs.edx.org_.
 
 Developer documentation is inconsistent and poorly maintained. Documents are also difficult to find. They exist in multiple locations, including `Read the Docs`_, GitHub_ repositories, Confluence_ wiki, and `Google Docs`_.
 
-This proposal focuses on long-term developer *Documentation* needs. It does not concern itself with any transitory *Notes* that a development team may use for project management, brainstorming, meeting notes, etc. Code *Comments* that a developer may add to clarify or rationalize a code segment are also out of scope of this OEP.
+*Development team notes* used for project management, brainstorming, meeting notes, etc. as well as *code comments* that a developer may add to clarify or rationalize a code segment are out of scope of this OEP.
 
 .. Note:: The best practices and guidelines captured in this OEP are intended to be followed (for example, co-locating docs in GitHub, classifying different doc types, consolidating on formats). We have omitted considerations that we intend to experiment upon and capture in future edits of this OEP or other OEPs (for example, ownership responsibilities, API documentation details, choosing between writing ADRs versus OEPs, etc).
 
@@ -51,6 +51,29 @@ This proposal focuses on long-term developer *Documentation* needs. It does not 
 
 Decisions
 *********
+
+* We will use `reStructuredText (rST)`_ as our default documentation format for all developer documentation except for the exceptions outlined here. See the :ref:`Format Rationale` section below for more info on why RST.
+
+  * Python docstrings that are going to be rendered in an `Open API`_ context should be formatted in Markdown.
+
+  * When we need to embed active react components in the documentation to document frontend capabilities, `MDX`_ should be used.
+
+* The repo `edx-developer-docs`_ will contain the main index for all repo specific and system wide developer docs.
+
+* The `Developer Docs`_ section of docs.edx.org will link to the published version of `edx-developer-docs`_.
+
+* System wide decisions, best practices and processes will live in the `open-edx-proposals`_ repository.
+
+* ADRs, How Tos and other single repo impacting docs will live in a ``/docs`` folder in the impacted repo.
+
+* edX Inc. specific documentation such as notes, agile meeting artifacts, and documentation of edX specific process and decisions will live in `Confluence`_.
+
+.. _open-edx-proposals: https://github.com/edx/open-edx-proposals
+.. _edx-developer-docs: https://github.com/edx/edx-developer-docs
+.. _Confluence: https://openedx.atlassian.net/wiki/
+.. _Developer Docs: https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/
+.. _Open API: https://www.openapis.org/
+.. _MDX: https://mdxjs.com/
 
 .. image:: oep-0019/developer_docs.png
    :alt: A diagram that shows the different types of documentation and their relationships. This is further described below.
@@ -239,8 +262,8 @@ This section summarizes the requirements for long-term developer documentation.
 .. _edx-developer-docs: https://github.com/edx/edx-developer-docs
 .. _docs.edx.org: https://docs.edx.org/
 
-Format
-======
+Format Rationale
+================
 
 We will use `reStructuredText (rST)`_ for all developer documentation.
 
