@@ -178,12 +178,13 @@ This section refers to Bearer Tokens as documented in `OAuth 2.0 RFC: Bearer Tok
 In this section, Bearer Tokens refers to tokens sent with "Bearer" in the Authorization request header. In contrast, our JWTs are sent using "JWT" in the Authorization request header. Note that the `Authorization request header`_ contains the credentials used to *authenticate* a user, even though it uses the term *authorization*.
 
 
-Currently, only the mobile applications (iOS and Android) continue to use Bearer Tokens. In this method, the LMS issues a token to the mobile apps and the mobile apps include this token in their header when hitting IDA endpoints. The IDAs verify the token and either service or reject the request, based on the token validity.
+Currently, only the mobile applications (iOS and Android) continue to use Bearer Tokens. In this method, the LMS issues a token to the mobile apps and the mobile apps include this token in their header when hitting IDA endpoints. The IDAs verify the token and either service or reject the request, based on the token validity. Also see a more detailed explanation of `oAuth2 and Mobile`_.
 
 All other usage of Bearer Tokens in Open edX has been deprecated. Mobile applications may one day move to JWTs as well, but that is a larger effort.
 
 .. _`OAuth 2.0 RFC: Bearer Token Usage`: https://tools.ietf.org/html/rfc6750
 .. _Authorization request header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization
+.. _oAuth2 and Mobile: https://openedx.atlassian.net/wiki/spaces/AC/pages/42599769/OAuth2+and+Mobile
 
 OAuth2 Token Security
 ---------------------
