@@ -3,9 +3,10 @@ OEP-47: Semantic Versioning
 ###########################
 
 .. list-table::
+   :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0047 </oeps/oep-0047>`
+     - :doc:`OEP-0047 <oep-0047-bp-semantic-versioning>`
    * - Title
      - Semantic Versioning
    * - Last Modified

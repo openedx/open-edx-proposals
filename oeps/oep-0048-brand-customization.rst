@@ -7,7 +7,7 @@ OEP-0048: Brand Customization
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0048 </oeps/oep-0048-arch-brnd>`
+     - :doc:`OEP-0048 <oep-0048-brand-customization>`
    * - Title
      - Brand Customization
    * - Last Modified

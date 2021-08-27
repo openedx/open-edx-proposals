@@ -3,7 +3,7 @@ OEP-22: Caching in Django
 ===========================
 
 +-----------------+--------------------------------------------------------+
-| OEP             | :doc:`OEP-22 </oeps/oep-0022-bp-django-caches>`        |
+| OEP             | :doc:`OEP-22 <oep-0022-bp-django-caches>`              |
 +-----------------+--------------------------------------------------------+
 | Title           | Caching in Django                                      |
 +-----------------+--------------------------------------------------------+
@@ -224,8 +224,7 @@ good potential candidate for a shared library.
 
 **Next steps:**
 
-* Choose the best solution(s) for cache decorators and key generating
-utilities and make them available in edx-django-utils.
+* Choose the best solution(s) for cache decorators and key generating utilities and make them available in edx-django-utils.
 
 * Use linting utilities to enforce the best practices.
 

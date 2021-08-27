@@ -5,7 +5,7 @@ OEP-13: Open edX web API conventions
 .. This is the template to use when you start a new OEP.
 
 +---------------+-------------------------------------------+
-| OEP           | :doc:`OEP-13 </oeps/oep-0013>`            |
+| OEP           | :doc:`OEP-13 <oep-0013>`                  |
 +---------------+-------------------------------------------+
 | Title         | Open edX web API conventions              |
 +---------------+-------------------------------------------+

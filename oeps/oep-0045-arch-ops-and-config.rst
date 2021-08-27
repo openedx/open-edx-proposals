@@ -1,11 +1,12 @@
 ##########################################
-OEP-45: Configuring and Operating Open edX 
+OEP-45: Configuring and Operating Open edX
 ##########################################
 
 .. list-table::
+   :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0045 </oeps/oep-0045>`
+     - :doc:`OEP-0045 <oep-0045-arch-ops-and-config>`
    * - Title
      - Configuring and Operating Open edX
    * - Last Modified
@@ -56,7 +57,7 @@ Back when edx-platform was the only code running, the Ansible playbooks in the c
 
 The end result is that the configuration repo has grown into a sprawling codebase that attempts to be everything for everyone trying to configure servers to run Open edX installations. There are a wide variety of roles, plays, and utility scripts with branching paths within each to support being executed against different base operating systems and many various configurable operational needs. None of this is helped by the fact that edX.org operates at a scale that most installations do not. With a mix of edX.org specific code, branching paths that are not regularly tested, and the high amount of required understanding around how all the pieces interact to change any of it, this approach to operating is a clear source of friction for developing and running the platform. Nothing proves this point more than the fact that the edx-platform README now explicitly warns users to leave it to the professionals.
 
-    Installing and running an Open edX instance is not simple. We strongly recommend that you use a service provider to run the software for you. 
+    Installing and running an Open edX instance is not simple. We strongly recommend that you use a service provider to run the software for you.
 
 The proposal below outlines how we can create a cleaner, more intuitive interface for operating Open edX and in doing so help both edX.org and the Open edX community at large achieve better outcome at a faster pace. In brief it is:
 
@@ -64,13 +65,13 @@ The proposal below outlines how we can create a cleaner, more intuitive interfac
 * Simplify and standardize how to configure an IDA.
 * Document standard operations.
 
- 
+
 Containers
 **********
 
 **Why Containers**
 
-For managing microservice architectures containers are an industry standard for the following reasons: 
+For managing microservice architectures containers are an industry standard for the following reasons:
 
 * **Increased portability.**  Run on any host OS that supports containers.
 * **Greater efficiency.**  Ability to safely run multiple containers on the same hardware allows cost savings through efficient use of resources.
@@ -84,7 +85,7 @@ For managing microservice architectures containers are an industry standard for 
 
 For operators who don’t want to run in Docker containers the Dockerfile acts as documentation for the system dependencies they will need to recreate. Everything an operator needs to know about how to set up their environment is all in one place rather than distributed across multiple overlapping and overriding files.
 
-In order to function as documentation for operators Dockerfiles will be well-commented, use `native Dockerfile syntax`_ to describe the image, and never require private resources to build. This means: 
+In order to function as documentation for operators Dockerfiles will be well-commented, use `native Dockerfile syntax`_ to describe the image, and never require private resources to build. This means:
 
 * No Ansible should be run as part of the image build.
 * Similarly, bash scripts should be avoided.
@@ -104,7 +105,7 @@ Operators will be able to use these provided images as a base for any private or
 
 Configuration
 *************
- 
+
 **Django settings**
 
 Having a single artifact that runs with different configurations increases stability by improving development parity with other deployment environments. edX IDAs already support configuration overrides via a yaml file for production environments, but development and test environments tend to configure the IDA using different code paths via a settings/devstack.py or settings/test.py file.
@@ -135,15 +136,15 @@ This new settings structure obviates the need for any other python files in the 
 IDAs will be configured by a yaml file containing all of the settings variable overrides specified by the operator (including both required settings and secrets as well as default value overrides). The file is made known to the IDA by an environment variable, ``<APPNAME>_CFG_PATH``, with the path to the file. Versions of this config yaml may be provided in the application repo for certain environments such as development and test. However, for all other environments (e.g. production), the file will need to be managed elsewhere.
 
 Since defaults are provided by the IDA, many smaller deployments should not need to do much more than provide the required settings to operate. For development environments the config will likely change the defaults to more development appropriate values, e.g. debug settings, log levels, email settings, etc.
- 
+
 **Config file generation & management**
 
 Due to the varied needs and processes of different operators, how the config files are created, managed, or otherwise end up on the server is up to the operator and will depend greatly on their deployment strategy. With a consistent method for configuring IDAs it will be reasonable to have tooling to assist with migrating between releases, but the implementation of such tooling is outside the scope of this proposal.
- 
+
 **Documentation of settings**
 
 The settings found in both the ``required.py`` and ``defaults.py`` files will be documented to describe what they are and how they should be used. The documentation will consist of `Sphinx autodoc`_ compatible comments before each setting. For reference that is a ``“comment with special formatting (using a #: to start the comment instead of just #)”``. This keeps documentation close to the code as it is being written, while allowing it to be surfaced in generated docs.
- 
+
 
 .. _Sphinx autodoc: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#directive-autoattribute
 
@@ -151,7 +152,7 @@ Operations Manuals
 ******************
 
 A clear manual of operations will exist in the form of RST files in an ``operations`` directory within the ``docs`` directory (as per `OEP-19`_) for that IDA. See `this commit`_ for an example provided by the Open edX Build-Test-Release working group. The operations docs will cover common operations such as how to run the IDA for web traffic or as an async worker and how to manage the IDA's underlying database schema. It will also include a list of potential maintenance tasks operators may want to leverage such as clearing sessions or applying security patches. Finally it will include the list of ad-hoc management commands operators can use to help handle edge case or one-time operations.
- 
+
 In the same vein as not dictating how operators create and manage their IDA config files, operators will also be expected to manage how they execute the operations documented in the manual.
 
 .. _OEP-19: https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html

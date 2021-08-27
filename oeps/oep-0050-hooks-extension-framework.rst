@@ -6,7 +6,7 @@ OEP-0050: Hooks extension framework
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0050 </oeps/oep-0050-arch-hook-based-extensions>`
+     - :doc:`OEP-0050 <oep-0050-hooks-extension-framework>`
    * - Title
      - Open edX Hooks Extension Framework
    * - Last Modified
@@ -243,21 +243,11 @@ This document will be updated as the implementation progresses.
 Rejected Alternatives
 =====================
 
-* Django Signals was initially considered as the primary mechanism to connect
-both events and filters. It was eventually discarded for the filters part of the
-framework due to the lack of ordering capabilities required for the reducing of
-results when multiple functions are registered in a filter.
+* Django Signals was initially considered as the primary mechanism to connect both events and filters. It was eventually discarded for the filters part of the framework due to the lack of ordering capabilities required for the reducing of results when multiple functions are registered in a filter.
 
-* It was considered to split this OEP into two. One handling the hooks that
-are of the event kind and then a second handling the filter kind.
-This was however rejected fearing that the proposal could be stuck only after
-the first iteration and never reach its full potential. Instead, a phased
-implementation of hooks from both kinds will be pursued.
+* It was considered to split this OEP into two. One handling the hooks that are of the event kind and then a second handling the filter kind. This was however rejected fearing that the proposal could be stuck only after the first iteration and never reach its full potential. Instead, a phased implementation of hooks from both kinds will be pursued.
 
-* Adding celery directly in the tooling in order to make the calling of async
-tasks as trivial as a configuration flag was initially considered. This added
-extra dependencies at several locations and did not resolve the general issue of
-serializing some complex objects such as requests and Django Users.
+* Adding celery directly in the tooling in order to make the calling of async tasks as trivial as a configuration flag was initially considered. This added extra dependencies at several locations and did not resolve the general issue of serializing some complex objects such as requests and Django Users.
 
 
 References

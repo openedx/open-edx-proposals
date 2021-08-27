@@ -6,7 +6,7 @@ OEP-0051: Conventional Commits
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0051 </oeps/oep-0051-bp-conventional-commits>`
+     - :doc:`OEP-0051 <oep-0051-bp-conventional-commits>`
    * - Title
      - Conventional Commits
    * - Last Modified
@@ -144,7 +144,7 @@ Conventional Commits asks us to categorize changes into a small number of catego
 
 Choosing the commit type label to use for a commit is important, but it's only the first step.  If you have doubts about which commit type to use, choose the highest-priority type that could apply.  Then write a detailed body explaining the full complexity of your change.
 
-**feat vs fix**: some user-visible changes to features could be classified as "feat" or "fix".  Choose "feat" if the change adds to the set of features.  Choose "fix" if the change affects how a feature behaves.  Yes, this is still subjective.  
+**feat vs fix**: some user-visible changes to features could be classified as "feat" or "fix".  Choose "feat" if the change adds to the set of features.  Choose "fix" if the change affects how a feature behaves.  Yes, this is still subjective.
 
 **Breaking changes to features**: changing how a feature works is not a breaking change.  For example, users are sent to a new experience instead of the old experience. This is not a breaking change.  It should get a "feat" label, but not a "feat!" label.
 
