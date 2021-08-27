@@ -6,7 +6,7 @@ OEP-41: Asynchronous Server Event Message Format
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-41 </oeps/oep-0041-arch-async-server-event-messaging.rst>`
+     - :doc:`OEP-41 <oep-0041-arch-async-server-event-messaging>`
    * - Title
      - Asynchronous Server Event Message Format
    * - Last Modified
@@ -30,7 +30,7 @@ OEP-41: Asynchronous Server Event Message Format
 Abstract
 --------
 
-This OEP describes the general format and conventions Open edX should use in
+This OEP describes the general format and conventions the Open edX platform should use in
 asynchronous event messaging across services. These events would be emitted when
 a service has taken some action to data that it owns, and that other services
 would be interested in. This could be a course publish, a user enrollment,
@@ -416,6 +416,8 @@ read long after they're generated, and any presigned S3 URLs you generate might
 be expired by the time a consumer gets them.
 
 
+.. _Event Messaging Architectural Goals:
+
 Architectural Goals
 ===================
 
@@ -433,8 +435,8 @@ outages over the years, particularly when course-discovery becomes overloaded
 with edx-platform generated requests.
 
 
-Eliminate Expensive, Batch Synchronization
-------------------------------------------
+Eliminate Expensive, Delayed, Batch Synchronization
+---------------------------------------------------
 
 We currently have processes that make extremely expensive requests across
 services to synchronize data, particularly from course-discovery. Aside from
@@ -446,6 +448,7 @@ some combination of over-provisioning and/or accepting periodic spikes in
 overall service latency. In a situation where we are already running near
 capacity, a spike like this can be enough to trigger a cascade of failures.
 
+In addition to being expensive, this method of synchronizing data is extremely slow. A small update that could have happened in near real-time, may instead need to wait half a day or more until the next scheduled batch synchronization occurs.
 
 Reduce the need for Plugins
 ---------------------------
@@ -458,6 +461,12 @@ registration, course enrollment, score changes, etc. Having a stable set of
 event APIs will allow many of these to exist as independently deployed services
 that don't need to be run in the same process as the LMS.
 
+Flexibly Integrate with Event Producers
+---------------------------------------
+
+New consumers or down stream services currently would require upstream changes in order to consume an existing event. This makes the platform inflexible, and adds coupling between services and teams. Read more about `event-driven architecture`_ and its potential for "improved responsiveness and time to market".
+
+.. _event-driven architecture: https://www.thoughtworks.com/decoder/event-driven-architecture
 
 Simplify Integration to External Systems
 ----------------------------------------
