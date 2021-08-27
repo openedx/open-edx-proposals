@@ -134,7 +134,7 @@ is called .1 (Eucalyptus.1 for example).  Follow-on releases are numbered from
 there: Eucalyptus.2, Eucalyptus.3, and so on.
 
 After the .1 release, new releases in a line are made only for severe problems
-such as security problems, data loss, or feature breakage. 
+such as security problems, data loss, or feature breakage.
 
 A new release line is created by making a "release master" branch in each
 involved repo.  These are named "open-release/RELEASENAME.master".  This branch
@@ -146,7 +146,7 @@ Releases will be tagged "open-release/RELEASENAME.1",
 Involving repos in the Open edX build process
 ---------------------------------------------
 
-:doc:`OEP-2 <oep-0002>` defines a file format for repository metadata.  The 
+:doc:`OEP-2 <oep-0002-bp-repo-metadata>` defines a file format for repository metadata.  The
 ``openedx-release`` key is an optional dictionary governing the participation
 of the repo in the Open edX release process.
 
@@ -222,7 +222,7 @@ There are two supported installation methods:
     so we dropped Fullstack.  If adopters want to run the Native installation
     under Vagrant, it is not hard to do.
 
-The devstack installation is Docker-based and follows :doc:`OEP-5 <oep-0005>`.
+The devstack installation is Docker-based and follows :doc:`OEP-5 <oep-0005-arch-containerize-devstack>`.
 
 .. note::
 

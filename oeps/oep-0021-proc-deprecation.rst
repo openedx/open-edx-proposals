@@ -35,12 +35,15 @@ TL;DR
 High-Level Overview of Code Removal Process
 -------------------------------------------
 * For further details on each of these steps, please see `Process States`_ and `Timeline`_. For DEPR ticket details, please refer to the `Document`_ process.
+
 .. image:: oep-0021/Removal-Workflow.png
    :align: center
 
 Best Practices for Proposing Code for Removal
 ---------------------------------------------
+
 * For further details on each of these steps, please see `Proposed`_ section. For DEPR ticket details, please refer to the `Document`_ process.
+
 .. image:: oep-0021/Best-Practices.png
    :align: center
 

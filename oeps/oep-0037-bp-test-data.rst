@@ -6,7 +6,7 @@ OEP-37: Dev Data
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-37 </oeps/oep-0037-bp-test-data>`
+     - :doc:`OEP-37 <oep-0037-bp-test-data>`
    * - Title
      - Devstack Dev Data
    * - Last Modified

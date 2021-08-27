@@ -3,7 +3,7 @@ OEP-11: Front End Technology Standards
 ======================================
 
 +---------------+--------------------------------------------------+
-| OEP           | :doc:`OEP-11 </oeps/oep-0011-bp-FED-technology>` |
+| OEP           | :doc:`OEP-11 <oep-0011-bp-FED-technology>`       |
 +---------------+--------------------------------------------------+
 | Title         | Front End Technology Standards                   |
 +---------------+--------------------------------------------------+
@@ -14,7 +14,7 @@ OEP-11: Front End Technology Standards
 +---------------+--------------------------------------------------+
 | Arbiter       | Matt Drayer <mattdrayer@edx.org>                 |
 +---------------+--------------------------------------------------+
-| Status        | Accepted                                            |
+| Status        | Accepted                                         |
 +---------------+--------------------------------------------------+
 | Type          | Best Practice                                    |
 +---------------+--------------------------------------------------+
@@ -48,6 +48,8 @@ Specification
 
 Technology Selection
 ~~~~~~~~~~~~~~~~~~~~
+
+.. _Use React and Redux:
 
 1. **Use React and Redux**
 
@@ -120,7 +122,7 @@ Technology Selection
    commit a package-lock.json file. The package-lock.json file will keep a full list
    of dependencies and their versions, ensuring when built for deployments the
    version of libraries are consistent. This follows the same pattern used in edX
-   Python code - see `OEP 18`_ for more information. For more information on 
+   Python code - see `OEP 18`_ for more information. For more information on
    package-lock files see `Package Lock`_.
 
 6. **Keep dependencies up to date by using Greenkeeper**
@@ -166,10 +168,10 @@ Technology Selection
 
   **Rationale**: In order accelerate development, and provide a more consistent
   user experience for our users, Open edX will adopt Bootstrap 4 to style its web
-  applications. For more details, see `OEP-16: Bootstrap Adoption`_.
+  applications. For more details, see :doc:`oep-0016-bp-adopt-bootstrap`.
 
 11. **API calls should be made with the edX Frontend Auth Client or Axios**
-   
+
    **Rationale**: The `edX Frontend Auth Client`_ simplifies the process of
    talking to edX APIs by using Axios inteceptors and handling JWT Cookie
    authentication. It also provides React components to handle private routes
@@ -202,6 +204,7 @@ Rejected Alternatives
 =====================
 
 .. _Reasons for rejecting Angular:
+
 1. **Angular**
 
    `Angular`_ was a popular web framework in its 1.x iteration, and its
@@ -215,6 +218,7 @@ Rejected Alternatives
    developers and larger community of infrequent JavaScript contributors.
 
 .. _Reasons for rejecting Polymer:
+
 2. **Polymer**
 
    `Polymer`_ is a framework built around `Web Components`_, a set of draft
@@ -226,6 +230,7 @@ Rejected Alternatives
    without.
 
 .. _Reasons for rejecting CoffeeScript:
+
 3. **CoffeeScript**
 
    The Open edX codebase made heavy use of CoffeeScript for several years,
@@ -234,6 +239,7 @@ Rejected Alternatives
    and CoffeeScript's community has largely moved on.
 
 .. _Reasons for rejecting TypeScript:
+
 4. **TypeScript**
 
    Several variants of typed JavaScript have grown in community popularity
@@ -246,6 +252,7 @@ Rejected Alternatives
    as it can be incrementally added and evaluated alongside non-typed code.
 
 .. _Reasons for rejecting Mako:
+
 4. **Mako**
 
    There are a number of reasons why Django templates is preferred to Mako:
@@ -284,4 +291,3 @@ Rejected Alternatives
 .. _Typescript: https://www.typescriptlang.org/
 .. _Webpack: https://webpack.github.io/
 .. _Web Components: https://www.webcomponents.org/
-.. _OEP-16: Bootstrap Adoption: https://open-edx-proposals.readthedocs.io/en/latest/oep-0016-bp-adopt-bootstrap.html

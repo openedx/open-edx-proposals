@@ -6,7 +6,7 @@ OEP-17: Feature Toggles
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-17 </oeps/OEP-0017-bp-feature-toggles>`
+     - :doc:`OEP-17 <oep-0017-bp-feature-toggles>`
    * - Title
      - Feature Toggles
    * - Last Modified

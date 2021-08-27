@@ -8,7 +8,7 @@ OEP-XXXX: OEP Template
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-XXXX </oeps/oep-XXXX-YYYY-ZZZZ>`
+     - :doc:`OEP-XXXX <oep-XXXX-YYYY-ZZZZ>`
 
        * <XXXX is the next available OEP number>
        * <YYYY is the abbreviated Type: proc | bp | arch>
@@ -62,7 +62,7 @@ The rationale adds to the specification by describing the events or
 requirements that led to the proposal, what influenced the design, and why
 particular design decisions were made. The rationale could provide evidence
 of consensus within the community and discuss important objections or
-concerns raised during discussion. It could identify any related work, 
+concerns raised during discussion. It could identify any related work,
 for example, how the feature is supported in other systems.
 
 Backward Compatibility

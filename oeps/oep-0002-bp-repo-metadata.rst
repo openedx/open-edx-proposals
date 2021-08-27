@@ -237,7 +237,7 @@ Change History
 2016-10-13
 ----------
 
-* Move the definition of ``openedx-release`` to :doc:`OEP-10 <oep-0010>`.
+* Move the definition of ``openedx-release`` to :doc:`OEP-10 <oep-0010-proc-openedx-releases>`.
 
 2016-08-24
 ----------

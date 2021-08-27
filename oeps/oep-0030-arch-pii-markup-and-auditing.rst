@@ -3,7 +3,7 @@ OEP-30: PII Markup and Auditing
 ===============================
 
 +---------------+------------------------------------------------------------+
-| OEP           | :doc:`OEP-30 </oeps/oep-0030-arch-pii-markup-and-auditing>`|
+| OEP           | :doc:`OEP-30 <oep-0030-arch-pii-markup-and-auditing>`      |
 +---------------+------------------------------------------------------------+
 | Title         | Personally Identifiable Information Markup and Auditing    |
 +---------------+------------------------------------------------------------+

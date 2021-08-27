@@ -8,7 +8,7 @@ OEP-XXXX: OEP Template
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-XXXX </oeps/oep-XXXX-YYYY-ZZZZ>`
+     - :doc:`OEP-XXXX <oep-XXXX-YYYY-ZZZZ>`
 
        * <XXXX is the next available OEP number>
        * <YYYY is the abbreviated Type: proc | bp | arch>
@@ -46,7 +46,7 @@ are actually captured and stored.  For example, in:
 * a Discourse discussion on `discuss.openedx.org`_
 * a public Google doc
 
-.. _Open edX Architecture space in Confluence: https://openedx.atlassian.net/wiki/spaces/AC/pages/65667085/Architecture+Notes+and+Thoughts
+.. _Architecture Notes and Thoughts space in Confluence: https://openedx.atlassian.net/wiki/spaces/AC/pages/65667085/Architecture+Notes+and+Thoughts
 .. _discuss.openedx.org: https://discuss.openedx.org
 
 Decisions

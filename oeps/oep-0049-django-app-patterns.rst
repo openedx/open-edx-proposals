@@ -7,7 +7,7 @@ OEP-0049: Django App Patterns
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0045 </oeps/oep-0049>`
+     - :doc:`OEP-0045 <oep-0049-django-app-patterns>`
    * - Title
      - Django App Patterns
    * - Last Modified
@@ -44,38 +44,35 @@ All of our Django apps should have a common structure. This structure consists o
 The common Django files and folders this **won't** set preferences for are:
 
 .. list-table::
-   :widths: 25 60 15
+   :widths: 25 75
 
    * - admin.py
-     - The additions to the Django admin site live here
-     - `Docs <https://docs.djangoproject.com/en/3.1/ref/contrib/admin/>`_
+     - The `additions to the Django admin site <https://docs.djangoproject.com/en/3.1/ref/contrib/admin/>`__ live here
    * - migrations/
-     - The migrations for the models live here
-     - `Docs <https://docs.djangoproject.com/en/3.1/topics/migrations/>`_
+     - The `migrations for the models <https://docs.djangoproject.com/en/3.1/topics/migrations/>`__ live here
    * - management/
-     - The management commands live here
-     - `Docs <https://docs.djangoproject.com/en/3.1/howto/custom-management-command/>`_
+     - The `management commands <https://docs.djangoproject.com/en/3.1/howto/custom-management-command/>`__ live here
    * - models.py
-     - The Django ORM models live here
-     - `Docs <https://docs.djangoproject.com/en/3.1/topics/db/models/>`_
+     - The `Django ORM models <https://docs.djangoproject.com/en/3.1/topics/db/models/>`__ live here
    * - urls.py
-     - The URL structure of your app is defined here
-     - `Docs <https://docs.djangoproject.com/en/3.1/topics/http/urls/>`_
+     - The `URL structure of your app <https://docs.djangoproject.com/en/3.1/topics/http/urls/>`__ is defined here
 
 More detailed
 
 Listed below are each of the files or folders your app should contain and what they should consist of.
 
-
 README.rst
 ++++++++++
+
 Each app should contain a README.rst to explain its use. See full details of what should go in the README.rst in OEP-0019_
 
 .. _OEP-0019: https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#readmes
 
-.. ___init__.py:
+.. _`__init__.py`:
+
 __init__.py
 +++++++++++
+
 The ``__init__.py`` file should contain a line for the ``default_app_config`` for the app. This ``default_app_config`` should point to the ``AppConfig`` located in ``<app_name>/apps.py``. It may also contain small app details such as a version. However, unlike many packages, ``__init__.py`` should *not* be used to as the way to export the app's public methods. These should be exported using ``api.py`` (and thus imported as ``from path.to.app.api import public_function``). See api.py_ below.
 
 Example
@@ -85,10 +82,11 @@ Example
 
   default_app_config = "service_name.apps.app_name.apps.CustomAppConfig"
 
-
 .. _apps.py:
+
 apps.py
 +++++++
+
 The ``apps.py`` file should contain a subclass of a Django ``AppConfig``. The AppConfig should set the app's name to its full path (e.g. ``name = "service_name.apps.app_name"``) and should (optionally) have an overriding ``ready()`` function which initializes the app. Any imports that need to happen during app initialization (such as signals_) need to happen inside the ``ready`` function or else there's risk of circular imports.
 
 Example
@@ -111,13 +109,14 @@ Example
           from .signals import handlers
 
 .. _api.py:
+
 api.py
 ++++++
+
 This should be single point of entry for other Python code to talk to your app. This is *not* a Rest API, this is a Python API (see rest_api_). Some rules for ``api.py`` are as follows:
 
 1. API methods defined in ``api.py`` should be well-named, self-consistent, and relevant to its own domain (without exposing technical and implementation details)
 2. An app's Django models and other internal data structures should not be exposed via its Python APIs (unless performance requires it).
-
 
 Not exposing an app's data structures can be tricky because it's very easy to expose them without meaning to. Therefore there are a couple common strategies we employ.
 
@@ -127,6 +126,7 @@ Not exposing an app's data structures can be tricky because it's very easy to ex
 
 Performance caveat
 ~~~~~~~~~~~~~~~~~~
+
 While there are many situations that the above solution works well for, there are a number of situations where the need for performance outweighs the preference for strong code boundaries. In these situations, APIs may return querysets of models so the code consuming the API may efficiently filter and retrieve the data. We don't have solutions that keep strong boundaries and have good performance today, but are working towards them.
 
 If you simply need to page your results and want to keep code boundaries intact, you can use Django's Paginator class to keep the retrievals performant without passing Querysets around.
@@ -187,15 +187,16 @@ Example
       ]
 
 .. _data.py:
+
 data.py
 +++++++
+
 This file should include the public data structures for the app that can be passed between apps without exposing internal features. These should be used instead of sending Django model objects or querysets to apps that call the functions in ``api.py``. This file should not import anything other than stdlib modules, so that it may be imported by any other app without issue. These data objects should be simple objects with all business logic handled by ``api.py``. They may however perform simple validation, as long as it is self-contained (doesn't reach out to database, network, or any code outside of the class)
 
 Example
 ~~~~~~~
 
 .. code-block:: python
-
 
   from enum import Enum
 
@@ -221,8 +222,10 @@ Example
       )
 
 .. _rest_api:
+
 rest_api/
 +++++++++
+
 If an app will have its own REST API, it should live in a folder called ``rest_api`` to distinguish it from the ``api.py`` file used for intra-app communication.
 
 APIs should be versioned and the serializers and permissions associated with that version should be kept inside that version's folder. This prevents breakages when an API needs to be updated.
@@ -242,10 +245,11 @@ An example of a common folder structure for a versioned REST API::
 
 Because API conventions (including URL structure, namespacing, and versioning) are separate concerns than the app structure, please reference https://openedx.atlassian.net/wiki/spaces/AC/pages/18350757/edX+REST+API+Conventions for any questions.
 
-
 .. _signals:
+
 signals/
 +++++++++
+
 If an app is consuming Django Signals from other apps or creating its own Signals, it should include a ``signals`` directory which will include both its signal handlers and Signals it owns. If possible, the signal handlers should only be thin layer between the signal and more generalized functions in the app. This way we can keep business logic out of the "plumbing". The signals directory should look like::
 
   app_name
@@ -253,9 +257,12 @@ If an app is consuming Django Signals from other apps or creating its own Signal
   │   │   ├── signals.py  # for defining new signals
   │   │   ├── handlers.py  # for listening to existing signals
 
+
 .. _tasks:
+
 tasks/ or tasks.py
 ++++++++++++++++++
+
 If an app contains long running tasks (i.e. tasks that run outside of a request, often a celery task), they should live in in either either a ``tasks.py`` file or a ``tasks`` folder.
 
 Do note that even if you expose your tasks through ``api.py`` to be used by other components, any celery routing should
@@ -264,4 +271,5 @@ decorator) is based off the original file.
 
 Consequences
 ------------
+
 At this time, there is no plan to enforce any of these guidelines. The vast majority of current Open edX code doesn't yet meet these guidelines, and there will always be exceptions to the rule. The hope is that as developers write new code or refactor existing code, they follow these patterns as best they can. We also hope that code reviewers will ensure these guidelines are followed in the code they approve.

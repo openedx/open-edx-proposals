@@ -3,7 +3,7 @@ OEP-38:  Data Modeling Best Practices
 ======================================
 
 +---------------+------------------------------------------------------------+
-| OEP           | :doc: `OEP-0038 <oep-0038-data-modeling>`                  |
+| OEP           | :doc:`OEP-0038 <oep-0038-Data-Modeling>`                   |
 +---------------+------------------------------------------------------------+
 | Title         | Data Modeling Best Practices                               |
 +---------------+------------------------------------------------------------+
@@ -21,7 +21,7 @@ OEP-38:  Data Modeling Best Practices
 +---------------+------------------------------------------------------------+
 | Review Period | 2019-08-01 - 2019/10/01                                    |
 +---------------+------------------------------------------------------------+
-| Resolution    | 'Original pull request'                                    |       
+| Resolution    | 'Original pull request'                                    |
 +---------------+------------------------------------------------------------+
 
 Abstract
@@ -195,7 +195,8 @@ should adhere. When creating new applications or models please ensure the models
 Use a numeric primary key
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  It is recommended to use :code:`BigAutoField`_.
+-  It is recommended to use `BigAutoField`_.
+
 .. _BigAutoField: https://docs.djangoproject.com/en/2.2/ref/models/fields/#bigautofield
 
 -  Do not use composite based primary keys. Use a primary key column.
@@ -203,13 +204,15 @@ Use a numeric primary key
 Have updated and created timestamps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  The preferred method for doing this in Open edX Django applications is to inherit the :code:`TimeStampedModel`_. class.
+-  The preferred method for doing this in Open edX Django applications is to inherit the `TimeStampedModel`_ class.
+
 .. _TimeStampedModel: https://django-model-utils.readthedocs.io/en/latest/models.html#timestampedmodel
 
-- Time should be stored in UTC time by setting :code:`USE_TZ=True`_. in your python config.
+- Time should be stored in UTC time by setting `USE_TZ=True`_ in your python config.
+
 .. _USE_TZ=True: https://docs.djangoproject.com/en/2.2/topics/i18n/timezones/#overview
 
--  If for some reason you can not inherit from :code:`TimeStampedModel`_. use the following naming conventions:
+-  If for some reason you can not inherit from `TimeStampedModel`_ use the following naming conventions:
 
    -  Created date should be named: “created”
 
@@ -228,15 +231,18 @@ Foreign keys
 
 - Joining between IDAs should be done by using a universally unique identifier (UUID)
 
-- In Django use `Attributes for fields with relations`_. to identify and link models with relationships.
-.. __Attributes for fields with relations: https://docs.djangoproject.com/en/2.2/ref/models/fields/#module-django.db.models.fields.related
+- In Django use `Attributes for fields with relations`_ to identify and link models with relationships.
+
+.. _Attributes for fields with relations: https://docs.djangoproject.com/en/2.2/ref/models/fields/#module-django.db.models.fields.related
 
 History for models involved with enrollments, courses and course metadata, or data involving financial payments and transactions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  History using django-simple-history_. .. _django-simple-history: https://django-simple-history.readthedocs.io/en/latest/
+-  History using django-simple-history_.
 
--  Remember to `backfill history`_. for existing models.
+.. _django-simple-history: https://django-simple-history.readthedocs.io/en/latest/
+
+-  Remember to `backfill history`_ for existing models.
 
 .. _backfill history: https://django-simple-history.readthedocs.io/en/latest/quick_start.html#existing-projects
 
@@ -253,12 +259,14 @@ Use the correct data type for a column
 
 -  Don’t use a :code:`IntegerField` when a :code:`BooleanField` would do.
 
--  Use :code:`BigIntegerField`_. for your foreign keys
+-  Use :code:`BigIntegerField` for your foreign keys
 
--  Don’t store an Integer field as :code:`CharField`_..
+-  Don’t store an Integer field as `CharField`_.
+
 .. _CharField: https://docs.djangoproject.com/en/2.2/ref/models/fields/#charfield
 
-- Store UUID's as :code:`UUIDField`_. with a max length that matches the max length of the UUID.
+- Store UUID's as `UUIDField`_ with a max length that matches the max length of the UUID.
+
 .. _UUIDField: https://docs.djangoproject.com/en/2.2/ref/models/fields/#uuidfield
 
 
@@ -270,7 +278,8 @@ Each column in a table should only store a single fact or dimension
 Models should be Annotated for PII
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  All models in the Open edX ecosystem should be tagged for PII using `code annotations`_. by following OEP-30_.
+-  All models in the Open edX ecosystem should be tagged for PII using `code annotations`_ by following OEP-30_.
+
 .. _code annotations: https://github.com/edx/code-annotations>
 .. _OEP-30: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0030-arch-pii-markup-and-auditing.rst
 
@@ -280,22 +289,24 @@ Have sane default values
 
 - A model should have default values that make sense for the application
 
-- :code:`CharField`_. Should be defined with the :code:`null=True`_. option.
+- `CharField`_ should be defined with the `null=True`_ option.
+
 .. _null=True: https://docs.djangoproject.com/en/2.2/ref/models/fields/#null
-   - This is to improve post processing. Defaulting :code:`CharField`_. to null enables us to better derive the intent of the user. If the field is null no intent was made to enter that field. If the field is blank a string was entered and was modified later by the user.
+
+   - This is to improve post processing. Defaulting `CharField`_ to null enables us to better derive the intent of the user. If the field is null no intent was made to enter that field. If the field is blank a string was entered and was modified later by the user.
 
 - For example if you are adding a boolean to flag that a learner has not yet activated their account, the default value should be set to False, not None.
 
 The database layer should preserve uniqueness
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- If a model needs to preserve uniqueness between many fields use :code:`unique_together`_.
+- If a model needs to preserve uniqueness between many fields use `unique_together`_.
+
 .. _unique_together: https://docs.djangoproject.com/en/2.2/ref/models/options/#unique-together
-
-
 
 Best Practices
 --------------
+
 These practices are designed to help teams create rich and efficient data models within the OpenedX ecosystem.
 They are not standards but guidelines to help teams think about how they are storing data.
 
@@ -310,17 +321,13 @@ Columns should store only exactly what the name describes
 Deleting data
 ~~~~~~~~~~~~~
 
--  It is better to have a column to mark the record as inactive than to
-      remove the data from the system using the SQL delete keyword. These models should use Django's
-      :code:`SoftDeletableModel`_.
+-  It is better to have a column to mark the record as inactive than to remove the data from the system using the SQL delete keyword. These models should use Django's `SoftDeletableModel`_.
+
 .. _SoftDeletableModel: https://django-model-utils.readthedocs.io/en/latest/models.html#softdeletablemodel
 
+-  Please note that GDPR may require that data be deleted. If a field is determined to contain PII and falls under the realm of GDPR, that data should be deleted from the system, or obfuscated from the system. `For more information about GDPR and how to delete user data from edx please refer to this documentation`_.
 
--  Please note that GDPR may require that data be deleted. If a field
-         is determined to contain PII and falls under the realm of GDPR,
-         That data should be deleted from the system, or obfuscated from the system. `For more information about GDPR and how to delete user data from edx please refer to this documentation`_.
 .. _For more information about GDPR and how to delete user data from edx please refer to this documentation: https://openedx.atlassian.net/wiki/spaces/PLAT/pages/930021733/User+Retirement+Tutorial+for+Developers
-
 
 Don’t trap the data
 ~~~~~~~~~~~~~~~~~~~
@@ -363,15 +370,16 @@ Enforce logical constraints at the database layer
 
 -  Don’t allow impossible states to be represented in the database.
 
--  If your code expects a 1:1 relationship, use Django's :code:`Unique`_. instead of trying to enforce the constraint in
+-  If your code expects a 1:1 relationship, use Django's `Unique`_ instead of trying to enforce the constraint in
       Python.
+
 .. _Unique: https://docs.djangoproject.com/en/2.2/ref/models/fields/#unique
 
 -  Python will not save you from race conditions. Database constraints will.
 
 -  For example, an enrollment should have a unique constraint on
       (course_id, user_id), since a given user should only have one
-      enrollment per course. In this case you should use Django's :code:`unique_together`_
+      enrollment per course. In this case you should use Django's `unique_together`_.
 
 Keep indexes to a minimum
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -381,8 +389,6 @@ Keep indexes to a minimum
 -  Keep in mind that indexes cost space and have their own set of performance concerns.
 
 -  Over-indexing data could actually make the database less performant (slower writes/updates)
-
-
 
 Developer Responsibility
 ========================
@@ -405,7 +411,3 @@ Backward Compatibility
 ======================
 
 Data models that are not within the standards of this document do not need to be updated to adhere to OEP-38 standards.
-
-
-
-                 

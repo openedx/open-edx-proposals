@@ -8,7 +8,7 @@ OEP-XXXX: OEP Template
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-XXXX </oeps/oep-XXXX-YYYY-ZZZZ>`
+     - :doc:`OEP-XXXX <oep-XXXX-YYYY-ZZZZ>`
 
        * <XXXX is the next available OEP number>
        * <YYYY is the abbreviated Type: proc | bp | arch>
