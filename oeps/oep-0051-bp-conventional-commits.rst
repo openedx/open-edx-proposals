@@ -106,7 +106,9 @@ If a commit mixes types, use the most important type label in the commit message
 Scope
 -----
 
-The `Conventional Commits`_ spec includes an optional parenthesized scope after the type label.  Open edX repos are large and varied, making standardization of scopes difficult.  We won't use scopes for now.  This could change in the future.
+The `Conventional Commits`_ spec includes an optional parenthesized scope after the type label.  You may include a scope if it helps clarify the commit.
+
+Open edX repos are large and varied, making standardization of scopes difficult.  Different repos will have different needs for scopes.  We currently offer no guidance for scopes to use.  This may change in the future.
 
 Subject
 -------
