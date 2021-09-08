@@ -10,7 +10,7 @@ OEP-0051: Conventional Commits
    * - Title
      - Conventional Commits
    * - Last Modified
-     - 2021-03-16
+     - 2021-09-08
    * - Authors
      - Ned Batchelder
    * - Arbiter
@@ -211,6 +211,8 @@ One of the advantages of formalized commit messages is using them as input to to
 
 Change History
 ==============
+
+2021-09-08: Scopes are optional, but unstandardized.
 
 2021-03-16: Updates throughout based on review feedback.
 
