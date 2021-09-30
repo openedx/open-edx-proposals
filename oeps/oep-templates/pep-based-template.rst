@@ -1,3 +1,5 @@
+.. _pep_based_template:
+
 ======================
 OEP-XXXX: OEP Template
 ======================
@@ -8,11 +10,14 @@ OEP-XXXX: OEP Template
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-XXXX <oep-XXXX-YYYY-ZZZZ>`
+     - Link to the doc in the following format::
 
-       * <XXXX is the next available OEP number>
-       * <YYYY is the abbreviated Type: proc | bp | arch>
-       * <ZZZZ is a brief (< 5 words) version of the title>
+        :doc:`OEP-XXXX <oep-XXXX-YYYY-ZZZZ>`
+
+        * <XXXX is the next available OEP number>
+        * <YYYY is the abbreviated Type: proc | bp | arch>
+        * <ZZZZ is a brief (< 5 words) version of the title>
+
    * - Title
      - <OEP title>
    * - Last Modified

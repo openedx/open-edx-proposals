@@ -198,3 +198,16 @@ Implementation Strategy
 Discussion of implentation of this OEP will happen in a `separate Pull Request`_ .
 
 .. _separate Pull Request: https://github.com/edx/open-edx-proposals/pull/144
+
+Related Decisions
+=================
+
+The following related decisions modify or enhance this OEP, but have not yet been fully incorporated as updates to this OEP:
+
+.. toctree::
+   :caption: OEP-45 Decisions
+   :maxdepth: 1
+   :glob:
+
+   oep-0045/decisions/*
+

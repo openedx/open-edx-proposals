@@ -6,7 +6,7 @@ OEP-41: Asynchronous Server Event Message Format
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-41 </oeps/oep-0041-arch-async-server-event-messaging.rst>`
+     - :doc:`OEP-41 <oep-0041-arch-async-server-event-messaging>`
    * - Title
      - Asynchronous Server Event Message Format
    * - Last Modified
