@@ -47,15 +47,15 @@ The common Django files and folders this **won't** set preferences for are:
    :widths: 25 75
 
    * - admin.py
-     - The `additions to the Django admin site <https://docs.djangoproject.com/en/3.1/ref/contrib/admin/>`__ live here
+     - The `additions to the Django admin site <https://docs.djangoproject.com/en/3.2/ref/contrib/admin/>`__ live here
    * - migrations/
-     - The `migrations for the models <https://docs.djangoproject.com/en/3.1/topics/migrations/>`__ live here
+     - The `migrations for the models <https://docs.djangoproject.com/en/3.2/topics/migrations/>`__ live here
    * - management/
-     - The `management commands <https://docs.djangoproject.com/en/3.1/howto/custom-management-command/>`__ live here
+     - The `management commands <https://docs.djangoproject.com/en/3.2/howto/custom-management-commands/>`__ live here
    * - models.py
-     - The `Django ORM models <https://docs.djangoproject.com/en/3.1/topics/db/models/>`__ live here
+     - The `Django ORM models <https://docs.djangoproject.com/en/3.2/topics/db/models/>`__ live here
    * - urls.py
-     - The `URL structure of your app <https://docs.djangoproject.com/en/3.1/topics/http/urls/>`__ is defined here
+     - The `URL structure of your app <https://docs.djangoproject.com/en/3.2/topics/http/urls/>`__ is defined here
 
 More detailed
 

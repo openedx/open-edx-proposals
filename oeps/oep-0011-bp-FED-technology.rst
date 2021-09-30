@@ -273,7 +273,7 @@ Rejected Alternatives
 .. _edX ESLint Config for ES5: https://github.com/edx/eslint-config-edx/tree/master/packages/eslint-config-edx-es5
 .. _edx Frontend Auth Client: https://github.com/edx/frontend-auth
 .. _enzyme: https://airbnb.io/enzyme/
-.. _ESLint configuration cascading: http://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
+.. _ESLint configuration cascading: https://eslint.org/docs/user-guide/configuring/configuration-files#cascading-and-hierarchy
 .. _ES2015 Modules: http://www.ecma-international.org/ecma-262/6.0/#sec-imports
 .. _ES2017: https://tc39.github.io/ecma262/
 .. _Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
@@ -282,7 +282,7 @@ Rejected Alternatives
 .. _Jest: https://jestjs.io/
 .. _JSX: https://facebook.github.io/react/docs/introducing-jsx.html
 .. _oep 18: https://open-edx-proposals.readthedocs.io/en/latest/oep-0018-bp-python-dependencies.html
-.. _package lock: https://docs.npmjs.com/files/package-locks
+.. _package lock: https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 .. _Polymer: https://www.polymer-project.org/
 .. _React: https://github.com/facebook/react
 .. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React

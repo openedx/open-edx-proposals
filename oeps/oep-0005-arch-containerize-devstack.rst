@@ -248,7 +248,7 @@ The following related decisions modify or enhance this OEP, but have not yet bee
 Change History
 ==============
 
-.. _.dockerignore: https://docs.docker.com/engine/reference/builder/#/dockerignore-file
+.. _.dockerignore: https://docs.docker.com/engine/reference/builder/#dockerignore-file
 .. _.gitignore: https://git-scm.com/docs/gitignore
 .. _Django: https://www.djangoproject.com/
 .. _Docker Compose: https://docs.docker.com/compose/overview/

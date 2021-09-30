@@ -44,7 +44,7 @@ Given the many benefits of using feature toggles, edX development teams have bee
 
 Aligning on a common best practice for feature toggling is critical for both the short-term and long-term health of the system. Using different standards, strategies, testing procedures, etc., leads to confusion, production failures, and long-term maintenance issues.
 
-.. _long-term feature branches: https://blog.newrelic.com/2012/11/14/long-running-branches-considered-harmful/
+.. _long-term feature branches: https://newrelic.com/blog/best-practices/long-running-branches-considered-harmful
 
 Use Cases
 ---------
