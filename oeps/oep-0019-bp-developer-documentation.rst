@@ -53,7 +53,7 @@ Developer documentation is inconsistent and poorly maintained. Documents are als
 Decisions
 *********
 
-* We will use `reStructuredText (rST)`_ as our default documentation format for all developer documentation except for the exceptions outlined here. See the :ref:`Format Rationale` section below for more info on why RST.
+* We will use `reStructuredText (rST)`_ as our default documentation format for all developer documentation except for the exceptions outlined here. See the `Format Rationale`_ section below for more info on why RST.
 
   * Python docstrings that are going to be rendered in an `Open API`_ context should be formatted in Markdown.
 
@@ -71,7 +71,6 @@ Decisions
 
 .. _open-edx-proposals: https://github.com/edx/open-edx-proposals
 .. _edx-developer-docs: https://github.com/edx/edx-developer-docs
-.. _Confluence: https://openedx.atlassian.net/wiki/
 .. _Developer Docs: https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/
 .. _Open API: https://www.openapis.org/
 .. _MDX: https://mdxjs.com/
@@ -345,7 +344,7 @@ Rejected alternatives
 Markdown Format
 ===============
 
-We are choosing to not use `Markdown (MD)`_ for documentation. A single format enables consistency, and avoids conversions to rST when requiring additional features. See the `Format`_ section for more details. The `Learning rST`_ section has resources comparing Markdown and rST.
+We are choosing to not use `Markdown (MD)`_ for documentation. A single format enables consistency, and avoids conversions to rST when requiring additional features. See the `Format Rationale`_ section for more details. The `Learning rST`_ section has resources comparing Markdown and rST.
 
 .. _Markdown (MD): https://www.markdownguide.org/
 

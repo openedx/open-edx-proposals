@@ -127,6 +127,13 @@ Caliper Integration
 
 For details on integrating with Caliper, please see the :ref:`caliper_realtime_events` design document.
 
+.. toctree::
+    :hidden:
+
+    oep-0026/caliper-realtime-events.rst
+    oep-0026/xapi-realtime-events.rst
+
+
 .. _oep-26-user-id:
 
 Anonymized User ID

@@ -82,7 +82,7 @@ The registry is automatically created from multiple profiles. For now, we will l
 * http://w3id.org
 * http://id.tincanapi.com
 
-If, by any chance, a verb needed by Open edX does not exist in the registry, then we will create a pull request to recommend adding it to the `central GitHub repository of xAPI Profiles`_. 
+If, by any chance, a verb needed by Open edX does not exist in the registry, then we will create a pull request to recommend adding it to the `central GitHub repository of xAPI Profiles`_.
 
 Here is an example of a **Verb** JSON value that we would generate:
 
@@ -117,7 +117,7 @@ Here is an example of an **Object** JSON value that we would generate:
         "id": "https://courses.openedx.org/xblock/block-v1:openedx+origami-folding+1T2018+type@problem+block@abcd",
         "definition": {
             "type": "http://adlnet.gov/expapi/activities/question",
-            "name": { 
+            "name": {
                 "en-US": "Question on mountain fold needed to create an origami crane base",
             }
         }
@@ -239,6 +239,6 @@ Please see the `Open edx xAPI Events`_ document for a detailed view of the mappi
 Implementation Note
 ~~~~~~~~~~~~~~~~~~~
 
-TBD - The development team will assess whether we will use (and start owning) the already implemented (but no longer maintained) `xAPI Python Open Source Library`_. 
+TBD - The development team will assess whether we will use (and start owning) the already implemented (but no longer maintained) `xAPI Python Open Source Library`_.
 
 .. _xAPI Python Open Source Library: https://xapi.com/python-library/

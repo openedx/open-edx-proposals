@@ -85,25 +85,25 @@ Authors
 
 Each OEP must have at least one Author: someone who writes the OEP using the
 style and format described here, shepherds the discussions in the appropriate
-forums, and attempts to build community consensus around the idea.  
+forums, and attempts to build community consensus around the idea.
 
 Arbiter
 -------
 
-Each OEP also has an Arbiter (as described in `Step 1. Request an Arbiter`_). 
+Each OEP also has an Arbiter (as described in `Step 1. Request an Arbiter`_).
 The Arbiter will be chosen by the `edX Architecture Team`_. An Author of an OEP
 cannot concurrently be the Arbiter of that OEP.
 
-The Arbiter will be the person making the final decision on whether the OEP 
-should be Accepted, and as such, the Arbiter should be knowledgeable about 
-the contents of the proposal, and willing to listen to arguments both for 
+The Arbiter will be the person making the final decision on whether the OEP
+should be Accepted, and as such, the Arbiter should be knowledgeable about
+the contents of the proposal, and willing to listen to arguments both for
 and against it by the rest of the community.
 
 The Arbiter is also responsible for helping the Authors move the proposal
 through the OEP process, providing technical and process expertise as needed.
-The Arbiter also assists the Authors in soliciting feedback from the 
+The Arbiter also assists the Authors in soliciting feedback from the
 community on the OEP and moving it towards a final decision (whether that
-decision is Accepted, Rejected, or Deferred). The Arbiter (in discussion with 
+decision is Accepted, Rejected, or Deferred). The Arbiter (in discussion with
 the Authors) can merge an in-progress OEP (if it has reached a stage of relative
 stability) to allow for additional incremental updates.
 
@@ -134,7 +134,7 @@ Submitting an OEP
 Step 1. Request an Arbiter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Request an Arbiter from the `edX Architecture Team`_ by emailing 
+Request an Arbiter from the `edX Architecture Team`_ by emailing
 `arch-team@edx.org`_. This Arbiter will be recorded in the "Arbiter" header on the
 OEP.
 
@@ -145,8 +145,8 @@ Step 2. Create PR for "Draft" OEP
 
 Draft an OEP using one of the `OEP templates`_ and submit as a pull request against
 the `central OEP repository`_. To identify the draft proposal, the Authors should
-check the numbered list of previous OEP pull requests and select the next 
-available number. 
+check the numbered list of previous OEP pull requests and select the next
+available number.
 
 The pull request title should be of the form "OEP-XXXX: <OEP title>", where
 *XXXX* is the OEP number claimed for the included proposal.
@@ -286,8 +286,8 @@ the "Accepted" or "Final" state. However, they may be replaced by subsequent OEP
 (OEPs that are replaced are given the status "Replaced".)
 
 The choice of whether an edit to an OEP should be allowed or whether a new OEP
-should be published is up to the Arbiter of the original OEP, or the `edX 
-Architecture Team`_ if that Arbiter is no longer available. However, as a 
+should be published is up to the Arbiter of the original OEP, or the `edX
+Architecture Team`_ if that Arbiter is no longer available. However, as a
 general guideline, the following updates would not require a replacement OEP.
 
 * Formatting changes.
@@ -346,13 +346,20 @@ to capture the decision(s), as deemed appropriate by the Authors and Arbiter.
 To help guide Authors, here are a few ready-made templates that are available
 for use:
 
-* `PEP-based template`_ based on Python's PEP_ standard.
-* `ADR-based template`_ based on `Architecture Decision Records`_.
-* `External link template`_ for OEPs with mostly external content.
+* :ref:`PEP-based template <pep_based_template>` based on Python's PEP_ standard.
+* :ref:`ADR-based template <adr_based_template>` based on `Architecture Decision Records`_.
+* :ref:`External link template <external_link_template>` for OEPs with mostly external content.
 
-.. _PEP-based template: oep-templates/pep-based-template.rst
-.. _ADR-based template: oep-templates/adr-based-template.rst
-.. _External link template: oep-templates/external-link-template.rst
+..
+  Add a hidden toctree to indicate that these files are referenced from here in the overall
+  table of contents.
+
+.. toctree::
+    :hidden:
+
+    oep-templates/pep-based-template.rst
+    oep-templates/adr-based-template.rst
+    oep-templates/external-link-template.rst
 
 OEP Header Preamble
 -------------------
@@ -395,7 +402,7 @@ described below. All other rows are required.
 +-----------------+-------------------------------------------+
 
 * The **OEP** header is a unique identifier for the OEP, consisting of
-  
+
   * *XXXX* - OEP number claimed for the included proposal.
   * *YYYY* - abbreviated type of the OEP (i.e., "proc", "bp" or "arch").
   * *ZZZZ* - hyphenated brief (< 5 words) title of the proposal.
@@ -492,7 +499,7 @@ Change History
 
   * Reduce steps in submission process
 
-    * Remove the obvious "scope your idea" as an initial step. 
+    * Remove the obvious "scope your idea" as an initial step.
     * Remove "vet your idea" before creating a Draft.
     * Move "request an arbiter" as 1st step in place of vetting and scoping.
 
@@ -504,3 +511,4 @@ Change History
 ----------
 
 * Added a new "Provisional" status.
+
