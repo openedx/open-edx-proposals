@@ -20,5 +20,20 @@ To test locally in a Python virtual env::
 
   # Note: if this fails, you may first need to run: pip install sphinx
   make requirements
-  
+
   make html
+
+Common Warnings
+~~~~~~~~~~~~~~~
+
+Document isn't Included in any toctree
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have some documents that you only reference via ``:doc:`` or ``:ref:`` tags you may get this error.
+If there is no table of contents that the files obviously belong in, an easy way to fix this error is to put the
+documents in a hidden toctree near where they are referenced::
+
+    .. toctree::
+        :hidden:
+
+        path/to/referenced-file.rst
