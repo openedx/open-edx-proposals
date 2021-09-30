@@ -94,7 +94,7 @@ In order to function as documentation for operators Dockerfiles will be well-com
 * Private or custom install requirements, patches, ARGs, CMD values, etc. should be included via a separately managed Dockerfile built on top of the Open edX image for that codebase.
 
 
-.. _native Dockerfile syntax: https://docs.docker.com/engine/reference/builder/#dockerfile-reference
+.. _native Dockerfile syntax: https://docs.docker.com/engine/reference/builder/
 
 **Docker Images**
 

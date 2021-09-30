@@ -78,9 +78,9 @@ The **Verb** in xAPI is a past tensed value, identified by a URI from the `xAPI 
 
 The registry is automatically created from multiple profiles. For now, we will limit ourselves to only URIs prefixed by the following domains, in the following priority order (in case of conflicting names):
 
-* http://adlnet.gov
-* http://w3id.org
-* http://id.tincanapi.com
+* ``http://adlnet.gov``
+* ``http://w3id.org``
+* ``http://id.tincanapi.com``
 
 If, by any chance, a verb needed by Open edX does not exist in the registry, then we will create a pull request to recommend adding it to the `central GitHub repository of xAPI Profiles`_.
 
