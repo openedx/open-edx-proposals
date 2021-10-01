@@ -17,7 +17,10 @@ attrs objects.
 Consequences
 ------------
 
-We will have potentially different schema for what data is available within a service compared to between services.
+* We will have potentially different schema for what data is available within a service compared to between services.
+
+* The initial implementation will require a dependency on pulsar/kafka in the shared library that holds the relevant
+  schema and objects.
 
 Rejected Alternatives
 ---------------------
