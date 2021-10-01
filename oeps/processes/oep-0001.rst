@@ -12,9 +12,11 @@ OEP-1: OEP Purpose and Guidelines
 | Authors       | Calen Pennington <cale@edx.org>,                             |
 |               | Joel Barciauskas <joel@edx.org>,                             |
 |               | Nimisha Asthagiri <nimisha@edx.org>                          |
+|               | Feanil Patel <feanil@edx.org>                                |
 +---------------+--------------------------------------------------------------+
 | Arbiter       | - Eddie Fagin <efagin@edx.org>,                              |
 |               | - Calen Pennington <cale@edx.org>                            |
+|               | - Ned Batchelder <ned@edx.org>                               |
 +---------------+--------------------------------------------------------------+
 | Status        | Accepted                                                     |
 +---------------+--------------------------------------------------------------+
@@ -174,11 +176,24 @@ process to a final resolution.
 OEP Status
 ----------
 
-.. image:: oep-0001/state-flow.png
+.. graphviz::
   :alt: A flowchart of OEP statuses, from Draft to Under Review, then to
       Accepted, Rejected, or Withdrawn. There are 2 transitional statuses from
       Draft and Under Review: to/from Provisional and to/from Deferred. An
       Accepted OEP can be Replaced.
+
+
+    digraph test {
+        layout=dot
+        node [shape=rect style=rounded]
+        [fontname=Arial]
+
+        "Draft" -> { "Under Review" "Deferred" }
+        "Under Review" -> { "Deferred" "Provisional" } [dir=both]
+        "Under Review" ->  { "Accepted" "Rejected" "Withdrawn" }
+        "Accepted" -> "Final"
+        "Final" -> { "Replaced" "Obsolete" } [style=dashed] [style=dashed]
+    }
 
 Draft
 ~~~~~
@@ -231,6 +246,15 @@ Replaced
 OEPs can also be superseded by a different OEP, rendering the original
 obsolete. In that case, the OEP's status should be changed to "Replaced"
 and updated with a link to its superseding OEP.
+
+Obsolete
+~~~~~~~~
+
+Over time some OEPs may become obsolete without being replaced by new
+guidelines. In this case the OEP's status should be changed to "Obsolete" and
+the OEP should be updated with an explanation as to why the OEP is no
+longer relevant.
+
 
 Status changes
 ~~~~~~~~~~~~~~
@@ -447,6 +471,11 @@ an oep-XXXX/ directory, where "XXXX" is the OEP number.
 
 Change History
 ==============
+
+2020-10-01
+----------
+
+* Add a new "Obsolete" status to OEPs
 
 2019-08-27
 ----------
