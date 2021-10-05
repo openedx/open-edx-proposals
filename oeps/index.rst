@@ -55,7 +55,7 @@ Architectural Decisions
 
 OEPs that capture architectural decisions that impact the entire Open edX
 Platform. These are decisions that are sufficiently cross-cutting that there
-is no clear code repositary where they should reside.
+is no clear code repository where they should reside.
 
 .. toctree::
    :maxdepth: 1
