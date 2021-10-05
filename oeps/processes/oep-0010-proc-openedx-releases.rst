@@ -146,7 +146,7 @@ Releases will be tagged "open-release/RELEASENAME.1",
 Involving repos in the Open edX build process
 ---------------------------------------------
 
-:doc:`OEP-2 <oep-0002-bp-repo-metadata>` defines a file format for repository metadata.  The
+:doc:`OEP-2 </best-practices/oep-0002-bp-repo-metadata>` defines a file format for repository metadata.  The
 ``openedx-release`` key is an optional dictionary governing the participation
 of the repo in the Open edX release process.
 
@@ -222,7 +222,7 @@ There are two supported installation methods:
     so we dropped Fullstack.  If adopters want to run the Native installation
     under Vagrant, it is not hard to do.
 
-The devstack installation is Docker-based and follows :doc:`OEP-5 <oep-0005-arch-containerize-devstack>`.
+The devstack installation is Docker-based and follows :doc:`OEP-5 </architectural-decisions/oep-0005-arch-containerize-devstack>`.
 
 .. note::
 

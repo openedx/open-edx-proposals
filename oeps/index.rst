@@ -24,12 +24,45 @@ archive of large and broadly relevant choices made for the platform.
 OEPs
 ----
 
+Processes
+~~~~~~~~~
+
+OEPs that relate to processes we want to put in place for the Open edX community.
+
 .. toctree::
    :maxdepth: 1
    :glob:
+   :caption: Processes
 
-   oep-*
+   processes/oep-*
 
+Best Practices
+~~~~~~~~~~~~~~
+
+OEPs that relate to best practices that you should follow when working with the
+Open edX Platform.  These are guidelines and not requirements.  Use them unless
+you have a good reason not to.
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   :caption: Best Practices
+
+   best-practices/oep-*
+
+Architectural Decisions
+~~~~~~~~~~~~~~~~~~~~~~~
+
+OEPs that capture architectural decisions that impact the entire Open edX
+Platform. These are decisions that are sufficiently cross-cutting that there
+is no clear code repositary where they should reside.
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   :caption: Architectural Decisions
+
+   architectural-decisions/oep-*
 
 
 Indices and tables
@@ -38,4 +71,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
