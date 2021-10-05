@@ -36,7 +36,7 @@ imagesize==1.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-jinja2==3.0.1
+jinja2==3.0.2
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -58,7 +58,7 @@ pyparsing==2.4.7
     # via
     #   -r requirements/base.txt
     #   packaging
-pytz==2021.1
+pytz==2021.3
     # via
     #   -r requirements/base.txt
     #   babel
