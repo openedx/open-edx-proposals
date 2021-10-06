@@ -1,0 +1,37 @@
+edX.org Event Bus Deployment Choice
+===================================
+
+Context
+-------
+
+* Setting up an event bus can be complex since most modern brokers come in multiple parts that all need to be deployed
+  and maintained together to create a working broker.
+
+* The event bus system is still experimental in Open edX and investing a lot in infrastructure before we can prove out
+  the value of the technology does not seem to be a valuable use of time.
+
+* The Infrastructure team at edX does not currently have capacity to manage this system in house on top of other
+  services they provide.
+
+Decision
+--------
+
+To begin proving out the event bus technology, edx.org will run the underlying broker via a software as a servics(SaaS)
+provider.  This will allow us to begin prototyping sooner and get a working end-to-end system that we can then iterate
+on.
+
+.. note::
+
+    This decision is specific to edx.org and is not a requirement or recommendation of how other deployments in the Open
+    edX Community manage their brokers.
+
+Future Direction
+----------------
+
+In the future we expect that there will be value in moving the broker in-house where it can provide stronger SLAs and
+can be more closely monitored.  In this situation, we may want to strongly consider hosting in our VPCs while still
+using a vendor to do the managing.  Vendors like Streamnative provide this service which they called ``Managed Pulsar``
+which would all us to reap the control and performance benefits of hosting in our VPCs while still keeping the
+management costs low.
+
+
