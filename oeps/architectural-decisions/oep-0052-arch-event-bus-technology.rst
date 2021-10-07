@@ -51,7 +51,9 @@ However, this earlier OEP explicitly leaves out of scope the specific transport 
 
 In other words, we have documented what we wish to do and why, but we do not yet fully have the capability to do it. We are missing a reliable event messaging infrastructure with `publish-subscribe messaging pattern`_ (pub/sub) capabilities.
 
-Note: The `Architecture Manifesto`_ mentions being inspired by the `Reactive Manifesto`_. Although there is a lot of overlap, this might also cause confusion, because the Reactive Manifesto discusses `Message Driven (in contrast to Event-Driven)`_, which they define as messages sent to a specific destination. However, this decision is not concerned with Message Driven by this definition, but instead about Event-Driven capabilities using pub/sub.
+.. note::
+
+   The `Architecture Manifesto`_ mentions being inspired by the `Reactive Manifesto`_. Although there is a lot of overlap, this might also cause confusion, because the Reactive Manifesto discusses `Message Driven (in contrast to Event-Driven)`_, which they define as messages sent to a specific destination. However, this decision is not concerned with Message Driven by this definition, but instead about Event-Driven capabilities using pub/sub.
 
 .. _Architecture Manifesto: https://openedx.atlassian.net/wiki/spaces/AC/pages/1074397222/Architecture+Manifesto+WIP
 .. _Reactive Manifesto: https://www.reactivemanifesto.org/
@@ -60,10 +62,19 @@ Note: The `Architecture Manifesto`_ mentions being inspired by the `Reactive Man
 Decision
 --------
 
-The Open edX platform will benefit from having a message bus. We believe `Apache Kafka`_ is a good choice for the event bus and will begin trialing it to solve some specific platform problems addressed by the `publish-subscribe messaging pattern`_.
+The Open edX platform will benefit from having a message bus. We believe `Apache Pulsar`_ is a good choice for the event bus after building an initial POC in both `Kafka`_ and `Pulsar`_.  Based on the findings of the POC we will begin trialing `Pulsar`_ to solve some specific platform problems addressed by the `publish-subscribe messaging pattern`_.
 
-.. _Apache Kafka: https://kafka.apache.org/
+.. _Apache Pulsar: https://pulsar.apache.org/
+.. _Pulsar: https://pulsar.apache.org/
+.. _Kafka: https://kafka.apache.org/
 .. _publish-subscribe messaging pattern: https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
+
+Why (trial) Pulsar?
+~~~~~~~~~~~~~~~~~~~
+
+Pulsar and Kafka were both in very close running in our initial assessment.  In writing code to work with kafka and examanining its client interface, we saw the lack of a synchronous interface for writing data to be problemating.  It meant we would have to write more complex code in order to gauranteed that messages were persisted and make use of callbacks to respond to errors.  Pulsar on the other hand provides both an async and synchronous message sending interface.  The synchronous interface makes it a lot easier to write code when you need to ensure that database comitting and message sending happen atomically.
+
+In trialing Kafka we saw that some of our initial assumptions about the ease of operating Kafka in AWS due to the availablity of MSK(Managed Streamking Kafka) were not as adventageous as we expected.  While MSK solves the issue of deploying the broker, Kafka has enough add-ons(schema mangement, partition-management tool) that we don't actually reduce operational burden by having Kafka as a managed service compared to Pulsar.
 
 Why (trial) Kafka?
 ~~~~~~~~~~~~~~~~~~
@@ -185,12 +196,14 @@ Pros
 * Ease of scalability (built-in, according to docs).
 * Ease of data retention capabilities.
 * Additional built-in pub/sub features (built-in, according to docs).
+* 
 
 Cons
 ^^^^
 
-* Requires 3rd party hosting or larger upfront investment in self-hosted (kubernetes).
+* Requires 3rd party hosting or larger upfront investment if self-hosted (kubernetes).
 * Less mature (but growing) community, little documentation, and few answers.
+* Python built-in schema management is hard to work with for complex use cases.
 
 Note: Read an interesting (Kafka/Confluent) biased article exploring `comparisons and myths of Kafka vs Pulsar`_.
 
