@@ -12,9 +12,11 @@ OEP-1: OEP Purpose and Guidelines
 | Authors       | Calen Pennington <cale@edx.org>,                             |
 |               | Joel Barciauskas <joel@edx.org>,                             |
 |               | Nimisha Asthagiri <nimisha@edx.org>                          |
+|               | Feanil Patel <feanil@edx.org>                                |
 +---------------+--------------------------------------------------------------+
 | Arbiter       | - Eddie Fagin <efagin@edx.org>,                              |
 |               | - Calen Pennington <cale@edx.org>                            |
+|               | - Ned Batchelder <ned@edx.org>                               |
 +---------------+--------------------------------------------------------------+
 | Status        | Accepted                                                     |
 +---------------+--------------------------------------------------------------+
@@ -174,11 +176,24 @@ process to a final resolution.
 OEP Status
 ----------
 
-.. image:: oep-0001/state-flow.png
+.. graphviz::
   :alt: A flowchart of OEP statuses, from Draft to Under Review, then to
       Accepted, Rejected, or Withdrawn. There are 2 transitional statuses from
       Draft and Under Review: to/from Provisional and to/from Deferred. An
       Accepted OEP can be Replaced.
+
+
+    digraph oep_process {
+        layout=dot
+        node [shape=rect style=rounded]
+        [fontname=Arial]
+
+        "Draft" -> { "Under Review" "Deferred" }
+        "Under Review" -> { "Deferred" "Provisional" } [dir=both]
+        "Under Review" ->  { "Accepted" "Rejected" "Withdrawn" }
+        "Accepted" -> "Final"
+        "Final" -> { "Replaced" "Obsolete" } [style=dashed] [style=dashed]
+    }
 
 Draft
 ~~~~~
@@ -231,6 +246,15 @@ Replaced
 OEPs can also be superseded by a different OEP, rendering the original
 obsolete. In that case, the OEP's status should be changed to "Replaced"
 and updated with a link to its superseding OEP.
+
+Obsolete
+~~~~~~~~
+
+Over time some OEPs may become obsolete without being replaced by new
+guidelines. In this case the OEP's status should be changed to "Obsolete" and
+the OEP should be updated with an explanation as to why the OEP is no
+longer relevant.
+
 
 Status changes
 ~~~~~~~~~~~~~~
@@ -448,29 +472,36 @@ an oep-XXXX/ directory, where "XXXX" is the OEP number.
 Change History
 ==============
 
+2020-10-01
+----------
+
+* Add a new "Obsolete" status to OEPs
+
 2019-08-27
 ----------
 
 * Changed announcement process from email to Discourse.
 * Minor clarifications to wording.
 
-2016-08-24
+2018-11-06
 ----------
 
-* Add a definition of the *Change History* section.
-* Add a copyright notice.
+* Added a new "Provisional" status.
 
-2016-10-11
+2018-05-05
 ----------
 
-* Add a new "Product Enhancement" proposal type
-* Remove references to arch@ email address.
-* Create "Initial Submission" section.
-* Increase scope of Arbiter role to include helping with GitHub and other
-  technical mechanics as needed.
-* Add support for Google Docs and other external forums for discussion of
-  the proposal.
-* Add "References" field to the preamble.
+* Further simplify process
+
+  * Reduce steps in submission process
+
+    * Remove the obvious "scope your idea" as an initial step.
+    * Remove "vet your idea" before creating a Draft.
+    * Move "request an arbiter" as 1st step in place of vetting and scoping.
+
+  * Support alternative simpler templates.
+
+* Refactored description for OEP status and review.
 
 2018-02-05
 ----------
@@ -492,23 +523,20 @@ Change History
 * Remove "Product Enhancement" proposal type.
 * Remove support for Google Docs for discussion.
 
-2018-05-05
+2016-10-11
 ----------
 
-* Further simplify process
+* Add a new "Product Enhancement" proposal type
+* Remove references to arch@ email address.
+* Create "Initial Submission" section.
+* Increase scope of Arbiter role to include helping with GitHub and other
+  technical mechanics as needed.
+* Add support for Google Docs and other external forums for discussion of
+  the proposal.
+* Add "References" field to the preamble.
 
-  * Reduce steps in submission process
-
-    * Remove the obvious "scope your idea" as an initial step.
-    * Remove "vet your idea" before creating a Draft.
-    * Move "request an arbiter" as 1st step in place of vetting and scoping.
-
-  * Support alternative simpler templates.
-
-* Refactored description for OEP status and review.
-
-2018-11-06
+2016-08-24
 ----------
 
-* Added a new "Provisional" status.
-
+* Add a definition of the *Change History* section.
+* Add a copyright notice.
