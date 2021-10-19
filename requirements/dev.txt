@@ -28,7 +28,7 @@ docutils==0.17.1
     #   sphinx
 edx-sphinx-theme==3.0.0
     # via -r requirements/base.txt
-idna==3.2
+idna==3.3
     # via
     #   -r requirements/base.txt
     #   requests
