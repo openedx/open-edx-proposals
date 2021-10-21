@@ -195,6 +195,20 @@ considers the timing of the next `Open edX named release`_.
   Consider when the next Named Release is cut; if it is very soon, you may wish to delay final
   removal until after the cut date.
 
+Consider choosing deprecation and removal dates that allow for a full
+release cycle for transition planning. For example, deprecation might
+occur before Maple named release is finalized, and removal might occur
+afterwards. In this example, a deployment using named releases would
+have a number of months to adjust their Maple deployment to stop
+depending on the deprecated feature before Nutmeg fully removes
+it. This approach would be most appropriate for features that can be
+left in place for an extended period before removal and where a
+transition to an alternative would require a moderate to large amount
+of effort. For more trivial deprecations, it may be appropriate to
+simply deprecate and remove within the same release cycle.
+
+Either way, deprecations and removals should be included in the named release's release notes.
+
 .. _Open edX named release: https://open-edx-proposals.readthedocs.io/en/latest/oep-0010-proc-openedx-releases.html
 
 Document
