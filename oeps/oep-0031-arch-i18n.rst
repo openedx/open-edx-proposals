@@ -196,7 +196,7 @@ Accessibility for locales
 
 There is a special accessibility use case where a message ID doesn't have a translation in the user's preferred locale, so we fall back to a default locale. In this case, the string would ideally be wrapped in a ``<span locale="....">`` tag to maintain the correct locale information for accessibility tools. In order to make sure that this string wrapping always happens, studio-frontend uses ``WrappedMessage``, a simple wrapper around the standard ``react-intl`` ``FormattedMessage`` component.
 
-frontend-platform does not wrap FormattedMessage in this way, and would need to if we want to implement similar behavior.
+*Note: frontend-platform does not wrap FormattedMessage in this way, and would need to if we want to implement similar behavior.*
 
 *********************
 Currency localization
