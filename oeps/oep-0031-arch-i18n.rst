@@ -92,24 +92,26 @@ Right-To-Left Locales
 
 For languages that are written right-to-left (RTL), such as Arabic and Hebrew, you will need to add a ``dir`` attribute to your ``html`` tag, and your CSS must swap graphics and margins. The frontend-i18n library will make this straightforward; see the `i18n HOWTO <https://github.com/edx/frontend-i18n/blob/master/docs/how_tos/i18n.rst>`_ for more information.
 
-*****************
-Locale Resolution
-*****************
+**************************************************
+Locale Resolution on Pages for Authenticated Users
+**************************************************
 
-For pages meant to be seen by logged-in users, we will check the user's cookies for a locale; if there isn't one, we will fetch it from the user's account settings and store it in their cookies for reuse. If there is no locale (or no locale we support) in the account settings, we will use the locale that the user's browser is set to. Failing everything else, we will fall back to English.
+For pages meant to be seen by authenticated users, we will check the user's cookies for a locale; if there isn't one, we will fetch it from the user's account settings and store it in their cookies for reuse. If there is no locale (or no locale we support) in the account settings, we will use the locale that the user's browser is set to. Failing everything else, we will fall back to English.
 
 Alternatives Considered
 =======================
 
 We considered but rejected a fallback step where we would choose a language based on the geographic location of the user's IP address. This is generally not reliable: many countries have speakers of multiple languages, users might be traveling, and users might be living or studying in a country but still be more comfortable in a different language.
 
-****
-URLs
-****
+*********************************
+Locale Resolution on Public Pages
+*********************************
 
-For pages intended to be viewable by the public (including search engines), we will use path prefixing to identify the locale of the page being shown. This means that the URL will include the locale as the first part of the path after the domain. (Example: ``account.edx.org/es/``) This language code should be in the form of a `BCP 47 language tag <http://tools.ietf.org/html/rfc5646>`_.
+For pages intended to be viewable by the public (including search engines), we will use path prefixing to identify the locale of the page being shown. This means that the URL will include the locale as the first part of the path after the domain. (Example: ``www.edx.org/es/``) This language code should be in the form of a `BCP 47 language tag <http://tools.ietf.org/html/rfc5646>`_.
 
- If the user enters the site at a URL that doesn't include a language string, we will determine a locale and then forward them to the corresponding URL. For consistency, this applies even if their language is English: ``account.edx.org/`` should be forwarded to ``account.edx.org/en/`` .
+If the user enters the site at a URL that doesn't include a language string, we will determine a locale and then forward them to the corresponding URL. For consistency, this applies even if their language is English: ``www.edx.org/`` should be forwarded to ``www.edx.org/en/``.
+
+*Note: There is limited usage of the URL approach to locale identification in the platform.  It is primarily useful for pages that care about SEO, such as marketing pages.  The Locale Resolution approach for authenticated users described in the previous section does _not_ take any URL locales into account, and the two approaches are considered mutually exclusive.*
 
 Alternatives Considered
 =======================
