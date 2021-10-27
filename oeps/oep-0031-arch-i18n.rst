@@ -68,6 +68,23 @@ Accessibility
 
 Translate all non-display text that is present in a tag for accessibility reasons (e.g., ``aria-label``), using the same locale as the rest of the page.
 
+Pluralization
+=============
+
+Different languages have different pluralization rules, and it's important to make sure your internationalization will support translators ability to localize plurals properly.  ``react-intl``'s ``FormattedMessage`` component can accommodate this via its ``plural`` formatting rules.
+
+Example message with pluralization::
+
+  You have {itemCount, plural,
+      =0 {no items}
+      one {# item}
+      other {# items}
+  }.
+
+See more information here:
+
+- `Plural Format` <https://formatjs.io/docs/core-concepts/icu-syntax/#plural-format>`_
+
 Dates And Numbers
 =================
 
