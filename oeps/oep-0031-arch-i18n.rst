@@ -56,10 +56,10 @@ HTML Considerations
 
 Set the language of your document with the ``lang`` attribute on your ``html`` tag. Use the UTF-8 encoding, and declare it with a ``meta`` tag in the head of your HTML document. Prefer using characters (``á``) rather than character entities (``&aacute;``) or escapes (``&#225;``).
 
-Not Everything Is English
-=========================
+Grammar and Cultural Considerations
+===================================
 
-Use longer strings with placeholder variables, rather than trying to create messages by concatenating two or more short messages together. Even if it looks like it's working in English, it won't necessarily be grammatically correct in other languages. This includes uses such as a pagination display: you cannot translate only the word ``of`` and then glue together ``{number} + {translation of "of"} + {number}``. Instead, your string for translation should be ``{page_number} of {total_pages}``, so your translators can move the placeholders into whatever position is required for their language.
+Use string interpolation and placeholder variables instead of creating messages by concatenating two or more short messages together. Even if it looks like it's working in English, it won't necessarily be grammatically correct in other languages. This includes uses such as a pagination display: you cannot translate only the word ``of`` and then glue together ``{number} + {translation of "of"} + {number}``. Instead, your string for translation should be ``{page_number} of {total_pages}``, so your translators can move the placeholders into whatever position is required for the grammar rules of their language.
 
 Keep in mind, when asking for user input, that not every country or culture follows American conventions. For example, there are many different ways of writing an address besides "street number and street name" as one field, and city and state as two others. As another example, not every culture puts given name and family name in that order. If possible, allow free form, unstructured addresses, name fields, etc.
 
