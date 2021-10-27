@@ -163,7 +163,7 @@ Missing translations can be a disorienting experience for a user. We strongly su
 Server-Side i18n
 ****************
 
-Have your server send symbolic values or error codes, rather than translated display text, to convey information, and then localize on the front end. This keeps all of your localization together, simplifies testing your server code, and makes your server response reusable by other front ends, which may wish to display the same information but with different text.
+As a best practice, do not localize server-side. Have your server send symbolic values or error codes, rather than translated display text, to convey information, and then localize on the frontend. This keeps all of your localization together, simplifies testing your server code, and makes your server response reusable by other frontends, which may wish to display the same information but with different text.
 
 #################
 Technology Choice
