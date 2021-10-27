@@ -115,6 +115,8 @@ Locale Resolution on Pages for Authenticated Users
 
 For pages meant to be seen by authenticated users, we will check the user's cookies for a locale; if there isn't one, we will fetch it from the user's account settings and store it in their cookies for reuse. If there is no locale (or no locale we support) in the account settings, we will use the locale that the user's browser is set to. Failing everything else, we will fall back to English.
 
+*Note: This behavior of falling back to English is inconsistent with the behavior of the server-side localization, which falls back to the default locale of the platform.  In Future Work below, we call this out as something we want to reconcile.*
+
 Alternatives Considered
 =======================
 
@@ -226,6 +228,12 @@ Consistent terminology
 **********************
 
 We should settle on a consistent set of language and locale codes across edX.
+
+*******************************************
+Default platform locale as a final fallback
+*******************************************
+
+As noted above in the Locale Resolution on Pages for Authenticated Users section, today we fall back to 'en' if we are unable to determine what language to use for a given authenticated user.  We would prefer this to match the server-side i18n behavior of falling back to the default platform locale, rather than assuming English.
 
 ##########
 References
