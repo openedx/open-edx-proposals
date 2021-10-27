@@ -251,7 +251,7 @@ References
 
 #. International considerations for inputting human names: https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
 
-#. Plurals in different languages: https://developer.mozilla.org/en-US/docs/Mozilla/Localization/Localization_and_Plurals
+#. Plurals in different languages: https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html
 
 #. Determining a language tag for a user: https://www.w3.org/International/articles/language-tags/
 
