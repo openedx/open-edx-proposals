@@ -141,7 +141,9 @@ Previous i18n implementations have sometimes used the English text as the messag
 Cross-Site Scripting Vulnerability
 ==================================
 
-Because translated strings often contain placeholders that will be filled in at render time, possibly using user input, localization is a potential opening for cross-site scripting (XSS) attacks. The react-intl functions exposed by frontend-i18n are XSS-safe.
+Because translated strings often contain placeholders that will be filled in at render time, possibly using user input, localization is a potential opening for cross-site scripting (XSS) attacks. The ``react-intl`` functions exposed by frontend-platform are XSS-safe.
+
+We explicitly don't export ``react-intl`` components that are not XSS safe, such as ``FormattedHTMLMessage``.  See `Don't Use FormattedHTMLMessage` <https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/preventing_xss/preventing_xss_in_react.html#don-t-use-formattedhtmlmessage>`_ for more information.
 
 Mapping Server Codes To Messages
 ================================
