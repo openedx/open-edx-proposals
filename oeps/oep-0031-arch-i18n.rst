@@ -173,7 +173,7 @@ Technology Choice
 react-intl
 **********
 
-We will use `react-intl <https://formatjs.io/docs/react-intl/>`_ to internationalize React components, in agreement with `Paragon ADR-2 <https://github.com/edx/paragon/blob/master/docs/decisions/0002-react-i18n.rst>`_. Our needs included the ability to add notes for translators and to get a translated message as a plain string (as opposed to only as a React component). react-intl is in line with current industry standards in i18n and meets edX needs. In order to add some browser shims, the Architecture team has published a thin wrapper around react-intl in the `internationalization service <https://edx.github.io/frontend-platform/module-Internationalization.html>`_ of the `frontend-platform <https://github.com/edx/frontend-platform>`_ library. For consistency, use this wrapper, instead of importing react-intl directly.  An application can only have one copy of react-intl running at a time.
+We will use `react-intl <https://formatjs.io/docs/react-intl/>`_ to internationalize React components, in agreement with `Paragon ADR-2 <https://github.com/edx/paragon/blob/master/docs/decisions/0002-react-i18n.rst>`_. Our needs included the ability to add notes for translators and to get a translated message as a plain string (as opposed to only as a React component). ``react-intl`` is in line with current industry standards in i18n and meets edX needs. In order to add some browser shims, the Architecture team has published a thin wrapper around ``react-intl`` in the `internationalization service <https://edx.github.io/frontend-platform/module-Internationalization.html>`_ of the `frontend-platform <https://github.com/edx/frontend-platform>`_ library. For consistency, use this wrapper, instead of importing ``react-intl`` directly.  An application can only have one copy of ``react-intl`` running at a time.
 
 Alternatives Considered
 =======================
@@ -224,7 +224,7 @@ References
 
 #. Determining a language tag for a user: https://www.w3.org/International/articles/language-tags/
 
-#. XSS in react-intl: https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/preventing_xss/preventing_xss_in_react.html#i18n-and-translations
+#. XSS in ``react-intl``: https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/preventing_xss/preventing_xss_in_react.html#i18n-and-translations
 
 #. edX React App i18n HOWTO: https://github.com/edx/frontend-platform/blob/master/docs/how_tos/i18n.rst
 
