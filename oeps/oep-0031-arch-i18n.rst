@@ -90,7 +90,7 @@ See usage example here:
 Right-To-Left Locales
 =====================
 
-For languages that are written right-to-left (RTL), such as Arabic and Hebrew, you will need to add a ``dir`` attribute to your ``html`` tag, and your CSS must swap graphics and margins. The frontend-i18n library will make this straightforward; see the `i18n HOWTO <https://github.com/edx/frontend-i18n/blob/master/docs/how_tos/i18n.rst>`_ for more information.
+For languages that are written right-to-left (RTL), such as Arabic and Hebrew, you will need to add a ``dir`` attribute to your ``html`` tag, and your CSS must swap graphics and margins. The frontend-platform/i18n library will make this straightforward; see the `i18n HOWTO <https://github.com/edx/frontend-platform/blob/master/docs/how_tos/i18n.rst>`_ for more information.
 
 **************************************************
 Locale Resolution on Pages for Authenticated Users
@@ -171,7 +171,7 @@ Technology Choice
 react-intl
 **********
 
-We will use `react-intl <https://github.com/yahoo/react-intl>`_ to internationalize React components, in agreement with `Paragon ADR-2 <https://github.com/edx/paragon/blob/master/docs/decisions/0002-react-i18n.rst>`_. Our needs included the ability to add notes for translators and to get a translated message as a plain string (as opposed to only as a React component). react-intl is in line with current industry standards in i18n and meets edX needs. In order to add some browser shims, the Architecture team has published a thin wrapper around react-intl in the `frontend-i18n repo <https://github.com/edx/frontend-i18n>`_. For consistency, use this wrapper, instead of importing react-intl directly.
+We will use `react-intl <https://formatjs.io/docs/react-intl/>`_ to internationalize React components, in agreement with `Paragon ADR-2 <https://github.com/edx/paragon/blob/master/docs/decisions/0002-react-i18n.rst>`_. Our needs included the ability to add notes for translators and to get a translated message as a plain string (as opposed to only as a React component). react-intl is in line with current industry standards in i18n and meets edX needs. In order to add some browser shims, the Architecture team has published a thin wrapper around react-intl in the `internationalization service <https://edx.github.io/frontend-platform/module-Internationalization.html>`_ of the `frontend-platform <https://github.com/edx/frontend-platform>`_ library. For consistency, use this wrapper, instead of importing react-intl directly.  An application can only have one copy of react-intl running at a time.
 
 Alternatives Considered
 =======================
@@ -182,7 +182,7 @@ An alternative choice we considered was `i18next <https://react.i18next.com/>`_.
 Reference Implementation
 ************************
 
-The reference implementation of this OEP is the Order History app in `frontend-app-ecommerce <https://github.com/edx/frontend-app-ecommerce>`_, which uses the `frontend-i18n <https://github.com/edx/frontend-i18n>`_ library.
+The reference implementation of this OEP is the Order History app in `frontend-app-ecommerce <https://github.com/edx/frontend-app-ecommerce>`_, which uses the `frontend-platform <https://github.com/edx/frontend-platform>`_ library's i18n service.
 
 ###########
 Future Work
@@ -210,7 +210,7 @@ References
 
 #. XSS in react-intl: https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/preventing_xss/preventing_xss_in_react.html#i18n-and-translations
 
-#. edX React App i18n HOWTO: https://github.com/edx/frontend-i18n/blob/master/docs/how_tos/i18n.rst
+#. edX React App i18n HOWTO: https://github.com/edx/frontend-platform/blob/master/docs/how_tos/i18n.rst
 
 ##############
 Change History
