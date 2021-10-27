@@ -235,6 +235,12 @@ Default platform locale as a final fallback
 
 As noted above in the Locale Resolution on Pages for Authenticated Users section, today we fall back to 'en' if we are unable to determine what language to use for a given authenticated user.  We would prefer this to match the server-side i18n behavior of falling back to the default platform locale, rather than assuming English.
 
+***********************
+Beta languages for MFEs
+***********************
+
+Micro-frontends have a hard-coded list of available languages with no concept of beta languages like the server-side i18n platform.
+
 ##########
 References
 ##########
