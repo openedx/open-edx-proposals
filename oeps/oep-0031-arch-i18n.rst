@@ -190,11 +190,25 @@ The reference implementation of this OEP is the Order History app in `frontend-a
 Future Work
 ###########
 
-There is a special accessibility use case where a message id doesn't have a translation in the user's preferred locale, so we fall back to a default locale. In this case, the string would ideally be wrapped in a ``<span locale="....">`` tag to maintain the correct locale information for accessibility tools. In order to make sure that this string wrapping always happens, studio-frontend uses ``WrappedMessage``, a simple wrapper around the standard react-intl ``FormattedMessage`` component.
+*************************
+Accessibility for locales
+*************************
 
-We should correctly localize currency, which is an issue of country rather than language.
+There is a special accessibility use case where a message ID doesn't have a translation in the user's preferred locale, so we fall back to a default locale. In this case, the string would ideally be wrapped in a ``<span locale="....">`` tag to maintain the correct locale information for accessibility tools. In order to make sure that this string wrapping always happens, studio-frontend uses ``WrappedMessage``, a simple wrapper around the standard ``react-intl`` ``FormattedMessage`` component.
 
-We should also settle on a consistent set of language and locale codes across edX.
+frontend-platform does not wrap FormattedMessage in this way, and would need to if we want to implement similar behavior.
+
+*********************
+Currency localization
+*********************
+
+We should correctly localize currency, which is an issue of country rather than language, and reliant on having an accurate currency conversion service.  This is beyond the scope of our i18n libary.
+
+**********************
+Consistent terminology
+**********************
+
+We should settle on a consistent set of language and locale codes across edX.
 
 ##########
 References
