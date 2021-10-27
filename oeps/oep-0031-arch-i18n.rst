@@ -1,5 +1,5 @@
 ###################################################
-OEP-0031: Internationalization For React Front Ends
+OEP-0031: Internationalization For React Frontends
 ###################################################
 
 .. list-table::
@@ -7,7 +7,7 @@ OEP-0031: Internationalization For React Front Ends
    * - OEP
      - :doc:`OEP-0031 <oep-0031-arch-i18n.rst>`
    * - Title
-     - Internationalization
+     - Internationalization For React Frontends
    * - Last Modified
      - 2019-01-07
    * - Authors
@@ -61,7 +61,7 @@ Not Everything Is English
 
 Use longer strings with placeholder variables, rather than trying to create messages by concatenating two or more short messages together. Even if it looks like it's working in English, it won't necessarily be grammatically correct in other languages. This includes uses such as a pagination display: you cannot translate only the word ``of`` and then glue together ``{number} + {translation of "of"} + {number}``. Instead, your string for translation should be ``{page_number} of {total_pages}``, so your translators can move the placeholders into whatever position is required for their language.
 
-When creating forms, keep in mind that there are many different ways of writing an address besides "street number and street name" as one field, and city and state as two others. Also, not every culture puts given name and family name in that order. If possible, allow free form, unstructured addresses, name fields, etc.
+Keep in mind, when asking for user input, that not every country or culture follows American conventions. For example, there are many different ways of writing an address besides "street number and street name" as one field, and city and state as two others. As another example, not every culture puts given name and family name in that order. If possible, allow free form, unstructured addresses, name fields, etc.
 
 Accessibility
 =============
@@ -71,12 +71,21 @@ Translate all non-display text that is present in a tag for accessibility reason
 Dates And Numbers
 =================
 
-All dates and numbers should be localized.
+All dates and numbers should be localized.  ``react-intl`` provides ``FormattedDate`` and ``FormattedNumber`` components specifically for this purpose.
+
+See usage examples here:
+
+- `FormattedDate <https://lokalise.com/blog/react-i18n-intl/#FormattedDate>`_
+- `FormattedNumber <https://lokalise.com/blog/react-i18n-intl/#Numbers_and_currency_formatting_in_React_i18n>`_
 
 Currency
 ========
 
-When displaying a price in a foreign (to the user) currency, localize the number according to the user's locale. That is, for a user in France viewing a price in U.S. dollars, show it as ``USD 19,99``, using the ``fr`` convention for the decimal point.
+When displaying a price in a foreign (to the user) currency, localize the number according to the user's locale. That is, for a user in France viewing a price in U.S. dollars, show it as ``USD 19,99``, using the ``fr`` convention for the decimal point.  ``react-intl`` provides ``FormattedNumber`` to handle currency localization (in addition to other numeric use cases).
+
+See usage example here:
+
+- `FormattedNumber <https://lokalise.com/blog/react-i18n-intl/#Numbers_and_currency_formatting_in_React_i18n>`_
 
 Right-To-Left Locales
 =====================
