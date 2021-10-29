@@ -148,6 +148,7 @@ Additional Notes:
 Also see a useful and biased `comparison of Apache Kafka vs Vendors`_ by Kai Waehner (of Confluent), comparing various providers and distributions of Kafka and related or competitive services.
 
 .. _Amazon MSK: https://aws.amazon.com/msk/
+.. _Apache Kafka: https://kafka.apache.org/
 .. _Confluent Platform: https://www.confluent.io/product/confluent-platform
 .. _comparison of Apache Kafka vs Vendors: https://www.kai-waehner.de/blog/2021/04/20/comparison-open-source-apache-kafka-vs-confluent-cloudera-red-hat-amazon-msk-cloud/
 
