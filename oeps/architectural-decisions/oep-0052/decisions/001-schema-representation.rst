@@ -11,25 +11,19 @@ that we currently have for signals based events don't easily inter-operate with 
 Decision
 --------
 
-We will define and manage event bus schema definition and related object definition independently of the signals based
-attrs objects.
+We will create a new utility that can generate Avro schema based on ``attrs`` based objects.
+
+Implementation Notes
+--------------------
+
+`PR #30`_ on ``openedx-events`` shows a potential approach to this usig the `built-in metadata`_ that the ``attrs`` library provides for extending ``attrs``.
+
+.. _PR #30: https://github.com/eduNEXT/openedx-events/pull/30
+.. _built-in metadata: https://www.attrs.org/en/stable/extending.html
 
 Consequences
 ------------
 
-* We will have potentially different schema for what data is available within a service compared to between services.
+* There will be bridging code that will abstract away schema generation from most developers of events.  This may have a negative impact as it might make it harder for developers to reason about schema evolution.
 
-* The initial implementation will require a dependency on pulsar/kafka in the shared library that holds the relevant
-  schema and objects.
-
-Rejected Alternatives
----------------------
-
-Make new schema classes that can generate schema based on the `attrs` classes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-It should be possible to use the introspection information that attrs provides for
-[extension](https://www.attrs.org/en/stable/extending.html) to be able to generate schema based on attrs classes. This
-along with some guidelines could allow us to use the attrs classes as the de-facto definition of schema for the Open edX
-Platform. We are currently rejecting this approach because of the level of effort involved. We don't want to wait for
-this to exist before we can benefit from using the event bus. In the future we may still want to build this.
+* For non primitive types(eg. Opaque Keys objects), the bridging code between ``Avro`` and ``attrs`` will need to have special serializers or clearly fail.
