@@ -31,7 +31,7 @@ OEP-0031: Internationalization For React Frontends
 Motivation
 ##########
 
-Internationalization (i18n) is a vital part of unlocking content for users around the globe and effectively supporting our business partners. In order to help us reuse localized components from app to app, the different parts of the edX codebase should align on a consistent handling of i18n. This document covers our approach to internationalizing new front-end applications and components written in React. This document doesn't necessarily cover internationalization for other technologies, such as the Django templates in edx-platform.
+Internationalization (i18n) is a vital part of unlocking content for users around the globe and effectively supporting our business partners. In order to help us reuse localized components from app to app, the different parts of the Open edX codebase should align on a consistent handling of i18n. This document covers our approach to internationalizing new frontend applications and components written in React. This document doesn't necessarily cover internationalization for other technologies, such as the Django templates in edx-platform.
 
 ###########
 Terminology
@@ -192,7 +192,7 @@ Technology Choice
 react-intl
 **********
 
-We will use `react-intl <https://formatjs.io/docs/react-intl/>`_ to internationalize React components, in agreement with `Paragon ADR-2 <https://github.com/edx/paragon/blob/master/docs/decisions/0002-react-i18n.rst>`_. Our needs included the ability to add notes for translators and to get a translated message as a plain string (as opposed to only as a React component). ``react-intl`` is in line with current industry standards in i18n and meets edX needs. In order to add some browser shims, the Architecture team has published a thin wrapper around ``react-intl`` in the `internationalization service <https://edx.github.io/frontend-platform/module-Internationalization.html>`_ of the `frontend-platform <https://github.com/edx/frontend-platform>`_ library. For consistency, use this wrapper, instead of importing ``react-intl`` directly.  An application can only have one copy of ``react-intl`` running at a time.
+We will use `react-intl <https://formatjs.io/docs/react-intl/>`_ to internationalize React components, in agreement with `Paragon ADR-2 <https://github.com/edx/paragon/blob/master/docs/decisions/0002-react-i18n.rst>`_. Our needs included the ability to add notes for translators and to get a translated message as a plain string (as opposed to only as a React component). ``react-intl`` is in line with current industry standards in i18n and meets the Open edX platform's needs. In order to add some browser shims, the Architecture team has published a thin wrapper around ``react-intl`` in the `internationalization service <https://edx.github.io/frontend-platform/module-Internationalization.html>`_ of the `frontend-platform <https://github.com/edx/frontend-platform>`_ library. For consistency, use this wrapper, instead of importing ``react-intl`` directly.  An application can only have one copy of ``react-intl`` running at a time.
 
 Alternatives Considered
 =======================
@@ -227,7 +227,7 @@ We should correctly localize currency, which is an issue of country rather than 
 Consistent terminology
 **********************
 
-We should settle on a consistent set of language and locale codes across edX.
+We should settle on a consistent set of language and locale codes across Open edX.
 
 *******************************************
 Default platform locale as a final fallback
@@ -257,7 +257,7 @@ References
 
 #. XSS in ``react-intl``: https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/preventing_xss/preventing_xss_in_react.html#i18n-and-translations
 
-#. edX React App i18n HOWTO: https://github.com/edx/frontend-platform/blob/master/docs/how_tos/i18n.rst
+#. Micro-frontend i18n How To: https://github.com/edx/frontend-platform/blob/master/docs/how_tos/i18n.rst
 
 ##############
 Change History
