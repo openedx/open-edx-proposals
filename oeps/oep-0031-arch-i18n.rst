@@ -1,19 +1,19 @@
-###################################################
-OEP-0031: Internationalization For React Frontends
-###################################################
+#############################################
+OEP-0031: Micro-frontend Internationalization
+#############################################
 
 .. list-table::
 
    * - OEP
      - :doc:`OEP-0031 <oep-0031-arch-i18n.rst>`
    * - Title
-     - Internationalization For React Frontends
+     - Micro-frontend Internationalization
    * - Last Modified
-     - 2019-01-07
+     - 2021-11-01
    * - Authors
-     -
+     - Albemarle <albemarle@edx.org>, David Joy <djoy@edx.org>
    * - Arbiter
-     - Simon Chen <schen@edx.org>
+     - Sarina Canelake <sarina@edx.org>
    * - Status
      - Draft
    * - Type
