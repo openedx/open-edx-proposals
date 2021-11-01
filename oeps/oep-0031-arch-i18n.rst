@@ -268,3 +268,12 @@ Change History
 **********
 
 * Document created.
+
+***********************
+2021-10-27 - 2021-11-01
+***********************
+
+* Copy-editing for clarity
+* Adding more examples and sub categories
+* Fixing broken links
+* Addressing review feedback
