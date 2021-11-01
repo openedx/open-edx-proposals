@@ -88,6 +88,8 @@ We use these commit types labels:
 
 * **revert**: undo a previous change. The previous commit message, including the type label, is included.
 
+* **squash**: temporary changes that are intended to be squashed before merged.  Use with caution, because a linter for conventional commits can no longer remind you to squash by failing on missing prefixes.
+
 * **style**: improve the styling of the code.
 
 * **test**: test-only changes. Adds missing tests or corrects existing tests. Tests accompanying other types of changes go into those commits.
@@ -147,6 +149,8 @@ Conventional Commits asks us to categorize changes into a small number of catego
 Choosing the commit type label to use for a commit is important, but it's only the first step.  If you have doubts about which commit type to use, choose the highest-priority type that could apply.  Then write a detailed body explaining the full complexity of your change.
 
 **feat vs fix**: some user-visible changes to features could be classified as "feat" or "fix".  Choose "feat" if the change adds to the set of features.  Choose "fix" if the change affects how a feature behaves.  Yes, this is still subjective.
+
+**squash vs temp vs unknown or missing prefix**: commits that are not intended to be merged could use no prefix or an unknown prefix to communicate to a linter that a PR is not ready to merge. This is nice, but it also forces reviewers to more closely track why a PR is failing throughout the review process. An alternative is to categorize a commit that is *not* intended to be squashed before merge by using "squash". Do *not* use "temp" or "fix" for this use case, since these categories convey a different meaning once merged, and are intended to be merged. Note that if you use "squash" commits, rather than omitting the prefix, you will no longer get reminded to squash through a failed PR.
 
 **Breaking changes to features**: changing how a feature works is not a breaking change.  For example, users are sent to a new experience instead of the old experience. This is not a breaking change.  It should get a "feat" label, but not a "feat!" label.
 
@@ -211,6 +215,8 @@ One of the advantages of formalized commit messages is using them as input to to
 
 Change History
 ==============
+
+2021-11-01: Squash commits.
 
 2021-09-08: Scopes are optional, but unstandardized.
 
