@@ -211,7 +211,7 @@ Tooling
 
 One of the advantages of formalized commit messages is using them as input to tooling and conformance checkers.  We will investigate tooling in the future, and are making no recommendations now.
 
-
+As we trial conformance checking, one open question is whether or not "squash" commits should pass or fail commit linting. See an initial discussion of `linting squash commits in this PR comment thread<https://github.com/edx/open-edx-proposals/pull/254#discussion_r741051683>`__.
 
 Change History
 ==============
