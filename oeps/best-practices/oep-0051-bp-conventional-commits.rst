@@ -88,7 +88,7 @@ We use these commit types labels:
 
 * **revert**: undo a previous change. The previous commit message, including the type label, is included.
 
-* **squash**: temporary changes that are intended to be squashed before merged.
+* **squash**: temporary changes that are intended to be squashed before merging.
 
 * **style**: improve the styling of the code.
 
