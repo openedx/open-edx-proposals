@@ -150,7 +150,7 @@ Choosing the commit type label to use for a commit is important, but it's only t
 
 **feat vs fix**: some user-visible changes to features could be classified as "feat" or "fix".  Choose "feat" if the change adds to the set of features.  Choose "fix" if the change affects how a feature behaves.  Yes, this is still subjective.
 
-**squash vs temp or fix**: commits that are intended to be squashed before merge should use the "squash" prefix. Although "temp" or "fix" may feel appropriate, they are not meant to be used in this way and convey something meaningful after a PR merges, where "squash" commits are not intended to be merged.
+**squash vs temp or fix**: use "squash" when the *commit* is temporary, and you intend to squash the commit into a larger commit with a different semantic label. Use "temp" when the *change* is temporary, but you intend to merge the commit. Again, use "squash" over "fix" when the *commit* is temporary and is not intended to be merged.
 
 **Breaking changes to features**: changing how a feature works is not a breaking change.  For example, users are sent to a new experience instead of the old experience. This is not a breaking change.  It should get a "feat" label, but not a "feat!" label.
 
