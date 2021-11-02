@@ -88,7 +88,7 @@ We use these commit types labels:
 
 * **revert**: undo a previous change. The previous commit message, including the type label, is included.
 
-* **squash**: temporary changes that are intended to be squashed before merged.  Use with caution, because a linter for conventional commits can no longer remind you to squash by failing on missing prefixes.
+* **squash**: temporary changes that are intended to be squashed before merged.
 
 * **style**: improve the styling of the code.
 
@@ -150,7 +150,7 @@ Choosing the commit type label to use for a commit is important, but it's only t
 
 **feat vs fix**: some user-visible changes to features could be classified as "feat" or "fix".  Choose "feat" if the change adds to the set of features.  Choose "fix" if the change affects how a feature behaves.  Yes, this is still subjective.
 
-**squash vs temp vs unknown or missing prefix**: commits that are not intended to be merged could use no prefix or an unknown prefix to communicate to a linter that a PR is not ready to merge. This is nice, but it also forces reviewers to more closely track why a PR is failing throughout the review process. An alternative is to categorize a commit that is *not* intended to be squashed before merge by using "squash". Do *not* use "temp" or "fix" for this use case, since these categories convey a different meaning once merged, and are intended to be merged. Note that if you use "squash" commits, rather than omitting the prefix, you will no longer get reminded to squash through a failed PR.
+**squash vs temp or fix**: commits that are intended to be squashed before merge should use the "squash" prefix. Although "temp" or "fix" may feel appropriate, they are not meant to be used in this way and convey something meaningful after a PR merges, where "squash" commits are not intended to be merged.
 
 **Breaking changes to features**: changing how a feature works is not a breaking change.  For example, users are sent to a new experience instead of the old experience. This is not a breaking change.  It should get a "feat" label, but not a "feat!" label.
 
