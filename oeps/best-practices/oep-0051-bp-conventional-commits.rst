@@ -185,6 +185,21 @@ Here's an example of a conventional commit, with a one-line subject, and details
     Fixes: BOM-2345
 
 
+Tooling
+=======
+
+A few tools are being used to encourage and measure conformance to this standard:
+
+- A `GitHub Action <commitlint.yml>`_ uses `commitlint`_ with our own `configuration file <commitlint.config.js>`_ to check the commits in pull requests. The Python cookiecutters and frontend template have been updated to install this action in new repos, and the repo-health dashboard collects information about whether the action is in place.
+
+- A `conventional_commits command`_ in edx/repo-tools can examine repos and plot conformance over time.
+
+.. _commitlint.yml: https://github.com/edx/.github/blob/master/.github/workflows/commitlint.yml
+.. _commitlint: https://commitlint.js.org
+.. _commitlint.config.js: https://github.com/edx/edx-lint/blob/master/edx_lint/files/commitlint.config.js
+.. _conventional_commits command: https://github.com/edx/repo-tools/tree/master/edx_repo_tools/conventional_commits
+
+
 Open Issues
 ===========
 
@@ -202,15 +217,11 @@ Grammar
 Some commit guidelines are prescriptive about what grammar to use in commit subjects.  The two popular options are imperative mood (what will this commit do? "fix: handle name changes correctly") or past tense (what did this commit do? "fix: corrected the handling of name changes").
 
 
-Tooling
--------
-
-One of the advantages of formalized commit messages is using them as input to tooling and conformance checkers.  We will investigate tooling in the future, and are making no recommendations now.
-
-
 
 Change History
 ==============
+
+2021-11-02: Added the Tooling section.
 
 2021-09-08: Scopes are optional, but unstandardized.
 
