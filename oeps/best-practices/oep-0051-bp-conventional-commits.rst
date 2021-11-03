@@ -216,7 +216,7 @@ As we trial conformance checking, one open question is whether or not "squash" c
 Change History
 ==============
 
-2021-11-01: Squash commits.
+2021-11-01: Add a new ``squash`` commit type.
 
 2021-09-08: Scopes are optional, but unstandardized.
 
