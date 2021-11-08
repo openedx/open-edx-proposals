@@ -103,6 +103,8 @@ Commits should be separated to make it easier to review them before merging and 
 
 If a commit mixes types, use the most important type label in the commit message.  The priority order for the types is generally: revert, feat, fix, perf, docs, test, build, refactor, style, chore, temp.
 
+See the `tooling section`_ for some practical exceptions around conventional commit linting for common cases like reverts or squash commits.
+
 Scope
 -----
 
@@ -148,6 +150,8 @@ Choosing the commit type label to use for a commit is important, but it's only t
 
 **feat vs fix**: some user-visible changes to features could be classified as "feat" or "fix".  Choose "feat" if the change adds to the set of features.  Choose "fix" if the change affects how a feature behaves.  Yes, this is still subjective.
 
+**squash! or fixup! vs temp**: use Git's "`squash!`_ " or "`fixup!`_ " when the *commit* is temporary, and you intend to squash the commit into a larger commit with a different semantic label. Use "temp" when the *change* is temporary, but you intend to merge the commit.
+
 **Breaking changes to features**: changing how a feature works is not a breaking change.  For example, users are sent to a new experience instead of the old experience. This is not a breaking change.  It should get a "feat" label, but not a "feat!" label.
 
 **Deprecations**: deprecations happen in two steps: the announcement of the deprecation, and the eventual removal.  The first step is important for people to recognize, but is not a breaking change.  Use clear strong words in the commit subject to be sure people understand the importance.  The second step is usually a breaking change, if a component has been removed.
@@ -184,6 +188,7 @@ Here's an example of a conventional commit, with a one-line subject, and details
 
     Fixes: BOM-2345
 
+.. _tooling section:
 
 Tooling
 =======
@@ -192,11 +197,15 @@ A few tools are being used to encourage and measure conformance to this standard
 
 - A `GitHub Action <commitlint.yml>`_ uses `commitlint`_ with our own `configuration file <commitlint.config.js>`_ to check the commits in pull requests. The Python cookiecutters and frontend template have been updated to install this action in new repos, and the repo-health dashboard collects information about whether the action is in place.
 
+  Our configuration of commitlint allows for certain commit messages, like Github's "Revert" or Git's "`squash!`_ " and "`fixup!`_ " that are not meant to be merged.
+
 - A `conventional_commits command`_ in edx/repo-tools can examine repos and plot conformance over time.
 
 .. _commitlint.yml: https://github.com/edx/.github/blob/master/.github/workflows/commitlint.yml
 .. _commitlint: https://commitlint.js.org
 .. _commitlint.config.js: https://github.com/edx/edx-lint/blob/master/edx_lint/files/commitlint.config.js
+.. _squash!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---squashltcommitgt
+.. _fixup!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt
 .. _conventional_commits command: https://github.com/edx/repo-tools/tree/master/edx_repo_tools/conventional_commits
 
 
@@ -220,6 +229,8 @@ Some commit guidelines are prescriptive about what grammar to use in commit subj
 
 Change History
 ==============
+
+2021-11-01: Note exceptions like ``squash!`` and ``fixup!``.
 
 2021-11-02: Added the Tooling section.
 
