@@ -18,7 +18,7 @@ Testing locally
 
 To test locally in a Python virtual env::
 
-  # Note: if this fails, you may first need to run: pip install sphinx
+  pip install sphinx  # it may fail for non-obvious reasons without this
   make requirements
 
   make html
