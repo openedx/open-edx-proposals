@@ -51,6 +51,25 @@ To set up the release process in python packages, you need to add the following 
 The `Generate Changelogs`_ workflow takes the responsibility to create a PR with version bump and new changelogs. You must have ``CHANGELOG.rst`` in the target repository and you need to make the following changes as well, when adding this workflow to the repository.
 
 * Add the comment ``<New logs>`` in CHANGELOG.rst where you want to add new changelogs.
+
+.. code-block::
+
+    Unreleased
+    ----------
+
+    *
+
+     .. <New logs>
+
+     [4.0.1] - 2021-11-01
+    --------------------
+
+    Changed
+    ~~~~~~~
+
+    * Resolve RemovedInDjango4.0 warnings.
+
+
 * In setup.cfg add the configurations for semantic-release.
     - ``version_variable``  Path of the version variable
     - ``commit_author``     Username and email to be used for commits
@@ -63,7 +82,7 @@ The `Generate Changelogs`_ workflow takes the responsibility to create a PR with
 
 To create the required PR, it follows the following steps:
 
-1. Use ``python-semantic-release`` to check the commit messages since the last tag and determine whether a version bump is required.
+1. Use ``python-semantic-release`` package to check the commit messages since the last tag and determine whether a version bump is required.
 2. If the tool suggests a version bump, update the value of the version variable in the path specified in ``setup.cfg``.
 3. Call the python script ‘changelogs.py’ to generate changelogs in md format using ``python-semantic-release``, convert them to rst using ``pandoc`` and then add them to the ``CHANGELOG.rst`` where ``.. <New logs>`` is mentioned.
 4. Create a PR with the above changes and use the username and email mentioned in ``setup.cfg``.
