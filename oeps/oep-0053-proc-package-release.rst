@@ -33,7 +33,7 @@ This document proposes a standard package release process to be followed across 
 Motivation
 ==========
 
-We recently shifted the CI from Travis to Github Actions which led us to move the package release process to Github Actions as well. While making this change, we encountered different approaches used for this task in different packages, leading to confusions. As new releases for packages are published from time to time by the Open edX community, we need to ensure that a consistent approach is used by edX engineers to make these releases. Here we have documented a standard approach for this purpose.
+We recently shifted the CI from Travis to Github Actions which led us to move the package release process to Github Actions as well. While making this change, we encountered different approaches used for this task in different packages, leading to confusions. As new releases for packages are published from time to time by the Open edX community, we need to ensure that a consistent approach is used by package maintainers to make these releases. Here we have documented a standard approach for this purpose.
 
 Specification
 =============
