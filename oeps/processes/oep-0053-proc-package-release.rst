@@ -136,11 +136,11 @@ Alternatives Considered
 
 Some of the alternatives considered during the development of this package release pipeline are as follows:
 
-* We considered triggering the ‘Publish python package’ workflow on Github release but creating a Github Release seemed to be an extra step for those who aren’t using ‘Tag and Release’ workflow in their package as they had to create a tag first and then create a Github release to trigger the PyPI release. Now, we are initiating PyPI releases on tags so that creating Github releases doesn’t become a necessary step but remains a best practice only.
-* We tried to use ‘python-semantic-release’ action directly instead of customization but we had to use a part of it and customize the rest of the things due to following reasons:
+* We considered triggering the 'Publish python package' workflow on Github release but creating a Github Release seemed to be an extra step for those who aren’t using 'Tag and Release' workflow in their package as they had to create a tag first and then create a Github release to trigger the PyPI release. Now, we are initiating PyPI releases on tags so that creating Github releases doesn’t become a necessary step but remains a best practice only.
+* We tried to use `python-semantic-release`_ action directly instead of customization but we had to use a part of it and customize the rest of the things due to following reasons:
     - We wanted to create a PR with version bump and new changelogs so that we could update it if there’s anything not as expected and then continue the release process when this PR gets merged but the ‘python-semantic-release’ action takes care of the whole process itself.
     - The action generates changelogs in markdown format but in most of our repos we’ve changelogs in reStructured Text format
-* Initially we were using ‘git-version’ for version bump and ‘git-chglog’ for generating changelogs but then we shifted to ‘python-semantic-release` as it could be used for both version bump and changelogs generation. Moreover, we had to install ‘git-chglog’ using homebrew which required setting up homebrew as well whereas ‘python-semantic-release’ is available on pip.
+* Initially we were using `gitversion`_ for version bump and `git-chglog`_ for generating changelogs but then we shifted to 'python-semantic-release' as it could be used for both version bump and changelogs generation. Moreover, we had to install ‘git-chglog’ using homebrew which required setting up homebrew as well whereas ‘python-semantic-release’ is available on pip.
 
 
 .. _documentation: https://docs.github.com/en/actions/learn-github-actions/using-workflow-templates
@@ -148,3 +148,6 @@ Some of the alternatives considered during the development of this package relea
 .. _Publish Node.js Package: https://github.com/edx/.github/blob/master/workflow-templates/npm-publish.yml
 .. _Publish Python Package: https://github.com/edx/.github/blob/master/workflow-templates/pypi-publish.yml
 .. _Tag and release: https://github.com/edx/.github/blob/5ac1c8f213d2d29c944de3751132ce937c1f3ddc/workflow-templates/tag-version.yml
+.. _git-chglog: https://github.com/git-chglog/git-chglog
+.. _gitversion: https://gitversion.net/docs/
+.. _python-semantic-release: https://python-semantic-release.readthedocs.io/en/latest/
