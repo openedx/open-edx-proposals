@@ -10,3 +10,5 @@ _build
 
 # OS X artifacts
 *.DS_Store
+
+venv/
