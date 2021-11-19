@@ -15,7 +15,7 @@ OEP-0031: Micro-frontend Internationalization
    * - Arbiter
      - Sarina Canelake <sarina@edx.org>
    * - Status
-     - Under Review
+     - Accepted
    * - Type
      - Architecture
    * - Created
