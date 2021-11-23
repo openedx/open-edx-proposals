@@ -46,7 +46,7 @@ markupsafe==2.0.1
     # via
     #   -r requirements/base.txt
     #   jinja2
-packaging==21.2
+packaging==21.3
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -54,7 +54,7 @@ pygments==2.10.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-pyparsing==2.4.7
+pyparsing==3.0.6
     # via
     #   -r requirements/base.txt
     #   packaging
@@ -71,7 +71,7 @@ six==1.16.0
     #   -r requirements/base.txt
     #   edx-sphinx-theme
     #   livereload
-snowballstemmer==2.1.0
+snowballstemmer==2.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
