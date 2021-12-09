@@ -1,11 +1,11 @@
-===============================
-OEP-53: Package Release Process
-===============================
+========================================
+OEP-53: Python Packages' Release Process
+========================================
 
 +---------------+--------------------------------------------------------------+
 | OEP           | `OEP-53 <oep-0053>`                                          |
 +---------------+--------------------------------------------------------------+
-| Title         | Package Release Process                                      |
+| Title         | Python Packages' Release Process                                      |
 +---------------+--------------------------------------------------------------+
 | Last-Modified | 2021-04-07                                                   |
 +---------------+--------------------------------------------------------------+
@@ -53,14 +53,11 @@ Specification
 =============
 
 Github has a feature to create workflow templates to be used across the organization, which helps standardize the processes. We’ve written some workflow
-templates to automate the package release process in edX owned packages. Some of these templates use reusable Github workflows and custom Github actions
+templates to automate the package release process in edX owned python packages. Some of these templates use reusable Github workflows and custom Github actions
 to achieve the goal while keeping a single source of truth and making workflow templates simple.
 
 How to set up?
 --------------
-
-Python Packages
-~~~~~~~~~~~~~~~
 
 To set up the release process in python packages, you need to add the following workflow templates in package’s repository
 (if you need help for using workflow templates, see the `documentation`_):
@@ -102,16 +99,8 @@ You must have ``CHANGELOG.rst`` in the target repository and you need to make th
 
 3. `Publish Python Package`_  - This workflow publishes the package on PyPI.
 
-JS Packages
-~~~~~~~~~~~
-
-To set up the release process in JS packages, you need to add the `Publish Node.js Package`_ workflow.
-
 Technical Details
 -----------------
-
-Python Packages
-~~~~~~~~~~~~~~~
 
 * Whenever a commit gets pushed on master, the ‘Generate Changelogs’ workflow gets triggered and uses the 'python-semantic-release’ package to determine whether a version bump is required, based on the commit messages since the last tag. The new version is decided according to commit type as follows:
 
@@ -124,12 +113,6 @@ Python Packages
 * Finally, a PR is created with the above changes. This PR uses the username and email mentioned in setup.cfg.
 * Tag and release workflow gets triggered when the PR created by the above workflow is merged. This workflow tags the commit and creates a Github release.
 * When a new tag is pushed, ‘Python Package Release’ workflow gets triggered and it publishes the package on PyPI with changes made in the latest tag.
-
-JS Packages
-~~~~~~~~~~~
-
-Whenever a commit is pushed on master, the ‘Publish Node.js Package’ workflow will decide whether the version bump is required or not. If the version gets bumped,
-a new release will be published on npm. This workflow uses JS ‘semantic release’ package to achieve its goals.
 
 Alternatives Considered
 =======================
