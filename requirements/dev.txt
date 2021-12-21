@@ -75,7 +75,7 @@ snowballstemmer==2.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-sphinx==4.3.1
+sphinx==4.3.2
     # via
     #   -r requirements/base.txt
     #   edx-sphinx-theme
