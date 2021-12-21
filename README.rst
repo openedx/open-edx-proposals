@@ -16,7 +16,9 @@ View the published list of `Open edX Proposals (OEPs)`_ on ReadTheDocs.
 Testing locally
 ---------------
 
-To test locally in a Python virtual env::
+To test locally in a Python virtual env, you will first need to install `GraphViz <http://graphviz.org/>`_
+On a Mac, this can be done via ``brew install graphviz``; on Ubuntu, use ``sudo apt install graphviz``.
+Next run the following commands::
 
   pip install sphinx  # it may fail for non-obvious reasons without this
   make requirements
