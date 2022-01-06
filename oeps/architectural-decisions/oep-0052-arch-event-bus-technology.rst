@@ -33,6 +33,8 @@ Overview
 
 * We are trialing Pulsar (and Kafka) to implement an Open edX event bus. This decision will be updated as we commit or change direction.
 
+* We are trialing Kafka to implement an Open edX event bus. This decision will be updated as we commit or change direction.
+
 * *Note:* Although this infrastructure could serve multiple purposes in the future, this OEP is focused on `publish-subscribe messaging pattern`_ (pub/sub) capabilities.
 
 Context
@@ -62,19 +64,14 @@ In other words, we have documented what we wish to do and why, but we do not yet
 Decision
 --------
 
-The Open edX platform will benefit from having a message bus. We believe `Apache Pulsar`_ is a good choice for the event bus after building an initial POC in both `Kafka`_ and `Pulsar`_.  Based on the findings of the POC we will begin trialing `Pulsar`_ to solve some specific platform problems addressed by the `publish-subscribe messaging pattern`_.
+.. note:: See overview note. Much of this OEP will be revamped, and the Kafka/Pulsar trial details should be moved to an ADR about the technology selection for edX.org.
+
+The Open edX platform will benefit from having a message bus. Next step: We plan on trialing `Kafka`_ because it is the industry standard and has more mature ecosystem than `Pulsar`_.
 
 .. _Apache Pulsar: https://pulsar.apache.org/
 .. _Pulsar: https://pulsar.apache.org/
 .. _Kafka: https://kafka.apache.org/
 .. _publish-subscribe messaging pattern: https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
-
-Why (trial) Pulsar?
-~~~~~~~~~~~~~~~~~~~
-
-Pulsar and Kafka were both in very close running in our initial assessment.  In writing code to work with Kafka and examining its client interface, we saw the lack of a synchronous interface for writing data to be problematic.  It meant we would have to write more complex code in order to guarantee that messages were persisted and make use of callbacks to respond to errors.  Pulsar on the other hand provides both an async and synchronous message sending interface.  The synchronous interface makes it a lot easier to write code when you need to ensure that database committing and message sending happen atomically.
-
-In trialing Kafka we saw that some of our initial assumptions about the ease of operating Kafka in AWS due to the availability of MSK (Managed Streaming Kafka) were not as advantageous as we expected.  While MSK solves the issue of deploying the broker, Kafka has enough add-ons (schema management, partition-management tool) that we don't actually reduce operational burden by having Kafka as a managed service compared to Pulsar.
 
 Why (trial) Kafka?
 ~~~~~~~~~~~~~~~~~~
