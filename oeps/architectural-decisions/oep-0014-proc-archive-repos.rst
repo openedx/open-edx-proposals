@@ -7,7 +7,7 @@ OEP-14: Archiving edX GitHub Repositories
 +---------------+----------------------------------------------------------+
 | Title         | Archiving edX GitHub Repositories                        |
 +---------------+----------------------------------------------------------+
-| Last Modified | 2021-05-27                                               |
+| Last Modified | 2022-01-10                                               |
 +---------------+----------------------------------------------------------+
 | Author        | Christina Roberts <christina@edx.org>                    |
 |               | Feanil Patel <feanil@edx.org>                            |
@@ -83,12 +83,12 @@ These steps should be followed for all repos within the edX organization(forks i
 
    - Archive the repository per `GitHub's archive process`_
 
-   - Move the repository to the edx-unsupported organization
+   - Move the repository to the openedx-unsupported organization
 
       - If the repo is not coming from the `edx github org`_ then before moving it, rename it with a prefix of the source org's name. For example the ``notifier`` repo in the ``edx-solutions`` org wolud be renamed to ``edx-solutions-notifier`` before moving.
 
 .. note::
-    Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, if possible un-archive the old fork and update it.  If you've already made a new fork, delete the old copy of the fork before you move the new repo to edx-unsupported.
+    Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, if possible un-archive the old fork and update it.  If you've already made a new fork, delete the old copy of the fork before you move the new repo to openedx-unsupported.
 
     This may break some older version of Open edX.  Some combination of copying branches between forks, renaming branches, and changing unsupported versions of Open edX would have to be done to keep things working.  We opt not to take on this extra work by default though may do so under extenuating circumstances.
 
@@ -205,3 +205,8 @@ Change History
 * Removed step of adding ``[ARCHIVED]`` to the repo name. Github's "archive this repo" setting is now available and is a sufficient indicator.
 * Removed step of adding paragraph to README about what archiving means now that we use Github's "archived" marker; the concept of an unmaintained repository and its dangers should be familiar to developers. Keep recommendation to add an explanation of *why* it was archived.
 * Removed ``openedx.yaml`` update steps, since the rest of the archive process is sufficient.
+
+2022-01-10
+----------
+
+* Update instructions to use the openedx-unsupported repo instead of the edx-unsupported repo.
