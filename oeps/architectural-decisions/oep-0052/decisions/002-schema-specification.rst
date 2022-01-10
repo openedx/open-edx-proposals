@@ -7,10 +7,9 @@ Context
 * Currently, Pulsar does not support `JSON Schema <https://json-schema.org/specification.html>`__, it only supports AVRO
   for schema definition. Pulsar does support serializing AVRO to JSON (confusing using a ``JSONSchema`` class).
 
-* Industry best practices seem to suggest using a binary encoding of messages.(TODO, links)
+* Industry best practices seem to suggest using a binary encoding of messages.
 
-* Industry best practice also suggests using AVRO over JSONSchema for better expression around schema evolution. (TODO,
-  links)
+* Industry best practice also suggests using AVRO over JSONSchema for better expression around schema evolution.
 
 * Even if we use a JSON encoding for the message we'll probably want to enable compression on the wire to reduce data
   size.  This would mean whether or not we use JSON encoding is moot because the data on the wire will still be binary
