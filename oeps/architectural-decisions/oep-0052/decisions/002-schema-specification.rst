@@ -4,9 +4,6 @@ Event Bus Messages will be Defined in AVRO Specification Language
 Context
 -------
 
-* Currently, Pulsar does not support `JSON Schema <https://json-schema.org/specification.html>`__, it only supports AVRO
-  for schema definition. Pulsar does support serializing AVRO to JSON (confusing using a ``JSONSchema`` class).
-
 * Industry best practices seem to suggest using a binary encoding of messages.
 
 * Industry best practice also suggests using AVRO over JSONSchema for better expression around schema evolution.

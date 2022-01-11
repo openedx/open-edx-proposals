@@ -31,8 +31,6 @@ Overview
 
 * Adding an event bus to the Open edX platform allows asynchronous event messaging across services, which enables a number of improvements aligned with our architectural goals.
 
-* We are trialing Pulsar (and Kafka) to implement an Open edX event bus. This decision will be updated as we commit or change direction.
-
 * We are trialing Kafka to implement an Open edX event bus. This decision will be updated as we commit or change direction.
 
 * *Note:* Although this infrastructure could serve multiple purposes in the future, this OEP is focused on `publish-subscribe messaging pattern`_ (pub/sub) capabilities.
@@ -66,7 +64,7 @@ Decision
 
 .. note:: See overview note. Much of this OEP will be revamped, and the Kafka/Pulsar trial details should be moved to an ADR about the technology selection for edX.org.
 
-The Open edX platform will benefit from having a message bus. Next step: We plan on trialing `Kafka`_ because it is the industry standard and has more mature ecosystem than `Pulsar`_.
+The Open edX platform will benefit from having an event bus. Next step: We plan on trialing `Kafka`_ because it is the industry standard and has more mature ecosystem than `Pulsar`_.
 
 .. _Apache Pulsar: https://pulsar.apache.org/
 .. _Pulsar: https://pulsar.apache.org/
@@ -194,7 +192,6 @@ Pros
 * Ease of scalability (built-in, according to docs).
 * Ease of data retention capabilities.
 * Additional built-in pub/sub features (built-in, according to docs).
-* 
 
 Cons
 ^^^^
