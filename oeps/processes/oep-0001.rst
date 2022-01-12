@@ -7,7 +7,7 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Title         | OEP Purpose and Guidelines                                   |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2019-08-27                                                   |
+| Last-Modified | 2022-01-12                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | Calen Pennington <cale@edx.org>,                             |
 |               | Joel Barciauskas <joel@edx.org>,                             |
@@ -466,7 +466,8 @@ Auxiliary Files
 ---------------
 
 OEPs may include auxiliary files such as diagrams. Such files must be added to
-an oep-XXXX/ directory, where "XXXX" is the OEP number.
+an oep-XXXX/ directory, where "XXXX" is the OEP number. Include original diagrams
+alongside image files, to make it easy for others to update the OEP in the future.
 
 
 Change History
