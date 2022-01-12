@@ -7,11 +7,12 @@ OEP-21: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2022-01-12                                             |
+| Last Modified   | 2022-02-08                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>,                             |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
 |                 | Diana Huang <dkh@edx.org>                              |
+|                 | Sarina Canelake <sarina@tcril.org>                     |
 +-----------------+--------------------------------------------------------+
 | Arbiter         | Matt Tuchfarber <mtuchfarber@edx.org>                  |
 +-----------------+--------------------------------------------------------+
@@ -27,14 +28,31 @@ OEP-21: Deprecation and Removal
 TL;DR
 =====
 
-* **Removing unneeded or legacy code is crucial to optimizing programs and reducing costs:** Having dead or broken code laying around can inadvertently introduce bugs, cause the runtime footprint to be larger than necessary, and cost time and money to maintain. Additionally, unneeded code may make it more difficult to understand or navigate a project.
-* **It’s important to know exactly when and what to remove:** Some code may be outdated and can be replaced with a new implementation, or some may have very low usage and is not worth holding on to. It’s important to analyze to what extent the code is no longer needed and what (if any) ripple effects it could have elsewhere.
-* **Communicating out proposed changes can help guide the path to depreciation/removal:** It is crucial to let others know you believe there’s code needing removal and how you plan to go about it. Inform individual stakeholders and use Open edX community channels such as Slack and Discourse to let others know your proposed plan. Collect and monitor feedback to avoid potential disruptions to other code/projects.
-* **The formal process outlined in this document can help make deprecation and removal projects happen more proactively:** Having a defined process and common language takes the guesswork out and allows for easier access to get rid of dead code. The steps outlined in this document regarding analysis, communication and documentation will help guide the process, and by using DEPR tickets in JIRA (see `Document`_ process), these projects can be clearly tracked providing transparency on progress.
+* **Removing unneeded or legacy code is crucial to optimizing programs and reducing
+  costs:** Having dead or broken code laying around can inadvertently introduce bugs,
+  cause the runtime footprint to be larger than necessary, and cost time and money to
+  maintain. Additionally, unneeded code may make it more difficult to understand or
+  navigate a project.
+* **It’s important to know exactly when and what to remove:** Some code may be outdated
+  and can be replaced with a new implementation, or some may have very low usage and is
+  not worth holding on to. It’s important to analyze to what extent the code is no longer
+  needed and what (if any) ripple effects it could have elsewhere.
+* **Communicating out proposed changes can help guide the path to depreciation/removal:**
+  It is crucial to let others know you believe there’s code needing removal and how you plan
+  to go about it. Inform individual stakeholders and use Open edX community channels such as
+  Slack and Discourse to let others know your proposed plan. Collect and monitor feedback to
+  avoid potential disruptions to other code/projects.
+* **The formal process outlined in this document can help make deprecation and removal
+  projects happen more proactively:** Having a defined process and common language takes
+  the guesswork out and allows for easier access to get rid of dead code. The steps outlined
+  in this document regarding analysis, communication, and documentation will help guide the
+  process, and by using GitHub Issues as tickets to track the DEPR process (see the steps outlined
+  in the `Document`_ section), these projects can be clearly tracked providing transparency on progress.
 
 High-Level Overview of Code Removal Process
 -------------------------------------------
-* For further details on each of these steps, please see `Process States`_ and `Timeline`_. For DEPR ticket details, please refer to the `Document`_ process.
+* For further details on each of these steps, please see `Process States`_ and
+  `Timeline`_. For DEPR ticket details, please refer to the `Document`_ process.
 
 .. image:: oep-0021/Removal-Workflow.png
    :align: center
@@ -42,7 +60,8 @@ High-Level Overview of Code Removal Process
 Best Practices for Proposing Code for Removal
 ---------------------------------------------
 
-* For further details on each of these steps, please see `Proposed`_ section. For DEPR ticket details, please refer to the `Document`_ process.
+* For further details on each of these steps, please see `Proposed`_ section.
+  For DEPR ticket details, please refer to the `Document`_ process.
 
 .. image:: oep-0021/Best-Practices.png
    :align: center
@@ -89,7 +108,7 @@ learned the benefits of investing in code removal:
 Given the above, we define a common language and process to remove unneeded
 code, that is, code that may be superseded by a new implementation or may be deemed no
 longer necessary or supported. Following this process guarantees alignment
-across all stakeholders and full execution.
+across all stakeholders and a path towards complete removal of all unused code.
 
 Specification
 ==============
@@ -181,27 +200,41 @@ considers the timing of the next `Open edX named release`_.
 Document
 ~~~~~~~~
 
-Do the following to document your proposal (see DEPR-6_ as an example):
+Do the following to document your proposal:
 
-#. Create a **DEPR** ticket on the `Deprecation and Removal JIRA board`_.
-#. Include target dates for: *Accepted* and *Removed* (in explicit fields on the
-   ticket). See Timeline_ for considerations.
-#. Include in which `Open edX named release`_ the code will be removed.
-#. Include a description with links to what is being removed, in a
-   **Removal** section.
-#. Include a description with links to what it is being replaced by, in a
-   **Replacement** section.
-#. If you plan to mark the code for deprecation, explain how in a
-   **Deprecation** section. See Deprecated_ for considerations.
-#. If automated migration will be needed, explain your migration plan in a
-   **Migration** section.
-#. If there is any additional publicly shareable information or data from your
-   earlier analysis, include that on the ticket.
+#. Create a GitHub Issue in the repo where the code being deprecated lives, and
+   be sure to choose the "Deprecation (DEPR) Ticket" template. If your
+   deprecation spans multiple repos, choose the primary/most relevant repo, or
+   use the `public-engineering`_ project.
 
-Now you are ready to communicate your proposal.
+#. When writing the ticket, include the following information:
 
-.. _Deprecation and Removal JIRA board: https://openedx.atlassian.net/secure/RapidBoard.jspa?rapidView=452
-.. _DEPR-6: https://openedx.atlassian.net/browse/DEPR-6
+   #. Title: The title of the ticket should read "[DEPR]: <technology name being
+      deprecated>".
+   #. Proposal Date: the day the proposal is being put up for consideration.
+   #. Target dates for: *Accepted* and *Removed*. See Timeline_ for
+      considerations.
+   #. Include in which `Open edX named release`_ the code will be removed. Reach
+      out to the `#wg-build-test-release` in Slack if you're not sure what to
+      put here.
+   #. **Rationale**: A few sentences explaining the rationale for removing this
+      technology.
+   #. **Removal**: A description with links to what is being removed.
+   #. **Replacement**: A description with links to what it is being replaced by.
+   #. If you plan to mark the code for deprecation, explain how in the
+      **Deprecation** section. See Deprecated_ for considerations.
+   #. If automated migration will be needed, explain your migration plan in the
+      **Migration** section.
+   #. If there is any additional publicly shareable information or data from
+      your earlier analysis, include that in the **Additional Info** section.
+
+#. Check that your ticket appears on the `DEPR Project Board`_.
+
+
+Now you are ready to communicate your proposal!
+
+.. _public-engineering: https://github.com/openedx/public-engineering
+.. _DEPR Project Board: https://github.com/orgs/openedx/projects/9
 
 Communicated
 ------------
@@ -216,14 +249,14 @@ To the Open edX Discourse
 
 Post a message to `Open edX Discourse Deprecation Announcements`_, using the following template:
 
-    Subject: Deprecation/Removal: <*Technology Name*> <*DEPR-Number*>
+    Subject: Deprecation/Removal: <*Technology Name*> <*repo*>#<*issue-number*>
 
     Body:
         Hi there,
 
         We plan to deprecate and remove <*Short description of the technology*>.
 
-        Please read https://openedx.atlassian.net/browse/<*DEPR-Number*> for
+        Please read https://github.com/openedx/<*repo*>/issues/<*issue-number*> for
         more information and to post any questions/comments. The proposed
         deadline for comments before acceptance is <*Target Accepted Date*>.
 
@@ -232,7 +265,7 @@ Post a message to `Open edX Discourse Deprecation Announcements`_, using the fol
         Thanks,
         <*Your name*>
 
-Once the message is posted, include a link to the Discourse thread in the DEPR ticket.
+Once the message is posted, include a link to the Discourse thread in the GitHub issue.
 
 
 .. _Open edX Discourse Deprecation Announcements: https://discuss.openedx.org/c/announcements/deprecation
@@ -245,7 +278,7 @@ Post the following in the #open-edx-proposals and #general `Open edX slack`_ cha
     *Removal of <*Technology Name*>:*
     We plan to deprecate and remove <*Short description of the technology*>.
 
-    Please read https://openedx.atlassian.net/browse/<*DEPR-Number*> for
+    Please read https://github.com/openedx/<*repo*>/issues/<*issue-number*> for
     more information and to post any questions/comments. The proposed
     deadline for comments before acceptance is <*Target Accepted Date*>.
     Once the ticket is accepted, removal can happen at any time.
@@ -255,7 +288,7 @@ Post the following in the #open-edx-proposals and #general `Open edX slack`_ cha
 Monitor Feedback
 ~~~~~~~~~~~~~~~~
 
-Once announcements are made, update the **DEPR** ticket to the `Communicated`
+Once announcements are made, update the GitHub Issue to the `Communicated`
 state.
 
 Allocate time to be responsive to any and all feedback and input on your
@@ -265,10 +298,10 @@ iterate and do this until the announced target *Accepted* date.
 
 If during this time, there is a large amount of churn or concern, be open to
 adjusting the target dates and revisiting the proposal. If community alignment
-seems difficult, reach out to the `edX Architecture team`_ for directional
+seems difficult, reach out to the `Deprecation Working Group`_ for directional
 guidance. In some cases, the proposal may need to be *Abandoned* entirely.
 
-.. _edX Architecture Team: https://openedx.atlassian.net/wiki/spaces/AC/pages/439353453/Architecture+Team
+.. _Deprecation Working Group: https://openedx.atlassian.net/wiki/spaces/AC/pages/825983190/Deprecation+Working+Group
 
 Accepted
 --------
@@ -288,26 +321,23 @@ Here are some common ways to mark a technology as deprecated:
 
 * REST API - Specify in the 1st line of the API's docstring::
 
-    "Deprecated <DEPR-Number>"
+    "Deprecated <link-to-gh-issue>"
 
 * Javascript code - Add a log statement that executes once without being noisy::
 
-    console.log("<Technology name> is deprecated. See <DEPR-Number>.")
+    console.log("<Technology name> is deprecated. See <link-to-gh-issue>.")
 
 * Python code - Add a warnings.warn_ statement so it executes once without being noisy::
 
-    warnings.warn("<Technology name> is deprecated. See <DEPR-Number>.", DeprecationWarning)
+    warnings.warn("<Technology name> is deprecated. See <link-to-gh-issue>.", DeprecationWarning)
 
 * Feature toggles - Set the “Expiration Date” as described in OEP-17_.
 
 * GitHub repo - See `OEP-14 Archiving Open edX GitHub Repositories`_.
 
-* XBlock - For edx.org specifically, see `Deprecating xBlock for the edX website`_ (internal edX use only).
-
 .. _warnings.warn: https://docs.python.org/2/library/warnings.html#warnings.warn
 .. _OEP-17: https://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html
 .. _OEP-14 Archiving Open edX GitHub Repositories: https://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html
-.. _Deprecating xBlock for the edX website: https://openedx.atlassian.net/wiki/spaces/ENG/pages/723550424/Deprecating+and+Disabling+an+XBlock+for+the+edX+website
 
 Removing
 --------
@@ -356,4 +386,4 @@ References
 Change History
 ==============
 
-2022-01-12: Migrate from Jira to GitHub Issues
+2022-02-08: Migrate from Jira to GitHub Issues/Projects
