@@ -7,7 +7,7 @@ OEP-21: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2020-12-09                                             |
+| Last Modified   | 2022-01-12                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>,                             |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
@@ -53,7 +53,7 @@ Abstract
 *"Remove dead code wherever possible. It gets in the way and slows you down."* [OREILLY]_
 
 This document defines a formal process for proposing, communicating, deprecating
-and removing legacy and unneeded code in the open edX platform.
+and removing legacy and unneeded code in the Open edX platform.
 
 .. image:: oep-0021/dead-code.png
    :align: center
@@ -62,7 +62,7 @@ Motivation
 ==========
 
 Without a clearly defined and agreed upon process for removing legacy code,
-open edX developers will hesitate to do so. As a result, the platform will have
+Open edX developers will hesitate to do so. As a result, the platform will have
 redundant implementations and dormant features that over time will slow down
 development and developer onboarding.
 
@@ -87,8 +87,8 @@ learned the benefits of investing in code removal:
   always open to revision and improvement. [INFOQ]_
 
 Given the above, we define a common language and process to remove unneeded
-code. That code may be superseded by a new implementation or may be deemed no
-longer necessary and supported. Following this process guarantees alignment
+code, that is, code that may be superseded by a new implementation or may be deemed no
+longer necessary or supported. Following this process guarantees alignment
 across all stakeholders and full execution.
 
 Specification
@@ -119,7 +119,7 @@ Here are a few common cases for code removal:
   the old implementation should be deprecated and then removed in favor of the
   new.
 * Static analysis or runtime analysis shows that the code is never executed on
-  your open edX instance. If so, it should be removed (if no one in the community
+  your Open edX instance. If so, it should be removed (if no one in the community
   requires it) or should become a pluggable extension since it's not core to all
   instances.
 * There is a legacy feature that never really saw the light of the day or was
@@ -143,9 +143,9 @@ Analyze
 When proposing a removal, consider the following analysis:
 
 * Usage - Which users and services are currently using the code proposed for
-  removal on your own open edX instance?  Perform a quick search across the edX
+  removal on your own Open edX instance?  Perform a quick search across the edX
   codebase to gauge the level of impact and identify potential stakeholders.
-  https://github.com/search?q=org%3Aedx+sample&type=Code
+  https://github.com/search?q=org%3Aopenedx+sample&type=Code
 * Replacement - What, if any, is a viable replacement for the code being removed?
 * Migration path - If there is existing high usage in the community, what is a
   viable automated migration path from the deprecated code to the removed code?
@@ -172,7 +172,9 @@ considers the timing of the next `Open edX named release`_.
 * **Proposed** on Day 1
 * **Communicated** from Day 2 to Day 13
 * **Accepted** on Day 14 *(depending on influx of feedback)*
-* **Deprecated/Removing/Removed** - from Day 15 onwards *(depending on resources and technology being removed)*
+* **Deprecated/Removing/Removed** - from Day 15 onwards *(depending on resources and technology being removed).*
+  Consider when the next Named Release is cut; if it is very soon, you may wish to delay final
+  removal until after the cut date.
 
 .. _Open edX named release: https://open-edx-proposals.readthedocs.io/en/latest/oep-0010-proc-openedx-releases.html
 
@@ -238,7 +240,7 @@ Once the message is posted, include a link to the Discourse thread in the DEPR t
 To openedx.slack.com
 ^^^^^^^^^^^^^^^^^^^^
 
-Post the following in the #open-edx-proposals and #general `openedx slack`_ channels:
+Post the following in the #open-edx-proposals and #general `Open edX slack`_ channels:
 
     *Removal of <*Technology Name*>:*
     We plan to deprecate and remove <*Short description of the technology*>.
@@ -248,7 +250,7 @@ Post the following in the #open-edx-proposals and #general `openedx slack`_ chan
     deadline for comments before acceptance is <*Target Accepted Date*>.
     Once the ticket is accepted, removal can happen at any time.
 
-.. _`openedx slack`: http://openedx-slack-invite.herokuapp.com/
+.. _`Open edX slack`: http://openedx-slack-invite.herokuapp.com/
 
 Monitor Feedback
 ~~~~~~~~~~~~~~~~
@@ -298,13 +300,13 @@ Here are some common ways to mark a technology as deprecated:
 
 * Feature toggles - Set the “Expiration Date” as described in OEP-17_.
 
-* Github repo - See `OEP-14 <https://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html>`_
+* GitHub repo - See `OEP-14 Archiving Open edX GitHub Repositories`_.
 
-* XBlock - For edx.org specifically, see `Deprecating xBlock for the edX website`_.
+* XBlock - For edx.org specifically, see `Deprecating xBlock for the edX website`_ (internal edX use only).
 
 .. _warnings.warn: https://docs.python.org/2/library/warnings.html#warnings.warn
 .. _OEP-17: https://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html
-.. _OEP-14: https://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html
+.. _OEP-14 Archiving Open edX GitHub Repositories: https://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html
 .. _Deprecating xBlock for the edX website: https://openedx.atlassian.net/wiki/spaces/ENG/pages/723550424/Deprecating+and+Disabling+an+XBlock+for+the+edX+website
 
 Removing
@@ -333,7 +335,7 @@ When removal is complete:
    Note: Eventually, this should be included in a .rst file bundled with the
    codebase.
 #. Update the **DEPR** ticket's state to *Removed*.
-#. Announce the removal in the #open-edx-proposals and #general `openedx slack`_
+#. Announce the removal in the #open-edx-proposals and #general `Open edX slack`_
    channels.
 #. Optionally, celebrate with your team by banging and breaking a piñata_!
 
@@ -350,3 +352,8 @@ References
 .. [SO] https://stackoverflow.com/a/15700228
 .. [SEC] https://www.sec.gov/litigation/admin/2013/34-70694.pdf
 .. [INFOQ] https://www.infoq.com/news/2017/02/dead-code
+
+Change History
+==============
+
+2022-01-12: Migrate from Jira to GitHub Issues
