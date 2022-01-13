@@ -7,7 +7,7 @@ OEP-14: Archiving edX GitHub Repositories
 +---------------+----------------------------------------------------------+
 | Title         | Archiving edX GitHub Repositories                        |
 +---------------+----------------------------------------------------------+
-| Last Modified | 2022-01-10                                               |
+| Last Modified | 2022-01-26                                               |
 +---------------+----------------------------------------------------------+
 | Author        | Christina Roberts <christina@edx.org>                    |
 |               | Feanil Patel <feanil@edx.org>                            |
@@ -21,27 +21,25 @@ OEP-14: Archiving edX GitHub Repositories
 | Created       | 2017-01-09                                               |
 +---------------+----------------------------------------------------------+
 | `References`  | `ORA PR Discussion`_,                                    |
-|               | `Initial Archiving Discussions`_,                        |
 |               | `Moving More Repos to edx-unsupported`_                  |
 +---------------+----------------------------------------------------------+
 
 .. _ORA PR Discussion: https://github.com/edx/edx-ora/pull/187
-.. _Initial Archiving Discussions: https://openedx.atlassian.net/wiki/display/IT/Proposed+Github+Deprecation+Process
 .. _Moving More Repos to edx-unsupported: https://openedx.atlassian.net/browse/ARCHBOM-1481
 
 Abstract
 ========
 
-The `edx organization`_ contains a large number of repositories, most of which are active and maintained, but some of which are now obsolete. To clarify the status of repositories, a process for archiving a repository is defined below.
+The `openedx organization`_ contains a large number of repositories, most of which are active and maintained, but some of which are now obsolete. To clarify the status of repositories, a process for archiving a repository is defined below.
 
-.. _edx organization: https://github.com/edx
+.. _openedx organization: https://github.com/openedx
 
 Motivation
 ==========
 
 Recently openedx.yaml files were added to edX repositories per `OEP-2`_. In the course of deciding owners for those repositories, there was an `ORA PR Discussion`_ about how best to handle deprecated or obsolete repositories. In particular, do obsolete repositories need owners, and how can repositories be clearly marked as present for archive purposes only?
 
-This discussion resurfaced related to edX's usage of Gemnasium to report the usage of third-party libraries that have known security issues. All repositories under the edX organization were being monitored, but this added noise when trying to understand the number of third-party library updates required for actively maintained repositories.
+This discussion resurfaced related to edX's usage of Gemnasium to report the usage of third-party libraries that have known security issues. All repositories under the Open edX organization were being monitored, but this added noise when trying to understand the number of third-party library updates required for actively maintained repositories.
 
 .. _OEP-2: https://open-edx-proposals.readthedocs.io/en/latest/oep-0002.html
 
@@ -49,9 +47,9 @@ This discussion resurfaced related to edX's usage of Gemnasium to report the usa
 Specification
 =============
 
-When a repository under the `edx organization`_ will no longer be maintained by edx Inc. because it is no longer in use by the latest version of the Open edX platform, the following steps should be followed.
+When a repository under the `openedx organization`_ will no longer be maintained by the Open edX community because it is no longer in use by the latest version of the Open edX platform, the following steps should be followed.
 
-This process is not for repositories that are currently still in use by either the latest version of the Open edX platform or by edX Inc. the company.  If a repository is in use, but planned to be removed, it should go through the `deprecation process`_ and when that is completed it can be archived as described by the process below.
+This process is not for repositories that are currently still in use by either the latest release or the master branches of the Open edX platform.  If a repository is in use, but planned to be removed, it should go through the `deprecation process`_ and when that is completed it can be archived as described by the process below.
 
 .. _deprecation process: https://open-edx-proposals.readthedocs.io/en/latest/oep-0021-proc-deprecation.html
 
@@ -61,31 +59,33 @@ Transfer to New Owner if Interest
 
 First, if the repository is public, and a part of Open edX releases, follow these steps to see if anyone would like to take ownership of it:
 
-1. Post a notice to `Open edX Deprecation Announcements`_ announcing that the repository will be archived, and inquiring if anyone would like to take ownership of the repo. If there are no responses after 2 work days, skip to `Archive Steps`_.
+1. Post a notice to `Open edX Deprecation Announcements`_ announcing that the repository will be archived, and inquiring if anyone would like to take ownership of the repo. Cross post to the ``#general`` and ``#open-edx-proposals`` channels in the `Open edX slack`_. If there are no responses after 2 work days, skip to `Archive Steps`_.
 
-2. If someone does wish to take ownership of the repository, email the internal edX developers mailing list to see if there are any objections. If there are no objections after 2 work days, post to `Open edX Deprecation Announcements`_ that the transfer will take place.
+2. If someone does wish to take ownership of the repository, post a new notice to `Open edX Deprecation Announcements`_, clearly indicating who the new proposed owner is, how much time they have to spend maintaining the repo, and when the transfer will take place. Cross post in the above mentioned Slack channels. Wait at least 2 business days before proceeding.
 
-3. Create an IT help ticket for the repository to be transferred to the new organization.
+3. Create a new `GitHub Request on the tCRIL board`_ for the repository to be transferred to the new organization.
 
-4. Once the transfer has occurred, create a fork of the transferred repository into the `edx organization`_ and follow the `Archive Steps`_ below for the forked repo.
+4. Once the transfer has occurred, create a fork of the transferred repository into the `openedx organization`_ and follow the `Archive Steps`_ below for the forked repo.
 
 .. _Open edX Deprecation Announcements: https://discuss.openedx.org/c/announcements/deprecation
+.. _Open edX slack: http://openedx-slack-invite.herokuapp.com/
+.. _GitHub Request on the tCRIL board: https://github.com/openedx/tcril-engineering/issues/new/choose
 
 
 Archive Steps
 -------------
 
-These steps should be followed for all repos within the edX organization(forks included). After some experiments with keeping archived repos in the ``edx`` organization, we've learned that having abandoned code show up in searches hinders work to understand the current state of the system and the risk around new work, particularly deprecations and API changes. Thus we decided to move all archived repositories to a separate org.
+These steps should be followed for all repos within the Open edX organization (forks included). After some experiments with keeping archived repos in the ``openedx`` organization, we've learned that having abandoned code show up in searches hinders work to understand the current state of the system and the risk around new work, particularly deprecations and API changes. Thus we decided to move all archived repositories to a separate org.
 
 1. Update the README.rst file in the repository to add a brief note about why the repo is being archived, and what is serving as its replacement (where applicable). This may be as simple as a linking to the appropriate DEPR ticket.
 
-2. Unless you have the relevant permissions to perform this step, create an IT help ticket and ask them to do the following:
+2. Unless you have the relevant permissions to perform this step, create a new `GitHub Request on the tCRIL board`_  and ask them to do the following:
 
    - Archive the repository per `GitHub's archive process`_
 
    - Move the repository to the openedx-unsupported organization
 
-      - If the repo is not coming from the `edx github org`_ then before moving it, rename it with a prefix of the source org's name. For example the ``notifier`` repo in the ``edx-solutions`` org wolud be renamed to ``edx-solutions-notifier`` before moving.
+      - If the repo is not coming from the `openedx github org`_ then before moving it, rename it with a prefix of the source org's name. For example the ``notifier`` repo in the ``edx-solutions`` org wolud be renamed to ``edx-solutions-notifier`` before moving.
 
 .. note::
     Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, if possible un-archive the old fork and update it.  If you've already made a new fork, delete the old copy of the fork before you move the new repo to openedx-unsupported.
@@ -95,18 +95,18 @@ These steps should be followed for all repos within the edX organization(forks i
     One such circumstance is if the previous fork is being used by a supported Open edX named release. In this case, one option would be to port any referenced branches in the old fork to the new fork before deleting the old fork.
 
 .. _GitHub's archive process: https://help.github.com/en/articles/archiving-repositories
-.. _edx github org: https://github.com/edx
+.. _openedx github org: https://github.com/openedx
 
 
 Rationale
 =========
 
-We previously archived in place and move to this previously rejected alternative based on lessons learned in going through the deprecation process and major upgrades(Python 3, Django 2.x)
+We previously archived in place and move to this previously rejected alternative based on lessons learned in going through the deprecation process and major upgrades (Python 3, Django 2.x)
 
 Pros:
 
-- `edx organization`_ is no longer littered with unsupported/obsolete repositories.
-- GitHub search results within the `edx organization`_ do not include matches in archived repositories. This could decrease confusion, especially since repo descriptions are not included in search results.
+- `openedx organization`_ is no longer littered with unsupported/obsolete repositories.
+- GitHub search results within the `openedx organization`_ do not include matches in archived repositories. This could decrease confusion, especially since repo descriptions are not included in search results.
 - Gemnasium monitoring may cease automatically (although this would need to be confirmed).
 - Pattern followed by `Facebook`_, and thus might be familiar to others.
 
@@ -132,7 +132,7 @@ The `Discussions Hackathon repository`_ has been updated to conform to the `Arch
 Rejected Alternatives
 =====================
 
-There are a couple variations of this proposal that were originally discussed in `Initial Archiving Discussions`_. Many of the steps of updating documentation and notifying the open source community are essentially the same; the major differences from the proposed process are outlined below.
+There are a couple variations of this proposal that were originally discussed. Many of the steps of updating documentation and notifying the open source community are essentially the same; the major differences from the proposed process are outlined below.
 
 
 Alternative 1: Archive In Place
@@ -153,7 +153,7 @@ Reasons rejected:
 Alternative 2: Create Archive Branch
 ------------------------------------
 
-Move the code from the master branch to an archived branch, while leaving the repository itself within `edx organization`_.
+Move the code from the master branch to an archived branch, while leaving the repository itself within `openedx organization`_.
 
 Pros:
 
@@ -210,3 +210,9 @@ Change History
 ----------
 
 * Update instructions to use the openedx-unsupported repo instead of the edx-unsupported repo.
+
+2022-01-26
+----------
+
+* Change references to ``edx`` GitHub org to ``openedx`` org
+* Change internal edX procedures to community-based ones
