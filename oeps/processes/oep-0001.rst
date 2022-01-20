@@ -12,7 +12,7 @@ OEP-1: OEP Purpose and Guidelines
 | Authors       | Calen Pennington <cale@edx.org>,                             |
 |               | Joel Barciauskas <joel@edx.org>,                             |
 |               | Nimisha Asthagiri <nimisha@edx.org>                          |
-|               | Feanil Patel <feanil@edx.org>                                |
+|               | Feanil Patel <feanil@tcril.org>                              |
 +---------------+--------------------------------------------------------------+
 | Arbiter       | - Eddie Fagin <efagin@edx.org>,                              |
 |               | - Calen Pennington <cale@edx.org>                            |
