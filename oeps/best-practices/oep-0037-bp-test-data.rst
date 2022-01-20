@@ -14,7 +14,7 @@ OEP-37: Dev Data
    * - Authors
      - Jeremy Bowman <jbowman@edx.org>
    * - Arbiter
-     - Bill DeRusha <bill@edx.org>, Feanil Patel <feanil@edx.org>
+     - Bill DeRusha <bill@edx.org>, Feanil Patel <feanil@tcril.org>
    * - Status
      - Deferred
    * - Type
