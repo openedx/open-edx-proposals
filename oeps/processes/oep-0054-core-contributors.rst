@@ -9,13 +9,13 @@ OEP-54: Core Contributors
    * - Title
      - Core Contributor Program
    * - Last Modified
-     - 2022-01-26
+     - 2022-02-04
    * - Authors
      - Sarina Canelake <sarina@tcril.org>
    * - Arbiter
      - Xavier Antoviaque <xavier@opencraft.com>
    * - Status
-     - Under Review
+     - Accepted
    * - Type
      - Process
    * - Created
@@ -52,10 +52,9 @@ The Open edX Core Contributor Program grants specific types of access rights to
 Open edX community members, which enables them to further the development and
 adoption of the Open edX platform. CCs earn these rights by sustained, active
 participation in the Open edX community and by following the “3 Cs”: Commitment,
-Conduct, Caliber. Core Contributors follow the `Code of Conduct
-<https://open.edx.org/code-of-conduct/>`_, are respectful of other community
-members, are polite and welcoming to all in the community, and have shown the
-ability to deliver high quality work over time.
+Conduct, Caliber. Core Contributors follow the `Code of Conduct`_, are
+respectful of other community members, are polite and welcoming to all in the
+community, and have shown the ability to deliver high quality work over time.
 
 Core Contributor Roles
 ----------------------
@@ -130,12 +129,11 @@ new members, or existing community members may put themselves forward for a
 role.
 
 Current CCs should always be on the lookout for contributors who demonstrate the
-"3 Cs" (Commitment, Conduct, and Caliber), follow the `Code of Conduct
-<https://open.edx.org/code-of-conduct/>`_, are respectful of other community
-members, are polite and welcoming to all in the community, and have been an
-overall active community member for some time. When a person like this comes to
-the attention of a CC, the CC should reach out and ask if that person would like
-to be nominated as a CC.
+"3 Cs" (Commitment, Conduct, and Caliber), follow the `Code of Conduct`_, are
+respectful of other community members, are polite and welcoming to all in the
+community, and have been an overall active community member for some time. When
+a person like this comes to the attention of a CC, the CC should reach out and
+ask if that person would like to be nominated as a CC.
 
 Community members who feel they fit these criteria listed above should feel
 empowered to nominate themselves, as well.
@@ -267,6 +265,37 @@ discussion category
 <https://discuss.openedx.org/c/working-groups/core-contributors/36>`_ or in the
 ``#core-contributors`` room on Slack.
 
+Removing Core Contributors
+--------------------------
+
+Occasionally, it may become necessary to remove an individual from the Core
+Contributor program. Some reasons this may happen include:
+
+* A CC leaves the project or changes employment and does not wish to continue
+  participating
+* A CC does not have the time or interest to continue in the role
+* A CC is not fulfilling the responsibilities of the role
+* A CC is not upholding the standards of the community
+
+Trigger events for removing a CC would be:
+
+* A CC informs the Program Administrators that they can no longer continue in
+  the role
+* A CC has been inactive and unreachable for more than 6 months
+* A CC hasn't met project quality standards consistently despite feedback
+* A CC has consistently shown poor judgement, such as merging PRs without
+  due consideration or addressing outstanding concerns
+* A CC has violated the project `Code of Conduct`_
+
+For those wishing to indicate they are leaving the CC program, or to report a
+Code of Conduct violation, please `Contact the Program Administrators`_.
+
+Program administrators will be responsible for determining when a CC is
+inactive/unreachable, by doing a check at least once per quarter. Since the
+reasoning for removing inactive CCs is due to security concerns, those who've
+been removed for inactivity may get in touch with Program Administrators to
+fast-track getting their access back.
+
 Contact the Program Administrators
 ----------------------------------
 
@@ -277,7 +306,14 @@ the ``#core-contributors`` Slack room in the `Open edX Slack
 Change History
 ==============
 
+2022-02-04
+----------
+
+* Procedures to remove CCs added.
+
 2021-12-20
 ----------
 
 * Document created.
+
+.. _Code of Conduct: https://openedx.org/code-of-conduct/
