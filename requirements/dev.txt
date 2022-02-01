@@ -16,7 +16,7 @@ certifi==2021.10.8
     # via
     #   -r requirements/base.txt
     #   requests
-charset-normalizer==2.0.10
+charset-normalizer==2.0.11
     # via
     #   -r requirements/base.txt
     #   requests
