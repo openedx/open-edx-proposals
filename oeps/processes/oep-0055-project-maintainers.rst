@@ -73,8 +73,8 @@ considered an urgent problem to solve.
 This OEP proposes a formal definition of the role of maintainer that
 will open to all qualified Open edX community members.  Maintainers
 will be responsible for the health of platform components, but not for
-their performance in their performance in any community member's
-production environment[#]_.
+their performance in any community member's production
+environment[#]_.
 
 Motivation
 ==========
@@ -116,8 +116,8 @@ health of component and the component's community.  The remainder of
 this specification will be focused on the details of the role.
 
 The term **core contributor** will mean a named person participating
-in the `Core Contributor Program`_ and meeting the requirements of
-that program.
+in the `Core Contributor Program`_ as a coding core contributor and
+meeting the requirements of that program.
 
 The term **maintainer scrum-of-scrums** will mean group of all
 maintainers who are responsible for flagging issues to project
@@ -171,10 +171,10 @@ Prerequisites
 -------------
 In order to be a repository maintainer, you must
 
-* Be an active member of the Open edX community who has contributed to
-  the project in the last 6 months.  The types of contributions that
-  are relevant will match those defined in the `core contributor
-  program`_
+* Be an active member of the Open edX community who has made technical
+  contributions to the project in the last 6 months.  The types of
+  contributions that are relevant will match those defined in the
+  `code contributors`_
 * Abide by the `Open edX Code of Conduct
   <https://openedx.org/code-of-conduct/>`_
 * Be a core contributor for the repository in question who has
@@ -278,8 +278,7 @@ categories
 Change History
 ==============
 
-A list of dated sections that describes a brief summary of each revision of the
-OEP.
+01-28-2022 - Initial draft version for comment
 
 
 Source Material
@@ -291,22 +290,36 @@ Source Material
 Notes
 =====
 
-.. [#] An IDA is an Independently Deployable Application, a server-side service oriented application, typically built upon the Django framework.
+.. [#] An IDA is an Independently Deployable Application, a
+       server-side service oriented application, typically built upon
+       the Django framework.
 
-.. [#] An MFE is a Micro-Front end, a discreet, client side application written in Javascript, typically using the ReactJS framework.
+.. [#] An MFE is a Micro-Front end, a discreet, client side
+       application written in Javascript, typically using the ReactJS
+       framework.
 
 .. [#] TODO: Add sources for best practices claim.
 
 .. [#] Needless to say, there must be feedback loops between
-       maintainers and operators of the platform and, in some cases, a        single person will perform both roles.
+       maintainers and operators of the platform and, in some cases, a
+       single person will perform both roles.  Maintainers should
+       certainly be concerned about the performance characteristics of
+       their components and committed to their scalability.
 
-.. [#] In fact, studies of the traits of effective maintainers have highlighted that non-technical aspects of the role are often more highly valued by community members 2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE) `What Makes a Great Maintainer of Open Source Projects? <https://www.computer.org/csdl/proceedings-article/icse/2021/029600a982/1sEXoQoeO0E>`_
+.. [#] In fact, studies of the traits of effective maintainers have
+       highlighted that non-technical aspects of the role are often
+       more highly valued by community members 2021 IEEE/ACM 43rd
+       International Conference on Software Engineering (ICSE) `What
+       Makes a Great Maintainer of Open Source Projects?
+       <https://www.computer.org/csdl/proceedings-article/icse/2021/029600a982/1sEXoQoeO0E>`_
 
 
 
 .. _Django framework: https://www.djangoproject.com/
 
-.. _Core Contributor Program: https://github.com/openedx/open-edx-proposals/pull/275
+.. _Core Contributor Program: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0054-core-contributors.html
+
+.. _code contributors: https://openedx.atlassian.net/wiki/spaces/COMM/pages/1529675973/Rights+Responsibilities+for+Code+Contributors
 
 .. _requirements for public repositories: https://openedx.atlassian.net/l/c/j6qLr5ET
 
