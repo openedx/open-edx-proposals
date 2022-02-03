@@ -113,9 +113,10 @@ hosted at the `openedx GitHub organization
 Components will be "part of" or "critical to" the open-source
 platform.
 
-The term **maintainer** will mean a named person responsible for the
-health of component and the component's community.  The remainder of
-this specification will be focused on the details of the role.
+The term **maintainer** will mean a named person or persons
+responsible for the health of component and the component's community.
+The remainder of this specification will be focused on the details of
+the role.
 
 The term **core contributor** will mean a named person participating
 in the `Core Contributor Program`_ as a coding core contributor and
