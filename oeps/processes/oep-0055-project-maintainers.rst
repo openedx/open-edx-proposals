@@ -108,8 +108,10 @@ The term **component** will typically mean the unit of software housed
 in a single GitHub repository.  Exceptions will be made in the case of
 edx-platform where there may be multiple distinguishable components in
 that single repository.  Components will typically, but not always, be
-hosted at the Open edX GitHub organization.  Components will be "part
-of" or "critical to" the open-source platform.
+hosted at the `openedx GitHub organization
+<https://github.com/openedx/https://github.com/openedx/>`_.
+Components will be "part of" or "critical to" the open-source
+platform.
 
 The term **maintainer** will mean a named person responsible for the
 health of component and the component's community.  The remainder of
