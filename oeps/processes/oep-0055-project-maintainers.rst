@@ -130,8 +130,8 @@ project. The TOC itself was established and is governed by a formal
 charter.  You can read the full document `here
 <https://openedx.org/wp-content/uploads/2021/12/TCRIL-Technical-Oversight-Committee-Charter-rev.11-16.21.pdf>`_.
 
-Context
--------
+Historical Context
+------------------
 Historically, the Open edX project has not had a well-defined role
 of maintainer.  At times, community members stepped into this role
 informally.  The role was also part of a broader "owner" role at edX.
@@ -139,6 +139,8 @@ Owners were also responsible for the health of the component they
 owned both in the repository and in production; owners answered the
 pager when something went wrong.
 
+What Maintainers Do
+-------------------
 The role of the repository or project maintainer is both a community
 focused and a technical role[#]_.  Maintainers will be the public face
 of each component and should be welcoming and available.
