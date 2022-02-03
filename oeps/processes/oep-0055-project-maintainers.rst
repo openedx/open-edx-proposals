@@ -73,7 +73,8 @@ considered an urgent problem to solve.
 This OEP proposes a formal definition of the role of maintainer that
 will open to all qualified Open edX community members.  Maintainers
 will be responsible for the health of platform components, but not for
-their performance in production [#]_.
+their performance in their performance in any community member's
+production environment[#]_.
 
 Motivation
 ==========
