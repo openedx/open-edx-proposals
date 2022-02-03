@@ -239,14 +239,25 @@ maintainer.  This might happen because:
 
 Trigger events for removing a maintainer would be:
 
-* A maintainer informs the project that the can no longer continue in the role
+* A maintainer informs the project that the can no longer continue in
+  the role
 * A maintainer has been unreachable for more than 30 days
 * A maintainer has violated the project `Code of Conduct`_
-* A maintainer hasn't met project quality standards consistently despite feedback
+* A maintainer hasn't met project quality standards consistently
+  despite feedback
 
-In the case that a maintainer has violated the `Code of Conduct`_, the Goverance Team will decide what the repercussions of the violation will be, including whether the violator can continue in the role of maintainer.  It should be noted that maintainers are expected to be exemplars and, as such, will be held to a high standard.
+In the case that a maintainer has violated the `Code of Conduct`_, the
+Goverance Team will decide what the repercussions of the violation
+will be, including whether the violator can continue in the role of
+maintainer.  It should be noted that maintainers are expected to be
+exemplars and, as such, will be held to a high standard.
 
-In the case that a maintainer is not meeting project quality standards consistently, the maintaginer will be warned with the expectation that their components meet standards within a calendar month.  If, after a month, the quality issues are not resolved, the maintainer will be removed.  Additionaly, a maintainer who is warned three (3) times in a single calendar year will also be removed.
+In the case that a maintainer is not meeting project quality standards
+consistently, the maintaginer will be warned with the expectation that
+their components meet standards within a calendar month.  If, after a
+month, the quality issues are not resolved, the maintainer will be
+removed.  Additionaly, a maintainer who is warned three (3) times in a
+single calendar year will also be removed.
   
 Jobs of the Maintainer
 ----------------------
