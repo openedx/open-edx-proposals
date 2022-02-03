@@ -91,7 +91,9 @@ the ecosystem.
 As a project we must acknowledge that maintenance is hard work, but
 work that must be done for the platform to be fit for use.  The best
 way of ensuring this is to have a named person or persons who are
-responsible for getting the work done.
+responsible for getting the work done, a measurable definition of
+"well-maintained," and feedback looks to ensure accountability and
+continuous improvement of our processes.
 
 Specification
 =============
