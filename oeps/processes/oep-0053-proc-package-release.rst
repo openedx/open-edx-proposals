@@ -1,11 +1,11 @@
-========================================
-OEP-53: Python Packages' Release Process
-========================================
+======================================
+OEP-53: Python Package Release Process
+======================================
 
 +---------------+--------------------------------------------------------------+
 | OEP           | `OEP-53 <oep-0053>`                                          |
 +---------------+--------------------------------------------------------------+
-| Title         | Python Packages' Release Process                                      |
+| Title         | Python Packages' Release Process                             |
 +---------------+--------------------------------------------------------------+
 | Last-Modified | 2021-04-07                                                   |
 +---------------+--------------------------------------------------------------+
@@ -28,32 +28,32 @@ OEP-53: Python Packages' Release Process
 Abstract
 ========
 
-This document proposes a standard package release process to be followed across the Open edX community.
+This document proposes a standard Python package release process to be followed across the Open edX community.
 
 Motivation
 ==========
 
-We recently shifted the CI from Travis to Github Actions which led us to move the package release process to Github Actions as well. During this process,
+We recently shifted the CI from Travis to GitHub Actions which led us to move the package release process to GitHub Actions as well. During this process,
 we observed some problems in the current package release process. The package release process is comprised of several manual steps.
-Once the changes are pushed, we've to update the changelogs, bump the version number then create a tag or Github release which finally triggers the final package release.
+Once the changes are pushed, we update the changelogs, bump the version number then create a tag or GitHub release which finally triggers the final package release.
 As all these steps need to be done manually, sometimes things get missed. For instance, you made changes, bumped the version, and created a release but forgot
-to add changelogs. Moreover, we prefer to publish releases on tags but also want to keep Github releases aligned with PyPI releases so that release history
+to add changelogs. Moreover, we prefer to publish releases on tags but also want to keep GitHub releases aligned with PyPI releases so that release history
 could be found in the GitHub repository as well.
 
 To solve these above-mentioned issues, we have automated the package release process. Initially, we looked for packages that could do the job but the
-available packages don't provide much control so we created a pipeline using a set of Github workflows to achieve the goal. By using the release process
-proposed in the OEP we’ll be able to achieve the following:
+available packages don't provide much control so we created a pipeline using a set of GitHub workflows to achieve the goal. By using the release process
+in this OEP we’ll be able to achieve the following:
 
 * Just push the changes and the release pipeline will automatically take care of the rest of the process.
 * Trigger release on tag creation
-* Keep Github releases aligned with the PyPI releases
+* Keep GitHub releases aligned with the PyPI releases
 * Encourage usage of conventional commits
 
 Specification
 =============
 
-Github has a feature to create workflow templates to be used across the organization, which helps standardize the processes. We’ve written some workflow
-templates to automate the package release process in edX owned python packages. Some of these templates use reusable Github workflows and custom Github actions
+GitHub has a feature to create workflow templates to be used across the organization, which helps standardize the processes. We’ve written some workflow
+templates to automate the package release process in edX owned python packages. Some of these templates use reusable GitHub workflows and custom GitHub actions
 to achieve the goal while keeping a single source of truth and making workflow templates simple.
 
 How to set up?
@@ -95,7 +95,7 @@ You must have ``CHANGELOG.rst`` in the target repository and you need to make th
     version_variable = auth_backends/__init__.py:__version__
     commit_author = github-actions <actions@github.com>
 
-2. `Tag and release`_  - This workflow tags the commit and creates a Github release.
+2. `Tag and release`_  - This workflow tags the commit and creates a GitHub release.
 
 3. `Publish Python Package`_  - This workflow publishes the package on PyPI.
 
@@ -109,9 +109,9 @@ Technical Details
     - MAJOR:	breaking change
 
 * If the tool suggests a version bump, the ‘generate-changelogs’ reusable workflow is called from ‘edx/.github’ and it updates the value of the version variable in the path specified in setup.cfg.
-* After the version bump, a custom Github action called ‘changelogs-generator’ is called. This action uses the python script ‘changelogs.py’ to generate changelogs in markdown format using ‘python-semantic-release’, convert them to reStructuredText format using ‘pandoc’ and then add them to the ‘CHANGELOG.rst’ where ‘.. <New logs>’ is mentioned.
+* After the version bump, a custom GitHub action called ‘changelogs-generator’ is called. This action uses the python script ‘changelogs.py’ to generate changelogs in markdown format using ‘python-semantic-release’, convert them to reStructuredText format using ‘pandoc’ and then add them to the ‘CHANGELOG.rst’ where ‘.. <New logs>’ is mentioned.
 * Finally, a PR is created with the above changes. This PR uses the username and email mentioned in setup.cfg.
-* Tag and release workflow gets triggered when the PR created by the above workflow is merged. This workflow tags the commit and creates a Github release.
+* Tag and release workflow gets triggered when the PR created by the above workflow is merged. This workflow tags the commit and creates a GitHub release.
 * When a new tag is pushed, ‘Python Package Release’ workflow gets triggered and it publishes the package on PyPI with changes made in the latest tag.
 
 Alternatives Considered
@@ -119,7 +119,7 @@ Alternatives Considered
 
 Some of the alternatives considered during the development of this package release pipeline are as follows:
 
-* We considered triggering the 'Publish python package' workflow on Github release but creating a Github Release seemed to be an extra step for those who aren’t using 'Tag and Release' workflow in their package as they had to create a tag first and then create a Github release to trigger the PyPI release. Now, we are initiating PyPI releases on tags so that creating Github releases doesn’t become a necessary step but remains a best practice only.
+* We considered triggering the 'Publish python package' workflow on GitHub release but creating a GitHub Release seemed to be an extra step for those who aren’t using 'Tag and Release' workflow in their package as they had to create a tag first and then create a GitHub release to trigger the PyPI release. Now, we are initiating PyPI releases on tags so that creating GitHub releases doesn’t become a necessary step but remains a best practice only.
 * We tried to use `python-semantic-release`_ action directly instead of customization but we had to use a part of it and customize the rest of the things due to following reasons:
     - We wanted to create a PR with version bump and new changelogs so that we could update it if there’s anything not as expected and then continue the release process when this PR gets merged but the ‘python-semantic-release’ action takes care of the whole process itself.
     - The action generates changelogs in markdown format but in most of our repos we’ve changelogs in reStructured Text format
