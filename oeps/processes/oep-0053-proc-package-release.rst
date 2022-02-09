@@ -7,7 +7,7 @@ OEP-53: Python Package Release Process
 +---------------+--------------------------------------------------------------+
 | Title         | Python Packages' Release Process                             |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2021-04-07                                                   |
+| Last-Modified | 2022-02-09                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | Jawayria Hashmi <jhashmi@edx.org>,                           |
 |               | Aarif <aarif@edx.org>                                        |
