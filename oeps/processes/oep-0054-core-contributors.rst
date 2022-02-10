@@ -9,7 +9,7 @@ OEP-54: Core Contributors
    * - Title
      - Core Contributor Program
    * - Last Modified
-     - 2022-02-04
+     - 2022-02-11
    * - Authors
      - Sarina Canelake <sarina@tcril.org>
    * - Arbiter
@@ -231,6 +231,21 @@ The process for nomination is as follows:
    sponsor/Administrator to help the candidate develop a plan of action so that
    they can be successful in the future.
    
+Expansion of Core Contributor Responsibilities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Certain Core Contributor roles have multiple types of responsibilities, and a
+given Core Contributor may only hold a subset of these. For example, a CC with
+commit rights generally holds commit rights for only some of the 150+
+``openedx`` code and document repositories.
+
+Expanding a CC's responsibilities should follow the same process as establishing
+a new contributor, although in most cases, the comment period need only be one
+week. However, in cases where the new responsibilities are greatly different
+from the responsibilities currently held (for example, a coding contributor
+having previously held only backend repo commit rights asking for permission to
+a ``frontend-*`` repo), consider making the comment period the full 2 weeks.
+
 Where Do I Start?
 ^^^^^^^^^^^^^^^^^
 
@@ -305,6 +320,12 @@ the ``#core-contributors`` Slack room in the `Open edX Slack
 
 Change History
 ==============
+
+2022-02-11
+----------
+
+* Specify how to expand responsibilites for roles with fine-grained permissions
+  (such as code committers)
 
 2022-02-04
 ----------
