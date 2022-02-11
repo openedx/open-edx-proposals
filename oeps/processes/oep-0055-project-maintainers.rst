@@ -235,14 +235,33 @@ A new maintainer can be added in any of the following ways:
 
 * An existing maintainer can request that a new person become a
   component maintainer either in conjunction with the existing
-  maintainer or replacing them.  If there is no objection from
+  maintainer or by replacing them.  If there is no objection from
   existing maintainers, the role will be conferred.
-* In the case of vacancies, the nominations will be made to the
-  scrum-of-scrums to fill the vacancy.  If there is not objection from
-  existing maintainers, the role will be conferred.
-* If there consensus cannot be reached,
-* In the case of new repositories, there should be a designated
-  maintainer named before the repository is created.
+* If the component is sufficiently complex to justify multiple
+  maintainers, those maintainers form a group and should organize
+  internally and present a single point of contact (like
+  teams-as-maintainers above).
+
+We are not currently limiting staff of companies from appointing,
+nominating, or voting for other employees of their company.  This
+would be impractical as, currently, single companies are locus of
+component maintenance work. This may be addressed in future revisions
+to this proposal.
+
+Unmaintained Components
+-----------------------
+In the case of unmaintained components, nominations will be made to
+the scrum-of-scrums to fill the vacancy.  If there is no objection
+from existing maintainers, the role will be conferred.
+
+If consensus cannot be reached lazily, a vote of existing maintainers
+will be taken.  Maintainers can approve a nomination with the approval
+of at least three quarters of the members.
+
+New Components
+--------------  
+In the case of new repositories, there should be a designated
+maintainer named before the repository is created.
 
 Removing a Maintainer
 ---------------------
