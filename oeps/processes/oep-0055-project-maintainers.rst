@@ -352,6 +352,7 @@ Source Material
 
 * `What Makes a Great Maintainer of Open Source Projects? <https://www.computer.org/csdl/proceedings-article/icse/2021/029600a982/1sEXoQoeO0E>`_
 * `Collective Code Construction Contract <https://rfc.zeromq.org/spec/42/>`_
+* `Best Practices for Maintainers <https://opensource.guide/best-practices/>`_
 
 Notes
 =====
