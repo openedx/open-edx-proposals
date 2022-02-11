@@ -328,14 +328,17 @@ categories
   of their components.  Quality will mean meeting defined project
   standards.  It can also mean improving our standards or improving
   our processes.
-* **Technical Vision**: Maintainers should have a technical vision for
-  their components. This would include key areas of debt that require
-  payoff, a new pattern that should be adopted to improve the
-  component design, a path to add new features user need, and more.
+* **Technical Vision**: Maintainers should have a documented technical
+  vision for their components. This vision should minimally answer the
+  following questions:
+  * What is the component for?
+  * How it fits into the overall platform?
+  * What are its limitations and key areas of debt?
+  * What new patterns or technologies should be adopted to improve the
+  component?
+  * How it can be extended?
 * **Continuous Improvement**: Maintainers should be thinking
   about continuously improving both software and processes.
-
-
 
 
 Change History
