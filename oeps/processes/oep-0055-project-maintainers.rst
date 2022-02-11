@@ -284,21 +284,29 @@ Trigger events for removing a maintainer would be:
   despite feedback
 
 In the case that a maintainer has violated the `Code of Conduct`_, the
-Goverance Team will decide what the repercussions of the violation
-will be, including whether the violator can continue in the role of
-maintainer.  It should be noted that maintainers are expected to be
-exemplars and, as such, will be held to a high standard.
+Goverance Team, specified in the Code of Conduct, will decide what the
+repercussions of the violation will be, including whether the violator
+can continue in the role of maintainer.  It should be noted that
+maintainers are expected to be exemplars and, as such, will be held to
+a high standard.
 
 In the case that a maintainer is not meeting project quality standards
-consistently, the maintaginer will be warned with the expectation that
-their components meet standards within a calendar month.  If, after a
-month, the quality issues are not resolved, the maintainer will be
-removed.  Additionaly, a maintainer who is warned three (3) times in a
-single calendar year will also be removed.
-  
+consistently, the scrum-of-scrums will inform the maintainer with the
+expectation that their components meet standards within a calendar
+month.  If, after a month, the quality issues are not resolved, the
+maintainer will be removed by the scrum-of-scrums.  Additionaly, a
+maintainer who is warned three (3) times in a single calendar year
+will also be removed.
+
+Documenting Maintainers
+-----------------------
+As it is essential that maintainers are discoverable and reachable,
+the person or persons responsible for maintaining a component should
+be listed in the repository README file along with the mechanism for
+contacting a maintainer.
+
 Jobs of the Maintainer
 ----------------------
-
 Many of the day-to-day specifics of the maintainer role are outside of
 the scope of this document.  For example, here we will note that
 maintainers are responsible for ensuring that repositories meet
