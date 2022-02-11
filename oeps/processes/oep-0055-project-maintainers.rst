@@ -201,18 +201,33 @@ also be asked to become named maintainers.
 A list of all components without maintainers will be created and
 published.
 
-An asynchronous maintainer scrum-of-scrums will be created as a Slack
-channel.
+An asynchronous channel will be available for all maintainers to
+communicate and collaborate; initially this will be a Slack channel.
 
 Standards for measuring the quality of repositories will be rolled out
 across all repositories.  These standards can benefit from work done
 at edX to measure `repository health <https://github.com/openedx/edx-repo-health>`_.
 
+The Maintainer Scrum-or-Scrums
+------------------------------
+In order to coordinate certain maintainer responsibilities including
+voting on nominated maintainers, iterating on standards, and removing
+maintainers, minimal mechanisms for coordination are required.
+
+For now, we will assume that maintainers will self-organize to
+complete the critical activities.
+
+Coordination will typically be over asynchronous channels.
+
+From time-to-time, a task force may be required to complete certain
+project-wide responsibilities like developing repository standards,
+and tools for measuring compliance to those standards.
+
 Becoming a Maintainer
 ---------------------
 After the bootstrapping phase, the Open edX project will need
-processes for adding additional maintainers, replacing maintainers,
-and ensuring that new components are maintained.
+processes for adding maintainers, replacing maintainers, and ensuring
+that new components are maintained.
 
 **This section should be congruent with the Core Contributor process**
 
