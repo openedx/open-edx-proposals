@@ -160,7 +160,10 @@ Non-technical responsibilities of maintainers include:
 Technical responsibilities of maintainers include:
 
 * Understanding the current component architecture and implementation
-* Having a technical vision for the evolution of the component
+* Ensuring that basic documenation for the component exists and is
+  accurate
+* Having a documented technical vision for the evolution of the
+  component
 * The ability to assess the appropriateness of proposed changes to or
   extensions of the component
 * The role of the component in the overall platform and how it
