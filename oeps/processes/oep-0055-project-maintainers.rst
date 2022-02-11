@@ -276,7 +276,7 @@ maintainer.  This might happen because:
 
 Trigger events for removing a maintainer would be:
 
-* A maintainer informs the project that the can no longer continue in
+* A maintainer informs the project that they can no longer continue in
   the role
 * A maintainer has been unreachable for more than 30 days
 * A maintainer has violated the project `Code of Conduct`_
