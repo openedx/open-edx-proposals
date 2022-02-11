@@ -489,9 +489,25 @@ OEPs may include auxiliary files such as diagrams. Such files must be added to
 an oep-XXXX/ directory, where "XXXX" is the OEP number. Include original diagrams
 alongside image files, to make it easy for others to update the OEP in the future.
 
+Change History
+--------------
+
+For every change (including the initial document creation), include an entry in
+a "Change History" section modeled off the one below. A Change History entry
+should include three parts: the date of the change, a very brief summary of
+changes made, and a link to the pull request where the discussion and approval
+took place. The changes should be ordered such that the most recent change is
+at the top of the list.
 
 Change History
 ==============
+
+2022-02-11
+----------
+
+* Codify the "Change History" section, which most OEPs already use
+* Specify that entries should link to the discussion PR.
+* `Pull request #297 <https://github.com/openedx/open-edx-proposals/pull/297>`_
 
 2022-01-13
 ----------
@@ -499,22 +515,26 @@ Change History
 * Codifying that choosing an Arbiter, in practice, is done by the OEP Author(s)
 * Remove authority for assiting with arbitration and the overall process from
   the edX internal architecture team to the Open edX community architecture group
+* `Pull request #284 <https://github.com/openedx/open-edx-proposals/pull/284>`_
 
 2020-10-01
 ----------
 
 * Add a new "Obsolete" status to OEPs
+* `Pull request #246 <https://github.com/openedx/open-edx-proposals/pull/246>`_
 
 2019-08-27
 ----------
 
 * Changed announcement process from email to Discourse.
 * Minor clarifications to wording.
+* `Pull request #123 <https://github.com/openedx/open-edx-proposals/pull/123>`_
 
 2018-11-06
 ----------
 
 * Added a new "Provisional" status.
+* `Pull request #85 <https://github.com/openedx/open-edx-proposals/pull/85>`_
 
 2018-05-05
 ----------
@@ -530,6 +550,7 @@ Change History
   * Support alternative simpler templates.
 
 * Refactored description for OEP status and review.
+* `Pull request #60 <https://github.com/openedx/open-edx-proposals/pull/60>`_
 
 2018-02-05
 ----------
@@ -550,6 +571,7 @@ Change History
 * Append type and brief title to an OEP's file name.
 * Remove "Product Enhancement" proposal type.
 * Remove support for Google Docs for discussion.
+* `Pull request #53 <https://github.com/openedx/open-edx-proposals/pull/53>`_
 
 2016-10-11
 ----------
@@ -562,9 +584,17 @@ Change History
 * Add support for Google Docs and other external forums for discussion of
   the proposal.
 * Add "References" field to the preamble.
+* `Pull request #17 <https://github.com/openedx/open-edx-proposals/pull/17>`_
 
 2016-08-24
 ----------
 
 * Add a definition of the *Change History* section.
 * Add a copyright notice.
+* `Pull request #19 <https://github.com/openedx/open-edx-proposals/pull/19>`_
+
+2016-05-16
+----------
+
+* Document created
+* `Pull request #1 <https://github.com/openedx/open-edx-proposals/pull/1>`_
