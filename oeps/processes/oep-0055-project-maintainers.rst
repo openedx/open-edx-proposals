@@ -85,7 +85,7 @@ the platform.
 
 In order to ensure that the project is sustainable for the long term,
 maintenance must be shared by the entire community.  The project must
-be robust enough that a it can tolerate firms and contributors leaving
+be robust enough that it can tolerate firms and contributors leaving
 the ecosystem.
 
 As a project we must acknowledge that maintenance is hard work, but
