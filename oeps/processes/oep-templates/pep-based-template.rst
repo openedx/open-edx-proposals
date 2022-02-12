@@ -96,5 +96,8 @@ considered and rejected, and why they were not chosen.
 Change History
 ==============
 
-A list of dated sections that describes a brief summary of each revision of the
-OEP.
+YYYY-MM-DD
+----------
+
+* Document created
+* `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
