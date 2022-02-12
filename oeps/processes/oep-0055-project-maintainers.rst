@@ -152,6 +152,7 @@ Non-technical responsibilities of maintainers include:
 
 * Effective communication with community members, other maintainers,
   and project leadership
+* Selection and approval of Core Contributors with commit right to their repositories
 * Disciplined management to ensure that maintenance work is done
 * Enforcement of the project's standards
 * The ability to solve or escalate issues facing users of the
