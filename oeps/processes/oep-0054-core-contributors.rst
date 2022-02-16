@@ -187,6 +187,20 @@ The process for nomination is as follows:
 
 #. During the comment period, other CCs should weigh in on the thread. As much
    as possible, posts should conclude with a definitive "yes" or "no" vote.
+   "Liking" the nomination post does not count as a vote.
+
+   #. Any Core Contributor may vote on any CC nomination, regardless of their
+      contributor role.
+
+   #. In the case of Core Contributor nominations that involve granting commit
+      access to repos, anyone who has commit access to any of the repos in
+      question may also vote.
+
+   #. All community members are welcome to provide comments on the thread.
+
+   #. CoC violations or other behaviors not upholding the "Conduct" quality of
+      the 3 Cs ought to be raised by anyone, whether in the Discourse thread or
+      to the Program Admins.
 
    #. If anyone has concerns they feel cannot be raised publicly, they should
       `Contact the Program Administrators`_ to determine how to proceed. The
@@ -214,9 +228,11 @@ The process for nomination is as follows:
 #. At the end of the comment period, a candidate is approved if there are at
    least 5 (five) affirmative "yes" votes, and zero "no" votes.
 
-   #. For candidates coming from an organization, at least one affirmative vote
-      must come from a CC outside of the candidate's org. This is to ensure that
-      core contributors are evaluated on their ability to communicate with the
+   #. Candidates coming from an organization must have support from someone
+      outside their organization. This can be done by having a sponsor from
+      outside their organization, or by receiving at least one "yes" vote from
+      someone outside their organization. This is to ensure that core
+      contributors are evaluated on their ability to communicate with the
       community, outside of their org.
 
    #. For roles with few existing members, it is encouraged to ask CCs of other
@@ -320,6 +336,11 @@ the ``#core-contributors`` Slack room in the `Open edX Slack
 
 Change History
 ==============
+
+2022-02-16
+----------
+
+Added clarifiations around the voting process for new CC members.
 
 2022-02-11
 ----------
