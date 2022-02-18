@@ -207,6 +207,13 @@ Do the following to document your proposal:
    deprecation spans multiple repos, choose the primary/most relevant repo, or
    use the `public-engineering`_ project.
 
+   .. note::
+      While it is possible to create Issues with no template, it is strongly
+      encouraged that you go to `github.com/openedx/:repo/issues`, click "New
+      Issue", and choose the DEPR template so you don't miss any fields and
+      automation works properly. If you must create an Issue outside the
+      template, please preface your issue title with ``[DEPR]``.
+
 #. When writing the ticket, include the following information:
 
    #. Title: The title of the ticket should read "[DEPR]: <technology name being
