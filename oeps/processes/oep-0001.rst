@@ -126,8 +126,6 @@ Finally, the Arbiter is responsible for the decision to transfer an OEP if the
 original Authors have become unresponsive (as described in `Transferring OEP
 Ownership`_).
 
-.. _Architecture Group:
-
 Architecture Group
 ------------------
 
