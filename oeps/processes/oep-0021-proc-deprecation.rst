@@ -211,7 +211,9 @@ Do the following to document your proposal:
       While it is possible to create Issues with no template, it is strongly
       encouraged that you go to `github.com/openedx/:repo/issues`, click "New
       Issue", and choose the DEPR template so you don't miss any fields and
-      automation works properly. If you must create an Issue outside the
+      automation works properly. The template fields help us more quickly
+      address deprecation issues and reduce the amount of back and forth needed
+      to make progress on work. If you must create an Issue outside the
       template, please preface your issue title with ``[DEPR]``.
 
 #. When writing the ticket, include the following information:
