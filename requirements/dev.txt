@@ -46,7 +46,7 @@ jinja2==3.0.3
     #   sphinx
 livereload==2.6.3
     # via sphinx-autobuild
-markupsafe==2.0.1
+markupsafe==2.1.0
     # via
     #   -r requirements/base.txt
     #   jinja2
