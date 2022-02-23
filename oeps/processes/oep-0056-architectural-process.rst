@@ -88,7 +88,7 @@ See `Appendix A: Advisory Process Principles <#Appendix A: Advisory Process Prin
 Advisory Process Artifacts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The final artifact of the Advisory Process should be an Architectural Decision Record document checked in to a repository relevant to the decision.  Prior to that, however, we suggest as a best practice using Github's Issues and Pull Request tooling to conduct the Advisory Process.  The advantage of doing so is that Issue/Pull Request comments remove the burden of recording who gave particular advice, and allow us to have threaded, focused conversations about various aspects of ADR.
+The final artifact of the Advisory Process is an Architectural Decision Record document checked in to a repository relevant to the decision.  Prior to that, however, we suggest as a best practice using Github's Issues and Pull Request tooling to conduct the Advisory Process.  The advantage of doing so is that Issue/Pull Request comments remove the burden of recording who gave particular advice, and allow us to have threaded, focused conversations about various aspects of ADR.
 
 Note that this section is GitHub-specific because that's where the Open edX platform's code resides.  The idea of "issues" and "pull requests" is otherwise portable to other version control platforms.
 
@@ -109,21 +109,28 @@ Decision Maker's Checklist
 
 In order to help ADR authors ensure they get advice from the proper set of stakeholders, we will create a checklist of possible groups/individuals to choose from.  It's the responsibility of the author to ensure the relevant people are aware of the ADR and are given the opportunity to provide feedback.
 
-Decision Maker's Checklist Artifacts (WIP)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The Decision Maker's Checklist is a document that a decision authors can review to ensure they're seeking advice from the proper stakeholders and experts when authoring an ADR. It's that individual's responsibility to select all those stakeholders and experts (which may be individuals or groups) that are impacted by their decision based on their understanding of the scope.  Other individuals or groups may be added later as the scope and impact is better understood.
 
-Questions:
+GitHub Groups
+^^^^^^^^^^^^^
 
-Where should we put this checklist?  There will necessarily be internal checklists for organizations as well, presumably.
+As a companion to the Decision Maker's Checklist, a set of GitHub groups will be created in the ``openedx`` organization that can be tagged on Pull Requests for ADRs.  The Decision Maker's Checklist will indicate the GitHub handles of individuals, or of these groups for use in creating pull requests.
 
-How do we organize the checklist?  By domain?  Role? (i.e., UX, product, support)  Ownership?
+Checklist Organization
+^^^^^^^^^^^^^^^^^^^^^^
+
+The Decision Maker's Checklist is a reference, and so decision maker's will be able to look up individuals by various criteria.  To this end, the checklist will list stakeholders and experts for products, domains, and by role, at a minimum.  This means that individuals or groups may appear more than once if they're experts on several different domains, or have multiple roles, for instance.
+
+We will necessarily iterate on the organization of the checklist as we learn more about how we use it.
 
 Technical Strategic Review (WIP)
 --------------------------------
 
-Coinciding with the broader product strategy and prioritization cadence, establish quarterly technical strategic reviews focused on engineering and architectural priorities as they relate to our businesses' and platform's needs.  Depending on the size and team topologies of a given organization, The number of such mThere may several reviews, and they may be domain/theme-specific depending on the organization.  This process is not prescriptive on the number or cadence of review ceremonies, except to say that they should happen as frequently as an organization's business/product planning process occurs.
+Coinciding with an organization's broader product strategy and prioritization cadence, establish quarterly technical strategic reviews focused on engineering and architectural priorities as they relate to our businesses' and platform's needs.  Depending on the size and team topologies of a given organization, The number of such meetings may vary.
 
-The review should be attended by engineering managers and at least one technical lead from each team in the domain.
+There may several reviews, and they may be domain/theme-specific depending on the organization.  This process is not prescriptive on the number or cadence of review ceremonies, except to say that they should happen as frequently as an organization's business/product planning process occurs.
+
+The review should be attended by engineering managers and at least one technical lead from each team in the group.
 
 Strategic Review Artifacts (WIP)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
