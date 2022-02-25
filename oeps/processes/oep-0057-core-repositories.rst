@@ -42,7 +42,7 @@ TODO
 Motivation
 ----------
 
-There is a desire to make the `openedx GitHub organization`_ easier to manage and understand by being judicious about introducing new repositories and considering the removal of some existing repositories. At the same time, contributors to new repositories are eager to share their work with the Open edX community and, understandably, often desire for the upstream of their repository to become reflected under the ``openedx`` organization.
+There is a desire to make the `openedx GitHub organization`_ easier to manage and understand. To do this, we must be judicious about introducing new repositories and consider removing some existing repositories. At the same time, contributors to new repositories are eager to share their work with the Open edX community and, understandably, often desire for the upstream of their repository to become reflected under the ``openedx`` organization.
 
 To best accomodate both these interests in a fair and inclusive way, this OEP aims to:
 
