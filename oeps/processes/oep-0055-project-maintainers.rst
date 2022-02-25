@@ -8,13 +8,7 @@ OEP-0055: Project Maintainers
    :widths: 25 75
 
    * - OEP
-     - Link to the doc in the following format::
-
-        :doc:`OEP-0055 <oep-0055-proc-Project Maintainers>`
-
-        * <XXXX is the next available OEP number>
-        * <YYYY is the abbreviated Type: proc | bp | arch>
-        * <ZZZZ is a brief (< 5 words) version of the title>
+     - :doc:`OEP-0055 <oep-0055-proc-Project Maintainers>`
 
    * - Title
      - Project Maintainers
@@ -51,7 +45,7 @@ Each component part of the Open edX platform requires maintenance to
 ensure that it meets, and continues to meet, the project definition of
 high quality.  That definition will include project standards,
 appropriate documentation, and fitness for use, among other things.
-That definition will evolve as project needs do and we learn what
+That definition will evolve as project needs do and as we learn what
 works and what doesn't.
 
 Component maintenance is work.  To ensure that that work is done, a
@@ -62,19 +56,24 @@ The Open edX project, like many projects, calls this role
 "maintainer."  The notion of a project maintainer is typical of
 open-source projects and widely considered an best practice [#]_.
 
+..
+  I cannot find anything that says this is a best practice. Heck
+  I can barely find two places that even define what "maintainer"
+  means. It's so widely accepted and used it's just assumed as the default.
+
 The maintainer role is a leadership role that encompasses both
 technical and community elements.  Both dimensions of the role are
 equally important.
 
-All, non-deprecated, components of the Open edX project must have a
-named maintainer.  When no such maintainer exists, this will be
-considered an urgent problem to solve.
+All non-deprecated components of the Open edX project must have a one or more
+named maintainers.  When no such maintainer(s) exists, this will be considered
+an urgent problem to solve.
 
 This OEP proposes a formal definition of the role of maintainer that
 will open to all qualified Open edX community members.  Maintainers
 will be responsible for the health of platform components, but not for
 their performance in any community member's production
-environment[#]_.
+environment [#]_.
 
 Motivation
 ==========
@@ -108,13 +107,11 @@ The term **component** will typically mean the unit of software housed
 in a single GitHub repository.  Exceptions will be made in the case of
 edx-platform where there may be multiple distinguishable components in
 that single repository.  Components will typically, but not always, be
-hosted at the `openedx GitHub organization
-<https://github.com/openedx/https://github.com/openedx/>`_.
-Components will be "part of" or "critical to" the open-source
-platform.
+hosted at the `openedx GitHub organization`_. Components will be "part
+of" or "critical to" the open-source platform.
 
 The term **maintainer** will mean a named person or persons
-responsible for the health of component and the component's community.
+responsible for the health of the component and the component's community.
 The remainder of this specification will be focused on the details of
 the role.
 
@@ -122,7 +119,7 @@ The term **core contributor** will mean a named person participating
 in the `Core Contributor Program`_ as a coding core contributor and
 meeting the requirements of that program.
 
-The term **maintainer scrum-of-scrums** will mean group of all
+The term **maintainer scrum-of-scrums** will mean the group of all
 maintainers who are responsible for flagging issues to project
 leadership and proposing process improvements for component
 maintenance.
@@ -145,7 +142,7 @@ pager when something went wrong.
 What Maintainers Do
 -------------------
 The role of the repository or project maintainer is both a community
-focused and a technical role[#]_.  Maintainers will be the public face
+focused and a technical role [#]_.  Maintainers will be the public face
 of each component and should be welcoming and available.
 
 Non-technical responsibilities of maintainers include:
@@ -153,7 +150,9 @@ Non-technical responsibilities of maintainers include:
 * Effective communication with community members, other maintainers,
   and project leadership
 * Disciplined management to ensure that maintenance work is done
-* Enforcement of the project's standards
+* Enforcement of the project's standards, both technical and social: maintainers
+  must remain friendly, kind, and open, but that should not supercede
+  enforcement of technical standards
 * The ability to solve or escalate issues facing users of the
   component
 
@@ -168,10 +167,17 @@ Technical responsibilities of maintainers include:
   extensions of the component
 * The role of the component in the overall platform and how it
   interacts with other components
+* Must be available to participate in the comment period for Core Contributor
+  nominees nominated to commit code to the maintainer's repo(s), as part of the
+  `Core Contributor Program`_
 
 It is acceptable for a component to be maintained by a team or group
-as long as that arrangement does not reduce the reachablility of the
-maintainer or reduce accountability.
+as long as that arrangement does not reduce the reachability of at least one
+maintainer or reduce accountability for the above responsibilites. The
+maintaining team must have ways of direct contact, such as an email address and
+a GitHub team, that anyone can use to get ahold of someone - it is completely
+acceptable for the team to figure out arrangements for list monitoring, such as
+an "on-call" rotation.
 
 Prerequisites
 -------------
@@ -183,11 +189,12 @@ In order to be a repository maintainer, you must
   `code contributors`_
 * Abide by the `Open edX Code of Conduct
   <https://openedx.org/code-of-conduct/>`_
-* Be a core contributor for the repository in question who has
-  demonstrated excellence in the role of core contributor.  From
-  time-to-time, in the case of a strong candidate and project need,
-  core contributor status and maintainer status may be conferred at
-  the same time.
+* Be a member of the `Core Contributor Program`_ with rights to the repository
+  in question who has demonstrated excellence in the role of core contributor.
+  From time-to-time, in the case of a strong candidate and project need, core
+  contributor status and maintainer status may be conferred at the same time.
+* In the case of repos being moved into the `openedx GitHub organization`_, be
+  an original maintainer of the code.
 
 Bootstrapping
 -------------
@@ -195,7 +202,7 @@ In order to ensure an orderly roll-out of the formal maintainer role,
 existing 2U staff in the owner role will transition into the role of
 maintainer for the components that they own.
 
-Community members who are acting in informal maintainer roles, will
+Community members who are acting in informal maintainer roles will
 also be asked to become named maintainers.
 
 A list of all components without maintainers will be created and
@@ -208,7 +215,7 @@ Standards for measuring the quality of repositories will be rolled out
 across all repositories.  These standards can benefit from work done
 at edX to measure `repository health <https://github.com/openedx/edx-repo-health>`_.
 
-The Maintainer Scrum-or-Scrums
+The Maintainer Scrum-of-Scrums
 ------------------------------
 In order to coordinate certain maintainer responsibilities including
 voting on nominated maintainers, iterating on standards, and removing
@@ -221,7 +228,7 @@ Coordination will typically be over asynchronous channels.
 
 From time-to-time, a task force may be required to complete certain
 project-wide responsibilities like developing repository standards,
-and tools for measuring compliance to those standards.
+as well as tools for measuring compliance to those standards.
 
 Becoming a Maintainer
 ---------------------
@@ -229,9 +236,14 @@ After the bootstrapping phase, the Open edX project will need
 processes for adding maintainers, replacing maintainers, and ensuring
 that new components are maintained.
 
-**This section should be congruent with the Core Contributor process**
-
 A new maintainer can be added in any of the following ways:
+
+..
+  Should this follow CC procedure (nomination, public discussion?)
+  Is there reason for this to be private/within the scrum of scrums?
+  Is there any reason to call upon the `program administrators`_,
+  maybe to be a backstop or confer access priviledges if the original
+  maintainers are all gone?
 
 * An existing maintainer can request that a new person become a
   component maintainer either in conjunction with the existing
@@ -276,8 +288,8 @@ maintainer.  This might happen because:
 
 Trigger events for removing a maintainer would be:
 
-* A maintainer informs the project that they can no longer continue in
-  the role
+* A maintainer informs the project, the scrum-of-scrums, and/or the `program
+  administrators`_ that they can no longer continue in the role
 * A maintainer has been unreachable for more than 30 days
 * A maintainer has violated the project `Code of Conduct`_
 * A maintainer hasn't met project quality standards consistently
@@ -296,7 +308,10 @@ expectation that their components meet standards within a calendar
 month.  If, after a month, the quality issues are not resolved, the
 maintainer will be removed by the scrum-of-scrums.  Additionaly, a
 maintainer who is warned three (3) times in a single calendar year
-will also be removed.
+will also be removed. The `program administrators`_ serve as a
+backstop - any community member may contact them at any time if
+a problem arises and the normal channels of communication are
+not working.
 
 Documenting Maintainers
 -----------------------
@@ -311,9 +326,10 @@ Many of the day-to-day specifics of the maintainer role are outside of
 the scope of this document.  For example, here we will note that
 maintainers are responsible for ensuring that repositories meet
 project standards, but not the details of those standards.  Those
-standards will be codified in an OEP over time, but will initially be
-defined in the wiki page `requirements for public repositories`_ to
-allow rapid iteration.
+standards - including establishing a channel for feedback, and details on how
+and when that channel will be monitored - will be codified in an OEP over time,
+but will initially be defined in the wiki page `requirements for public
+repositories`_ to allow rapid iteration.
 
 The key aspects of the maintainer role fall into the following
 categories
@@ -331,15 +347,25 @@ categories
 * **Technical Vision**: Maintainers should have a documented technical
   vision for their components. This vision should minimally answer the
   following questions:
+
   * What is the component for?
   * How it fits into the overall platform?
   * What are its limitations and key areas of debt?
   * What new patterns or technologies should be adopted to improve the
-  component?
+    component?
   * How it can be extended?
+
 * **Continuous Improvement**: Maintainers should be thinking
   about continuously improving both software and processes.
 
+.. _program administrators:
+
+Contact the Program Administrators
+----------------------------------
+
+Questions about the Program can be directed to the tCRIL administrator(s) via
+the ``#to-be-defined`` Slack room in the `Open edX Slack
+<https://openedx.slack.com/>`_ or at ``maintainer-program-admins@tcril.org``.
 
 Change History
 ==============
@@ -383,6 +409,8 @@ Notes
 
 
 .. _Django framework: https://www.djangoproject.com/
+
+.. _openedx GitHub organization: https://github.com/openedx/
 
 .. _Core Contributor Program: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0054-core-contributors.html
 
