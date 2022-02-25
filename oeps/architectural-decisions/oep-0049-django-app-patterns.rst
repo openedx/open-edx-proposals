@@ -1,13 +1,13 @@
 
 =============================
-OEP-0049: Django App Patterns
+OEP-49: Django App Patterns
 =============================
 
 .. list-table::
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0045 <oep-0049-django-app-patterns>`
+     - :doc:`OEP-0049 <oep-0049-django-app-patterns>`
    * - Title
      - Django App Patterns
    * - Last Modified
