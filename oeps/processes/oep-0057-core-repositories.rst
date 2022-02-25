@@ -75,7 +75,7 @@ Definition of Core Repositories
 
     * In addition to the repositories that must be in the Core, a repository *may* be in the Core if:
 
-      * it is of interest to more than one entity the Open edX community (TODO: this needs better criteria),
+      * it is of interest to more than one entity the Open edX community (TODO: this needs better criteria); and
 
       * it has assigned `maintainers`_ who strive to:
 
@@ -108,6 +108,7 @@ However, from these many repositories, we wish to enumerate a smaller set which:
 * (TODO: should I add something about tCRIL stewardship/ownership?); and
 
 * encompasses the first-party aspect of the Open edX release supply chain, identifying repositories that need to be:
+
   * monitoried for discloures under the `Open edX security policy`_,
   * regularly updated with security patches,
   * covered by automated unit tests and static analysis, and
