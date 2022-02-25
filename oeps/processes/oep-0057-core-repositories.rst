@@ -39,6 +39,16 @@ TODO
   This OEP is a big ol' work-in-progress. Feel free to leave early feedback, but please keep in mind that it's still a rough outline. Lots of this stuff is my stream-of-consciousness. It's not representative of tCRIL's or anyone else's plans/opinions. -Kyle
 
 
+Motivation
+----------
+
+There is a desire to make the ``openedx`` GitHub organization easier to manage and understand by being judicious about introducing new repositories and considering the removal of some existing repositories. At the same time, contributors to new repositories are eager to share their work with the Open edX community and, understandably, often desire for the upstream of their repository to become reflected under the ``openedx`` organization.
+
+To best accomodate both these interests in a fair and inclusive way, this OEP aims to:
+* establish the purpose of the ``openedx`` GitHub organization,
+* define a transparent process for the management of the list of ``openedx`` organization repositories, and
+* explain how community members can prepare their repositories for inclusion in the ``openedx`` organization.
+
 Definition of Core Repositories
 -------------------------------
 
