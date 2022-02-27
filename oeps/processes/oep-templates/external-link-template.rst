@@ -59,3 +59,12 @@ Decisions
 
 In order to precisely version and reference the decisions that were made in the above
 documents, capture and list the main decisions in this section.
+
+Change History
+--------------
+
+YYYY-MM-DD
+==========
+
+* Document created
+* `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
