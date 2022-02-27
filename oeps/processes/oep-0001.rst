@@ -178,9 +178,8 @@ reach out to that person and ask them; they should have the domain expertise
 needed to be an effective Arbiter and the time to do so. It is best practice for
 the Arbiter to be from a different team or group than the author.
 
-If you're not sure who would make a good Arbiter, you should post in the
-`Architecture Group`_ category on the Discourse forum or the ``#architecture``
-channel in the `Open edX Slack`_; please feel free to participate in the
+If you're not sure who would make a good Arbiter, you should reach out to the
+`Architecture Group`_; please feel free to participate in the
 discussion and help choose an arbiter you feel you can work with. If you have
 concerns about an arbiter that has been chosen for a particular OEP, please
 share them with the author first and see if you can resolve your concerns
@@ -348,10 +347,21 @@ Updating Best Practice and Process OEPs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A Best Practice or Process OEP may be updated even after it is "Accepted" as it evolves
-over time. A pull request should be created to update the OEP and have it go
-through the `Step 3. Review with Arbiter`_ process. These future edits/updates may
-be made by the original Authors of the OEP or by new Authors. The Arbiter may
-remain the same as before or may be reassigned by the `Architecture Group`_.
+over time. These future edits/updates may be made by the original Authors of the
+OEP or by new Authors. A pull request should be created to update the OEP and go
+through the following steps:
+
+#. For small changes (eg formatting or minor updates reflecting how process has
+   already evolved), finding an arbiter may not be required. Larger changes will
+   benefit from having one. The Arbiter may remain the same as before or a new
+   one may be found as detailed in `Step 1. Find an Arbiter`_.
+
+#. Reach out to previous authors & arbiters, or comment on the original OEP's
+   pull request discussion, with your proposed update so those central to the
+   original proposal can weigh in on changes.
+
+#. Follow the `Step 3. Review with Arbiter`_ process, with a review period of at
+   least one week (for smaller changes).
 
 Updating Architecture OEPs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -361,15 +371,15 @@ the "Accepted" or "Final" state. However, they may be replaced by subsequent OEP
 (OEPs that are replaced are given the status "Replaced".)
 
 The choice of whether an edit to an OEP should be allowed or whether a new OEP
-should be published is up to the Arbiter of the original OEP, or the
-`Architecture Group`_ if that Arbiter is no longer available. However, as a
-general guideline, the following updates would not require a replacement OEP.
+should be published must be discussed with the `Architecture Group`_. However,
+as a general guideline, the following updates would not require a replacement
+OEP.
 
 * Formatting changes.
 * Grammatical and spelling corrections.
 * Adding links to additional relevant resources and discussions.
-* Additional diagrams or clarifying material (as long as the Arbiter agrees
-  that the substance of the OEP isn't changed).
+* Additional diagrams or clarifying material (as long as the `Architecture
+  Group`_ agrees that the substance of the OEP isn't changed).
 
 The following updates warrant replacement OEPs.
 
@@ -560,6 +570,11 @@ Multiple changes.
 
   * Codify that Process OEPs may be updated
   * `Pull request #300 <https://github.com/openedx/open-edx-proposals/pull/300>`_
+
+#.
+
+  * Clarified OEP update procedures
+  * `Pull request #301 <https://github.com/openedx/open-edx-proposals/pull/301>`_
 
 2022-01-13
 ----------
