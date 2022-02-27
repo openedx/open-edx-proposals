@@ -89,11 +89,30 @@ Each OEP must have at least one Author: someone who writes the OEP using the
 style and format described here, shepherds the discussions in the appropriate
 forums, and attempts to build community consensus around the idea.
 
+`Step 1. Find an Arbiter`_ lays out ways to get in touch with the community to
+find an arbiter; those channels may also be used to find a co-author, which is
+encouraged.
+
 Arbiter
 -------
 
 Each OEP also has an Arbiter (as described in `Step 1. Find an Arbiter`_).
 An Author of an OEP cannot concurrently be the Arbiter of that OEP.
+
+In brief, the Arbiter...
+
+* Is knowledgable about the contents of the proposal, while also being able to
+  fairly hear all sides of a discussion.
+
+* Helps the Authors move the OEP through the `OEP Workflow`_, namely:
+
+  * As described in `Step 3. Review with Arbiter`_, the Arbiter does a first
+    review pass and establishes the length of the review period (see `Review
+    Period`_).
+  * During the review period, the Arbiter keeps discussions on track and guides
+    them towards resolution.
+  * At the end of this period, the Arbiter decides if the OEP should be
+    accepted, rejected, or remain open for additional discussion.
 
 The Arbiter will be the person making the final decision on whether the OEP
 should be Accepted, and as such, the Arbiter should be knowledgeable about
@@ -140,7 +159,7 @@ Submitting an OEP
 -----------------
 
 Step 1. Find an Arbiter
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 When writing an OEP, you may already have an idea of an Arbiter in mind. If so,
 reach out to that person and ask them; they should have the domain expertise
@@ -468,6 +487,8 @@ described below. All other rows are required.
 * The **Created** header records the date that the pull request for the OEP was
   opened. It should be in YYYY-MM-DD format, e.g. 2016-04-21.
 
+.. _Review Period:
+
 * The **Review Period** header specifes the target dates for reviewing the OEP, as
   agreed by the Authors and Arbiter. The recommended duration of the review is
   2 weeks. However, if the review exposes areas of the proposal that need
@@ -502,12 +523,15 @@ at the top of the list.
 Change History
 ==============
 
-2022-02-11
+2022-02-27
 ----------
 
 * Codify the "Change History" section, which most OEPs already use
 * Specify that entries should link to the discussion PR.
 * `Pull request #297 <https://github.com/openedx/open-edx-proposals/pull/297>`_
+
+* Add an at-a-glance section for the Arbiter role
+* `Pull request #299 <https://github.com/openedx/open-edx-proposals/pull/299>`_
 
 2022-01-13
 ----------
