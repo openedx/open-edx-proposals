@@ -344,19 +344,19 @@ happen when the OEP is in any status, including "Under Review"), changes can be
 suggested to it via new pull requests. Whether those changes are included is up
 to the Authors of the OEP.
 
-Updating Best Practice OEPs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Updating Best Practice and Process OEPs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A Best Practice OEP may be updated even after it is "Accepted" as it evolves
+A Best Practice or Process OEP may be updated even after it is "Accepted" as it evolves
 over time. A pull request should be created to update the OEP and have it go
 through the `Step 3. Review with Arbiter`_ process. These future edits/updates may
 be made by the original Authors of the OEP or by new Authors. The Arbiter may
 remain the same as before or may be reassigned by the `Architecture Group`_.
 
-Updating Architecture and Process OEPs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Updating Architecture OEPs
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Architecture and Process OEPs are generally not modified after they have reached
+Architecture OEPs are generally not modified after they have reached
 the "Accepted" or "Final" state. However, they may be replaced by subsequent OEPs.
 (OEPs that are replaced are given the status "Replaced".)
 
@@ -538,15 +538,28 @@ Change History
 2022-02-27
 ----------
 
-* Codify the "Change History" section, which most OEPs already use
-* Specify that entries should link to the discussion PR.
-* `Pull request #297 <https://github.com/openedx/open-edx-proposals/pull/297>`
+Multiple changes.
 
-* Add Overview section for greater clarity
-* `Pull request #298 <https://github.com/openedx/open-edx-proposals/pull/298>`_
+#.
 
-* Add an at-a-glance section for the Arbiter role
-* `Pull request #299 <https://github.com/openedx/open-edx-proposals/pull/299>`_
+  * Codify the "Change History" section, which most OEPs already use
+  * Specify that entries should link to the discussion PR.
+  * `Pull request #297 <https://github.com/openedx/open-edx-proposals/pull/297>`_
+
+#.
+
+  * Add Overview section for greater clarity
+  * `Pull request #298 <https://github.com/openedx/open-edx-proposals/pull/298>`_
+
+#.
+
+  * Add an at-a-glance section for the Arbiter role
+  * `Pull request #299 <https://github.com/openedx/open-edx-proposals/pull/299>`_
+
+#.
+
+  * Codify that Process OEPs may be updated
+  * `Pull request #300 <https://github.com/openedx/open-edx-proposals/pull/300>`_
 
 2022-01-13
 ----------
