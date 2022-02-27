@@ -47,6 +47,20 @@ OEP-1: OEP Purpose and Guidelines
   :local:
   :depth: 1
 
+Overview
+========
+
+* An Open edX Proposal specifies a best practice, architectural decision, or
+  community process that the Open edX communty has agreed should be adopted by
+  the project.
+* OEPs are not used to dictate small decisions made in every day feature work.
+  See `OEP-19 <https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0019-bp-developer-documentation.html?highlight=documentation#agile-documentation-types>`_
+  for more detail.
+* This document specifies both how to write an OEP and how to get to a consensus
+  throughout the community that the OEP should be accepted.
+* OEPs are written by one or more `Authors`_ and guided through the process by
+  an `Arbiter`_.
+
 What is an OEP?
 ===============
 
@@ -502,12 +516,15 @@ at the top of the list.
 Change History
 ==============
 
-2022-02-11
+2022-02-27
 ----------
 
 * Codify the "Change History" section, which most OEPs already use
 * Specify that entries should link to the discussion PR.
-* `Pull request #297 <https://github.com/openedx/open-edx-proposals/pull/297>`_
+* `Pull request #297 <https://github.com/openedx/open-edx-proposals/pull/297>`
+
+* Add Overview section for greater clarity
+* `Pull request #298 <https://github.com/openedx/open-edx-proposals/pull/298>`_
 
 2022-01-13
 ----------
