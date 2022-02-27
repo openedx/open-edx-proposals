@@ -7,12 +7,13 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Title         | OEP Purpose and Guidelines                                   |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2022-01-12                                                   |
+| Last-Modified | 2022-02-27                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | Calen Pennington <cale@edx.org>,                             |
 |               | Joel Barciauskas <joel@edx.org>,                             |
-|               | Nimisha Asthagiri <nimisha@edx.org>                          |
-|               | Feanil Patel <feanil@tcril.org>                              |
+|               | Nimisha Asthagiri <nimisha@edx.org>,                         |
+|               | Feanil Patel <feanil@tcril.org>,                             |
+|               | Sarina Canelake <sarina@tcril.org>                           |
 +---------------+--------------------------------------------------------------+
 | Arbiter       | - Eddie Fagin <efagin@edx.org>,                              |
 |               | - Calen Pennington <cale@edx.org>                            |
@@ -140,10 +141,6 @@ community on the OEP and moving it towards a final decision (whether that
 decision is Accepted, Rejected, or Deferred). The Arbiter (in discussion with
 the Authors) can merge an in-progress OEP (if it has reached a stage of relative
 stability) to allow for additional incremental updates.
-
-Finally, the Arbiter is responsible for the decision to transfer an OEP if the
-original Authors have become unresponsive (as described in `Transferring OEP
-Ownership`_).
 
 Architecture Group
 ------------------
@@ -335,6 +332,14 @@ While a pull request that contains a proposal is open,
 comments should be made on that pull request, or by submitting a new pull
 request that targets the branch from which the OEP pull request was made.
 
+OEP Stewardship
+~~~~~~~~~~~~~~~
+
+Once a proposal becomes Accepted, stewardship of the OEP is given to the
+`Architecture Group`_. This group is tasked with ensuring OEPs are up to date,
+those Authors proposing changes to OEPs follow the procedures outlined in this
+document, and assist in linking Authors with Arbiters when needed.
+
 Submitting OEP Updates
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -387,22 +392,13 @@ The following updates warrant replacement OEPs.
   example, splitting one service into two, or combining two services into one).
 * A change in decision that is significantly different from the previous.
 
-Transferring OEP Ownership
---------------------------
+Adding Additional Authors or Arbiters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It occasionally becomes necessary to transfer ownership of OEPs to new
-Authors. In general, it is preferable to retain the original Authors as co-
-authors of the transferred OEP, but that is really up to the original Authors.
-
-* A good reason to transfer ownership is because the original Authors no longer
-  have the time or interest in updating it or following through with the OEP
-  process, or have fallen off the face of the 'net (that is, unreachable or not
-  responding to email).
-
-* A bad reason to transfer ownership is because the Authors do not agree with
-  the direction of the OEP. A significant aim of the OEP process is to try to
-  build consensus around an OEP, but if that is not possible, the Authors can
-  always submit a separate OEP with an alternative proposal.
+When updates are made beyond those of formatting changes, small corrections, or
+basic upkeep, the Author(s) who made the changes, as well as the Arbiter who saw
+the change through, shall add themselves to the corresponding sections in the
+`OEP Header Preamble`_.
 
 OEP Structure and Content
 =========================
@@ -575,6 +571,11 @@ Multiple changes.
 
   * Clarified OEP update procedures
   * `Pull request #301 <https://github.com/openedx/open-edx-proposals/pull/301>`_
+
+#.
+
+  * Switch author-ownership model to a community-stewardship one
+  * `Pull request #302 <https://github.com/openedx/open-edx-proposals/pull/302>`_
 
 2022-01-13
 ----------
