@@ -146,13 +146,18 @@ What Maintainers Do
 -------------------
 The role of the repository or project maintainer is both a community
 focused and a technical role[#]_.  Maintainers will be the public face
-of each component and should be welcoming and available.
+of each component and should be welcoming and available.  While
+maintainers should strive to always be friendly and kind in their
+communication, firmness and directness are equally important.
+Maintainers must enforce the project's standards.  In cases where a
+proposed change isn't aligned with the our standards or direction, it
+is best to make that clear as early as possible.
 
 Non-technical responsibilities of maintainers include:
 
 * Effective communication with community members, other maintainers,
   and project leadership
-* Selection and approval of Core Contributors with commit right to their repositories
+* Selection and approval of Core Contributors with commit rights to their repositories
 * Disciplined management to ensure that maintenance work is done
 * Enforcement of the project's standards
 * The ability to solve or escalate issues facing users of the
