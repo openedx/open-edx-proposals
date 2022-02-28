@@ -1,12 +1,12 @@
 ===========================
-OEP-0057: Core Repositories
+OEP-57: Core Repositories
 ===========================
 
 .. list-table::
    :widths: 25 75
 
-   * - OEP-0057
-     - :doc:`OEP-0057 <oep-0057-core-repositories>`
+   * - OEP-57
+     - :doc:`OEP-57 <oep-0057-core-repositories>`
    * - Title
      - Core Repositories
    * - Last Modified
