@@ -1,6 +1,7 @@
 ======================================
 OEP-56: Architectural Advisory Process
 ======================================
+
 .. list-table::
    :widths: 25 75
 
@@ -45,14 +46,14 @@ Quick Process Summary
 Motivation
 ==========
 
-The proposals in this document are in response to a number of observations born out of conversations with engineering leaders in the Open edX community and 2U's OCM organization (formerly known as edX).  It's also strongly influenced by a pair of articles, `Scaling the Practice of Architecture, Conversationally <https://martinfowler.com/articles/scaling-architecture-conversationally.html>`_ and `Would you like architects with your architecture? <https://architectelevator.com/architecture/organizing-architecture>`_ which promote a decentralized vision of architectural process where decision making power is gathered in the hands of the engineers writing the code.
+The proposals in this document are in response to a number of observations born out of conversations with engineering leaders in the Open edX community and 2U's OCM organization (formerly known as edX).  It's also strongly influenced by a pair of articles, `Scaling the Practice of Architecture, Conversationally <conversationally_>`_ and `Would you like architects with your architecture? <architects_>`_ which promote a decentralized vision of architectural process where decision making power is gathered in the hands of the engineers writing the code.
 
 The realities described below, in the following sections, have ultimately built a culture of reactionary architecture - rather than intentional architecture - which we hope to improve.
 
 Under-utilized ADRs
 -------------------
 
-We adopted ADRs in `OEP-19: Developer Documentation <https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0019-bp-developer-documentation.html>`_ several years ago as way of recording techincal decisions and co-locating them with their corresponding code.  OEP-19 is otherwise unopinionated about how those ADRs get used and reviewed, or when in our engineering process writing them should occur.  This has led to ambiguity and ambivalence around ADRs. Often they're an afterthought, and serve only as grudging documentation of a decision after it has been made.
+We adopted ADRs in :doc:`../best-practices/oep-0019-bp-developer-documentation` several years ago as way of recording techincal decisions and co-locating them with their corresponding code.  OEP-19 is otherwise unopinionated about how those ADRs get used and reviewed, or when in our engineering process writing them should occur.  This has led to ambiguity and ambivalence around ADRs. Often they're an afterthought, and serve only as grudging documentation of a decision after it has been made.
 
 We believe that ADRs - and more importantly, the conversations that happen around them - can be so much more.  We can use these documents and conversations as a vehicle for decentralizing and scaling our decision making process, making more informed decisions, democratizing access to domain knowledge, elevating our architectural discourse, and recording our decisions for posterity with additional contextual information that's often missing today.
 
@@ -66,7 +67,7 @@ This difficulty is compounded by the decentralized and global nature of the Open
 Atrophy of architectural principles and tech radar
 --------------------------------------------------
 
-An important component of our ability to make architectural decisions that are aligned across teams and organizations is measuring and vetting those decisions against a set of `shared architectural principles <https://openedx.atlassian.net/wiki/spaces/AC/pages/921895082/Architecture+Vision+Principles>`_ and technologies in our `Tech Radar <https://github.com/openedx/openedx-tech-radar>`_.  Today, we lack organized maintenance of our principles and radar, nor do we have an appropriate forum in which to discuss and socialize them.
+An important component of our ability to make architectural decisions that are aligned across teams and organizations is measuring and vetting those decisions against a set of `shared architectural principles`_ and technologies in our `Tech Radar`_.  Today, we lack organized maintenance of our principles and radar, nor do we have an appropriate forum in which to discuss and socialize them.
 
 Specification
 =============
@@ -86,7 +87,7 @@ We'll create an Architecture Advisory Process to add structure to today's inform
 
 We intend to also use the Advisory Process over time to revisit and iterate on our architectural principles with the goal of ensuring they're specific, measurable, achievable, realistic, and testable. (a variation of SMART criteria)  Similarly, like ADRs and architectural principles, we can use the process to review and adjust Open edX Tech Radar blips.
 
-This process is intended to be lightweight, approachable, and asynchronous.  See `Appendix A: Advisory Process Principles <#Appendix A: Advisory Process Principles>`__  for more details on the spirit and functioning of the Advisory Process.
+This process is intended to be lightweight, approachable, and asynchronous.  See :ref:`principles` for more details on the spirit and functioning of the Advisory Process.
 
 Advisory Process Artifacts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,7 +133,7 @@ Other Options Considered
 Synchronous Architecture Advisory Forum meeting
 -----------------------------------------------
 
-The approach to the Advisory Process advocated for in `Scaling the Practice of Architecture, Conversationally <https://martinfowler.com/articles/scaling-architecture-conversationally.html>`_ centers around the "Architecture Advisory Forum", a synchronous meeting where the group reviews ADRs, Architectural Principles, Tech Radar blips, etc.
+The approach to the Advisory Process advocated for in `Scaling the Practice of Architecture, Conversationally <conversationally_>`_ centers around the "Architecture Advisory Forum", a synchronous meeting where the group reviews ADRs, Architectural Principles, Tech Radar blips, etc.
 
 We see three significant problems with the idea of having such a forum:
 
@@ -141,6 +142,8 @@ We see three significant problems with the idea of having such a forum:
 - Our community is multi-faceted.  ADRs may have completely divergent sets of stakeholders.  How do we manage the guest list of such a meeting to ensure that the right voices are speaking on any given ADR, and that the right individuals are in the room?  It's a logistical nightmare given the size and scope of our community.
 
 - Our community is comprised of many independent organizations.  There are times when our component organizations may want to use the Advisory Process on "internal" decisions as well.  Do we create a separate forum meeting for those decisions?  How do we then ensure that we err on the side of having an open, public forum?  Again, logistically, this is quite difficult.
+
+.. _principles:
 
 Appendix A: Advisory Process Principles
 =======================================
@@ -186,3 +189,9 @@ This is an architectural decision making process
 ------------------------------------------------
 
 This process is for architectural decisions.  It's not for product, user experience, pedagogical, legal, etc., decisions that are handled by other, non-engineering groups in our community.
+
+
+.. _conversationally: https://martinfowler.com/articles/scaling-architecture-conversationally.html
+.. _architects: https://architectelevator.com/architecture/organizing-architecture
+.. _shared architectural principles: https://openedx.atlassian.net/wiki/spaces/AC/pages/921895082/Architecture+Vision+Principles
+.. _Tech Radar: https://github.com/openedx/openedx-tech-radar
