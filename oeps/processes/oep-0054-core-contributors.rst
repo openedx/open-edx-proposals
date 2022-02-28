@@ -312,7 +312,10 @@ Trigger events for removing a CC would be:
 
 * A CC informs the Program Administrators that they can no longer continue in
   the role
-* A CC has been inactive and unreachable for more than 6 months
+* A CC has not been able to fulfill the commitments made in the
+  `Revised Declaration of Commitment to the Core Contributor Program`_,
+  or has been unreachable, for more than 6 months. See
+  `fulfilling CC commitments`_
 * A CC hasn't met project quality standards consistently despite feedback
 * A CC has consistently shown poor judgement, such as merging PRs without
   due consideration or addressing outstanding concerns
@@ -321,10 +324,17 @@ Trigger events for removing a CC would be:
 For those wishing to indicate they are leaving the CC program, or to report a
 Code of Conduct violation, please `Contact the Program Administrators`_.
 
-Program administrators will be responsible for determining when a CC is
-inactive/unreachable, by doing a check at least once per quarter. Since the
-reasoning for removing inactive CCs is due to security concerns, those who've
-been removed for inactivity may get in touch with Program Administrators to
+.. _fulfilling CC commitments:
+
+Core contributors are responsible for reporting when they aren't able to
+fulfill their commitments. Program administrators
+will do regular checks, at least once per quarter, to identify CCs who are 
+unreachable or fall short of their commitments. In such cases, the program
+administrator will reach out to the CC to discuss the best corrective actions 
+to take.
+
+In case there is no reply, the inactive CC would be removed for security
+reasons. Removed CCs may get in touch with Program Administrators to 
 fast-track getting their access back.
 
 Contact the Program Administrators
