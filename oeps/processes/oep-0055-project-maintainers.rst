@@ -372,7 +372,14 @@ Notes
        application written in Javascript, typically using the ReactJS
        framework.
 
-.. [#] TODO: Add sources for best practices claim.
+.. [#] The general acceptance of needing maintainers for OSS projects
+       can be seen in much literature that starts from the assumption
+       that maintainers are essential and instead asks, what makes a
+       maintainer great, what are the best-practices maintainers
+       should follow, how do we ensure maintainer don't burn out, how
+       do we ensure critical parts of the software supply chain, like
+       OpenSSL are maintained, etc.  I have included some revelant
+       materials in the **Source Material** section.
 
 .. [#] Needless to say, there must be feedback loops between
        maintainers and operators of the platform and, in some cases, a
