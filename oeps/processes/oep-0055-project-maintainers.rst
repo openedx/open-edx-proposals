@@ -235,7 +235,8 @@ After the bootstrapping phase, the Open edX project will need
 processes for adding maintainers, replacing maintainers, and ensuring
 that new components are maintained.
 
-**This section should be congruent with the Core Contributor process**
+Becoming a maintainer requires fulfilling the `prerequisites`_
+outlined above.
 
 A new maintainer can be added in any of the following ways:
 
