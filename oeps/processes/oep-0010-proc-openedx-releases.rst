@@ -240,6 +240,20 @@ components onto the machine.
 Change History
 ==============
 
-2020-04-26: Added the "maybe" key for "openedx-release".
+2020-04-26
+----------
 
-2018-08-22: Installation details adjusted to match current Hawthorn realities.
+* Added the "maybe" key for "openedx-release".
+* `Pull request #145 <https://github.com/openedx/open-edx-proposals/pull/145>`_
+
+2018-08-22
+----------
+
+* Installation details adjusted to match current Hawthorn realities.
+* `Pull request #78 <https://github.com/openedx/open-edx-proposals/pull/78>`_
+
+2016-11-21
+----------
+
+* Document created
+* `Pull request #26 <https://github.com/openedx/open-edx-proposals/pull/26>`_

@@ -308,4 +308,14 @@ core edX development from JIRA to a different issue tracker.
 Change History
 ==============
 
-11-18-2020 - TL;DR section added to opening of doc.
+2020-11-18
+----------
+
+* TL;DR section added to opening of doc.
+* `Pull request #168 <https://github.com/openedx/open-edx-proposals/pull/168>`_
+
+2018-10-09
+----------
+
+* Document created
+* `Pull request #66 <https://github.com/openedx/open-edx-proposals/pull/66>`_
