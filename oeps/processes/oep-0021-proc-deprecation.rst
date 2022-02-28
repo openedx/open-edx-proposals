@@ -395,4 +395,41 @@ References
 Change History
 ==============
 
-2022-02-08: Migrate from Jira to GitHub Issues/Projects
+2022-02-08
+----------
+
+* Migrate from Jira to GitHub Issues/Projects
+* `Pull request #280 <https://github.com/openedx/open-edx-proposals/pull/280>`_
+
+2021-04-26
+----------
+
+* "Removal dates" has become synonymous with "Accepted dates", so we are
+  eliminating them to clarify the process.
+* `Pull request #207 <https://github.com/openedx/open-edx-proposals/pull/207>`_
+
+2021-02-05
+----------
+
+* Added TL;DR section and workflow visuals
+* `Pull request #176 <https://github.com/openedx/open-edx-proposals/pull/176>`_
+
+2019-01-02
+----------
+
+* Recommend codebase impact review as part of DEPR process
+* `Pull request #95 <https://github.com/openedx/open-edx-proposals/pull/95>`_
+
+2018-11-02
+----------
+
+* Describes the process in specific ordered steps for one to follow.
+* Adds references to external docs.
+* Updates information on the JIRA ticketing process.
+* `Pull request #83 <https://github.com/openedx/open-edx-proposals/pull/83>`_
+
+2018-06-21
+----------
+
+* Document created
+* `Pull request #63 <https://github.com/openedx/open-edx-proposals/pull/63>`_

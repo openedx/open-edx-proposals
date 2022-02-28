@@ -337,25 +337,35 @@ the ``#core-contributors`` Slack room in the `Open edX Slack
 Change History
 ==============
 
+2022-02-28
+----------
+
+* Elaborate on CC's responsibilites to fulfill their commitment
+* `Pull request #304 <https://github.com/openedx/open-edx-proposals/pull/304>`_
+
 2022-02-16
 ----------
 
-Added clarifiations around the voting process for new CC members.
+* Added clarifiations around the voting process for new CC members.
+* `Pull request #293 <https://github.com/openedx/open-edx-proposals/pull/293>`_
 
 2022-02-11
 ----------
 
 * Specify how to expand responsibilites for roles with fine-grained permissions
   (such as code committers)
+* `Pull request #296 <https://github.com/openedx/open-edx-proposals/pull/296>`_
 
 2022-02-04
 ----------
 
 * Procedures to remove CCs added.
+* `Pull request #292 <https://github.com/openedx/open-edx-proposals/pull/292>`_
 
 2021-12-20
 ----------
 
 * Document created.
+* `Pull request #275 <https://github.com/openedx/open-edx-proposals/pull/275>`_
 
 .. _Code of Conduct: https://openedx.org/code-of-conduct/
