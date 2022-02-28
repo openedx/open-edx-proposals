@@ -63,7 +63,7 @@ The Open edX project, like many projects, calls this role
 open-source projects and widely considered an best practice [#]_.
 
 The maintainer role is a leadership role that encompasses both
-technical and community elements.  Both dimensions of the role are
+technical and community management elements.  Both dimensions of the role are
 equally important.
 
 All, non-deprecated, components of the Open edX project must have a
