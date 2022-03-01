@@ -23,7 +23,7 @@ OEP-0055: Project Maintainers
    * - Authors
      - Edward Zarecor <e0d@tcril.org>
    * - Arbiter
-     - <Arbiter's real name and email address>
+     - Jeremy Bowman <jbowman@2u.com>
    * - Status
      - Draft
    * - Type
