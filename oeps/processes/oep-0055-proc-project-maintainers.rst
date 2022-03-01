@@ -1,5 +1,5 @@
 =============================
-OEP-0055: Project Maintainers
+OEP-55: Project Maintainers
 =============================
 
 .. This OEP template is based on Python's PEP standard.
