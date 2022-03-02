@@ -122,7 +122,7 @@ The term **core contributor** will mean a named person participating
 in the `Core Contributor Program`_ as a coding core contributor and
 meeting the requirements of that program.
 
-The term **maintainer scrum-of-scrums** will mean group of all
+The term **maintainer scrum-of-scrums** will mean the group of all
 maintainers who are responsible for flagging issues to project
 leadership and proposing process improvements for component
 maintenance.
