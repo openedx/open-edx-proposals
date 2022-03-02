@@ -1,14 +1,11 @@
 =============================
 OEP-55: Project Maintainers
 =============================
-
-.. This OEP template is based on Python's PEP standard.
-
 .. list-table::
    :widths: 25 75
 
    * - OEP
-        :doc:`OEP-0055 <oep-0055-proc-Project Maintainers>`
+     - :doc:`OEP-0055 <oep-0055-proc-project-maintainers>`
    * - Title
      - Project Maintainers
    * - Last Modified
@@ -344,7 +341,7 @@ categories
 Change History
 ==============
 
-01-28-2022 - Initial draft version for comment
+01-28-2022 - `Document created <https://github.com/openedx/open-edx-proposals/pull/290/>`_
 
 
 Source Material
