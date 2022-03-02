@@ -8,14 +8,7 @@ OEP-55: Project Maintainers
    :widths: 25 75
 
    * - OEP
-     - Link to the doc in the following format::
-
         :doc:`OEP-0055 <oep-0055-proc-Project Maintainers>`
-
-        * <XXXX is the next available OEP number>
-        * <YYYY is the abbreviated Type: proc | bp | arch>
-        * <ZZZZ is a brief (< 5 words) version of the title>
-
    * - Title
      - Project Maintainers
    * - Last Modified
