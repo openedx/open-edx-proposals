@@ -114,7 +114,7 @@ Components will be "part of" or "critical to" the open-source
 platform.
 
 The term **maintainer** will mean a named person or persons
-responsible for the health of component and the component's community.
+responsible for the health of the component and the component's community.
 The remainder of this specification will be focused on the details of
 the role.
 
