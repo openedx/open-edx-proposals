@@ -133,7 +133,7 @@ pager when something went wrong.
 What Maintainers Do
 -------------------
 The role of the repository or project maintainer is both a community
-focused and a technical role[#]_.  Maintainers will be the public face
+focused and a technical role [#]_.  Maintainers will be the public face
 of each component and should be welcoming and available.  While
 maintainers should strive to always be friendly and kind in their
 communication, firmness and directness are equally important.
