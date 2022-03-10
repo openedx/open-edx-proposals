@@ -70,7 +70,7 @@ Motivation
 ==========
 
 With the change in stewardship from edX to The Center for Reimagining
-Learner, it is essential to have a well defined plan for maintaining
+Learning, it is essential to have a well defined plan for maintaining
 the platform.
 
 In order to ensure that the project is sustainable for the long term,
