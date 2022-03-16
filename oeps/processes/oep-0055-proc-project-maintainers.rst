@@ -9,7 +9,7 @@ OEP-55: Project Maintainers
    * - Title
      - Project Maintainers
    * - Last Modified
-     - 2022-01-28
+     - 2022-03-16
    * - Authors
      - Edward Zarecor <e0d@tcril.org>, Sarina Canelake <sarina@tcril.org>
    * - Arbiter
@@ -21,7 +21,7 @@ OEP-55: Project Maintainers
    * - Created
      - 2022-01-28
    * - Review Period
-     - <start - target end dates for review>
+     - 2022-03-21 - 2022-04-11
    * - Resolution
      - <links to any discussions where the final status was decided>
    * - References
