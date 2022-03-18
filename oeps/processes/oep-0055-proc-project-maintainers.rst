@@ -56,7 +56,7 @@ The maintainer role is a leadership role that encompasses both
 technical and community management elements.  Both dimensions of the role are
 equally important.
 
-All, non-deprecated, components of the Open edX project must have one
+All non-deprecated components of the Open edX project must have one
 or more named maintainers.  When no such maintainers exists, this will
 be considered an urgent problem to solve.
 
