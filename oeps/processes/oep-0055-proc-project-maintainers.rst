@@ -33,7 +33,7 @@ Abstract
 The Open edX platform is a service oriented platform for authoring and
 delivering online learning based on the `Django framework`_.  At the
 highest level, the platform is composed of numerous services (IDAs
-[#]_), micro-front ends (MFEs [#]_) and libraries.  The code for these
+[#ida]_), micro-front ends (MFEs [#mfe]_) and libraries.  The code for these
 services and libraries is managed in git and hosted on GitHub
 platform.
 
