@@ -184,7 +184,7 @@ In order to be a repository maintainer, you must
   contributions to the project in the last 6 months.  The types of
   contributions that are relevant will match those defined in the
   `code contributors`_
-* Abide by the `Open edX Code of Conduct
+* Abide by the Open edX `Code of Conduct`_
   <https://openedx.org/code-of-conduct/>`_
 * Be a member of the `Core Contributor Program`_ with rights to the repository
   in question who has demonstrated excellence in the role of core contributor.
