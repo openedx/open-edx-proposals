@@ -400,7 +400,7 @@ Notes
        certainly be concerned about the performance characteristics of
        their components and committed to their scalability.
 
-.. [#] In fact, studies of the traits of effective maintainers have
+.. [#role] In fact, studies of the traits of effective maintainers have
        highlighted that non-technical aspects of the role are often
        more highly valued by community members 2021 IEEE/ACM 43rd
        International Conference on Software Engineering (ICSE) `What
