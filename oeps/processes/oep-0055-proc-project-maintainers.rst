@@ -381,7 +381,7 @@ Notes
        server-side service oriented application, typically built upon
        the Django framework.
 
-.. [#] An MFE is a Micro-Front end, a discreet, client side
+.. [#mfe] An MFE is a Micro-Front end, a discreet, client side
        application written in Javascript, typically using the ReactJS
        framework.
 
