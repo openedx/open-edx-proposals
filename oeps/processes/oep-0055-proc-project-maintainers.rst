@@ -61,7 +61,7 @@ technical and community management elements.  Both dimensions of the role are
 equally important.
 
 All non-deprecated components of the Open edX project must have one
-or more named maintainers.  When no such maintainers exists, this will
+or more named maintainers.  When no such maintainer(s) exist, this will
 be considered an urgent problem to solve.
 
 This OEP proposes a formal definition of the role of maintainer that
