@@ -299,7 +299,7 @@ In the case that a maintainer is not meeting project quality standards
 consistently, the scrum-of-scrums will inform the maintainer with the
 expectation that their components meet standards within a calendar
 month.  If, after a month, the quality issues are not resolved, the
-maintainer will be removed by the scrum-of-scrums.  Additionaly, a
+maintainer will be removed by the scrum-of-scrums.  Additionally, a
 maintainer who is warned three (3) times in a single calendar year
 will also be removed. The `program administrators`_ serve as a
 backstop - any community member may contact them at any time if
