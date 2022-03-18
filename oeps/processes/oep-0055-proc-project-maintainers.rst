@@ -377,7 +377,7 @@ Source Material
 Notes
 =====
 
-.. [#] An IDA is an Independently Deployable Application, a
+.. [#ida] An IDA is an Independently Deployable Application, a
        server-side service oriented application, typically built upon
        the Django framework.
 
