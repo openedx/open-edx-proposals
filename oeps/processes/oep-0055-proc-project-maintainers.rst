@@ -27,6 +27,10 @@ OEP-55: Project Maintainers
    * - References
      - <links to any other relevant discussions or relevant related materials>
 
+.. contents::
+   :local:
+   :depth: 3
+
 Abstract
 ========
 
