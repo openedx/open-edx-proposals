@@ -394,7 +394,7 @@ Notes
        OpenSSL are maintained, etc.  I have included some revelant
        materials in the **Source Material** section.
 
-.. [#] Needless to say, there must be feedback loops between
+.. [#ops] Needless to say, there must be feedback loops between
        maintainers and operators of the platform and, in some cases, a
        single person will perform both roles.  Maintainers should
        certainly be concerned about the performance characteristics of
