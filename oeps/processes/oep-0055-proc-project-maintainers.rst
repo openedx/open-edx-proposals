@@ -385,7 +385,7 @@ Notes
        application written in Javascript, typically using the ReactJS
        framework.
 
-.. [#] The general acceptance of needing maintainers for OSS projects
+.. [#maintainer] The general acceptance of needing maintainers for OSS projects
        can be seen in much literature that starts from the assumption
        that maintainers are essential and instead asks, what makes a
        maintainer great, what are the best-practices maintainers
