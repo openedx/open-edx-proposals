@@ -50,7 +50,7 @@ and held accountable for its performance.
 
 The Open edX project, like many projects, calls this role
 "maintainer."  The notion of a project maintainer is typical of
-open-source projects and widely considered an best practice [#]_.
+open-source projects and widely considered a best practice [#maintainer]_.
 
 The maintainer role is a leadership role that encompasses both
 technical and community management elements.  Both dimensions of the role are
