@@ -117,7 +117,9 @@ maintenance.
 
 The term **Technical Oversight Committee** (TOC) will mean the group
 responsible for the overall oversight and stewardship of the Open edX
-project. The TOC itself was established and is governed by a formal
+project. The TOC's function with respect to the project is to be the
+arbiter of last resort for governance matters. The TOC itself was established
+and is governed by a formal
 charter.  You can read the full document `here
 <https://openedx.org/wp-content/uploads/2021/12/TCRIL-Technical-Oversight-Committee-Charter-rev.11-16.21.pdf>`_.
 
