@@ -195,3 +195,25 @@ This process is for architectural decisions.  It's not for product, user experie
 .. _architects: https://architectelevator.com/architecture/organizing-architecture
 .. _shared architectural principles: https://openedx.atlassian.net/wiki/spaces/AC/pages/921895082/Architecture+Vision+Principles
 .. _Tech Radar: https://github.com/openedx/openedx-tech-radar
+
+Change History
+==============
+
+2022-03-23
+----------
+
+* Adding change history section and addressing PR feedback.
+* `Pull request #305 <https://github.com/openedx/open-edx-proposals/pull/305>`_
+
+2022-02-25
+----------
+
+* Ready for review.
+* Removed sections on "Technical Strategic Review" in favor of focusing solely on the Architecture Advisory Process.  This focuses the OEP on tactical architectural decision making, rather than trying to also include a suggestion for how to handle architectural strategic planning.
+* `Pull request #305 <https://github.com/openedx/open-edx-proposals/pull/305>`_
+
+2022-02-09
+----------
+
+* Document created.
+* `Pull request #305 <https://github.com/openedx/open-edx-proposals/pull/305>`_
