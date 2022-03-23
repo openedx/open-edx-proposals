@@ -6,7 +6,7 @@ OEP-56: Architectural Advisory Process
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-56 <oep-0056-architectural-advisory-process>`
+     - :doc:`OEP-56 <oep-0056-proc-architectural-advisory-process>`
    * - Title
      - Architectural Advisory Process
    * - Last Modified
@@ -203,6 +203,7 @@ Change History
 ----------
 
 * Adding change history section and addressing PR feedback.
+* Adding "proc" prefix to the filename.
 * `Pull request #305 <https://github.com/openedx/open-edx-proposals/pull/305>`_
 
 2022-02-25
