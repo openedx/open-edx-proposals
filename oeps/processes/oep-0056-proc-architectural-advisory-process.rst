@@ -53,7 +53,7 @@ The realities described below, in the following sections, have ultimately built 
 Under-utilized ADRs
 -------------------
 
-We adopted ADRs in :doc:`../best-practices/oep-0019-bp-developer-documentation` several years ago as way of recording technical decisions and co-locating them with their corresponding code.  OEP-19 is otherwise unopinionated about how those ADRs get used and reviewed, or when in our engineering process writing them should occur.  This has led to ambiguity and ambivalence around ADRs. Often they're an afterthought, and serve only as grudging documentation of a decision after it has been made.
+We adopted ADRs in :doc:`../best-practices/oep-0019-bp-developer-documentation` several years ago as way of recording technical decisions and co-locating them with their corresponding code.  OEP-19 is otherwise unopinionated about how those ADRs get used and reviewed, or when in our engineering process writing them should occur.  At times this can lead to ambiguity and ambivalence around ADRs; sometimes they're created as an afterthought and serve only as documentation of a decision after it has been made.
 
 We believe that ADRs - and more importantly, the conversations that happen around them - can be so much more.  We can use these documents and conversations as a vehicle for decentralizing and scaling our decision making process, making more informed decisions, democratizing access to domain knowledge, elevating our architectural discourse, and recording our decisions for posterity with additional contextual information that's often missing today.
 
@@ -85,7 +85,7 @@ Architectural Advisory Process (AAP)
 
 We'll create an Architecture Advisory Process to add structure to today's informal review of ADRs.  The goal of this process is to review ADRs with relevant stakeholders and subject matter experts.  Conversations in the advisory process need to take place promptly so that decisions do not feel blocked on gathering advice.
 
-We intend to also use the Advisory Process over time to revisit and iterate on our architectural principles with the goal of ensuring they're specific, measurable, achievable, realistic, and testable. (a variation of SMART criteria)  Similarly, like ADRs and architectural principles, we can use the process to review and adjust Open edX Tech Radar blips.
+We intend to also use the Advisory Process over time to revisit and iterate on our architectural principles with the goal of ensuring they're specific, measurable, achievable, realistic, and testable (a variation of SMART criteria).  Similarly, like ADRs and architectural principles, we can use the process to review and adjust Open edX Tech Radar blips.
 
 This process is intended to be lightweight, approachable, and asynchronous.  See :ref:`principles` for more details on the spirit and functioning of the Advisory Process.
 
