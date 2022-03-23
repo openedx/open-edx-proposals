@@ -101,7 +101,7 @@ GitHub Issues (Optional)
 
 We would encourage decision makers to use a GitHub Issue to have initial conversations around the context of a decision, or to write down upcoming/potential decisions. It may be that - at the start of a project - we're not even sure what decisions need to be made.  They may not even reveal themselves until we're in the middle of coding.
 
-An Issue is a great place to have these initial, loose, conversations about a decision space without the burden of creating a full ADR (creating a new document in the right place, authoring the sections of an ADR, creating a branch, committing, creating a PR, etc.)  It may not be necessary for more well-defined or focused decisions.  We want to preserve this as an optional first step, as we recognize that creating a "formal" ADR can feel inexplicably daunting or like a distraction, especially when possible decisions come up in the course of working on an implementation.  The mental burden of breaking "flow state" and creating a new ADR document is often problematic.  We hope jotting some notes in an Issue as a starting point will allow engineers to record their potential decision point and quickly continue their work.
+An Issue is a great place to have these initial, loose, conversations about a decision space without the burden of creating a full ADR (creating a new document in the right place, authoring the sections of an ADR, creating a branch, committing, creating a PR, etc.)  It may not be necessary for more well-defined or focused decisions.  We want to preserve this as an optional first step, as we recognize that creating a "formal" ADR can feel inexplicably daunting or like a distraction.  This is especially true when possible decisions come up in the course of working on an implementation.  The mental burden of breaking "flow state" and creating a new ADR document is often problematic.  We hope jotting some notes in an Issue as a starting point will allow engineers to record their potential decision point and quickly continue their work.
 
 GitHub Pull Requests
 ********************
@@ -178,7 +178,9 @@ The process of making a technical decision is not atomic, nor do many parts of i
 Decisions can have varying impacts and scopes
 ---------------------------------------------
 
-The group of impacted individuals for a given decision may vary wildly, and some decisions will necessarily require more input than others.  A developer iterating on new "green field" code may not need to consult *anyone* except their immediate teammates, whereas a team making changes to a core data model may impact stakeholders and systems throughout the platform, meaning that there will necessarily be significant input into the decision.  The volume of input may make the latter decision harder to make.  That the complexity of the decision making process correlates with the impact of the decision indicates we're giving decisions due process.
+The group of impacted individuals for a given decision may vary wildly, and some decisions will necessarily require more input than others.  A developer iterating on new "green field" code may not need to consult *anyone* except their immediate teammates, whereas a team making changes to a core data model may impact stakeholders and systems throughout the platform, meaning that there will necessarily be significant input into the decision.
+
+The volume of input may make the latter decision harder to make.  That the complexity of the decision making process correlates with the impact of the decision indicates we're giving decisions due process.  An overly complex decision with too many stakeholders may also be an indication that it should be broken down into more manageable pieces.
 
 Decisions are an opportunity to learn and democratize knowledge
 ---------------------------------------------------------------
