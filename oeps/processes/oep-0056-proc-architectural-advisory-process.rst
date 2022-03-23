@@ -31,7 +31,7 @@ OEP-56: Architectural Advisory Process
 Abstract
 ========
 
-This document proposes that the Open edX community employ a scalable, structured, conversation-based approach to making architectural decisions, based around Architectural Decision Records (ADRs) and the Architectural Advisory Process, a lightweight, asynchronous process by which ADR authors gather input on their decisions.  It also proposes a "Decision Maker's Checklist" in support of the Advisory Process.
+This document proposes that the Open edX community employ a scalable, structured, `conversation-based <conversationally_>`_ approach to making architectural decisions.  This approach is based around Architectural Decision Records (ADRs) and the Architectural Advisory Process, a lightweight, asynchronous process by which decision makers gather input on their decisions.  It also proposes a "Decision Maker's Checklist" in support of the Advisory Process.
 
 Quick Process Summary
 =====================
@@ -53,14 +53,14 @@ The realities described below, in the following sections, have ultimately built 
 Under-utilized ADRs
 -------------------
 
-We adopted ADRs in :doc:`../best-practices/oep-0019-bp-developer-documentation` several years ago as way of recording techincal decisions and co-locating them with their corresponding code.  OEP-19 is otherwise unopinionated about how those ADRs get used and reviewed, or when in our engineering process writing them should occur.  This has led to ambiguity and ambivalence around ADRs. Often they're an afterthought, and serve only as grudging documentation of a decision after it has been made.
+We adopted ADRs in :doc:`../best-practices/oep-0019-bp-developer-documentation` several years ago as way of recording technical decisions and co-locating them with their corresponding code.  OEP-19 is otherwise unopinionated about how those ADRs get used and reviewed, or when in our engineering process writing them should occur.  This has led to ambiguity and ambivalence around ADRs. Often they're an afterthought, and serve only as grudging documentation of a decision after it has been made.
 
 We believe that ADRs - and more importantly, the conversations that happen around them - can be so much more.  We can use these documents and conversations as a vehicle for decentralizing and scaling our decision making process, making more informed decisions, democratizing access to domain knowledge, elevating our architectural discourse, and recording our decisions for posterity with additional contextual information that's often missing today.
 
 Finding expertise is difficult
 ------------------------------
 
-Related to the above, historically it is also very difficult to find experts and stakeholders in a given domain.  Generally this happens via word of mouth, sometimes not at all, or occasionally by engineers realizing a vacuum of expertise exists and *they are now the expert!*
+Related to the above, historically it is also very difficult to find subject matter experts and stakeholders in a given domain.  Generally this happens via word of mouth, sometimes not at all, or occasionally by engineers realizing a vacuum of expertise exists and *they are now the expert!*
 
 This difficulty is compounded by the decentralized and global nature of the Open edX community.
 
@@ -77,13 +77,13 @@ We believe that we can create a healthy and empowering dialogue around our archi
 We will adjust our current architectural process by:
 
 - Formalizing and clarifying an **Architectural Advisory Process** in which we conversationally provide input on and promptly review the status of ADRs, as well as review updates to our architectural principles and tech radar, with the goal of enabling more effective, informed decision making.
-- Improve the discoverability of stakeholders and experts via a **decision maker's checklist**.
+- Improve the discoverability of stakeholders and subject matter experts via a **decision maker's checklist**.
 - Set decision makers up for success by using the Architectural Advisory Process to **vet changes to our architectural principles and tech radar**.  Both are crucial inputs into the decision making process by helping to align our community on our architectural values and technology choices.
 
 Architectural Advisory Process (AAP)
 ------------------------------------
 
-We'll create an Architecture Advisory Process to add structure to today's informal review of ADRs.  The goal of this process is to review ADRs with relevant stakeholders and experts.  Conversations in the advisory process need to take place promptly so that decisions do not feel blocked on gathering advice.
+We'll create an Architecture Advisory Process to add structure to today's informal review of ADRs.  The goal of this process is to review ADRs with relevant stakeholders and subject matter experts.  Conversations in the advisory process need to take place promptly so that decisions do not feel blocked on gathering advice.
 
 We intend to also use the Advisory Process over time to revisit and iterate on our architectural principles with the goal of ensuring they're specific, measurable, achievable, realistic, and testable. (a variation of SMART criteria)  Similarly, like ADRs and architectural principles, we can use the process to review and adjust Open edX Tech Radar blips.
 
@@ -111,9 +111,9 @@ Whether or not a GitHub Issue is used, a GitHub Pull Request will exist for crea
 Decision Maker's Checklist (DMC)
 --------------------------------
 
-In order to help ADR authors ensure they get advice from the proper set of stakeholders, we will create a checklist of possible groups/individuals to choose from.  It's the responsibility of the author to ensure the relevant people are aware of the ADR and are given the opportunity to provide feedback.
+In order to help decision makers ensure they get advice from the proper set of stakeholders, we will create a checklist of possible groups/individuals to choose from.  It's the responsibility of the author to ensure the relevant people are aware of the ADR and are given the opportunity to provide feedback.
 
-The DMC is a document that a decision authors can review to ensure they're seeking advice from the proper stakeholders and subject matter experts when authoring an ADR. It's that individual's responsibility to select all those stakeholders and experts (which may be individuals or groups) that are impacted by their decision based on their understanding of the scope.  Other individuals or groups may be added later as the scope and impact is better understood.
+The DMC is a document that decision makers can review to ensure they're seeking advice from the proper stakeholders and subject matter experts when authoring an ADR. It's that individual's responsibility to select all those stakeholders and experts (which may be individuals or groups) that are impacted by their decision based on their understanding of the scope.  Other individuals or groups may be added later as the scope and impact is better understood.
 
 GitHub Teams
 ^^^^^^^^^^^^
@@ -123,7 +123,7 @@ As a companion to the DMC, a set of GitHub teams will be created in the ``opened
 Checklist Format
 ^^^^^^^^^^^^^^^^
 
-The DMC is a reference, and so decision maker's will be able to look up individuals by various criteria.  To this end, the checklist will list stakeholders and experts for products, domains, and by role, at a minimum.  This means that individuals or groups may appear more than once if they're experts on several different domains, or have multiple roles, for instance.
+The DMC is a reference, and so decision maker's will be able to look up individuals by various criteria.  To this end, the checklist will list stakeholders and subject matter experts for products, domains, and by role, at a minimum.  This means that individuals or groups may appear more than once if they're experts on several different domains, or have multiple roles, for instance.
 
 We will necessarily iterate on the organization of the checklist as we learn more about how we use it.  This OEP also does not prescribe where the checklist needs to be written down.
 
@@ -137,7 +137,7 @@ The approach to the Advisory Process advocated for in `Scaling the Practice of A
 
 We see three significant problems with the idea of having such a forum:
 
-- Our community is global.  Any time we could propose for this meeting would necessarily leave out a significant portion of our stakeholders and experts.
+- Our community is global.  Any time we could propose for this meeting would necessarily leave out a significant portion of our stakeholders and subject matter experts.
 
 - Our community is multi-faceted.  ADRs may have completely divergent sets of stakeholders.  How do we manage the guest list of such a meeting to ensure that the right voices are speaking on any given ADR, and that the right individuals are in the room?  It's a logistical nightmare given the size and scope of our community.
 
@@ -153,7 +153,7 @@ The creation of the Advisory Process is a fundamental shift in expectations of h
 Asynchronous First
 ------------------
 
-Our community is global, and so we will prioritize asynchronous communication in the Architecture Advisory Process. This means it's important that individuals be able to participate in the process even if they cannot attend a synchronous meeting.  We believe there's value in getting together synchronously, but the process should prioritize getting the right input over having synchronous meetings.  That said, if the relevant stakeholders and experts are able to schedule an effective in person meeting, there's additional value in getting together synchronously when possible.  Note, however, that the decision makers *still have the responsibility of recording in their ADR the advice they received.*
+Our community is global, and so we will prioritize asynchronous communication in the Architecture Advisory Process. This means it's important that individuals be able to participate in the process even if they cannot attend a synchronous meeting.  We believe there's value in getting together synchronously, but the process should prioritize getting the right input over having synchronous meetings.  That said, if the relevant stakeholders and subject matter experts are able to schedule an effective in person meeting, there's additional value in getting together synchronously when possible.  Note, however, that the decision makers *still have the responsibility of recording in their ADR the advice they received.*
 
 Stakeholders and subject matter experts give advice, conversationally
 ---------------------------------------------------------------------
@@ -163,7 +163,7 @@ Impacted individuals participate in the process to share what they know and thei
 Decisions must document the advice they receive
 -----------------------------------------------
 
-One of the core tenets of the Advisory Process is that it is the decision maker's responsibility to record the advice they received, whether or not they chose to take it, and why.  We recognize that this is a time investment, but believe it will lead to better decisions, better documentation, and an approachable process where stakeholders and experts feel welcomed and encouraged to provide their invaluable insights.
+One of the core tenets of the Advisory Process is that it is the decision maker's responsibility to record the advice they received, whether or not they chose to take it, and why.  We recognize that this is a time investment, but believe it will lead to better decisions, better documentation, and an approachable process where stakeholders and subject matter experts feel welcomed and encouraged to provide their invaluable insights.
 
 Responsibility of decentralized decision making
 -----------------------------------------------
@@ -204,6 +204,8 @@ Change History
 
 * Adding change history section and addressing PR feedback.
 * Adding "proc" prefix to the filename.
+* Removing usage of "ADR authors" and "decision authors" in favor of "decision makers"
+* Clarifying "experts" to be "subject matter experts"
 * `Pull request #305 <https://github.com/openedx/open-edx-proposals/pull/305>`_
 
 2022-02-25
