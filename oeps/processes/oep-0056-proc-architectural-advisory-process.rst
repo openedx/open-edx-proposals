@@ -185,8 +185,8 @@ The checklist is a reference, and so decision makers will be able to look up ind
 
 We will necessarily iterate on the organization of the checklist as we learn more about how we use it.  This OEP also does not prescribe where the checklist needs to be written down.
 
-Other Options Considered
-========================
+Rejected Alternatives
+=====================
 
 Synchronous Architecture Advisory Forum meeting
 -----------------------------------------------
@@ -215,6 +215,7 @@ Change History
 * Renamed "Decision Maker's Checklist" to "Decision Impact checklist" to be clearer around the role it plays in the process.  A separate "decision maker's checklist" may exist to help walk people through the overall AAP.
 * Added some more cross-links in the document to (hopefully) help readers find information and understand concepts.
 * Added a section about Discourse forums and the role they (and other mediums) might play in the AAP.
+* `Pull request #305 <https://github.com/openedx/open-edx-proposals/pull/305>`_
 
 2022-03-23
 ----------
