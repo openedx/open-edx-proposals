@@ -16,7 +16,7 @@ OEP-56: Architectural Advisory Process
    * - Arbiter
      - Feanil Patel <feanil@tcril.org>
    * - Status
-     - Accepted
+     - Provisional
    * - Type
      - Process
    * - Created
