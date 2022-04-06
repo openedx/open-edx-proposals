@@ -164,7 +164,10 @@ Technical responsibilities of maintainers include:
 * Ensuring that basic documentation for the component exists and is
   accurate
 * The ability to solve or escalate issues facing users of the
-  component  
+  component
+* Ensure that dependencies are updated as needed to avoid security
+  risks or use of components that or not fit for use, e.g.,
+  unsupported, not maintained, or at their end-of-life.
 * Having a documented technical vision for the evolution of the
   component
 * The ability to assess the appropriateness of proposed changes to or
