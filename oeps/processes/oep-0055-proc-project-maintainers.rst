@@ -156,14 +156,15 @@ Non-technical responsibilities of maintainers include:
 * Enforcement of the project's standards, both technical and social: maintainers
   must remain friendly, kind, and open, but that should not supercede
   enforcement of technical standards
-* The ability to solve or escalate issues facing users of the
-  component
+* Ensure that bug reports are read, acknowledged, and prioritized in a timely fashion
 
 Technical responsibilities of maintainers include:
 
 * Understanding the current component architecture and implementation
 * Ensuring that basic documentation for the component exists and is
   accurate
+* The ability to solve or escalate issues facing users of the
+  component  
 * Having a documented technical vision for the evolution of the
   component
 * The ability to assess the appropriateness of proposed changes to or
