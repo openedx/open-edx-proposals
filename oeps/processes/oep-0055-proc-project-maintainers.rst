@@ -168,7 +168,7 @@ Technical responsibilities of maintainers include:
   component
 * The ability to assess the appropriateness of proposed changes to or
   extensions of the component
-* The role of the component in the overall platform and how it
+* Understanding the role of the component in the overall platform and how it
   interacts with other components
 * Must be available to participate in the comment period for Core Contributor
   nominees nominated to commit code to the maintainer's repo(s), as part of the
