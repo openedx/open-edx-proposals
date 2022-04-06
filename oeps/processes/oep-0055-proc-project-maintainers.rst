@@ -37,7 +37,7 @@ Abstract
 The Open edX platform is a service oriented platform for authoring and
 delivering online learning based on the `Django framework`_.  At the
 highest level, the platform is composed of numerous services (IDAs
-[#ida]_), micro-front ends (MFEs [#mfe]_) and libraries.  The code for these
+[#ida]_), micro-frontends (MFEs [#mfe]_) and libraries.  The code for these
 services and libraries is managed in git and hosted on the GitHub
 platform.
 
@@ -387,7 +387,7 @@ Notes
        server-side service oriented application, typically built upon
        the Django framework.
 
-.. [#mfe] An MFE is a Micro-Front end, a discreet, client side
+.. [#mfe] An MFE is a Micro-Frontend, a discreet, client side
        application written in Javascript, typically using the ReactJS
        framework.
 
