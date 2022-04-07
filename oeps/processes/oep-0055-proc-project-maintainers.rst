@@ -421,7 +421,16 @@ Notes
        Makes a Great Maintainer of Open Source Projects?
        <https://www.computer.org/csdl/proceedings-article/icse/2021/029600a982/1sEXoQoeO0E>`_
 
-
+.. [#lazy_concensus] Lazy concensus is a process by which decisions
+       are approved unless there are objections.  It is sometimes
+       described as the "silence is concent" method.  Lazy concensus
+       reduces ceremony and overhead and thus increases spead.  It is
+       essential, however, that decisions to be made are published.
+       There should be a review period that is commensurate with the
+       gravity of the decsion at hand.  Lazy concensus is used by
+       other open-source projects and foundations including the
+       `Apache
+       foundation<https://community.apache.org/committers/lazyConsensus.html>`_
 
 .. _Django framework: https://www.djangoproject.com/
 
