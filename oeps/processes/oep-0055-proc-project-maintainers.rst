@@ -268,8 +268,10 @@ to this proposal.
 Unmaintained Components
 -----------------------
 In the case of unmaintained components, nominations will be made to
-the scrum-of-scrums to fill the vacancy.  If there is no objection
-from existing maintainers, the role will be conferred.
+the scrum-of-scrums to fill the vacancy.  Nominations can be made by
+any member of the community including the nominee themselves.  If
+there is no objection from existing maintainers, the role will be
+conferred.
 
 If consensus cannot be reached lazily, a vote of existing maintainers
 will be taken.  Maintainers can approve a nomination with the approval
