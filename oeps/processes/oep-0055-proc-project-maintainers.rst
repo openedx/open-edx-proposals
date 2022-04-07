@@ -176,9 +176,9 @@ Technical responsibilities of maintainers include:
   extensions of the component
 * Understanding the role of the component in the overall platform and how it
   interacts with other components
-* Must be available to participate in the comment period for Core Contributor
-  nominees nominated to commit code to the maintainer's repo(s), as part of the
-  `Core Contributor Program`_
+* Must be available to participate in the comment period for Core
+  Contributor nominees who have been nominated to commit code to the
+  maintainer's repo(s), as part of the `Core Contributor Program`_
   
 It is acceptable for a component to be maintained by a team or group
 as long as that arrangement does not reduce the reachability of at least one
