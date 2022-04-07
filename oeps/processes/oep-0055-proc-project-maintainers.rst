@@ -151,10 +151,13 @@ Non-technical responsibilities of maintainers include:
 
 * Effective communication with community members, other maintainers,
   and project leadership
-* Selection and approval of Core Contributors with commit rights to their repositories, by participating in the comment period for Core Contributor nominees nominated to commit code to their repo(s), as part of the `Core Contributor Program`_
+* Selection and approval of Core Contributors with commit rights to
+  their repositories, by participating in the comment period for Core
+  Contributor nominees nominated to commit code to their repo(s), as
+  part of the `Core Contributor Program`_
 * Disciplined management to ensure that maintenance work is done
 * Enforcement of the project's standards, both technical and social: maintainers
-  must remain friendly, kind, and open, but that should not supercede
+  must remain friendly, kind, and open, but that should not supersede
   enforcement of technical standards
 * Ensure that bug reports are read, acknowledged, and prioritized in a timely fashion
 * Ensure that work related to the component, planning, design,
@@ -427,7 +430,7 @@ Notes
        reduces ceremony and overhead and thus increases spead.  It is
        essential, however, that decisions to be made are published.
        There should be a review period that is commensurate with the
-       gravity of the decsion at hand.  Lazy concensus is used by
+       gravity of the decision at hand.  Lazy concensus is used by
        other open-source projects and foundations including the
        `Apache foundation <https://community.apache.org/committers/lazyConsensus.html>`_
 
