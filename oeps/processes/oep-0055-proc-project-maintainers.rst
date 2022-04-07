@@ -11,7 +11,10 @@ OEP-55: Project Maintainers
    * - Last Modified
      - 2022-03-16
    * - Authors
-     - Edward Zarecor <e0d@tcril.org>, Sarina Canelake <sarina@tcril.org>
+     - Edward Zarecor <e0d@tcril.org>, Sarina Canelake
+       <sarina@tcril.org>, Xavier Antoviaque <antoviaque>, Olivia
+       Ruiz-Knott <oliviaruizknott>, Ned Batchelder <nedbat>, David
+       Joy <davidjoy>
    * - Arbiter
      - Jeremy Bowman <jbowman@2u.com>
    * - Status
