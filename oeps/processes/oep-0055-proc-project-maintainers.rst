@@ -44,7 +44,7 @@ platform.
 Each component part of the Open edX platform requires maintenance to
 ensure that it meets, and continues to meet, the project definition of
 high quality.  That definition will include project standards,
-appropriate documentation,and fitness for use, among other things.
+appropriate documentation, and fitness for use, among other things.
 That definition will evolve as project needs do and we learn what
 works and what doesn't.
 
