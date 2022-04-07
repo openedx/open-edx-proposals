@@ -273,7 +273,7 @@ any member of the community including the nominee themselves.  If
 there is no objection from existing maintainers, the role will be
 conferred.
 
-If consensus cannot be reached lazily, a vote of existing maintainers
+If consensus cannot be reached lazily [#lazy_concensus]_, a vote of existing maintainers
 will be taken.  Maintainers can approve a nomination with the approval
 of at least three quarters of the members.
 
@@ -429,8 +429,7 @@ Notes
        There should be a review period that is commensurate with the
        gravity of the decsion at hand.  Lazy concensus is used by
        other open-source projects and foundations including the
-       `Apache
-       foundation<https://community.apache.org/committers/lazyConsensus.html>`_
+       `Apache foundation <https://community.apache.org/committers/lazyConsensus.html>`_
 
 .. _Django framework: https://www.djangoproject.com/
 
