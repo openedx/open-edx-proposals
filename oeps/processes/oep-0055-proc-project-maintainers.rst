@@ -151,7 +151,7 @@ Non-technical responsibilities of maintainers include:
 
 * Effective communication with community members, other maintainers,
   and project leadership
-* Selection and approval of Core Contributors with commit rights to their repositories
+* Selection and approval of Core Contributors with commit rights to their repositories, by participating in the comment period for Core Contributor nominees nominated to commit code to their repo(s), as part of the `Core Contributor Program`_
 * Disciplined management to ensure that maintenance work is done
 * Enforcement of the project's standards, both technical and social: maintainers
   must remain friendly, kind, and open, but that should not supercede
