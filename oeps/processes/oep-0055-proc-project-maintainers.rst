@@ -214,8 +214,8 @@ maintainer for the components that they own.
 Community members who are acting in informal maintainer roles will
 also be asked to become named maintainers.
 
-A list of all components without maintainers will be created and
-published.
+A list of all components and their maintainers will be created and
+published, including a list of the components without a maintainer.
 
 An asynchronous channel will be available for all maintainers to
 communicate and collaborate; initially this will be a Slack channel.
