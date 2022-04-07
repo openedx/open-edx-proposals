@@ -157,6 +157,8 @@ Non-technical responsibilities of maintainers include:
   must remain friendly, kind, and open, but that should not supercede
   enforcement of technical standards
 * Ensure that bug reports are read, acknowledged, and prioritized in a timely fashion
+* Ensure that work related to the component, planning, design,
+  development, is done in the open
 
 Technical responsibilities of maintainers include:
 
