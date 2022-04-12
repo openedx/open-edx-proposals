@@ -145,17 +145,24 @@ stability) to allow for additional incremental updates.
 Architecture Group
 ------------------
 
-The Architecture Group is ultimately accountable for assigning Arbiters to incoming
-Draft OEPs and revived OEPs that need a new Arbiter (if the original Arbiter is no
-longer available). The group can also be a resource to help or advise the
-Arbiter with the OEP process. The group can be found in the `Architecture Group
-Discourse category`_ or the ``#architecture`` channel in the `Open edX Slack`_.
+The Architecture Group serves as a backstop for the OEP process. Specifically,
+the group can assist in finding an Arbiter for an OEP if the Author is having
+trouble getting one for a new OEP or revived OEPs that need a new Arbiter (if
+the original Arbiter is no longer available). It is best practice for the
+Arbiter to be from a different team or group than the Author.
+
+If there is uncertainty about a choice of Arbiter, it is reasonable to start a
+discussion with the group. The group can also be a resource to help or advise
+the Arbiter with the OEP process. The group can be found in the `Architecture
+Group Discourse category`_ or the ``#architecture`` channel in the `Open edX
+Slack`_.
 
 .. _Architecture Group Discourse category: https://discuss.openedx.org/c/development/architecture/12
 .. _Open edX Slack: http://openedx-slack-invite.herokuapp.com/
 
 *Note: If an architecture or similar working group is created, those details
-should be added here.*
+should be added here. Currently, the phrase "Architecture Group" refers to the
+set of community members who are active in the ``#architecture`` channel.*
 
 OEP Workflow
 ============
@@ -540,6 +547,12 @@ at the top of the list.
 
 Change History
 ==============
+
+2022-04-06
+----------
+
+* Clarify what is currently meant by "Architecture Group" (not an official team right now)
+* `Pull request #326 <https://github.com/openedx/open-edx-proposals/pull/326>`_
 
 2022-02-27
 ----------
