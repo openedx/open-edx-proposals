@@ -58,7 +58,7 @@ pygments==2.11.2
     # via
     #   -r requirements/base.txt
     #   sphinx
-pyparsing==3.0.7
+pyparsing==3.0.8
     # via
     #   -r requirements/base.txt
     #   packaging
