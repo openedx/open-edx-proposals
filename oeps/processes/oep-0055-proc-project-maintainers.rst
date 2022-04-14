@@ -118,7 +118,7 @@ in the `Core Contributor Program`_ as a coding core contributor and
 meeting the requirements of that program.
 
 The term **maintainer scrum-of-scrums** will mean the group of all
-maintainers who are responsible for flagging issues to project
+maintainers.  They are responsible for flagging issues to project
 leadership and proposing process improvements for component
 maintenance.
 
