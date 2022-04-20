@@ -85,7 +85,7 @@ You must have ``CHANGELOG.rst`` in the target repository and you need to make th
     * Resolve RemovedInDjango4.0 warnings.
 
 
-* In setup.cfg add the configurations for semantic-release.
+* In setup.cfg add the configurations for semantic-release as shown below for auth-backends repository.
     - ``version_variable``  Path of the version variable
     - ``commit_author``     Username and email to be used for commits
 
