@@ -422,10 +422,11 @@ Notes
 
 .. [#role] In fact, studies of the traits of effective maintainers have
        highlighted that non-technical aspects of the role are often
-       more highly valued by community members 2021 IEEE/ACM 43rd
-       International Conference on Software Engineering (ICSE) `What
+       more highly valued by community members. See `What
        Makes a Great Maintainer of Open Source Projects?
        <https://www.computer.org/csdl/proceedings-article/icse/2021/029600a982/1sEXoQoeO0E>`_
+       (2021 IEEE/ACM 43rd International Conference on Software
+       Engineering (ICSE)).
 
 .. [#lazy_concensus] Lazy concensus is a process by which decisions
        are approved unless there are objections.  It is sometimes
