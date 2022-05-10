@@ -373,6 +373,29 @@ categories
   * What new patterns or technologies should be adopted to improve the
     component?
   * How it can be extended?
+
+* **Project Documentation**: Maintainers provide descriptive project information
+  in the following documents:
+
+  * A required ``README`` file that explains what the component is used for and as
+    much detail as available, such as:
+
+    * What the component is for and other facets of the technical vision (or
+      links to relevant docs)
+    * Who the maintainers are (and how to reach them)
+    * How to set up a developer environment
+    * (If applicable) relevant environment variables
+    * Relevant information for the community (such as, if the code is in an
+      experimental place or is not taking contributions)
+
+  * We additionally recommend documentation to help others understand the
+    component, such as:
+
+    * ADRs
+    * Architecture diagrams and architecture documentation
+    * A product roadmap
+    * Links to a project board
+
 * **Continuous Improvement**: Maintainers should be thinking
   about continuously improving both software and processes.
 
