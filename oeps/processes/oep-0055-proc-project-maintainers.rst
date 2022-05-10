@@ -173,9 +173,11 @@ Technical responsibilities of maintainers include:
 * Understanding the current component architecture and implementation
 * Ensuring that basic documentation for the component exists and is accurate
 * The ability to solve or escalate issues facing users of the component
-* Ensure that dependencies are updated as needed to avoid security risks or use
+* Ensuring that dependencies are updated as needed to avoid security risks or use
   of components that or not fit for use, e.g., unsupported, not maintained, or
   at their end-of-life.
+* Ensuring ongoing compatibility with other components of the Open edX ecosystem
+  as they are developed
 * Having a documented technical vision for the evolution of the component
 * The ability to promptly triage incoming requests that propose changes to or
   extensions of the component, assessing their appropriateness and/or routing
@@ -185,7 +187,9 @@ Technical responsibilities of maintainers include:
 * Must be available to participate in the comment period for Core Contributor
   nominees who have been nominated to commit code to the maintainer's repo(s),
   as part of the `Core Contributor Program`_
-  
+
+See `Jobs of the Maintainer`_ for more details on these requirements.
+
 It is acceptable for a component to be maintained by a team or group as long as
 that arrangement does not reduce the reachability of at least one maintainer or
 reduce accountability for the above responsibilites. The maintaining team must
