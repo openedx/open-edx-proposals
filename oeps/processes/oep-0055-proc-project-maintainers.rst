@@ -150,19 +150,23 @@ is best to make that clear as early as possible.
 
 Non-technical responsibilities of maintainers include:
 
-* Effective communication with community members, other maintainers,
-  and project leadership
-* Selection and approval of Core Contributors with commit rights to
-  their repositories, by participating in the comment period for Core
-  Contributor nominees nominated to commit code to their repo(s), as
-  part of the `Core Contributor Program`_
+* Effective communication with community members, other maintainers, and project
+  leadership
+* Selection and approval of Core Contributors with commit rights to their
+  repositories, by participating in the comment period for Core Contributor
+  nominees nominated to commit code to their repo(s), as part of the `Core
+  Contributor Program`_
 * Disciplined management to ensure that maintenance work is done
-* Enforcement of the project's standards, both technical and social: maintainers
-  must remain friendly, kind, and open, but that should not supersede
-  enforcement of technical standards
-* Ensure that bug reports are read, acknowledged, and prioritized in a timely fashion
-* Ensure that work related to the component, planning, design,
-  development, is done in the open
+* Enforcement of the project's technical standards
+* Ensuring that all work related to the component, planning, design, and
+  development occurs in public spaces, enabling all Open edX community members
+  to read and comment on discussions. Discretion may be used in cases that might
+  need to remain private (such as security disclosures)
+* Encouraging kindness and friendliness in project discourse, but not at the
+  expense of enforcing the project's technical standards. At minimum,
+  maintainers should ensure that all discussion follows the `Code of Conduct`_
+* Ensuring that bug reports are read, acknowledged, and prioritized in a timely
+  fashion
 
 Technical responsibilities of maintainers include:
 
@@ -201,7 +205,6 @@ In order to be a repository maintainer, you must
   contributions that are relevant will match those defined in the
   `code contributors`_
 * Abide by the Open edX `Code of Conduct`_
-  <https://openedx.org/code-of-conduct/>`_
 * Be a member of the `Core Contributor Program`_ with rights to the repository
   in question who has demonstrated excellence in the role of core contributor.
   From time-to-time, in the case of a strong candidate and project need, core
