@@ -171,30 +171,28 @@ Non-technical responsibilities of maintainers include:
 Technical responsibilities of maintainers include:
 
 * Understanding the current component architecture and implementation
-* Ensuring that basic documentation for the component exists and is
-  accurate
-* The ability to solve or escalate issues facing users of the
-  component
-* Ensure that dependencies are updated as needed to avoid security
-  risks or use of components that or not fit for use, e.g.,
-  unsupported, not maintained, or at their end-of-life.
-* Having a documented technical vision for the evolution of the
-  component
-* The ability to assess the appropriateness of proposed changes to or
-  extensions of the component
+* Ensuring that basic documentation for the component exists and is accurate
+* The ability to solve or escalate issues facing users of the component
+* Ensure that dependencies are updated as needed to avoid security risks or use
+  of components that or not fit for use, e.g., unsupported, not maintained, or
+  at their end-of-life.
+* Having a documented technical vision for the evolution of the component
+* The ability to promptly triage incoming requests that propose changes to or
+  extensions of the component, assessing their appropriateness and/or routing
+  them to proper reviewers
 * Understanding the role of the component in the overall platform and how it
   interacts with other components
-* Must be available to participate in the comment period for Core
-  Contributor nominees who have been nominated to commit code to the
-  maintainer's repo(s), as part of the `Core Contributor Program`_
+* Must be available to participate in the comment period for Core Contributor
+  nominees who have been nominated to commit code to the maintainer's repo(s),
+  as part of the `Core Contributor Program`_
   
-It is acceptable for a component to be maintained by a team or group
-as long as that arrangement does not reduce the reachability of at least one
-maintainer or reduce accountability for the above responsibilites. The
-maintaining team must have ways of direct contact, such as an email address and
-a GitHub team, that anyone can use to get ahold of someone - it is completely
-acceptable for the team to figure out arrangements for list monitoring, such as
-an "on-call" rotation.
+It is acceptable for a component to be maintained by a team or group as long as
+that arrangement does not reduce the reachability of at least one maintainer or
+reduce accountability for the above responsibilites. The maintaining team must
+have ways of direct contact, such as an email address and a GitHub team, that
+anyone can use to get ahold of someone - it is completely acceptable for the
+team to figure out arrangements for list monitoring, such as an "on-call"
+rotation.
 
 Prerequisites
 -------------
