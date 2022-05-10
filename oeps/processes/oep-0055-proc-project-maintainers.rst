@@ -18,7 +18,7 @@ OEP-55: Project Maintainers
    * - Arbiter
      - Jeremy Bowman <jbowman@2u.com>
    * - Status
-     - Draft
+     - Provisional
    * - Type
      - Process
    * - Created
