@@ -216,22 +216,11 @@ In order to be a repository maintainer, you must
 
 Bootstrapping
 -------------
-In order to ensure an orderly roll-out of the formal maintainer role,
-existing 2U staff in the owner role will transition into the role of
-maintainer for the components that they own.
-
-Community members who are acting in informal maintainer roles will
-also be asked to become named maintainers.
-
-A list of all components and their maintainers will be created and
-published, including a list of the components without a maintainer.
-
-An asynchronous channel will be available for all maintainers to
-communicate and collaborate; initially this will be a Slack channel.
-
-Standards for measuring the quality of repositories will be rolled out
-across all repositories.  These standards can benefit from work done
-at edX to measure `repository health <https://github.com/openedx/edx-repo-health>`_.
+Upon acceptance of this OEP, a bootstrapping period, starting with a small pilot
+phase, will occur whereby 2U staff and community members will formally take on
+maintainership roles. Details of this period will be documented in the
+`maintainership documents`_ on the Open edX wiki, due to their rapidly changing
+nature.
 
 The Maintainer Scrum-of-Scrums
 ------------------------------
@@ -486,6 +475,8 @@ Notes
 .. _Core Contributor Program: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0054-core-contributors.html
 
 .. _code contributors: https://openedx.atlassian.net/wiki/spaces/COMM/pages/1529675973/Rights+Responsibilities+for+Code+Contributors
+
+.. _maintainership documents: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3426418790/Maintainership+of+Open+edX+Repos
 
 .. _requirements for public repositories: https://openedx.atlassian.net/l/c/j6qLr5ET
 
