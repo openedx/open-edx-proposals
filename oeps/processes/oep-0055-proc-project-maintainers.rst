@@ -254,14 +254,21 @@ outlined above.
 
 A new maintainer can be added in any of the following ways:
 
-* An existing maintainer can request that a new person become a
-  component maintainer either in conjunction with the existing
-  maintainer or by replacing them.  If there is no objection from
-  existing maintainers, the role will be conferred.
+* An existing maintainer or core contributor can request that a new person
+  become a component maintainer either in conjunction with the existing
+  maintainer or by replacing them.
 * If the component is sufficiently complex to justify multiple
   maintainers, those maintainers form a group and should organize
   internally and present a single point of contact (like
   teams-as-maintainers above).
+
+In both of the above cases, the request for maintainership change should be
+publicized in Discourse with a comment period not less than two weeks. All
+community members are welcome to voice their support ("liking" the post does not
+count), or comment with question/concerns. Existing maintainers and core
+contributors may object to the nomination. If there is no objection from
+existing maintainers or core contributors at the end of the comment period, the
+role will be conferred.
 
 We are not currently limiting staff of companies from appointing,
 nominating, or voting for other employees of their company.  This
