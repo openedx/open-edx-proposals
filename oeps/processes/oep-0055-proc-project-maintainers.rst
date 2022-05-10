@@ -325,6 +325,11 @@ backstop - any community member may contact them at any time if
 a problem arises and the normal channels of communication are
 not working.
 
+In this situation, once the existing maintainer is removed, the component enters
+an "unmaintained" status. This status is to recognize that there is not another
+group with unlimited spare capacity to pick up the slack, and to encourage the
+community to find a new maintainer.
+
 Documenting Maintainers
 -----------------------
 As it is essential that maintainers are discoverable and reachable,
