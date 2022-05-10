@@ -9,7 +9,7 @@ OEP-55: Project Maintainers
    * - Title
      - Project Maintainers
    * - Last Modified
-     - 2022-03-16
+     - 2022-05-13
    * - Authors
      - Edward Zarecor <e0d@tcril.org>, Sarina Canelake
        <sarina@tcril.org>, Xavier Antoviaque <antoviaque>, Olivia
@@ -24,7 +24,7 @@ OEP-55: Project Maintainers
    * - Created
      - 2022-01-28
    * - Review Period
-     - 2022-03-21 - 2022-04-11
+     - 2022-03-21 - 2022-05-13
    * - Resolution
      - <links to any discussions where the final status was decided>
    * - References
@@ -124,10 +124,8 @@ maintenance.
 
 The term **Technical Oversight Committee** (TOC) will mean the group
 responsible for the overall oversight and stewardship of the Open edX
-project. The TOC's function with respect to the project is to be the
-arbiter of last resort for governance matters. The TOC itself was established
-and is governed by a formal
-charter.  You can read the full document `here
+project. The TOC itself was established and is governed by a formal charter.
+You can read the full document `here
 <https://openedx.org/wp-content/uploads/2021/12/TCRIL-Technical-Oversight-Committee-Charter-rev.11-16.21.pdf>`_.
 
 Historical Context
@@ -370,14 +368,24 @@ categories
 * **Continuous Improvement**: Maintainers should be thinking
   about continuously improving both software and processes.
 
+Governance Structure
+--------------------
+The Maintainers program will be run by the maintainers themselves, working
+together with input from Core Contributors and the broader community. The
+`program administrators`_ will serve as a backstop for any questions or issues
+about the Program or governance thereof that cannot be resolved by the
+maintainers themselves. The Technical Oversight Committee (TOC) will be the
+arbiter of last resort for governance matters.
+
 .. _program administrators:
 
 Contact the Program Administrators
 ----------------------------------
 
 Questions about the Program can be directed to the tCRIL administrator(s) via
-the ``#to-be-defined`` Slack room in the `Open edX Slack
-<https://openedx.slack.com/>`_ or at ``maintainer-program-admins@tcril.org``.
+the ``#ask-tcril`` Slack room in the `Open edX Slack
+<https://openedx.slack.com/>`_. Questions or concerns of a more sensitive nature
+may be directed to ``maintainer-program-admins@tcril.org``.
   
 
 Change History
