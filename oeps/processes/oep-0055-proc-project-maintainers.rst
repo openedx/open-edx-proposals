@@ -203,16 +203,22 @@ Prerequisites
 In order to be a repository maintainer, you must
 
 * Be an active member of the Open edX community who has made technical
-  contributions to the project in the last 6 months.  The types of
-  contributions that are relevant will match those defined in the
-  `code contributors`_
+  contributions to the project in the last 6 months, such as feature work,
+  upgrades, bug fixes, or architectural/design contributions
 * Abide by the Open edX `Code of Conduct`_
 * Be a member of the `Core Contributor Program`_ with rights to the repository
-  in question who has demonstrated excellence in the role of core contributor.
+  in question who has demonstrated excellence in the role of Core Contributor.
   From time-to-time, in the case of a strong candidate and project need, core
-  contributor status and maintainer status may be conferred at the same time.
+  contributor status and maintainer status may be conferred at the same time
 * In the case of repos being moved into the `openedx GitHub organization`_, be
-  an original maintainer of the code.
+  an original maintainer of the code
+
+We value the level of commitment that comes with being a Core Contributor and
+think it is a necessary pre-requisite to becoming a Maintainer. We want to
+ensure that the programs are congruent and not working at cross purposes; hours
+spent maintaining a component will count as Core Contributor hours. If we find
+that the requirement of being a Core Contributor limits participation in the
+Maintainers program, we may choose to revisit this requirement.
 
 Bootstrapping
 -------------
@@ -478,8 +484,6 @@ Notes
 .. _Django framework: https://www.djangoproject.com/
 
 .. _Core Contributor Program: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0054-core-contributors.html
-
-.. _code contributors: https://openedx.atlassian.net/wiki/spaces/COMM/pages/1529675973/Rights+Responsibilities+for+Code+Contributors
 
 .. _maintainership documents: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3426418790/Maintainership+of+Open+edX+Repos
 
