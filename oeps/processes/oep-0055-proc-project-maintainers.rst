@@ -141,6 +141,7 @@ You can read the full document `here
 
 Historical Context
 ------------------
+
 Historically, the Open edX project has not had a well-defined role
 of maintainer.  At times, community members stepped into this role
 informally.  The role was also part of a broader "owner" role at edX.
@@ -150,6 +151,7 @@ pager when something went wrong.
 
 What Maintainers Do
 -------------------
+
 The role of the repository or project maintainer is both a community
 focused and a technical role [#role]_.  Maintainers will be the public face
 of each component and should be welcoming and available.  While
@@ -211,6 +213,7 @@ rotation.
 
 Prerequisites
 -------------
+
 In order to be a repository maintainer, you must
 
 * Be an active member of the Open edX community who has made technical
@@ -233,6 +236,7 @@ Maintainers program, we may choose to revisit this requirement.
 
 Bootstrapping
 -------------
+
 Upon acceptance of this OEP, a bootstrapping period, starting with a small pilot
 phase, will occur whereby 2U staff and community members will formally take on
 maintainership roles. Details of this period will be documented in the
@@ -241,6 +245,7 @@ nature.
 
 The Maintainer Scrum-of-Scrums
 ------------------------------
+
 In order to coordinate certain maintainer responsibilities including
 voting on nominated maintainers, iterating on standards, and removing
 maintainers, minimal mechanisms for coordination are required.
@@ -256,6 +261,7 @@ as well as tools for measuring compliance to those standards.
 
 Becoming a Maintainer
 ---------------------
+
 After the bootstrapping phase, the Open edX project will need
 processes for adding maintainers, replacing maintainers, and ensuring
 that new components are maintained.
@@ -287,8 +293,15 @@ would be impractical as, currently, single companies are locus of
 component maintenance work. This may be addressed in future revisions
 to this proposal.
 
+New Components
+--------------
+
+In the case of new repositories, there should be a designated maintainer named
+before the repository is created.
+
 Unmaintained Components
 -----------------------
+
 In the case of unmaintained components, nominations will be made to
 the scrum-of-scrums to fill the vacancy.  Nominations can be made by
 any member of the community including the nominee themselves.  If
@@ -299,13 +312,9 @@ If consensus cannot be reached lazily [#lazy_concensus]_, a vote of existing mai
 will be taken.  Maintainers can approve a nomination with the approval
 of at least three quarters of the members.
 
-New Components
---------------  
-In the case of new repositories, there should be a designated
-maintainer named before the repository is created.
-
 Removing a Maintainer
 ---------------------
+
 From time-to-time it will be necessary to remove a component
 maintainer.  This might happen because:
 
@@ -349,6 +358,7 @@ community to find a new maintainer.
 
 Documenting Maintainers
 -----------------------
+
 As it is essential that maintainers are discoverable and reachable,
 the person or persons responsible for maintaining a component should
 be listed in the repository README file along with the mechanism for
@@ -356,6 +366,7 @@ contacting a maintainer.
 
 Jobs of the Maintainer
 ----------------------
+
 Many of the day-to-day specifics of the maintainer role are outside of
 the scope of this document.  For example, here we will note that
 maintainers are responsible for ensuring that repositories meet
@@ -415,7 +426,8 @@ categories
   about continuously improving both software and processes.
 
 Governance Structure
---------------------
+====================
+
 The Maintainers program will be run by the maintainers themselves, working
 together with input from Core Contributors and the broader community. The
 `program administrators`_ will serve as a backstop for any questions or issues
@@ -426,7 +438,7 @@ arbiter of last resort for governance matters.
 .. _program administrators:
 
 Contact the Program Administrators
-----------------------------------
+==================================
 
 Questions about the Program can be directed to the tCRIL administrator(s) via
 the ``#ask-tcril`` Slack room in the `Open edX Slack
