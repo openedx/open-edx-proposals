@@ -1,6 +1,7 @@
 ===========================
 OEP-55: Project Maintainers
 ===========================
+
 .. list-table::
    :widths: 25 75
 
@@ -37,6 +38,15 @@ OEP-55: Project Maintainers
 Abstract
 ========
 
+The term "maintainer" refers to an individual or group of people who serve as
+leaders for a given component (a service or library comprised of code and hosted
+on GitHub) of the Open edX platform. Maintainers provide both technical and
+community management. This document defines what a maintainer is, how they are
+chosen, and how they work together.
+
+Overview
+========
+
 The Open edX platform is a service oriented platform for authoring and
 delivering online learning based on the `Django framework`_.  At the
 highest level, the platform is composed of numerous services (IDAs
@@ -59,9 +69,10 @@ The Open edX project, like many projects, calls this role
 "maintainer."  The notion of a project maintainer is typical of
 open-source projects and widely considered a best practice [#maintainer]_.
 
-The maintainer role is a leadership role that encompasses both
-technical and community management elements.  Both dimensions of the role are
-equally important.
+The maintainer role is a leadership role that encompasses both technical and
+community management elements.  Both dimensions of the role are equally
+important. Maintainers demonstrate their fitness for this role by being part of
+the Core Contributor program prior to their maintainer nomination.
 
 All non-deprecated components of the Open edX project must have one
 or more named maintainers.  When no such maintainer(s) exist, this will
