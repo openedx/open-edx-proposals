@@ -17,7 +17,7 @@ Testing locally
 ---------------
 
 To test locally in a Python virtual env, you will first need to install `GraphViz <http://graphviz.org/>`_
-On a Mac, this can be done via ``brew install graphviz``; on Ubuntu, use ``sudo apt install graphviz``.
+On a Mac, this can be done via ``brew install graphviz``; on Ubuntu, use ``sudo apt install graphviz``; on Red Hat variants use ``sudo dnf install graphviz``.
 Next run the following commands::
 
   pip install sphinx  # it may fail for non-obvious reasons without this
