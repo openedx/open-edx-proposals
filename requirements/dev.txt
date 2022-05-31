@@ -22,7 +22,7 @@ charset-normalizer==2.0.12
     #   requests
 colorama==0.4.4
     # via sphinx-autobuild
-docutils==0.17.1
+docutils==0.18.1
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -79,7 +79,7 @@ snowballstemmer==2.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-sphinx==4.5.0
+sphinx==5.0.0
     # via
     #   -r requirements/base.txt
     #   edx-sphinx-theme
