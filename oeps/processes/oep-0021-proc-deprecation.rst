@@ -198,8 +198,10 @@ considers the timing of the next `Open edX named release`_.
 Consider choosing deprecation and removal dates that allow for a full
 release cycle for transition planning. For example, a deprecation
 proposal could be accepted while Maple is being finalized, then
-implement the removal some time after Maple is released (so that the
-removal itself will land in Nutmeg). Any deployment following the
+implement the removal some time after Maple is released so that the
+removal itself will land in Nutmeg. (Removal could even happen as soon as
+a named release's branches are cut, but this may interfere with fixes that
+need to be backported.) Any deployment following the
 named releases would then have a number of months to prepare before
 Nutmeg comes out.
 
