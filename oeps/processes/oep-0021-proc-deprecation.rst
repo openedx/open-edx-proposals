@@ -414,6 +414,12 @@ References
 Change History
 ==============
 
+2022-06-03
+----------
+
+* Suggest alignment with release cycle
+* `Pull reqest #252 <https://github.com/openedx/open-edx-proposals/pull/252>`_
+
 2022-02-08
 ----------
 
