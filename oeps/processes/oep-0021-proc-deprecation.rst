@@ -195,6 +195,22 @@ considers the timing of the next `Open edX named release`_.
   Consider when the next Named Release is cut; if it is very soon, you may wish to delay final
   removal until after the cut date.
 
+Consider choosing deprecation and removal dates that allow for a full
+release cycle for transition planning. For example, a deprecation
+proposal could be accepted while Maple is being finalized, then
+implement the removal some time after Maple is released so that the
+removal itself will land in Nutmeg. (Removal could even happen as soon as
+a named release's branches are cut, but this may interfere with fixes that
+need to be backported.) Any deployment following the
+named releases would then have a number of months to prepare before
+Nutmeg comes out.
+
+This approach would be most appropriate for features that can be left
+in place for an extended period before removal and where a transition
+to an alternative would require a moderate to large amount of
+effort. For more trivial deprecations, it may be appropriate to simply
+deprecate and remove within the same release cycle.
+
 .. _Open edX named release: https://open-edx-proposals.readthedocs.io/en/latest/oep-0010-proc-openedx-releases.html
 
 Document
@@ -319,6 +335,9 @@ Once enough time is allotted for community feedback, all concerns on the
 **DEPR** ticket are responded to, and the target *Accepted* date has passed,
 update the state of the **DEPR** ticket to *Accepted*.
 
+For larger changes, it may be important to mention the upcoming deprecation
+in the release notes of the next named release.
+
 Deprecated
 ----------
 
@@ -394,6 +413,12 @@ References
 
 Change History
 ==============
+
+2022-06-03
+----------
+
+* Suggest alignment with release cycle
+* `Pull reqest #252 <https://github.com/openedx/open-edx-proposals/pull/252>`_
 
 2022-02-08
 ----------
