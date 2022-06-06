@@ -238,8 +238,10 @@ The process for nomination is as follows:
    #. For roles with few existing members, it is encouraged to ask CCs of other
       roles to help evaluate the candidate.
 
-#. If the candidate is approved, the candidate should proactively work with the
-   Program Administrator to get the access they need for their role.
+#. If the candidate is approved, the candidate should follow the procedures
+   outlined in the `onboarding runbooks
+   <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3359342743/Participant+Administrator+Runbooks>`_
+   to get the access they need for their role.
 
 #. If the candidate has not been approved, the sponsor (or Program
    Administrator, in the case of organic candidates) should discuss with the
@@ -346,6 +348,12 @@ the ``#core-contributors`` Slack room in the `Open edX Slack
 
 Change History
 ==============
+
+2022-06-08
+----------
+
+* Add link to the runbooks guide for onboarding new CCs
+* `Pull request #335 <https://github.com/openedx/open-edx-proposals/pull/335>`_
 
 2022-02-28
 ----------
