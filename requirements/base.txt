@@ -40,7 +40,7 @@ six==1.16.0
     # via edx-sphinx-theme
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==5.0.0
+sphinx==5.0.1
     # via
     #   -r requirements/base.in
     #   edx-sphinx-theme
