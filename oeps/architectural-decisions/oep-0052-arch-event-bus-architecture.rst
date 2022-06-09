@@ -16,15 +16,15 @@ OEP-0052: Event Bus Architecture
    * - Authors
      - Feanil Patel <feanil@edx.org>, Robert Raposa <rraposa@edx.org>
    * - Arbiter
-     - TBD
+     - Tobias Macey <tmacey@mit.edu>
    * - Status
-     - Draft
+     - Under Review (=> Provisional)
    * - Type
      - Architecture
    * - Created
      - 2021-08-16
    * - Review Period
-     - TBD
+     - 2022-06-09 - 2022-06-30
 
 Overview
 --------
