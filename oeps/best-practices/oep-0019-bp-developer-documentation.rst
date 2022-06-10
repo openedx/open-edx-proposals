@@ -155,7 +155,7 @@ A suggested ADR template::
   ##################
   0000 Title For ADR
   ##################
-  .. The title should be a short noun phrases. For example, "0001 Django IDA" or "0009 LDAP for Multitenant Integration"; filename should be lowercase with punctuation removed and spaces replaced by dash
+  .. The title should be a short noun phrase. For example, "0001 Django IDA" or "0009 LDAP for Multitenant Integration"; filename should be lowercase with punctuation removed and spaces replaced by dash
 
   Status
   ******
