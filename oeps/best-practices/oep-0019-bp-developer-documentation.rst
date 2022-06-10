@@ -175,16 +175,24 @@ A suggested ADR template::
 
   .. This section describes our response to these forces. It is stated in full sentences, with active voice. "We will …"
 
-  Options Considered
-  ******************
-
-  .. This section lists alternate options considered, described briefly, with pros and cons. The option proposed / adopted may be included here (typically first) if more explanation is helpful.
-
   Consequences
   ************
 
   .. This section describes the resulting context, after applying the decision. All consequences should be listed here, not just the "positive" ones. A particular decision may have positive, negative, and neutral consequences, but all of them affect the team and project in the future.
 
+  Options Considered
+  ******************
+
+  .. This section lists alternate options considered, described briefly, with pros and cons. The option proposed / adopted may be included here (typically first) if more explanation is helpful.
+
+  References
+  **********
+
+  .. List any additional references here that would be useful to the future reader. See `Documenting Architecture Decisions`_ for further input.
+
+  .. _Documenting Architecture Decisions: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+
+The author is encouraged to add other sections as appropriate, such as "Author Concerns", "Related Decisions", etc.
 
 READMEs
 -------
