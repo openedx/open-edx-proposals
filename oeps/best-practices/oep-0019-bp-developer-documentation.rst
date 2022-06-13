@@ -150,9 +150,10 @@ ADRs
 .. _invaluable technique: https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
 .. _edx/credentials/docs/decisions: https://github.com/edx/credentials/tree/master/docs/decisions
 
-A suggested ADR template::
+A suggested ADR template:
 
-  ##################
+.. code-block:: rst
+
   0000 Title For ADR
   ##################
   .. The title should be a short noun phrase. For example, "0001 Django IDA" or "0009 LDAP for Multitenant Integration"; filename should be lowercase with punctuation removed and spaces replaced by dash
@@ -181,15 +182,15 @@ A suggested ADR template::
 
   .. This section describes the resulting context, after applying the decision. All consequences should be listed here, not just the "positive" ones. A particular decision may have positive, negative, and neutral consequences, but all of them affect the team and project in the future.
 
-  Options Considered
+  Rejected Alternatives
   ******************
 
-  .. This section lists alternate options considered, described briefly, with pros and cons. The option proposed / adopted may be included here (typically first) if more explanation is helpful.
+  .. This section lists alternate options considered, described briefly, with pros and cons.
 
   References
   **********
 
-  .. List any additional references here that would be useful to the future reader. See `Documenting Architecture Decisions`_ for further input.
+  .. (Optional) List any additional references here that would be useful to the future reader. See `Documenting Architecture Decisions`_ for further input.
 
   .. _Documenting Architecture Decisions: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
 
