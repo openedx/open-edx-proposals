@@ -456,3 +456,12 @@ Next Steps
 
 .. image:: oep-0019/quill.png
    :align: center
+
+Change History
+==============
+
+2022-06-13
+----------
+
+* Add ADR template, add Change History section
+* `Pull request #340 <https://github.com/openedx/open-edx-proposals/pull/340>`_
