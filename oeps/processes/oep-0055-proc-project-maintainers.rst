@@ -359,10 +359,12 @@ community to find a new maintainer.
 Documenting Maintainers
 -----------------------
 
-As it is essential that maintainers are discoverable and reachable,
-the person or persons responsible for maintaining a component should
-be listed in the repository README file along with the mechanism for
-contacting a maintainer.
+As it is essential that maintainers are discoverable and reachable, the person
+or persons responsible for maintaining a component should be listed in the
+repository.  Per :doc:`the backstage ADR
+<oep-0055/decisions/0001-use-backstage-to-support-maintainers>` we will use a
+``catalog-info.yaml`` file to capture the github handles for the maintainers of
+a repository.
 
 Jobs of the Maintainer
 ----------------------
@@ -392,7 +394,7 @@ categories
 * **Technical Vision**: Maintainers should have a documented technical
   vision for their components. This vision should minimally answer the
   following questions:
-  
+
   * What is the component for?
   * How it fits into the overall platform?
   * What are its limitations and key areas of debt?
@@ -444,7 +446,15 @@ Questions about the Program can be directed to the tCRIL administrator(s) via
 the ``#ask-tcril`` Slack room in the `Open edX Slack
 <https://openedx.slack.com/>`_. Questions or concerns of a more sensitive nature
 may be directed to ``maintainer-program-admins@tcril.org``.
-  
+
+Related Decisions
+=================
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   oep-0055/decisions/*
 
 Change History
 ==============
@@ -459,7 +469,7 @@ Source Material
 * `Collective Code Construction Contract <https://rfc.zeromq.org/spec/42/>`_
 * `Best Practices for Maintainers <https://opensource.guide/best-practices/>`_
 * `Producing OSS <https://producingoss.com/en/producingoss-letter.pdf>`_
-  
+
 Notes
 =====
 
