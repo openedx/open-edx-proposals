@@ -329,6 +329,10 @@ be merged to capture a set of edits, and to make the proposal more visible to
 community comment. From that point, additional pull requests can be opened to
 edit the OEP, until it converges to being either "Accepted" or "Rejected".
 
+If an OEP is in Draft or Under Review, and the intention of the PR is to merge
+it with a status other than Accepted, you can clarify this in the PR using a
+status like the following: "Under Review (=> Provisional)".
+
 OEP Maintenance
 ---------------
 
@@ -547,6 +551,12 @@ at the top of the list.
 
 Change History
 ==============
+
+2022-06-17
+----------
+
+* Clarify how to provide a Draft or Under Review status when the OEP PR is planned
+  to be merged with a status other than Accepted, like Provisional as an example.
 
 2022-04-06
 ----------
