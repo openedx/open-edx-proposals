@@ -6,9 +6,9 @@
 #
 alabaster==0.7.12
     # via sphinx
-babel==2.10.1
+babel==2.10.3
     # via sphinx
-certifi==2022.5.18.1
+certifi==2022.6.15
     # via requests
 charset-normalizer==2.0.12
     # via requests
@@ -40,7 +40,7 @@ six==1.16.0
     # via edx-sphinx-theme
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==5.0.1
+sphinx==5.0.2
     # via
     #   -r requirements/base.in
     #   edx-sphinx-theme
