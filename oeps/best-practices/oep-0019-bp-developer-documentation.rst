@@ -150,6 +150,52 @@ ADRs
 .. _invaluable technique: https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
 .. _edx/credentials/docs/decisions: https://github.com/edx/credentials/tree/master/docs/decisions
 
+A suggested ADR template:
+
+.. code-block:: rst
+
+  0000 Title For ADR
+  ##################
+  .. The title should be a short noun phrase. For example, "0001 Django IDA" or "0009 LDAP for Multitenant Integration"; filename should be lowercase with punctuation removed and spaces replaced by dash
+
+  Status
+  ******
+
+  .. Standard statuses
+      - **Draft** if the decision is newly proposed and in active discussion
+      - **Provisional** if the decision is still preliminary and in experimental phase
+      - **Accepted** *(date)* once it is agreed upon
+      - **Superseded** *(date)* with a reference to its replacement if a later ADR changes or reverses the decision
+
+  Context
+  *******
+
+  .. This section describes the forces at play, including technological, political, social, and project local. These forces are probably in tension, and should be called out as such. The language in this section is value-neutral. It is simply describing facts.
+
+  Decision
+  ********
+
+  .. This section describes our response to these forces. It is stated in full sentences, with active voice. "We will …"
+
+  Consequences
+  ************
+
+  .. This section describes the resulting context, after applying the decision. All consequences should be listed here, not just the "positive" ones. A particular decision may have positive, negative, and neutral consequences, but all of them affect the team and project in the future.
+
+  Rejected Alternatives
+  ******************
+
+  .. This section lists alternate options considered, described briefly, with pros and cons.
+
+  References
+  **********
+
+  .. (Optional) List any additional references here that would be useful to the future reader. See `Documenting Architecture Decisions`_ for further input.
+
+  .. _Documenting Architecture Decisions: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+
+The author is encouraged to add other sections as appropriate, such as "Author Concerns", "Related Decisions", etc.
+
 READMEs
 -------
 
@@ -410,3 +456,12 @@ Next Steps
 
 .. image:: oep-0019/quill.png
    :align: center
+
+Change History
+==============
+
+2022-06-13
+----------
+
+* Add ADR template, add Change History section
+* `Pull request #340 <https://github.com/openedx/open-edx-proposals/pull/340>`_
