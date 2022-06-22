@@ -125,7 +125,7 @@ ADRs
    * - **Description**
      - Inspired by `Nygard's post`_, Architecture Decision Records (ADRs) are local lightweight documents of technical decisions co-located with their corresponding code. They provide rationale behind the code and the archeological path to their current state. The status of an ADR can be:
 
-       * **draft** if the decision is still preliminary and in experimental phase
+       * **draft** if the decision is newly proposed and in active discussion
        * **provisional** if the decision is still preliminary and in experimental phase
        * **accepted** once it is agreed upon
        * **superseded** with a reference to its replacement if a later ADR changes or reverses the decision
