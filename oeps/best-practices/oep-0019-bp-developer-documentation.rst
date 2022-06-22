@@ -168,7 +168,7 @@ A suggested ADR template:
       - **Accepted** *(date)* once it is agreed upon
       - **Superseded** *(date)* with a reference to its replacement if a later ADR changes or reverses the decision
 
-      If an ADR is in Draft, and the intention of the PR is to merge it with a status of Provisional, and not Accepted, you can clarify this in the PR using a status like the following: "Draft (=> Provisional)".
+      If an ADR has Draft status and the PR is under review, you can either use the intended final status (e.g. Provisional, Accepted, etc.), or you can clarify both the current and intended status using something like the following: "Draft (=> Provisional)". Either of these options is especially useful if the merged status is not intended to be Accepted.
 
   Context
   *******
