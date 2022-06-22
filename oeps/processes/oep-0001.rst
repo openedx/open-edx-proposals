@@ -7,7 +7,7 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Title         | OEP Purpose and Guidelines                                   |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2022-02-27                                                   |
+| Last-Modified | 2022-06-22                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | Calen Pennington <cale@edx.org>,                             |
 |               | Joel Barciauskas <joel@edx.org>,                             |
@@ -552,7 +552,7 @@ at the top of the list.
 Change History
 ==============
 
-2022-06-17
+2022-06-22
 ----------
 
 * Clarify how to provide a Draft or Under Review status when the OEP PR is planned
