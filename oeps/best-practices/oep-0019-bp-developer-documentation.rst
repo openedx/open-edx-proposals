@@ -10,7 +10,7 @@ OEP-19: Developer Documentation
    * - Title
      - Developer Documentation
    * - Last Modified
-     - 2019-01-14
+     - 2022-06-22
    * - Authors
      - Grant Goodman, Robert Raposa, Ned Batchelder, Nimisha Asthagiri
    * - Arbiter
@@ -125,7 +125,8 @@ ADRs
    * - **Description**
      - Inspired by `Nygard's post`_, Architecture Decision Records (ADRs) are local lightweight documents of technical decisions co-located with their corresponding code. They provide rationale behind the code and the archeological path to their current state. The status of an ADR can be:
 
-       * **draft** if the decision is still preliminary and in experimental phase
+       * **draft** if the decision is newly proposed and in active discussion
+       * **provisional** if the decision is still preliminary and in experimental phase
        * **accepted** once it is agreed upon
        * **superseded** with a reference to its replacement if a later ADR changes or reverses the decision
 
@@ -166,6 +167,8 @@ A suggested ADR template:
       - **Provisional** if the decision is still preliminary and in experimental phase
       - **Accepted** *(date)* once it is agreed upon
       - **Superseded** *(date)* with a reference to its replacement if a later ADR changes or reverses the decision
+
+      If an ADR has Draft status and the PR is under review, you can either use the intended final status (e.g. Provisional, Accepted, etc.), or you can clarify both the current and intended status using something like the following: "Draft (=> Provisional)". Either of these options is especially useful if the merged status is not intended to be Accepted.
 
   Context
   *******
@@ -459,6 +462,11 @@ Next Steps
 
 Change History
 ==============
+
+2022-06-22
+----------
+
+* Clarify how to provide a Draft status when the ADR PR is planned to be merged with a status other than Accepted, like Provisional.
 
 2022-06-13
 ----------
