@@ -416,6 +416,8 @@ read long after they're generated, and any presigned S3 URLs you generate might
 be expired by the time a consumer gets them.
 
 
+.. _Event Messaging Architectural Goals:
+
 Architectural Goals
 ===================
 
