@@ -128,7 +128,7 @@ The more information you can put in the body of the commit message, the better. 
 
 Breaking changes especially should have detailed information about the implications and alternatives, including a ``BREAKING CHANGE`` footer.
 
-Include references or links to supporting information, such as Jira or GitHub issues.  Some Jira issues will be private to edX.  It is better to link to a private issue than no issue at all. The issue could be made public, and at least its existence is made clear, so people can ask for the information.
+Include references or links to supporting information, such as Jira or GitHub issues.  However, the body should be necessary and sufficient for understanding the commit.  Links to private issues are support for the convenience of contributors, but should not be included in the body of the commit.  Rather, references or links to private issues must be included in the commit footer using the git trailer format.  References to private content must use the ``private-ref:`` token. It is always preferable for any linked issues to be public.
 
 Larger decisions should be recorded in Architectural Decision Records, as explained in `OEP-0019`__.
 
