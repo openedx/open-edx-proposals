@@ -138,6 +138,8 @@ Footer
 ------
 
 Breaking changes must have a ``BREAKING CHANGE:`` footer in the body.  No other footers are specified.
+Breaking changes must have a ``BREAKING CHANGE:`` footer in the body.
+
 
 
 
