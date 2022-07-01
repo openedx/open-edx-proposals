@@ -44,7 +44,7 @@ This is part of our `Change Transparency`_ initiative.
 Motivation
 ==========
 
-Developers should describe the changes they make.  This information is valuable to many audiences: deployers, integrators, end-users, operators, and so on. Developers are in the best position to accurately describe their work and its implications.
+Developers should describe the changes they make.  This information is valuable to many audiences: other developers, deployers, integrators, end-users, operators, and so on. Developers are in the best position to accurately describe their work and its implications.
 
 The nearer to the change that information is captured, the easier it will be to write, and the more accurate it will be.  Changes made by developers are consumed by many people, from the pull request reviewer to the final user of the product.  The more the developer can explain the change, the more easily the change will be understood and used, and the more efficient the overall development process will be.
 
