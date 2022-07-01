@@ -140,6 +140,8 @@ Footer
 Breaking changes must have a ``BREAKING CHANGE:`` footer in the body.  No other footers are specified.
 Breaking changes must have a ``BREAKING CHANGE:`` footer in the body.
 
+Commits may optionally include the ``the Co-authored-by:`` footer to indicate when the commit is the result of a collaboration.
+
 
 
 
