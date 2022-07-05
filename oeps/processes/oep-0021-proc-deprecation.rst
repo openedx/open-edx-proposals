@@ -7,7 +7,7 @@ OEP-21: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2022-02-08                                             |
+| Last Modified   | 2022-07-05                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>,                             |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
@@ -36,7 +36,8 @@ TL;DR
 * **It’s important to know exactly when and what to remove:** Some code may be outdated
   and can be replaced with a new implementation, or some may have very low usage and is
   not worth holding on to. It’s important to analyze to what extent the code is no longer
-  needed and what (if any) ripple effects it could have elsewhere.
+  needed and what (if any) ripple effects it could have elsewhere. Monitoring can be a useful
+  tool for this discovery.
 * **Communicating out proposed changes can help guide the path to depreciation/removal:**
   It is crucial to let others know you believe there’s code needing removal and how you plan
   to go about it. Inform individual stakeholders and use Open edX community channels such as
@@ -164,12 +165,15 @@ When proposing a removal, consider the following analysis:
 * Usage - Which users and services are currently using the code proposed for
   removal on your own Open edX instance?  Perform a quick search across the edX
   codebase to gauge the level of impact and identify potential stakeholders.
-  https://github.com/search?q=org%3Aopenedx+sample&type=Code
+  https://github.com/search?q=org%3Aopenedx+sample&type=Code. Also read `how to
+  monitor deprecation/removal`_ to support this entire process.
 * Replacement - What, if any, is a viable replacement for the code being removed?
 * Migration path - If there is existing high usage in the community, what is a
   viable automated migration path from the deprecated code to the removed code?
 * Deprecation - Based on expected usage and effort to migrate, for how long
   should the deprecation period be?
+
+.. _how to monitor deprecation/removal: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3472654465/Monitoring+and+observability+around+deprecating+old+code
 
 Timeline
 ~~~~~~~~
@@ -413,6 +417,11 @@ References
 
 Change History
 ==============
+
+2022-07-05
+----------
+
+* Add suggestion for monitoring.
 
 2022-06-03
 ----------
