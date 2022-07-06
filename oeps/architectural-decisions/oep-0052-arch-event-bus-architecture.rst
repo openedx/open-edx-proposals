@@ -1,5 +1,5 @@
 ================================
-OEP-0052: Event Bus Architecture
+OEP-52: Event Bus Architecture
 ================================
 
 .. This OEP template is based on Nygard's Architecture Decision Records.
@@ -18,7 +18,7 @@ OEP-0052: Event Bus Architecture
    * - Arbiter
      - Tobias Macey <tmacey@mit.edu>
    * - Status
-     - Under Review (=> Provisional)
+     - Provisional
    * - Type
      - Architecture
    * - Created
@@ -29,7 +29,7 @@ OEP-0052: Event Bus Architecture
 Overview
 --------
 
-.. note:: Consider this OEP an early draft to provide intent and gather feedback. The language and content of the OEP will change over time as we progress on this work and hammer out certain decisions.
+.. note:: This provisional OEP is expected to be updated with references to new ADRs as work progresses.
 
 * Adding an event bus to the Open edX platform allows asynchronous event messaging across services, which enables a number of improvements aligned with our architectural goals.
 
