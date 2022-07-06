@@ -190,7 +190,9 @@ Here's an example of a conventional commit, with a one-line subject, and details
     - `make requirements` used `private.*` which included private.in, which
       pip-sync balks at.
 
-    Fixes: BOM-2345
+    Fixes: https://github.com/openedx/fake-example-repo/issues/1234
+    Co-authored-by: Alice Example <alice@example.com>
+    Private-ref: https://internal-work-tracker.example.com/BOM-2345
 
 .. _tooling section:
 
