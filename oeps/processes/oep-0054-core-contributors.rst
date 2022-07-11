@@ -275,7 +275,7 @@ forums, reading through to understand what's going on and jumping in to ask
 questions.  The ``#core-contributors`` room in `Open edX Slack
 <https://openedx.slack.com/>`_ can help guide people towards others working in
 their area(s) of interest. For those joining Slack for the first time, `here's
-an invite <http://openedx-slack-invite.herokuapp.com/>`_.
+an invite <http://openedx.org/slack>`_.
 
 Existing community members who have a record of contributing to the Open edX
 project should feel free to reach out to `current CCs

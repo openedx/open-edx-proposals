@@ -158,7 +158,7 @@ Group Discourse category`_ or the ``#architecture`` channel in the `Open edX
 Slack`_.
 
 .. _Architecture Group Discourse category: https://discuss.openedx.org/c/development/architecture/12
-.. _Open edX Slack: http://openedx-slack-invite.herokuapp.com/
+.. _Open edX Slack: http://openedx.org/slack
 
 *Note: If an architecture or similar working group is created, those details
 should be added here. Currently, the phrase "Architecture Group" refers to the
