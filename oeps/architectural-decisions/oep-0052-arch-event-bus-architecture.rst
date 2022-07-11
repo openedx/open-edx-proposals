@@ -1,6 +1,6 @@
-================================
+##############################
 OEP-52: Event Bus Architecture
-================================
+##############################
 
 .. This OEP template is based on Nygard's Architecture Decision Records.
 
@@ -12,7 +12,7 @@ OEP-52: Event Bus Architecture
    * - Title
      - Event Bus Architecture
    * - Last Modified
-     - 2022-03-30
+     - 2022-07-11
    * - Authors
      - Feanil Patel <feanil@edx.org>, Robert Raposa <rraposa@edx.org>
    * - Arbiter
@@ -27,9 +27,11 @@ OEP-52: Event Bus Architecture
      - 2022-06-09 - 2022-06-30
 
 Overview
---------
+********
 
-.. note:: This provisional OEP is expected to be updated with references to new ADRs as work progresses.
+.. note::
+
+    This provisional OEP is expected to be updated with references to new sub-decision ADRs and documentation to add clarity as work progresses. See the `event bus project roadmap`_ for more details.
 
 * Adding an event bus to the Open edX platform allows asynchronous event messaging across services, which enables a number of improvements aligned with our architectural goals.
 
@@ -39,9 +41,10 @@ Overview
 
 * Event bus events will further extend the Hooks Extension Framework events, and use an Avro schema to serialize the existing hooks signals.
 
+.. _event bus project roadmap: https://github.com/openedx/platform-roadmap/issues/28
 
 Context
--------
+*******
 
 The already accepted :doc:`oep-0041-arch-async-server-event-messaging` details the general format and conventions the Open edX platform should use for asynchronous event messaging across services. It also provides background on a set of :ref:`Event Messaging Architectural Goals` for the Open edX platform, including:
 
@@ -60,7 +63,7 @@ In other words, we have documented what we wish to do and why, but we do not yet
 .. _publish-subscribe messaging pattern: https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
 
 Decision
---------
+********
 
 * Adding an event bus to the Open edX platform allows asynchronous event messaging across services, which enables a number of improvements aligned with our architectural goals.
 
@@ -90,7 +93,7 @@ Decision
 .. _ADR on Event Schema Serialization and Evolution: https://openedx-events.readthedocs.io/en/latest/decisions/0006-event-schema-serialization-and-evolution.html
 
 Consequences
-------------
+************
 
 * Individual usage of any new Open edX event bus cannot be required until there is an implementation available as part of a named release of the Open edX platform.
 
@@ -99,12 +102,24 @@ Consequences
 * Although external events offer many benefits, it also requires a different mindset around eventual consistency. Proper education and experience will be needed to support the success of the event bus.
 
 Change History
---------------
+**************
 
-2022-03-30: Updated draft as follows:
+2022-07-11
+==========
 
-  * Moved the Kafka technology choice to a separate edx.org ADR.
-  * Added references and overview of a variety of other event bus related ADRs.
-  * Moved ADR on schema representation to openedx-events, near a number of other event bus related ADRs.
+* Updated formatting.
+* Updated note about provisional updates, including reference to roadmap item.
 
-2021-08-16: Initial draft.
+2022-03-30
+==========
+
+Updated draft as follows:
+
+* Moved the Kafka technology choice to a separate edx.org ADR.
+* Added references and overview of a variety of other event bus related ADRs.
+* Moved ADR on schema representation to openedx-events, near a number of other event bus related ADRs.
+
+2021-08-16
+==========
+
+Initial draft.
