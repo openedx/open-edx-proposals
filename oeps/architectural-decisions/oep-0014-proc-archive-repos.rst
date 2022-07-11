@@ -68,7 +68,7 @@ First, if the repository is public, and a part of Open edX releases, follow thes
 4. Once the transfer has occurred, create a fork of the transferred repository into the `openedx organization`_ and follow the `Archive Steps`_ below for the forked repo.
 
 .. _Open edX Deprecation Announcements: https://discuss.openedx.org/c/announcements/deprecation
-.. _Open edX slack: http://openedx-slack-invite.herokuapp.com/
+.. _Open edX slack: http://openedx.org/slack
 .. _GitHub Request on the tCRIL board: https://github.com/openedx/tcril-engineering/issues/new/choose
 
 

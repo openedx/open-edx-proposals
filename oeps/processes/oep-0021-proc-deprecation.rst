@@ -312,7 +312,7 @@ Post the following in the #open-edx-proposals and #general `Open edX slack`_ cha
     deadline for comments before acceptance is <*Target Accepted Date*>.
     Once the ticket is accepted, removal can happen at any time.
 
-.. _`Open edX slack`: http://openedx-slack-invite.herokuapp.com/
+.. _`Open edX slack`: http://openedx.org/slack
 
 Monitor Feedback
 ~~~~~~~~~~~~~~~~
