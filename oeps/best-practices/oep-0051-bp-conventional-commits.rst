@@ -139,7 +139,7 @@ Footer
 
 Breaking changes must have a ``BREAKING CHANGE:`` footer in the body.
 
-Commits may optionally include the ``the Co-authored-by:`` footer to indicate when the commit is the result of a collaboration.
+Commits may optionally include the ``Co-authored-by:`` footer to indicate when the commit is the result of a collaboration.
 
 Private references to content related to the commit may be included using the ``Private-ref:`` footer token.  Private references may only be included in the footer using this token. 
 
