@@ -162,11 +162,17 @@ The process for nomination is as follows:
 
 #. The sponsor or organic candidate posts a new public nomination thread on
    Discourse, in the `Core Contributor discussion space
-   <https://discuss.openedx.org/c/working-groups/core-contributors/36>`_.
+   <https://discuss.openedx.org/c/working-groups/core-contributors/36>`_ (one
+   nomination thread per candidate, per role).
 
-   #. This post introduces the candidate, describes in a few paragraphs why they
-      are suited to join the program, and provides links to examples of previous
-      Open edX work (for example, pull requests).
+   #. This post introduces the candidate and describes in a few paragraphs why
+      they are suited to join the program. Core Contributors in any role must
+      demonstrate the "3C's" prior to joining the program, thus, the nomination
+      thread must explain how the candidate has done so. This will include
+      providing links to examples of previous Open edX work (for example, pull
+      requests) that has been done for the community (as opposed to work done
+      for a specific installation, that has not been contributed back to the
+      larger community).
    
    #. The post should also indicate the candidate's expected commitment to
       contribution - if the candidate is part of an organization, this should be
@@ -348,6 +354,13 @@ the ``#core-contributors`` Slack room in the `Open edX Slack
 
 Change History
 ==============
+
+2022-07-18
+----------
+
+* Clarify that CC nominations must provide supporting evidence that candidate
+  has demonstrated the 3C's
+* `Pull request #355 <https://github.com/openedx/open-edx-proposals/pull/355>`_
 
 2022-06-08
 ----------
