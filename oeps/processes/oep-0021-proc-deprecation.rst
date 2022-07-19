@@ -342,6 +342,12 @@ update the state of the **DEPR** ticket to *Accepted*.
 For larger changes, it may be important to mention the upcoming deprecation
 in the release notes of the next named release.
 
+.. note::
+
+    If there's a new use of a feature once its deprecation ticket is accepted,
+    then the contributor must provide an ADR justifying its usage. This is because
+    using the deprecated feature obviously adds new technical debt to the system.
+
 Deprecated
 ----------
 
