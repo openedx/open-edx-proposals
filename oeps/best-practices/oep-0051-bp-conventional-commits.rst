@@ -44,7 +44,7 @@ This is part of our `Change Transparency`_ initiative.
 Motivation
 ==========
 
-Developers should describe the changes they make.  This information is valuable to many audiences: deployers, integrators, end-users, operators, and so on. Developers are in the best position to accurately describe their work and its implications.
+Developers should describe the changes they make.  This information is valuable to many audiences: other developers, deployers, integrators, end-users, operators, and so on. Developers are in the best position to accurately describe their work and its implications.
 
 The nearer to the change that information is captured, the easier it will be to write, and the more accurate it will be.  Changes made by developers are consumed by many people, from the pull request reviewer to the final user of the product.  The more the developer can explain the change, the more easily the change will be understood and used, and the more efficient the overall development process will be.
 
@@ -115,7 +115,7 @@ Open edX repos are large and varied, making standardization of scopes difficult.
 Subject
 -------
 
-Commit message subjects should be short enough to fit on one line.  We aren't putting a hard limit on character length, but 70 characters is a good time to turn your attention to the body of the commit message.  Put more information in the body of the commit message to fully explain your change.
+Commit message subjects should be short enough to fit on one line.  We aren't putting a hard limit on character length, but 70 characters is a good time to turn your attention to the body of the commit message.  Put more information in the body of the commit message to fully explain your change.  In no case should the subject contain a reference to an external system that is not accessible by all members of the Open edX community.
 
 Don't include Jira or GitHub issue numbers in the subject.  The body is the right place for links to supporting information.  The subject is precious real estate that should be used for words.  While it is true that it takes more work to get information from the body than from the subject, we are emphasizing writing longer commit messages, and so need to be good at reading the body anyway.
 
@@ -128,7 +128,7 @@ The more information you can put in the body of the commit message, the better. 
 
 Breaking changes especially should have detailed information about the implications and alternatives, including a ``BREAKING CHANGE`` footer.
 
-Include references or links to supporting information, such as Jira or GitHub issues.  Some Jira issues will be private to edX.  It is better to link to a private issue than no issue at all. The issue could be made public, and at least its existence is made clear, so people can ask for the information.
+Include references or links to supporting information, such as Jira or GitHub issues.  However, the body should be necessary and sufficient for understanding the commit.  Links to private issues are support for the convenience of contributors, but should not be included in the body of the commit.  Rather, references or links to private issues must be included in the commit footer using the git trailer format.  References to private content must use the ``Private-ref:`` token. It is always preferable for any linked issues to be public.
 
 Larger decisions should be recorded in Architectural Decision Records, as explained in `OEP-0019`__.
 
@@ -137,7 +137,11 @@ __ https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-doc
 Footer
 ------
 
-Breaking changes must have a ``BREAKING CHANGE:`` footer in the body.  No other footers are specified.
+Breaking changes must have a ``BREAKING CHANGE:`` footer in the body.
+
+Commits may optionally include the ``Co-authored-by:`` footer to indicate when the commit is the result of a collaboration.
+
+Private references to content related to the commit may be included using the ``Private-ref:`` footer token.  Private references may only be included in the footer using this token. 
 
 
 
@@ -186,7 +190,9 @@ Here's an example of a conventional commit, with a one-line subject, and details
     - `make requirements` used `private.*` which included private.in, which
       pip-sync balks at.
 
-    Fixes: BOM-2345
+    Fixes: https://github.com/openedx/fake-example-repo/issues/1234
+    Co-authored-by: Alice Example <alice@example.com>
+    Private-ref: https://internal-work-tracker.example.com/BOM-2345
 
 .. _tooling section:
 
