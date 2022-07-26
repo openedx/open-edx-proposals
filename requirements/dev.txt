@@ -22,7 +22,7 @@ charset-normalizer==2.1.0
     #   requests
 colorama==0.4.5
     # via sphinx-autobuild
-docutils==0.18.1
+docutils==0.19
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -79,7 +79,7 @@ snowballstemmer==2.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-sphinx==5.0.2
+sphinx==5.1.0
     # via
     #   -r requirements/base.txt
     #   edx-sphinx-theme
@@ -112,7 +112,7 @@ sphinxcontrib-serializinghtml==1.1.5
     #   sphinx
 tornado==6.2
     # via livereload
-urllib3==1.26.10
+urllib3==1.26.11
     # via
     #   -r requirements/base.txt
     #   requests
