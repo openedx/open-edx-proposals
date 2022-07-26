@@ -77,16 +77,16 @@ Decision
 
   * See edx.org `ADR on Kafka-Based Event Bus`_ when considering other event-bus technologies.
   * See edx.org `ADR on Kafka Managed Hosting`_ if considering Kafka hosting options.
-  * See edx.org `ADR on Kafka Consumers`_ if exploring how to deploy consumers for Kafka.
+  * See edx.org `ADR on Managing Kafka Consumers`_ if exploring how to deploy consumers for Kafka.
 
 * Event bus events will further extend the Hooks Extension Framework events, and use an Avro schema to serialize the existing hooks signals.
 
   * See `ADR on External event bus and Django Signal events`_ to learn more about how the ``OpenEdxPublicSignal`` internal event will be used to send the same internal signal-based events across services, and then fire the signal-based events again within consuming services.
   * See `ADR on External Event Schema Format`_ and `ADR on Event Schema Serialization and Evolution`_ to learn about how the Avro Schema format will be used for serializing external events published to Kafka, and consumed from Kafka. Additionally, learn about tooling to automatically handle the translation from ``OpenEdxPublicSignal`` internal events to Avro Schema formatted events, and back again. Also learn how this explicit schema format can aid in schema evolution.
 
-.. _ADR on Kafka-Based Event Bus: https://github.com/edx/edx-arch-experiments/blob/main/edx_arch_experiments/kafka_consumer/docs/decisions/0001_kafka_based_event_bus.rst
-.. _ADR on Kafka Managed Hosting: https://github.com/edx/edx-arch-experiments/blob/main/edx_arch_experiments/kafka_consumer/docs/decisions/0003_kafka_managed_hosting.rst
-.. _ADR on Kafka Consumers: https://github.com/edx/edx-arch-experiments/blob/main/edx_arch_experiments/kafka_consumer/docs/decisions/0002_kafka_consumer_command.rst
+.. _ADR on Kafka-Based Event Bus: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0002-kafka-based-event-bus.rst
+.. _ADR on Kafka Managed Hosting: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0004-kafka-managed-hosting.rst
+.. _ADR on Managing Kafka Consumers: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0003-managing-kafka-consumers.rst
 
 .. _ADR on External event bus and Django Signal events: https://openedx-events.readthedocs.io/en/latest/decisions/0004-external-event-bus-and-django-signal-events.html
 .. _ADR on External Event Schema Format: https://openedx-events.readthedocs.io/en/latest/decisions/0005-external-event-schema-format.html
