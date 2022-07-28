@@ -16,13 +16,13 @@ OEP-50: Hooks extension framework
    * - Arbiter
      - Nizar Mahmoud <nizar@opencraft.com>
    * - Status
-     - Provisional
+     - Accepted
    * - Type
      - Architecture
    * - Created
      - 2021-02-04
    * - Review Period
-     - < TBD >
+     - 2021-02-04 - 2021-04-30
 
 Abstract
 ========
@@ -215,6 +215,11 @@ propose certain examples made easy by this framework.
    the particular course the certificate belongs to. This very custom logic can
    be separated from the core platform repository via a Filter.
 
+Refer to `openedx-events-2-zapier`_ and `openedx-filters-samples`_ for the implementation
+of some basic use cases.
+
+.. _openedx-events-2-zapier: https://github.com/eduNEXT/openedx-events-2-zapier
+.. _openedx-filters-samples: https://github.com/eduNEXT/openedx-filters-samples
 
 Backward Compatibility
 ======================
@@ -228,17 +233,13 @@ migration path to the corresponding hook is well defined and documented.
 Reference Implementation
 ========================
 
-The reference implementation must be completed before this OEP is given "Accepted"
-status. It is not necessary for the "Provisional" status.
-
 The current implementation can be found at:
 
-* The library repository: https://github.com/eduNEXT/openedx-hooks
-* The documentation PR: https://github.com/edx/edx-platform/pull/27157
-* PRs including the library and using it to define the first hooks: https://github.com/edx/edx-platform/pulls?q=is%3Apr+%22BD-32%22
+* The libraries repositories: `Open edX Events`_ and `Open edX Filters`_
+* PRs including the library and using it to define the latest hooks: https://github.com/edx/edx-platform/pulls?q=is%3Apr+%22BD-32%22
 
-This document will be updated as the implementation progresses.
-
+.. _Open edX Events: https://github.com/openedx/openedx-events
+.. _Open edX Filters: https://github.com/openedx/openedx-filters
 
 Rejected Alternatives
 =====================
@@ -262,17 +263,24 @@ A thread in the `openedx discourse server`_ served as the main feedback loop.
 .. _openedx discourse server: https://discuss.openedx.org/t/configuration-for-the-hooks-extension-framework/4527
 
 
+The current documentation for the Hooks Extension Framework can be found at `Open edX Guides Hooks`_ section.
+
+.. _Open edX Guides Hooks: https://github.com/openedx/edx-platform/tree/master/docs/guides/hooks
+
 Change History
 ==============
 
-28 July 2020 - Felipe Montoya.
-Initial version made public for the community at the google docs file.
+20 July 2022 - Maria Grimaldi
+Update OEP-50 with latest documentation.
 
-04 February 2021 - Felipe Montoya
-Converted to Draft OEP
+17 April 2021 - Felipe Montoya
+Updating based on feedback from the community and edX arch team.
 
 24 March 2021 - Felipe Montoya
 Adding an official arbiter
 
-17 April 2021 - Felipe Montoya
-Updating based on feedback from the community and edX arch team.
+04 February 2021 - Felipe Montoya
+Converted to Draft OEP
+
+28 July 2020 - Felipe Montoya.
+Initial version made public for the community at the google docs file.
