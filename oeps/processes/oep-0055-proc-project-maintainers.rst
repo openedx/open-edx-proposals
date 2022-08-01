@@ -465,7 +465,10 @@ Change History
 Source Material
 ===============
 
-* `What Makes a Great Maintainer of Open Source Projects? <https://www.computer.org/csdl/proceedings-article/icse/2021/029600a982/1sEXoQoeO0E>`_
+* `What Makes a Great Maintainer of Open Source Projects?
+  <https://www.computer.org/csdl/proceedings-article/icse/2021/029600a982/1sEXoQoeO0E>`_
+  (`Alternative Link <http://gustavopinto.org/lost+found/icse2021.pdf>`_)
+
 * `Collective Code Construction Contract <https://rfc.zeromq.org/spec/42/>`_
 * `Best Practices for Maintainers <https://opensource.guide/best-practices/>`_
 * `Producing OSS <https://producingoss.com/en/producingoss-letter.pdf>`_
@@ -502,7 +505,7 @@ Notes
        Makes a Great Maintainer of Open Source Projects?
        <https://www.computer.org/csdl/proceedings-article/icse/2021/029600a982/1sEXoQoeO0E>`_
        (2021 IEEE/ACM 43rd International Conference on Software
-       Engineering (ICSE)).
+       Engineering (ICSE))(`Alternative Link <http://gustavopinto.org/lost+found/icse2021.pdf>`_).
 
 .. [#lazy_concensus] Lazy concensus is a process by which decisions
        are approved unless there are objections.  It is sometimes
