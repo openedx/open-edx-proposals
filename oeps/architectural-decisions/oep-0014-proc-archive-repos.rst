@@ -1,6 +1,6 @@
-=========================================
+#########################################
 OEP-14: Archiving edX GitHub Repositories
-=========================================
+#########################################
 
 +---------------+----------------------------------------------------------+
 | OEP           | :doc:`OEP-14 <oep-0014-proc-archive-repos>`              |
@@ -28,14 +28,14 @@ OEP-14: Archiving edX GitHub Repositories
 .. _Moving More Repos to edx-unsupported: https://openedx.atlassian.net/browse/ARCHBOM-1481
 
 Abstract
-========
+########
 
 The `openedx organization`_ contains a large number of repositories, most of which are active and maintained, but some of which are now obsolete. To clarify the status of repositories, a process for archiving a repository is defined below.
 
 .. _openedx organization: https://github.com/openedx
 
 Motivation
-==========
+##########
 
 Recently openedx.yaml files were added to edX repositories per `OEP-2`_. In the course of deciding owners for those repositories, there was an `ORA PR Discussion`_ about how best to handle deprecated or obsolete repositories. In particular, do obsolete repositories need owners, and how can repositories be clearly marked as present for archive purposes only?
 
@@ -45,7 +45,7 @@ This discussion resurfaced related to edX's usage of Gemnasium to report the usa
 
 
 Specification
-=============
+#############
 
 When a repository under the `openedx organization`_ will no longer be maintained by the Open edX community because it is no longer in use by the latest version of the Open edX platform, the following steps should be followed.
 
@@ -55,7 +55,7 @@ This process is not for repositories that are currently still in use by either t
 
 
 Transfer to New Owner if Interest
----------------------------------
+*********************************
 
 First, if the repository is public, and a part of Open edX releases, follow these steps to see if anyone would like to take ownership of it:
 
@@ -73,7 +73,7 @@ First, if the repository is public, and a part of Open edX releases, follow thes
 
 
 Archive Steps
--------------
+*************
 
 These steps should be followed for all repos within the Open edX organization (forks included). After some experiments with keeping archived repos in the ``openedx`` organization, we've learned that having abandoned code show up in searches hinders work to understand the current state of the system and the risk around new work, particularly deprecations and API changes. Thus we decided to move all archived repositories to a separate org.
 
@@ -99,7 +99,7 @@ These steps should be followed for all repos within the Open edX organization (f
 
 
 Rationale
-=========
+#########
 
 We previously archived in place and move to this previously rejected alternative based on lessons learned in going through the deprecation process and major upgrades (Python 3, Django 2.x)
 
@@ -116,13 +116,13 @@ Pros:
 
 
 Backward Compatibility
-======================
+######################
 
 This proposal does not introduce any backward compatibility issues.
 
 
 Reference Implementation
-========================
+########################
 
 The `Discussions Hackathon repository`_ has been updated to conform to the `Archive Steps`_.
 
@@ -130,13 +130,13 @@ The `Discussions Hackathon repository`_ has been updated to conform to the `Arch
 
 
 Rejected Alternatives
-=====================
+#####################
 
 There are a couple variations of this proposal that were originally discussed. Many of the steps of updating documentation and notifying the open source community are essentially the same; the major differences from the proposed process are outlined below.
 
 
 Alternative 1: Archive In Place
--------------------------------
+*******************************
 
 Use Github's archive feature and updated documentation to archive the repository in place.
 
@@ -151,7 +151,7 @@ Reasons rejected:
 - Being able to know whether code is alive or dead is really helpful when making major changes and if dead code can't easily be filtered from searches it slows us down.
 
 Alternative 2: Create Archive Branch
-------------------------------------
+************************************
 
 Move the code from the master branch to an archived branch, while leaving the repository itself within `openedx organization`_.
 
@@ -171,48 +171,48 @@ Reasons rejected:
 
 
 Change History
-==============
+##############
 
 2017-01-18
-----------
+**********
 
 * Original publication
 
 2017-05-23
-----------
+**********
 
 * Added steps for repositories that live in the edX org, but are forks of other, independent repositories
 
 2019-05-16
-----------
+**********
 
 * Updated to use GitHub's archive capability.
 * Don't ask the community about public repos in the edx org that are not a part of Open edX.
 
 2020-03-20
-----------
+**********
 
 * Decide to use the new edx-unsupported org for all archived repos. Old way we were doing things is now recorded as Alternative 1: Archive In Place.
 
 2020-09-15
-----------
+**********
 
 * Updated to provide more details around archiving the same fork multiple times.
 
 2021-05-27
-----------
+**********
 
 * Removed step of adding ``[ARCHIVED]`` to the repo name. Github's "archive this repo" setting is now available and is a sufficient indicator.
 * Removed step of adding paragraph to README about what archiving means now that we use Github's "archived" marker; the concept of an unmaintained repository and its dangers should be familiar to developers. Keep recommendation to add an explanation of *why* it was archived.
 * Removed ``openedx.yaml`` update steps, since the rest of the archive process is sufficient.
 
 2022-01-10
-----------
+**********
 
 * Update instructions to use the openedx-unsupported repo instead of the edx-unsupported repo.
 
 2022-01-26
-----------
+**********
 
 * Change references to ``edx`` GitHub org to ``openedx`` org
 * Change internal edX procedures to community-based ones

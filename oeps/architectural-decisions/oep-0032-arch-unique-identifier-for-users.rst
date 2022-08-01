@@ -27,7 +27,7 @@ OEP-32: Unique Identifier for Users
      - 2019-04-15 - 2019-04-29
 
 Decision
-========
+********
 
 We will use the *LMS user_id* to uniquely identify a user in the Open edX system. The *LMS user_id* is the ``id`` value of the user's row in the `Django auth_user`_ table in the Open edX LMS.
 
@@ -41,7 +41,7 @@ The *LMS user_id* should be used for all internal events. Additionally, the *LMS
 .. _ADR for the edx-platform external_user_ids Django app: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/external_user_ids/docs/decisions/0001-externalid.rst
 
 Context
-=======
+*******
 
 In 2016, the analytics team decided to use the the *LMS user_id* as a consistent user identifier for analytics events, and this Open edX Proposal (OEP) further documents and builds upon that decision.
 
@@ -49,7 +49,7 @@ In addition to needing a consistent user identifier for internal events, we also
 
 
 User Identifier Requirements
-----------------------------
+============================
 
 The requirements for a User Identifier are as follows:
 
@@ -65,7 +65,7 @@ The requirements for a User Identifier are as follows:
 
 
 User Identifier Candidate Comparison
-------------------------------------
+====================================
 
 The following table summarizes the comparisons of a list of candidate user identifiers.
 
@@ -96,7 +96,7 @@ As noted above, the *LMS user_id* was selected for internal analytics events as 
 
 
 Consequences
-============
+************
 
 A consequence of the decision to use the *LMS user_id* as the unique user id is that some additional changes are needed to make the *LMS user_id* more globally available across all services:
 
@@ -118,7 +118,7 @@ Note: The legacy implementations of LTI and the %%USER_ID%% keyword use what is 
 
 
 Rejected Alternative: a new UUID
-================================
+********************************
 
 If we were to try to eliminate the drawbacks of using an auto-incremented *LMS user_id* as our unique identifier, an alternative might be to introduce a new id, like a UUID (Universally Unique IDentifier).
 

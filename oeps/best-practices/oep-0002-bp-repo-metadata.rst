@@ -1,6 +1,6 @@
-==========================
+##########################
 OEP-2: Repository Metadata
-==========================
+##########################
 
 .. list-table::
    :widths: 25 75
@@ -23,22 +23,22 @@ OEP-2: Repository Metadata
      - 2016-04-21
 
 Abstract
-========
+########
 
 Proposes a standard format for repository metadata for Open edX projects.
 
 Motivation
-==========
+##########
 
 One of the primary goals for Best Practice OEPs is to standardize techniques and tools across Open edX repositories. However, without tooling, it will be difficult to move all of the repositories in the same direction (and hard to validate which ones have been updated). This OEP exists to fill that gap.  By providing a standard format for metadata about accordance to Best Practice OEPs, tools can be developed in the future to report on the current status of all of the Open edX repositories, and how well they follow the Best Practices listed in the OEPs.
 
 Bear in mind that particular classes of Open edX repositories may have different Best Practices. The practices that apply to an XBlock may not be the same as those that apply to a standalone Django service or to a Django app.
 
 Specification
-=============
+#############
 
 Keys
-----
+****
 
 Each repo will include a file ``openedx.yaml``, with the following keys:
 
@@ -58,7 +58,7 @@ Each repo will include a file ``openedx.yaml``, with the following keys:
     Define this key if your repo is an application or IDA that is part of Open edX releases.  Omit this key if your repo is a library, or is not part of Open edX releases.  See :doc:`OEP-10 </processes/oep-0010-proc-openedx-releases>` for details.
 
 Obsolete Keys
-*************
+=============
 
 ``track-pulls``:
     This key is obsolete, please remove if found.
@@ -86,7 +86,7 @@ Obsolete Keys
 
 
 Tags
-----
+****
 
 The ``tags`` structure is very open ended but there are a few tags that are currently in wide use and are provided here so that they can be used consistently.
 
@@ -140,7 +140,7 @@ The ``tags`` structure is very open ended but there are a few tags that are curr
     eg. xblock-review, staff_graded-xblock
 
 Example
--------
+*******
 
 For example, in the `edx-platform`_ repo, the file might look like:
 
@@ -171,15 +171,15 @@ For example, in the `edx-platform`_ repo, the file might look like:
 
 
 Rationale
-=========
+#########
 
 Keys Rationale
---------------
+**************
 
 The keys in ``openedx.yaml`` were derived from existing repository metadata collected by edx.org.
 
 OEPs Rationale
---------------
+**************
 
 The design of the ``oeps`` dictionary was guided by a couple of use cases:
 
@@ -188,30 +188,30 @@ The design of the ``oeps`` dictionary was guided by a couple of use cases:
 3. As much as possible, Best Practices should be autodetected, but because they will often involve a judgement call, autodetection shouldn't be mandatory.
 
 Change History
-==============
+##############
 
 2021-05-27
-----------
+**********
 
 * Move the ``archived`` key to the `Obsolete Keys`_ section.
 
 2020-10-13
-----------
+**********
 
 * Move the ``nick`` key to the `Obsolete Keys`_ section.
 
 2020-08-17
-----------
+**********
 
 * Move the ``owner`` key to the `Obsolete Keys`_ section and removed no longer relevant ownership rationale and information.
 
 2020-06-08
-----------
+**********
 
 * Make the ``owner`` key optional. Initially, the key served two purposes: assigning ownership of the repository and as a "who to contact" for repo related issues. Ownership info has now been moved to an edX internal location. As for contact info, this is still a work-in-progress. We plan on adding contact point to repos at some point in the future. The exact location is still to be determined, possibly in openedx.yaml or CODEOWNERS file.
 
 2019-12-11
-----------
+**********
 
 * New practices for ownership bookkeeping and designation in our repositories:
 
@@ -220,31 +220,31 @@ Change History
   * Lower-level repos are indirectly assigned owners through assignment to dependent higher-level repos.
 
 2019-10-29
-----------
+**********
 
 * Minor formatting and wording changes for clarity.
 
 2017-01-18
-----------
+**********
 
 * Change ``obsolete`` to ``archived`` and relax the requirement for an owner if ``archived`` is True.
 
 2017-01-10
-----------
+**********
 
 * Support the ``applicable`` key in the reason dictionary.
 
 2016-10-13
-----------
+**********
 
 * Move the definition of ``openedx-release`` to :doc:`OEP-10 </processes/oep-0010-proc-openedx-releases>`.
 
 2016-08-24
-----------
+**********
 
 * Add documentation of the ``openedx-release``, ``track-pulls``, ``dead``, and ``nick`` keys in the ``openedx.yaml`` file.
 
 2016-06-29
-----------
+**********
 
 * Original publication

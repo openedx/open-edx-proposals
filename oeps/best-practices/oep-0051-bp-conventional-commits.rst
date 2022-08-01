@@ -1,6 +1,6 @@
-============================
+############################
 OEP-51: Conventional Commits
-============================
+############################
 
 .. list-table::
    :widths: 25 75
@@ -35,14 +35,14 @@ OEP-51: Conventional Commits
    :depth: 1
 
 Abstract
-========
+########
 
 Commits should be clearly labeled for their effect on consumers of the repository.  To do this, we adopt the `Conventional Commits`_ guidelines, which detail structured commit messages that clarify the impact of each commit.
 
 This is part of our `Change Transparency`_ initiative.
 
 Motivation
-==========
+##########
 
 Developers should describe the changes they make.  This information is valuable to many audiences: other developers, deployers, integrators, end-users, operators, and so on. Developers are in the best position to accurately describe their work and its implications.
 
@@ -52,7 +52,7 @@ Commit messages are the closest text to the change itself.  The more information
 
 
 Specification
-=============
+#############
 
 We are adopting the `Conventional Commits`_ spec, with our own specifics.
 
@@ -68,7 +68,7 @@ Git commit messages have these parts::
     <footer>
 
 Type
-----
+****
 
 We use these commit types labels:
 
@@ -106,21 +106,21 @@ If a commit mixes types, use the most important type label in the commit message
 See the `tooling section`_ for some practical exceptions around conventional commit linting for common cases like reverts or squash commits.
 
 Scope
------
+*****
 
 The `Conventional Commits`_ spec includes an optional parenthesized scope after the type label.  You may include a scope if it helps clarify the commit.
 
 Open edX repos are large and varied, making standardization of scopes difficult.  Different repos will have different needs for scopes.  We currently offer no guidance for scopes to use.  This may change in the future.
 
 Subject
--------
+*******
 
 Commit message subjects should be short enough to fit on one line.  We aren't putting a hard limit on character length, but 70 characters is a good time to turn your attention to the body of the commit message.  Put more information in the body of the commit message to fully explain your change.  In no case should the subject contain a reference to an external system that is not accessible by all members of the Open edX community.
 
 Don't include Jira or GitHub issue numbers in the subject.  The body is the right place for links to supporting information.  The subject is precious real estate that should be used for words.  While it is true that it takes more work to get information from the body than from the subject, we are emphasizing writing longer commit messages, and so need to be good at reading the body anyway.
 
 Body
-----
+****
 
 The subject of the commit is rarely enough information to fully understand the commit.  The body can contain as much information as you like.  Be generous.  Take a moment to think about what you would want to know if someone else had authored this commit.
 
@@ -135,18 +135,18 @@ Larger decisions should be recorded in Architectural Decision Records, as explai
 __ https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#adrs
 
 Footer
-------
+******
 
 Breaking changes must have a ``BREAKING CHANGE:`` footer in the body.
 
 Commits may optionally include the ``Co-authored-by:`` footer to indicate when the commit is the result of a collaboration.
 
-Private references to content related to the commit may be included using the ``Private-ref:`` footer token.  Private references may only be included in the footer using this token. 
+Private references to content related to the commit may be included using the ``Private-ref:`` footer token.  Private references may only be included in the footer using this token.
 
 
 
 Discussion
-==========
+##########
 
 Conventional Commits asks us to categorize changes into a small number of categories.  There will naturally be cases where it isn't obvious which commit type to use.
 
@@ -170,7 +170,7 @@ __ https://github.com/conventional-commits/conventionalcommits.org/issues
 
 
 Rationale
-=========
+#########
 
 The existing Conventional Commits standard is a familiar and widely adopted standard.  It's a good place to start our own guidelines.  It builds on our recently adopted pull request template to help focus developers on providing helpful information about their changes.
 
@@ -197,7 +197,7 @@ Here's an example of a conventional commit, with a one-line subject, and details
 .. _tooling section:
 
 Tooling
-=======
+#######
 
 A few tools are being used to encourage and measure conformance to this standard:
 
@@ -216,25 +216,25 @@ A few tools are being used to encourage and measure conformance to this standard
 
 
 Open Issues
-===========
+###########
 
 Some discussions concerning conventional commits are not yet resolved.
 
 Scope
------
+*****
 
 Is there a standard for scopes that could be useful?  Component names could be inferred from the files changed in the commit, and will vary from repo to repo.  Perhaps a broad description of what is affected, such as "UI" and "API"?
 
 
 Grammar
--------
+*******
 
 Some commit guidelines are prescriptive about what grammar to use in commit subjects.  The two popular options are imperative mood (what will this commit do? "fix: handle name changes correctly") or past tense (what did this commit do? "fix: corrected the handling of name changes").
 
 
 
 Change History
-==============
+##############
 
 2021-11-01: Note exceptions like ``squash!`` and ``fixup!``.
 

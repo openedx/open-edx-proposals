@@ -1,6 +1,6 @@
-=================================
+#################################
 OEP-1: OEP Purpose and Guidelines
-=================================
+#################################
 
 +---------------+--------------------------------------------------------------+
 | OEP           | :doc:`OEP-1 <oep-0001>`                                      |
@@ -49,7 +49,7 @@ OEP-1: OEP Purpose and Guidelines
   :depth: 1
 
 Overview
-========
+########
 
 * An Open edX Proposal specifies a best practice, architectural decision, or
   community process that the Open edX communty has agreed should be adopted by
@@ -63,7 +63,7 @@ Overview
   an `Arbiter`_.
 
 What is an OEP?
-===============
+###############
 
 OEP (pronounced "oh-epp") stands for Open edX (Enhancement) Proposal. An OEP is
 a document that details a specific technology decision being made by the Open
@@ -80,7 +80,7 @@ the Open edX development workflow with a patch submission.
 necessary information for your proposal.
 
 OEP Types
-=========
+#########
 
 * A **Process** proposal describes a change to how the Open edX community
   functions.
@@ -95,10 +95,10 @@ OEP Types
   need.
 
 OEP Roles
-=========
+#########
 
 Authors
--------
+*******
 
 Each OEP must have at least one Author: someone who writes the OEP using the
 style and format described here, shepherds the discussions in the appropriate
@@ -109,7 +109,7 @@ find an arbiter; those channels may also be used to find a co-author, which is
 encouraged.
 
 Arbiter
--------
+*******
 
 Each OEP also has an Arbiter (as described in `Step 1. Find an Arbiter`_).
 An Author of an OEP cannot concurrently be the Arbiter of that OEP.
@@ -143,7 +143,7 @@ the Authors) can merge an in-progress OEP (if it has reached a stage of relative
 stability) to allow for additional incremental updates.
 
 Architecture Group
-------------------
+******************
 
 The Architecture Group serves as a backstop for the OEP process. Specifically,
 the group can assist in finding an Arbiter for an OEP if the Author is having
@@ -165,17 +165,17 @@ should be added here. Currently, the phrase "Architecture Group" refers to the
 set of community members who are active in the ``#architecture`` channel.*
 
 OEP Workflow
-============
+############
 
 .. contents::
   :local:
   :depth: 2
 
 Submitting an OEP
------------------
+*****************
 
 Step 1. Find an Arbiter
-~~~~~~~~~~~~~~~~~~~~~~~
+=======================
 
 When writing an OEP, you may already have an idea of an Arbiter in mind. If so,
 reach out to that person and ask them; they should have the domain expertise
@@ -197,7 +197,7 @@ Once found, this Arbiter will be recorded in the "Arbiter" header on the OEP.
 .. _code of conduct: https://openedx.org/code-of-conduct/
 
 Step 2. Create PR for "Draft" OEP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=================================
 
 Draft an OEP using one of the `OEP templates`_ and submit as a pull request against
 the `central OEP repository`_. To identify the draft proposal, the Authors should
@@ -210,7 +210,7 @@ The pull request title should be of the form "OEP-XXXX: <OEP title>", where
 .. _central OEP repository: https://github.com/edx/open-edx-proposals
 
 Step 3. Review with Arbiter
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===========================
 
 Once an Arbiter has been assigned to your OEP, establish begin and end review
 dates with your Arbiter, making it officially "Under Review". Once this state
@@ -228,7 +228,7 @@ process to a final resolution.
 .. _#open-edx-proposals Slack channel: https://openedx.slack.com/messages/C1L370YTZ/details/
 
 OEP Status
-----------
+**********
 
 .. graphviz::
   :alt: A flowchart of OEP statuses, from Draft to Under Review, then to
@@ -250,30 +250,30 @@ OEP Status
     }
 
 Draft
-~~~~~
+=====
 
 The Authors are working on an OEP and then reviewing it with an assigned Arbiter.
 
 Under Review
-~~~~~~~~~~~~
+============
 
 The OEP is under discussion and being reviewed by the Open edX community, the
 Arbiter, and the Authors.
 
 Accepted
-~~~~~~~~
+========
 
 The Arbiter has accepted the OEP after review and discussion within the agreed
 upon review period.
 
 Deferred
-~~~~~~~~
+========
 
 No further progress is made on the OEP and so it is marked "Deferred". The OEP
 Authors can change it back to "Under Review" when it is in progress again.
 
 Provisional
-~~~~~~~~~~~
+===========
 
 The OEP is reviewed and generally agreed upon, but not yet fully "Accepted"
 since it hasn't been vetted and adopted in the platform. Once viable reference
@@ -281,28 +281,28 @@ examples and platform adoption occurs, the OEP can transition back to Under
 Review and be Accepted.
 
 Rejected
-~~~~~~~~
+========
 
 The OEP is "Rejected" by the Arbiter. Perhaps after all is said and
 done it was not a good idea. It is still important to have a record of this
 fact.
 
 Withdrawn
-~~~~~~~~~
+=========
 
 Similar to "Rejected", the "Withdrawn" status means that the OEP Authors
 themselves have decided that the OEP is undesired or that a competing proposal
 is a better alternative.
 
 Replaced
-~~~~~~~~~
+=========
 
 OEPs can also be superseded by a different OEP, rendering the original
 obsolete. In that case, the OEP's status should be changed to "Replaced"
 and updated with a link to its superseding OEP.
 
 Obsolete
-~~~~~~~~
+========
 
 Over time some OEPs may become obsolete without being replaced by new
 guidelines. In this case the OEP's status should be changed to "Obsolete" and
@@ -311,7 +311,7 @@ longer relevant.
 
 
 Status changes
-~~~~~~~~~~~~~~
+==============
 
 When an OEP is Accepted, Rejected, or Withdrawn, the OEP should be updated
 accordingly. In addition to updating the Status field, at the very least the
@@ -332,17 +332,17 @@ edit the OEP, until it converges to being either "Accepted" or "Rejected".
 If an OEP has Draft or Under Review status and the PR is under review, you can either use the intended final status (e.g. Provisional, Accepted, etc.), or you can clarify both the current and intended status using something like the following: "Under Review (=> Provisional)". Either of these options is especially useful if the merged status is not intended to be Accepted.
 
 OEP Maintenance
----------------
+***************
 
 Reporting OEP Bugs
-~~~~~~~~~~~~~~~~~~
+==================
 
 While a pull request that contains a proposal is open,
 comments should be made on that pull request, or by submitting a new pull
 request that targets the branch from which the OEP pull request was made.
 
 OEP Stewardship
-~~~~~~~~~~~~~~~
+===============
 
 Once a proposal becomes Accepted, stewardship of the OEP is given to the
 `Architecture Group`_. This group is tasked with ensuring OEPs are up to date,
@@ -350,7 +350,7 @@ those Authors proposing changes to OEPs follow the procedures outlined in this
 document, and assist in linking Authors with Arbiters when needed.
 
 Submitting OEP Updates
-~~~~~~~~~~~~~~~~~~~~~~
+======================
 
 Once an OEP has merged to the open-edx-proposals repository (which can
 happen when the OEP is in any status, including "Under Review"), changes can be
@@ -358,7 +358,7 @@ suggested to it via new pull requests. Whether those changes are included is up
 to the Authors of the OEP.
 
 Updating Best Practice and Process OEPs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================================
 
 A Best Practice or Process OEP may be updated even after it is "Accepted" as it evolves
 over time. These future edits/updates may be made by the original Authors of the
@@ -378,7 +378,7 @@ through the following steps:
    least one week (for smaller changes).
 
 Updating Architecture OEPs
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================
 
 Architecture OEPs are generally not modified after they have reached
 the "Accepted" or "Final" state. However, they may be replaced by subsequent OEPs.
@@ -402,7 +402,7 @@ The following updates warrant replacement OEPs.
 * A change in decision that is significantly different from the previous.
 
 Adding Additional Authors or Arbiters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================================
 
 When updates are made beyond those of formatting changes, small corrections, or
 basic upkeep, the Author(s) who made the changes, as well as the Arbiter who saw
@@ -410,14 +410,14 @@ the change through, shall add themselves to the corresponding sections in the
 `OEP Header Preamble`_.
 
 OEP Structure and Content
-=========================
+#########################
 
 .. contents::
   :local:
   :depth: 1
 
 OEP Format
-----------
+**********
 
 OEPs are UTF-8 encoded text files that use the `reStructuredText`_ format.
 ReStructuredText [8] allows for rich markup that is relatively easy to read,
@@ -427,7 +427,7 @@ rendered to HTML using Sphinx.
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 
 OEP Templates
--------------
+*************
 
 Other than requiring that all OEPs have a consistent `OEP Header Preamble`_,
 the rest of the OEP document can be customized according to whatever is needed
@@ -452,7 +452,7 @@ for use:
     oep-templates/external-link-template.rst
 
 OEP Header Preamble
--------------------
+*******************
 
 Each OEP must begin with a ReST table with metadata about the OEP. The rows
 must appear in the following order. Rows in italics are optional and are
@@ -531,14 +531,14 @@ described below. All other rows are required.
   materials and prior discussions regarding the proposal.
 
 Auxiliary Files
----------------
+***************
 
 OEPs may include auxiliary files such as diagrams. Such files must be added to
 an oep-XXXX/ directory, where "XXXX" is the OEP number. Include original diagrams
 alongside image files, to make it easy for others to update the OEP in the future.
 
 Change History
---------------
+**************
 
 For every change (including the initial document creation), include an entry in
 a "Change History" section modeled off the one below. A Change History entry
@@ -548,22 +548,22 @@ took place. The changes should be ordered such that the most recent change is
 at the top of the list.
 
 Change History
-==============
+##############
 
 2022-06-22
-----------
+**********
 
 * Clarify how to provide a Draft or Under Review status when the OEP PR is planned
   to be merged with a status other than Accepted, like Provisional as an example.
 
 2022-04-06
-----------
+**********
 
 * Clarify what is currently meant by "Architecture Group" (not an official team right now)
 * `Pull request #326 <https://github.com/openedx/open-edx-proposals/pull/326>`_
 
 2022-02-27
-----------
+**********
 
 Multiple changes.
 
@@ -599,7 +599,7 @@ Multiple changes.
   * `Pull request #302 <https://github.com/openedx/open-edx-proposals/pull/302>`_
 
 2022-01-13
-----------
+**********
 
 * Codifying that choosing an Arbiter, in practice, is done by the OEP Author(s)
 * Remove authority for assiting with arbitration and the overall process from
@@ -607,26 +607,26 @@ Multiple changes.
 * `Pull request #284 <https://github.com/openedx/open-edx-proposals/pull/284>`_
 
 2020-10-01
-----------
+**********
 
 * Add a new "Obsolete" status to OEPs
 * `Pull request #246 <https://github.com/openedx/open-edx-proposals/pull/246>`_
 
 2019-08-27
-----------
+**********
 
 * Changed announcement process from email to Discourse.
 * Minor clarifications to wording.
 * `Pull request #123 <https://github.com/openedx/open-edx-proposals/pull/123>`_
 
 2018-11-06
-----------
+**********
 
 * Added a new "Provisional" status.
 * `Pull request #85 <https://github.com/openedx/open-edx-proposals/pull/85>`_
 
 2018-05-05
-----------
+**********
 
 * Further simplify process
 
@@ -642,7 +642,7 @@ Multiple changes.
 * `Pull request #60 <https://github.com/openedx/open-edx-proposals/pull/60>`_
 
 2018-02-05
-----------
+**********
 
 * Simplify process
 
@@ -663,7 +663,7 @@ Multiple changes.
 * `Pull request #53 <https://github.com/openedx/open-edx-proposals/pull/53>`_
 
 2016-10-11
-----------
+**********
 
 * Add a new "Product Enhancement" proposal type
 * Remove references to arch@ email address.
@@ -676,14 +676,14 @@ Multiple changes.
 * `Pull request #17 <https://github.com/openedx/open-edx-proposals/pull/17>`_
 
 2016-08-24
-----------
+**********
 
 * Add a definition of the *Change History* section.
 * Add a copyright notice.
 * `Pull request #19 <https://github.com/openedx/open-edx-proposals/pull/19>`_
 
 2016-05-16
-----------
+**********
 
 * Document created
 * `Pull request #1 <https://github.com/openedx/open-edx-proposals/pull/1>`_

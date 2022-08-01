@@ -1,6 +1,6 @@
-====================
+####################
 OEP-34: Lint Amnesty
-====================
+####################
 
 +-----------------+--------------------------------------------------------+
 | OEP             | :doc:`OEP-34 <oep-0034-bp-lint-amnesty>`               |
@@ -24,7 +24,7 @@ OEP-34: Lint Amnesty
 +-----------------+--------------------------------------------------------+
 
 Context
--------
+*******
 
 All softwares have bugs. Linting can identify a subset of those bugs (and
 stylistic issues) statically before the code is merged to master or
@@ -42,7 +42,7 @@ be in violation, but they were not changed, and therefor would not be
 flagged by differential linting.
 
 Decision
---------
+********
 
 In all repositories, we will grant amnesty to all existing linting violations.
 This includes pylint, xsslint, pycodestyle, and any other linting programs
@@ -58,7 +58,7 @@ added, then all new violations will either be fixed or granted amnesty
 as well.
 
 Consequences
-------------
+************
 
 Once all violations have been granted amnesty, we can enforce and maintain
 a level of 0 new violations added. Because the linter would be running
@@ -71,7 +71,7 @@ to developers working inside the codebase where they can change code to
 lower violations.
 
 References
-----------
+**********
 
 There is a `tool`_ for granting lint amnesty in `edx/edx-lint`_.
 

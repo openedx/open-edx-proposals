@@ -29,7 +29,7 @@ OEP-47: Semantic Versioning
    :depth: 3
 
 Summary
-=======
+*******
 
 For any Open edX repository that publishes versioned packages, this OEP recommends following the `PEP 440`_ compatible sections of `Semantic Versioning v2`_.
 
@@ -58,12 +58,12 @@ Some additional tips are called out in:
 .. _PEP 440: https://www.python.org/dev/peps/pep-0440/#semantic-versioning
 
 Context
-=======
+*******
 
 Many or all of the Open edX installable libraries already use versions similar to the `Semantic Versioning v2`_ specification. This OEP simply codifies this best practice, and provides additional guidance.
 
 Backward Incompatible Changes
-=============================
+*****************************
 
 Special attention should be given to incompatible changes, because:
 
@@ -82,7 +82,7 @@ See related FAQ questions from `Semantic Versioning v2`_:
 
 
 Tooling and Automation
-======================
+**********************
 
 * A checklist item in a pull-request template can remind people of any manual steps.
 * Some frontend libraries have been using an npm package called `semantic-release`_. The `semantic-release`_ package automates incrementing the version appropriately for each PR merge, based on a well formatted commit comment.
@@ -94,14 +94,14 @@ Tooling and Automation
 .. _semantic-release: https://github.com/semantic-release/semantic-release
 
 Versions for Forks
-==================
+******************
 
 We sometimes maintain forks of open source libraries. In these cases, the version should follow the `recommendation of the Python community`_, which is to add a `+edx.1` suffix to the end of the public version number.
 
 .. _recommendation of the Python community: https://www.python.org/dev/peps/pep-0440/#local-version-identifiers
 
 References
-==========
+**********
 
 * `Semantic Versioning v2`_
 

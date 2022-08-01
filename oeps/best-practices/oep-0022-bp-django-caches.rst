@@ -1,6 +1,6 @@
-===========================
+###########################
 OEP-22: Caching in Django
-===========================
+###########################
 
 +-----------------+--------------------------------------------------------+
 | OEP             | :doc:`OEP-22 <oep-0022-bp-django-caches>`              |
@@ -21,7 +21,7 @@ OEP-22: Caching in Django
 +-----------------+--------------------------------------------------------+
 
 Summary
--------
+*******
 
 Most of the safety and other benefits that come from the following
 recommendations can be taken advantage of by simply using the `RequestCache
@@ -32,7 +32,7 @@ only with documented next steps, not a precise recommendation around a shared
 library.
 
 Context
--------
+*******
 
 We have a variety of tools for caching in Django in various repositories,
 but the solutions are not in a shared repository and don't meet all needs. A
@@ -63,7 +63,7 @@ Note: When and if caching is warranted in any particular circumstance is beyond
 the scope of this OEP.
 
 Recommendations
----------------
+***************
 
 As mentioned above, most of the following recommendations have been codified in
 the `RequestCache and TieredCache from edx-django-utils`_.
@@ -71,7 +71,7 @@ the `RequestCache and TieredCache from edx-django-utils`_.
 .. _RequestCache and TieredCache from edx-django-utils: https://github.com/edx/edx-django-utils/tree/master/edx_django_utils/cache
 
 Common Caching Defect and Fix
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=============================
 
 The following is a common defect when caching using Django caches::
 
@@ -97,7 +97,7 @@ To solve this problem, use caching utility methods that avoid this defect. See
 `Implementations`_ for more details.
 
 Tiered Cache with Request Caching
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=================================
 
 Use a library that allows tiered-caching calls that use a Request Cache backed
 by a slower Django cache (often Memcached). With a tiered cache, multiple
@@ -107,7 +107,7 @@ calls to Memcached.
 See `Implementations`_ for more details.
 
 Force Cache Refresh
-~~~~~~~~~~~~~~~~~~~
+===================
 
 When using any Django cache it is recommended that caching utilities offer a
 simple method by which to force a cache refresh for a given request. This is
@@ -120,7 +120,7 @@ refreshed at the start of every request.
 See `Implementations`_ for more details.
 
 Cache Decorators
-~~~~~~~~~~~~~~~~
+================
 
 The following is not yet a strong recommendation. More work is required to
 assess and clarify.
@@ -156,7 +156,7 @@ Sample After::
 See `Implementations`_ for more details.
 
 Generating Cache Keys
-~~~~~~~~~~~~~~~~~~~~~
+=====================
 
 Use a utility function that will provide a safe key for your Django cache. If
 you are using Memcached, the utility must avoid key conflicts in a global
@@ -166,7 +166,7 @@ This functionality may or may not be packaged in a caching decorator as well.
 See `Implementations`_ for more details.
 
 Implementations
-~~~~~~~~~~~~~~~
+===============
 
 This section details various implementations of the documented recommendations.
 It will be updated as shared libraries are selected, moved and evolved for
@@ -232,7 +232,7 @@ good potential candidate for a shared library.
 .. _quickcache library: https://github.com/dimagi/quickcache
 
 Consequences
-------------
+************
 
 As long as we keep all options open for developers, these best practices and
 supporting libraries should only help developers write cleaner and less buggy
@@ -241,7 +241,7 @@ they do not replace the need for developers to understand when and what
 caching solution is right for a given situation.
 
 Other References
-----------------
+****************
 
 Additional references that may be useful.
 

@@ -1,6 +1,6 @@
-=================================
+#################################
 OEP-50: Hooks extension framework
-=================================
+#################################
 
 .. list-table::
    :widths: 25 75
@@ -25,7 +25,7 @@ OEP-50: Hooks extension framework
      - 2021-02-04 - 2021-04-30
 
 Abstract
-========
+########
 
 To sustain the growth of the Open edX ecosystem, the business rules of the
 platform must be open for extension following the open-closed principle. This
@@ -35,7 +35,7 @@ defined via plugins can take place.
 
 
 Motivation
-==========
+##########
 
 Following the open-closed principle, it would be desirable for the open edX
 project to allow the extension points (great `summary of the current options`_)
@@ -61,7 +61,7 @@ extendable platforms for the web today for many years already, WordPress.
 
 
 Specification
-=============
+#############
 
 The core of this proposed framework is to define a stable list of places, called
 hooks from now on, in the life cycle of the learners registration, login,
@@ -118,7 +118,7 @@ silent failures letting operators know the source of the error.
 
 
 Rationale
-=========
+#########
 
 Hooks are a way for one piece of code to interact/modify another piece of code
 at specific, pre-defined spots. Many of the business rules of an installation
@@ -152,7 +152,7 @@ capabilities of the platform.
 
 
 Performance Considerations
---------------------------
+**************************
 
 This proposal is a double-edged sword. By allowing plugins to install code on so
 many and so varied places of the application, performance could be hindered.
@@ -188,7 +188,7 @@ current receivers of an event.
 
 
 Use Cases
----------
+*********
 
 To further explain the sort of use cases that this proposal makes possible, we
 propose certain examples made easy by this framework.
@@ -222,7 +222,7 @@ of some basic use cases.
 .. _openedx-filters-samples: https://github.com/eduNEXT/openedx-filters-samples
 
 Backward Compatibility
-======================
+######################
 
 The only current extension point that could be affected by this OEP is the
 REGISTRATION_EXTENSION_FORM. We suggest that this extension point continues to
@@ -231,7 +231,7 @@ migration path to the corresponding hook is well defined and documented.
 
 
 Reference Implementation
-========================
+########################
 
 The current implementation can be found at:
 
@@ -242,7 +242,7 @@ The current implementation can be found at:
 .. _Open edX Filters: https://github.com/openedx/openedx-filters
 
 Rejected Alternatives
-=====================
+#####################
 
 * Django Signals was initially considered as the primary mechanism to connect both events and filters. It was eventually discarded for the filters part of the framework due to the lack of ordering capabilities required for the reducing of results when multiple functions are registered in a filter.
 
@@ -252,7 +252,7 @@ Rejected Alternatives
 
 
 References
-==========
+##########
 
 This OEP was first discussed and presented to the community via `a public google doc`_.
 The discussion held there is included into the present proposal.
@@ -268,7 +268,7 @@ The current documentation for the Hooks Extension Framework can be found at `Ope
 .. _Open edX Guides Hooks: https://github.com/openedx/edx-platform/tree/master/docs/guides/hooks
 
 Change History
-==============
+##############
 
 20 July 2022 - Maria Grimaldi
 Update OEP-50 with latest documentation.

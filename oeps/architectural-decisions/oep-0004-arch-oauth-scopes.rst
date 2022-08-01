@@ -1,6 +1,6 @@
-=========================================
+#########################################
 OEP-4: Application Authorization (Scopes)
-=========================================
+#########################################
 
 .. list-table::
    :widths: 25 75
@@ -23,7 +23,7 @@ OEP-4: Application Authorization (Scopes)
      - 2016-06-20
 
 Abstract
-========
+########
 
 Open edX application authorization guidelines.
 
@@ -48,7 +48,7 @@ The goals of the proposed strategy are to:
 See `Scope and Filter Implementation`_ for additional decisions around the implementation in Open edX.
 
 Motivation
-==========
+##########
 
 The Open edX platform, in its current state, has a very limited mechanism for restricting the authorization of third-party applications to access user data. This limitation has dampened the ability of the platform to enable an ecosystem of third party applications.
 
@@ -57,17 +57,17 @@ Application developers have a harder time convincing their users that those user
 Instead of needing to trust both the platform and all applications built on the platform, our architecture should allow users to simply trust the platform's ability to delegate very specific data sets to third-parties at the user's request.
 
 Rationale
-=========
+#########
 
 The discussion of scopes and application authorization has come up many times, but only recently have we (at edx.org) started to see a meaningful number of requests from external application developers that want to build on our platform.
 
 For example, certain applications would like access to our edx.org course catalog for use cases like affiliate marketing and content repurposing. In this case, we want to be able to grant applications read-only access to our catalog, but not write access, and not access to any other resources (such as enrollments or user profiles).
 
 Specification
-=============
+#############
 
 Data model
-----------
+**********
 
 .. list-table::
    :widths: 25 75
@@ -95,7 +95,7 @@ I sketched these relationships out in the diagram below. Note that instead of us
         resources through applications, scopes, and resource actions.
 
 Governance
-----------
+**********
 
 * Centralize the complete list of scopes but decentralize the associated metadata and definitions
 
@@ -114,7 +114,7 @@ Governance
 * Resources should not, on the other hand, be too broad to be useful, i.e., instead of ``courseware``, consider ``discussions`` or ``catalog`` or whatever specific resource is of interest
 
 Open questions
---------------
+**************
 
 * How will we manage scope metadata, such as the human-readable "this is the permission you're authorizing" text for the OAuth pop-up (and localization considerations)?
 
@@ -125,14 +125,14 @@ Open questions
 .. _`edx-platform`: https://github.com/edx/edx-platform
 
 Backward Compatibility
-=======================
+#######################
 
 There are no backwards compatibility issues with rolling out a centralized scopes list in our OAuth2 provider, or linking scopes to existing client applications.
 
 However, there *might* be issues once we start enforcing scopes on individual service endpoints, as existing client applications that once might have had broader access may get suddenly cut off from data sources that we didn't know were being used. We will need to spend time up front understanding current access patterns in order to estimate the impact of this potentially breaking change and in order to correctly retrofit scopes onto existing application keys.
 
 Scope and Filter Implementation
-===============================
+###############################
 
 Additional decisions around scopes:
 
@@ -172,14 +172,14 @@ Filters provide an additional layer of authorization. Here are some related deci
 .. _Third-Party Auth Scope ADR: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0012-scope-and-filter-for-third-party-auth.rst
 
 Rejected Alternatives
-=====================
+#####################
 
 .. todo
 
 N/A
 
 Change History
-==============
+##############
 
 2020-03-23: Add `Scope and Filter Implementation`_ section.
 

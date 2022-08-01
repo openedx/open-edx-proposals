@@ -29,7 +29,7 @@ OEP-42: Authentication
    :depth: 2
 
 Summary
-=======
+*******
 
 **Decision highlights:**
 
@@ -47,20 +47,20 @@ Summary
 For more details on Open edX best practices around authentication, see the rest of the OEP.
 
 Context
-=======
+*******
 
 Authentication in the Open edX platform has historically been complicated and inconsistent. A variety of efforts have been accomplished to attempt to simplify, consolidate, and standardize the methods of authentication used. To date, there has not yet existed a single reference for the variety of decisions made, as well as an index to documentation related to authentication.
 
 Defined Terms
-=============
+*************
 
 Authentication (AuthN)
-----------------------
+======================
 
 Authentication is the verification of the identity of a user, which typically initiates at a “login” application point. Authentication is required whenever we need to identify a client/caller/user/etc.
 
 Authorization (AuthZ)
----------------------
+=====================
 
 .. note::
 
@@ -69,7 +69,7 @@ Authorization (AuthZ)
 Authorization is the granting of permission of a certain user to perform specific operations in an application. A user can also delegate an application to be authorized to perform operations on their behalf without being logged in or authenticated, which is the basis of OAuth.
 
 Identity Provider (idP)
------------------------
+=======================
 
 From the `Wikipedia article on Identity provider`_:
 
@@ -84,12 +84,12 @@ From the `Wikipedia article on Identity provider`_:
 .. _Wikipedia article on Identity provider: https://en.wikipedia.org/wiki/Identity_provider
 
 Independently Deployable Application (IDA)
-------------------------------------------
+==========================================
 
 An Open edX specific term used to describe separate applications that make up a complete Open edX installation. Examples of IDAs are: LMS + Studio (edx-platform), Insights, ECommerce, Credentials, etc.
 
 JSON Web Token (JWT)
---------------------
+====================
 
 From `JWT.io Introduction`_:
 
@@ -99,7 +99,7 @@ From `JWT.io Introduction`_:
 
 
 OAuth 2.0 (OAuth2)
-------------------
+==================
 
 An authorization framework that enables applications to obtain limited access to user accounts on an HTTP service. See a `simplified oauth2 explanation by Aaron Parecki`_ or dig into the full `OAuth2 specification`_.
 
@@ -107,7 +107,7 @@ An authorization framework that enables applications to obtain limited access to
 .. _OAuth2 specification: https://oauth.net/2/
 
 OpenID Connect (OIDC)
----------------------
+=====================
 
 .. note::
 
@@ -121,12 +121,12 @@ From `OpenID Connect Discovery 1.0`_ document:
 .. _OpenID Connect Discovery 1.0: https://openid.net/specs/openid-connect-discovery-1_0.html
 
 Decisions
-=========
+*********
 
 There are a number of authentication related decisions that have been made. This OEP is meant to be updated over time as we gain more information, including links to other related `Architectural Decision Records (ADRs)`_.
 
 Single Identity Provider and OAuth Authorization Server
--------------------------------------------------------
+=======================================================
 
 The LMS will act as the sole identity provider and OAuth authorization server for all other surrounding IDAs. The LMS can provide information about the identity of the user to the other IDAs. The LMS also provides Single Sign-On (SSO) and Single Logout (SLO) to automatically log in and out IDA users.
 
@@ -135,7 +135,7 @@ The implementation can primarily be found in:
 * `oauth_dispatch (edx-platform)`_: Identity provider implementation for `OAuth2 and JWTs`_ below.
 
 OAuth2 and JWTs
----------------
+===============
 
 The currently supported and recommended method of authentication is an OAuth 2.0 implementation using `JSON Web Tokens (JWTs)`_ as OAuth tokens.
 
@@ -171,7 +171,7 @@ Implementation of all the OAuth2/JWT APIs supported by DOT in the LMS Identity P
 
 
 OAuth2 and Bearer Tokens
-------------------------
+========================
 
 This section refers to Bearer Tokens as documented in `OAuth 2.0 RFC: Bearer Token Usage`_.
 
@@ -187,7 +187,7 @@ All other usage of Bearer Tokens in Open edX has been deprecated. Mobile applica
 .. _oAuth2 and Mobile: https://openedx.atlassian.net/wiki/spaces/AC/pages/42599769/OAuth2+and+Mobile
 
 OAuth2 Token Security
----------------------
+=====================
 
 The communications between the browser, LMS, and IDA must all use `Transport Layer Security (TLS)`_ in order to keep the OAuth2 token secure, as anyone with the token can make a restricted IDA request.
 
@@ -196,7 +196,7 @@ This applies to all OAuth2 tokens, including those discussed in `OAuth2 and JWTs
 .. _Transport Layer Security (TLS): https://en.wikipedia.org/wiki/Transport_Layer_Security
 
 Social (and Other) Authentication
----------------------------------
+=================================
 
 Open edX platform also supports several social authentication methods, such as Google, Facebook, and LinkedIn, along with other campus/business-specific authentication methods, including `SAML`_. These external authentication methods are used to integrate or link your edX identity to another network identity. However, once the identity link is established and an Open edX account is created, the LMS still functions as usual as the idP for all satellite IDAs, and uses Open edX (non-social) authentication methods described above.
 
@@ -207,14 +207,14 @@ The code for supporting third party authentication (SAML, Google, Facebook, etc)
 .. _python-social-auth library: https://github.com/omab/python-social-auth
 
 Standardized Libraries and Utilities
-------------------------------------
+====================================
 
 This section details a variety of authentication related libraries and utilities that Open edX has standardized on. It is important to keep to these standards in order to help keep Open edX more secure.
 
 For any of the following solutions, it is important to avoid creating local alternatives inside an IDA. If a local alternative exists, it should either be deprecated and replaced by these standards, or requires an :ref:`Architecture Decision Record (ADR)` explaining why the exception is necessary and how the security of Open edX will continue to be ensured.
 
 API Providers: Authentication Classes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 `Django REST Framework (DRF)`_ is the standard library used by Open edX to implement REST APIs in Python. Learn more about `Authentication with Django REST Framework (DRF)`_ here.
 
@@ -247,7 +247,7 @@ Note: Our JwtAuthentication class is a subclass of JSONWebTokenAuthentication, w
 .. _drf-jwt: https://pypi.org/project/drf-jwt/
 
 Authenticated API Clients
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 The following are supported API clients that handle authentication using the supported methods documented in this OEP.
 
@@ -258,7 +258,7 @@ The following are supported API clients that handle authentication using the sup
 .. _@edx/frontend-platform/auth: https://github.com/edx/frontend-platform/blob/master/README.md
 
 OAuth Backend
-~~~~~~~~~~~~~
+-------------
 
 Open edX uses `EdXOAuth2 (auth-backends)`_ to provide SSO across IDAs using OAuth2. For more general information, see `Specifying authentication backends in Django`_. This backend implementation uses the `python-social-auth library`_.
 
@@ -267,7 +267,7 @@ Open edX uses `EdXOAuth2 (auth-backends)`_ to provide SSO across IDAs using OAut
 .. _python-social-auth library: https://github.com/omab/python-social-auth
 
 Consequences
-============
+************
 
 Although some of the work required to make these decisions a reality have been completed, there is still a variety of outstanding work and clean-up to be done.
 
@@ -282,7 +282,7 @@ Although some of the work required to make these decisions a reality have been c
 .. _ADR section on removing JWT_ISSUERs: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0008-use-asymmetric-jwts.rst#remove-jwt_issuers
 
 References
-==========
+**********
 
 * `Architectural Decision Records (ADRs)`_
 

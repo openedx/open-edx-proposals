@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Open edX Proposals Index
-========================
+########################
 
 OEP (pronounced “oh-epp”) stands for Open edX (Enhancement) Proposal. An OEP is
 a document that details a specific technology decision being made by the Open
@@ -22,10 +22,10 @@ archive of large and broadly relevant choices made for the platform.
 .. _oep.readthedocs.io: https://oep.readthedocs.io
 
 OEPs
-----
+****
 
 Processes
-~~~~~~~~~
+=========
 
 OEPs that relate to processes we want to put in place for the Open edX community.
 
@@ -37,7 +37,7 @@ OEPs that relate to processes we want to put in place for the Open edX community
    processes/oep-*
 
 Best Practices
-~~~~~~~~~~~~~~
+==============
 
 OEPs that relate to best practices that you should follow when working with the
 Open edX Platform.  These are guidelines and not requirements.  Use them unless
@@ -51,7 +51,7 @@ you have a good reason not to.
    best-practices/oep-*
 
 Architectural Decisions
-~~~~~~~~~~~~~~~~~~~~~~~
+=======================
 
 OEPs that capture architectural decisions that impact the entire Open edX
 Platform. These are decisions that are sufficiently cross-cutting that there
@@ -66,7 +66,7 @@ is no clear code repository where they should reside.
 
 
 Indices and tables
-==================
+##################
 
 * :ref:`genindex`
 * :ref:`modindex`

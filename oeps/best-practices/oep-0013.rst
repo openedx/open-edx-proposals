@@ -1,6 +1,6 @@
-====================================
+####################################
 OEP-13: Open edX web API conventions
-====================================
+####################################
 
 .. This is the template to use when you start a new OEP.
 
@@ -31,14 +31,14 @@ OEP-13: Open edX web API conventions
 +---------------+-------------------------------------------+
 
 Abstract
-========
+########
 
 This document captures the conventions to be used for all Open edX web APIs.
 
 Update: moved to https://openedx.atlassian.net/wiki/display/OpenDev/edX+REST+API+Conventions.
 
 Motivation
-==========
+##########
 
 The Open edX platform contains many extension points for third-party developers
 that wish to integrate with the platform. We wish to approach a standard

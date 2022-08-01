@@ -1,29 +1,29 @@
 .. _caliper_realtime_events:
 
-========================
+########################
 Caliper Real-time Events
-========================
+########################
 
 .. contents::
    :local:
    :depth: 3
 
 Standardized Integration with Caliper
-=====================================
+#####################################
 
 Caliper is a standard that enables the collection, storage, and transport of data about learning. As a learning analytics framework, Caliper provides a common-gauge rail for disparate applications to use and share data from student interactions with learning software and administrative systems.
 
 We have chosen Caliper as one of the primary communication standards for real-time events since many universities and other educational organizations prefer to use tools that require Caliper compliant activity tracking events.
 
 Caliper Learning Analytics Ecosystem
-====================================
+####################################
 
 Since the Caliper standard is widely accepted by the educational organizations, we can use this to generate events that could be used by adaptive learning engines and thus provide a rich user experience.
 
 |ecosystem|
 
 Sensor API
-==========
+##########
 
 `Sensor API`_ defines the basic learning events as well as standardizes and simplifies the gathering of learning metrics across the learning environments. These are used for marshaling and transmitting event data from instrumented applications to target endpoints for storage, analysis, and use.
 
@@ -37,7 +37,7 @@ See `Sensor API <https://www.imsglobal.org/sensor-api>`__ for more information.
 .. _sensor API library for python: https://github.com/IMSGlobal/caliper-python
 
 The Information Model
-=====================
+#####################
 
 Caliper specifications use an information model consisting of rules and relationships to define the learning activities. This model uses Metric Profile (“profile”) as the upper layer. A Metric Profile describes either a learning activity or an activity that facilitates learning e.g. grading.
 
@@ -54,14 +54,14 @@ While there are many profiles provided by caliper specifications, we are interes
 -  Media Profile - for the audio, image, and video-based activities
 
 The Caliper Event
------------------
+*****************
 
 A Caliper event is a generic type that describes the relationship between an actor and an object that was created due to an action undertaken by the actor.
 
 A Caliper event essentially consists of the following: Actor, Action, and Object.
 
 Actor
-~~~~~
+=====
 
 The `Agent`_ who initiated an `Event`_, typically a `Person`_. A Caliper agent is a generic type that represents an `Entity`_. The actor value must be expressed either as an object or as a string corresponding to the actor’s `IRI`_.
 
@@ -89,7 +89,7 @@ The **Agent** can have many fields like name, dateCreated, dateModified but to k
 .. _IRI: https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#iriDef
 
 Action
-~~~~~~
+======
 
 The action or predicate binds the actor or subject to the object. An action is basically a verb in the past tense e.g. “Graded”, “Viewed”, “NavigatedTo”. The action range is limited to the set of `actions`_ described in the specification and may be further constrained by the chosen event type. Only one action can be specified per event.
 
@@ -102,7 +102,7 @@ The action or predicate binds the actor or subject to the object. An action is b
 .. _actions: https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#actions
 
 Object
-~~~~~~
+======
 
 An object is an Entity that an Agent interacts with that becomes the focus, target, or object of interaction. The object value must be expressed either as an object or as a string corresponding to the object’s IRI. If the entity is expressed as an object, both the **id** and **type** properties must be specified.
 
@@ -128,7 +128,7 @@ Example:
 .. _Term: https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#termDef
 
 Context
-~~~~~~~
+=======
 
 `JSON-LD`_ documents require inclusion of a *context*, denoted by the @context keyword, a property employed to map document terms to IRIs. Inclusion of a JSON-LD context provides an economical way for Caliper to communicate document semantics to services interested in consuming Caliper event data.
 
@@ -148,12 +148,12 @@ We can provide context in events in the following way:
 
 
 Open edX events
-===============
+###############
 
 Currently, the Open edX system supports and maintains events that are sent to tracking logs, as described in `Tracking Log Events <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/index.html>`__.
 
 Prioritized List of Events
---------------------------
+**************************
 
 For this first iteration, we will focus primarily on the following events:
 
@@ -204,7 +204,7 @@ For this first iteration, we will focus primarily on the following events:
 .. _Tracking Log Events: https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/index.html
 
 Event Field Mapping
--------------------
+*******************
 
 Please see the `Open edX Caliper Events`_ document for a detailed view of the mapping between the above Open edX events and their equivalent Open edX Caliper formats.
 

@@ -1,6 +1,6 @@
-=============================
+#############################
 OEP-23: Style Customization
-=============================
+#############################
 
 +-----------------+--------------------------------------------------------+
 | OEP             | :doc:`OEP-23 <oep-0023-style-customization>`           |
@@ -23,7 +23,7 @@ OEP-23: Style Customization
 +-----------------+--------------------------------------------------------+
 
 Context
-=======
+#######
 
 The Open edX community relies on the capability to customize the Open
 edX platform’s user interface. Providers, maintainers, and select
@@ -70,7 +70,7 @@ frontend entirely in favor of building their own, indicating an absolute
 failure of existing theming systems for their use cases.
 
 Decision
-========
+########
 
 To guarantee continued core contributor support and full transparency to
 the open source community, the Open edX platform must introduce official
@@ -92,7 +92,7 @@ contributors and maintainers, facilitates communication of breaking
 changes, and enables bolder architectural innovation.
 
 Goals
------
+*****
 
 1. The Open edX core team will officially support a style customization system that
       enables contributors to easily customize look-and-feel and
@@ -118,7 +118,7 @@ Goals
       system. This system will be defined in its own separate follow-on OEP.
 
 Plan
-----
+****
 
 1. API definition for the new style customization system will be proposed,
       agreed upon, and documented.
@@ -155,7 +155,7 @@ Plan
 
 
 Consequences
-============
+############
 
 -  All existing theming systems will be deprecated and support will
       eventually be removed from the platform.
@@ -183,7 +183,7 @@ Consequences
       within timelines based on named release cycles.
 
 References
-==========
+##########
 
 1. Microsites Theming
       https://github.com/edx/edx-platform/wiki/Microsites-Theming
