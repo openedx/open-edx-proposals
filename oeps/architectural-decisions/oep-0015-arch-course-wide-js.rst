@@ -1,4 +1,3 @@
-#####################################
 OEP-15: Course-wide Custom JavaScript
 #####################################
 
@@ -31,19 +30,19 @@ OEP-15: Course-wide Custom JavaScript
 .. _An edx-code question: https://groups.google.com/d/topic/edx-code/idjPWUIx8Ls/discussion
 
 Abstract
-########
+********
 
 The Open edX platform is a powerful tool for both content authoring and learning-sciences research, in part due to its support for including arbitrary JavaScript in course materials; for example, such scripts can enable researchers to conduct novel experiments and log custom learner interaction events for analysis. Unfortunately, deploying and maintaining JavaScript assets across an entire course (or multiple courses) is a significant challenge, especially in Studio-based workflows where :code:`<script type="text/javascript">` elements must be included manually in every vertical. As an alternative, this OEP proposes a mechanism for authors to include custom JavaScript across an entire course using a policy key. The implementation is fully backward-compatible and leverages existing XBlock infrastructure to include scripts in the LMS.
 
 Motivation
-##########
+**********
 
 The primary goal of this OEP is to facilitate research and experimentation by removing the barriers to large-scale JavaScript inclusion. Simplifying the inclusion of scripts is especially important for experiments spanning many courses (e.g., all MITx courses): it is not reasonable to expect all course teams at an institution to manually modify every single vertical in their course to include a research script as is the case with the current platform, but it is quite feasible to request that they make a single easy-to-reverse change to their course policy.
 
 As an additional benefit, a course-wide JavaScript mechanism would also simplify the use of course- or institution-wide utility scripts; HarvardX, for example, maintains a custom JS library for course authors.
 
 Specification
-#############
+*************
 
 The proposed implementation adds a new policy key for custom course-wide scripts (name TBD):
 
@@ -61,7 +60,7 @@ Since the edX courseware template already receives and renders an XBlock fragmen
 .. _when the courseware context is created: https://github.com/edx/edx-platform/blob/d497e194623dd32ad5a66f141529129267db645c/lms/djangoapps/courseware/views/index.py#L372-L441
 
 Rationale
-#########
+*********
 
 The approach above leverages the existing XBlock/Django infrastructure to handle de-duping and rendering, so little new code should be needed for a working implementation. This also means that changes to script loading in the XBlock runtime (e.g., AMD-style loading `as brought up on the edx-code thread`_) will automatically affect course-wide script loading too.
 
@@ -83,7 +82,7 @@ For the user-facing portion of the feature, a course policy setting (which would
 .. _existing description and warning: https://github.com/edx/edx-platform/blob/d497e194623dd32ad5a66f141529129267db645c/cms/templates/settings_advanced.html#L83-L86
 
 Why not XBlocks?
-****************
+================
 
 Custom XBlocks cannot be instantiated at the top level of the courseware; as with script tags, they would need to be added to every vertical in a course for course-wide experiments. The `XBlock course tabs`_ idea on edx-code (originally referred to as `course-level XBlock views`_) would permit blocks to be loaded outside of verticals, but these would only be active when a user explicitly navigates to their tab, not when users are interacting with the courseware as required here.
 
@@ -91,7 +90,7 @@ Custom XBlocks cannot be instantiated at the top level of the courseware; as wit
 .. _XBlock course tabs: https://groups.google.com/d/topic/edx-code/ywjXV0wzQiw/discussion
 
 What about security?
-********************
+====================
 
 The open edX platform already permits arbitrary JavaScript in course content via :code:`<script type="text/javascript">` tags, and such scripts may already be deployed course-wide (albeit tediously) by duplicating them across every vertical in a course. *This OEP merely aims to make these things easier, not to add abilities which authors do not already have.*
 
@@ -110,7 +109,7 @@ Security was briefly touched on in the `initial edx-code thread`_ for this featu
 .. _initial edx-code thread: https://groups.google.com/forum/#!topic/edx-code/T83TDxhH74E/discussion
 
 What about performance?
-***********************
+=======================
 
 Several performance-related points were also raised via edx-code. The first concerns the use of this feature to load JavaScript libraries (e.g., for things like course-wide code syntax highlighting):
 
@@ -125,21 +124,21 @@ Another comment mentioned the impact of additional HTTP requests:
 Some benchmarking will likely be appropriate here, though hopefully the benefits of this feature will outweigh any performance impact if only a few scripts are included. Caching should help to reduce the duration of each request after the initial load: it looks like edX sets the Cache-Control max-age to 1 year, and external JavaScript CDNs should also have reasonable caching behavior. Hopefully HTTP/2 will also help as it gains adoption.
 
 What about compatibility and support?
-*************************************
+=====================================
 
 Platform hosts such as edX should make it clear that this is a power-user feature that would carry no support beyond that for current :code:`<script type="text/javascript">` tags (i.e., *the platform guarantees that your scripts will make it into the page, but you're on your own if they don't work or if something breaks due to platform changes*). As with security above, it's possible there will be more complaints or support requests from users simply because of wider script usage, though good documentation and a warning in the policy key description should hopefully keep these to a minimum.
 
 Backward Compatibility
-#######################
+***********************
 
 The proposed feature does not introduce any known backward incompatibilities.
 
 Reference Implementation
-########################
+************************
 
 (This section will link to an edX platform pull request after the OEP is accepted and an implementation written.)
 
 Rejected Alternatives
-#####################
+*********************
 
 None so far (other than hacks involving scripts to automate the process of modifying every vertical in a course).

@@ -1,4 +1,3 @@
-################################
 OEP-25: Incremental Improvements
 ################################
 
@@ -27,7 +26,7 @@ OEP-25: Incremental Improvements
 .. _Original pull request: https://github.com/edx/open-edx-proposals/pull/66#pullrequestreview-151034037
 
 TL;DR
-#####
+*****
 
 * **edX is continually looking to up its game in preemptively implementing repairs and solutions:** To date, we have largely relied on ourselves for major framework upgrades and replacing deprecated code, but most of these big projects require time and effort on many smaller routine tasks in order to complete.
 * **Open edX can tap into its community to make better progress toward these long-term objectives:** By breaking down routine tasks for these large or ongoing projects, we can create bite-sized actions accessible to contributors from many backgrounds, requiring no specific prior knowledge of how the Open edX code is structured.
@@ -37,7 +36,7 @@ TL;DR
 .. _The Incremental Improvements (INCR) JIRA project: https://openedx.atlassian.net/jira/software/c/projects/INCR/issues/INCR-570?filter=allopenissues
 
 High-Level INCR Jira Workflow Process
-*************************************
+=====================================
 
 * Tickets must meet the requirements for the INCR Jira project outlined in the `Specification`_ section of this document. For tickets that don't meet these requirements, please see suggestions for alternate workflow in the section: `How Should Related Non-INCR Work Be Coordinated?`_
 * INCR tickets should only be written for the parts of the project for which they are appropriate (those that can realistically be broken into smaller tasks and don’t require more extensive knowledge of existing code).
@@ -46,14 +45,14 @@ High-Level INCR Jira Workflow Process
 .. image:: oep-0025/INCR_workflow.png
 
 Abstract
-########
+********
 
 Proposes a process for achieving large and/or long-term Open edX project goals
 via the definition and distributed completion of many small, straightforward
 development tasks.
 
 Motivation
-##########
+**********
 
 There are often relatively straightforward changes to the Open edX codebase
 which prove difficult to accomplish due to the sheer amount of code involved.
@@ -73,7 +72,7 @@ but once broken down into very small pieces, the benefits of distributing
 them across the entire community become rapidly apparent.
 
 Specification
-#############
+*************
 
 The `Incremental Improvements`_ (INCR) JIRA project is home to small,
 straightforward tasks which must be finished in order to achieve
@@ -124,7 +123,7 @@ should have the following characteristics:
 .. _Incremental Improvements: https://openedx.atlassian.net/projects/INCR/issues/INCR-1?filter=allopenissues
 
 INCR Tickets in Context
-***********************
+=======================
 
 Note that it is entirely possible that an epic in the INCR project may not be
 achievable purely through the completion of INCR tickets.  There may be
@@ -147,7 +146,7 @@ as such, but should immediately have their status marked as ``Blocked`` and be
 linked to the tickets which are blocking progress.
 
 Who Can Work on INCR Tickets?
-*****************************
+=============================
 
 Incremental Improvement tickets are appropriate for many kinds of contributors,
 including (but not limited to):
@@ -176,7 +175,7 @@ may decide that it's worth making that epic a higher priority, assigning even
 more developers to work on INCR tickets.
 
 INCR Ticket Workflow
-********************
+====================
 
 Once the contributor is ready to submit their changes, the process will
 typically go roughly as follows:
@@ -201,7 +200,7 @@ typically go roughly as follows:
 .. _OSPR: https://openedx.atlassian.net/wiki/spaces/OPEN/pages/679772558/OSPR+Workflow+process
 
 How Should Related Non-INCR Work Be Coordinated?
-************************************************
+================================================
 
 As noted above, it will often be the case that at least some of the work
 needed to complete an INCR epic will not be appropriate for INCR tickets.
@@ -226,7 +225,7 @@ be done, but here are a few suggestions:
 .. _Python 3 in edx-platform: https://openedx.atlassian.net/browse/INCR-1
 
 Who Creates INCR Tickets?
-*************************
+=========================
 
 New top-level INCR epics should be proposed in an Open edX discussion forum
 (such as the #architecture channel on Slack), and only created if there is
@@ -236,7 +235,7 @@ projects.  An epic's author can delegate the creation of individual tickets
 within it as appropriate.
 
 Rationale
-#########
+*********
 
 Historically, edX has been relatively poor at pre-emptively completing major
 framework upgrades (like Django 1.11 or Python 3).  We have also been somewhat
@@ -265,7 +264,7 @@ shared objectives.  The hope is that this will enable all of the following:
   on cleaning up old messes and deprecated code patterns
 
 Rejected Alternatives
-#####################
+*********************
 
 (Note that in the context of this draft, "rejected" does not mean that the
 alternative has been completely ruled out, rather that it seemed implausible
@@ -306,16 +305,16 @@ tracker that edX employees would need to routinely use and monitor, or moving
 core edX development from JIRA to a different issue tracker.
 
 Change History
-##############
+**************
 
 2020-11-18
-**********
+==========
 
 * TL;DR section added to opening of doc.
 * `Pull request #168 <https://github.com/openedx/open-edx-proposals/pull/168>`_
 
 2018-10-09
-**********
+==========
 
 * Document created
 * `Pull request #66 <https://github.com/openedx/open-edx-proposals/pull/66>`_

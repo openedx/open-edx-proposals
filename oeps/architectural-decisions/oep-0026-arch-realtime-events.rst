@@ -1,4 +1,3 @@
-##########################
 OEP-26: Real-time Events
 ##########################
 
@@ -46,12 +45,12 @@ This document describes a design proposal for supporting standard real-time even
 
 
 Use cases
-#########
+=========
 
 Although the remainder of this section enumerates some of the immediate use cases, for the time being we will focus our efforts on the needs for adaptive learning, while bearing in mind that the general framework for real-time events will be extended and reused.
 
 Use Case: Adaptive Learning
-===========================
+---------------------------
 
 **Requirement:** Real-time communications (*sub-second*)
 
@@ -60,7 +59,7 @@ As captured in `Open edX Adaptive Learning`_, adaptive learning in Open edX will
 .. _Open edX Adaptive Learning: https://openedx.atlassian.net/wiki/spaces/AC/pages/542343170/Adaptive+Learning
 
 Integration with Adaptive Engines
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As an iterative path to this future, the immediate goal is to enable integrations with external adaptive engines. In the far future, we may also implement our own open-sourced adaptive engines. But in the meantime, we would like to establish standard APIs that (1) adaptive engines can use to receive real-time events from the Open edX LMS, (2) the Open edX LMS can use to query adaptive engines on what to present to learners, and (3) train adaptive engines based on standard
 events collected from multiple sources. This document focuses on #1 with the need to send scalable and real-time updates to adaptive engines. This is depicted by the left-hand flow in the diagram below. #3 is described in :ref:`oep-26-lrs`.
@@ -69,7 +68,7 @@ events collected from multiple sources. This document focuses on #1 with the nee
    :alt: The left-hand side of the data flow diagram shows how the Open edX LMS sends events to an intermediary "Eventing" component, which forwards those events to adaptive engines. The right-hand side shows how the Open edX LMS queries the adaptive engines for "what's next" via an intermediary "Adaptive Experiences" component.
 
 Use Case: Enterprise
-====================
+--------------------
 
 **Requirement:** Near-real-time communications (*minutes*)
 
@@ -78,14 +77,14 @@ As an `integration option for Enterprise clients`_, real-time events allow the O
 .. _integration option for Enterprise clients: https://openedx.atlassian.net/wiki/spaces/SOL/pages/532676633/Enterprise+xAPI+Implementation+Proposal
 
 Use Case: University
-====================
+--------------------
 
 **Requirement:** Near-real-time communications (*minutes*)
 
 Real-time events also allow the Open edX system to immediately notify Universities of their high-interest learning activities, such as unenrollments. Note that, in contrast to Enterprises, Universities typically favor Caliper_ as their standard of choice.
 
 Use Case: Cross-LMS Integration
-===============================
+-------------------------------
 
 **Requirement:** Near-real-time communications (*minutes*)
 
@@ -94,7 +93,7 @@ Another emerging use case is allowing unification of events across multiple LMS'
 .. _Learning Record Store: https://xapi.com/learning-record-store/
 
 Use Case: External Service
-==========================
+--------------------------
 
 **Requirement:** Real-time (*sub-second*) or near-real-time (*minutes*) communications depending on integration type
 
@@ -108,7 +107,7 @@ Technical Specification
 This section provides some of the technical details of the design proposal.
 
 Standards
-#########
+=========
 
 In order to enable a plug-n-play ecosystem with various external services (adaptive engines or otherwise), we will support both the ADL_'s `Experience API (xAPI)`_ standard and the `IMS Global`_'s `Caliper Sensor APIs`_ standard as the communication protocol between the Open edX LMS and registered external services.
 
@@ -118,12 +117,12 @@ In order to enable a plug-n-play ecosystem with various external services (adap
 .. _Caliper Sensor APIs: https://www.imsglobal.org/caliper-analytics-v1-public-repos-sensor-apis
 
 xAPI Integration
-================
+----------------
 
 For details on integrating with xAPI, please see the :ref:`xapi_realtime_events` design document.
 
 Caliper Integration
-===================
+-------------------
 
 For details on integrating with Caliper, please see the :ref:`caliper_realtime_events` design document.
 
@@ -137,12 +136,12 @@ For details on integrating with Caliper, please see the :ref:`caliper_realtime_e
 .. _oep-26-user-id:
 
 Anonymized User ID
-##################
+==================
 
 The *LMS user_id* will be used to uniquely identify a user in the Open edX system. This decision is detailed in :ref:`oep-32`.
 
 Eventing Components
-###################
+===================
 
 While the exact technical framework and tools for supporting real-time events *at scale* is to be determined, we can begin with implementing the various components of the eventing service from a modular perspective so they can be adopted into any scalable infrastructure (e.g., an Apache framework). So while we propose a framework in this section, each subcomponent is expected to be independent and modular so it can be recomposed as needed.
 
@@ -165,17 +164,17 @@ Here is a description of each subcomponent in the Eventing subsystem:
 7. `Admin UI`_: Provides an administrative interface to configure and manage registered consumers.
 
 Synchronous Real-time Eventing Backend
-======================================
+--------------------------------------
 
 The **Synchronous Real-time Eventing Backend** serves as an integration point between the Open edX system and the rest of the Eventing subsystem. It plugs into the `Open edX Event Tracking`_ framework and runs within the LMS Process.
 
 Asynchronous Real-time Eventing Routing Backend
-===============================================
+-----------------------------------------------
 
 The **Asynchronous Real-time Eventing Routing Backend** is a RoutingBackend_ component type that executes in an asynchronous process. It is configured to support multiple backends - one for each communication protocol. For example, there would be a communication backend for Caliper and another one for xAPI.
 
 Filter Processor
-================
+----------------
 
 The **Filter Processor** component serves multiple purposes:
 
@@ -198,26 +197,26 @@ In the future, we may need the following:
 * **Activity type restriction** - access certain types of events.
 
 Translator Processor
-====================
+--------------------
 
 Each communication protocol has its own Translator component. This component is responsible for translating from an Open edX event schema to the schema for the target communication protocol.
 
 .. _oep-26-validator:
 
 Validator Processor
-===================
+-------------------
 
 The validation component ensures we continue to support the event output schema expected by all participating real-time eventing consumers. In many ways, this is similar to what `consumer-driven contract testing`_ would enable and uses similar design principles. Essentially, a common validation library can be collaboratively maintained by participating consumers, including consuming adaptive engines. This ensures an end-to-end integration that can be maintained going forward.
 
 .. _consumer-driven contract testing: https://www.thoughtworks.com/radar/techniques/consumer-driven-contract-testing
 
 Router
-======
+------
 
 The router forwards events to interested consumers, using the target communication protocol.
 
 Admin UI
-========
+--------
 
 The administration component is responsible for allowing the Open edX site administrator to configure the list and permissions of registered event consumers.
 

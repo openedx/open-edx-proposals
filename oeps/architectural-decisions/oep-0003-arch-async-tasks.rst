@@ -1,4 +1,3 @@
-###################################
 OEP-3: Asynchronous Task Management
 ###################################
 
@@ -21,7 +20,7 @@ OEP-3: Asynchronous Task Management
 +---------------+-------------------------------------------+
 
 Abstract
-########
+********
 
 Proposes a system which allows users to initiate, monitor, and retrieve the
 results of various long-running tasks in a consistent manner.  This system
@@ -30,7 +29,7 @@ asynchronous tasks straightforward.
 
 
 Motivation
-##########
+**********
 
 Course import and export are currently implemented such that they occur in the
 scope of a web request, but often take long enough to time out.  This is not
@@ -53,7 +52,7 @@ benefit from a consistent framework.  Examples include:
 
 
 Specification
-#############
+*************
 
 A new open source Django application will be written to support a user
 interface for managing celery tasks in a consistent manner across services.
@@ -120,7 +119,7 @@ it's ready, and other long-running tasks will switch to use it as needed.
 
 
 Database Schema
-***************
+===============
 
 Celery provides a pretty full-featured and well understood platform for
 running asynchronous tasks, but celery’s ``AsyncResult`` doesn’t store all
@@ -169,7 +168,7 @@ for each task may be added.  For example, CourseRerunParameters might contain:
 
 
 Rationale
-#########
+*********
 
 Celery is already in use for other asynchronous tasks, and makes a logical
 choice as the underlying task execution engine.  Course import and export
@@ -196,7 +195,7 @@ of the code in the task dashboard from
 
 
 Backwards Compatibility
-#######################
+***********************
 
 * Some documentation that deals with course import and export will need to be
   updated to describe the new workflow.  The task status page should contain
@@ -219,4 +218,4 @@ Backwards Compatibility
 
 
 Change History
-##############
+**************

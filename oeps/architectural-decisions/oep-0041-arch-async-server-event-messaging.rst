@@ -1,4 +1,3 @@
-################################################
 OEP-41: Asynchronous Server Event Message Format
 ################################################
 
@@ -99,7 +98,7 @@ Specification
 *************
 
 Message Format
-##############
+==============
 
 The message format will use the `CloudEvents 1.0
 <https://github.com/cloudevents/spec/blob/master/spec.md>`_ specification, with
@@ -130,7 +129,7 @@ example:
   }
 
 Fields
-######
+======
 
 All top level field names are specified by the CloudEvents spec, but most fields
 defined by that standard have some leeway in how they're used for any given
@@ -233,7 +232,7 @@ hierarchical name with the format ``{Reverse DNS}.{Architecture
 Subdomain}.{Subject}.{Action}.{Major Version}``.
 
 Reverse DNS
-===========
+-----------
 
 Example: ``org.openedx``
 
@@ -243,7 +242,7 @@ might interact with internal IT or finance reporting systems, should use
 ``org.edx`` as the prefix instead. If in doubt, default to ``org.openedx``.
 
 Subdomain (from Domain Driven Design)
-=====================================
+-------------------------------------
 
 Example: ``catalog``
 
@@ -259,7 +258,7 @@ will roughly match deployed services. Subdomain names should be lower cased and
 use underscores if they are more than one word.
 
 Subject
-=======
+-------
 
 Example: ``course``
 
@@ -282,7 +281,7 @@ but the due date information from ``content_authoring`` is just an input to the
 more complex due date information in ``learning``.
 
 Action
-======
+------
 
 Example: ``created``
 
@@ -300,7 +299,7 @@ around Django signals and learning analytics events (we're not completely
 consistent, but we tend towards past tense).
 
 Major Version
-=============
+-------------
 
 Example: ``v1``
 
@@ -331,7 +330,7 @@ should have the *exact* same timestamp.
 
 
 Message Content Data Guidelines
-###############################
+===============================
 
 These are general guidelines to consider when creating your messages. There can
 always be exceptional circumstances and use cases that require going against one
@@ -419,7 +418,7 @@ be expired by the time a consumer gets them.
 .. _Event Messaging Architectural Goals:
 
 Architectural Goals
-###################
+===================
 
 This OEP is strongly aligned with the `Achitecture Manifesto
 <https://openedx.atlassian.net/l/c/wN425om2>`_ themes of decentralization and

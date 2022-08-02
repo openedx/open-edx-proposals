@@ -1,4 +1,3 @@
-##########################
 OEP-16: Bootstrap Adoption
 ##########################
 
@@ -25,7 +24,7 @@ OEP-16: Bootstrap Adoption
 .. _Original pull request: https://github.com/edx/open-edx-proposals/pull/46
 
 Abstract
-########
+********
 
 In order to accelerate development, and provide a more consistent user
 experience for our users, Open edX will adopt `Bootstrap 4`_ to style its web
@@ -36,7 +35,7 @@ that are verified to support `WCAG 2.0`_ to ensure that all new user interfaces
 conform to the `edX accessibility guidelines`_.
 
 Technology Selection
-####################
+********************
 
 The following rubric was used to assess potential technologies:
 
@@ -92,7 +91,7 @@ are very well documented. This saves time in development, and also ensures that
 the new user interface will be rendered according to the current theme.
 
 Specification
-#############
+*************
 
 The recommendation is to adopt Bootstrap 4 starting immediately so that new
 features can be built following this best practice. A new edx-bootstrap library
@@ -113,10 +112,10 @@ importing the standard fonts, layouts, margins etc. If desired, even those
 rules can be overridden to provide full flexibility in theming.
 
 Important Considerations
-########################
+************************
 
 Bootstrap 4 Alpha Status
-************************
+========================
 
 As of May 2017, Bootstrap 4 is still only available as an alpha release. Based
 upon the proof-of-concept, this does not seem to be an issue as the
@@ -125,7 +124,7 @@ open source project, it is straightforward to track the work, and to provide
 fixes as necessary.
 
 Right-to-Left Language Support
-******************************
+==============================
 
 Bootstrap 4 does not currently provide support for right-to-left languages,
 which is clearly a roadblock for Open edX to adopt it. The official stance
@@ -163,7 +162,7 @@ technology for simplicity's sake.
 For more background, see the `Bootstrap RTL Discovery ticket`_.
 
 Theming and Multi-Tenancy
-*************************
+=========================
 
 A key question for Bootstrap adoption is how to implement theming for an
 application that supports multi-tenancy. Full theming encompasses many
@@ -178,7 +177,7 @@ it is important that the edx-bootstrap library take this requirement into
 account.
 
 Backward Compatibility
-######################
+**********************
 
 For edx-platform, the approach taken in the reference implementation was to
 introduce a new v3 style, thus leaving all v1 and v2 styles unaffected. This
@@ -192,7 +191,7 @@ the header or footer, a context parameter will be passed through indicating
 whether Bootstrap components should be used.
 
 Reference Implementation
-########################
+************************
 
 In order to prove the viability of Bootstrap 4, a proof-of-concept was built
 that converted three different pages from the LMS:
@@ -222,10 +221,10 @@ during a two-day hackathon, thus demonstrating how quickly these conversions can
 be done.
 
 Rejected Alternatives
-#####################
+*********************
 
 edX Pattern Library
-*******************
+===================
 
 The `edX Pattern Library`_ is an initiative that was started in 2015 to
 modernize the way that edX applications were built. At the time, Bootstrap was
@@ -245,7 +244,7 @@ other alternatives.
 For more information, see the wiki page `State of the Pattern Library`_.
 
 Material Design
-***************
+===============
 
 Google's Material Design is another very successful web framework that was
 evaluated. It was ultimately considered to be too opinionated to support the

@@ -1,4 +1,3 @@
-############################
 OEP-7: Migrating to Python 3
 ############################
 
@@ -26,7 +25,7 @@ OEP-7: Migrating to Python 3
 .. _open-edx-proposals#21: https://github.com/edx/open-edx-proposals/pull/21#pullrequestreview-18018383
 
 Abstract
-########
+********
 
 With primary development of Python occurring on Python 3, and with Python 2
 scheduled for end-of-life on January 1st, 2020, edX needs to plan for a transition of all of
@@ -39,7 +38,7 @@ as possible, and meets the needs of our stakeholders.
 
 
 Rationale
-#########
+*********
 
     * Python 2 will only receive support from the Python core developers until January 1st, 2020.
     * Django will only support Python 2 through 1.11LTS (which is supported
@@ -63,7 +62,7 @@ Rationale
 
 
 Scope
-#####
+*****
 
 There are several areas of work that need to be done
 
@@ -81,7 +80,7 @@ repositories has been migrated.
 
 
 Choosing a Python version
-*************************
+=========================
 
 All new Python projects should be written using Python 3 unless a compelling
 reason (such as incompatible support libraries with no reasonable alternative
@@ -106,7 +105,7 @@ replaced by newer services before the January 2020 end of support.
 
 
 Migrating code
-**************
+==============
 
 All new code in Python 2 codebases should be written to be compatible with
 Python 3.  Six_ is a simple compatibility library that makes this easier.
@@ -128,7 +127,7 @@ example::
 .. _python-modernize: https://pypi.org/project/modernize/
 
 Third-party dependencies
-========================
+------------------------
 
 Before converting a codebase to Python 3, we need to make sure the code we
 depend on will also support Python 3.  We can make a rough check for
@@ -153,7 +152,7 @@ supporting Python 3, the amount of resources we want to commit to the project,
 and the availability and quality of alternatives.
 
 \_\_future__ imports
-====================
+--------------------
 
 All files should have the main ``__future__`` imports at the top to regularize
 some behaviors that differ by default between Python 2 and 3.
@@ -167,7 +166,7 @@ some behaviors that differ by default between Python 2 and 3.
   (``a // b``) perform integer division.
 
 Text handling
-=============
+-------------
 
 Text handling is the largest area of difficulty in porting Python.  Where
 possible, we will use unambiguous text or byte objects.  In most cases, text
@@ -219,7 +218,7 @@ ready distribution in a python 2 project.
 .. _problems: https://github.com/edx/XBlock/pull/365
 
 Handling literals, Option 1: Python 3-Style
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to write code that looks as much like native Python 3 as possible,
 you may want to use ``from __future__ import unicode_literals``, which makes bare
@@ -246,7 +245,7 @@ for text and byte literals, so it would be better to make the changes more
 broadly (one full repo or at least djangoapp at a time).
 
 Handling literals, Option 2: Explicit unicode literals
-------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Because of the difficulty in mentally context switching between code that uses
 unicode-by-default strings, and bytes-by-default strings in a single Python 2
@@ -266,7 +265,7 @@ This version creates noisier code than Option 1, above, but makes it easier to
 incrementally migrate large files, without introducing breaking changes.
 
 Builtins
-========
+--------
 
 The Python standard library has been shuffled around a bit in the move to
 Python 3.  With ``six``, most changed
@@ -289,7 +288,7 @@ Where possible, ``six`` is the recommended solution.
    course_key_string = six.text_type(course_key)
 
 Dictionaries and iterables views
-================================
+--------------------------------
 
 Instead of using ``d.iterkeys()``, use
 ``six.viewkeys(d)``.  If you need a list, use ``list(*.viewkeys(d))``.  Other
@@ -312,7 +311,7 @@ You could do:
         print(key, value)
 
 Packaging
-=========
+---------
 
 All packages should maintain the proper trove classifiers for the versions of
 Python they support.
@@ -350,7 +349,7 @@ environment.  At a minimum, at least the lowest and highest minor versions of
 each supported major version must be tested.
 
 Other problems
-==============
+--------------
 
 If you find other incompatibilities, a shim will likely be found as part of
 ``six``.  When writing code that explicitly switches based on version, do
@@ -367,7 +366,7 @@ future-compatible with a potential future Python 4.
 
 
 Changing Coding Practice
-************************
+========================
 
 Changing internal code practices to ease conversion will require a
 three-pronged approach of documentation, socialization, and tooling.  To start,
@@ -388,7 +387,7 @@ compatibility is improving.
 
 
 Migrating projects
-******************
+==================
 
 We should be able to migrate individual applications to Python 3 independently.
 To begin with, we should pilot the process using a relatively small (but
@@ -412,7 +411,7 @@ For a given project, steps are:
 
 
 Order of migrations
-*******************
+===================
 
 * IDAs that we want to continue supporting in the future
 
@@ -446,7 +445,7 @@ a page on the Open edX Confluence wiki capturing the current state of
 
 
 Deprecating Python 2
-********************
+====================
 
 Once a project has been converted to Python 3 and deployed, and there is no
 further need to support the Python 2 version, we will deprecate the Python 2
@@ -459,7 +458,7 @@ with our own projects) should continue to support Python 2 until Python 2 is
 EOLed in 2020.
 
 Supporting external partners
-****************************
+============================
 
 We intend to be as transparent as possible about this process with Open edX
 users, and partner institutions.  This document will be updated to reflect
