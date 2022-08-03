@@ -1,6 +1,5 @@
-======================================
 OEP-18: Python Dependency Management
-======================================
+######################################
 
 +-----------------+--------------------------------------------------------+
 | OEP             | :doc:`OEP-18 <oep-0018-bp-python-dependencies>`        |
@@ -31,13 +30,13 @@ OEP-18: Python Dependency Management
    :depth: 2
 
 Abstract
-========
+********
 
 Proposes best practices for declaring and maintaining dependencies on other
 Python packages in Open edX software repositories.
 
 Motivation
-==========
+**********
 
 The Open edX project includes dozens of Python software repositories, most of
 which depend on certain other Python packages being installed in order to
@@ -54,7 +53,7 @@ the Open edX Python packages consistent with each other (and many other open
 source Python projects) for ease of understanding and maintenance.
 
 Specification
-=============
+*************
 
 The key to successful Python dependency management in Open edX repositories
 is to break it down into five parts:
@@ -78,7 +77,7 @@ is to break it down into five parts:
 .. _virtualenv: https://virtualenv.pypa.io/
 
 Identify Usage Contexts
------------------------
+=======================
 
 The dependencies of Python software are typically installed or run in a
 variety of different contexts over the course of developing and using it.
@@ -106,7 +105,7 @@ contexts and the file names often used for them:
 .. _Sphinx: http://www.sphinx-doc.org/
 
 Declare Direct Dependencies
----------------------------
+===========================
 
 As indicated above, some of the usage contexts have a standard filename used in
 the ``requirements`` directory of an Open edX repository to list dependencies.
@@ -179,7 +178,7 @@ This can be used to define ``install_requires`` as follows:
 .. _PyPI: https://pypi.org/
 
 Imposing Constraints on Dependencies
-------------------------------------
+====================================
 
 Although we usually want to use the latest available version of our
 dependencies in order to take advantage of the latest bug fixes, performance
@@ -218,7 +217,7 @@ This file should be periodically reviewed to determine if some of the
 constraints are no longer required.
 
 Generate Exact Dependency Specifications
-----------------------------------------
+========================================
 
 Although we want to keep our manually edited requirements files very simple,
 we need a separate set of requirements files which list every single package
@@ -252,7 +251,7 @@ first run of ``pip-compile`` during an upgrade.
 .. _pip-tools: https://github.com/jazzband/pip-tools
 
 Automate Updates of Exact Dependency Specifications
----------------------------------------------------
+===================================================
 
 While we want all dependencies explicitly pinned in order to benefit from
 consistent testing and development environments, it isn't acceptable to leave
@@ -284,7 +283,7 @@ Each Open edX repository should have the following:
 .. _requires.io: https://requires.io/
 
 Making Deliberate Changes to Dependencies
------------------------------------------
+=========================================
 
 In addition to the automation described above to keep dependencies current
 over time, developers will occasionally need to make deliberate changes to the
@@ -329,7 +328,7 @@ developers who are either more experienced or more familiar with that
 repository.
 
 Resolving "Could not find a version that matches..."
-----------------------------------------------------
+====================================================
 
 Sometimes ``make upgrade`` or ``pip-compile`` will be unable to find a
 suitable version of a dependency for the output file because there are
@@ -344,7 +343,7 @@ identify the problem.
 .. _pipdeptree: https://github.com/naiquevin/pipdeptree
 
 Installing Dependencies from URLs
----------------------------------
+=================================
 
 As noted above, you should generally avoid installing requirements from a URL
 or local directory instead of PyPI.  But there are a few circumstances where
@@ -363,7 +362,7 @@ name and version specified (end with "#egg=NAME==VERSION").  For example::
     git+https://github.com/edx/edx-ora2.git@2.1.15#egg=ora2==2.1.15
 
 Rationale
-=========
+*********
 
 The practices outlined here help prevent the following problems that we have
 encountered in the past:
@@ -436,7 +435,7 @@ packages from URLs whenever possible:
 .. _edx-platform: https://github.com/edx/edx-platform
 
 Reference Implementation
-========================
+************************
 
 Many of the Open edX repositories have already begun to comply with the
 recommendations outlined here.  In particular, repositories generated using
@@ -448,7 +447,7 @@ also be useful for reference:
 * `XQueue <https://github.com/edx/xqueue/>`_
 
 Rejected Alternatives
-=====================
+*********************
 
 `pipenv`_ is a relatively new utility for managing Python dependencies,
 written by Kenneth Reitz (author of the `requests`_ package).  Although it
@@ -475,4 +474,4 @@ fixed.
 .. _tox: https://tox.readthedocs.io/
 
 Change History
-==============
+**************

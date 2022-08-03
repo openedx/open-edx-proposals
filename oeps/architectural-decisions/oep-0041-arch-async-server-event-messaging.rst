@@ -1,6 +1,5 @@
-================================================
 OEP-41: Asynchronous Server Event Message Format
-================================================
+################################################
 
 .. list-table::
    :widths: 25 75
@@ -26,9 +25,9 @@ OEP-41: Asynchronous Server Event Message Format
    * - Resolution
      - Accepted
 
---------
+********
 Abstract
---------
+********
 
 This OEP describes the general format and conventions the Open edX platform should use in
 asynchronous event messaging across services. These events would be emitted when
@@ -55,9 +54,9 @@ This OEP does not cover:
   specified in a follow-on OEP.
 
 
-----------
+**********
 Motivation
-----------
+**********
 
 Open edX has multiple services that need to copy data or take specific actions
 when certain events occur in other services. For example:
@@ -94,9 +93,9 @@ even more chaotic place where each pairing of services uses different
 conventions for this kind of communication.
 
 
--------------
+*************
 Specification
--------------
+*************
 
 Message Format
 ==============
@@ -141,7 +140,7 @@ considered optional in the CloudEvents spec).
 
 
 `datacontenttype <https://github.com/cloudevents/spec/blob/master/spec.md#datacontenttype>`_
---------------------------------------------------------------------------------------------
+********************************************************************************************
 
 Example: ``"application/json"``
 
@@ -151,7 +150,7 @@ majority of the time, but some events might have ``text/xml``.
 
 
 `id <https://github.com/cloudevents/spec/blob/master/spec.md#id>`_
-------------------------------------------------------------------
+******************************************************************
 
 Example: ``"b3b3981e-7544-11ea-b663-acde48001122"``
 
@@ -163,7 +162,7 @@ string using Python's default behavior: lowercase and dash-separated.
 
 
 ``minorversion`` (extension)
-----------------------------
+****************************
 
 Example: ``2``
 
@@ -176,7 +175,7 @@ because that information is encoded into the message type.
 
 
 `source <https://github.com/cloudevents/spec/blob/master/spec.md#source-1>`_
------------------------------------------------------------------------------
+*****************************************************************************
 
 Example: ``/openedx/discovery/web``
 
@@ -202,7 +201,7 @@ adheres to the same contracts (e.g. a replacement catalog).
 
 
 ``sourcehost`` (extension)
---------------------------
+**************************
 
 Example: ``edx.devstack.lms``
 
@@ -213,7 +212,7 @@ value is meant for logging and debugging purposes.
 
 
 `specversion <https://github.com/cloudevents/spec/blob/master/spec.md#specversion>`_
-------------------------------------------------------------------------------------
+************************************************************************************
 
 Always: ``"1.0"``
 
@@ -222,7 +221,7 @@ to be spec-compliant.
 
 
 `type <https://github.com/cloudevents/spec/blob/master/spec.md#type>`_
-----------------------------------------------------------------------
+**********************************************************************
 
 Example: ``"org.openedx.catalog.course.created.v1"``
 
@@ -233,7 +232,7 @@ hierarchical name with the format ``{Reverse DNS}.{Architecture
 Subdomain}.{Subject}.{Action}.{Major Version}``.
 
 Reverse DNS
-~~~~~~~~~~~
+-----------
 
 Example: ``org.openedx``
 
@@ -243,7 +242,7 @@ might interact with internal IT or finance reporting systems, should use
 ``org.edx`` as the prefix instead. If in doubt, default to ``org.openedx``.
 
 Subdomain (from Domain Driven Design)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 Example: ``catalog``
 
@@ -259,7 +258,7 @@ will roughly match deployed services. Subdomain names should be lower cased and
 use underscores if they are more than one word.
 
 Subject
-~~~~~~~
+-------
 
 Example: ``course``
 
@@ -282,7 +281,7 @@ but the due date information from ``content_authoring`` is just an input to the
 more complex due date information in ``learning``.
 
 Action
-~~~~~~
+------
 
 Example: ``created``
 
@@ -300,7 +299,7 @@ around Django signals and learning analytics events (we're not completely
 consistent, but we tend towards past tense).
 
 Major Version
-~~~~~~~~~~~~~
+-------------
 
 Example: ``v1``
 
@@ -314,7 +313,7 @@ major version event as well as the new one.
 
 
 `time <https://github.com/cloudevents/spec/blob/master/spec.md#time>`_
-----------------------------------------------------------------------
+**********************************************************************
 
 Example: ``"2020-02-23T09:00:00Z"``
 
@@ -340,7 +339,7 @@ sure about what you're doing.
 
 
 Events are Created by the Owning Subdomain
-------------------------------------------
+******************************************
 
 Teams at edX are broadly aligned to subdomains and roughly mapped to services.
 Services should not emit events for other subdomains. For instance, the
@@ -351,7 +350,7 @@ multiple services (e.g. Studio and Blockstore both operate on the
 
 
 One Producer Service Per Event Type
------------------------------------
+***********************************
 
 Each event type should be emitted by one, and only one, service. That service is
 the source of truth for whatever entity the event describes. If course-discovery
@@ -373,7 +372,7 @@ The details of this would be worked out in a follow-on OEP.
 
 
 Avoid Callbacks
----------------
+***************
 
 A callback is when you create a message with an ID or URL that you expect the
 consumer to make a synchronous call to when it receives the message. This is
@@ -428,7 +427,7 @@ points we hope to address by introducing this kind of system.
 
 
 Eliminate Blocking, Synchronous Requests
-----------------------------------------
+****************************************
 
 Synchronous requests between services have been the source of multiple site
 outages over the years, particularly when course-discovery becomes overloaded
@@ -436,7 +435,7 @@ with edx-platform generated requests.
 
 
 Eliminate Expensive, Delayed, Batch Synchronization
----------------------------------------------------
+***************************************************
 
 We currently have processes that make extremely expensive requests across
 services to synchronize data, particularly from course-discovery. Aside from
@@ -451,7 +450,7 @@ capacity, a spike like this can be enough to trigger a cascade of failures.
 In addition to being expensive, this method of synchronizing data is extremely slow. A small update that could have happened in near real-time, may instead need to wait half a day or more until the next scheduled batch synchronization occurs.
 
 Reduce the need for Plugins
----------------------------
+***************************
 
 `Django app plugins <https://github.com/edx/edx-platform/tree/master/openedx/core/djangoapps/plugins>`_
 exist to help decouple core edx-platform code from third party extensions. But
@@ -462,22 +461,22 @@ event APIs will allow many of these to exist as independently deployed services
 that don't need to be run in the same process as the LMS.
 
 Flexibly Integrate with Event Producers
----------------------------------------
+***************************************
 
 New consumers or down stream services currently would require upstream changes in order to consume an existing event. This makes the platform inflexible, and adds coupling between services and teams. Read more about `event-driven architecture`_ and its potential for "improved responsiveness and time to market".
 
 .. _event-driven architecture: https://www.thoughtworks.com/decoder/event-driven-architecture
 
 Simplify Integration to External Systems
-----------------------------------------
+****************************************
 
 Having a clearly defined set of events would allow for simpler third party
 integration in areas like student learner event processing and course catalog
 management.
 
---------------
+**************
 Change History
---------------
+**************
 
 2022-03-24: Enhance "Architectural Goals" section and minor edits.
 

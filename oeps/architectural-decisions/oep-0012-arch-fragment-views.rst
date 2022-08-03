@@ -1,6 +1,5 @@
-=================================
 OEP-12: Pluggable User Interfaces
-=================================
+#################################
 
 +---------------+----------------------------------------------------+
 | OEP           | :doc:`OEP-12 <oep-0012-arch-fragment-views>`       |
@@ -25,7 +24,7 @@ OEP-12: Pluggable User Interfaces
 .. _open-edx-proposals#34: https://github.com/edx/open-edx-proposals/pull/34#pullrequestreview-18294926
 
 Abstract
-========
+********
 
 There is a long standing desire to allow developers to extend Open edX
 applications by providing plugins, rather than by modifying each application's
@@ -41,13 +40,13 @@ as Django apps, and in either case can provide pluggable user interfaces to
 existing Open edX applications.
 
 Motivation
-==========
+**********
 
 There are a number of driving use cases that act as motivation for supporting
 pluggable user interfaces.
 
 Use Case 1: LMS Course Tabs
----------------------------
+===========================
 
 A very common need for new features is to be able to add a new course tab for
 the learner, for example Discussions, Student Notes, and Teams. There is a
@@ -70,7 +69,7 @@ issues with this approach:
   courseware, but which only exists to be shown as a tab.
 
 Use Case 2: Insights Extensions
--------------------------------
+===============================
 
 EdX Insights is a course analytics application that could be extended in
 a variety of different ways. Some examples include:
@@ -97,7 +96,7 @@ a variety of different ways. Some examples include:
 
 
 Use Case 3: Instructor Dashboard
---------------------------------
+================================
 
 The Instructor Dashboard provides a set of user interfaces to allow an
 instructor to manage the features of their course. Currently these user
@@ -113,10 +112,10 @@ today, or a new instructor portal could be implemented reusing the same
 blocks.
 
 Specification
-=============
+*************
 
 Requirements
-------------
+============
 
 What are the requirements for a pluggable user interface?
 
@@ -147,7 +146,7 @@ What are the requirements for a pluggable user interface?
    parts of the code base.
 
 Proposal
---------
+========
 
 Django apps provide a standard way to add new functionality to Django, allowing
 new pages, models, and REST APIs to be defined. What is missing is the ability
@@ -211,7 +210,7 @@ practices defined for plugin authors as to how they can get access to the
 data that they need.
 
 Reference Implementation
-========================
+************************
 
 A proof-of-concept of Django Fragment Views (then called Django Component Views)
 was implemented during the December 2016 hackathon. In addition to implementing
@@ -222,7 +221,7 @@ cases described above. The work can be seen in the following two pull requests:
 * Django Component Views prototype: `Django Component Views prototype`_
 
 Prototype: Course Tabs
-----------------------
+======================
 
 The prototype provides a new `ComponentTabMixin` which allows any course
 tab plugin to additionally provide the class of a component view to render
@@ -232,7 +231,7 @@ approach allows the plugin to ignore these aspects and just provide the
 unique content to be shown.
 
 Prototype: Discussions
-----------------------
+======================
 
 The prototype switched the "Discussion" tab to use the `ComponentTabMixin`,
 and then provided a new `DiscussionBoardComponentView` class. Providing this
@@ -243,7 +242,7 @@ interface. Such a front end could now include discussions anywhere that it
 chooses.
 
 Prototype: Instructor Dashboard
--------------------------------
+===============================
 
 The final piece of the prototype demonstrates a dynamically generated
 instructor dashboard built purely using component views. The dashboard home
@@ -259,10 +258,10 @@ screen but with a back button to allow the user to navigate back to the
 dashboard home.
 
 Rationale
-=========
+*********
 
 Why are we not using an industry framework?
--------------------------------------------
+===========================================
 
 It seems that the requirements for pluggable user interfaces are not unique
 to Open edX, and hence other solutions are likely to exist. Our research so
@@ -284,7 +283,7 @@ but it would provide a poor user experience if a complex page was constructed
 from tens or even hundreds of iframes.
 
 Could we use XBlocks instead of introducing Django Fragment Views?
-------------------------------------------------------------------
+==================================================================
 
 Note that all of the requirements of pluggable user interfaces are supported by
 XBlocks. XBlocks are reusable components that provide:
@@ -317,7 +316,7 @@ However, there are several reasons why XBlocks are not always appropriate:
   available through REST APIs.
 
 Will Django Fragment Views ever need to have their own storage?
----------------------------------------------------------------
+===============================================================
 
 The intention is that Django Fragment Views provide new user interfaces, and so
 should not have any storage of their own. They will need to be provided with
@@ -328,7 +327,7 @@ model. Django views do not provide storage mechanisms, and Django fragment
 views, as subclasses of Django views, should not either.
 
 Should Django Fragment Views support nesting?
----------------------------------------------
+=============================================
 
 Django Fragment Views should not be constructed as a tree of views as that is
 introducing state that needs to be managed. However, fragment views can invoke
@@ -350,7 +349,7 @@ return until they've all executed. We recommend avoiding deep nesting of
 fragments until an asynchronous framework is provided.
 
 Should Django Fragment Views be side-effect free?
--------------------------------------------------
+=================================================
 
 An interesting question is how Django fragment views should work within a post
 request. The simplest answer is to say that they work just the same way as
@@ -359,7 +358,7 @@ multiple Django fragment views are rendered into the same page within a post
 context, and they each perform updates.
 
 Should Django Fragment Views have a classification scheme?
-----------------------------------------------------------
+==========================================================
 
 If this proposed approach is successful, there could be a large number of
 registered fragment views. It would be useful to be able to classify the views
@@ -379,17 +378,17 @@ to render them onto the page. For more details, see the implementation here:
 `Pluggable user interfaces hackathon PR`_.
 
 Backward Compatibility
-======================
+**********************
 
 This proposed solution moves the fragment concept out of XBlocks into its
 own repository, but it won't break the contract. The XBlock implementation
 will be refactored to use the class from the new Web Fragments library.
 
 Future Directions
-=================
+*****************
 
 Convert XBlocks to render using Django fragment views
------------------------------------------------------
+=====================================================
 
 There seem to be many benefits to XBlocks rendering themselves using fragment
 views, but the challenge is that today XBlocks explicitly do not make use of
@@ -425,7 +424,7 @@ certainly what we will do for discussions so that the same fragment can be
 rendered for the XBlock, the discussion tab, and for team discussions.
 
 Refactor XBlocks to be based upon Django
-----------------------------------------
+========================================
 
 There were many good reasons why XBlocks was developed to be independent of
 Django, but at this point all Open edX server-side development uses Django.
@@ -462,7 +461,7 @@ should be implemented, but here are a few thoughts from early discussions:
   characteristics of their data for large courses.
 
 Provide isolation of Django Fragment Views
-------------------------------------------
+==========================================
 
 There are known challenges with supporting third-party XBlocks which will
 also apply to Django Fragment Views:
@@ -490,7 +489,7 @@ much in the way of additional review required to be confident in the behavior
 of the app.
 
 Consider how web components and web fragments overlap
------------------------------------------------------
+=====================================================
 
 There is a lot of interest in the `Web Components`_ specification and how the
 capabilities could be used to provide reusable components. More exploration is
@@ -503,7 +502,7 @@ appears that they are complementary technologies, and that in the future many
 Django Fragment Views may render themselves as web components.
 
 Provide support for dependency management
------------------------------------------
+=========================================
 
 There is a long-standing challenge with XBlocks that there is no way for the
 developer to declare which dependencies are required. This means that every
@@ -518,7 +517,7 @@ if they are all trusted views that know which libraries are available to
 be used.
 
 Consider how to configure Django Fragment Views
------------------------------------------------
+===============================================
 
 The simplest answer here is once again to say that Django fragment views are
 just Django views, so there is prior art for how Django apps are configured.
@@ -530,7 +529,7 @@ example is how should the root URL for the API Gateway be provided to views so
 that they can make requests against it?
 
 Change History
-==============
+**************
 
 A list of dated sections that describes a brief summary of each revision of the OEP.
 

@@ -1,6 +1,5 @@
-===================================
 OEP-6: Context-scoped XBlock Fields
-===================================
+###################################
 
 +---------------+----------------------------------------------------------+
 | OEP           | :doc:`OEP-6 <oep-0006-arch-context-xblock-fields>`       |
@@ -25,7 +24,7 @@ OEP-6: Context-scoped XBlock Fields
 
 
 Abstract
-========
+********
 
 There is currently no standard way for XBlocks to define data fields such that
 content, settings, or user input can be shared among multiple XBlocks within a
@@ -43,7 +42,7 @@ content library, blog post, or any other place where XBlocks can be used (see
 
 
 Background
-==========
+**********
 
 The XBlock API uses the abstract notion of "`scopes`_" to associate each field
 with particular environment(s) and user(s). A field's ``Scope`` is generally a
@@ -100,7 +99,7 @@ The existing named scopes, and an example use case for each, are as follows:
 
 
 Motivation
-==========
+**********
 
 As one would expect, ``Scope.user_info`` and ``Scope.preferences`` fields in the
 Open edX platform are implemented globally, and not scoped to the course that
@@ -122,10 +121,10 @@ over learner interactions with XBlocks.
 
 
 Specification
-=============
+*************
 
 New BlockScope value: CONTEXT
------------------------------
+=============================
 
 To support context-scoped fields, ``BlockScope`` will allow a new value:
 ``CONTEXT``. This new ``BlockScope`` will denote data that is related to all
@@ -139,7 +138,7 @@ when creating a new course run. On other platforms, a "context" could be defined
 as a blog post or a textbook.
 
 New named scopes
-----------------
+================
 
 As is the situtation today, XBlock runtimes would generally not be expected to
 implement every possible combination of ``BlockScope`` and ``UserScope``.
@@ -171,7 +170,7 @@ which would be defined in the XBlock python package:
 .. _PLAT-325: https://openedx.atlassian.net/browse/PLAT-325
 
 New XBlock view: context_settings_view
---------------------------------------
+======================================
 
 An XBlock which uses ``Scope.context_settings`` fields will need a way for
 content authors to edit the data in those fields. (e.g. when creating a course,
@@ -193,7 +192,7 @@ fields.
 .. _studio_view: https://edx.readthedocs.io/projects/xblock-tutorial/en/latest/edx_platform/edx_studio.html
 
 Context-scoped fields in OLX (Provisional)
-------------------------------------------
+==========================================
 
 When serializing a course with ``Scope.context_settings`` fields to Open
 Learning XML (OLX), any context-scoped fields could be described within a new
@@ -239,7 +238,7 @@ The reasoning behind the above provisional spec is as follows:
 .. _(docs): https://edx.readthedocs.io/projects/edx-open-learning-xml/en/latest/directory-structure.html#top-level-directory
 
 Rationale
-=========
+*********
 
 Many of the ideas in this proposal are driven by the desire for new types of
 functionality to be implemented via XBlocks, and thus to be pluggable and easily
@@ -270,7 +269,7 @@ Other related proposals of note include:
 
 
 Backward Compatibility
-=======================
+***********************
 
 This OEP introduces new field scopes but does not remove or modify any existing
 functionality. XBlock authors that add new fields to their XBlock may opt-in to
@@ -301,7 +300,7 @@ runtime behaves with different field scopes.
 
 
 Open Questions
-==============
+**************
 
 #. Should runtimes like the LMS be expected to implement a "Preferences" tab for
    each course that allows students to edit all ``Scope.context_preferences``
@@ -333,7 +332,7 @@ Open Questions
 
 
 Reference Implementation
-========================
+************************
 
 TBD. Sample code to implement this feature in the XBlock package and the XBlock
 SDK/Workbench will be produced once the draft has had some initial scrutiny and
@@ -342,10 +341,10 @@ feedback.
 
 
 Rejected Alternatives
-=====================
+*********************
 
 Additional Scopes
------------------
+=================
 
 This proposal originally included two new ``BlockScope`` values: ``CONTEXT``,
 and ``CONTEXT_ALL_TYPES``; the latter was a proposed new scope that would be
@@ -368,7 +367,7 @@ It also defined two named scopes that used ``CONTEXT_ALL_TYPES``:
 
 
 Inheritance
------------
+===========
 
 The current proposal deliberately does not support inheritance (i.e. a "context"
 in the LMS would always be a course, not a "section" or any smaller unit, and
@@ -382,7 +381,7 @@ inheritable fields pluggable are worthy goals, but for a separate proposal.
 .. _InheritanceMixin: https://github.com/edx/edx-platform/blob/46d69eba7ac45/common/lib/xmodule/xmodule/modulestore/inheritance.py#L30
 
 Context as a New Scope Dimension
---------------------------------
+================================
 
 Currently, a ``BlockScope``, a ``UserScope``, and a ``name`` are combined to
 make a Scope for a field. Under this alternative option, a new
@@ -401,7 +400,7 @@ not useful Scope combinations, it is likely that fewer than half of the 24
 possible Scope values would be used.
 
 Shared data service
--------------------
+===================
 
 Another alternate option is to create a "shared data" or "course-scoped data"
 XBlock service that XBlocks can use to read and write data at a course level,
@@ -416,7 +415,7 @@ change XBlock preferences for that course.)
 
 
 Copyright
-=========
+*********
 
 .. image:: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
     :alt: Creative Commons License CC-BY-SA

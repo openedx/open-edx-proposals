@@ -1,4 +1,3 @@
-#################################
 OEP-19: Developer Documentation
 #################################
 
@@ -372,7 +371,7 @@ Helpful rST-related tools
 * Other options are listed on stackoverflow_.
 
 IDEs
-^^^^
+~~~~
 The following IDEs have rST editor support and rST preview capabilities.
 
 * `Visual Studio Code`_

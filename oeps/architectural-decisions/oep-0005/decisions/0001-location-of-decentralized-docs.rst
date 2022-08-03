@@ -1,13 +1,13 @@
 Location of Decentralized Devstack Docs
-=========================================
+#########################################
 
 Status
-------
+******
 
 Superceded by :doc:`0005-centralized-devstack`
 
 Context
--------
+*******
 
 - While developing for Decentralized Devstack(DD), it became necessary to have a centralized location for documenting platform wide decisions and transitory how tos.
 
@@ -19,7 +19,7 @@ Context
 
 
 Decision
---------
+********
 
 Place DD documentation(general decisions, general how-tos) in edx/open-edx-proposals/oeps/oep-0005. Eventually, these decisions will be used to update OEP-5.
 
@@ -29,7 +29,7 @@ Place DD documentation(general decisions, general how-tos) in edx/open-edx-propo
 
 
 Rejected Alternatives
----------------------
+*********************
 
 edx/devstack repo: rejected because DD is meant to eventually displace current devstack. This was rejected to avoid creating dependencies between the two.
 

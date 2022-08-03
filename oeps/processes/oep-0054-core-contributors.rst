@@ -1,6 +1,5 @@
-===========================
 OEP-54: Core Contributors
-===========================
+###########################
 .. list-table::
    :widths: 25 75
 
@@ -29,14 +28,14 @@ OEP-54: Core Contributors
 
 
 Abstract
-========
+********
 
 This document defines the Core Contributor (CC) Program, a program that grants
 rights to individuals in the Open edX community that allow them to actively
 participate in defining and deciding the direction of the platform.
 
 Motivation
-==========
+**********
 
 The Open edX project benefits from a wide variety of perspectives at all levels.
 Having an inclusive group of people participating in the project and helping to
@@ -46,7 +45,7 @@ velocity that accelerates platform advancement, and increased capacity to own
 and maintain all aspects of the platform.
 
 Specification
-=============
+*************
 
 The Open edX Core Contributor Program grants specific types of access rights to
 Open edX community members, which enables them to further the development and
@@ -57,7 +56,7 @@ respectful of other community members, are polite and welcoming to all in the
 community, and have shown the ability to deliver high quality work over time.
 
 Core Contributor Roles
-----------------------
+======================
 
 There are many contributors to the Open edX platform that participate in a
 variety of ways - writing code for the Open edX software, translating the
@@ -86,7 +85,7 @@ expected.
 .. _program administration:
 
 Core Contributor Program Administration
----------------------------------------
+=======================================
 
 The Core Contributor Program is administered by The Center for Re-imagining
 Learning (tCRIL). One or more persons at tCRIL (the "Program administrator(s)")
@@ -122,7 +121,7 @@ the ``#core-contributors`` Slack room in the `Open edX Slack
 .. _selecting new members:
 
 Adding New Core Contributors
-----------------------------
+============================
 
 New Core Contributors are determined via a nomination process - CCs may nominate
 new members, or existing community members may put themselves forward for a
@@ -151,7 +150,7 @@ discussion category
 <https://discuss.openedx.org/c/working-groups/core-contributors/36>`_.
 
 New Core Contributor Nomination Process
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------
 
 The process for nomination is as follows:
 
@@ -173,13 +172,13 @@ The process for nomination is as follows:
       requests) that has been done for the community (as opposed to work done
       for a specific installation, that has not been contributed back to the
       larger community).
-   
+
    #. The post should also indicate the candidate's expected commitment to
       contribution - if the candidate is part of an organization, this should be
       covered as part of the organization's signature to the Declaration of
       Commitment to the Core Contributor Program, as covered in the `program
       administration`_ section.
-   
+
    #. Finally, the post must mention the date when the comment period ends,
       which is at least 2 weeks from the start of the thread. Please be mindful
       of times such as holiday breaks where people may have limited
@@ -254,9 +253,9 @@ The process for nomination is as follows:
    candidate what they need to work on to become a CC. We encourage the
    sponsor/Administrator to help the candidate develop a plan of action so that
    they can be successful in the future.
-   
+
 Expansion of Core Contributor Responsibilities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------
 
 Certain Core Contributor roles have multiple types of responsibilities, and a
 given Core Contributor may only hold a subset of these. For example, a CC with
@@ -271,7 +270,7 @@ having previously held only backend repo commit rights asking for permission to
 a ``frontend-*`` repo), consider making the comment period the full 2 weeks.
 
 Where Do I Start?
-^^^^^^^^^^^^^^^^^
+-----------------
 
 New community members interested in the Core Contributor program should `get in
 touch with us! <https://open.edx.org/community/connect/>`_ First check out the
@@ -305,7 +304,7 @@ discussion category
 ``#core-contributors`` room on Slack.
 
 Removing Core Contributors
---------------------------
+==========================
 
 Occasionally, it may become necessary to remove an individual from the Core
 Contributor program. Some reasons this may happen include:
@@ -336,65 +335,65 @@ Code of Conduct violation, please `Contact the Program Administrators`_.
 
 Core contributors are responsible for reporting when they aren't able to
 fulfill their commitments. Program administrators
-will do regular checks, at least once per quarter, to identify CCs who are 
+will do regular checks, at least once per quarter, to identify CCs who are
 unreachable or fall short of their commitments. In such cases, the program
-administrator will reach out to the CC to discuss the best corrective actions 
+administrator will reach out to the CC to discuss the best corrective actions
 to take.
 
 In case there is no reply, the inactive CC would be removed for security
-reasons. Removed CCs may get in touch with Program Administrators to 
+reasons. Removed CCs may get in touch with Program Administrators to
 fast-track getting their access back.
 
 Contact the Program Administrators
-----------------------------------
+==================================
 
 Questions about the Program can be directed to the tCRIL administrator(s) via
 the ``#core-contributors`` Slack room in the `Open edX Slack
 <https://openedx.slack.com/>`_ or at ``cc-program-admins@tcril.org``.
 
 Change History
-==============
+**************
 
 2022-07-18
-----------
+==========
 
 * Clarify that CC nominations must provide supporting evidence that candidate
   has demonstrated the 3C's
 * `Pull request #355 <https://github.com/openedx/open-edx-proposals/pull/355>`_
 
 2022-06-08
-----------
+==========
 
 * Add link to the runbooks guide for onboarding new CCs
 * `Pull request #335 <https://github.com/openedx/open-edx-proposals/pull/335>`_
 
 2022-02-28
-----------
+==========
 
 * Elaborate on CC's responsibilites to fulfill their commitment
 * `Pull request #304 <https://github.com/openedx/open-edx-proposals/pull/304>`_
 
 2022-02-16
-----------
+==========
 
 * Added clarifiations around the voting process for new CC members.
 * `Pull request #293 <https://github.com/openedx/open-edx-proposals/pull/293>`_
 
 2022-02-11
-----------
+==========
 
 * Specify how to expand responsibilites for roles with fine-grained permissions
   (such as code committers)
 * `Pull request #296 <https://github.com/openedx/open-edx-proposals/pull/296>`_
 
 2022-02-04
-----------
+==========
 
 * Procedures to remove CCs added.
 * `Pull request #292 <https://github.com/openedx/open-edx-proposals/pull/292>`_
 
 2021-12-20
-----------
+==========
 
 * Document created.
 * `Pull request #275 <https://github.com/openedx/open-edx-proposals/pull/275>`_

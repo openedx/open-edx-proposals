@@ -1,6 +1,5 @@
-=======================================
 OEP-9: User Authorization (Permissions)
-=======================================
+#######################################
 
 +---------------+-------------------------------------------+
 | OEP           | :doc:`OEP-9 <oep-0009-bp-permissions>`    |
@@ -21,7 +20,7 @@ OEP-9: User Authorization (Permissions)
 +---------------+-------------------------------------------+
 
 Abstract
-========
+********
 
 Proposes best practices for implementing authorization in edX services such
 that there's a clear separation between checking whether or not a user has
@@ -29,7 +28,7 @@ permission to perform a given action and the details of how that determination
 is made.
 
 Motivation
-==========
+**********
 
 To date, the implementation and verification of permissions have been somewhat
 conflated in the edX codebase.  When a user attempts an action which is not
@@ -55,7 +54,7 @@ particular role, etc.  This has a few drawbacks:
   a similar implementation.
 
 Specification
-=============
+*************
 
 Most authorization checks in Python code should use the standard
 `Django authorization API`_, including the optional support for object-level
@@ -81,7 +80,7 @@ can help give context for the details:
        # ...
 
 Permission Names
-----------------
+================
 
 Note that a permission name should respect the following rules:
 
@@ -92,7 +91,7 @@ Note that a permission name should respect the following rules:
   admin interface if defined), or a short description of an action otherwise.
 
 Rule-Based Authorization
-------------------------
+========================
 
 While the Django authorization API is quite flexible, many Django developers
 have not really utilized it because the default authentication backend that
@@ -136,7 +135,7 @@ greater flexibility in the kinds of authorization rules that can be
 implemented.
 
 QuerySets
----------
+=========
 
 One drawback to rule-based authorization vs. explicit configuration of
 permissions in the database is that it complicates the filtering of querysets
@@ -176,7 +175,7 @@ separate package.
 .. _early version of this filtering API: https://github.com/dfunckt/django-rules/issues/40
 
 Django REST Framework
----------------------
+=====================
 
 When using Django REST Framework to build a REST API, note that it has object
 permissions and query filtering mechanisms which are designed to be compatible
@@ -248,7 +247,7 @@ could be used by default for all view classes which don't override it.
 .. _filter_backends: https://www.django-rest-framework.org/api-guide/filtering/#setting-filter-backends
 
 Rationale
-=========
+*********
 
 Discussions about authorization in Open edX have made slow progress
 to date because they often got bogged down in the details of which
@@ -281,7 +280,7 @@ shaped the recommendations:
 
 
 Backward Compatibility
-======================
+**********************
 
 The ``rules`` package can be added to existing packages with minimal impact,
 as it doesn't inherently change the outcome of any authorization checks.  In
@@ -298,4 +297,4 @@ still uses a copy of the original implementation.
 
 
 Change History
-==============
+**************

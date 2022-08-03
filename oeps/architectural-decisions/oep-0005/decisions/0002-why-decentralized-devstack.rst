@@ -1,13 +1,13 @@
 Why Decentralized Devstack
-==========================
+##########################
 
 Status
-------
+******
 
 Superceded by :doc:`0005-centralized-devstack`
 
 Context
--------
+*******
 
 Devstack is the centralized set of Docker images, make files, and bootstrap scripts used to set up an environment that engineers can run locally to develop edX services in a consistent manner from engineer to engineer.
 
@@ -23,13 +23,13 @@ Some of the challenges listed above are due to the design of the devstack develo
 
 
 Decisions
----------
+*********
 
 Decentralize current devstack and allow each codebase to define its own development environment based on its dependencies.
 
 
 Technical Vision for a development environment
-----------------------------------------------
+**********************************************
 
 - Starts up quickly and uses few enough resources that developers can run it with common development tools (e.g. an IDE) on the lowest-common-denominator development laptop.
 - Engineers can efficiently change many different services without having to spend a lot of time learning about each one
@@ -43,13 +43,13 @@ Technical Vision for a development environment
 
 
 Rejected Alternative
---------------------
+********************
 
 Improve Current Devstack: TODO: give quick summary of why this was rejected
 
 
 Sources
--------
+*******
 
 `Devstack 2.0 One-Pager`_: Document explaining scope of Devstack 2.0 work
 

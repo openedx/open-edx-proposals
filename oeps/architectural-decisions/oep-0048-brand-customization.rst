@@ -1,7 +1,5 @@
-
-===========================
 OEP-48: Brand Customization
-===========================
+###########################
 
 .. list-table::
    :widths: 25 75
@@ -29,7 +27,7 @@ OEP-48: Brand Customization
 
 
 Context
--------
+*******
 
 The ability to customize the Open edX platform to reflect a custom brand and visual style is a critically important feature for the Open edX community. The comprehensive theming system built into edx-platform has served theme and branding needs for several years. It is imperfect and unofficially supported, but it has worked.
 
@@ -50,7 +48,7 @@ This pipeline will unlock the ability to easily configure MFEs, but MFEs don't c
 As MFEs serve more and more of the platform user interface, a system for branding and theming them must be created. An ideal solution would apply to both MFEs and edx-platform.
 
 Decision
---------
+********
 
 We will create a new project that defines a branding package interface and a default implementation for branding and theming Open edX applications. The brand package will have the capability to customize assets referred to in the SASS theme like main colors, fonts, and particular backgrounds. It will also include specific image assets such as logo and favicon.
 
@@ -78,11 +76,11 @@ Build and deploy pipelines will be responsible for overriding the default brandi
 edX.org relies upon the build scripts in the `edx/tubular <https://github.com/edx/tubular>`_ repository to do this for MFEs (`See this function <https://github.com/edx/tubular/blob/master/tubular/scripts/frontend_utils.py#L66>`_ for detail). The build and deploy pipeline for Open edX will be responsible for doing this in a similar way.
 
 Consequences
-------------
+************
 
 After this work is completed, all Open edX applications should use brand packages to reference brand or theme assets.
 
 References
-----------
+**********
 
 See `npm cli documentation <https://docs.npmjs.com/cli-commands/install.html>`_ for further information about npm aliases.

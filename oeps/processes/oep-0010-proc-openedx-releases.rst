@@ -1,6 +1,5 @@
-=========================
 OEP-10: Open edX Releases
-=========================
+#########################
 
 +---------------+---------------------------------------------------+
 | OEP           | :doc:`OEP-10 <oep-0010-proc-openedx-releases>`    |
@@ -29,14 +28,14 @@ OEP-10: Open edX Releases
 
 
 Abstract
-========
+********
 
 Open edX is packaged occasionally into releases. This document details the
 process.
 
 
 Motivation
-==========
+**********
 
 Open edX releases happen roughly every six months. EdX engineers are typically
 focused on the much more frequent edx.org releases.  This document standardizes
@@ -45,11 +44,11 @@ participate appropriately.
 
 
 Specification
-=============
+*************
 
 
 Components
-----------
+==========
 
 When talking about software that is part of Open edX, there are a number of
 components that might be useful to discuss, of various sizes:
@@ -73,7 +72,7 @@ components that might be useful to discuss, of various sizes:
 
 
 Levels of support
------------------
+=================
 
 Components in Open edX are either *included* or *supported* in a release.
 
@@ -106,7 +105,7 @@ them.
 
 
 Dependencies
-------------
+============
 
 Our software is built atop other software layers supported by their creators.
 It's important to consider the support windows for those layers when choosing
@@ -125,7 +124,7 @@ of the known support windows`__ and how they overlap with Open edX plans.
 
 
 Release creation
-----------------
+================
 
 A new release line is created roughly every six months.  Release lines are
 named with words in alphabetical order: Dogwood, Eucalyptus, Ficus, Gingko,
@@ -144,7 +143,7 @@ Releases will be tagged "open-release/RELEASENAME.1",
 
 
 Involving repos in the Open edX build process
----------------------------------------------
+=============================================
 
 :doc:`OEP-2 </best-practices/oep-0002-bp-repo-metadata>` defines a file format for repository metadata.  The
 ``openedx-release`` key is an optional dictionary governing the participation
@@ -181,7 +180,7 @@ a dependency.
 
 
 Installing Open edX
--------------------
+===================
 
 Open edX provides a few supported installation methods, explained below.
 Currently, none of the supported installation methods are intended for
@@ -204,7 +203,7 @@ applications, and also running a number of Docker containers.
 
 
 Installation methods
---------------------
+====================
 
 There are two supported installation methods:
 
@@ -238,22 +237,22 @@ components onto the machine.
 
 
 Change History
-==============
+**************
 
 2020-04-26
-----------
+==========
 
 * Added the "maybe" key for "openedx-release".
 * `Pull request #145 <https://github.com/openedx/open-edx-proposals/pull/145>`_
 
 2018-08-22
-----------
+==========
 
 * Installation details adjusted to match current Hawthorn realities.
 * `Pull request #78 <https://github.com/openedx/open-edx-proposals/pull/78>`_
 
 2016-11-21
-----------
+==========
 
 * Document created
 * `Pull request #26 <https://github.com/openedx/open-edx-proposals/pull/26>`_

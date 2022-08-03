@@ -1,6 +1,5 @@
-=======================================
 OEP-5: Pre-built Developer Environments
-=======================================
+#######################################
 
 +---------------+----------------------------------------------------+
 | OEP           | :doc:`OEP-5 <oep-0005-arch-containerize-devstack>` |
@@ -21,14 +20,14 @@ OEP-5: Pre-built Developer Environments
 +---------------+----------------------------------------------------+
 
 Abstract
-========
+********
 
 Open edX is a large ecosystem of smaller services. In order to facilitate
 newcomers working in that system, each service will provide a pre-built
 environment that is packaged, published, and ready to be used for development.
 
 Motivation
-==========
+**********
 
 Open edX and the edx-platform repository have gone through several iterations
 of developer setup instructions.
@@ -78,10 +77,10 @@ monolithic Vagrant image which we would like to address:
 
 
 Specification
-=============
+*************
 
 Interface
-~~~~~~~~~
+=========
 
 The primary developer interaction with the local development environment will
 be through ``make`` shortcuts in the repository containing the code for the
@@ -108,7 +107,7 @@ The following targets will be standard::
                     # of the primary service (as the service owner).
 
 Implementation
-~~~~~~~~~~~~~~
+==============
 
 Requirements
 ------------
@@ -204,7 +203,7 @@ The prototype implementation was done using Docker for the containers, and
 `Docker Compose`_ to manage the networking between services.
 
 Rationale
-=========
+*********
 
 Docker has a low per-service overhead, because it doesn't allocate resources
 to particular containers.
@@ -215,7 +214,7 @@ one version of the base image to the next.
 
 
 Backward Compatibility
-======================
+**********************
 
 This implementation supersedes and replaces use of Vagrant for the local
 development environment.  However, nothing in the implementation should break
@@ -225,7 +224,7 @@ use it. Long-term, the goal will be to deprecate and no longer support the
 Vagrant-based local development environment.
 
 Reference Implementation
-========================
+************************
 
 The `course-discovery`_ service uses a Docker-based local development
 environment, and was the prototype implementation of this OEP. However, it
@@ -233,7 +232,7 @@ will need modification to fully meet the specifications of this OEP.
 
 
 Related Decisions
-=================
+*****************
 
 The following related decisions modify or enhance this OEP, but have not yet been fully incorporated as updates to this OEP:
 
@@ -246,7 +245,7 @@ The following related decisions modify or enhance this OEP, but have not yet bee
 
 
 Change History
-==============
+**************
 
 .. _.dockerignore: https://docs.docker.com/engine/reference/builder/#dockerignore-file
 .. _.gitignore: https://git-scm.com/docs/gitignore

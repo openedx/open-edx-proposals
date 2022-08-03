@@ -1,6 +1,5 @@
-============================
 OEP-7: Migrating to Python 3
-============================
+############################
 
 +---------------+-----------------------------------------------+
 | OEP           | :doc:`OEP-7 <oep-0007-bp-migrate-to-python3>` |
@@ -26,7 +25,7 @@ OEP-7: Migrating to Python 3
 .. _open-edx-proposals#21: https://github.com/edx/open-edx-proposals/pull/21#pullrequestreview-18018383
 
 Abstract
-========
+********
 
 With primary development of Python occurring on Python 3, and with Python 2
 scheduled for end-of-life on January 1st, 2020, edX needs to plan for a transition of all of
@@ -39,7 +38,7 @@ as possible, and meets the needs of our stakeholders.
 
 
 Rationale
-=========
+*********
 
     * Python 2 will only receive support from the Python core developers until January 1st, 2020.
     * Django will only support Python 2 through 1.11LTS (which is supported
@@ -63,7 +62,7 @@ Rationale
 
 
 Scope
-=====
+*****
 
 There are several areas of work that need to be done
 
@@ -81,7 +80,7 @@ repositories has been migrated.
 
 
 Choosing a Python version
-+++++++++++++++++++++++++
+=========================
 
 All new Python projects should be written using Python 3 unless a compelling
 reason (such as incompatible support libraries with no reasonable alternative
@@ -106,7 +105,7 @@ replaced by newer services before the January 2020 end of support.
 
 
 Migrating code
-++++++++++++++
+==============
 
 All new code in Python 2 codebases should be written to be compatible with
 Python 3.  Six_ is a simple compatibility library that makes this easier.
@@ -219,7 +218,7 @@ ready distribution in a python 2 project.
 .. _problems: https://github.com/edx/XBlock/pull/365
 
 Handling literals, Option 1: Python 3-Style
-'''''''''''''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to write code that looks as much like native Python 3 as possible,
 you may want to use ``from __future__ import unicode_literals``, which makes bare
@@ -246,7 +245,7 @@ for text and byte literals, so it would be better to make the changes more
 broadly (one full repo or at least djangoapp at a time).
 
 Handling literals, Option 2: Explicit unicode literals
-''''''''''''''''''''''''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Because of the difficulty in mentally context switching between code that uses
 unicode-by-default strings, and bytes-by-default strings in a single Python 2
@@ -275,7 +274,7 @@ documentation.  The recommended way to use this is just to put ``import six``
 at the top of the file, and use the fully-qualified names, in order to be
 clear about where we are using compatibility code.
 
-Where possible, ``six`` is the recommended solution. 
+Where possible, ``six`` is the recommended solution.
 
 .. code:: python3
 
@@ -367,7 +366,7 @@ future-compatible with a potential future Python 4.
 
 
 Changing Coding Practice
-++++++++++++++++++++++++
+========================
 
 Changing internal code practices to ease conversion will require a
 three-pronged approach of documentation, socialization, and tooling.  To start,
@@ -388,7 +387,7 @@ compatibility is improving.
 
 
 Migrating projects
-++++++++++++++++++
+==================
 
 We should be able to migrate individual applications to Python 3 independently.
 To begin with, we should pilot the process using a relatively small (but
@@ -412,7 +411,7 @@ For a given project, steps are:
 
 
 Order of migrations
-+++++++++++++++++++
+===================
 
 * IDAs that we want to continue supporting in the future
 
@@ -446,7 +445,7 @@ a page on the Open edX Confluence wiki capturing the current state of
 
 
 Deprecating Python 2
-++++++++++++++++++++
+====================
 
 Once a project has been converted to Python 3 and deployed, and there is no
 further need to support the Python 2 version, we will deprecate the Python 2
@@ -459,7 +458,7 @@ with our own projects) should continue to support Python 2 until Python 2 is
 EOLed in 2020.
 
 Supporting external partners
-++++++++++++++++++++++++++++
+============================
 
 We intend to be as transparent as possible about this process with Open edX
 users, and partner institutions.  This document will be updated to reflect

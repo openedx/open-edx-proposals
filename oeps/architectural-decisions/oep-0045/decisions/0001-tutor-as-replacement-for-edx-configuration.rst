@@ -1,15 +1,15 @@
 Tutor as a replacement for ``edx/configuration``
-================================================
+################################################
 
 
 Status
-------
+******
 
 Provisional
 
 
 Context
--------
+*******
 
 With the acceptance of OEP-0045, it becomes clear that `edx/configuration <https://github.com/edx/configuration/>`__
 will be deprecated and that a replacement is required.  However, OEP-0045 does not go into the details of what such an
@@ -21,7 +21,7 @@ latter as the choice of the community.
 
 
 Criteria
---------
+********
 
 Any replacement for ``edx/configuration`` must provide the following:
 
@@ -42,17 +42,17 @@ And importantly:
 
 
 Evaluation
-----------
+**********
 
 It is under the light of the previously described `criteria <#criteria>`__ that the Tutor project is evaluated.
 
 
 Criterion 1. How well can Tutor deploy Open edX for production use?
-...................................................................
+===================================================================
 
 
 Single server
-`````````````
+-------------
 
 
 Tutor's stated purpose is "To make it possible to deploy, administer and upgrade Open edX anywhere, easily." (`source
@@ -114,7 +114,7 @@ things to add to Tutor.
 
 
 External databases
-``````````````````
+------------------
 
 An important characteristic of scaling up an Open edX deployment is having the ability to point it to external
 databases, such as Amazon RDS or a manually maintained Galera cluster. Tutor allows for just this. All of the following
@@ -129,7 +129,7 @@ can be disabled locally and easily `configured to use an externally hosted servi
 
 
 Multi-server
-````````````
+------------
 
 Single-server deployments are less than ideal in terms of high availability and scalability, so for larger deployments
 something different is needed. And given that Tutor deployments use Docker images, Kubernetes would be the first choice.
@@ -158,7 +158,7 @@ are reports of `this exact thing being done
 
 
 Criterion 2. Automated deployment and testing
-.............................................
+=============================================
 
 Launching a preconfigured instance from scratch is simple, as Tutor can either `load configuration
 <https://docs.tutor.overhang.io/configuration.html#configuration>`__ from environment variables, from locally stored
@@ -170,7 +170,7 @@ this particular purpose will require work.
 
 
 Criterion 3. Support for the latest open release
-................................................
+================================================
 
 Tutor supports the latest Open edX release, Koa, out of the box.  Furthermore, for at least the past two releases,
 development has been done concomitantly with the actual Open edX release itself.
@@ -188,7 +188,7 @@ way to update code other than first updating the container image then rolling it
 
 
 Criterion 4. Support for master
-...............................
+===============================
 
 Regis Behmo `reports <https://discuss.openedx.org/t/lets-talk-about-the-native-installation/3269/5>`__ that some work in
 this direction has already `been done <https://github.com/overhangio/tutor/tree/edge>`__, but at the time of writing it
@@ -203,7 +203,7 @@ backward-incompatible changes.
 
 
 Criterion 5. Customization
-..........................
+==========================
 
 Tutor allows not only using `a custom Docker registry and images
 <https://docs.tutor.overhang.io/configuration.html#custom-images>`__, but also `building custom images
@@ -222,7 +222,7 @@ could be used for multiple instances, but that is not currently the case.
 
 
 Criterion 6. Migration from the native installation
-...................................................
+===================================================
 
 There is no easily found documentation on migrating to a Tutor-managed installation from a native one, aside from `this
 discussion in the Overhang.io forums <https://discuss.overhang.io/t/migrating-from-bitnami-to-tutor/31>`__.
@@ -233,19 +233,19 @@ databases, then importing them.  Nevertheless, the exact steps need to be perfor
 
 
 Criterion 7. Open edX development environment
-.............................................
+=============================================
 
 There is `specific documentation <https://docs.tutor.overhang.io/dev.html#development>`__ on using Tutor as an
 Open edX development environment.
 
 Support for master
-``````````````````
+------------------
 
 Like the production version, Tutor does not currently support runnning the ``master`` branch of ``edx-platform`` for
 development.
 
 Setup procedure
-```````````````
+---------------
 
 To achieve a similar setup to the official devstack's, where the LMS, CMS and workers run in detached containers from a
 locally checked out ``edx-platform``, and the code of the devstack itself (i.e, Tutor) is also locally modifiable, you
@@ -337,14 +337,14 @@ must:
       tutor dev start -d
 
 Code and asset reloading
-````````````````````````
+------------------------
 
 When ``edx-platform`` is mounted as described above, changes made to python files are reloaded immediately.
 
 Template and asset changes are also available immediately, but a browser refresh may be necessary.
 
 Debugging and testing
-`````````````````````
+---------------------
 
 It is possible to `run an interactive debugger <https://docs.tutor.overhang.io/dev.html#debug-edx-platform>`__, as well
 as `running unit tests locally <https://docs.tutor.overhang.io/dev.html#running-edx-platform-unit-tests>`__.
@@ -356,14 +356,14 @@ as `running unit tests locally <https://docs.tutor.overhang.io/dev.html#running-
    official devstack.
 
 Custom development
-``````````````````
+------------------
 
 The development environment supports installation and development of `custom python packages
 <https://docs.tutor.overhang.io/dev.html#xblock-and-edx-platform-plugin-development>`__ (such as XBlocks or
 ``edx-platform`` plugins), as well as `custom themes <https://docs.tutor.overhang.io/dev.html#customised-themes>`__.
 
 Criterion 8. Project health
-...........................
+===========================
 
 Tutor as an open source project is `3 and a half years old
 <https://github.com/overhangio/tutor/commit/bdd1a41f6207275bd24c98136fc567af2ea48b7f>`__.  It saw a peak of activity `in
@@ -383,11 +383,11 @@ Tutor's codebase is technically up-to-date, well organized, and maintained. Ther
 
 
 Conclusion of the evaluation
-............................
+============================
 
 
 Positives
-`````````
+---------
 
 At the time of writing, Tutor is the only existing alternative to ``edx/configuration`` with a maintainer that is active
 in the community. It ticks a lot of the boxes that qualify a good replacement:
@@ -403,7 +403,7 @@ in the community. It ticks a lot of the boxes that qualify a good replacement:
 
 
 Omissions
-`````````
+---------
 
 There is work to be done before it can be considered a full replacement:
 
@@ -426,7 +426,7 @@ work hinges precisely on whether this community can pool resources to maintain i
 
 
 Wishlist
-````````
+--------
 
 The following would be great to have once the TODO list above is taken care of:
 
@@ -437,7 +437,7 @@ The following would be great to have once the TODO list above is taken care of:
 
 
 Decisions
----------
+*********
 
 1. Adopt Tutor as the community-maintained replacement for ``edx/configuration`` for production deployments, with the
    knowledge that it needs to be `further developed <#omissions>`__ in order to achieve all the described `criteria
@@ -453,7 +453,7 @@ The above decisions will be made public in order to garner support for code cont
 
 
 Alternatives
-------------
+************
 
 These are open source Open edX deployment projects that also aim to replace ``edx/configuration``:
 
@@ -471,10 +471,10 @@ And it is worth mentioning that:
 
 
 Appendix
---------
+********
 
 Why are Tutor deployments so much quicker?
-..........................................
+==========================================
 
 The default Tutor deployment is multiple times faster than an ``edx/configuration`` run primarily because it sticks to
 the concept of `container immutability

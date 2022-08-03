@@ -1,6 +1,5 @@
-======================================
 OEP-38:  Data Modeling Best Practices
-======================================
+######################################
 
 +---------------+------------------------------------------------------------+
 | OEP           | :doc:`OEP-0038 <oep-0038-Data-Modeling>`                   |
@@ -25,7 +24,7 @@ OEP-38:  Data Modeling Best Practices
 +---------------+------------------------------------------------------------+
 
 Abstract
-========
+********
 
 In order to obtain the highest possible value from data collected in the
 Open edX ecosystem, this document attempts to provide guiding thoughts and
@@ -34,7 +33,7 @@ principles on data modeling.
 .. contents::
 
 What this OEP explicitly does not cover
-=======================================
+***************************************
 
 -  Data warehousing
 
@@ -44,7 +43,7 @@ What this OEP explicitly does not cover
 
 
 Definitions
-===========
+***********
 
 **BI** - Business intelligence. Technologies, applications and practices for
 the collection, integration, analysis, and presentation of business
@@ -85,7 +84,7 @@ stand alone application.
 
 
 Open edX Ecosystem
-------------------
+==================
 
 Used in this document, the phrase "Open edX Ecosystem" includes the
 services that comprise and support the running of an Open edX
@@ -101,14 +100,14 @@ installation (e.g.,. edx.org). This includes:
 
 
 Specification
-=============
+*************
 
 Guiding Principles
-------------------
+==================
 This section is intended to give the reader a framework to think about data modeling at edX.
 
 Data is an asset
-~~~~~~~~~~~~~~~~
+----------------
 
 edX uses data to decide which people should receive marketing emails,
 who passes or fails a course, or how much to pay our partners. Our
@@ -123,7 +122,7 @@ behavior, and system state now, the more opportunities we’ll have to
 improve our decision-making in the future.
 
 Use industry best practices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 Data stored in the OpenEdX ecosystem should adhere to industry best
 practices. For example, since an industry best practice uses numerical
@@ -134,7 +133,7 @@ experienced engineers and new hires alike and allows us to leverage 3rd
 party tools more easily to assist in the analysis phase.
 
 Don’t make me think
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Steve Krug, the author of “Don’t Make Me Think”, says: “Your objective
 should always be to eliminate instructions entirely by making everything
@@ -145,7 +144,7 @@ should make sense to most people familiar with the domain, without
 needing much clarifying documentation.
 
 Consider the analytics user
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 For every hour of engineer-time spent creating a data model, many
 more are spent using the model and analyzing its data. Taking
@@ -175,7 +174,7 @@ you!) Try to do as much careful design up front to make your quality of
 life better later.
 
 History is best (but events are a close second)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------------
 
 Historical data accuracy is best when history about a change is captured at the database level. Changes in data relating to financial systems (e.g. enrollments, payments, course price changes) should be stored historically where the change is made, preferably in the same system as the system of record. This allows us to reconstruct the data at different points with much greater reliability.
 
@@ -186,14 +185,14 @@ place.
 
 
 Data Modeling Standards
------------------------
+=======================
 
 The standards below are designed to ensure edX can gain the highest value and insights from the data.
 The application of these standards is the most basic level of support to which all applications in the Open edX ecosystem
 should adhere. When creating new applications or models please ensure the models being created conform to the following.
 
 Use a numeric primary key
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 -  It is recommended to use `BigAutoField`_.
 
@@ -202,7 +201,7 @@ Use a numeric primary key
 -  Do not use composite based primary keys. Use a primary key column.
 
 Have updated and created timestamps
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 -  The preferred method for doing this in Open edX Django applications is to inherit the `TimeStampedModel`_ class.
 
@@ -219,7 +218,7 @@ Have updated and created timestamps
    -  Updated date should be named: “modified”
 
 Foreign keys
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 -  Data should be joined using primary keys wherever possible
 
@@ -236,7 +235,7 @@ Foreign keys
 .. _Attributes for fields with relations: https://docs.djangoproject.com/en/2.2/ref/models/fields/#module-django.db.models.fields.related
 
 History for models involved with enrollments, courses and course metadata, or data involving financial payments and transactions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------------------------------------------------------------------------------------
 
 -  History using django-simple-history_.
 
@@ -255,7 +254,7 @@ History for models involved with enrollments, courses and course metadata, or da
    -  The foreign key of the user who initiated the change
 
 Use the correct data type for a column
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
 -  Don’t use a :code:`IntegerField` when a :code:`BooleanField` would do.
 
@@ -271,12 +270,12 @@ Use the correct data type for a column
 
 
 Each column in a table should only store a single fact or dimension
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------------
 
 - If a column could be a mix of integer data and character data it is best to store these items as 2 different fields in the database
 
 Models should be Annotated for PII
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 -  All models in the Open edX ecosystem should be tagged for PII using `code annotations`_ by following OEP-30_.
 
@@ -285,7 +284,7 @@ Models should be Annotated for PII
 
 
 Have sane default values
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 - A model should have default values that make sense for the application
 
@@ -298,20 +297,20 @@ Have sane default values
 - For example if you are adding a boolean to flag that a learner has not yet activated their account, the default value should be set to False, not None.
 
 The database layer should preserve uniqueness
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------------
 
 - If a model needs to preserve uniqueness between many fields use `unique_together`_.
 
 .. _unique_together: https://docs.djangoproject.com/en/2.2/ref/models/options/#unique-together
 
 Best Practices
---------------
+==============
 
 These practices are designed to help teams create rich and efficient data models within the OpenedX ecosystem.
 They are not standards but guidelines to help teams think about how they are storing data.
 
 Columns should store only exactly what the name describes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------------------
 
 - The name of a column in a table should accurately describe the data in that table.
 
@@ -319,7 +318,7 @@ Columns should store only exactly what the name describes
 
 
 Deleting data
-~~~~~~~~~~~~~
+-------------
 
 -  It is better to have a column to mark the record as inactive than to remove the data from the system using the SQL delete keyword. These models should use Django's `SoftDeletableModel`_.
 
@@ -330,7 +329,7 @@ Deleting data
 .. _For more information about GDPR and how to delete user data from edx please refer to this documentation: https://openedx.atlassian.net/wiki/spaces/PLAT/pages/930021733/User+Retirement+Tutorial+for+Developers
 
 Don’t trap the data
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 -  Each piece of information should have its own column. Avoid storing
       data in blob fields or as JSON in the database.
@@ -341,7 +340,7 @@ Don’t trap the data
       you need to run the python environment to decode the data, analysts who use SQL will have a difficult time querying and decoding this data.
 
 Store everything
-~~~~~~~~~~~~~~~~
+----------------
 
 -  Storage is cheap!
 
@@ -350,7 +349,7 @@ Store everything
 -  Still not sure? The default answer is yes.
 
 Use methods on models to access data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 - CRUD operations should access models via methods on models (where they exist), instead of querying managers directly.
 
@@ -366,7 +365,7 @@ Use methods on models to access data
       non-performant way (e.g. sorting by an unindexed field).
 
 Enforce logical constraints at the database layer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------
 
 -  Don’t allow impossible states to be represented in the database.
 
@@ -382,7 +381,7 @@ Enforce logical constraints at the database layer
       enrollment per course. In this case you should use Django's `unique_together`_.
 
 Keep indexes to a minimum
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 -  Create indexes only on the fields necessary to make queries performant
 
@@ -391,23 +390,23 @@ Keep indexes to a minimum
 -  Over-indexing data could actually make the database less performant (slower writes/updates)
 
 Developer Responsibility
-========================
+************************
 
 It is the responsibility of the developer to adhere to all of the
 standards in the Data Modeling Standards section of this document.
 
 Code Reviewer Responsibility
-============================
+****************************
 
 The code reviewer is responsible for ensuring the standards set forth in
 the Data Modeling Standards section of this document are met.
 
 Responsibility for Third-party Service Integrations
-===================================================
+***************************************************
 
 Adhere to the same standards.
 
 Backward Compatibility
-======================
+**********************
 
 Data models that are not within the standards of this document do not need to be updated to adhere to OEP-38 standards.

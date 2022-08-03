@@ -1,6 +1,5 @@
-======================================
 OEP-11: Front End Technology Standards
-======================================
+######################################
 
 +---------------+--------------------------------------------------+
 | OEP           | :doc:`OEP-11 <oep-0011-bp-FED-technology>`       |
@@ -22,7 +21,7 @@ OEP-11: Front End Technology Standards
 +---------------+--------------------------------------------------+
 
 Abstract
-========
+********
 
 This document describes the technology standards for developing
 front end applications and components for Open edX. It covers the techniques
@@ -30,7 +29,7 @@ and approaches that are currently recommended, as well as the technologies
 and libraries that should be used.
 
 Motivation
-==========
+**********
 
 The rapid pace of development in front end tooling has created opportunities
 to greatly improve the quality of the Open edX user and developer experience.
@@ -44,10 +43,10 @@ Python on the server, interactive interfaces written using JavaScript, and
 CSS styling.
 
 Specification
-=============
+*************
 
 Technology Selection
-~~~~~~~~~~~~~~~~~~~~
+====================
 
 .. _Use React and Redux:
 
@@ -201,7 +200,7 @@ Technology Selection
    exception may eventually be removed.
 
 Rejected Alternatives
-=====================
+*********************
 
 .. _Reasons for rejecting Angular:
 

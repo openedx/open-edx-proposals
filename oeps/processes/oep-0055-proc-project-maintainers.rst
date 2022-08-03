@@ -1,6 +1,5 @@
-===========================
 OEP-55: Project Maintainers
-===========================
+###########################
 
 .. list-table::
    :widths: 25 75
@@ -36,7 +35,7 @@ OEP-55: Project Maintainers
    :depth: 3
 
 Abstract
-========
+********
 
 The term "maintainer" refers to an individual or group of people who serve as
 leaders for a given component (a service or library comprised of code and hosted
@@ -45,7 +44,7 @@ community management. This document defines what a maintainer is, how they are
 chosen, and how they work together.
 
 Overview
-========
+********
 
 The Open edX platform is a service oriented platform for authoring and
 delivering online learning based on the `Django framework`_.  At the
@@ -85,7 +84,7 @@ their performance in any particular community member's production
 environment [#ops]_.
 
 Motivation
-==========
+**********
 
 With the change in stewardship from edX to The Center for Reimagining
 Learning, it is essential to have a well defined plan for maintaining
@@ -104,10 +103,10 @@ responsible for getting the work done, a measurable definition of
 continuous improvement of our processes.
 
 Specification
-=============
+*************
 
 Definitions
------------
+===========
 
 The term **repository** will mean a repository on the GitHub social
 coding platform.
@@ -140,7 +139,7 @@ You can read the full document `here
 <https://openedx.org/wp-content/uploads/2021/12/TCRIL-Technical-Oversight-Committee-Charter-rev.11-16.21.pdf>`_.
 
 Historical Context
-------------------
+==================
 
 Historically, the Open edX project has not had a well-defined role
 of maintainer.  At times, community members stepped into this role
@@ -150,7 +149,7 @@ owned both in the repository and in production; owners answered the
 pager when something went wrong.
 
 What Maintainers Do
--------------------
+===================
 
 The role of the repository or project maintainer is both a community
 focused and a technical role [#role]_.  Maintainers will be the public face
@@ -212,7 +211,7 @@ team to figure out arrangements for list monitoring, such as an "on-call"
 rotation.
 
 Prerequisites
--------------
+=============
 
 In order to be a repository maintainer, you must
 
@@ -235,7 +234,7 @@ that the requirement of being a Core Contributor limits participation in the
 Maintainers program, we may choose to revisit this requirement.
 
 Bootstrapping
--------------
+=============
 
 Upon acceptance of this OEP, a bootstrapping period, starting with a small pilot
 phase, will occur whereby 2U staff and community members will formally take on
@@ -244,7 +243,7 @@ maintainership roles. Details of this period will be documented in the
 nature.
 
 The Maintainer Scrum-of-Scrums
-------------------------------
+==============================
 
 In order to coordinate certain maintainer responsibilities including
 voting on nominated maintainers, iterating on standards, and removing
@@ -260,7 +259,7 @@ project-wide responsibilities like developing repository standards,
 as well as tools for measuring compliance to those standards.
 
 Becoming a Maintainer
----------------------
+=====================
 
 After the bootstrapping phase, the Open edX project will need
 processes for adding maintainers, replacing maintainers, and ensuring
@@ -294,13 +293,13 @@ component maintenance work. This may be addressed in future revisions
 to this proposal.
 
 New Components
---------------
+==============
 
 In the case of new repositories, there should be a designated maintainer named
 before the repository is created.
 
 Unmaintained Components
------------------------
+=======================
 
 In the case of unmaintained components, nominations will be made to
 the scrum-of-scrums to fill the vacancy.  Nominations can be made by
@@ -313,7 +312,7 @@ will be taken.  Maintainers can approve a nomination with the approval
 of at least three quarters of the members.
 
 Removing a Maintainer
----------------------
+=====================
 
 From time-to-time it will be necessary to remove a component
 maintainer.  This might happen because:
@@ -357,7 +356,7 @@ group with unlimited spare capacity to pick up the slack, and to encourage the
 community to find a new maintainer.
 
 Documenting Maintainers
------------------------
+=======================
 
 As it is essential that maintainers are discoverable and reachable, the person
 or persons responsible for maintaining a component should be listed in the
@@ -367,7 +366,7 @@ repository.  Per :doc:`the backstage ADR
 a repository.
 
 Jobs of the Maintainer
-----------------------
+======================
 
 Many of the day-to-day specifics of the maintainer role are outside of
 the scope of this document.  For example, here we will note that
@@ -428,7 +427,7 @@ categories
   about continuously improving both software and processes.
 
 Governance Structure
-====================
+********************
 
 The Maintainers program will be run by the maintainers themselves, working
 together with input from Core Contributors and the broader community. The
@@ -440,7 +439,7 @@ arbiter of last resort for governance matters.
 .. _program administrators:
 
 Contact the Program Administrators
-==================================
+**********************************
 
 Questions about the Program can be directed to the tCRIL administrator(s) via
 the ``#ask-tcril`` Slack room in the `Open edX Slack
@@ -448,7 +447,7 @@ the ``#ask-tcril`` Slack room in the `Open edX Slack
 may be directed to ``maintainer-program-admins@tcril.org``.
 
 Related Decisions
-=================
+*****************
 
 .. toctree::
    :glob:
@@ -457,13 +456,13 @@ Related Decisions
    oep-0055/decisions/*
 
 Change History
-==============
+**************
 
 01-28-2022 - `Document created <https://github.com/openedx/open-edx-proposals/pull/290/>`_
 
 
 Source Material
-===============
+***************
 
 * `What Makes a Great Maintainer of Open Source Projects?
   <https://www.computer.org/csdl/proceedings-article/icse/2021/029600a982/1sEXoQoeO0E>`_
@@ -474,7 +473,7 @@ Source Material
 * `Producing OSS <https://producingoss.com/en/producingoss-letter.pdf>`_
 
 Notes
-=====
+*****
 
 .. [#ida] An IDA is an Independently Deployable Application, a
        server-side service oriented application, typically built upon

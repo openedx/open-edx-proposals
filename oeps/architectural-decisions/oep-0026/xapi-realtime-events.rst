@@ -1,15 +1,14 @@
 .. _xapi_realtime_events:
 
-=====================
 xAPI Real-time Events
-=====================
+#####################
 
 .. contents::
    :local:
    :depth: 2
 
 Standardized Integration with xAPI
-==================================
+**********************************
 We have chosen xAPI as one of the primary communication standards for real-time events since it has `widespread industry support and usage`_ for tracking and analyzing learning activity. Please see `xAPI Architecture Overview`_ for further information on xAPI.
 
 .. _widespread industry support and usage: https://xapi.com/adopters/
@@ -20,7 +19,7 @@ We have chosen xAPI as one of the primary communication standards for real-time 
 .. _oep-26-lrs:
 
 Learning Record Store (LRS) - Future
-====================================
+************************************
 
 xAPI includes a specification for a Learning Record Store (LRS), which encapsulates a data store with APIs for storing and accessing xAPI data. While an LRS could be used for many different purposes, it can be used to train adaptive engines as shown in the diagram below.
 
@@ -30,7 +29,7 @@ xAPI includes a specification for a Learning Record Store (LRS), which encapsula
 In the short term, however, we will not implement our own LRS. We will look into integration efforts with third party LRS services.
 
 Statement API
-=============
+*************
 
 xAPI specifies 4 standard REST-ful JSON payload APIs, of which only the `Statement API`_ is needed for our purposes as that API is sufficient for tracking learning activity.
 
@@ -39,7 +38,7 @@ The Statement API has essentially the following parts: `xAPI Actor`_, `xAPI Verb
 .. _Statement API: https://xapi.com/statements-101/
 
 xAPI Actor
-~~~~~~~~~~
+==========
 Although the **Actor** field can be either an *Agent* or a *Group*, we will primarily support only the *Agent* type, which is used for individuals performing an activity (`xAPI Verb`_ on an `xAPI Object`_).
 
 An Actor can be identified using `Friend of a Friend (FOAF)`_ vocabulary with either: (1) `email address`_, (2) `hash of email address`_, (3) `OpenID URI`_, or (4) `account`_ with a *homepage*-scoped identifier.  One of these is sent along with the Actor's "name". To be mindful of learner privacy, we will initially take a conservative approach and only send #3, with an Open edX anonymized unique identifier of the learner (:ref:`oep-26-user-id`).
@@ -49,7 +48,7 @@ In the future, if certain external systems require `Personally Identifiable Info
 Initially, we will exclude the "name" field. However, if we find that xAPI JSON parsers assume this field always exists, then we can include the field but provide a non-PII value, such as a copy of the :ref:`oep-26-user-id`.
 
 Example
-^^^^^^^
+-------
 
 Here is an example of an **Actor** JSON value that we would generate:
 
@@ -72,7 +71,7 @@ See `Deep Dive: Actor/Agent`_ for more information on xAPI Actors.
 .. _`Deep Dive: Actor/Agent`: https://xapi.com/deep-dive-actor-agent/
 
 xAPI Verb
-~~~~~~~~~
+=========
 
 The **Verb** in xAPI is a past tensed value, identified by a URI from the `xAPI registry`_ and paired with a short display string. It denotes the action that was performed by the Actor on the Object in the statement. As best as possible, we will use standard and registered Verbs rather than creating custom ones. The chosen Verbs are documented in the `Open edX Events`_ section below.
 
@@ -101,7 +100,7 @@ See `Experience API Deep Dive: Verbs`_ for more information on xAPI Verbs.
 .. _`Experience API Deep Dive: Verbs`: https://xapi.com/deep-dive-verb/
 
 xAPI Object
-~~~~~~~~~~~
+===========
 
 Initially, the **Object** in an Open edX xAPI event will be an xAPI *Activity*, which is uniquely defined by a URI. (In the future, we may expand Objects to also be Actors in case of *social interactions*, and Statements in case of *voiding*.)
 
@@ -128,7 +127,7 @@ See `Deep Dive: Object`_ for more information on xAPI Object.
 .. _`Deep Dive: Object`: https://xapi.com/deep-dive-object/
 
 xAPI Context
-~~~~~~~~~~~~
+============
 
 The **Context** field allows us to embed additional contextual information in each statement. See specifics in the `Open edX Events`_ section below since it varies by event type.
 
@@ -151,7 +150,7 @@ See `Deep Dive: Context`_ for more information on xAPI Context.
 .. _`Deep Dive: Context`: https://xapi.com/deep-dive-context/
 
 xAPI Result
-~~~~~~~~~~~
+===========
 
 The **Result** field specifies the score the user earned on an activity.  Here is an example of a JSON value that we would generate for a problem type:
 
@@ -174,12 +173,12 @@ See `Deep Dive: Result`_ for more information on xAPI Result.
 .. _`Deep Dive: Result`: https://xapi.com/deep-dive-result/
 
 Open edX Events
-===============
+***************
 
 Currently, the Open edX system supports and maintains events that are sent to tracking logs, as described in `Tracking Log Events`_.
 
 Prioritized List of Events
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================
 
 For this first iteration, we will focus primarily on the following events:
 
@@ -230,14 +229,14 @@ For this first iteration, we will focus primarily on the following events:
 .. _Tracking Log Events: https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/index.html
 
 Event Field Mapping
-~~~~~~~~~~~~~~~~~~~
+===================
 
 Please see the `Open edx xAPI Events`_ document for a detailed view of the mapping between the above Open edX events and their equivalent Open edX xAPI formats.
 
 .. _Open edx xAPI Events: https://docs.google.com/spreadsheets/d/1oTClCxuUj1vCzytbmjDaHWFmcI6JZDqqJtZmYVwnOTA/view
 
 Implementation Note
-~~~~~~~~~~~~~~~~~~~
+===================
 
 TBD - The development team will assess whether we will use (and start owning) the already implemented (but no longer maintained) `xAPI Python Open Source Library`_.
 

@@ -1,5 +1,5 @@
 Open edX Proposals Index
-========================
+########################
 
 OEP (pronounced “oh-epp”) stands for Open edX (Enhancement) Proposal. An OEP is
 a document that details a specific technology decision being made by the Open
@@ -14,7 +14,7 @@ View the published list of `Open edX Proposals (OEPs)`_ on ReadTheDocs.
 .. _Open edX Proposals (OEPs): https://open-edx-proposals.readthedocs.io
 
 Testing locally
----------------
+***************
 
 To test locally in a Python virtual env, you will first need to install `GraphViz <http://graphviz.org/>`_
 On a Mac, this can be done via ``brew install graphviz``; on Ubuntu, use ``sudo apt install graphviz``; on Red Hat variants use ``sudo dnf install graphviz``.
@@ -26,10 +26,10 @@ Next run the following commands::
   make html
 
 Common Warnings
-~~~~~~~~~~~~~~~
+===============
 
 Document isn't Included in any toctree
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------
 
 If you have some documents that you only reference via ``:doc:`` or ``:ref:`` tags you may get this error.
 If there is no table of contents that the files obviously belong in, an easy way to fix this error is to put the

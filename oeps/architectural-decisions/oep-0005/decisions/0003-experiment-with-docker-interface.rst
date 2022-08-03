@@ -1,15 +1,15 @@
 Experiment with docker interace
-===============================
+###############################
 
 
 Status
-------
+******
 
 Accepted
 
 
 Context
--------
+*******
 
 .. note:: This ADR's scope is very limited to developer facing make interface for docker and does not address questions on other make interfaces.
 
@@ -29,7 +29,7 @@ Some of the make targets that are deemed unnecessary:
 - up: docker-compose up -d
 
 Options
-~~~~~~~
+=======
 
 1. Follow the pattern of current Devstack, which uses make targets as a basic interface for developers.
 
@@ -37,7 +37,7 @@ Options
 
 
 Decision
---------
+********
 
 For initial prototype, we will attempt to interface with DD through docker-compose commands directly. How_to docs should be created to help developers use docker-compose commands.
 

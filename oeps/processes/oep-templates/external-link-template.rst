@@ -2,9 +2,8 @@
 
 .. Below is the display in the left sidebar on RTD. Please omit leading 0's
 
-======================
 OEP-XXXX: OEP Template
-======================
+######################
 
 .. This OEP template is recommended when content is externally linked.
 
@@ -38,13 +37,13 @@ OEP-XXXX: OEP Template
      - <start - target end dates for review>
 
 Abstract
---------
+********
 
 The abstract is a short description of the technical issue that
 this Open edX proposal (OEP) addresses.
 
 References
-----------
+**********
 
 List links to the external location(s) where the technical design and discussions
 are actually captured and stored.  For example, in:
@@ -57,16 +56,16 @@ are actually captured and stored.  For example, in:
 .. _discuss.openedx.org: https://discuss.openedx.org
 
 Decisions
----------
+*********
 
 In order to precisely version and reference the decisions that were made in the above
 documents, capture and list the main decisions in this section.
 
 Change History
---------------
+**************
 
 YYYY-MM-DD
-==========
+##########
 
 * Document created
 * `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
