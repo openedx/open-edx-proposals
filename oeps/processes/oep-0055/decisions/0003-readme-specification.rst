@@ -47,7 +47,7 @@ makes sense based on the maintainers judgement.
   This should be oriented towards people who are new to the Open edX project.
 
 * **Getting Started** - A section that details various aspects of getting
-  started with this component.  Some common use caseses include, getting started
+  started with this component.  Some common use cases include, getting started
   with development or how to deploy this component.
 
 * **Getting Help** - A section to indicate where and how the user can get help
@@ -168,7 +168,7 @@ Template
    ************
 
    Details about how to become a contributor to the Open edX project may
-   be found in the wiki at `How to contribute`_
+   be found in the wiki at `How to contribute`_.
 
    .. _How to contribute: https://openedx.org/r/how-to-contribute
 
