@@ -55,10 +55,23 @@ makes sense based on the maintainers judgement.
   the component. It should link to relevant docs as well as places where the
   users can get help from other humans.
 
-* **How to Contribute** - A section to indicate how new users can contribute to
+* **Contributing** - A section to indicate how new users can contribute to
   this component.  This section should at the very least contain a link to the
   general `How to Contribute <https://openedx.org/r/how-to-contribute>`_
   documentation for the Open edX Project.
+
+  The level of contributions that the maintainer is willing to accept should
+  also be clearly described here.  Some possible values might be:
+
+
+   * **fixes only** - no new features are being accepted at this point, but fixes
+     and maintenance updates welcome.
+
+   * **new-features accepted** - please discuss your new ideas with the
+     maintainers before you write code to increase the changes that features are
+     accepted.
+
+   * **security only** - no changes accepted except for security fixes.
 
 * **Open edX Code of Conduct** - A section that links to the `Open edX Code of
   Conduct <https://openedx.org/code-of-conduct/>`_
@@ -151,13 +164,21 @@ Template
    .. _community Slack workspace: https://openedx.slack.com/
    .. _Getting Help: https://openedx.org/getting-help
 
-   How to Contribute
-   *****************
+   Contributing
+   ************
 
    Details about how to become a contributor to the Open edX project may
    be found in the wiki at `How to contribute`_
 
    .. _How to contribute: https://openedx.org/r/how-to-contribute
+
+   This project is currently accepting all types of contributions, bug fixes,
+   security fixes, maintenance work, or new features.  However, please make sure
+   to have a discussion about your new feature idea with the maintainers prior
+   to beginning development to maximize the chances of your change being
+   accepted.  You can start a conversation by creating a new issue on this repo
+   summarizing your idea.
+
 
    The Open edX Code of Conduct
    ****************************
