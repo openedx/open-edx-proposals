@@ -1,6 +1,5 @@
 .. _caliper_realtime_events:
 
-########################
 Caliper Real-time Events
 ########################
 

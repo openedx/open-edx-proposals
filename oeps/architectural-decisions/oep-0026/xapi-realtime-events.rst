@@ -1,6 +1,5 @@
 .. _xapi_realtime_events:
 
-#####################
 xAPI Real-time Events
 #####################
 

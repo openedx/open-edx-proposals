@@ -2,7 +2,6 @@
 
 .. Below is the display in the left sidebar on RTD. Please omit leading 0's
 
-######################
 OEP-XXXX: OEP Template
 ######################
 
@@ -71,7 +70,7 @@ Change History
 **************
 
 YYYY-MM-DD
-##########
+==========
 
 * Document created
 * `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
