@@ -425,6 +425,8 @@ rendered to HTML using Sphinx.
 
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 
+.. _OEP Templates:
+
 OEP Templates
 =============
 
