@@ -44,6 +44,9 @@ sphinx==5.1.1
     # via
     #   -r requirements/base.in
     #   edx-sphinx-theme
+    #   sphinx-copybutton
+sphinx-copybutton==0.5.0
+    # via -r requirements/base.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
 sphinxcontrib-devhelp==1.0.2

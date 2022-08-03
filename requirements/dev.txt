@@ -84,8 +84,11 @@ sphinx==5.1.1
     #   -r requirements/base.txt
     #   edx-sphinx-theme
     #   sphinx-autobuild
+    #   sphinx-copybutton
 sphinx-autobuild==2021.3.14
     # via -r requirements/dev.in
+sphinx-copybutton==0.5.0
+    # via -r requirements/base.txt
 sphinxcontrib-applehelp==1.0.2
     # via
     #   -r requirements/base.txt
