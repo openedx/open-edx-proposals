@@ -13,6 +13,9 @@ Context
 up-to-date and useful readme. While it laid out some possibilites about what
 should go into a README, it did not go into much detail.
 
+`OEP-19`_ also suggests that README files should exist but does not provide a
+lot of guidance on specifics.
+
 Decision
 ********
 
@@ -207,3 +210,4 @@ Examples
 * `DoneXBlock <https://github.com/openedx/DoneXBlock/blob/master/README.rst>`_
 
 .. _OEP-55: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
+.. _OEP-19: https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0019-bp-developer-documentation.html
