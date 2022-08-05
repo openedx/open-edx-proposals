@@ -70,7 +70,7 @@ makes sense based on the maintainers judgement.
    * **fixes only** - no new features are being accepted at this point, but fixes
      and maintenance updates welcome.
 
-   * **new-features accepted** - please discuss your new ideas with the
+   * **new features accepted** - please discuss your new ideas with the
      maintainers before you write code to increase the changes that features are
      accepted.
 
@@ -138,7 +138,7 @@ Template
    Deploying
    =========
 
-   How can a new user, go about deploying this component? Is it just a few commands? Is there a larger how-to that should be linked here?
+   How can a new user go about deploying this component? Is it just a few commands? Is there a larger how-to that should be linked here?
 
    For details on how to deploy this component, checkout the `deployment how-to`_
 
@@ -157,9 +157,7 @@ Template
 
    For anything non-trivial, the best path is to open an issue in this
    repository with as many details about the issue you are facing as you
-   can provide.
-
-   https://github.com/openedx/DoneXBlock/issues
+   can provide: https://github.com/openedx/DoneXBlock/issues
 
    For more information about these options, see the `Getting Help`_ page.
 
