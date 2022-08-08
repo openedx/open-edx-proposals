@@ -1,27 +1,27 @@
-OEP-XX: Using the GitHub Transifex App and a Separate Translation Repo as a Replacement for the edx-transifex-bot
+OEP-58: Using the GitHub Transifex App and a Separate Translation Repo as a Replacement for the edx-transifex-bot
 #################################################################################################################
 
-+---------------+-----------------------------------------------------------------------------------------------------------+
-| OEP           | :doc:`OEP-XX <oep-00XX-proc-translations-management>`                                                     |
-+---------------+-----------------------------------------------------------------------------------------------------------+
-| Title         | Using the GitHub Transifex App and a Separate Translation Repo as a Replacement for the edx-transifex-bot |
-+---------------+-----------------------------------------------------------------------------------------------------------+
-| Last Modified | 2022-08-08                                                                                                |
-+---------------+-----------------------------------------------------------------------------------------------------------+
-| Authors       | Carlos Muniz <cmuniz@tcril.org>,                                                                          |
-|               | Feanil Patel <feanil@tcril.org>,                                                                          |
-|               | Sarina Canelake <sarina@tcril.org>                                                                        |
-+---------------+-----------------------------------------------------------------------------------------------------------+
-| Arbiter       |                                                                                                           |
-+---------------+-----------------------------------------------------------------------------------------------------------+
-| Status        |                                                                                                           |
-+---------------+-----------------------------------------------------------------------------------------------------------+
-| Type          | Process                                                                                                   |
-+---------------+-----------------------------------------------------------------------------------------------------------+
-| Created       | 2022-08-08                                                                                                |
-+---------------+-----------------------------------------------------------------------------------------------------------+
-| Resolution    |                                                                                                           |
-+---------------+-----------------------------------------------------------------------------------------------------------+
+.. list-table::
+
+   * - OEP
+     - :doc:`OEP-58 <oep-0058-proc-translations-management>`
+   * - Title
+     - Using the GitHub Transifex App and a Separate Translation Repo as a Replacement for the edx-transifex-bot
+   * - Last Modified
+     - 2022-08-08
+   * - Authors
+     - 
+       * Carlos Muniz <cmuniz@tcril.org>
+       * Feanil Patel <feanil@tcril.org>
+       * Sarina Canelake <sarina@tcril.org>
+   * - Arbiter
+     - TBD
+   * - Status
+     - Accepted
+   * - Created
+     - 2022-08-08
+..    * - Resolution
+..      - 
 
 .. contents::
   :local:
