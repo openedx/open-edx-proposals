@@ -15,7 +15,7 @@ OEP-58: Using the GitHub Transifex App and a Separate Translation Repo as a Repl
        * Feanil Patel <feanil@tcril.org>
        * Sarina Canelake <sarina@tcril.org>
    * - Arbiter
-     - TBD
+     - Ned Batchelder <ned@edx.org>
    * - Status
      - Accepted
    * - Created
