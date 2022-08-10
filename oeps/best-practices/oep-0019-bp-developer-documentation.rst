@@ -101,6 +101,9 @@ OEPs
        * *What are the best practices and processes for developing on the Open edX platform?*
        * *How does system-wide framework X work on the Open edX platform? (e.g., Analytics, Authorization, etc).*
        * *Why was system-wide technology X or design Y chosen for the Open edX platform?*
+   * - **Specification**
+     - :ref:`OEP Templates` provides details for what constitutes a valid OEP
+       format.
    * - **Rationale**
      - To establish software development coherency and efficiency with minimal centralized governance across a long-term maintained platform.
    * - **Location in GitHub**
@@ -134,6 +137,8 @@ ADRs
      -
        * *What technical decisions were made for the component/feature in this repo/app/folder?*
        * *Why does this component/feature do X?*
+   * - **Specification**
+     - A sample template is provided below.
    * - **Rationale**
      - These records prove to be an `invaluable technique`_ for engineering teams to onboard
        new members, to understand discovered historical traces, to refer back to past decisions,
@@ -211,6 +216,10 @@ READMEs
        * *What is the responsibility and purpose of this component?*
        * *What are the terms and definitions of this component's ubiquitous language?*
        * *How can I navigate the documentation within and related to this component?*
+   * - **Specification**
+     - The details of what should be in a readme were codified in :doc:`OEP-55 </processes/oep-0055-proc-project-maintainers>` and can be found in the
+       related :doc:`README ADR
+       </processes/oep-0055/decisions/0003-readme-specification>`
    * - **Rationale**
      - The future evolution and development of a component remains within the intended boundaries of the component's responsibility. Otherwise, it invites unintended complexity and incongruity.
    * - **Location in GitHub**
