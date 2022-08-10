@@ -21,6 +21,8 @@ Using the GitHub Transifex App and a Separate Translation Repo as a Replacement 
      - Ned Batchelder <ned@edx.org>
    * - Status
      - Under Review
+   * - Type
+     - Process
    * - Created
      - 2022-08-08
 ..    * - Resolution
