@@ -56,18 +56,15 @@ suggest moving translations into their own repository, to make using  the GitHub
 Transifex app more streamlined and straightforward, and in order to make organizing and
 using the up to date translations simpler.
 
-Description
-***********
+Current State
+*************
 
-* Edx-transifex-bot is a potential security issue
-
-  * The edx-transifex-bot requires admin rights on Transifex in order to function. Admin
-    rights give access to private/sensitive information as well as the ability to
-    permanently delete translation and configuration files. At some point, the login to
-    the edx-transifex-bot user was lost, and without  access to the scripts that the bot
-    uses to function, this edx-transifex-bot is a security issue we cannot control or
-    debug.
-
+* Edx-transifex-bot is a potential security issue: The edx-transifex-bot requires admin
+  rights on Transifex in order to function. Admin rights give access to private/sensitive
+  information as well as the ability to permanently delete translation and configuration
+  files. At some point, the login to the edx-transifex-bot user was lost, and without
+  access to the scripts that the bot uses to function, this edx-transifex-bot is a
+  security issue we cannot control or debug.
 * Edx-transifex-bot is a black box: Login/scripts for edx-transifex-bot cannot be found
   on GitHub or on wiki/secrets pages, and it is difficult to observe what work it is
   supposed to do, or whether it is doing it correctly.
