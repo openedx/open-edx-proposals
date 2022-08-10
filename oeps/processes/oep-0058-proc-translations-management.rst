@@ -103,19 +103,28 @@ Rationale
   maintenance burden and are more future proof of changes they might make since they
   maintain both the API and the github App.
 
-Consequences
-************
+Proposed Implementation
+***********************
 
-Impact on Translators
-=====================
+* Move translation files to a new repo
+* Add GitHub Transifex App to openedx organization
+* Connect i18n repo to Transifex via app
+* Set up for each release branch
+* Create/Copy Transifex Memory
+
+Pros & Cons
+===========
+
+Con: Impact on Translators
+--------------------------
 
 As we approach the end of the translation upgrade process, we will need to tactically
 move from multiple transifex projects to a single project.  This will require
 coordination with our translators to ensure that moving forward they are providing
 translations in the right place.
 
-Impact on Site Operators
-========================
+Con: Impact on Site Operators
+-----------------------------
 
 Currently the translation files for any given service or library is stored at the same
 place as the code, this has generally simplified the deployment story in the past.  With
@@ -124,12 +133,23 @@ the old translations files, the relevant deployment tooling will need to be upda
 pull down the translations from the new repo as a part of the deployment process.  This
 will impact both the old Ansible based tooling as well as any new docker based tooling.
 
-Impact on Developers
-====================
+Con: Impact on Developers
+-------------------------
 
 While it won’t directly impact the day-to-day workflow of developers, due to the same
 reasons that we impact site operators(new translations location), we will have to update
 development tools as well.
+
+Locations
+=========
+
+Dumps of the translation/localization files from Transifex for the Open edX Release
+project already exist in a repository with the name of openedx/openedx-i18n. A new
+repository named openedx/openedx-translations, will be similarly structured, but contain
+the translation files for all repos within openedx. The GitHub Transifex app will be
+installed in the openedx organization. Similar to how the Build-Test-Release Working
+Group creates a new branch for each new named release of edx-platform, translation
+releases can also be kept in branches corresponding to edx-platform releases.
 
 Rejected Alternatives
 *********************
@@ -149,23 +169,3 @@ tCRIL pays for each Transifex Project. As translation support is provided for mo
 the total cost will also increase. In addition, each Transifex Project will need to be
 maintained separately, making debugging issues or tracking the progress of each Transifex
 Project time-consuming.
-
-Next Steps
-**********
-
-* Move translation files to a new repo
-* Add GitHub Transifex App to openedx organization
-* Connect i18n repo to Transifex via app
-* Set up for each release branch
-* Create/Copy Transifex Memory
-
-Locations
-*********
-
-Dumps of the translation/localization files from Transifex for the Open edX Release
-project already exist in a repository with the name of openedx/openedx-i18n. A new
-repository named openedx/openedx-translations, will be similarly structured, but contain
-the translation files for all repos within openedx. The GitHub Transifex app will be
-installed in the openedx organization. Similar to how the Build-Test-Release Working
-Group creates a new branch for each new named release of edx-platform, translation
-releases can also be kept in branches corresponding to edx-platform releases.
