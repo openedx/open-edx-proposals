@@ -94,9 +94,14 @@ References
 * `Backstage system model`_ has detail about the different kinds of components
   and how they connect to each other.
 
-* Sample ``catalog-info.yaml`` file:
+* Sample ``catalog-info.yaml`` file.  Comments here starting with "Required"
+  or "Optional" shouldn't appear in the file, they are here to help explain the
+  sample:
 
   .. code:: yaml
+
+    # This file records information about this repo. Its use is described in OEP-55:
+    # https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
 
     apiVersion: backstage.io/v1alpha1
     # (Required) Acceptable Values: Component, Resource, System
@@ -109,8 +114,8 @@ References
           title: "Deployed Site"
           icon: "Web"
       annotations:
-        # Annotation keys and values can be whatever you want.
-        # We use it in open edx to have a comma separated list of github user
+        # (Optional) Annotation keys and values can be whatever you want.
+        # We use it in Open edX repos to have a comma-separated list of GitHub user
         # names that might be interested in changes to the architecture of this
         # component.
         openedx.org/arch-interest-groups: "feanil"
