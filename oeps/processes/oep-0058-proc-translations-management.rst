@@ -150,7 +150,7 @@ issues that stem from missing source code.
 Making a Transifex Project for each Repository
 ==============================================
 
-TCRIL pays for each Transifex Project. As translation support is provided for more repos,
+tCRIL pays for each Transifex Project. As translation support is provided for more repos,
 the total cost will also increase. In addition, each Transifex Project will need to be
 maintained separately, making debugging issues or tracking the progress of each Transifex
 Project time-consuming.
