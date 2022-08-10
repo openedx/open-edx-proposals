@@ -25,6 +25,8 @@ Using the GitHub Transifex App and a Separate Translation Repo as a Replacement 
      - Process
    * - Created
      - 2022-08-08
+   * - Review Period
+     - TBD
 ..    * - Resolution
 ..      - 
 
