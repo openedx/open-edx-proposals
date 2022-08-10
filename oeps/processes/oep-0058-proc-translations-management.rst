@@ -1,9 +1,6 @@
 OEP-58: Translations Management
 ###############################
 
-Using the GitHub Transifex App and a Separate Translation Repo as a Replacement for the edx-transifex-bot
----------------------------------------------------------------------------------------------------------
-
 .. list-table::
    :widths: 25 75
 
