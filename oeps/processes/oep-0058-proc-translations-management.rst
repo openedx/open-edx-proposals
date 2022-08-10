@@ -5,6 +5,7 @@ Using the GitHub Transifex App and a Separate Translation Repo as a Replacement 
 ---------------------------------------------------------------------------------------------------------
 
 .. list-table::
+   :widths: 25 75
 
    * - OEP
      - :doc:`OEP-58 <oep-0058-proc-translations-management>`
