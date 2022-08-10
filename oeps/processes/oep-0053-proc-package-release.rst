@@ -110,6 +110,19 @@ Technical Details
 
 * If the tool suggests a version bump, the ‘generate-changelogs’ reusable workflow is called from ‘edx/.github’ and it updates the value of the version variable in the path specified in setup.cfg.
 * After the version bump, a custom GitHub action called ‘changelogs-generator’ is called. This action uses the python script ‘changelogs.py’ to generate changelogs in markdown format using ‘python-semantic-release’, convert them to reStructuredText format using ‘pandoc’ and then add them to the ‘CHANGELOG.rst’ where ‘.. <New logs>’ is mentioned.
+* For instance, the current version is 3.2.4 and a commit was pushed with message "feat: Added a new xyz feature" on 2022-08-16. The changelogs added to ‘CHANGELOG.rst‘ will have the following format:
+
+.. code-block::
+
+    [3.3.0] - 2022-08-16
+    --------------------
+
+    Feature
+    ~~~~~~~
+
+    -  Added a new xyz feature
+       (`36afd12 <https://github.com/edx/{repo-name}/commit/{commit-id}>`__)
+
 * Finally, a PR is created with the above changes. This PR uses the username and email mentioned in setup.cfg.
 * Tag and release workflow gets triggered when the PR created by the above workflow is merged. This workflow tags the commit and creates a GitHub release.
 * When a new tag is pushed, ‘Python Package Release’ workflow gets triggered and it publishes the package on PyPI with changes made in the latest tag.
