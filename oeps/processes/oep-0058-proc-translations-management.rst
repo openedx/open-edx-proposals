@@ -11,7 +11,7 @@ Using the GitHub Transifex App and a Separate Translation Repo as a Replacement 
    * - Title
      - Translations Management
    * - Last Modified
-     - 2022-08-08
+     - 2022-08-10
    * - Authors
      - 
        * Carlos Muniz <cmuniz@tcril.org>
@@ -20,7 +20,7 @@ Using the GitHub Transifex App and a Separate Translation Repo as a Replacement 
    * - Arbiter
      - Ned Batchelder <ned@edx.org>
    * - Status
-     - Accepted
+     - Under Review
    * - Created
      - 2022-08-08
 ..    * - Resolution
