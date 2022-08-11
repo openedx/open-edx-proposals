@@ -20,7 +20,7 @@ OEP-58: Translations Management
    * - Status
      - Under Review
    * - Type
-     - Process
+     - Architecture Decision
    * - Created
      - 2022-08-08
    * - Review Period
