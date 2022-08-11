@@ -165,7 +165,12 @@ issues that stem from missing source code.
 Making a Transifex Project for each Repository
 ==============================================
 
-tCRIL pays for each Transifex Project. As translation support is provided for more repos,
-the total cost will also increase. In addition, each Transifex Project will need to be
+As translation support is provided for more repos, the total cost will also increase. A
+Transifex Project houses the content to be translated and needs to be created before any
+content can be added for translation. Transifex Projects can only support 1 GitHub
+repository each and need to be maintained separately. Maintaining a Transifex Project
+involves adjusting configurations, adding new languages, assigning translators to
+projects, or any other miscellaneous irregular tasks that would be time-consuming at a
+larger scale. If we adda a Transifex Project, each Transifex Project will need to be
 maintained separately, making debugging issues or tracking the progress of each Transifex
 Project time-consuming.
