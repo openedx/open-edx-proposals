@@ -157,10 +157,12 @@ Rejected Alternatives
 Rewriting the Current Tooling for the New API
 =============================================
 
-While rewriting the current tooling may solve the problems encountered in the last two
-Open edX Releases, it will still be difficult to maintain and keep track of the
-edx-transifex-bot. The Open edX community will still struggle with debugging difficult
-issues that stem from missing source code.
+The source code for the edx-transifex-bot is missing. We could rewrite the current
+tooling to try to solve the problems encountered in the last two Open edX releases and
+upgrade to the new API, but this approach would require a full rewrite, potentially more
+expensive than doing the rewrite in a way that Transifex more cleanly supports. It should
+also be mentioned that GitHub discourages the use of bots and separate bot accounts; they
+strongly recommend using GitHub Apps.
 
 Making a Transifex Project for each Repository
 ==============================================
