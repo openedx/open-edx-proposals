@@ -110,7 +110,7 @@ Technical Details
 
 * If the tool suggests a version bump, the ‘generate-changelogs’ reusable workflow is called from ‘edx/.github’ and it updates the value of the version variable in the path specified in setup.cfg.
 * After the version bump, a custom GitHub action called ‘changelogs-generator’ is called. This action uses the python script ‘changelogs.py’ to generate changelogs in markdown format using ‘python-semantic-release’, convert them to reStructuredText format using ‘pandoc’ and then add them to the ‘CHANGELOG.rst’ where ‘.. <New logs>’ is mentioned.
-* Note that changelogs are generated based on conventional commits. The commit type goes to the heading and subject line goes under it. The generated changelogs won't include the description of the commit message or any information from PR description. For instance, the current version is 3.2.4 and a commit was pushed with message "feat: Added a new xyz feature" on 2022-08-16. The changelogs added to ‘CHANGELOG.rst’ will have the following format:
+* Note that changelogs are generated based on conventional commits. Commits of type fix, feat, perf, docs or breaking changes are included in changelogs. The commit type goes to the heading and subject line goes under it. The generated changelogs won't include the description of the commit message or any information from PR description. For instance, the current version is 3.2.4 and a commit was pushed with message "feat: Added a new xyz feature" on 2022-08-16. The changelogs added to ‘CHANGELOG.rst’ will have the following format:
 
 .. code-block::
 
