@@ -9,7 +9,7 @@ OEP-51: Conventional Commits
    * - Title
      - Conventional Commits
    * - Last Modified
-     - 2021-09-08
+     - 2022-07-20
    * - Authors
      - Ned Batchelder
    * - Arbiter
@@ -234,6 +234,8 @@ Some commit guidelines are prescriptive about what grammar to use in commit subj
 
 Change History
 **************
+
+2022-07-20: Added `Private-ref:` footer for private links.
 
 2021-11-01: Note exceptions like ``squash!`` and ``fixup!``.
 
