@@ -9,7 +9,7 @@ OEP-59: Deploying Open edX on Kubernetes Using Helm
    * - Title
      - Deploying Open edX on Kubernetes Using Helm
    * - Last Modified
-     - 2022-08-19
+     - 2022-08-30
    * - Authors
      - Felipe Montoya <felipe.montoya@edunext.co>, Braden MacDonald <braden@opencraft.com>
    * - Arbiter
@@ -31,7 +31,7 @@ OEP-59: Deploying Open edX on Kubernetes Using Helm
 Abstract
 ********
 
-For Open edX operators who wish to deploy Open edX on Kubernetes, community-maintained `Helm Charts`_ will be used to simplify the process of deploying one or more Open edX instances onto a Kuberentes cluster, while following relevant best practices.
+For Open edX operators who wish to deploy Open edX on Kubernetes, community-maintained `Helm Charts`_ will be used to simplify the process of deploying one or more Open edX instances onto a Kubernetes cluster, while following relevant best practices.
 
 Building on the decisions in `OEP-45 Configuring and Operating Open edX`_ and `OEP-45/decisions/0001 Tutor as a replacement for edx/configuration`_, the Helm charts will aim only to support Docker images built by Tutor.
 
@@ -58,16 +58,21 @@ Despite this, many major commercial Open edX hosting providers have migrated tow
 .. _Kubernetes: https://kubernetes.io/
 .. _Deploying multiple Open edX instances onto a Kubernetes Cluster with Tutor: https://discuss.openedx.org/t/tech-talk-demo-deploying-multiple-open-edx-instances-onto-a-kubernetes-cluster-with-tutor/4641
 
+
 Helm
 ====
 
-**Why Helm**
+Helm is the best known package manager for Kubernetes. It's status as a graduated project from the Cloud Native Computing Foundation is a clear indication of the thriving adoption, open governance and commitment to the open community.
 
-TODO
+Helm makes it possible to packages and publish charts, which can be rendered as kubernetes manifests. This charts provide robust support for versioning, deployment and rollback. At the same time Helm makes it easy for operators to customize application configurations during deployment and for developers to provide sensible defaults.
+
+Charts are build with the Go language templating engine which is a drawback since it means adding a new language to the ecosystem with a new learning curve. This is considered acceptable due to the large adoption of Helm in the devops community.
+
 
 **Other**
 
 TODO
+
 
 Best Practices
 ==============
@@ -76,9 +81,9 @@ Best Practices
 
 As much as possible, the Helm chart should aim to be agnostic toward the underlying cloud provider used (e.g. AWS, Azure, Google Cloud Platform, etc.). In cases where provider-specific code is required, the Charts should be written in such a way that they can be configured to work with multiple providers, and not e.g. only support AWS.
 
-**Other**
+**Helm subcharts and modularity**
 
-TODO
+The project should aim to make the charts available in a way that is composable and granular. Extending a single subchart and using it in the composition should be a better and faster alternative than forking the whole project.
 
 
 Industry Best Practices
@@ -94,12 +99,17 @@ Alternatives Considered
 
 Building more Kubernetes support into Tutor
 ===========================================
-TODO
+
+Enhancing the current support for tutor core was not considered since it would go against one of the goals of the project as `explained by the author`_.
+
+.. _explained by the author: https://github.com/overhangio/tutor/pull/675#issuecomment-1140919654
 
 Custom Templating tool
 ======================
-TODO
 
+A `custom templating tool`_ built as a tutor plugin and leveraging kustomize for extension was demonstrated and considered as a possible alternative. It was ultimately rejected as Helm would provide more flexibility in extension without the need of maintenance.
+
+.. _custom templating tool: https://github.com/eduNEXT/drydock
 
 Implementation Strategy
 ***********************
