@@ -485,4 +485,4 @@ Change History
 2022-08-31
 ----------
 
-* Tweaks to ADR template
+* `Tweaks to ADR template <https://github.com/openedx/open-edx-proposals/pull/375>`_
