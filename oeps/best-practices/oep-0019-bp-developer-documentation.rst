@@ -159,9 +159,9 @@ A suggested ADR template:
 
 .. code-block:: rst
 
-  0000 Title For ADR
+  0. Title For ADR
   ##################
-  .. The title should be a short noun phrase. For example, "0001 Django IDA" or "0009 LDAP for Multitenant Integration"; filename should be lowercase with punctuation removed and spaces replaced by dash
+  .. The title should be a short noun phrase. For example, "1. Django IDA" or "9. LDAP for Multitenant Integration"; filename should be lowercase with punctuation removed and spaces replaced by dash
 
   Status
   ******
@@ -190,7 +190,7 @@ A suggested ADR template:
   .. This section describes the resulting context, after applying the decision. All consequences should be listed here, not just the "positive" ones. A particular decision may have positive, negative, and neutral consequences, but all of them affect the team and project in the future.
 
   Rejected Alternatives
-  ******************
+  *********************
 
   .. This section lists alternate options considered, described briefly, with pros and cons.
 
@@ -481,3 +481,8 @@ Change History
 
 * Add ADR template, add Change History section
 * `Pull request #340 <https://github.com/openedx/open-edx-proposals/pull/340>`_
+
+2022-08-31
+----------
+
+* Tweaks to ADR template
