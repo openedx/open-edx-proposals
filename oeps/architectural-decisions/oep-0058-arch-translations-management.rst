@@ -106,11 +106,42 @@ Rationale
 Proposed Implementation
 ***********************
 
-* Move translation files to a new repo
-* Add GitHub Transifex App to openedx organization
-* Connect i18n repo to Transifex via app
-* Set up for each release branch
-* Create/Copy Transifex Memory
+Move translation files to a new repo
+====================================
+
+Translation files (of types .mo and .po) currently exist amongst the code/documentation
+they translate. We will move these Translation files from being amongst the
+code/documentation to their own repo. For easier reintegration, Translation files will be
+kept in the same directory structure as the code/documentation they translate.
+
+Add GitHub Transifex App to openedx organization
+================================================
+
+Transifex's GitHub app will need to be added to the openedx GitHub organization in order
+to grant the app permissions to push/pull the Translation files. Currently, we manage the
+push/pull permissions for the edx-transifex-bot through a number of groups. The Transifex
+GitHub app is granted permission on a repository basis, and by moving all the
+Translations to a single repository we reduce the number of user groups we will have to
+manage.
+
+Connect i18n repository to Transifex via app
+============================================
+
+The Transifex webapp accepts configuration files for each Transifex project. By
+connecting the single repository containing all Translation files, we only need to make a
+single configuration file that allows the Transifex GitHub app to manage the Translation
+files. Based on the Translation Working Group's instruction, we can set parameters that
+automatically push and pull Translation files.
+
+Copy Transifex Memory
+=====================
+
+As a last step we can save all the progress the Open edX translators have accomplished by
+copying the Transifex Memory, the auto-translation feature that allows for Projects with
+similar strings to be automatically translated, from the old projects to this new one. By
+moving all the Translation Files to the same repository we can increase the reach of the
+Transifex Memory feature to help translate similar strings across the entire
+code/documentation base.
 
 Impacts
 *******
