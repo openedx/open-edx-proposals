@@ -141,7 +141,7 @@ reasons that we impact site operators(new translations location), we will have t
 development tools as well.
 
 Locations
-=========
+*********
 
 Dumps of the translation/localization files from Transifex for the Open edX Release
 project already exist in a repository with the name of openedx/openedx-i18n. A new
