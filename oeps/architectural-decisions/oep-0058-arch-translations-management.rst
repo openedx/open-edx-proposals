@@ -112,19 +112,19 @@ Proposed Implementation
 * Set up for each release branch
 * Create/Copy Transifex Memory
 
-Pros & Cons
-===========
+Impacts
+*******
 
-Con: Impact on Translators
---------------------------
+Impact on Translators
+=====================
 
 As we approach the end of the translation upgrade process, we will need to tactically
 move from multiple transifex projects to a single project.  This will require
 coordination with our translators to ensure that moving forward they are providing
 translations in the right place.
 
-Con: Impact on Site Operators
------------------------------
+Impact on Site Operators
+========================
 
 Currently the translation files for any given service or library is stored at the same
 place as the code, this has generally simplified the deployment story in the past.  With
@@ -133,8 +133,8 @@ the old translations files, the relevant deployment tooling will need to be upda
 pull down the translations from the new repo as a part of the deployment process.  This
 will impact both the old Ansible based tooling as well as any new docker based tooling.
 
-Con: Impact on Developers
--------------------------
+Impact on Developers
+====================
 
 While it won’t directly impact the day-to-day workflow of developers, due to the same
 reasons that we impact site operators(new translations location), we will have to update
