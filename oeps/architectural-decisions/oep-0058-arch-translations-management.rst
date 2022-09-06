@@ -95,10 +95,10 @@ Rationale
   Project has a lower cost: we pay by the project so we end up paying less, and by
   putting all translation files in the same place, it is easier to track translation
   progress, and debug translation issues.
-* A repo that only contains text/binary files, and uses branches to separate translations
-  related to Open edX releases can make all interactions with translations very quick and
-  simple due to the ability to clone the branch of a specific release, with translations
-  organized by repository name.
+* A repository that only contains text/binary files, and uses branches to separate
+  translations related to Open edX releases can make all interactions with translations
+  very quick and simple due to the ability to clone the branch of a specific release,
+  with translations organized by repository name.
 * By using an app that is maintained by Transifex the organization, we reduce the
   maintenance burden and are more future proof of changes they might make since they
   maintain both the API and the github App.
@@ -161,8 +161,9 @@ Currently the translation files for any given service or library is stored at th
 place as the code, this has generally simplified the deployment story in the past.  With
 this change, the translations files will move to their own repository.  As we deprecate
 the old translations files, the relevant deployment tooling will need to be updated to
-pull down the translations from the new repo as a part of the deployment process.  This
-will impact both the old Ansible based tooling as well as any new docker based tooling.
+pull down the translations from the new repository as a part of the deployment process.
+This will impact both the old Ansible based tooling as well as any new docker based
+tooling.
 
 Impact on Developers
 ====================
@@ -177,8 +178,8 @@ Locations
 Dumps of the translation/localization files from Transifex for the Open edX Release
 project already exist in a repository with the name of openedx/openedx-i18n. A new
 repository named openedx/openedx-translations, will be similarly structured, but contain
-the translation files for all repos within openedx. The GitHub Transifex app will be
-installed in the openedx organization. Similar to how the Build-Test-Release Working
+the translation files for all repositories within openedx. The GitHub Transifex app will
+be installed in the openedx organization. Similar to how the Build-Test-Release Working
 Group creates a new branch for each new named release of edx-platform, translation
 releases can also be kept in branches corresponding to edx-platform releases.
 
