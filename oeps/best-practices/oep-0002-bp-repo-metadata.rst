@@ -143,7 +143,7 @@ Example
 
 For example, in the `edx-platform`_ repo, the file might look like:
 
-.. _edx-platform: https://github.com/edx/edx-platform
+.. _edx-platform: https://github.com/openedx/edx-platform
 
 .. code-block:: yaml
 

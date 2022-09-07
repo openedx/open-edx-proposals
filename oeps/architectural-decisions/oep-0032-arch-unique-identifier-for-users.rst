@@ -37,7 +37,7 @@ The *LMS user_id* should be used for all internal events. Additionally, the *LMS
     A new external user id should still be used with third-parties under certain circumstances. This is especially important when the user id is sent along with other :doc:`Personally Identifiable Information (PII) <oep-0030-arch-pii-markup-and-auditing>`. See the `ADR for the edx-platform external_user_ids Django app`_ for more details.
 
 .. _Django auth_user: https://docs.djangoproject.com/en/2.0/topics/auth/default/#user-objects
-.. _ADR for the edx-platform external_user_ids Django app: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/external_user_ids/docs/decisions/0001-externalid.rst
+.. _ADR for the edx-platform external_user_ids Django app: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/external_user_ids/docs/decisions/0001-externalid.rst
 
 Context
 *******
@@ -111,7 +111,7 @@ The *LMS user_id* is also considered a safe and anonymous option for third-party
 
 Note: The legacy implementations of LTI and the %%USER_ID%% keyword use what is called an "anonymous id", but is no more "anonymous" than the *LMS user_id* from a PII perspective. They use an id made of a combination of user id and course id, which makes it impossible for a third party system to build a user model in its own system across courses, and limits the capabilities a third-party system might offer a user. For future LTI implementations, this decision simply states that the *LMS user_id* is an option unless these additional limitations are a requirement of the integration.
 
-.. _LMS OAuth Dispatch App: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/README.rst
+.. _LMS OAuth Dispatch App: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/README.rst
 .. _Open edX Authentication: https://openedx.atlassian.net/wiki/spaces/PLAT/pages/160912480/Open+edX+Authentication
 .. _Realtime Events API: oep-0026-arch-realtime-events.rst
 

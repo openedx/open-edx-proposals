@@ -56,7 +56,7 @@ This proposal draws inspiration from the cumulative experience of eduNEXT as the
 lead author, other members of the community, and from one of the largest
 extendable platforms for the web today for many years already, WordPress.
 
-.. _summary of the current options: https://github.com/edx/edx-platform/blob/master/docs/guides/extension_points.rst
+.. _summary of the current options: https://github.com/openedx/edx-platform/blob/master/docs/guides/extension_points.rst
 
 
 Specification
@@ -77,7 +77,7 @@ in accordance with the definition of the hook. Most likely to completely halt
 the process that would happen after the hook.
 
 The documentation for the available hooks at any point should be kept in-code at
-https://github.com/edx/edx-platform/tree/master/docs/guides. This location
+https://github.com/openedx/edx-platform/tree/master/docs/guides. This location
 should contain a document that covers the design principles and details that did
 not land in the OEP as well as the final decisions made in the OEP. Also will
 index the list of hooks and their current status. It should not cover the
@@ -235,7 +235,7 @@ Reference Implementation
 The current implementation can be found at:
 
 * The libraries repositories: `Open edX Events`_ and `Open edX Filters`_
-* PRs including the library and using it to define the latest hooks: https://github.com/edx/edx-platform/pulls?q=is%3Apr+%22BD-32%22
+* PRs including the library and using it to define the latest hooks: https://github.com/openedx/edx-platform/pulls?q=is%3Apr+%22BD-32%22
 
 .. _Open edX Events: https://github.com/openedx/openedx-events
 .. _Open edX Filters: https://github.com/openedx/openedx-filters

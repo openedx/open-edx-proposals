@@ -21,7 +21,7 @@ OEP-12: Pluggable User Interfaces
 | Resolution    | `open-edx-proposals#34`_                           |
 +---------------+----------------------------------------------------+
 
-.. _open-edx-proposals#34: https://github.com/edx/open-edx-proposals/pull/34#pullrequestreview-18294926
+.. _open-edx-proposals#34: https://github.com/openedx/open-edx-proposals/pull/34#pullrequestreview-18294926
 
 Abstract
 ********
@@ -537,11 +537,11 @@ A list of dated sections that describes a brief summary of each revision of the 
 .. _Allow xblocks to be shown as course tabs: https://openedx.atlassian.net/browse/TNL-2319
 .. _Django Component Views prototype: https://github.com/andy-armstrong/django-component-views/pull/1
 .. _Feature Plugins for edX Platform: https://openedx.atlassian.net/wiki/display/AC/Feature+Plugins+for+edX+Platform
-.. _Pluggable user interfaces hackathon PR: https://github.com/edx/edx-platform/pull/14122/files
+.. _Pluggable user interfaces hackathon PR: https://github.com/openedx/edx-platform/pull/14122/files
 .. _How we switched our template rendering engine to React: https://engineering.pinterest.com/blog/how-we-switched-our-template-rendering-engine-react
 .. _Nunjucks Asynchronous Support: https://mozilla.github.io/nunjucks/api.html#asynchronous-support
-.. _jQuery-XBlock: https://github.com/edx-solutions/jquery-xblock
+.. _jQuery-XBlock: https://github.com/edx-unsupported/edx-solutions-jquery-xblock
 .. _OEP-6 Context-scoped XBlock Fields: https://open-edx-proposals.readthedocs.io/en/latest/oep-0006.html
-.. _Pluggable UI hackathon project: https://github.com/edx/edx-platform/pull/14122
+.. _Pluggable UI hackathon project: https://github.com/openedx/edx-platform/pull/14122
 .. _React Native: https://facebook.github.io/react-native/
 .. _Web Components: http://webcomponents.org/

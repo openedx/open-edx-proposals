@@ -185,13 +185,13 @@ References
 **********
 
 1. Microsites Theming
-      https://github.com/edx/edx-platform/wiki/Microsites-Theming
+      https://github.com/openedx/edx-platform/wiki/Microsites-Theming
 
 2. Stanford Theming
-      https://github.com/edx/edx-platform/wiki/Stanford-Theming
+      https://github.com/openedx/edx-platform/wiki/Stanford-Theming
 
 3. Comprehensive Theming
-      https://github.com/edx/edx-platform/blob/master/themes/README.rst
+      https://github.com/openedx/edx-platform/blob/master/themes/README.rst
 
 4. Comprehensive Theming
       https://edx.readthedocs.io/projects/edx-installing-configuring-and-running/en/latest/configuration/changing_appearance/theming/index.html
@@ -202,7 +202,7 @@ References
       https://openedx.atlassian.net/wiki/spaces/FEDX/pages/112001431/Challenges+with+comprehensive+theming+in+Eucalyptus
 
 7. OEP-16: Bootstrap Adoption
-      https://github.com/edx/open-edx-proposals/blob/a0c284c6c5f0f9419df1f5d6730b2a0c8ff26efc/oeps/oep-0016-bp-adopt-bootstrap.rst
+      https://github.com/openedx/open-edx-proposals/blob/a0c284c6c5f0f9419df1f5d6730b2a0c8ff26efc/oeps/oep-0016-bp-adopt-bootstrap.rst
 
 8. edx-bootstrap edx theme
-      https://github.com/edx/edx-bootstrap/tree/master/sass/edx
+      https://github.com/openedx/edx-bootstrap/tree/v1.0.3/sass

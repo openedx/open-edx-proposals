@@ -23,5 +23,5 @@ Consequences
 
 All files/changes related to implementation of Decentralized Devstack will be removed, and the decisions hilighted in decisions 0001 and 0002 are now reversed.
 
-.. _Devstack: https://github.com/edx/devstack
+.. _Devstack: https://github.com/openedx/devstack
 .. _decision 0002: https://open-edx-proposals.readthedocs.io/en/latest/oep-0005/decisions/0002-why-decentralized-devstack.html

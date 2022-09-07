@@ -21,7 +21,7 @@ OEP-16: Bootstrap Adoption
 | Resolution    | `Original pull request`_                          |
 +---------------+---------------------------------------------------+
 
-.. _Original pull request: https://github.com/edx/open-edx-proposals/pull/46
+.. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/46
 
 Abstract
 ********
@@ -252,7 +252,7 @@ variety of sites in the Open edX community.
 
 .. _bi-app-sass: https://anasnakawa.github.io/bi-app-sass/
 .. _Bootstrap: http://getbootstrap.com/
-.. _Bootstrap Proof-of-Concept PR: https://github.com/edx/edx-platform/pull/14834
+.. _Bootstrap Proof-of-Concept PR: https://github.com/openedx/edx-platform/pull/14834
 .. _Bootstrap RTL Discovery ticket: https://openedx.atlassian.net/browse/FEDX-352
 .. _Bootstrap 4: https://v4-alpha.getbootstrap.com/
 .. _edX accessibility guidelines: https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/conventions/accessibility.html

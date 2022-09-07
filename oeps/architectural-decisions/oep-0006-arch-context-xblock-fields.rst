@@ -251,7 +251,7 @@ the LTI "context" parameter.
 
 Previous discussions of note include:
 
-* https://github.com/edx/open-edx-proposals/pull/15
+* https://github.com/openedx/open-edx-proposals/pull/15
 * https://openedx.atlassian.net/browse/PLAT-325
 * https://groups.google.com/d/msg/edx-code/ywjXV0wzQiw/FRzaK5nTAgAJ
 * On 2016-07-08, the author met with several stakeholders from edX (Calen
@@ -263,7 +263,7 @@ Previous discussions of note include:
 
 Other related proposals of note include:
 
-* https://github.com/edx/XBlock/pull/317 - XBlock field sharing
+* https://github.com/openedx/XBlock/pull/317 - XBlock field sharing
 * https://openedx.atlassian.net/wiki/display/AC/Feature+Plugins+for+edX+Platform#FeaturePluginsforedXPlatform-Plug-inArchitecture - Plug-in Architecture
 
 
@@ -327,7 +327,7 @@ Open Questions
    such as "check for a ``Scope.settings`` value, then a
    ``Scope.context_settings`` value"?
 
-.. _xblock-utils: https://github.com/edx/xblock-utils/blob/48fa1a9/xblockutils/studio_editable.py
+.. _xblock-utils: https://github.com/openedx/xblock-utils/blob/48fa1a9/xblockutils/studio_editable.py
 
 
 
@@ -378,7 +378,7 @@ Initial discussions of this OEP agreed that context-scoped fields should not
 participate in inheritance. Improving inheritance of fields or making
 inheritable fields pluggable are worthy goals, but for a separate proposal.
 
-.. _InheritanceMixin: https://github.com/edx/edx-platform/blob/46d69eba7ac45/common/lib/xmodule/xmodule/modulestore/inheritance.py#L30
+.. _InheritanceMixin: https://github.com/openedx/edx-platform/blob/46d69eba7ac45/common/lib/xmodule/xmodule/modulestore/inheritance.py#L30
 
 Context as a New Scope Dimension
 ================================
