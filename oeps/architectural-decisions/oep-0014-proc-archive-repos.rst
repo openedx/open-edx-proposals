@@ -172,31 +172,21 @@ Reasons rejected:
 Change History
 **************
 
-2017-01-18
+2022-09-07
 ==========
 
-* Original publication
+* Reversed order of "Change History".
 
-2017-05-23
+2022-01-26
 ==========
 
-* Added steps for repositories that live in the edX org, but are forks of other, independent repositories
+* Change references to ``edx`` GitHub org to ``openedx`` org
+* Change internal edX procedures to community-based ones
 
-2019-05-16
+2022-01-10
 ==========
 
-* Updated to use GitHub's archive capability.
-* Don't ask the community about public repos in the edx org that are not a part of Open edX.
-
-2020-03-20
-==========
-
-* Decide to use the new edx-unsupported org for all archived repos. Old way we were doing things is now recorded as Alternative 1: Archive In Place.
-
-2020-09-15
-==========
-
-* Updated to provide more details around archiving the same fork multiple times.
+* Update instructions to use the openedx-unsupported repo instead of the edx-unsupported repo.
 
 2021-05-27
 ==========
@@ -205,13 +195,28 @@ Change History
 * Removed step of adding paragraph to README about what archiving means now that we use Github's "archived" marker; the concept of an unmaintained repository and its dangers should be familiar to developers. Keep recommendation to add an explanation of *why* it was archived.
 * Removed ``openedx.yaml`` update steps, since the rest of the archive process is sufficient.
 
-2022-01-10
+2020-09-15
 ==========
 
-* Update instructions to use the openedx-unsupported repo instead of the edx-unsupported repo.
+* Updated to provide more details around archiving the same fork multiple times.
 
-2022-01-26
+2020-03-20
 ==========
 
-* Change references to ``edx`` GitHub org to ``openedx`` org
-* Change internal edX procedures to community-based ones
+* Decide to use the new edx-unsupported org for all archived repos. Old way we were doing things is now recorded as Alternative 1: Archive In Place.
+
+2019-05-16
+==========
+
+* Updated to use GitHub's archive capability.
+* Don't ask the community about public repos in the edx org that are not a part of Open edX.
+
+2017-05-23
+==========
+
+* Added steps for repositories that live in the edX org, but are forks of other, independent repositories
+
+2017-01-18
+==========
+
+* Original publication
