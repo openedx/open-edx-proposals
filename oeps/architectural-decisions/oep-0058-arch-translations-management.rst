@@ -73,11 +73,9 @@ Current State
   uploading the translations did not work, and the script had to be tinkered for the new
   Transifex API in order to upload it in time for release. The files uploaded were still
   not in the preferred format because the new version of the Transifex API does not have
-  all the same features as the previous API version.
-
-  * Running the script to upload translations requires Transifex admin rights, and there
-    are few people with Admin rights to Transifex and knowledge of the Transifex API. We
-    should use the solution provided by Transifex to solve this type of problem.
+  all the same features as the previous API version. There are few people with Admin
+  rights to Transifex and knowledge of the Transifex API; this could become a reccuring
+  problem with each Open edX release.
 
 Rationale
 *********
