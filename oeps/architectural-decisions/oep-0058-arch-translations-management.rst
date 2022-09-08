@@ -113,8 +113,15 @@ Move Translation Files to a New Repo
 
 Translation files (of types .mo and .po) currently exist amongst the code/documentation
 they translate. We will move these translation files from being amongst the
-code/documentation to their own repo. For easier reintegration, translation files will be
-kept in the same directory structure as the code/documentation they translate.
+code/documentation to their own repo. For example, a translation file for the openedx
+repository edx-platform_ located at ``edx-platform/conf/locale/en/LC_MESSAGES/django.po``
+would be moved to the new repository with the name openedx-translations_ located at
+``openedx-translation/edx-platform/conf/locale/en/LC_MESSAGES/django.po``. For easier
+reintegration, translation files will be kept in the same directory structure as the
+code/documentation they translate.
+
+.. _edx-platform: https://github.com/openedx/edx-platform
+.. _openedx-translations: https://github.com/openedx/openedx-translation
 
 Add GitHub Transifex App to openedx Organization
 ================================================
