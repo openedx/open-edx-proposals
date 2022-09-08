@@ -49,10 +49,10 @@ Decision
 
 To alleviate these issues, we will switch from using the edx-transifex-bot to the GitHub
 Transifex App, a stable app provided by Transifex. Benefits of this change include being
-easier to maintain and solving a lot of the pain points detailed below. As part of this proposal, we
-suggest moving translations into their own repository, to make using the GitHub
-Transifex app more streamlined and straightforward, and in order to make organizing and
-using the up to date translations simpler.
+easier to maintain and solving a lot of the pain points detailed below. As part of this
+proposal, we suggest moving translations into their own repository, to make using the
+GitHub Transifex app more streamlined and straightforward, and in order to make
+organizing and using the up to date translations simpler.
 
 Current State
 *************
@@ -125,7 +125,7 @@ Translations to a single repository we reduce the number of user groups we will 
 manage.
 
 Connect the New Translation Repository to Transifex
-============================================
+===================================================
 
 The Transifex webapp accepts configuration files for each Transifex project. By
 connecting the single repository containing all Translation files, we only need to make a
@@ -169,7 +169,7 @@ Impact on Developers
 ====================
 
 While it won’t directly impact the day-to-day workflow of developers, due to the same
-reasons that we impact site operators(new translations location), we will have to update
+reasons that we impact site operators (new translations location), we will have to update
 development tools as well.
 
 Locations
@@ -177,11 +177,11 @@ Locations
 
 Dumps of the translation/localization files from Transifex for the Open edX Release
 project already exist in a repository with the name of openedx/openedx-i18n. A new
-repository named openedx/openedx-translations will be similarly structured, but it will contain
-the translation files for all repositories within openedx. The GitHub Transifex app will
-be installed in the openedx organization. Similar to how the Build-Test-Release Working
-Group creates a new branch for each new named release of edx-platform, translation
-releases can also be kept in branches corresponding to edx-platform releases.
+repository named openedx/openedx-translations will be similarly structured, but it will
+contain the translation files for all repositories within openedx. The GitHub Transifex
+app will be installed in the openedx organization. Similar to how the Build-Test-Release
+Working Group creates a new branch for each new named release of edx-platform,
+translation releases can also be kept in branches corresponding to edx-platform releases.
 
 Rejected Alternatives
 *********************
@@ -199,12 +199,12 @@ strongly recommend using GitHub Apps.
 Making a Transifex Project for Each Repository
 ==============================================
 
-As translation support is provided for more repos, the effort to maintain the translations infrastructure increases. A
-Transifex Project houses the content to be translated and needs to be created before any
-content can be added for translation. Transifex Projects can only support 1 GitHub
-repository each and need to be maintained separately. Maintaining a Transifex Project
-involves adjusting configurations, adding new languages, assigning translators to
-projects, or any other miscellaneous irregular tasks that would be time-consuming at a
-larger scale. If we add a Transifex Project, each Transifex Project will need to be
-maintained separately, making debugging issues or tracking the progress of each Transifex
-Project time-consuming.
+As translation support is provided for more repos, the effort to maintain the
+translations infrastructure increases. A Transifex Project houses the content to be
+translated and needs to be created before any content can be added for translation.
+Transifex Projects can only support 1 GitHub repository each and need to be maintained
+separately. Maintaining a Transifex Project involves adjusting configurations, adding new
+languages, assigning translators to projects, or any other miscellaneous irregular tasks
+that would be time-consuming at a larger scale. If we add a Transifex Project, each
+Transifex Project will need to be maintained separately, making debugging issues or
+tracking the progress of each Transifex Project time-consuming.
