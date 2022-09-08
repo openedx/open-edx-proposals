@@ -132,8 +132,9 @@ Connect the New Translation Repository to Transifex
 The Transifex webapp accepts configuration files for each Transifex project. By
 connecting the single repository containing all translation files, we only need to make a
 single configuration file that allows the Transifex GitHub app to manage the translation
-files. Based on the Translation Working Group's instruction, we can set parameters that
-automatically push and pull translation files.
+files. Based on the Translation Working Group's instruction on acceptable
+translation/review percentages, we can set parameters that automatically push and pull
+translation files.
 
 Copy Transifex Memory and Combine Translators
 ==============================================
