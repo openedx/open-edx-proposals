@@ -119,12 +119,12 @@ kept in the same directory structure as the code/documentation they translate.
 Add GitHub Transifex App to openedx Organization
 ================================================
 
-Transifex's GitHub app will need to be added to the openedx GitHub organization in order
-to grant the app permissions to push/pull the translation files. Currently, we manage the
-push/pull permissions for the edx-transifex-bot through a number of groups. The Transifex
-GitHub app is granted permission on a repository basis, and by moving all the
-translation files to a single repository we reduce the number of user groups we will have
-to manage.
+The Transifex GitHub app will need to be added to the openedx GitHub organization in
+order to grant the app permissions to push/pull the translation files. Currently, we
+manage the push/pull permissions for the edx-transifex-bot through a number of GitHub
+user groups. The Transifex GitHub app once installed in an organization, is granted
+permissions to push/pull on a repository basis, and by moving all the translation files
+to a single repository we eliminate separate translations user groups.
 
 Connect the New Translation Repository to Transifex
 ===================================================
