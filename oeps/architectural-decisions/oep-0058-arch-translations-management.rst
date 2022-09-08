@@ -135,15 +135,18 @@ single configuration file that allows the Transifex GitHub app to manage the tra
 files. Based on the Translation Working Group's instruction, we can set parameters that
 automatically push and pull translation files.
 
-Copy Transifex Memory
-=====================
+Copy Transifex Memory and Combine Translators
+==============================================
 
-As a last step we can save all the progress the Open edX translators have accomplished by
-copying the Transifex Memory, the auto-translation feature that allows for Projects with
-similar strings to be automatically translated, from the old projects to this new one. By
-moving all the translation files to the same repository we can increase the reach of the
-Transifex Memory feature to help translate similar strings across the entire
-code/documentation base.
+As a last step we will reorganize the openedx Transifex organization by combining
+translators and reviewers across Transifex projects into the new project associated with
+the new repository. In addition, we can save all the progress the Open edX translators
+have accomplished by copying the Transifex Memory, the auto-translation feature that
+allows for Projects with similar strings to be automatically translated, from the old
+projects to this new one. Once older projects are made redundnant by the new project,
+they will be deprecated. By moving all the translation files to the same repository we
+can increase the reach of the Transifex Memory feature to help translate similar strings
+across the entire code/documentation base.
 
 Impacts
 *******
