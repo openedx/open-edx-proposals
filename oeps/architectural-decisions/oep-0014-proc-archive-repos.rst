@@ -74,17 +74,15 @@ First, if the repository is public, and a part of Open edX releases, follow thes
 Archive Steps
 =============
 
-These steps should be followed for all repos within the Open edX organization (forks included). After some experiments with keeping archived repos in the ``openedx`` organization, we've learned that having abandoned code show up in searches hinders work to understand the current state of the system and the risk around new work, particularly deprecations and API changes. Thus we decided to move all archived repositories to a separate org.
+These steps should be followed for all repos within the Open edX organization (forks included). After some experiments with keeping archived repos in the `openedx github organization`_, we've learned that having abandoned code show up in searches hinders work to understand the current state of the system and the risk around new work, particularly deprecations and API changes. Thus we decided to move all archived repositories to a separate org.
 
 1. Update the README.rst file in the repository to add a brief note about why the repo is being archived, and what is serving as its replacement (where applicable). This may be as simple as a linking to the appropriate DEPR ticket.
 
 2. Unless you have the relevant permissions to perform this step, create a new `GitHub Request on the tCRIL board`_  and ask them to do the following:
 
-   - Archive the repository per `GitHub's archive process`_
+  - Archive the repository per `GitHub's archive process`_
 
-   - Move the repository to the openedx-unsupported organization
-
-      - If the repo is not coming from the `openedx github org`_ then before moving it, rename it with a prefix of the source org's name. For example the ``notifier`` repo in the ``edx-solutions`` org wolud be renamed to ``edx-solutions-notifier`` before moving.
+  - Move the repository to the openedx-unsupported organization
 
 .. note::
     Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, if possible un-archive the old fork and update it.  If you've already made a new fork, delete the old copy of the fork before you move the new repo to openedx-unsupported.
@@ -93,9 +91,8 @@ These steps should be followed for all repos within the Open edX organization (f
 
     One such circumstance is if the previous fork is being used by a supported Open edX named release. In this case, one option would be to port any referenced branches in the old fork to the new fork before deleting the old fork.
 
+.. _openedx github organization: https://github.com/openedx
 .. _GitHub's archive process: https://help.github.com/en/articles/archiving-repositories
-.. _openedx github org: https://github.com/openedx
-
 
 Rationale
 *********
@@ -172,31 +169,22 @@ Reasons rejected:
 Change History
 **************
 
-2017-01-18
+2022-09-07
 ==========
 
-* Original publication
+* Reversed order of "Change History".
+* Remove example using older edX GitHub orgs to better clarify that this OEP only covers openedx org repos.
 
-2017-05-23
+2022-01-26
 ==========
 
-* Added steps for repositories that live in the edX org, but are forks of other, independent repositories
+* Change references to ``edx`` GitHub org to ``openedx`` org
+* Change internal edX procedures to community-based ones
 
-2019-05-16
+2022-01-10
 ==========
 
-* Updated to use GitHub's archive capability.
-* Don't ask the community about public repos in the edx org that are not a part of Open edX.
-
-2020-03-20
-==========
-
-* Decide to use the new edx-unsupported org for all archived repos. Old way we were doing things is now recorded as Alternative 1: Archive In Place.
-
-2020-09-15
-==========
-
-* Updated to provide more details around archiving the same fork multiple times.
+* Update instructions to use the openedx-unsupported repo instead of the edx-unsupported repo.
 
 2021-05-27
 ==========
@@ -205,13 +193,28 @@ Change History
 * Removed step of adding paragraph to README about what archiving means now that we use Github's "archived" marker; the concept of an unmaintained repository and its dangers should be familiar to developers. Keep recommendation to add an explanation of *why* it was archived.
 * Removed ``openedx.yaml`` update steps, since the rest of the archive process is sufficient.
 
-2022-01-10
+2020-09-15
 ==========
 
-* Update instructions to use the openedx-unsupported repo instead of the edx-unsupported repo.
+* Updated to provide more details around archiving the same fork multiple times.
 
-2022-01-26
+2020-03-20
 ==========
 
-* Change references to ``edx`` GitHub org to ``openedx`` org
-* Change internal edX procedures to community-based ones
+* Decide to use the new edx-unsupported org for all archived repos. Old way we were doing things is now recorded as Alternative 1: Archive In Place.
+
+2019-05-16
+==========
+
+* Updated to use GitHub's archive capability.
+* Don't ask the community about public repos in the edx org that are not a part of Open edX.
+
+2017-05-23
+==========
+
+* Added steps for repositories that live in the edX org, but are forks of other, independent repositories
+
+2017-01-18
+==========
+
+* Original publication
