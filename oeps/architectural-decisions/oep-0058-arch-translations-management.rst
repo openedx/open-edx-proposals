@@ -77,8 +77,8 @@ Current State
   rights to Transifex and knowledge of the Transifex API; this could become a reccuring
   problem with each Open edX release.
 
-Rationale
-*********
+Rationale for migrating to the Transifex GitHub App
+***************************************************
 
 * This is an upgrade of a system we use regularly, but do not want to have to maintain
   regularly.
@@ -88,6 +88,13 @@ Rationale
 * The Github Transifex App is very simple to configure and has many options. We can set
   Transifex Projects to automatically upload/download translation files from a repository
   once the translations are reviewed and accepted.
+* By using an app that is maintained by Transifex the organization, we reduce the
+  maintenance burden and are more future proof of changes they might make since they
+  maintain both the API and the GitHub App.
+
+Rationale for consolidating translations files centrally
+********************************************************
+
 * Transifex only allows a one-to-one relationship between repositories and Transifex
   Projects. Organizing all of the translation files into one repository and one Transifex
   Project has a lower cost: we pay by the project so we end up paying less, and by
@@ -97,9 +104,6 @@ Rationale
   translations related to Open edX releases can make all interactions with translations
   very quick and simple due to the ability to clone the branch of a specific release,
   with translations organized by repository name.
-* By using an app that is maintained by Transifex the organization, we reduce the
-  maintenance burden and are more future proof of changes they might make since they
-  maintain both the API and the GitHub App.
 
 Proposed Implementation
 ***********************
