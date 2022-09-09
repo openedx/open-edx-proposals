@@ -105,10 +105,11 @@ References
 
     apiVersion: backstage.io/v1alpha1
     # (Required) Acceptable Values: Component, Resource, System
+    # A repo will almost certainly be a Component.
     kind: Component
     metadata:
       name: 'docs.openedx.org'
-      description: "This repository contains the root documentation site for https://docs.openedx.org"
+      description: "The root documentation site for https://docs.openedx.org"
       links:
         - url: "https://docs.openedx.org"
           title: "Deployed Site"
@@ -124,7 +125,9 @@ References
         openedx.org/arch-interest-groups: "feanil"
     spec:
 
-      # (Required) This can be a group(`group:<group_name>` or a user(`user:<github_username>`)
+      # (Required) This can be a group (`group:<github_group_name>`) or a user (`user:<github_username>`).
+      # Don't forget the "user:" or "group:" prefix. Groups must be GitHub team
+      # names in the openedx GitHub organization: https://github.com/orgs/openedx/teams
       owner: group:docs.edx.org-maintainers
 
       # (Required) Acceptable Type Values: service, website, library
