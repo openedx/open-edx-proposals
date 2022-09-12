@@ -112,6 +112,9 @@ References
       links:
         - url: "https://docs.openedx.org"
           title: "Deployed Site"
+          # Backstage uses the MaterialUI Icon Set.
+          # https://mui.com/material-ui/material-icons/
+          # The value will be the name of the icon.
           icon: "Web"
       annotations:
         # (Optional) Annotation keys and values can be whatever you want.
