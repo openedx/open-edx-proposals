@@ -23,7 +23,7 @@ OEP-14: Archiving edX GitHub Repositories
 |               | `Moving More Repos to edx-unsupported`_                  |
 +---------------+----------------------------------------------------------+
 
-.. _ORA PR Discussion: https://github.com/edx/edx-ora/pull/187
+.. _ORA PR Discussion: https://github.com/openedx/edx-ora/pull/187
 .. _Moving More Repos to edx-unsupported: https://openedx.atlassian.net/browse/ARCHBOM-1481
 
 Abstract
@@ -122,7 +122,7 @@ Reference Implementation
 
 The `Discussions Hackathon repository`_ has been updated to conform to the `Archive Steps`_.
 
-.. _Discussions Hackathon repository: https://github.com/edx/discussions
+.. _Discussions Hackathon repository: https://github.com/edx-unsupported/discussions
 
 
 Rejected Alternatives

@@ -285,7 +285,7 @@ Rejected Alternatives
 .. _Polymer: https://www.polymer-project.org/
 .. _React: https://github.com/facebook/react
 .. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React
-.. _ReactRender: https://github.com/edx/edx-platform/blob/master/common/djangoapps/pipeline_mako/templates/static_content.html#L146
+.. _ReactRender: https://github.com/openedx/edx-platform/blob/master/common/djangoapps/pipeline_mako/templates/static_content.html#L146
 .. _Sass documentation: http://sass-lang.com/
 .. _Typescript: https://www.typescriptlang.org/
 .. _Webpack: https://webpack.github.io/

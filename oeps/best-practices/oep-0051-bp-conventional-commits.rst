@@ -206,12 +206,12 @@ A few tools are being used to encourage and measure conformance to this standard
 
 - A `conventional_commits command`_ in edx/repo-tools can examine repos and plot conformance over time.
 
-.. _commitlint.yml: https://github.com/edx/.github/blob/master/.github/workflows/commitlint.yml
+.. _commitlint.yml: https://github.com/openedx/.github/blob/master/.github/workflows/commitlint.yml
 .. _commitlint: https://commitlint.js.org
-.. _commitlint.config.js: https://github.com/edx/edx-lint/blob/master/edx_lint/files/commitlint.config.js
+.. _commitlint.config.js: https://github.com/openedx/edx-lint/blob/master/edx_lint/files/commitlint.config.js
 .. _squash!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---squashltcommitgt
 .. _fixup!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt
-.. _conventional_commits command: https://github.com/edx/repo-tools/tree/master/edx_repo_tools/conventional_commits
+.. _conventional_commits command: https://github.com/openedx/repo-tools/tree/master/edx_repo_tools/conventional_commits
 
 
 Open Issues
@@ -251,5 +251,5 @@ Change History
 
 
 .. _Conventional Commits: https://www.conventionalcommits.org
-.. _Change Transparency: https://github.com/edx/open-edx-proposals/pull/180
+.. _Change Transparency: https://github.com/openedx/open-edx-proposals/pull/180
 .. _Angular commit message format: https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format

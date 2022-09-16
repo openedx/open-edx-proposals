@@ -52,7 +52,7 @@ Decision
 
 We will create a new project that defines a branding package interface and a default implementation for branding and theming Open edX applications. The brand package will have the capability to customize assets referred to in the SASS theme like main colors, fonts, and particular backgrounds. It will also include specific image assets such as logo and favicon.
 
-A branding package will be a node module that contains a defined set of files and directories. The default implementation will be available on Github at `edx/brand-openedx <https://github.com/edx/openedx>`_ and published to npm as `@edx/brand-openedx`.
+A branding package will be a node module that contains a defined set of files and directories. The default implementation will be available on Github at `openedx/brand-openedx <https://github.com/openedx/brand-openedx>`_ and published to npm as `@edx/brand-openedx`.
 
 Brand packages will be installed in edx-platform and all MFEs via npm, aliased as `@edx/brand`.
 
@@ -73,7 +73,7 @@ Build and deploy pipelines will be responsible for overriding the default brandi
   # Format to install from a directory
   npm install @edx/brand@file:./brand-edx.org
 
-edX.org relies upon the build scripts in the `edx/tubular <https://github.com/edx/tubular>`_ repository to do this for MFEs (`See this function <https://github.com/edx/tubular/blob/master/tubular/scripts/frontend_utils.py#L66>`_ for detail). The build and deploy pipeline for Open edX will be responsible for doing this in a similar way.
+edX.org relies upon the build scripts in the `edx/tubular <https://github.com/openedx/tubular>`_ repository to do this for MFEs (`See this function <https://github.com/openedx/tubular/blob/master/tubular/scripts/frontend_utils.py#L66>`_ for detail). The build and deploy pipeline for Open edX will be responsible for doing this in a similar way.
 
 Consequences
 ************

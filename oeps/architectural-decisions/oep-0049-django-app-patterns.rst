@@ -98,7 +98,7 @@ Example
       """
       name = "service_name.apps.app_name"
 
-      # (optional) Set up plugin. See https://github.com/edx/edx-django-utils/tree/master/edx_django_utils/plugins
+      # (optional) Set up plugin. See https://github.com/openedx/edx-django-utils/tree/master/edx_django_utils/plugins
 
       def ready(self):
           """

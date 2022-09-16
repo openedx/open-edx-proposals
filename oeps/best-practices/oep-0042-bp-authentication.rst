@@ -160,13 +160,13 @@ Implementation of all the OAuth2/JWT APIs supported by DOT in the LMS Identity P
 
 .. _JSON Web Tokens (JWTs): https://tools.ietf.org/html/rfc7519
 .. _Django OAuth Toolkit (DOT) library: https://django-oauth-toolkit.readthedocs.io/en/latest/
-.. _ADR on Django OAuth Toolkit (DOT): https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0002-migrate-to-dot.rst
-.. _ADR to use JWTs as OAuth Tokens: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0003-use-jwt-as-oauth-tokens-remove-openid-connect.rst
-.. _ADR on Asymmetric JWTs: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0008-use-asymmetric-jwts.rst
-.. _JWT Cookies ADR: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0009-jwt-in-session-cookie.rst
-.. _oauth_dispatch (edx-platform): https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/README.rst
+.. _ADR on Django OAuth Toolkit (DOT): https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0002-migrate-to-dot.rst
+.. _ADR to use JWTs as OAuth Tokens: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0003-use-jwt-as-oauth-tokens-remove-openid-connect.rst
+.. _ADR on Asymmetric JWTs: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0008-use-asymmetric-jwts.rst
+.. _JWT Cookies ADR: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0009-jwt-in-session-cookie.rst
+.. _oauth_dispatch (edx-platform): https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/README.rst
 .. _Django OAuth2 Provider (DOP) library: https://django-oauth2-provider.readthedocs.io/en/latest/
-.. _oauth_dispatch as router ADR: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0004-oauth-dispatch-as-router.rst#L33
+.. _oauth_dispatch as router ADR: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0004-oauth-dispatch-as-router.rst#L33
 
 
 OAuth2 and Bearer Tokens
@@ -202,7 +202,7 @@ Open edX platform also supports several social authentication methods, such as G
 The code for supporting third party authentication (SAML, Google, Facebook, etc), where the initiating identity provider is _not_ the Open edX LMS, is located in `third_party_auth (edx-platform)`_. This implementation is supported by the `python-social-auth library`_.
 
 .. _SAML: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
-.. _third_party_auth (edx-platform): https://github.com/edx/edx-platform/tree/master/common/djangoapps/third_party_auth
+.. _third_party_auth (edx-platform): https://github.com/openedx/edx-platform/tree/master/common/djangoapps/third_party_auth
 .. _python-social-auth library: https://github.com/omab/python-social-auth
 
 Standardized Libraries and Utilities
@@ -239,10 +239,10 @@ Note: Our JwtAuthentication class is a subclass of JSONWebTokenAuthentication, w
 
 .. _Django REST Framework (DRF): https://www.django-rest-framework.org/
 .. _Authentication with Django REST Framework (DRF): https://www.django-rest-framework.org/api-guide/authentication/#authentication
-.. _JwtAuthentication: https://github.com/edx/edx-drf-extensions/blob/4d0f4de80681e5826cfbe3041ea4cda6cff87640/edx_rest_framework_extensions/auth/jwt/authentication.py#L25
+.. _JwtAuthentication: https://github.com/openedx/edx-drf-extensions/blob/4d0f4de80681e5826cfbe3041ea4cda6cff87640/edx_rest_framework_extensions/auth/jwt/authentication.py#L25
 .. _SessionAuthentication: https://www.django-rest-framework.org/api-guide/authentication/#sessionauthentication
 .. _BasicAuthentication: https://www.django-rest-framework.org/api-guide/authentication/#basicauthentication
-.. _BearerAuthentication: https://github.com/edx/edx-drf-extensions/blob/4d0f4de80681e5826cfbe3041ea4cda6cff87640/edx_rest_framework_extensions/auth/bearer/authentication.py#L18
+.. _BearerAuthentication: https://github.com/openedx/edx-drf-extensions/blob/4d0f4de80681e5826cfbe3041ea4cda6cff87640/edx_rest_framework_extensions/auth/bearer/authentication.py#L18
 .. _drf-jwt: https://pypi.org/project/drf-jwt/
 
 Authenticated API Clients
@@ -253,15 +253,15 @@ The following are supported API clients that handle authentication using the sup
 * `OAuthAPIClient`_ (edx-rest-api-client): A Python client for making authenticated server-to-server calls.
 * `@edx/frontend-platform/auth`_ (frontend-platform): A JavaScript client for making authenticated calls from a micro-frontend.
 
-.. _OAuthAPIClient: https://github.com/edx/edx-rest-api-client/blob/518e7291f2e90d6b9dce0f943749d59fa5c1fa42/edx_rest_api_client/client.py#L181
-.. _@edx/frontend-platform/auth: https://github.com/edx/frontend-platform/blob/master/README.md
+.. _OAuthAPIClient: https://github.com/openedx/edx-rest-api-client/blob/518e7291f2e90d6b9dce0f943749d59fa5c1fa42/edx_rest_api_client/client.py#L181
+.. _@edx/frontend-platform/auth: https://github.com/openedx/frontend-platform/blob/master/README.md
 
 OAuth Backend
 -------------
 
 Open edX uses `EdXOAuth2 (auth-backends)`_ to provide SSO across IDAs using OAuth2. For more general information, see `Specifying authentication backends in Django`_. This backend implementation uses the `python-social-auth library`_.
 
-.. _EdXOAuth2 (auth-backends): https://github.com/edx/auth-backends/blob/1444a5fa650e01b6e24be77917259bca1d8eb1ea/auth_backends/backends.py#L35
+.. _EdXOAuth2 (auth-backends): https://github.com/openedx/auth-backends/blob/1444a5fa650e01b6e24be77917259bca1d8eb1ea/auth_backends/backends.py#L35
 .. _Specifying authentication backends in Django: https://docs.djangoproject.com/en/2.2/topics/auth/customizing/#specifying-authentication-backends
 .. _python-social-auth library: https://github.com/omab/python-social-auth
 
@@ -278,7 +278,7 @@ Although some of the work required to make these decisions a reality have been c
 
 * Deprecation and removal of authentication libraries and utilities that are not part of our `Standardized Libraries and Utilities`_. Because removal can be costly and may not always get prioritized, start with appropriately marking functions and classes as deprecated to help minimize the contagion factor.
 
-.. _ADR section on removing JWT_ISSUERs: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0008-use-asymmetric-jwts.rst#remove-jwt_issuers
+.. _ADR section on removing JWT_ISSUERs: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0008-use-asymmetric-jwts.rst#remove-jwt_issuers
 
 References
 **********

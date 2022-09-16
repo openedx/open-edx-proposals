@@ -177,9 +177,9 @@ the scope of the initial implementation small enough that it can be finished
 fairly quickly.
 
 Similar functionality has already been implemented for
-`course re-runs <https://github.com/edx/edx-platform/tree/master/common/djangoapps/course_action_state>`_
+`course re-runs <https://github.com/openedx/edx-platform/tree/master/common/djangoapps/course_action_state>`_
 and assorted LMS actions such as
-`bulk email and grade downloads <https://github.com/edx/edx-platform/tree/master/lms/djangoapps/instructor_task>`_,
+`bulk email and grade downloads <https://github.com/openedx/edx-platform/tree/master/lms/djangoapps/instructor_task>`_,
 but as one-off implementations that share no code.  The new
 implementation should combine the best features of these in a form that can be
 easily reused for all the user-triggered asynchronous tasks in any service.
@@ -209,7 +209,7 @@ Backwards Compatibility
   opportunity to offer input on the new implementation, and may desire support
   in switching to it when appropriate.
 * There are a lot of asynchronous tasks already in the
-  `instructor task <https://github.com/edx/edx-platform/tree/master/lms/djangoapps/instructor_task>`_
+  `instructor task <https://github.com/openedx/edx-platform/tree/master/lms/djangoapps/instructor_task>`_
   package of the LMS, so particular care should be taken to produce something
   compatible with that in both code and behavior (in order to simplify the
   aforementioned standardization on a single implementation).  The existing

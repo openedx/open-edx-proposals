@@ -121,7 +121,7 @@ Open questions
 
 * What work is required to implement this proposal across the Open edX platform, including (but not limited to) the `edx-platform`_ codebase?
 
-.. _`edx-platform`: https://github.com/edx/edx-platform
+.. _`edx-platform`: https://github.com/openedx/edx-platform
 
 Backward Compatibility
 ***********************
@@ -141,18 +141,18 @@ Additional decisions around scopes:
 
 See ``OAUTH2_DEFAULT_SCOPES`` and ``OAUTH2_PROVIDER['SCOPES']`` for the `current default and additional scopes`_ defined in the LMS.
 
-.. _Use JWT as OAuth Tokens ADR: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0003-use-jwt-as-oauth-tokens-remove-openid-connect.rst#jwt-token
-.. _ADR on Enforcing Scopes in LMS APIs: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0006-enforce-scopes-in-LMS-APIs.rst
+.. _Use JWT as OAuth Tokens ADR: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0003-use-jwt-as-oauth-tokens-remove-openid-connect.rst#jwt-token
+.. _ADR on Enforcing Scopes in LMS APIs: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0006-enforce-scopes-in-LMS-APIs.rst
 
-.. _current default and additional scopes: https://github.com/edx/edx-platform/search?q=OAUTH2_DEFAULT_SCOPES&unscoped_q=OAUTH2_DEFAULT_SCOPES
+.. _current default and additional scopes: https://github.com/openedx/edx-platform/search?q=OAUTH2_DEFAULT_SCOPES&unscoped_q=OAUTH2_DEFAULT_SCOPES
 
 Filters provide an additional layer of authorization. Here are some related decisions:
 
 * `ADR on Organization and Users as Filters in OAuth Tokens`_: This section of the ADR explains filters.
 * `ADR on More General Filter Support`_
 
-.. _ADR on Organization and Users as Filters in OAuth Tokens: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0007-include-organizations-in-tokens.rst#2-organization-and-users-as-filters-in-oauth-tokens
-.. _ADR on More General Filter Support: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0011-scope-filter-support.rst
+.. _ADR on Organization and Users as Filters in OAuth Tokens: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0007-include-organizations-in-tokens.rst#2-organization-and-users-as-filters-in-oauth-tokens
+.. _ADR on More General Filter Support: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0011-scope-filter-support.rst
 
 .. list-table::
    :header-rows: 1
@@ -167,8 +167,8 @@ Filters provide an additional layer of authorization. Here are some related deci
    * - user:me
      - `Organization and User Filters in OAuth Tokens ADR Section`_
 
-.. _Organization and User Filters in OAuth Tokens ADR Section: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0007-include-organizations-in-tokens.rst#2-organization-and-users-as-filters-in-oauth-tokens
-.. _Third-Party Auth Scope ADR: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0012-scope-and-filter-for-third-party-auth.rst
+.. _Organization and User Filters in OAuth Tokens ADR Section: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0007-include-organizations-in-tokens.rst#2-organization-and-users-as-filters-in-oauth-tokens
+.. _Third-Party Auth Scope ADR: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0012-scope-and-filter-for-third-party-auth.rst
 
 Rejected Alternatives
 *********************
