@@ -68,14 +68,16 @@ Current State
   supposed to do, or whether it is doing it correctly.
 * The translations for the Open edX Maple Release were never uploaded to Transifex,
   because the automation handled by the edx-transifex-bot never uploaded it.
-* The translations for the Open edX Nutmeg Release were nearly not uploaded because the
-  edx-transifex-bot did not automatically upload it. In addition, the script for
-  uploading the translations did not work, and the script had to be tinkered for the new
-  Transifex API in order to upload it in time for release. The files uploaded were still
-  not in the preferred format because the new version of the Transifex API does not have
-  all the same features as the previous API version. There are few people with Admin
-  rights to Transifex and knowledge of the Transifex API; this could become a reccuring
-  problem with each Open edX release.
+* The underlying library and Transifex API (V2) are being deprecated. This has led to
+  insconsistent behavior by our tooling when we try to automatically manage translations.
+  See `this pull request`_ for more details.
+* We have a complex process for managing translations for the named releases. As a
+  result, the black box nature of the transifex bot and the deprecation of the underlying
+  tooling, this has become more laborious to keep running. Especially because there are
+  few people with Admin rights to Transifex and knowledge of the Transifex API; this
+  could become a reccuring problem with each Open edX release.
+
+.. _this pull request: https://github.com/openedx/edx-platform/pull/30567
 
 Rationale for migrating to the Transifex GitHub App
 ***************************************************
@@ -97,9 +99,9 @@ Rationale for consolidating translations files centrally
 
 * Transifex only allows a one-to-one relationship between repositories and Transifex
   Projects. Organizing all of the translation files into one repository and one Transifex
-  Project has a lower cost: we pay by the project so we end up paying less, and by
-  putting all translation files in the same place, it is easier to track translation
-  progress, and debug translation issues.
+  Project has a lower labor cost: projects are managed separately so we end up spending
+  less time tracking translation progress, and debuging translation issues when all
+  translation files are put in the same place.
 * A repository that only contains text/binary files, and uses branches to separate
   translations related to Open edX releases can make all interactions with translations
   very quick and simple due to the ability to clone the branch of a specific release,
