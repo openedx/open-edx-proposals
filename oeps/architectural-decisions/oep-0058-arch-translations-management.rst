@@ -101,7 +101,8 @@ Rationale for consolidating translations files centrally
   Projects. Organizing all of the translation files into one repository and one Transifex
   Project has a lower labor cost: projects are managed separately so we end up spending
   less time tracking translation progress, and debuging translation issues when all
-  translation files are put in the same place.
+  translation files are put in the same place. By decreasing the number of projects we
+  need to maintain, we can add more content like the MFE translations.
 * A repository that only contains text/binary files, and uses branches to separate
   translations related to Open edX releases can make all interactions with translations
   very quick and simple due to the ability to clone the branch of a specific release,
