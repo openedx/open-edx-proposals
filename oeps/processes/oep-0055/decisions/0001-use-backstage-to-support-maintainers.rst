@@ -128,6 +128,9 @@ References
       # (Required) This can be a group (`group:<github_group_name>`) or a user (`user:<github_username>`).
       # Don't forget the "user:" or "group:" prefix. Groups must be GitHub team
       # names in the openedx GitHub organization: https://github.com/orgs/openedx/teams
+      #
+      # If you need a new team created, create an issue with tCRIL engineering:
+      # https://github.com/openedx/tcril-engineering/issues/new/choose
       owner: group:docs.edx.org-maintainers
 
       # (Required) Acceptable Type Values: service, website, library
