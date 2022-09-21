@@ -437,20 +437,15 @@ to capture the decision(s), as deemed appropriate by the Authors and Arbiter.
 To help guide Authors, here are a few ready-made templates that are available
 for use:
 
-* :ref:`PEP-based template <pep_based_template>` based on Python's PEP_ standard.
-* :ref:`ADR-based template <adr_based_template>` based on `Architecture Decision Records`_.
-* :ref:`External link template <external_link_template>` for OEPs with mostly external content.
+* `PEP-based template`_ based on Python's PEP_ standard.
+* `ADR-based template`_ based on `Architecture Decision Records`_.
+* `External link template`_ for OEPs with mostly external content.
 
-..
-  Add a hidden toctree to indicate that these files are referenced from here in the overall
-  table of contents.
 
-.. toctree::
-    :hidden:
+.. _PEP-based template: https://github.com/openedx/open-edx-proposals/tree/master/oep-templates/pep-based-template.rst
+.. _ADR-based template: https://github.com/openedx/open-edx-proposals/tree/master/oep-templates/adr-based-template.rst
+.. _External link template: https://github.com/openedx/open-edx-proposals/tree/master/oep-templates/external-link-template.rst
 
-    oep-templates/pep-based-template.rst
-    oep-templates/adr-based-template.rst
-    oep-templates/external-link-template.rst
 
 OEP Header Preamble
 ===================
@@ -550,6 +545,11 @@ at the top of the list.
 
 Change History
 **************
+
+2022-09-23
+==========
+* Move OEP templates to a top-level directory for better discoverability
+* `Pull request #382 <https://github.com/openedx/open-edx-proposals/pull/382>`_
 
 2022-06-22
 ==========
