@@ -160,7 +160,7 @@ A suggested ADR template:
 .. code-block:: rst
 
   0. Title For ADR
-  ##################
+  ################
   .. The title should be a short noun phrase. For example, "1. Django IDA" or "9. LDAP for Multitenant Integration"; filename should be lowercase with punctuation removed and spaces replaced by dash
 
   Status
