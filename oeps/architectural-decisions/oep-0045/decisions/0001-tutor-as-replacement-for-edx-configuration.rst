@@ -11,7 +11,7 @@ Provisional
 Context
 *******
 
-With the acceptance of OEP-0045, it becomes clear that `edx/configuration <https://github.com/edx/configuration/>`__
+With the acceptance of OEP-0045, it becomes clear that `edx/configuration <https://github.com/openedx/configuration/>`__
 will be deprecated and that a replacement is required.  However, OEP-0045 does not go into the details of what such an
 alternative would look like.
 
@@ -103,7 +103,7 @@ add these other official Open edX components:
 
 There is a plugin for deploying the `Gradebook MFE <https://github.com/overhangio/tutor-gradebook/>`__, but so far none
 of the others.  Given that not even ``edx/configuration`` currently supports this (though there is `a PR
-<https://github.com/edx/configuration/pull/6128>`__ for it, along with `instructions
+<https://github.com/openedx/configuration/pull/6128>`__ for it, along with `instructions
 <https://discuss.openedx.org/t/deploying-mfes-in-the-community/2868/22>`__), this should simply be added to the list of
 things to add to Tutor.
 

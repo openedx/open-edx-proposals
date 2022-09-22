@@ -23,7 +23,7 @@ OEP-18: Python Dependency Management
 | `Resolution`    | `open-edx-proposals#56 resolution`_                    |
 +-----------------+--------------------------------------------------------+
 
-.. _open-edx-proposals#56 resolution: https://github.com/edx/open-edx-proposals/pull/56#pullrequestreview-116976355
+.. _open-edx-proposals#56 resolution: https://github.com/openedx/open-edx-proposals/pull/56#pullrequestreview-116976355
 
 .. contents::
    :local:
@@ -173,7 +173,7 @@ This can be used to define ``install_requires`` as follows:
     install_requires=load_requirements('requirements/base.in'),
 
 .. _requirements file: https://pip.readthedocs.io/en/1.1/requirements.html
-.. _edx-cookiecutters: https://github.com/edx/edx-cookiecutters
+.. _edx-cookiecutters: https://github.com/openedx/edx-cookiecutters
 .. _Environment markers: https://www.python.org/dev/peps/pep-0508/#environment-markers
 .. _PyPI: https://pypi.org/
 
@@ -359,7 +359,7 @@ In most other circumstances, the package should be added to PyPI instead.  If
 you do need to include a package at a URL, it should have both the package
 name and version specified (end with "#egg=NAME==VERSION").  For example::
 
-    git+https://github.com/edx/edx-ora2.git@2.1.15#egg=ora2==2.1.15
+    git+https://github.com/openedx/edx-ora2.git@2.1.15#egg=ora2==2.1.15
 
 Rationale
 *********
@@ -432,7 +432,7 @@ packages from URLs whenever possible:
   change). It will only pull requirements from PyPI.
 
 .. _relative local paths are expanded to absolute paths: https://github.com/jazzband/pip-tools/issues/204
-.. _edx-platform: https://github.com/edx/edx-platform
+.. _edx-platform: https://github.com/openedx/edx-platform
 
 Reference Implementation
 ************************
@@ -442,9 +442,9 @@ recommendations outlined here.  In particular, repositories generated using
 `edx-cookiecutters`_ should already be configured correctly.  These may
 also be useful for reference:
 
-* `django-user-tasks <https://github.com/edx/django-user-tasks>`_
-* `edx-completion <https://github.com/edx/completion>`_
-* `XQueue <https://github.com/edx/xqueue/>`_
+* `django-user-tasks <https://github.com/openedx/django-user-tasks>`_
+* `edx-completion <https://github.com/openedx/completion>`_
+* `XQueue <https://github.com/openedx/xqueue/>`_
 
 Rejected Alternatives
 *********************

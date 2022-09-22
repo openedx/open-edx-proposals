@@ -23,7 +23,7 @@ OEP-25: Incremental Improvements
 | `Resolution`    | `Original pull request`_                                 |
 +-----------------+----------------------------------------------------------+
 
-.. _Original pull request: https://github.com/edx/open-edx-proposals/pull/66#pullrequestreview-151034037
+.. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/66#pullrequestreview-151034037
 
 TL;DR
 *****

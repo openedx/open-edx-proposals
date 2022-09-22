@@ -452,7 +452,7 @@ In addition to being expensive, this method of synchronizing data is extremely s
 Reduce the need for Plugins
 ***************************
 
-`Django app plugins <https://github.com/edx/edx-platform/tree/master/openedx/core/djangoapps/plugins>`_
+`Django app plugins <https://github.com/openedx/edx-platform/tree/master/openedx/core/djangoapps/plugins>`_
 exist to help decouple core edx-platform code from third party extensions. But
 in some cases, the only reason the plugin needs to exist at all is because there
 is no other way to get notifications for important lifecycle events like user

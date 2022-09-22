@@ -27,13 +27,13 @@ Consequences
 
   - Existing PRs
 
-    - https://github.com/edx/devstack/pull/700
+    - https://github.com/openedx/devstack/pull/700
 
-    - https://github.com/edx/edx-platform/pull/27043
+    - https://github.com/openedx/edx-platform/pull/27043
 
-    - https://github.com/edx/ecommerce/pull/3360
+    - https://github.com/openedx/ecommerce/pull/3360
 
 - `OEP-37`_ shall be marked as deferred for now until it is ready to be picked up again.
 
 
-.. _OEP-37: https://github.com/edx/open-edx-proposals/pull/118
+.. _OEP-37: https://github.com/openedx/open-edx-proposals/pull/118

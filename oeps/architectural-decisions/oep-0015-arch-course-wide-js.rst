@@ -25,7 +25,7 @@ OEP-15: Course-wide Custom JavaScript
 |               |   who was hoping to include course-wide JS/CSS     |
 +---------------+----------------------------------------------------+
 
-.. _Original pull request: https://github.com/edx/open-edx-proposals/pull/43
+.. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/43
 .. _Initial OEP suggestion: https://groups.google.com/d/topic/edx-code/T83TDxhH74E/discussion
 .. _An edx-code question: https://groups.google.com/d/topic/edx-code/idjPWUIx8Ls/discussion
 
@@ -57,7 +57,7 @@ The proposed implementation adds a new policy key for custom course-wide scripts
 
 Since the edX courseware template already receives and renders an XBlock fragment (which includes JavaScript resources), additional script resources would simply be added to this fragment `when the courseware context is created`_.
 
-.. _when the courseware context is created: https://github.com/edx/edx-platform/blob/d497e194623dd32ad5a66f141529129267db645c/lms/djangoapps/courseware/views/index.py#L372-L441
+.. _when the courseware context is created: https://github.com/openedx/edx-platform/blob/d497e194623dd32ad5a66f141529129267db645c/lms/djangoapps/courseware/views/index.py#L372-L441
 
 Rationale
 *********
@@ -79,7 +79,7 @@ For the user-facing portion of the feature, a course policy setting (which would
 - Policy settings are conceptually course-wide in scope, which matches the scope of course-wide scripts
 
 .. _as brought up on the edx-code thread: https://groups.google.com/d/msg/edx-code/T83TDxhH74E/cOKZkpkTAQAJ
-.. _existing description and warning: https://github.com/edx/edx-platform/blob/d497e194623dd32ad5a66f141529129267db645c/cms/templates/settings_advanced.html#L83-L86
+.. _existing description and warning: https://github.com/openedx/edx-platform/blob/d497e194623dd32ad5a66f141529129267db645c/cms/templates/settings_advanced.html#L83-L86
 
 Why not XBlocks?
 ================

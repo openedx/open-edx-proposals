@@ -13,7 +13,7 @@ One of the goals for DD is to minimize start time/setup time. Setting up the dat
 
 Since this is the begining of DD, the methods of providing necessary data to a general service's DD has not been established. A generalized solution has been proposed in `OEP-37`_, but it does not yet exist.
 
-.. _OEP-37: https://github.com/edx/open-edx-proposals/pull/118
+.. _OEP-37: https://github.com/openedx/open-edx-proposals/pull/118
 
 
 Decision

@@ -67,7 +67,7 @@ Recommendations
 As mentioned above, most of the following recommendations have been codified in
 the `RequestCache and TieredCache from edx-django-utils`_.
 
-.. _RequestCache and TieredCache from edx-django-utils: https://github.com/edx/edx-django-utils/tree/master/edx_django_utils/cache
+.. _RequestCache and TieredCache from edx-django-utils: https://github.com/openedx/edx-django-utils/tree/master/edx_django_utils/cache
 
 Common Caching Defect and Fix
 =============================
@@ -227,7 +227,7 @@ good potential candidate for a shared library.
 
 * Use linting utilities to enforce the best practices.
 
-.. _RequestCache and TieredCache: https://github.com/edx/edx-django-utils/tree/master/edx_django_utils/cache
+.. _RequestCache and TieredCache: https://github.com/openedx/edx-django-utils/tree/master/edx_django_utils/cache
 .. _quickcache library: https://github.com/dimagi/quickcache
 
 Consequences
