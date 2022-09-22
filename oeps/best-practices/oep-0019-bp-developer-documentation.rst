@@ -471,6 +471,11 @@ Next Steps
 Change History
 ==============
 
+2022-09-22
+----------
+
+* `Tweaks to ADR template <https://github.com/openedx/open-edx-proposals/pull/375>`_
+
 2022-06-22
 ----------
 
@@ -481,8 +486,3 @@ Change History
 
 * Add ADR template, add Change History section
 * `Pull request #340 <https://github.com/openedx/open-edx-proposals/pull/340>`_
-
-2022-08-31
-----------
-
-* `Tweaks to ADR template <https://github.com/openedx/open-edx-proposals/pull/375>`_
