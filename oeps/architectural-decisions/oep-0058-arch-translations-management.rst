@@ -9,7 +9,7 @@ OEP-58: Translations Management
    * - Title
      - Translations Management
    * - Last Modified
-     - 2022-08-10
+     - 2022-09-23
    * - Authors
      - 
        * Carlos Muniz <cmuniz@tcril.org>
@@ -188,6 +188,32 @@ While it won’t directly impact the day-to-day workflow of developers, due to t
 reasons that we impact site operators (new translations location), we will have to update
 development tools as well. In addion, we will create new instructions for developers on
 how to enable translations for a new service/repo when it comes online.
+
+Final State
+***********
+
+Repositories that generate translation files will have their translation files generated
+and pushed to the openedx-translation repository via a github workflow. Once the
+translation files from edx-platform and other repositories are moved to the
+openedx-translations repository, the Transifex GitHub App will link a Transifex project
+of a name such as "Open edX Translations" to the openedx-translations repository. A
+configuration file naming the files that are to be translated and the trigger that pulls
+translation files back into will be created in the openedx/translations repository. This
+link will allow for the Transifex GitHub App to automatically manage the push/pull of the
+translation files without the need for human intervention.
+
+When it comes time to cut an Open Release, a new branch will be formed in the
+openedx-translations repository for this release. This new branch will correspond with
+other release branches such as those found in edx-platform. It is my recommendation that
+a tool in the form of a python library is written to enable the placement of the
+translation files kept in openedx-translations into the repositories the translation
+files are formed from. This tool will manage the placement of translation files through
+editable configuration files kept in the repositories that have translation files kept in
+openedx-translations. The configuration file will support options that allow for the
+concatenation, reorganization, and reformatting of translation files as they are copied
+to their locations amongst the code. The configuration file will also support selecting
+which languages to be included in an Open edX deployment. The tool will have to be
+used/ran as part of the setup of a repository, whether for development or deployment.
 
 Locations
 *********
