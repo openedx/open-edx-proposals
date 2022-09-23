@@ -45,7 +45,7 @@ Developer documentation is inconsistent and poorly maintained. Documents are als
 
 .. _Read the Docs: https://readthedocs.org
 .. _Confluence: https://openedx.atlassian.net/wiki
-.. _GitHub: https://github.com/edx
+.. _GitHub: https://github.com/openedx
 .. _Google Docs: https://docs.google.com
 
 
@@ -68,8 +68,8 @@ Decisions
 
 * edX Inc. specific documentation such as notes, agile meeting artifacts, and documentation of edX specific process and decisions will live in `Confluence`_.
 
-.. _open-edx-proposals: https://github.com/edx/open-edx-proposals
-.. _edx-developer-docs: https://github.com/edx/edx-developer-docs
+.. _open-edx-proposals: https://github.com/openedx/open-edx-proposals
+.. _edx-developer-docs: https://github.com/openedx/edx-developer-docs
 .. _Developer Docs: https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/
 .. _Open API: https://www.openapis.org/
 .. _MDX: https://mdxjs.com/
@@ -101,6 +101,9 @@ OEPs
        * *What are the best practices and processes for developing on the Open edX platform?*
        * *How does system-wide framework X work on the Open edX platform? (e.g., Analytics, Authorization, etc).*
        * *Why was system-wide technology X or design Y chosen for the Open edX platform?*
+   * - **Specification**
+     - :ref:`OEP Templates` provides details for what constitutes a valid OEP
+       format.
    * - **Rationale**
      - To establish software development coherency and efficiency with minimal centralized governance across a long-term maintained platform.
    * - **Location in GitHub**
@@ -108,7 +111,7 @@ OEPs
    * - **Maintenance**
      - OEP-1_ describes the OEP review process. They will be maintained by the `edX Architecture team`_.
 
-.. _open-edx-proposals: https://github.com/edx/open-edx-proposals
+.. _open-edx-proposals: https://github.com/openedx/open-edx-proposals
 .. _Open edX Proposals Read The Docs: https://open-edx-proposals.readthedocs.io
 .. _OEP-1: https://open-edx-proposals.readthedocs.io/en/latest/oep-0001.html
 .. _edX Architecture team: https://openedx.atlassian.net/wiki/spaces/AC/pages/439353453/Architecture+Team
@@ -134,6 +137,8 @@ ADRs
      -
        * *What technical decisions were made for the component/feature in this repo/app/folder?*
        * *Why does this component/feature do X?*
+   * - **Specification**
+     - A sample template is provided below.
    * - **Rationale**
      - These records prove to be an `invaluable technique`_ for engineering teams to onboard
        new members, to understand discovered historical traces, to refer back to past decisions,
@@ -148,15 +153,15 @@ ADRs
 
 .. _`Nygard's post`: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
 .. _invaluable technique: https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
-.. _edx/credentials/docs/decisions: https://github.com/edx/credentials/tree/master/docs/decisions
+.. _edx/credentials/docs/decisions: https://github.com/openedx/credentials/tree/master/docs/decisions
 
 A suggested ADR template:
 
 .. code-block:: rst
 
-  0000 Title For ADR
-  ##################
-  .. The title should be a short noun phrase. For example, "0001 Django IDA" or "0009 LDAP for Multitenant Integration"; filename should be lowercase with punctuation removed and spaces replaced by dash
+  0. Title For ADR
+  ################
+  .. The title should be a short noun phrase. For example, "1. Django IDA" or "9. LDAP for Multitenant Integration"; filename should be lowercase with punctuation removed and spaces replaced by dash
 
   Status
   ******
@@ -185,7 +190,7 @@ A suggested ADR template:
   .. This section describes the resulting context, after applying the decision. All consequences should be listed here, not just the "positive" ones. A particular decision may have positive, negative, and neutral consequences, but all of them affect the team and project in the future.
 
   Rejected Alternatives
-  ******************
+  *********************
 
   .. This section lists alternate options considered, described briefly, with pros and cons.
 
@@ -211,6 +216,10 @@ READMEs
        * *What is the responsibility and purpose of this component?*
        * *What are the terms and definitions of this component's ubiquitous language?*
        * *How can I navigate the documentation within and related to this component?*
+   * - **Specification**
+     - The details of what should be in a readme were codified in :doc:`OEP-55 </processes/oep-0055-proc-project-maintainers>` and can be found in the
+       related :doc:`README ADR
+       </processes/oep-0055/decisions/0003-readme-specification>`
    * - **Rationale**
      - The future evolution and development of a component remains within the intended boundaries of the component's responsibility. Otherwise, it invites unintended complexity and incongruity.
    * - **Location in GitHub**
@@ -236,7 +245,7 @@ How-Tos
    * - **Maintenance**
      - The developer and code reviewer that updates the component will be responsible for updating the relevant How-Tos in that repo (preferably in the same PR as the code changes).
 
-.. _how_tos: https://github.com/edx/edx-platform/tree/master/openedx/core/djangoapps/oauth_dispatch/docs/how_tos
+.. _how_tos: https://github.com/openedx/edx-platform/tree/master/openedx/core/djangoapps/oauth_dispatch/docs/how_tos
 .. _`Etsy's FYIs`: https://codeascraft.com/2018/10/10/etsys-experiment-with-immutable-documentation/
 
 APIs
@@ -309,7 +318,7 @@ This section summarizes the requirements for long-term developer documentation.
 
   * **Source Controlled**. They will have the advantages of having source-control backed files, including sharing across multiple developers and robust storage.
 
-.. _edx-developer-docs: https://github.com/edx/edx-developer-docs
+.. _edx-developer-docs: https://github.com/openedx/edx-developer-docs
 .. _docs.edx.org: https://docs.edx.org/
 
 Format Rationale
@@ -357,7 +366,7 @@ Learning rST
 
 * See the `reStructuredText (rST) Primer`_.
 
-.. _cheatsheet comparing rST to Markdown: https://github.com/edx/mdrst/blob/master/mdrst.rst
+.. _cheatsheet comparing rST to Markdown: https://github.com/openedx/mdrst/blob/master/mdrst.rst
 .. _another comparison of Markdown and rST: https://gist.github.com/dupuy/1855764
 .. _reStructuredText (rST) Primer: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
@@ -454,13 +463,18 @@ Next Steps
 * **Publishing**: The intention is to have all rST documents published to `Read the Docs`_.
 * **Validation**: The intention is to have all rST document changes in all repositories automatically validated as part of the Continuous Integration quality tests for any PR. See the edx-developer-docs_ repo or the cookiecutter-django-app_ repo for examples.
 
-.. _cookiecutter-django-app: https://github.com/edx/cookiecutter-django-app
+.. _cookiecutter-django-app: https://github.com/edx-unsupported/cookiecutter-django-app
 
 .. image:: oep-0019/quill.png
    :align: center
 
 Change History
 ==============
+
+2022-09-22
+----------
+
+* `Tweaks to ADR template <https://github.com/openedx/open-edx-proposals/pull/375>`_
 
 2022-06-22
 ----------

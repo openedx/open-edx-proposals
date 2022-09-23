@@ -27,4 +27,4 @@ Consequences
 - There will be more coupling between different YAML files
 
 
-.. _OEP-37: https://github.com/edx/open-edx-proposals/pull/118
+.. _OEP-37: https://github.com/openedx/open-edx-proposals/pull/118

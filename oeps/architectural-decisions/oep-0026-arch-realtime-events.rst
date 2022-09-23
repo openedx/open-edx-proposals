@@ -147,9 +147,9 @@ While the exact technical framework and tools for supporting real-time events *a
 
 The proposed framework integrates into and builds upon the features of the `Open edX Event Tracking`_ library. The library's RoutingBackend_ provides powerful and flexible tools with its two fundamental building blocks of `processors and backends`_. The diagram below depicts a possibility of using these tools to implement our real-time Eventing subsytem.
 
-.. _Open edX Event Tracking: https://github.com/edx/event-tracking
-.. _RoutingBackend: https://github.com/edx/event-tracking/blob/03bedd4c4f269c65f266f7e95621a9c1b91f908d/eventtracking/backends/routing.py#L11
-.. _processors and backends: https://github.com/edx/event-tracking/blob/03bedd4c4f269c65f266f7e95621a9c1b91f908d/eventtracking/backends/routing.py#L16-L30
+.. _Open edX Event Tracking: https://github.com/openedx/event-tracking
+.. _RoutingBackend: https://github.com/openedx/event-tracking/blob/03bedd4c4f269c65f266f7e95621a9c1b91f908d/eventtracking/backends/routing.py#L11
+.. _processors and backends: https://github.com/openedx/event-tracking/blob/03bedd4c4f269c65f266f7e95621a9c1b91f908d/eventtracking/backends/routing.py#L16-L30
 
 .. image:: oep-0026/eventing_subsystem.png
 
@@ -248,11 +248,11 @@ Here are a list of current Open edX frameworks that are related to "eventing" bu
 
   This OEP makes use of the `event-tracking library`_ as an integration point with the rest of the Open edX platform, and proposes a new backend that supports real-time delivery of events.
 
-.. _event-tracking library: https://github.com/edx/event-tracking
+.. _event-tracking library: https://github.com/openedx/event-tracking
 .. _tracker: https://event-tracking.readthedocs.io/en/latest/user_guide/design.html
-.. _LoggerBackend: https://github.com/edx/event-tracking/blob/d32d2b1ea7690c6710abd1060495c239f6809133/eventtracking/backends/logger.py#L15
-.. _MongoBackend: https://github.com/edx/event-tracking/blob/d32d2b1ea7690c6710abd1060495c239f6809133/eventtracking/backends/mongodb.py#L16
-.. _SegmentBackend: https://github.com/edx/event-tracking/blob/d32d2b1ea7690c6710abd1060495c239f6809133/eventtracking/backends/segment.py#L12
+.. _LoggerBackend: https://github.com/openedx/event-tracking/blob/d32d2b1ea7690c6710abd1060495c239f6809133/eventtracking/backends/logger.py#L15
+.. _MongoBackend: https://github.com/openedx/event-tracking/blob/d32d2b1ea7690c6710abd1060495c239f6809133/eventtracking/backends/mongodb.py#L16
+.. _SegmentBackend: https://github.com/openedx/event-tracking/blob/d32d2b1ea7690c6710abd1060495c239f6809133/eventtracking/backends/segment.py#L12
 .. _segment.com: https://segment.com/
 
 * **Event-driven microservices architecture** - Using event-driven asynchronous messaging between microservices is a design pattern we have adopted for the Open edX system. Such a loosely coupled architecture provides optimal scalability, resiliency and responsiveness, per recommendations in the `Reactive Manifesto`_.

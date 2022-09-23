@@ -74,5 +74,5 @@ References
 
 There is a `tool`_ for granting lint amnesty in `edx/edx-lint`_.
 
-.. _tool: https://github.com/edx/edx-lint/blob/master/edx_lint/cmd/amnesty.py
-.. _`edx/edx-lint`: https://github.com/edx/edx-lint
+.. _tool: https://github.com/openedx/edx-lint/blob/master/edx_lint/cmd/amnesty.py
+.. _`edx/edx-lint`: https://github.com/openedx/edx-lint

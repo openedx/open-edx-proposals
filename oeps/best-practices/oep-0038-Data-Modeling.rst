@@ -279,8 +279,8 @@ Models should be Annotated for PII
 
 -  All models in the Open edX ecosystem should be tagged for PII using `code annotations`_ by following OEP-30_.
 
-.. _code annotations: https://github.com/edx/code-annotations>
-.. _OEP-30: https://github.com/edx/open-edx-proposals/blob/master/oeps/oep-0030-arch-pii-markup-and-auditing.rst
+.. _code annotations: https://github.com/openedx/code-annotations>
+.. _OEP-30: https://github.com/openedx/open-edx-proposals/blob/master/oeps/oep-0030-arch-pii-markup-and-auditing.rst
 
 
 Have sane default values

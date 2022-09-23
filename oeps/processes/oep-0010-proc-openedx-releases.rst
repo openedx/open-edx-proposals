@@ -21,7 +21,7 @@ OEP-10: Open edX Releases
 | Resolution    | `Original pull request`_                          |
 +---------------+---------------------------------------------------+
 
-.. _Original pull request: https://github.com/edx/open-edx-proposals/pull/26
+.. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/26
 
 ..
     - Expectations for component owners

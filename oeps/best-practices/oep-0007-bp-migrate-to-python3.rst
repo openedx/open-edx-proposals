@@ -22,7 +22,7 @@ OEP-7: Migrating to Python 3
 | Resolution    | `open-edx-proposals#21`_                      |
 +---------------+-----------------------------------------------+
 
-.. _open-edx-proposals#21: https://github.com/edx/open-edx-proposals/pull/21#pullrequestreview-18018383
+.. _open-edx-proposals#21: https://github.com/openedx/open-edx-proposals/pull/21#pullrequestreview-18018383
 
 Abstract
 ********
@@ -215,7 +215,7 @@ be unicode. This has the potential to cause problems_ when using a python 3
 ready distribution in a python 2 project.
 
 .. _distutils: https://docs.python.org/2/distutils/setupscript.html#additional-meta-data
-.. _problems: https://github.com/edx/XBlock/pull/365
+.. _problems: https://github.com/openedx/XBlock/pull/365
 
 Handling literals, Option 1: Python 3-Style
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

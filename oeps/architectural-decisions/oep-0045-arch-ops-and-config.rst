@@ -47,7 +47,7 @@ Wherever possible, operating concerns will live within the codebase they are con
 As code is moved to this new paradigm it is important to note that we strive to maintain or improve upon the state of operations without sacrificing features or visibility.  If operations code is removed from one place it must either have a home in some other public place better aligned with this OEP (EG package installation in Dockerfiles) or no longer be needed at all in this model (EG `conditional ansible commands`_ for installing packages on particular operating
 systems).
 
-.. _conditional ansible commands: https://github.com/edx/configuration/blob/ada15bec6e0269042380e340e65675640983e6ba/playbooks/roles/newrelic_infrastructure/tasks/main.yml#L44-L52
+.. _conditional ansible commands: https://github.com/openedx/configuration/blob/ada15bec6e0269042380e340e65675640983e6ba/playbooks/roles/newrelic_infrastructure/tasks/main.yml#L44-L52
 
 Context
 *******
@@ -196,7 +196,7 @@ Implementation Strategy
 
 Discussion of implentation of this OEP will happen in a `separate Pull Request`_ .
 
-.. _separate Pull Request: https://github.com/edx/open-edx-proposals/pull/144
+.. _separate Pull Request: https://github.com/openedx/open-edx-proposals/pull/144
 
 Related Decisions
 *****************

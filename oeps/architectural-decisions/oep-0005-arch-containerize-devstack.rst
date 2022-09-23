@@ -253,8 +253,8 @@ Change History
 .. _Docker Compose: https://docs.docker.com/compose/overview/
 .. _Docker: https://www.docker.com/
 .. _Vagrant: https://www.vagrantup.com/
-.. _course-discovery: https://github.com/edx/course-discovery
-.. _edx-platform: https://github.com/edx/edx-platform
+.. _course-discovery: https://github.com/openedx/course-discovery
+.. _edx-platform: https://github.com/openedx/edx-platform
 .. _gunicorn: http://gunicorn.org/
 .. _nginx: https://www.nginx.com/
 .. _supervisor: http://supervisord.org/

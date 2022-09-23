@@ -25,8 +25,8 @@ OEP-30: PII Markup and Auditing
 |               | - `OEP-002`_                                               |
 +---------------+------------------------------------------------------------+
 
-.. _Original pull request: https://github.com/edx/open-edx-proposals/pull/81
-.. _Update pull request: https://github.com/edx/open-edx-proposals/pull/101
+.. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/81
+.. _Update pull request: https://github.com/openedx/open-edx-proposals/pull/101
 .. _NIST Special Publication 800-122 (pdf): http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf
 .. _OEP-002: https://open-edx-proposals.readthedocs.io/en/latest/oep-0002-bp-repo-metadata.html
 
@@ -313,7 +313,7 @@ The `Code Annotations`_ project is a reference implementation containing working
 
 The `Organization-wide Tooling`_ does not yet have a reference implementation.
 
-.. _Code Annotations: https://github.com/edx/code-annotations
+.. _Code Annotations: https://github.com/openedx/code-annotations
 
 
 Rejected Alternatives

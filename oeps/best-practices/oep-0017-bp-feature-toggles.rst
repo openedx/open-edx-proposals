@@ -376,7 +376,7 @@ Details
 
 The framework, which lives in edx-toggles_, is a viable starting point for addressing the Requirements_. Some features only available in the waffle_utils_ app in edx-platform are noted below. It has basic support for Requirements_ 1-8,11,12. Details below describe what would be needed for the remaining requirements.
 
-.. _edx-toggles: https://github.com/edx/edx-toggles
+.. _edx-toggles: https://github.com/openedx/edx-toggles
 
 Framework Classes
 ~~~~~~~~~~~~~~~~~
@@ -417,7 +417,7 @@ Eventually, the following classes should be added if/when needed:
 
   * supports the "Group" toggle type with `Beta Testing`_ for user-provider (enterprise) organization-level overrides.
 
-.. _waffle_utils: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/waffle_utils/__init__.py
+.. _waffle_utils: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/waffle_utils/__init__.py
 .. _how to choose the right toggle class: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/implement_the_right_toggle_type.html#implementing-the-right-toggle-class
 
 Req 8: Non-collision
@@ -430,7 +430,7 @@ Req 9: Multi-tenancy
 
 In order to allow White Label sites to override feature toggles, the framework needs to integrate with the `edX Site Configuration`_ feature. When a caller requests the value of a feature toggle, the framework should first check if there's an override for the current site and return it instead.
 
-.. _edX Site Configuration: https://github.com/edx/edx-platform/blob/3290bce9932916439e3ff8244ba34dd1444e0702/openedx/core/djangoapps/site_configuration/__init__.py#L6
+.. _edX Site Configuration: https://github.com/openedx/edx-platform/blob/3290bce9932916439e3ff8244ba34dd1444e0702/openedx/core/djangoapps/site_configuration/__init__.py#L6
 
 Req 10: Least Privilege
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -523,7 +523,7 @@ Given that, here are best practices for testing a Feature Toggle:
 .. _wafflejs API: https://github.com/jsocol/django-waffle/blob/f4b10e8c46cf5305fbaa082b169f221fdab72162/waffle/urls.py#L8
 .. _WaffleJS: https://waffle.readthedocs.io/en/stable/usage/javascript.html
 .. _Overriding Flags: https://waffle.readthedocs.io/en/v0.9/usage.html#overriding-flags
-.. _Devstack: https://github.com/edx/devstack
+.. _Devstack: https://github.com/openedx/devstack
 .. _WAFFLE_OVERRIDE: https://waffle.readthedocs.io/en/v0.9/usage.html#waffle-override
 
 Test Plans for Toggle Use Cases
@@ -635,11 +635,11 @@ Updated documentation on feature toggles and reporting:
 * See `how to enable feature toggle reports for an IDA`_.
 
 .. _readthedocs documention for edx-platform feature toggles: https://edx.readthedocs.io/projects/edx-platform-technical/en/latest/featuretoggles.html
-.. _annotated toggles in the edx-platform codebase: https://github.com/edx/edx-platform/search?q=toggle_name
+.. _annotated toggles in the edx-platform codebase: https://github.com/openedx/edx-platform/search?q=toggle_name
 .. _how to document feature toggles: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/documenting_new_feature_toggles.html
-.. _grading enhancements: https://github.com/edx/edx-platform/pull/16082
-.. _user-facing change: https://github.com/edx/edx-platform/blob/6db93fc791fd2fb52ce705d47320e7868a937587/openedx/features/learner_profile/__init__.py#L13
-.. _course-wide Beta Testing and Opt-outs: https://github.com/edx/edx-platform/blob/6db93fc791fd2fb52ce705d47320e7868a937587/openedx/features/course_experience/__init__.py#L13-L44
+.. _grading enhancements: https://github.com/openedx/edx-platform/pull/16082
+.. _user-facing change: https://github.com/openedx/edx-platform/blob/6db93fc791fd2fb52ce705d47320e7868a937587/openedx/features/learner_profile/__init__.py#L13
+.. _course-wide Beta Testing and Opt-outs: https://github.com/openedx/edx-platform/blob/6db93fc791fd2fb52ce705d47320e7868a937587/openedx/features/course_experience/__init__.py#L13-L44
 .. _how to enable feature toggle reports for an IDA: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/adding_new_ida_to_toggle_report.html
 
 Rejected Alternatives
@@ -670,7 +670,7 @@ Many features in the edX platform use `JSON Configuration files`_ to store their
 
 Examples of security-sensitive data are secret credentials (API keys, private keys, etc) and private network identifiers (AWS S3 bucket names, external service hostname, etc).
 
-.. _JSON Configuration files: https://github.com/edx/edx-platform/blob/master/lms/envs/docs/README.rst#json-configuration-files
+.. _JSON Configuration files: https://github.com/openedx/edx-platform/blob/master/lms/envs/docs/README.rst#json-configuration-files
 
 Configuration Models
 ====================
@@ -685,7 +685,7 @@ Since the well-maintained_ Waffle library already has extensive built-in capabil
 
 One thing to note, however, is the tradeoff made between (a) supporting Least Privilege (via Config Model) and (b) Developer ease-of-use and Code maintainability (via Waffle). Since Config Models are stored in distributed tables, operators can easily place fine-grained control over who has access to which tables. This will be much harder to implement using Waffle. With Waffle, we can easily detect, but not prevent, access to feature toggles.
 
-.. _Django Configuration Model: https://github.com/edx/django-config-models
+.. _Django Configuration Model: https://github.com/openedx/django-config-models
 .. _Django Models: https://docs.djangoproject.com/en/2.0/topics/db/models/
 .. _Django Fields: https://docs.djangoproject.com/en/2.0/ref/models/fields/
 .. _Django Admin: https://docs.djangoproject.com/en/2.0/ref/contrib/admin/

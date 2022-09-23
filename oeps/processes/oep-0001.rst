@@ -35,11 +35,11 @@ OEP-1: OEP Purpose and Guidelines
 |               | - Similar in principle to `Architecture Decision Records`_   |
 +---------------+--------------------------------------------------------------+
 
-.. _open-edx-proposals#1: https://github.com/edx/open-edx-proposals/pull/1
-.. _open-edx-proposals#53: https://github.com/edx/open-edx-proposals/pull/53
-.. _open-edx-proposals#60: https://github.com/edx/open-edx-proposals/pull/60
-.. _open-edx-proposals#85: https://github.com/edx/open-edx-proposals/pull/85
-.. _open-edx-proposals#1 resolution: https://github.com/edx/open-edx-proposals/pull/1#issuecomment-220419055
+.. _open-edx-proposals#1: https://github.com/openedx/open-edx-proposals/pull/1
+.. _open-edx-proposals#53: https://github.com/openedx/open-edx-proposals/pull/53
+.. _open-edx-proposals#60: https://github.com/openedx/open-edx-proposals/pull/60
+.. _open-edx-proposals#85: https://github.com/openedx/open-edx-proposals/pull/85
+.. _open-edx-proposals#1 resolution: https://github.com/openedx/open-edx-proposals/pull/1#issuecomment-220419055
 .. _PEP: https://www.python.org/dev/peps/pep-0001/
 .. _Architecture Decision Records: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
 
@@ -206,7 +206,7 @@ available number.
 The pull request title should be of the form "OEP-XXXX: <OEP title>", where
 *XXXX* is the OEP number claimed for the included proposal.
 
-.. _central OEP repository: https://github.com/edx/open-edx-proposals
+.. _central OEP repository: https://github.com/openedx/open-edx-proposals
 
 Step 3. Review with Arbiter
 ---------------------------
@@ -424,6 +424,8 @@ and can also be rendered into good-looking and functional HTML. OEPs are
 rendered to HTML using Sphinx.
 
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
+
+.. _OEP Templates:
 
 OEP Templates
 =============
