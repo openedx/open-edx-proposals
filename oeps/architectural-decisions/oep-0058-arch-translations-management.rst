@@ -9,7 +9,7 @@ OEP-58: Translations Management
    * - Title
      - Translations Management
    * - Last Modified
-     - 2022-09-23
+     - 2022-09-26
    * - Authors
      - 
        * Carlos Muniz <cmuniz@tcril.org>
@@ -193,14 +193,14 @@ Final State
 ***********
 
 Repositories that generate translation files will have their translation files generated
-and pushed to the openedx-translation repository via a github workflow. Once the
-translation files from edx-platform and other repositories are moved to the
-openedx-translations repository, the Transifex GitHub App will link a Transifex project
-of a name such as "Open edX Translations" to the openedx-translations repository. A
-configuration file naming the files that are to be translated and the trigger that pulls
-translation files back into will be created in the openedx/translations repository. This
-link will allow for the Transifex GitHub App to automatically manage the push/pull of the
-translation files without the need for human intervention.
+and committed via a pull request to the openedx-translation repository via a github
+workflow. Once the translation files from edx-platform and other repositories are moved
+to the openedx-translations repository, the Transifex GitHub App will link a Transifex
+project of a name such as "Open edX Translations" to the openedx-translations repository.
+A configuration file naming the files that are to be translated and the trigger that
+pulls translation files back into will be created in the openedx/translations repository.
+This link will allow for the Transifex GitHub App to automatically manage the push/pull
+of the translation files without the need for human intervention.
 
 When it comes time to cut an Open Release, a new branch will be formed in the
 openedx-translations repository for this release. This new branch will correspond with
