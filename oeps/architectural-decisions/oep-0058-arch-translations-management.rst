@@ -47,12 +47,12 @@ point.
 Decision
 ********
 
-To alleviate these issues, we will switch from using the edx-transifex-bot to the GitHub
-Transifex App, a stable app provided by Transifex. Benefits of this change include being
-easier to maintain and solving a lot of the pain points detailed below. As part of this
-proposal, we suggest moving translations into their own repository, to make using the
-GitHub Transifex app more streamlined and straightforward, and in order to make
-organizing and using the up to date translations simpler.
+To alleviate these issues, we will switch from using the edx-transifex-bot to the
+`Transifex GitHub App`_, a stable app provided by Transifex. Benefits of this change
+include being easier to maintain and solving a lot of the pain points detailed below. As
+part of this proposal, we suggest moving translations into their own repository, to make
+using the `Transifex GitHub App`_ more streamlined and straightforward, and in order to
+make organizing and using the up to date translations simpler.
 
 Current State
 *************
@@ -79,20 +79,20 @@ Current State
 
 .. _this pull request: https://github.com/openedx/edx-platform/pull/30567
 
-Rationale for migrating to the Transifex GitHub App
-***************************************************
+Rationale for migrating to the `Transifex GitHub App`_
+******************************************************
 
 * This is an upgrade of a system we use regularly, but do not want to have to maintain
   regularly.
 * Upgrading from a bot (machine user) to an app/workflow is recommended by GitHub and
   makes the translation process more open source. 
-* The GitHub Transifex Integration App is developed and supported by Transifex
-* The Github Transifex App is very simple to configure and has many options. We can set
-  Transifex Projects to automatically upload/download translation files from a repository
-  once the translations are reviewed and accepted.
+* The `Transifex GitHub App`_ is developed and supported by Transifex
+* The `Transifex GitHub App`_ is very simple to configure and has many options. We can
+  set Transifex Projects to automatically upload/download translation files from a
+  repository once the translations are reviewed and accepted.
 * By using an app that is maintained by Transifex the organization, we reduce the
   maintenance burden and are more future proof of changes they might make since they
-  maintain both the API and the GitHub App.
+  maintain both the API and the `Transifex GitHub App`_.
 
 Rationale for consolidating translations files centrally
 ********************************************************
@@ -126,25 +126,25 @@ code/documentation they translate.
 .. _edx-platform: https://github.com/openedx/edx-platform
 .. _openedx-translations: https://github.com/openedx/openedx-translation
 
-Add GitHub Transifex App to openedx Organization
-================================================
+Add `Transifex GitHub App`_ to openedx Organization
+===================================================
 
-The Transifex GitHub app will need to be added to the openedx GitHub organization in
+The `Transifex GitHub App`_ will need to be added to the openedx GitHub organization in
 order to grant the app permissions to push/pull the translation files. Currently, we
 manage the push/pull permissions for the edx-transifex-bot through a number of GitHub
-user groups. The Transifex GitHub app once installed in an organization, is granted
+user groups. The `Transifex GitHub App`_ once installed in an organization, is granted
 permissions to push/pull on a repository basis, and by moving all the translation files
 to a single repository we eliminate separate translations user groups.
 
 Connect the New Translation Repository to Transifex
 ===================================================
 
-The Transifex webapp accepts configuration files for each Transifex project. By
-connecting the single repository containing all translation files, we only need to make a
-single configuration file that allows the Transifex GitHub app to manage the translation
-files. Based on the Translation Working Group's instruction on acceptable
-translation/review percentages, we can set parameters that automatically push and pull
-translation files.
+The Transifex web-app accepts a `Transifex GitHub Integration configuration file`_ for
+each Transifex project. By connecting the single repository containing all translation
+files, we only need to make a single `Transifex GitHub Integration configuration file`_
+that allows the `Transifex GitHub App`_ to manage the translation files. Based on the
+Translation Working Group's instruction on acceptable translation/review percentages, we
+can set parameters that automatically push and pull translation files.
 
 Copy Transifex Memory and Combine Translators
 ==============================================
@@ -174,8 +174,8 @@ Impact on Site Operators
 ========================
 
 Currently the translation files for any given service or library is stored at the same
-place as the code, which has generally simplified the deployment story in the past.  With
-this change, the translations files will move to their own repository.  As we deprecate
+place as the code, which has generally simplified the deployment story in the past. With
+this change, the translations files will move to their own repository. As we deprecate
 the old translations files, the relevant deployment tooling will need to be updated to
 pull down the translations from the new repository as a part of the deployment process.
 This will impact both the old Ansible based tooling as well as any new docker based
@@ -195,12 +195,13 @@ Final State
 Repositories that generate translation files will have their translation files generated
 and committed via a pull request to the openedx-translation repository via a github
 workflow. Once the translation files from edx-platform and other repositories are moved
-to the openedx-translations repository, the Transifex GitHub App will link a Transifex
+to the openedx-translations repository, the `Transifex GitHub App`_ will link a Transifex
 project of a name such as "Open edX Translations" to the openedx-translations repository.
-A configuration file naming the files that are to be translated and the trigger that
-pulls translation files back into will be created in the openedx/translations repository.
-This link will allow for the Transifex GitHub App to automatically manage the push/pull
-of the translation files without the need for human intervention.
+A `Transifex GitHub Integration configuration file`_ naming the files that are to be
+translated and the trigger that pulls translation files back into will be created in the
+openedx/translations repository. This link will allow for the `Transifex GitHub App`_ to
+automatically manage the push/pull of the translation files without the need for human
+intervention.
 
 When it comes time to cut an Open Release, a new branch will be formed in the
 openedx-translations repository for this release. This new branch will correspond with
@@ -208,12 +209,13 @@ other release branches such as those found in edx-platform. It is my recommendat
 a tool in the form of a python library is written to enable the placement of the
 translation files kept in openedx-translations into the repositories the translation
 files are formed from. This tool will manage the placement of translation files through
-editable configuration files kept in the repositories that have translation files kept in
-openedx-translations. The configuration file will support options that allow for the
-concatenation, reorganization, and reformatting of translation files as they are copied
-to their locations amongst the code. The configuration file will also support selecting
-which languages to be included in an Open edX deployment. The tool will have to be
-used/ran as part of the setup of a repository, whether for development or deployment.
+an editable translation tool configuration file kept in the repositories that have
+translation files kept in openedx-translations. The editable translation tool
+configuration file will support options that allow for the concatenation, reorganization,
+and reformatting of translation files as they are copied to their locations amongst the
+code. The editable translation tool configuration file will also support selecting which
+languages to be included in an Open edX deployment. The tool will have to be used/ran as
+part of the setup of a repository, whether for development or deployment.
 
 Locations
 *********
@@ -221,10 +223,11 @@ Locations
 Dumps of the translation/localization files from Transifex for the Open edX Release
 project already exist in a repository with the name of openedx/openedx-i18n. A new
 repository named openedx/openedx-translations will be similarly structured, but it will
-contain the translation files for all repositories within openedx. The GitHub Transifex
-app will be installed in the openedx organization. Similar to how the Build-Test-Release
-Working Group creates a new branch for each new named release of edx-platform,
-translation releases can also be kept in branches corresponding to edx-platform releases.
+contain the translation files for all repositories within openedx. The
+`Transifex GitHub App`_ will be installed in the openedx organization. Similar to how the
+Build-Test-Release Working Group creates a new branch for each new named release of
+edx-platform, translation releases can also be kept in branches corresponding to
+edx-platform releases.
 
 Rejected Alternatives
 *********************
@@ -236,7 +239,7 @@ The source code for the edx-transifex-bot is missing. We could rewrite the curre
 tooling to try to solve the problems encountered in the last two Open edX releases and
 upgrade to the new API, but this approach would require a full rewrite, potentially more
 expensive than doing the rewrite in a way that Transifex more cleanly supports. It should
-also be mentioned that GitHub discourages the use of bots and separate bot accounts; they
+also be mentioned that GitHub discourages the use of bots and separate bot accounts; theyq
 strongly recommend using GitHub Apps.
 
 Making a Transifex Project for Each Repository
@@ -246,8 +249,11 @@ As translation support is provided for more repos, the effort to maintain the
 translations infrastructure increases. A Transifex Project houses the content to be
 translated and needs to be created before any content can be added for translation.
 Transifex Projects can only support 1 GitHub repository each and need to be maintained
-separately. Maintaining a Transifex Project involves adjusting configurations, adding new
-languages, assigning translators to projects, or any other miscellaneous irregular tasks
-that would be time-consuming at a larger scale. If we add a Transifex Project, each
-Transifex Project will need to be maintained separately, making debugging issues or
-tracking the progress of each Transifex Project time-consuming.
+separately. Maintaining a Transifex Project involves adjusting configuration files,
+adding new languages, assigning translators to projects, or any other miscellaneous
+irregular tasks that would be time-consuming at a larger scale. If we add a Transifex
+Project, each Transifex Project will need to be maintained separately, making debugging
+issues or tracking the progress of each Transifex Project time-consuming.
+
+.. _Transifex GitHub App: https://github.com/apps/transifex-integration
+.. _Transifex GitHub Integration configuration file: https://docs.transifex.com/transifex-github-integrations/github-tx-ui#linking-a-specific-project-with-a-github-repository
