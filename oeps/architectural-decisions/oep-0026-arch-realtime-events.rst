@@ -11,7 +11,7 @@ OEP-26: Real-time Events
 | Authors         | Nimisha Asthagiri <nimisha@edx.org>,                   |
 |                 | Danial Malik <danial.malik@edly.io>                    |
 +-----------------+--------------------------------------------------------+
-| Arbiter         | Brian Wilson <brian@edx.org>                           |
+| Arbiter         | Ed Zarecor <ed@tcril.org>                              |
 +-----------------+--------------------------------------------------------+
 | Status          | Provisional                                            |
 +-----------------+--------------------------------------------------------+
