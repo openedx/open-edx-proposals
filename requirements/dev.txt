@@ -12,7 +12,7 @@ babel==2.10.3
     # via
     #   -r requirements/base.txt
     #   sphinx
-certifi==2022.9.14
+certifi==2022.9.24
     # via
     #   -r requirements/base.txt
     #   requests
@@ -79,7 +79,7 @@ snowballstemmer==2.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-sphinx==5.1.1
+sphinx==5.2.1
     # via
     #   -r requirements/base.txt
     #   edx-sphinx-theme
