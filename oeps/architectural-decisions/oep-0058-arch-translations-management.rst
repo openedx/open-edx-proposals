@@ -69,13 +69,13 @@ Current State
 * The translations for the Open edX Maple Release were never uploaded to Transifex,
   because the automation handled by the edx-transifex-bot never uploaded it.
 * The underlying library and Transifex API (V2) are being deprecated. This has led to
-  insconsistent behavior by our tooling when we try to automatically manage translations.
+  inconsistent behavior by our tooling when we try to automatically manage translations.
   See `this pull request`_ for more details.
 * We have a complex process for managing translations for the named releases. As a
-  result, the black box nature of the transifex bot and the deprecation of the underlying
+  result, the black box nature of the Transifex bot and the deprecation of the underlying
   tooling, this has become more laborious to keep running. Especially because there are
   few people with Admin rights to Transifex and knowledge of the Transifex API; this
-  could become a reccuring problem with each Open edX release.
+  could become a recurring problem with each Open edX release.
 
 .. _this pull request: https://github.com/openedx/edx-platform/pull/30567
 
@@ -100,7 +100,7 @@ Rationale for consolidating translations files centrally
 * Transifex only allows a one-to-one relationship between repositories and Transifex
   Projects. Organizing all of the translation files into one repository and one Transifex
   Project has a lower labor cost: projects are managed separately so we end up spending
-  less time tracking translation progress, and debuging translation issues when all
+  less time tracking translation progress, and debugging translation issues when all
   translation files are put in the same place. By decreasing the number of projects we
   need to maintain, we can add more content like the MFE translations.
 * A repository that only contains text/binary files, and uses branches to separate
@@ -117,7 +117,7 @@ Move Translation Files to a New Repo
 Translation files (of types .mo and .po) currently exist amongst the code/documentation
 they translate. We will move these translation files from being amongst the
 code/documentation to their own repo. For example, a translation file for the openedx
-repository edx-platform_ located at ``edx-platform/conf/locale/en/LC_MESSAGES/django.po``
+repository `edx-platform`_ located at ``edx-platform/conf/locale/en/LC_MESSAGES/django.po``
 would be moved to the new repository with the name openedx-translations_ located at
 ``openedx-translation/edx-platform/conf/locale/en/LC_MESSAGES/django.po``. For easier
 reintegration, translation files will be kept in the same directory structure as the
@@ -154,7 +154,7 @@ translators and reviewers across Transifex projects into the new project associa
 the new repository. In addition, we can save all the progress the Open edX translators
 have accomplished by copying the Transifex Memory, the auto-translation feature that
 allows for Projects with similar strings to be automatically translated, from the old
-projects to this new one. Once older projects are made redundnant by the new project,
+projects to this new one. Once older projects are made redundant by the new project,
 they will be deprecated. By moving all the translation files to the same repository we
 can increase the reach of the Transifex Memory feature to help translate similar strings
 across the entire code/documentation base.
@@ -166,7 +166,7 @@ Impact on Translators
 =====================
 
 As we approach the end of the translation upgrade process, we will need to tactically
-move from multiple transifex projects to a single project.  This will require
+move from multiple Transifex projects to a single project.  This will require
 coordination with our translators to ensure that moving forward they are providing
 translations in the right place.
 
@@ -186,14 +186,14 @@ Impact on Developers
 
 While it won’t directly impact the day-to-day workflow of developers, due to the same
 reasons that we impact site operators (new translations location), we will have to update
-development tools as well. In addion, we will create new instructions for developers on
+development tools as well. In addition, we will create new instructions for developers on
 how to enable translations for a new service/repo when it comes online.
 
 Final State
 ***********
 
 Repositories that generate translation files will have their translation files generated
-and committed via a pull request to the openedx-translation repository via a github
+and committed via a pull request to the openedx-translation repository via a GitHub
 workflow. Once the translation files from edx-platform and other repositories are moved
 to the openedx-translations repository, the `Transifex GitHub App`_ will link a Transifex
 project of a name such as "Open edX Translations" to the openedx-translations repository.
@@ -239,7 +239,7 @@ The source code for the edx-transifex-bot is missing. We could rewrite the curre
 tooling to try to solve the problems encountered in the last two Open edX releases and
 upgrade to the new API, but this approach would require a full rewrite, potentially more
 expensive than doing the rewrite in a way that Transifex more cleanly supports. It should
-also be mentioned that GitHub discourages the use of bots and separate bot accounts; theyq
+also be mentioned that GitHub discourages the use of bots and separate bot accounts; they
 strongly recommend using GitHub Apps.
 
 Making a Transifex Project for Each Repository
@@ -248,7 +248,7 @@ Making a Transifex Project for Each Repository
 As translation support is provided for more repos, the effort to maintain the
 translations infrastructure increases. A Transifex Project houses the content to be
 translated and needs to be created before any content can be added for translation.
-Transifex Projects can only support 1 GitHub repository each and need to be maintained
+Transifex Projects can only support one GitHub repository each and need to be maintained
 separately. Maintaining a Transifex Project involves adjusting configuration files,
 adding new languages, assigning translators to projects, or any other miscellaneous
 irregular tasks that would be time-consuming at a larger scale. If we add a Transifex
