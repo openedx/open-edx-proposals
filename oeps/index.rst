@@ -32,6 +32,7 @@ OEPs that relate to processes we want to put in place for the Open edX community
 .. toctree::
    :maxdepth: 1
    :glob:
+   :caption: Processes
 
    processes/oep-*
 
@@ -45,6 +46,7 @@ you have a good reason not to.
 .. toctree::
    :maxdepth: 1
    :glob:
+   :caption: Best Practices
 
    best-practices/oep-*
 
@@ -58,5 +60,6 @@ is no clear code repository where they should reside.
 .. toctree::
    :maxdepth: 1
    :glob:
+   :caption: Architectural Decisions
 
    architectural-decisions/oep-*
