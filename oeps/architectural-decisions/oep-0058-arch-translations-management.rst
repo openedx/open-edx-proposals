@@ -123,6 +123,17 @@ would be moved to the new repository with the name openedx-translations_ located
 reintegration, translation files will be kept in the same directory structure as the
 code/documentation they translate.
 
+Repositories that generate translation files will have their translation files generated
+and committed via a pull request to the openedx-translation repository via a GitHub
+workflow. Once the translation files from edx-platform and other repositories are moved
+to the openedx-translations repository, the `Transifex GitHub App`_ will link a Transifex
+project of a name such as "Open edX Translations" to the openedx-translations repository.
+A `Transifex GitHub Integration configuration file`_ naming the files that are to be
+translated and the trigger that pulls translation files back into will be created in the
+openedx/translations repository. This link will allow for the `Transifex GitHub App`_ to
+automatically manage the push/pull of the translation files without the need for human
+intervention.
+
 .. _edx-platform: https://github.com/openedx/edx-platform
 .. _openedx-translations: https://github.com/openedx/openedx-translation
 
@@ -159,6 +170,21 @@ they will be deprecated. By moving all the translation files to the same reposit
 can increase the reach of the Transifex Memory feature to help translate similar strings
 across the entire code/documentation base.
 
+Get Translations Back for Deployment/Development
+================================================
+
+A new python library, called openedx-atlas, will be created. This will enable the
+placement of the translation files kept in openedx-translations into locally cloned
+repositories for development and containers containing the code translation files are
+formed from. This tool will manage the placement of translation files through an editable
+atlas configuration file (atlas-config.yml) kept in the repositories that have
+translation files kept in openedx-translations. The atlas-config.yml file will support
+options that allow for the concatenation, reorganization, and reformatting of translation
+files as they are copied to their locations amongst the code. The atlas-config.yml file
+will also support selecting which languages to be included in an Open edX deployment. The
+tool will have to be used/ran as part of the setup of a repository, whether for
+development or deployment.
+
 Impacts
 *******
 
@@ -188,34 +214,6 @@ While it won’t directly impact the day-to-day workflow of developers, due to t
 reasons that we impact site operators (new translations location), we will have to update
 development tools as well. In addition, we will create new instructions for developers on
 how to enable translations for a new service/repo when it comes online.
-
-Final State
-***********
-
-Repositories that generate translation files will have their translation files generated
-and committed via a pull request to the openedx-translation repository via a GitHub
-workflow. Once the translation files from edx-platform and other repositories are moved
-to the openedx-translations repository, the `Transifex GitHub App`_ will link a Transifex
-project of a name such as "Open edX Translations" to the openedx-translations repository.
-A `Transifex GitHub Integration configuration file`_ naming the files that are to be
-translated and the trigger that pulls translation files back into will be created in the
-openedx/translations repository. This link will allow for the `Transifex GitHub App`_ to
-automatically manage the push/pull of the translation files without the need for human
-intervention.
-
-When it comes time to cut an Open Release, a new branch will be formed in the
-openedx-translations repository for this release. This new branch will correspond with
-other release branches such as those found in edx-platform. It is my recommendation that
-a tool in the form of a python library is written to enable the placement of the
-translation files kept in openedx-translations into the repositories the translation
-files are formed from. This tool will manage the placement of translation files through
-an editable translation tool configuration file kept in the repositories that have
-translation files kept in openedx-translations. The editable translation tool
-configuration file will support options that allow for the concatenation, reorganization,
-and reformatting of translation files as they are copied to their locations amongst the
-code. The editable translation tool configuration file will also support selecting which
-languages to be included in an Open edX deployment. The tool will have to be used/ran as
-part of the setup of a repository, whether for development or deployment.
 
 Locations
 *********
