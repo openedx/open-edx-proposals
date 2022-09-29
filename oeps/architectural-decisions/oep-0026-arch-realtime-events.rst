@@ -54,7 +54,7 @@ Use Case: Adaptive Learning
 
 **Requirement:** Real-time communications (*sub-second*)
 
-As captured in `Open edX Adaptive Learning`_, adaptive learning in Open edX will enable the platform to respond to a learner's interactions in real-time,  automatically providing the learner with individualized support. Data analysis from earlier experimental attempts on edX.org and elsewhere show how adaptive learning mechanisms can significantly improve the learner's efficiency, engagement, and retention, while providing a more effective learning experience with metacognitive support for life-long learning.
+As captured in `Open edX Adaptive Learning`_, adaptive learning in Open edX will enable the platform to respond to a learner's interactions in real-time,  automatically providing the learner with individualized support. Data analysis from earlier experimental attempts on edx.org and elsewhere show how adaptive learning mechanisms can significantly improve the learner's efficiency, engagement, and retention, while providing a more effective learning experience with metacognitive support for life-long learning.
 
 .. _Open edX Adaptive Learning: https://openedx.atlassian.net/wiki/spaces/AC/pages/542343170/Adaptive+Learning
 
