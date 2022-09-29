@@ -61,7 +61,7 @@ As captured in `Open edX Adaptive Learning`_, adaptive learning in Open edX will
 Integration with Adaptive Engines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As an iterative path to this future, the immediate goal is to enable integrations with external adaptive engines. In the far future, we may also implement our own open-sourced adaptive engines. But in the meantime, we would like to establish standard APIs that (1) adaptive engines can use to receive real-time events from the Open edX LMS, (2) the Open edX LMS can use to query adaptive engines on what to present to learners, and (3) train adaptive engines based on standard
+As an iterative path to this future, the immediate goal is to enable integrations with external adaptive engines. Currently we are focused on establishing standard APIs that (1) adaptive engines can use to receive real-time events from the Open edX LMS, (2) the Open edX LMS can use to query adaptive engines on what to present to learners, and (3) train adaptive engines based on standard
 events collected from multiple sources. This document focuses on #1 with the need to send scalable and real-time updates to adaptive engines. This is depicted by the left-hand flow in the diagram below. #3 is described in :ref:`oep-26-lrs`.
 
 .. image:: oep-0026/adaptive_learning_lms_basic.png
