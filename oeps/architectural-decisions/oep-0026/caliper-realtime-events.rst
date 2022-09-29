@@ -10,9 +10,7 @@ Caliper Real-time Events
 Standardized Integration with Caliper
 *************************************
 
-Caliper is a standard that enables the collection, storage, and transport of data about learning. As a learning analytics framework, Caliper provides a common-gauge rail for disparate applications to use and share data from student interactions with learning software and administrative systems.
-
-We have chosen Caliper as one of the primary communication standards for real-time events since many universities and other educational organizations prefer to use tools that require Caliper compliant activity tracking events.
+Caliper Analtyics® is a specification defining "a structured approach to describing, collecting and exchanging learning activity data. Establishing a common vocabulary for describing learning interactions is a central objective. Promoting data interoperability, data sharing and data-informed decision making are also important goals."[#caliperDesignGoals]_  The standard has been described as "common-gauge rail for disparate applications to use and share data from student interactions with learning software and administrative systems."[#commonGaugeRail]_
 
 Caliper Learning Analytics Ecosystem
 ************************************
@@ -216,3 +214,6 @@ Please see the `Open edX Caliper Events`_ document for a detailed view of the ma
 .. |sensorAPI| image:: ./sensorAPI.png
    :width: 6.5in
    :height: 1.13889in
+
+.. [#caliperDesignGoals] Quoted from https://www.imsglobal.org/spec/caliper/v1p2#design-goals-and-rationale
+.. [#commonGaugeRail] Quoted from https://blackboard.secure.force.com/btbb_exportarticlepdf?id=kAE1O000000Xe3LWAS&pdf=true
