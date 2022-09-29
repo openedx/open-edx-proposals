@@ -33,7 +33,7 @@ Currently, the Open edX system captures LMS interactions in persisted event stre
 
 Of late, there are emerging use cases that require notifying external systems of these LMS events in real-time, preferably in industry standard formats (such as xAPI_ and Caliper_). By **real-time** events, we mean pushing data as fast as possible in an automated and synchronous communication at a speed within a few hundred milliseconds (to satisfy `human perception`_). Use cases, such as Adaptive Learning, do require this sub-second communication time. For other use cases, however, **near-real-time** communication (with a delay of multiple minutes) is sufficient. Unless explicitly called out in the document, near-real-time is included when we refer to real-time. Both are orders of magnitude faster than the current **batch processing** available via the tracking logs.
 
-A transition to real-time events is a natural evolution of Open edX's eventing and API capabilities and its impact on connecting users, organizations, and learning services. In fact, `Gartner reports`_ that by 2020 50% of managed APIs in the industry will be event-driven APIs as necessary supplements to RESTful extensions.
+This OEP proposes an evolutionary change to Open edX's eventing system that will enable near realtime event-based feedback loops.  Events have the potential to connect users, organizations, and learning services in ways that enrich learning on the platform. In fact, `Gartner reports`_ that by 2020 50% of managed APIs in the industry will be event-driven APIs as necessary supplements to RESTful extensions.
 
 This document describes a design proposal for supporting standard real-time events in the Open edX system.
 
