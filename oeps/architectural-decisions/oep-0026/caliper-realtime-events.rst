@@ -24,14 +24,11 @@ Sensor API
 
 `Sensor API`_ defines the basic learning events as well as standardizes and simplifies the gathering of learning metrics across the learning environments. These are used for marshaling and transmitting event data from instrumented applications to target endpoints for storage, analysis, and use.
 
-There is a `sensor API library for python`_ that we can use in our routers for generating and propagating events. At present, the Sensor API can only Write/Post data to repository endpoints and does not support reading data from a data repository.
-
 |sensorAPI|
 
 See `Sensor API <https://www.imsglobal.org/sensor-api>`__ for more information.
 
 .. _Sensor API: https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#sensor
-.. _sensor API library for python: https://github.com/IMSGlobal/caliper-python
 
 The Information Model
 *********************
