@@ -123,10 +123,7 @@ file format, there are a few guidelines each of these files should follow:
   the 37th character, which allows enough room for most package name plus
   constraint specifications while keeping the comments visually aligned.
 * Avoid direct links to packages in local directories, GitHub, or other version
-  control systems if at all possible; all dependencies should be installed
-  from `PyPI`_.  If you think you're in one of the rare circumstances where
-  installing a package from a URL is appropriate, see the notes below on
-  `Installing Dependencies from URLs`_
+  control systems; all dependencies should be installed from `PyPI`_.
 * If the dependencies in one context are a superset of those in another one,
   do not repeat the dependencies.  Instead, explicitly include the file
   produced by ``make upgrade`` for the smaller set of dependencies in the
@@ -345,21 +342,21 @@ identify the problem.
 Installing Dependencies from URLs
 =================================
 
-As noted above, you should generally avoid installing requirements from a URL
-or local directory instead of PyPI.  But there are a few circumstances where
-it can be appropriate:
-
-* You need to test a release candidate of the dependency to make sure it will
-  work with your code.
-* You critically need a fix for a package which has not yet been included in
-  a release, and you cannot arrange for a release to be made in a timely
-  manner.
-
-In most other circumstances, the package should be added to PyPI instead.  If
-you do need to include a package at a URL, it should have both the package
-name and version specified (end with "#egg=NAME==VERSION").  For example::
+``pip`` allows dependencies to be installed via VCS (version control system,
+e.g. git) URL, for example::
 
     git+https://github.com/openedx/edx-ora2.git@2.1.15#egg=ora2==2.1.15
+
+However, this pattern should **not** be used in Open edX respositories, as:
+
+* unlike PyPI-hosted dependencies, which are hosted as pre-built wheels,
+  VCS URL dependencies must be built at time of installation, slowing down
+  the installation process; and
+* VCS URL dependencies are incompatible with the ``pip-compile`` process
+  described above and thus are more likely to become stale over time.
+
+Existing VCS URL dependencies should be respecified using the standard PyPI-hosted
+dependency format described in this OEP.
 
 Rationale
 *********
@@ -473,5 +470,17 @@ fixed.
 .. _Python Packaging User Guide: https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies
 .. _tox: https://tox.readthedocs.io/
 
+Related Decisions
+*****************
+
+.. toctree::
+   :caption: OEP-18 Decisions
+   :maxdepth: 1
+   :glob:
+
+   oep-0018/decisions/*
+
 Change History
 **************
+
+* 2022-10-04: Replaced cautionary guiance on using URL-based dependencies with section disallowing use of URL-based dependencies. Added `supplementary ADR <./decisions/0001-forbid-url-dependencies>`_.
