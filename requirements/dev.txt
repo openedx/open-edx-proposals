@@ -36,7 +36,7 @@ imagesize==1.4.1
     # via
     #   -r requirements/base.txt
     #   sphinx
-importlib-metadata==4.12.0
+importlib-metadata==5.0.0
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -62,7 +62,7 @@ pyparsing==3.0.9
     # via
     #   -r requirements/base.txt
     #   packaging
-pytz==2022.2.1
+pytz==2022.4
     # via
     #   -r requirements/base.txt
     #   babel
@@ -79,7 +79,7 @@ snowballstemmer==2.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-sphinx==5.2.1
+sphinx==5.2.3
     # via
     #   -r requirements/base.txt
     #   edx-sphinx-theme
