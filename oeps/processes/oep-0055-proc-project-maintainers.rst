@@ -28,7 +28,7 @@ OEP-55: Project Maintainers
    * - Resolution
      - <links to any discussions where the final status was decided>
    * - References
-     - `Follow Up Work <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3426844690/Maintainership+Pilot>`
+     - `Follow-up Work <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3426844690/Maintainership+Pilot>`_
 
 .. contents::
    :local:
