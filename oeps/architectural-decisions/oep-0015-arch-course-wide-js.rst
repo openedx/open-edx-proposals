@@ -54,7 +54,7 @@ The proposed implementation adds new policy keys for custom course-wide scripts,
        "//some.cdn.com/library.js"
    ]
 
-These resources will then be directly loaded in all pages in the course by directly including them in the base templates.
+These resources will then be directly loaded in all pages in the course by including them in the base templates.
 
 Rationale
 *********
