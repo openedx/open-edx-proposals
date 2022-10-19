@@ -32,7 +32,7 @@ pygments==2.13.0
     # via sphinx
 pyparsing==3.0.9
     # via packaging
-pytz==2022.4
+pytz==2022.5
     # via babel
 requests==2.28.1
     # via sphinx
@@ -40,7 +40,7 @@ six==1.16.0
     # via edx-sphinx-theme
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==5.2.3
+sphinx==5.3.0
     # via
     #   -r requirements/base.in
     #   edx-sphinx-theme
