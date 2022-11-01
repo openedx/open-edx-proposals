@@ -117,8 +117,9 @@ Move Translation Files to a New Repo
 Translation files (of types .mo and .po) currently exist amongst the code/documentation
 they translate. We will move these translation files from being amongst the
 code/documentation to their own repo. For example, a translation file for the openedx
-repository `edx-platform`_ located at ``edx-platform/conf/locale/en/LC_MESSAGES/django.po``
-would be moved to the new repository with the name openedx-translations_ located at
+repository `edx-platform`_ located at
+``edx-platform/conf/locale/en/LC_MESSAGES/django.po`` would be moved to the new
+repository with the name openedx-translations_ located at
 ``openedx-translation/edx-platform/conf/locale/en/LC_MESSAGES/django.po``. For easier
 reintegration, translation files will be kept in the same directory structure as the
 code/documentation they translate.
@@ -165,9 +166,9 @@ translators and reviewers across Transifex projects into the new project associa
 the new repository. In addition, we can save all the progress the Open edX translators
 have accomplished by copying the Transifex Memory, the auto-translation feature that
 allows for Projects with similar strings to be automatically translated, from the old
-projects to this new one. Once older projects are made redundant by the new project,
-they will be deprecated. By moving all the translation files to the same repository we
-can increase the reach of the Transifex Memory feature to help translate similar strings
+projects to this new one. Once older projects are made redundant by the new project, they
+will be deprecated. By moving all the translation files to the same repository we can
+increase the reach of the Transifex Memory feature to help translate similar strings
 across the entire code/documentation base.
 
 Get Translations Back for Deployment/Development
@@ -192,9 +193,9 @@ Impact on Translators
 =====================
 
 As we approach the end of the translation upgrade process, we will need to tactically
-move from multiple Transifex projects to a single project.  This will require
-coordination with our translators to ensure that moving forward they are providing
-translations in the right place.
+move from multiple Transifex projects to a single project. This will require coordination
+with our translators to ensure that moving forward they are providing translations in the
+right place.
 
 Impact on Site Operators
 ========================
