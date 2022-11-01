@@ -273,6 +273,10 @@ Do the following to document your proposal:
 
 #. Check that your ticket appears on the `DEPR Project Board`_.
 
+.. note::
+  You can create a ticket even if you don't yet have all the information
+  gathered yet. You simply must wait until you have completed the issue before
+  moving on to communicating.
 
 Now you are ready to communicate your proposal!
 
@@ -442,6 +446,7 @@ Change History
 ==========
 
 * Simplified guidance around the earliest named release and removal dates.
+* Clarify that proposal can be made while incomplete, as long as they aren't communicated until they are complete.
 
 2022-07-05
 ==========
