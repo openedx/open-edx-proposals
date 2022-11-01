@@ -9,7 +9,7 @@ OEP-51: Conventional Commits
    * - Title
      - Conventional Commits
    * - Last Modified
-     - 2022-07-20
+     - 2022-10-19
    * - Authors
      - Ned Batchelder
    * - Arbiter
@@ -73,7 +73,7 @@ We use these commit types labels:
 
 * **build**: anything to do with building or releasing the repo: Makefile, tox.ini, Travis, Jenkins, GitHub actions, and so on.
 
-* **chore**: a repetitive mechanical task such as updating requirements or translations. See `Discussion`_ below for how "chore" can hide important information.
+* **chore**: a repetitive mechanical task such as updating requirements or translations. See `Discussion`_ below for how "chore" can hide important information, and how that can sometimes be avoided.
 
 * **docs**: documentation-only changes. Documentation changes for other types of work should be included in those commits. This includes more than the formal docs for a repo, it also covers any change that updates words describing the work, for example READMEs, ADRs, docstrings, annotations, comments, and so on.
 
@@ -159,7 +159,7 @@ Choosing the commit type label to use for a commit is important, but it's only t
 
 **Deprecations**: deprecations happen in two steps: the announcement of the deprecation, and the eventual removal.  The first step is important for people to recognize, but is not a breaking change.  Use clear strong words in the commit subject to be sure people understand the importance.  The second step is usually a breaking change, if a component has been removed.
 
-**Pinned dependencies**: updating the version of a pinned dependency is "just" a chore, but can bring significant changes to the depending repo.  Conventional commits can't solve this problem.  Reading the commits for a repo won't show that a "chore" might have the effect of a "feat".
+**Pinned dependencies**: updating the version of a pinned dependency is "just" a chore, but can bring significant changes to the depending repo.  Conventional commits can't solve this problem.  Reading the commits for a repo won't show that a "chore" might have the effect of a "feat".  When updating a single targeted dependency to pull in a "feat" or a "fix", using these labels will provide more information.
 
 **Merge commits**: Commits that git generates (such as merge commits) do not follow these guidelines.  This is not a reason to avoid those commits, though you may want to for other reasons.  The structure of conventional commits will still be useful if merge and other auto-generated commits are in the commit history.
 
@@ -234,6 +234,8 @@ Some commit guidelines are prescriptive about what grammar to use in commit subj
 
 Change History
 **************
+
+2022-10-19: Added note for alternative to "chore" when doing a targeted upgrade of a single dependency.
 
 2022-07-20: Added `Private-ref:` footer for private links.
 
