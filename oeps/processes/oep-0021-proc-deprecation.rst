@@ -6,7 +6,7 @@ OEP-21: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2022-07-05                                             |
+| Last Modified   | 2022-11-01                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>,                             |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
@@ -177,6 +177,14 @@ When proposing a removal, consider the following analysis:
 Timeline
 --------
 
+To communicate a proposed removal, you will need to determine the *earliest*
+Open edX named release that could no longer have the removed functionality,
+based on the release's *cut date*. Choosing the earliest named release where
+functionality could be removed is the simplest way to summarize what is often
+a lot of guesswork, and to clearly communicate to others how to prepare for the
+removal. The following discussion is meant to help determine the earliest named
+release.
+
 When determining target dates to propose for the removal process, consider that
 it will vary depending on team resources and the technology being removed.
 The importance of removal (as described in Motivation_) should be communicated
@@ -214,6 +222,13 @@ to an alternative would require a moderate to large amount of
 effort. For more trivial deprecations, it may be appropriate to simply
 deprecate and remove within the same release cycle.
 
+Remember to use the named release's *cut date* when determining the
+appropriate named release. Additionally, if the named release is far
+enough in the future that it only has a letter (and not a full name),
+just use the letter of the release. Reach out to the
+`#wg-build-test-release` in Slack if you're still not sure what the most
+appropriate earliest named release would be.
+
 .. _Open edX named release: https://open-edx-proposals.readthedocs.io/en/latest/oep-0010-proc-openedx-releases.html
 
 Document
@@ -237,14 +252,14 @@ Do the following to document your proposal:
 
 #. When writing the ticket, include the following information:
 
-   #. Title: The title of the ticket should read "[DEPR]: <technology name being
+   #. **Title**: The title of the ticket should read "[DEPR]: <technology name being
       deprecated>".
-   #. Proposal Date: the day the proposal is being put up for consideration.
-   #. Target dates for: *Accepted* and *Removed*. See Timeline_ for
-      considerations.
-   #. Include in which `Open edX named release`_ the code will be removed. Reach
-      out to the `#wg-build-test-release` in Slack if you're not sure what to
-      put here.
+   #. **Proposal Date**: the day the proposal is being put up for consideration.
+   #. **Target Ticket Acceptance Date**. A good default is 2 weeks from the Proposal
+      Date. See Timeline_ for additional considerations.
+   #. **Earliest Open edX Named Release Without This Functionality**. See
+      Timeline_ for help choosing the earliest `Open edX named
+      release`_ where the code will have been removed, based on its *cut date*.
    #. **Rationale**: A few sentences explaining the rationale for removing this
       technology.
    #. **Removal**: A description with links to what is being removed.
@@ -422,6 +437,11 @@ References
 
 Change History
 **************
+
+2022-11-01
+==========
+
+* Simplified guidance around the earliest named release and removal dates.
 
 2022-07-05
 ==========
