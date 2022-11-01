@@ -35,14 +35,17 @@ OEP-58: Translations Management
 Context
 *******
 
-There are problems with the current method of managing translations via the
-edx-transifex-bot. The edx-transifex-bot uses a soon to be deprecated (Nov 30, 2022)
-version of the Transifex API, and requires admin rights on Transifex in order to
-function. In addition, it is difficult to track why some PRs are merged by the bot, and
-some are not, and where the bot is creating and merging PRs. Most recently, it was
-discovered that the translations were not uploading properly but it has been impossible
-to debug exactly why. In the week before the Nutmeg release, this was a significant pain
-point.
+The current method of managing and organizing translations files is flawed,
+semi-unsupported, and confusing. For example: the edx-transifex-bot performs the
+automated upload/download of translation files to/from GitHub and Transifex. It uses a
+soon to be deprecated (Nov 30, 2022) version of the Transifex API and requires admin
+rights on Transifex in order to function. In addition because it runs on legacy
+infrastructure originally provided by a community member and is no longer supported, it
+is difficult to track why some PRs are merged by the bot, and some are not, and where the
+bot is creating and merging PRs. Most recently, it was discovered that the translations
+were not uploading properly but it has been impossible for most members of the Open edX
+community to debug exactly why. In the week before the Nutmeg release, this was a
+significant pain point.
 
 Decision
 ********
@@ -63,20 +66,22 @@ Current State
   files. At some point, the login to the edx-transifex-bot user was lost, and without
   access to the scripts that the bot uses to function, this edx-transifex-bot is a
   security issue we cannot control or debug.
-* Edx-transifex-bot is a black box: Login/scripts for edx-transifex-bot cannot be found
-  on GitHub or on wiki/secrets pages, and it is difficult to observe what work it is
-  supposed to do, or whether it is doing it correctly.
+* edx-transifex-bot is a black box for most of the community: the code for the
+  edx-transifex-bot is in the `ecommerce-scripts`_ repository but it is impossible for
+  most of the community to observe the work it is doing, or whether it is doing it
+  correctly.
 * The translations for the Open edX Maple Release were never uploaded to Transifex,
   because the automation handled by the edx-transifex-bot never uploaded it.
 * The underlying library and Transifex API (V2) are being deprecated. This has led to
   inconsistent behavior by our tooling when we try to automatically manage translations.
   See `this pull request`_ for more details.
 * We have a complex process for managing translations for the named releases. As a
-  result, the black box nature of the Transifex bot and the deprecation of the underlying
-  tooling, this has become more laborious to keep running. Especially because there are
-  few people with Admin rights to Transifex and knowledge of the Transifex API; this
-  could become a recurring problem with each Open edX release.
+  result, the black box nature of the edx-transifex-bot and the deprecation of the
+  underlying tooling, this has become more laborious to keep running. Especially because
+  there are few people with Admin rights to Transifex and knowledge of the Transifex API;
+  this could become a recurring problem with each Open edX release.
 
+.. _ecommerce-scripts: https://github.com/openedx/ecommerce-scripts/tree/master/transifex
 .. _this pull request: https://github.com/openedx/edx-platform/pull/30567
 
 Rationale for migrating to the `Transifex GitHub App`_
@@ -105,8 +110,8 @@ Rationale for consolidating translations files centrally
   need to maintain, we can add more content like the MFE translations.
 * A repository that only contains text/binary files, and uses branches to separate
   translations related to Open edX releases can make all interactions with translations
-  very quick and simple due to the ability to clone the branch of a specific release,
-  with translations organized by repository name.
+  very quick and simple due to the ability to clone and sparse-checkout the branch of a
+  specific release and the directory (repository name) with translation files.
 
 Proposed Implementation
 ***********************
@@ -128,7 +133,7 @@ Repositories that generate translation files will have their translation files g
 and committed via a pull request to the openedx-translation repository via a GitHub
 workflow. Once the translation files from edx-platform and other repositories are moved
 to the openedx-translations repository, the `Transifex GitHub App`_ will link a Transifex
-project of a name such as "Open edX Translations" to the openedx-translations repository.
+project of a name such as "openedx-translations" to the openedx-translations repository.
 A `Transifex GitHub Integration configuration file`_ naming the files that are to be
 translated and the trigger that pulls translation files back into will be created in the
 openedx/translations repository. This link will allow for the `Transifex GitHub App`_ to
@@ -178,10 +183,10 @@ A new python library, called openedx-atlas, will be created. This will enable th
 placement of the translation files kept in openedx-translations into locally cloned
 repositories for development and containers containing the code translation files are
 formed from. This tool will manage the placement of translation files through an editable
-atlas configuration file (atlas-config.yml) kept in the repositories that have
-translation files kept in openedx-translations. The atlas-config.yml file will support
+atlas configuration file (atlas.yml) kept in the repositories that have
+translation files kept in openedx-translations. The atlas.yml file will support
 options that allow for the concatenation, reorganization, and reformatting of translation
-files as they are copied to their locations amongst the code. The atlas-config.yml file
+files as they are copied to their locations amongst the code. The atlas.yml file
 will also support selecting which languages to be included in an Open edX deployment. The
 tool will have to be used/ran as part of the setup of a repository, whether for
 development or deployment.
@@ -234,12 +239,12 @@ Rejected Alternatives
 Rewriting the Current Tooling for the New API
 =============================================
 
-The source code for the edx-transifex-bot is missing. We could rewrite the current
-tooling to try to solve the problems encountered in the last two Open edX releases and
-upgrade to the new API, but this approach would require a full rewrite, potentially more
-expensive than doing the rewrite in a way that Transifex more cleanly supports. It should
-also be mentioned that GitHub discourages the use of bots and separate bot accounts; they
-strongly recommend using GitHub Apps.
+The source code for the edx-transifex-bot can be found in `ecommerce-scripts`_. We could
+rewrite the current tooling to try to solve the problems encountered in the last two Open
+edX releases and upgrade to the new API, but this approach is a patch-up job that will
+not address several other issues mentioned and would have to be undertaken by the
+community member with exclusive access to the legacy infrastructure currently running the
+edx-transifex-bot.
 
 Making a Transifex Project for Each Repository
 ==============================================
