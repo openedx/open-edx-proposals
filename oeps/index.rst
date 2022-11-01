@@ -63,11 +63,3 @@ is no clear code repository where they should reside.
    :caption: Architectural Decisions
 
    architectural-decisions/oep-*
-
-
-Indices and tables
-##################
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

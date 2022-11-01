@@ -328,7 +328,13 @@ be merged to capture a set of edits, and to make the proposal more visible to
 community comment. From that point, additional pull requests can be opened to
 edit the OEP, until it converges to being either "Accepted" or "Rejected".
 
-If an OEP has Draft or Under Review status and the PR is under review, you can either use the intended final status (e.g. Provisional, Accepted, etc.), or you can clarify both the current and intended status using something like the following: "Under Review (=> Provisional)". Either of these options is especially useful if the merged status is not intended to be Accepted.
+When an OEP PR calls for significant work after it merges, add a link named
+"Follow-up Work" to the References section of the OEP header. Use the linked
+page to keep readers up-to-date on the plan for completing and/or implementing
+the proposal. For OEPs merging with the status of Draft or Provisional,
+a Follow-up Work link is required.
+
+If an OEP has Draft or Under Review status and the PR is under review, you can either use the intended merged status (e.g. Provisional, Accepted, etc.), or you can clarify both the current and intended status using something like the following: "Under Review (=> Provisional)". Either of these options is especially useful if the merged status is not intended to be Accepted.
 
 OEP Maintenance
 ===============
@@ -437,20 +443,15 @@ to capture the decision(s), as deemed appropriate by the Authors and Arbiter.
 To help guide Authors, here are a few ready-made templates that are available
 for use:
 
-* :ref:`PEP-based template <pep_based_template>` based on Python's PEP_ standard.
-* :ref:`ADR-based template <adr_based_template>` based on `Architecture Decision Records`_.
-* :ref:`External link template <external_link_template>` for OEPs with mostly external content.
+* `PEP-based template`_ based on Python's PEP_ standard.
+* `ADR-based template`_ based on `Architecture Decision Records`_.
+* `External link template`_ for OEPs with mostly external content.
 
-..
-  Add a hidden toctree to indicate that these files are referenced from here in the overall
-  table of contents.
 
-.. toctree::
-    :hidden:
+.. _PEP-based template: https://github.com/openedx/open-edx-proposals/tree/master/oep-templates/pep-based-template.rst
+.. _ADR-based template: https://github.com/openedx/open-edx-proposals/tree/master/oep-templates/adr-based-template.rst
+.. _External link template: https://github.com/openedx/open-edx-proposals/tree/master/oep-templates/external-link-template.rst
 
-    oep-templates/pep-based-template.rst
-    oep-templates/adr-based-template.rst
-    oep-templates/external-link-template.rst
 
 OEP Header Preamble
 ===================
@@ -473,7 +474,7 @@ described below. All other rows are required.
 +-----------------+-------------------------------------------+
 | Status          | <Draft | Under Review | Deferred |        |
 |                 | Accepted | Rejected | Withdrawn |         |
-|                 | Final | Replaced>                         |
+|                 | Final | Replaced | Provisional >          |
 +-----------------+-------------------------------------------+
 | Type            | <Architecture | Best Practice | Process>  |
 +-----------------+-------------------------------------------+
@@ -550,6 +551,11 @@ at the top of the list.
 
 Change History
 **************
+
+2022-09-23
+==========
+* Move OEP templates to a top-level directory for better discoverability
+* `Pull request #382 <https://github.com/openedx/open-edx-proposals/pull/382>`_
 
 2022-06-22
 ==========
