@@ -26,7 +26,7 @@ xAPI includes a specification for a Learning Record Store (LRS), which encapsula
 .. image:: ./adaptive_learning_lrs_basic.png
    :alt: The diagram above is enhanced with a new LRS component that receives events from the Open edX "Eventing" component and is accessed by adaptive engines for training purposes, using xAPI for both transactions.
 
-In the short term, however, we will not implement our own LRS. We will look into integration efforts with third party LRS services.
+We will not implement our own LRS. We will look into integration efforts with third party LRS services.
 
 Statement API
 *************
