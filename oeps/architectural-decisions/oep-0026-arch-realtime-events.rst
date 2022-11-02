@@ -231,7 +231,7 @@ Eventually, the registry of consumers may become a self-service portal where con
 Decisions & Consequences
 ************************
 
-* **Event-driven APIs at Scale** - The Context_ section describes the motivation and recent use cases for supporting real-time events. This capability, along with Frontend Pluggability (OEP - TBD), has the potential to provide a dramatic shift in how external services can integrate and extend the Open edX system.
+* **Event-driven APIs at Scale** - The Context_ section describes the motivation and recent use cases for supporting real-time events. This capability has the potential to dramatically improve how external services can integrate and extend the Open edX platform.  Real-time events will provide a mechanism for loosely coupled integrations with a reliable, standardized contract.
 
   A big consideration and concern that is sorely missing from this version of the OEP is explicit recommendations on the infrastructure that will be used to support scalability. On one hand, the advantage is that this agnostic approach allows Open edX instances to reuse the core capabilities (and modular subcomponents) without being tied to a specific scalable technology. On the other hand, we run the risk of needing to reimplement initial implementations if a chosen technology's design is fundamentally counter to our choice of boundaries.
 
