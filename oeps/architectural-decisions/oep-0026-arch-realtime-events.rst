@@ -239,7 +239,7 @@ Decisions & Consequences
 
   For Enterprise and other use cases, sharing PII may be required. We have chosen to keep those use cases in mind, but not target them initially, with the understanding that future work would be needed to address those needs.
 
-* **Deferring implementation of an LRS** - As mentioned in :ref:`oep-26-lrs`, we are consciously postponing implementation of an Open edX specific LRS at this time. Although the need for an LRS may be forthcoming, this initial iteration defers this work.
+* **Implementation of an LRS is out of scope** - As mentioned in :ref:`oep-26-lrs`, creating an Open edX specific LRS is outside the scope of this OEP.  Choosing to build such an LRS would require a separate OEP given the significance such a decision would carry.
 
   As a consequence, adaptive engines may need to maintain their own LRS if they need to refer back to previous events. Given our business research to date, it seems many adaptive engines are already maintaining their own custom-optimized storage of event data.
 

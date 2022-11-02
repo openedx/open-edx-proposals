@@ -234,10 +234,3 @@ Event Field Mapping
 Please see the `Open edx xAPI Events`_ document for a detailed view of the mapping between the above Open edX events and their equivalent Open edX xAPI formats.
 
 .. _Open edx xAPI Events: https://docs.google.com/spreadsheets/d/1oTClCxuUj1vCzytbmjDaHWFmcI6JZDqqJtZmYVwnOTA/view
-
-Implementation Note
-===================
-
-TBD - The development team will assess whether we will use (and start owning) the already implemented (but no longer maintained) `xAPI Python Open Source Library`_.
-
-.. _xAPI Python Open Source Library: https://xapi.com/python-library/
