@@ -35,17 +35,15 @@ OEP-58: Translations Management
 Context
 *******
 
-The current method of managing and organizing translations files is flawed,
-semi-unsupported, and confusing. For example: the edx-transifex-bot performs the
-automated upload/download of translation files to/from GitHub and Transifex. It uses a
-soon to be deprecated (Nov 30, 2022) version of the Transifex API and requires admin
-rights on Transifex in order to function. In addition because it runs on legacy
-infrastructure originally provided by a community member and is no longer supported, it
-is difficult to track why some PRs are merged by the bot, and some are not, and where the
-bot is creating and merging PRs. Most recently, it was discovered that the translations
-were not uploading properly but it has been impossible for most members of the Open edX
-community to debug exactly why. In the week before the Nutmeg release, this was a
-significant pain point.
+The current method of managing and organizing translations files is overly complicated
+and unavailable to the majority of the Open edX community. For example: the
+edx-transifex-bot performs the automated upload of english translation source files to
+Transifex and download of translation files to GitHub. It currently runs on legacy
+infrastructure originally provided by a community member and is difficult to track why
+some PRs are merged by the bot, and some are not, and where the bot is creating and
+merging PRs. Most recently, it was discovered that the translations were not uploading
+properly but it has been impossible for most members of the Open edX community to debug
+exactly why. In the week before the Nutmeg release, this was a significant pain point.
 
 Decision
 ********
@@ -64,19 +62,20 @@ Current State
   rights on Transifex in order to function. Admin rights give access to private/sensitive
   information as well as the ability to permanently delete translation and configuration
   files. At some point, the login to the edx-transifex-bot user was lost, and without
-  access to the scripts that the bot uses to function, this edx-transifex-bot is a
-  security issue we cannot control or debug.
+  access to infrastructure that the bot uses to function, this edx-transifex-bot is a
+  security issue most of the Open edX community cannot control or debug.
 * edx-transifex-bot is a black box for most of the community: the code for the
   edx-transifex-bot is in the `ecommerce-scripts`_ repository but it is impossible for
   most of the community to observe the work it is doing, or whether it is doing it
-  correctly.
+  correctly. In addition, there is no documentation for these important scripts.
 * The translations for the Open edX Maple Release were never uploaded to Transifex,
   because the automation handled by the edx-transifex-bot never uploaded it.
-* The underlying library and Transifex API (V2) are being deprecated. This has led to
-  inconsistent behavior by our tooling when we try to automatically manage translations.
-  See `this pull request`_ for more details.
+* The underlying transifex-client library and Transifex API (V2) are being deprecated on
+  November 30th, 2022. Prior to removing the transifex-client as a dependency, this led
+  to inconsistent behavior by our tooling when we try to automatically manage
+  translations. See `this pull request`_ for more details.
 * We have a complex process for managing translations for the named releases. As a
-  result, the black box nature of the edx-transifex-bot and the deprecation of the
+  result, the black box nature of the edx-transifex-bot and the unclear state of the
   underlying tooling, this has become more laborious to keep running. Especially because
   there are few people with Admin rights to Transifex and knowledge of the Transifex API;
   this could become a recurring problem with each Open edX release.
