@@ -6,16 +6,18 @@
 #
 alabaster==0.7.12
     # via sphinx
-babel==2.10.3
+babel==2.11.0
     # via sphinx
+beautifulsoup4==4.11.1
+    # via pydata-sphinx-theme
 certifi==2022.9.24
     # via requests
 charset-normalizer==2.1.1
     # via requests
-docutils==0.19
-    # via sphinx
-edx-sphinx-theme==3.0.0
-    # via -r requirements/base.in
+docutils==0.17.1
+    # via
+    #   pydata-sphinx-theme
+    #   sphinx
 idna==3.4
     # via requests
 imagesize==1.4.1
@@ -27,24 +29,33 @@ jinja2==3.1.2
 markupsafe==2.1.1
     # via jinja2
 packaging==21.3
-    # via sphinx
+    # via
+    #   pydata-sphinx-theme
+    #   sphinx
+pydata-sphinx-theme==0.8.1
+    # via sphinx-book-theme
 pygments==2.13.0
     # via sphinx
 pyparsing==3.0.9
     # via packaging
-pytz==2022.5
+pytz==2022.6
     # via babel
+pyyaml==6.0
+    # via sphinx-book-theme
 requests==2.28.1
     # via sphinx
-six==1.16.0
-    # via edx-sphinx-theme
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==5.3.0
+soupsieve==2.3.2.post1
+    # via beautifulsoup4
+sphinx==4.5.0
     # via
     #   -r requirements/base.in
-    #   edx-sphinx-theme
+    #   pydata-sphinx-theme
+    #   sphinx-book-theme
     #   sphinx-copybutton
+sphinx-book-theme==0.3.3
+    # via -r requirements/base.in
 sphinx-copybutton==0.5.0
     # via -r requirements/base.in
 sphinxcontrib-applehelp==1.0.2
