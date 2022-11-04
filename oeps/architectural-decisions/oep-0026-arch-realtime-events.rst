@@ -163,9 +163,8 @@ Here is a description of each subcomponent in the Eventing subsystem:
 2. `Asynchronous Real-time Eventing Routing Backend`_: Asynchronously routes to each configured communication protocol (e.g., xAPI and Caliper).
 3. `Filter Processor`_: Owns the business logic for access control and filtering of events. A common implementation for the Filter may be shared across communication protocol backends.
 4. `Translator Processor`_: Translates Open edX native events to standardized Open edX events. Each communication protocol would have its own Translator component implementation.
-5. `Validator Processor`_: Validates the generated event using a general-purpose validation library cross-maintained by Open edX real-time eventing consumers. Each communication protocol would have its own Validator component implementation.
-6. `Router`_: Routes real-time translated, validated, filtered events to all registered consumers.
-7. `Admin UI`_: Provides an administrative interface to configure and manage registered consumers.
+5. `Router`_: Routes real-time translated, validated, filtered events to all registered consumers.
+6. `Admin UI`_: Provides an administrative interface to configure and manage registered consumers.
 
 Synchronous Real-time Eventing Backend
 --------------------------------------
