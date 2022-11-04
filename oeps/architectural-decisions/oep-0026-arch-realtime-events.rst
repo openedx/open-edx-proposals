@@ -139,7 +139,7 @@ For details on integrating with Caliper, please see the :ref:`caliper_realtime_e
 Anonymized User ID
 ==================
 
-Users will be identified to external systems using a UUID that is associated uniquely with a single user and the external system type with which the UUID can be shared.  This decision overrides :ref:`oep-32`. and is captured in `ADR 0001-externalid.rst`_
+Users will be identified to external systems using a UUID that is associated uniquely with a single user and the external system type with which the UUID can be shared.  This decision overrides :ref:`oep-32` and is captured in `ADR 0001-externalid.rst`_.
 
 .. _ADR 0001-externalid.rst: https://github.com/openedx/edx-platform/blob/e1c8fb51bec2be3aa8da9750cb52b01728d1a740/openedx/core/djangoapps/external_user_ids/docs/decisions/0001-externalid.rst
 
