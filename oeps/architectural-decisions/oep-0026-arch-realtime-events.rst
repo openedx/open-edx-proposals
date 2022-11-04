@@ -207,13 +207,6 @@ Each communication protocol has its own Translator component. This component is 
 
 .. _oep-26-validator:
 
-Validator Processor
--------------------
-
-The validation component ensures we continue to support the event output schema expected by all participating real-time eventing consumers. In many ways, this is similar to what `consumer-driven contract testing`_ would enable and uses similar design principles. Essentially, a common validation library can be collaboratively maintained by participating consumers, including consuming adaptive engines. This ensures an end-to-end integration that can be maintained going forward.
-
-.. _consumer-driven contract testing: https://www.thoughtworks.com/radar/techniques/consumer-driven-contract-testing
-
 Router
 ------
 
