@@ -9,7 +9,7 @@ OEP-58: Translations Management
    * - Title
      - Translations Management
    * - Last Modified
-     - 2022-09-26
+     - 2022-11-07
    * - Authors
      - 
        * Carlos Muniz <cmuniz@tcril.org>
@@ -24,7 +24,7 @@ OEP-58: Translations Management
    * - Created
      - 2022-08-08
    * - Review Period
-     - TBD
+     - 2022-11-07 - 2022-11-21
 ..    * - Resolution
 ..      - 
 
