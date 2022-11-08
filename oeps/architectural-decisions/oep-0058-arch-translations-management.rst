@@ -215,10 +215,11 @@ tooling.
 Impact on Developers
 ====================
 
-While it won’t directly impact the day-to-day workflow of developers, due to the same
-reasons that we impact site operators (new translations location), we will have to update
-development tools as well. In addition, we will create new instructions for developers on
-how to enable translations for a new service/repo when it comes online.
+While it won’t directly impact the day-to-day workflow of developers (unless you are
+developing or testing with translation files), due to the same reasons that we impact
+site operators (new translations location), we will have to update development tools as
+well. In addition, we will create new instructions for developers on how to enable
+translations for a new service/repo when it comes online.
 
 Locations
 *********
