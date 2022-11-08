@@ -229,7 +229,7 @@ repository named openedx/openedx-translations will be similarly structured, but 
 contain the translation files for all repositories within openedx. The
 `Transifex GitHub App`_ will be installed in the openedx organization. Similar to how the
 Build-Test-Release Working Group creates a new branch for each new named release of
-edx-platform, translation releases can also be kept in branches corresponding to
+edx-platform, translation releases will also be kept in branches corresponding to
 edx-platform releases.
 
 Rejected Alternatives
