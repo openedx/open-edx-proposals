@@ -1,7 +1,7 @@
 # Core requirements for using this application
 -c constraints.txt
 
-edx-sphinx-theme
 sphinx
+sphinx-book-theme
 sphinx-copybutton
 
