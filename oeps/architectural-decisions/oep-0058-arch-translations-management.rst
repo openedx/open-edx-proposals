@@ -37,7 +37,7 @@ Context
 
 The current method of managing and organizing translations files is overly complicated
 and unavailable to the majority of the Open edX community. For example: the
-edx-transifex-bot performs the automated upload of english translation source files to
+edx-transifex-bot performs the automated upload of English translation source files to
 Transifex and download of translation files to GitHub. It currently runs on legacy
 infrastructure originally provided by a community member and is difficult to track why
 some PRs are merged by the bot, and some are not, and where the bot is creating and
@@ -58,7 +58,7 @@ make organizing and using the up to date translations simpler.
 Current State
 *************
 
-* Edx-transifex-bot is a potential security issue: The edx-transifex-bot requires admin
+* edx-transifex-bot is a potential security issue: The edx-transifex-bot requires admin
   rights on Transifex in order to function. Admin rights give access to private/sensitive
   information as well as the ability to permanently delete translation and configuration
   files. At some point, the login to the edx-transifex-bot user was lost, and without
@@ -118,8 +118,8 @@ Proposed Implementation
 Move Translation Files to a New Repo
 ====================================
 
-Translation files (of types .mo and .po) currently exist amongst the code/documentation
-they translate. We will move these translation files from being amongst the
+Translation files (of types .mo, .po, and .json) currently exist amongst the code and
+documentation they translate. We will move these translation files from being amongst the
 code/documentation to their own repo. For example, a translation file for the openedx
 repository `edx-platform`_ located at
 ``edx-platform/conf/locale/en/LC_MESSAGES/django.po`` would be moved to the new
@@ -140,7 +140,7 @@ automatically manage the push/pull of the translation files without the need for
 intervention.
 
 .. _edx-platform: https://github.com/openedx/edx-platform
-.. _openedx-translations: https://github.com/openedx/openedx-translation
+.. _openedx-translations: https://github.com/openedx/openedx-translations
 
 Add `Transifex GitHub App`_ to openedx Organization
 ===================================================
@@ -209,7 +209,7 @@ place as the code, which has generally simplified the deployment story in the pa
 this change, the translations files will move to their own repository. As we deprecate
 the old translations files, the relevant deployment tooling will need to be updated to
 pull down the translations from the new repository as a part of the deployment process.
-This will impact both the old Ansible based tooling as well as any new docker based
+This will impact both the old Ansible based tooling as well as any new Docker based
 tooling.
 
 Impact on Developers
