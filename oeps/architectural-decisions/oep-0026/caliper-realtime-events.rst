@@ -10,9 +10,7 @@ Caliper Real-time Events
 Standardized Integration with Caliper
 *************************************
 
-Caliper is a standard that enables the collection, storage, and transport of data about learning. As a learning analytics framework, Caliper provides a common-gauge rail for disparate applications to use and share data from student interactions with learning software and administrative systems.
-
-We have chosen Caliper as one of the primary communication standards for real-time events since many universities and other educational organizations prefer to use tools that require Caliper compliant activity tracking events.
+Caliper Analtyics® is a specification defining "a structured approach to describing, collecting and exchanging learning activity data. Establishing a common vocabulary for describing learning interactions is a central objective. Promoting data interoperability, data sharing and data-informed decision making are also important goals."[#caliperDesignGoals]_  The standard has been described as "common-gauge rail for disparate applications to use and share data from student interactions with learning software and administrative systems."[#commonGaugeRail]_
 
 Caliper Learning Analytics Ecosystem
 ************************************
@@ -26,14 +24,11 @@ Sensor API
 
 `Sensor API`_ defines the basic learning events as well as standardizes and simplifies the gathering of learning metrics across the learning environments. These are used for marshaling and transmitting event data from instrumented applications to target endpoints for storage, analysis, and use.
 
-There is a `sensor API library for python`_ that we can use in our routers for generating and propagating events. At present, the Sensor API can only Write/Post data to repository endpoints and does not support reading data from a data repository.
-
 |sensorAPI|
 
 See `Sensor API <https://www.imsglobal.org/sensor-api>`__ for more information.
 
 .. _Sensor API: https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#sensor
-.. _sensor API library for python: https://github.com/IMSGlobal/caliper-python
 
 The Information Model
 *********************
@@ -208,7 +203,7 @@ Event Field Mapping
 Please see the `Open edX Caliper Events`_ document for a detailed view of the mapping between the above Open edX events and their equivalent Open edX Caliper formats.
 
 
-.. _Open edX Caliper Events: https://docs.google.com/spreadsheets/d/1MgHddOO6G33sSpknvYi-aXuLiBmuKTfHmESsXpIiuU8/view
+.. _Open edX Caliper Events: https://github.com/openedx/event-routing-backends/blob/d4cb7c1e2c1b5c80f807206cf47eb358f388627c/docs/event-mapping/Caliper_mapping.rst
 
 .. |ecosystem| image:: ./caliper_ecosystem.png
    :width: 6.5in
@@ -216,3 +211,6 @@ Please see the `Open edX Caliper Events`_ document for a detailed view of the ma
 .. |sensorAPI| image:: ./sensorAPI.png
    :width: 6.5in
    :height: 1.13889in
+
+.. [#caliperDesignGoals] Quoted from https://www.imsglobal.org/spec/caliper/v1p2#design-goals-and-rationale
+.. [#commonGaugeRail] Quoted from https://blackboard.secure.force.com/btbb_exportarticlepdf?id=kAE1O000000Xe3LWAS&pdf=true

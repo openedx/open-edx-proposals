@@ -9,9 +9,10 @@ OEP-26: Real-time Events
 | Last Modified   | 2019-01-16                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Nimisha Asthagiri <nimisha@edx.org>,                   |
-|                 | Danial Malik <danial.malik@edly.io>                    |
+|                 | Danial Malik <danial.malik@edly.io>,                   |
+|                 | Ed Zarecor <ed@tcril.org>                              |
 +-----------------+--------------------------------------------------------+
-| Arbiter         | Ed Zarecor <ed@tcril.org>                              |
+| Arbiter         | Brian Mesick <bmesick@tcril.org>                       |
 +-----------------+--------------------------------------------------------+
 | Status          | Provisional                                            |
 +-----------------+--------------------------------------------------------+
@@ -33,7 +34,7 @@ Currently, the Open edX system captures LMS interactions in persisted event stre
 
 Of late, there are emerging use cases that require notifying external systems of these LMS events in real-time, preferably in industry standard formats (such as xAPI_ and Caliper_). By **real-time** events, we mean pushing data as fast as possible in an automated and synchronous communication at a speed within a few hundred milliseconds (to satisfy `human perception`_). Use cases, such as Adaptive Learning, do require this sub-second communication time. For other use cases, however, **near-real-time** communication (with a delay of multiple minutes) is sufficient. Unless explicitly called out in the document, near-real-time is included when we refer to real-time. Both are orders of magnitude faster than the current **batch processing** available via the tracking logs.
 
-A transition to real-time events is a natural evolution of Open edX's eventing and API capabilities and its impact on connecting users, organizations, and learning services. In fact, `Gartner reports`_ that by 2020 50% of managed APIs in the industry will be event-driven APIs as necessary supplements to RESTful extensions.
+This OEP proposes an evolutionary change to Open edX's eventing system that will enable near realtime event-based feedback loops.  Events have the potential to connect users, organizations, and learning services in ways that enrich learning on the platform. 
 
 This document describes a design proposal for supporting standard real-time events in the Open edX system.
 
@@ -54,14 +55,14 @@ Use Case: Adaptive Learning
 
 **Requirement:** Real-time communications (*sub-second*)
 
-As captured in `Open edX Adaptive Learning`_, adaptive learning in Open edX will enable the platform to respond to a learner's interactions in real-time,  automatically providing the learner with individualized support. Data analysis from earlier experimental attempts on edX.org and elsewhere show how adaptive learning mechanisms can significantly improve the learner's efficiency, engagement, and retention, while providing a more effective learning experience with metacognitive support for life-long learning.
+As captured in `Open edX Adaptive Learning`_, adaptive learning in Open edX will enable the platform to respond to a learner's interactions in real-time,  automatically providing the learner with individualized support. Data analysis from earlier experimental attempts on edx.org and elsewhere show how adaptive learning mechanisms can significantly improve the learner's efficiency, engagement, and retention, while providing a more effective learning experience with metacognitive support for life-long learning.
 
 .. _Open edX Adaptive Learning: https://openedx.atlassian.net/wiki/spaces/AC/pages/542343170/Adaptive+Learning
 
 Integration with Adaptive Engines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As an iterative path to this future, the immediate goal is to enable integrations with external adaptive engines. In the far future, we may also implement our own open-sourced adaptive engines. But in the meantime, we would like to establish standard APIs that (1) adaptive engines can use to receive real-time events from the Open edX LMS, (2) the Open edX LMS can use to query adaptive engines on what to present to learners, and (3) train adaptive engines based on standard
+As an iterative path to this future, the immediate goal is to enable integrations with external adaptive engines. Currently we are focused on establishing standard APIs that (1) adaptive engines can use to receive real-time events from the Open edX LMS, (2) the Open edX LMS can use to query adaptive engines on what to present to learners, and (3) train adaptive engines based on standard
 events collected from multiple sources. This document focuses on #1 with the need to send scalable and real-time updates to adaptive engines. This is depicted by the left-hand flow in the diagram below. #3 is described in :ref:`oep-26-lrs`.
 
 .. image:: oep-0026/adaptive_learning_lms_basic.png
@@ -138,7 +139,10 @@ For details on integrating with Caliper, please see the :ref:`caliper_realtime_e
 Anonymized User ID
 ==================
 
-The *LMS user_id* will be used to uniquely identify a user in the Open edX system. This decision is detailed in :ref:`oep-32`.
+Users will be identified to external systems using a UUID that is associated uniquely with a single user and the external system type with which the UUID can be shared.  This decision overrides :ref:`oep-32` and is captured in `ADR 0001-externalid.rst`_.
+
+.. _ADR 0001-externalid.rst: https://github.com/openedx/edx-platform/blob/e1c8fb51bec2be3aa8da9750cb52b01728d1a740/openedx/core/djangoapps/external_user_ids/docs/decisions/0001-externalid.rst
+
 
 Eventing Components
 ===================
@@ -159,9 +163,8 @@ Here is a description of each subcomponent in the Eventing subsystem:
 2. `Asynchronous Real-time Eventing Routing Backend`_: Asynchronously routes to each configured communication protocol (e.g., xAPI and Caliper).
 3. `Filter Processor`_: Owns the business logic for access control and filtering of events. A common implementation for the Filter may be shared across communication protocol backends.
 4. `Translator Processor`_: Translates Open edX native events to standardized Open edX events. Each communication protocol would have its own Translator component implementation.
-5. `Validator Processor`_: Validates the generated event using a general-purpose validation library cross-maintained by Open edX real-time eventing consumers. Each communication protocol would have its own Validator component implementation.
-6. `Router`_: Routes real-time translated, validated, filtered events to all registered consumers.
-7. `Admin UI`_: Provides an administrative interface to configure and manage registered consumers.
+5. `Router`_: Routes real-time translated, validated, filtered events to all registered consumers.
+6. `Admin UI`_: Provides an administrative interface to configure and manage registered consumers.
 
 Synchronous Real-time Eventing Backend
 --------------------------------------
@@ -203,13 +206,6 @@ Each communication protocol has its own Translator component. This component is 
 
 .. _oep-26-validator:
 
-Validator Processor
--------------------
-
-The validation component ensures we continue to support the event output schema expected by all participating real-time eventing consumers. In many ways, this is similar to what `consumer-driven contract testing`_ would enable and uses similar design principles. Essentially, a common validation library can be collaboratively maintained by participating consumers, including consuming adaptive engines. This ensures an end-to-end integration that can be maintained going forward.
-
-.. _consumer-driven contract testing: https://www.thoughtworks.com/radar/techniques/consumer-driven-contract-testing
-
 Router
 ------
 
@@ -227,7 +223,7 @@ Eventually, the registry of consumers may become a self-service portal where con
 Decisions & Consequences
 ************************
 
-* **Event-driven APIs at Scale** - The Context_ section describes the motivation and recent use cases for supporting real-time events. This capability, along with Frontend Pluggability (OEP - TBD), has the potential to provide a dramatic shift in how external services can integrate and extend the Open edX system.
+* **Event-driven APIs at Scale** - The Context_ section describes the motivation and recent use cases for supporting real-time events. This capability has the potential to dramatically improve how external services can integrate and extend the Open edX platform.  Real-time events will provide a mechanism for loosely coupled integrations with a reliable, standardized contract.
 
   A big consideration and concern that is sorely missing from this version of the OEP is explicit recommendations on the infrastructure that will be used to support scalability. On one hand, the advantage is that this agnostic approach allows Open edX instances to reuse the core capabilities (and modular subcomponents) without being tied to a specific scalable technology. On the other hand, we run the risk of needing to reimplement initial implementations if a chosen technology's design is fundamentally counter to our choice of boundaries.
 
@@ -235,7 +231,7 @@ Decisions & Consequences
 
   For Enterprise and other use cases, sharing PII may be required. We have chosen to keep those use cases in mind, but not target them initially, with the understanding that future work would be needed to address those needs.
 
-* **Deferring implementation of an LRS** - As mentioned in :ref:`oep-26-lrs`, we are consciously postponing implementation of an Open edX specific LRS at this time. Although the need for an LRS may be forthcoming, this initial iteration defers this work.
+* **Implementation of an LRS is out of scope** - As mentioned in :ref:`oep-26-lrs`, creating an Open edX specific LRS not planned.
 
   As a consequence, adaptive engines may need to maintain their own LRS if they need to refer back to previous events. Given our business research to date, it seems many adaptive engines are already maintaining their own custom-optimized storage of event data.
 
