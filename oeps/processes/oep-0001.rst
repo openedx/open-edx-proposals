@@ -552,6 +552,13 @@ at the top of the list.
 Change History
 **************
 
+2022-10-05
+==========
+* Require OEPs merged as "Draft" or "Provisional" to provide a reference for 
+  "Follow Up Work" with a link to a rollout doc, follow up PR, or similar.
+* `Pull request #387 <https://github.com/openedx/open-edx-proposals/pull/387>`_
+* `Pull request #391 <https://github.com/openedx/open-edx-proposals/pull/391>`_
+
 2022-09-23
 ==========
 * Move OEP templates to a top-level directory for better discoverability
