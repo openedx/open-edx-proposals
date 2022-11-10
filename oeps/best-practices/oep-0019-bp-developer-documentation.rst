@@ -35,7 +35,7 @@ Context
 
 Developers who work on the Open edX platform, both inside and outside of edX, need accurate and current documentation about platform architecture, APIs, and development best practices.
 
-**Developer documentation** is defined as written specification, instructions, and resources for software developers who extend and contribute to the Open edX platform. It does not include documentation resources targeted for edX learners, educators, researchers, and Open edX operators. Those are out of scope of this OEP and maintained at docs.edx.org_.
+**Developer documentation** is defined as written specification, instructions, and resources for software developers who extend and contribute to the Open edX platform. It does not include documentation resources targeted for edX learners, educators, researchers, and Open edX operators. Those are out of scope of this OEP and maintained at docs.openedx.org_.
 
 Developer documentation is inconsistent and poorly maintained. Documents are also difficult to find. They exist in multiple locations, including `Read the Docs`_, GitHub_ repositories, Confluence_ wiki, and `Google Docs`_.
 
@@ -58,9 +58,7 @@ Decisions
 
   * When we need to embed active react components in the documentation to document frontend capabilities, `MDX`_ should be used.
 
-* The repo `edx-developer-docs`_ will contain the main index for all repo specific and system wide developer docs.
-
-* The `Developer Docs`_ section of docs.edx.org will link to the published version of `edx-developer-docs`_.
+* The `developer section`_ of docs.openedx.org will contain the main index for all repo specific and system wide developer docs.
 
 * System wide decisions, best practices and processes will live in the `open-edx-proposals`_ repository.
 
@@ -68,9 +66,8 @@ Decisions
 
 * edX Inc. specific documentation such as notes, agile meeting artifacts, and documentation of edX specific process and decisions will live in `Confluence`_.
 
+.. _developer section: https://docs.openedx.org/en/latest/developers
 .. _open-edx-proposals: https://github.com/openedx/open-edx-proposals
-.. _edx-developer-docs: https://github.com/openedx/edx-developer-docs
-.. _Developer Docs: https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/
 .. _Open API: https://www.openapis.org/
 .. _MDX: https://mdxjs.com/
 
@@ -286,9 +283,9 @@ This section summarizes the requirements for long-term developer documentation.
 
   * **Index**. In the future, we will invest time in a better automated indexing tool to aggregate and structure the documentation. For the time being, we will manually create and maintain documentation indices at:
 
-    * edx-developer-docs_ will include the landing page for developer documentation and be a container of orphaned and cross-repo developer documentation.
+    * The `developer section`_ will include the landing page for developer documentation and be a container of orphaned and cross-repo developer documentation.
 
-    * docs.edx.org_ will be the main landing page for *all* Open edX documentation, including a link to the developer documentation index listed above.
+    * docs.openedx.org_ will be the main landing page for *all* Open edX documentation, including a link to the developer documentation index listed above.
 
 * **Maintainable**. Writers, editors, and reviewers must be able to create and modify documentation without too much effort.
 
@@ -303,7 +300,7 @@ This section summarizes the requirements for long-term developer documentation.
     * For system-wide documentation:
 
       * OEPs_ will live within the open-edx-proposals_ repo.
-      * If other system-wide documentation is needed, they will live within the edx-developer-docs_ repo.
+      * If other system-wide documentation is needed, they will live within the developer section of the `docs.openedx.org repo`.
 
   * **Exported Diagrams**. In order to keep diagrams updated across time, they will need to be exported from whichever tool they were created in, with the exported version maintained in GitHub.
 
@@ -318,8 +315,8 @@ This section summarizes the requirements for long-term developer documentation.
 
   * **Source Controlled**. They will have the advantages of having source-control backed files, including sharing across multiple developers and robust storage.
 
-.. _edx-developer-docs: https://github.com/openedx/edx-developer-docs
-.. _docs.edx.org: https://docs.edx.org/
+.. _docs.openedx.org repo: https://github.com/openedx/docs.openedx.org
+.. _docs.openedx.org: https://docs.openedx.org/
 
 Format Rationale
 ================
@@ -461,15 +458,22 @@ Next Steps
 **********
 
 * **Publishing**: The intention is to have all rST documents published to `Read the Docs`_.
-* **Validation**: The intention is to have all rST document changes in all repositories automatically validated as part of the Continuous Integration quality tests for any PR. See the edx-developer-docs_ repo or the cookiecutter-django-app_ repo for examples.
+* **Validation**: The intention is to have all rST document changes in all repositories automatically validated as part of the Continuous Integration quality tests for any PR. See the edx-cookiecutters_ repo for examples.
 
-.. _cookiecutter-django-app: https://github.com/edx-unsupported/cookiecutter-django-app
+.. _edx-cookiecutters: https://github.com/openedx/edx-cookiecutters
 
 .. image:: oep-0019/quill.png
    :align: center
 
 Change History
 ==============
+
+2022-11-10
+----------
+
+* Remove references to the deprecated edx-developer docs.
+* Also update references to docs.edx.org to docs.openedx.org.
+* `Pull request #411 <https://github.com/openedx/open-edx-proposals/pull/411>`_
 
 2022-09-22
 ----------
