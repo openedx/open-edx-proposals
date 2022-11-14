@@ -12,7 +12,7 @@ OEP-23: Style Customization
 +-----------------+--------------------------------------------------------+
 | Arbiter         | Bill Filler <bfiller@edx.org>                          |
 +-----------------+--------------------------------------------------------+
-| Status          | Provisional                                            |
+| Status          | Replaced                                               |
 +-----------------+--------------------------------------------------------+
 | Type            | Architecture                                           |
 +-----------------+--------------------------------------------------------+
@@ -206,3 +206,8 @@ References
 
 8. edx-bootstrap edx theme
       https://github.com/openedx/edx-bootstrap/tree/v1.0.3/sass
+
+Change History
+**************
+
+2022-10-27: Marked this OEP as Replaced since OEP-48 serves as a continuation of this work and has now reached Accepted status.
