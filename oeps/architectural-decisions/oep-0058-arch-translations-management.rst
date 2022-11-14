@@ -25,6 +25,8 @@ OEP-58: Translations Management
      - 2022-08-08
    * - Review Period
      - 2022-11-07 - 2022-11-21
+   * - References
+     - `Follow-up Work <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3578494977/Translations+Management+Design+Implementation>`_
 ..    * - Resolution
 ..      - 
 
