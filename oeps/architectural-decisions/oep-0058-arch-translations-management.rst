@@ -18,7 +18,7 @@ OEP-58: Translations Management
    * - Arbiter
      - Ned Batchelder <ned@edx.org>
    * - Status
-     - Under Review
+     - Under Review (=> Provisional)
    * - Type
      - Architecture Decision
    * - Created
@@ -52,10 +52,10 @@ Decision
 
 To alleviate these issues, we will switch from using the edx-transifex-bot to the
 `Transifex GitHub App`_, a stable app provided by Transifex. Benefits of this change
-include being easier to maintain and solving a lot of the pain points detailed below. As
-part of this proposal, we suggest moving translations into their own repository, to make
-using the `Transifex GitHub App`_ more streamlined and straightforward, and in order to
-make organizing and using the up to date translations simpler.
+include being easier to maintain and solving a lot of the pain points detailed below. In
+addition, translation files will be moved into their own repository. This will make using
+the `Transifex GitHub App`_ more streamlined and straightforward, and facilitate the
+organization of translation files on Transifex.
 
 Current State
 *************
