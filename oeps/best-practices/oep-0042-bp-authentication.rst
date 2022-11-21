@@ -35,7 +35,7 @@ Summary
 * Authentication is provided by an OAuth 2.0 implementation using `JSON Web Tokens (JWTs)`_ as OAuth tokens.
 * The LMS will be the single Identity Provider and will provide only asymmetrically signed JWTs.
 * JWTs can be sent via a request header, or using JWT Cookies for use with microfrontends.
-* At this time, mobile authentication continues to use (non-JWT) Bearer Authentication.
+* Mobile authentication uses JWT Authentication.
 * Open edX supports social and other third-party authentication.
 
 **Useful tools:**
@@ -176,10 +176,7 @@ This section refers to Bearer Tokens as documented in `OAuth 2.0 RFC: Bearer Tok
 
 In this section, Bearer Tokens refers to tokens sent with "Bearer" in the Authorization request header. In contrast, our JWTs are sent using "JWT" in the Authorization request header. Note that the `Authorization request header`_ contains the credentials used to *authenticate* a user, even though it uses the term *authorization*.
 
-
-Currently, only the mobile applications (iOS and Android) continue to use Bearer Tokens. In this method, the LMS issues a token to the mobile apps and the mobile apps include this token in their header when hitting IDA endpoints. The IDAs verify the token and either service or reject the request, based on the token validity. Also see a more detailed explanation of `oAuth2 and Mobile`_.
-
-All other usage of Bearer Tokens in Open edX has been deprecated. Mobile applications may one day move to JWTs as well, but that is a larger effort.
+All usage of Bearer tokens in Open edX has been deprecated. For mobile applications, see a more detailed explanation in `oAuth2 and Mobile`_.
 
 .. _`OAuth 2.0 RFC: Bearer Token Usage`: https://tools.ietf.org/html/rfc6750
 .. _Authorization request header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization
@@ -230,7 +227,7 @@ The following are all DRF Authentication classes.
    * - `SessionAuthentication`_ (django-rest-framework)
      - Supported
    * - `BearerAuthentication`_ (edx-drf-extensions)
-     - Deprecated, except mobile
+     - Deprecated
    * - `BasicAuthentication`_ (django-rest-framework)
      - * Exceptions Only
        * Requires an :ref:`Architecture Decision Record (ADR)` explaining why it is required.
