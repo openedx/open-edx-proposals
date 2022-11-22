@@ -9,7 +9,7 @@ OEP-58: Translations Management
    * - Title
      - Translations Management
    * - Last Modified
-     - 2022-11-07
+     - 2022-11-22
    * - Authors
      - 
        * Carlos Muniz <cmuniz@tcril.org>
@@ -18,7 +18,7 @@ OEP-58: Translations Management
    * - Arbiter
      - Ned Batchelder <ned@edx.org>
    * - Status
-     - Under Review (=> Provisional)
+     - Provisional
    * - Type
      - Architecture Decision
    * - Created
@@ -27,15 +27,24 @@ OEP-58: Translations Management
      - 2022-11-07 - 2022-11-21
    * - References
      - `Follow-up Work <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3578494977/Translations+Management+Design+Implementation>`_
-..    * - Resolution
-..      - 
 
 .. contents::
   :local:
   :depth: 1
 
-Context
-*******
+Abstract
+********
+
+We will switch from using the edx-transifex-bot to the `Transifex GitHub App`_, a stable
+app provided by Transifex. Benefits of this change include being easier to maintain and
+solving a lot of the pain points detailed below. In addition, translation files will be
+moved into their own repository. This will make using the `Transifex GitHub App`_ more
+streamlined and straightforward, and facilitate the organization of translation files on
+Transifex. A CLI tool will be developed to move translation files from the repository
+that contains them to where they are needed for development or deployment.
+
+Motivation
+**********
 
 The current method of managing and organizing translations files is overly complicated
 and unavailable to the majority of the Open edX community. For example: the
@@ -47,18 +56,8 @@ merging PRs. Most recently, it was discovered that the translations were not upl
 properly but it has been impossible for most members of the Open edX community to debug
 exactly why. In the week before the Nutmeg release, this was a significant pain point.
 
-Decision
-********
-
-To alleviate these issues, we will switch from using the edx-transifex-bot to the
-`Transifex GitHub App`_, a stable app provided by Transifex. Benefits of this change
-include being easier to maintain and solving a lot of the pain points detailed below. In
-addition, translation files will be moved into their own repository. This will make using
-the `Transifex GitHub App`_ more streamlined and straightforward, and facilitate the
-organization of translation files on Transifex.
-
 Current State
-*************
+=============
 
 * edx-transifex-bot is a potential security issue: The edx-transifex-bot requires admin
   rights on Transifex in order to function. Admin rights give access to private/sensitive
@@ -82,11 +81,8 @@ Current State
   there are few people with Admin rights to Transifex and knowledge of the Transifex API;
   this could become a recurring problem with each Open edX release.
 
-.. _ecommerce-scripts: https://github.com/openedx/ecommerce-scripts/tree/master/transifex
-.. _this pull request: https://github.com/openedx/edx-platform/pull/30567
-
 Rationale for migrating to the `Transifex GitHub App`_
-******************************************************
+======================================================
 
 * This is an upgrade of a system we use regularly, but do not want to have to maintain
   regularly.
@@ -99,9 +95,11 @@ Rationale for migrating to the `Transifex GitHub App`_
 * By using an app that is maintained by Transifex the organization, we reduce the
   maintenance burden and are more future proof of changes they might make since they
   maintain both the API and the `Transifex GitHub App`_.
+* Transifex has a very robust notification system, and errors occurring there will notify
+  the Transifex Admins and the Translation Working Group.
 
 Rationale for consolidating translations files centrally
-********************************************************
+========================================================
 
 * Transifex only allows a one-to-one relationship between repositories and Transifex
   Projects. Organizing all of the translation files into one repository and one Transifex
@@ -114,8 +112,8 @@ Rationale for consolidating translations files centrally
   very quick and simple due to the ability to clone and sparse-checkout the branch of a
   specific release and the directory (repository name) with translation files.
 
-Proposed Implementation
-***********************
+Specification
+*************
 
 Move Translation Files to a New Repo
 ====================================
@@ -133,16 +131,13 @@ code/documentation they translate.
 Repositories that generate translation files will have their translation files generated
 and committed via a pull request to the openedx-translation repository via a GitHub
 workflow. Once the translation files from edx-platform and other repositories are moved
-to the openedx-translations repository, the `Transifex GitHub App`_ will link a Transifex
-project of a name such as "openedx-translations" to the openedx-translations repository.
+to the `openedx-translations`_ repository, the `Transifex GitHub App`_ will link a Transifex
+project of a name such as "openedx-translations" to the `openedx-translations`_ repository.
 A `Transifex GitHub Integration configuration file`_ naming the files that are to be
 translated and the trigger that pulls translation files back into will be created in the
 openedx/translations repository. This link will allow for the `Transifex GitHub App`_ to
 automatically manage the push/pull of the translation files without the need for human
 intervention.
-
-.. _edx-platform: https://github.com/openedx/edx-platform
-.. _openedx-translations: https://github.com/openedx/openedx-translations
 
 Add `Transifex GitHub App`_ to openedx Organization
 ===================================================
@@ -180,20 +175,22 @@ help translate similar strings across the entire code/documentation base.
 Get Translations Back for Deployment/Development
 ================================================
 
-A new python library, called openedx-atlas, will be created. This will enable the
-placement of the translation files kept in openedx-translations into locally cloned
-repositories for development and containers containing the code translation files are
-formed from. This tool will manage the placement of translation files through an editable
-atlas configuration file (atlas.yml) kept in the repositories that have
-translation files kept in openedx-translations. The atlas.yml file will support
-options that allow for the concatenation, reorganization, and reformatting of translation
-files as they are copied to their locations amongst the code. The atlas.yml file
-will also support selecting which languages to be included in an Open edX deployment. The
-tool will have to be used/ran as part of the setup of a repository, whether for
-development or deployment.
+A new CLI tool called `openedx-atlas`_ will be created to enable the placement of the
+translation files kept in `openedx-translations`_ into locally cloned repositories for
+development and containers containing the code translation files are formed from. This
+tool will manage the placement of translation files through an editable atlas
+configuration file (atlas.yml) kept in the repositories that have translation files kept
+in openedx-translations. The atlas.yml file will support options that allow for the
+concatenation, reorganization, and reformatting of translation files as they are copied
+to their locations amongst the code. The atlas.yml file will also support selecting which
+languages to be included in an Open edX deployment. The tool will have to be used/ran as
+part of the setup of a repository, whether for development or deployment. The
+`openedx-atlas`_ tool can also be run without configuration files through CLI parameters
+that override atlas.yml. This tool is still in development, and while the language the
+tool is written in may change, the commands and purpose will not change.
 
-Impacts
-*******
+Impact
+******
 
 Impact on Translators
 =====================
@@ -221,19 +218,23 @@ While it won’t directly impact the day-to-day workflow of developers (unless y
 developing or testing with translation files), due to the same reasons that we impact
 site operators (new translations location), we will have to update development tools as
 well. In addition, we will create new instructions for developers on how to enable
-translations for a new service/repo when it comes online.
+translations for a new service/repo when it comes online. Information about the use of
+the `openedx-atlas`_ CLI tool will also be added to READMEs and Makefiles as necessary.
 
 Locations
-*********
+=========
 
-Dumps of the translation/localization files from Transifex for the Open edX Release
-project already exist in a repository with the name of openedx/openedx-i18n. A new
-repository named openedx/openedx-translations will be similarly structured, but it will
-contain the translation files for all repositories within openedx. The
-`Transifex GitHub App`_ will be installed in the openedx organization. Similar to how the
-Build-Test-Release Working Group creates a new branch for each new named release of
-edx-platform, translation releases will also be kept in branches corresponding to
-edx-platform releases.
+Dumps of the translation/localization files from Transifex for the Open edX Releases
+already exist in the repository `openedx-i18n`_. A new repository named
+`openedx-translations`_ will have a similar role, but it will contain the translation
+files for all languages and for all repositories within the GitHub openedx organization.
+This OEP will deprecate `openedx-i18n`_ since it will contain strings for all languages,
+repositories, and will follow the regular minor/major release schedule.
+
+The `Transifex GitHub App`_ will be installed in the openedx organization.
+Similar to how the Build-Test-Release Working Group creates a new branch for each new
+named release of edx-platform, translation releases will also be kept in branches
+corresponding to edx-platform releases.
 
 Rejected Alternatives
 *********************
@@ -252,14 +253,22 @@ Making a Transifex Project for Each Repository
 ==============================================
 
 As translation support is provided for more repos, the effort to maintain the
-translations infrastructure increases. A Transifex Project houses the content to be
+translations infrastructure increases. A Transifex Project contains the content to be
 translated and needs to be created before any content can be added for translation.
 Transifex Projects can only support one GitHub repository each and need to be maintained
 separately. Maintaining a Transifex Project involves adjusting configuration files,
-adding new languages, assigning translators to projects, or any other miscellaneous
-irregular tasks that would be time-consuming at a larger scale. If we add a Transifex
-Project, each Transifex Project will need to be maintained separately, making debugging
-issues or tracking the progress of each Transifex Project time-consuming.
+adding new languages, assigning translators to projects, as well as any other
+miscellaneous irregular tasks that would be time-consuming at a larger scale. If we add a
+Transifex Project, each Transifex Project will need to be maintained separately, making
+debugging issues or tracking the progress of each Transifex Project time-consuming. In
+addition, the Transifex editor does not support editing strings across multiple projects
+making it extremely time consuming for users to translate strings from many projects.
 
+.. _ecommerce-scripts: https://github.com/openedx/ecommerce-scripts/tree/master/transifex
+.. _edx-platform: https://github.com/openedx/edx-platform
+.. _openedx-atlas: https://github.com/openedx/openedx-atlas
+.. _openedx-i18n: https://github.com/openedx/openedx-i18n
+.. _openedx-translations: https://github.com/openedx/openedx-translations
+.. _this pull request: https://github.com/openedx/edx-platform/pull/30567
 .. _Transifex GitHub App: https://github.com/apps/transifex-integration
 .. _Transifex GitHub Integration configuration file: https://docs.transifex.com/transifex-github-integrations/github-tx-ui#linking-a-specific-project-with-a-github-repository
