@@ -15,7 +15,7 @@ OEP-48: Brand Customization
    * - Arbiter
      - Kshitij Sobti <kshitij@opencraft.com>
    * - Status
-     - Provisional
+     - Accepted
    * - Type
      - Architecture
    * - Created
@@ -84,3 +84,8 @@ References
 **********
 
 See `npm cli documentation <https://docs.npmjs.com/cli-commands/install.html>`_ for further information about npm aliases.
+
+Change History
+**************
+
+2022-10-27: Marked this OEP as Accepted since the recommendations are already widely in use across the platform.
