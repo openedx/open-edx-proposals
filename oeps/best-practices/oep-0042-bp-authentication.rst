@@ -283,3 +283,9 @@ References
 * `Architectural Decision Records (ADRs)`_
 
 .. _Architectural Decision Records (ADRs): https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#adrs
+
+
+Change History
+**************
+
+2022-11-23: Update for use of JWT in mobile applications
