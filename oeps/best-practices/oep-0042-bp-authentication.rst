@@ -169,20 +169,18 @@ Implementation of all the OAuth2/JWT APIs supported by DOT in the LMS Identity P
 .. _oauth_dispatch as router ADR: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0004-oauth-dispatch-as-router.rst#L33
 
 
-OAuth2, Bearer Tokens and JWT
+OAuth2 and Bearer Tokens
 ========================
 
 This section refers to Bearer Tokens as documented in `OAuth 2.0 RFC: Bearer Token Usage`_.
 
 In this section, Bearer Tokens refers to tokens sent with "Bearer" in the Authorization request header. In contrast, our JWTs are sent using "JWT" in the Authorization request header. Note that the `Authorization request header`_ contains the credentials used to *authenticate* a user, even though it uses the term *authorization*.
 
-Currently, mobile applications use JWT tokens to call edx server endpoints. JWT tokens are created from OAuth2 access tokens in the API's /oauth2/access_token/ and /oauth2/exchange_access_token/ when parameter token_type=JWT is passed in the POST request payload.
-
-All usage of Bearer tokens in Open edX has been deprecated. For mobile applications, see a more detailed explanation in `oAuth2, JWT and Mobile`_.
+All usage of Bearer tokens in Open edX has been deprecated. For mobile applications, see a more detailed explanation in `oAuth2 and Mobile`_.
 
 .. _`OAuth 2.0 RFC: Bearer Token Usage`: https://tools.ietf.org/html/rfc6750
 .. _Authorization request header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization
-.. _oAuth2, JWT and Mobile: https://openedx.atlassian.net/wiki/spaces/AC/pages/42599769/OAuth2+JWT+and+Mobile
+.. _oAuth2 and Mobile: https://openedx.atlassian.net/wiki/spaces/AC/pages/42599769/OAuth2+and+Mobile
 
 OAuth2 Token Security
 =====================
