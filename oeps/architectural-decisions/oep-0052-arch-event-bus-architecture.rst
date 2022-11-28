@@ -17,13 +17,13 @@ OEP-52: Event Bus Architecture
    * - Arbiter
      - Tobias Macey <tmacey@mit.edu>
    * - Status
-     - Provisional
+     - Accepted
    * - Type
      - Architecture
    * - Created
      - 2021-08-16
    * - Review Period
-     - 2022-06-09 - 2022-06-30
+     - 2022-11-09 - 2022-06-30
 
 Overview
 ********
@@ -54,9 +54,8 @@ The already accepted :doc:`oep-0041-arch-async-server-event-messaging` details t
 * Flexibly integrate with event producers.
 * Simplify integration to external systems.
 
-However, this earlier OEP explicitly leaves out of scope the specific transport and libraries used for this messaging. At this time, the Open edX platform still lacks a reliable way to send events to multiple consumers across services, following the publish-subscribe (pub/sub) messaging pattern.
+However, this earlier OEP explicitly leaves out of scope the specific transport and libraries used for this messaging. At the time, the Open edX platform lacked a reliable way to send events to multiple consumers across services, following the `publish-subscribe messaging pattern`_ (pub/sub).
 
-In other words, we have documented what we wish to do and why, but we do not yet fully have the capability to do it. We are missing a reliable event messaging infrastructure with `publish-subscribe messaging pattern`_ (pub/sub) capabilities.
 
 .. _Architecture Manifesto: https://openedx.atlassian.net/wiki/spaces/AC/pages/1074397222/Architecture+Manifesto+WIP
 .. _publish-subscribe messaging pattern: https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
@@ -69,8 +68,6 @@ Decision
 * For the purpose of this OEP, the focus of the event bus is to provide `publish-subscribe messaging pattern`_ (pub/sub) and event-driven capabilities.
 
 * An abstraction layer will be provided to enable the choice of multiple technologies for implementing an Open edX event bus.
-
-.. note:: All referenced ADRs are Provisional at this time, until we are able to confirm decisions through a production-validated implementation. **TODO:** Update references to edx.org ADRs as they move around.
 
 * An initial event bus implementation is being implemented using Kafka.
 
@@ -102,6 +99,11 @@ Consequences
 
 Change History
 **************
+
+2022-11-29
+==========
+
+* Removed disclaimer about provisional ADRs (all have since been accepted)
 
 2022-07-11
 ==========
