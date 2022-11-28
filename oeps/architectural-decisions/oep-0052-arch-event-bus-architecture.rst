@@ -23,7 +23,7 @@ OEP-52: Event Bus Architecture
    * - Created
      - 2021-08-16
    * - Review Period
-     - 2022-11-09 - 2022-06-30
+     - 2022-06-09 - 2022-06-30
    * - References
      - Follow up work: `event bus project roadmap`_
 
@@ -105,7 +105,7 @@ Change History
 2022-11-29
 ==========
 
-* Removed disclaimer about provisional ADRs (all have since been accepted)
+* Removed disclaimer about provisional ADRs (most have since been accepted, any that are still provisional are marked as such)
 
 2022-07-11
 ==========
