@@ -17,13 +17,15 @@ OEP-52: Event Bus Architecture
    * - Arbiter
      - Tobias Macey <tmacey@mit.edu>
    * - Status
-     - Accepted
+     - Provisional
    * - Type
      - Architecture
    * - Created
      - 2021-08-16
    * - Review Period
      - 2022-11-09 - 2022-06-30
+   * - References
+     - Follow up work: `event bus project roadmap`_
 
 Overview
 ********
