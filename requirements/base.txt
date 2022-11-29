@@ -22,7 +22,7 @@ idna==3.4
     # via requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==5.0.0
+importlib-metadata==5.1.0
     # via sphinx
 jinja2==3.1.2
     # via sphinx
@@ -56,7 +56,7 @@ sphinx==4.5.0
     #   sphinx-copybutton
 sphinx-book-theme==0.3.3
     # via -r requirements/base.in
-sphinx-copybutton==0.5.0
+sphinx-copybutton==0.5.1
     # via -r requirements/base.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
@@ -70,7 +70,7 @@ sphinxcontrib-qthelp==1.0.3
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
-urllib3==1.26.12
+urllib3==1.26.13
     # via requests
-zipp==3.10.0
+zipp==3.11.0
     # via importlib-metadata
