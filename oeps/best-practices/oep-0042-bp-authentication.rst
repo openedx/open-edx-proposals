@@ -288,4 +288,22 @@ References
 Change History
 **************
 
-2022-11-23: Update for use of JWT in mobile applications
+2022-11-23
+==========
+
+* Update for use of JWT in mobile applications
+
+2021-08-23
+==========
+
+* Introduced a link to mobile auth docs.
+
+2020-05-26
+==========
+
+* Improved summary and minor text updates.
+
+2020-05-15
+==========
+
+* Initial version of OEP was accepted.
