@@ -114,6 +114,11 @@ organization's Core Contributors, however, we recognize that circumstances
 differ and a different commitment may be more appropriate. Before signing the
 agreement, please `Contact the Program Administrators`_ to discuss.
 
+The scope of the work or contributions considered as part of the Core 
+Contributors duties, and counted towards an organization's commitments, is
+defined at 
+`<https://openedx.atlassian.net/wiki/spaces/COMM/pages/3593502844/Core+Contributor+-+Work+Scope>`_
+
 Questions about the Program can be directed to the tCRIL administrator(s) via
 the ``#core-contributors`` Slack room in the `Open edX Slack
 <https://openedx.slack.com/>`_.
