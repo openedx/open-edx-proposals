@@ -11,30 +11,30 @@ Draft
 Context
 *******
 
-For most of the history of the Open edX project, production deployments were done primarily using Virtual Machines that had been provisioned using the ansible scripts in the ``edx/configuration`` repository. Over time, enthusiasm for container-based deployments grew, eventually becoming the officially recommended way to deploy Open edX in production (see `OEP-45 Configuring and Operating Open edX`_ and related decisions).
+For most of the history of the Open edX project, production deployments were done primarily using Virtual Machines that had been provisioned using the ansible scripts in the ``edx/configuration`` repository. With the adoption of the `decision 0001`_ from OEP-0045 that selects Tutor as the replacement for ``edx/configuration`` some large instances and operators are encountering use cases that are not supported. Multiple instances of Open edX sharing some infrastructure is the first of such cases.
 
-A popular way to deploy containerized applications is to use `Kubernetes`_. However, Kubernetes has a lot of complexity so the overhead it brings is usually not worthwhile for small, singe-instance deployments. For that reason (as explained in OEP-45) as well as a general lack of experience with Kubernetes, to date there has been no officially recommended way to deploy Open edX on Kubernetes. Although Tutor (see `OEP-45/decisions/0001 Tutor as a replacement for edx/configuration`_) does include basic support for Kubernetes, it is focused only on a basic working deployment, and lacks the flexibility and capability that operators require for large, multi-instance deployments.
+A popular way to deploy containerized applications is to use `Kubernetes`_. However, Kubernetes has a lot of complexity so the overhead it brings is usually not worthwhile for small, singe-instance deployments. For that reason (as explained in OEP-45) as well as a general lack of experience with Kubernetes, to date there has been no officially recommended way to deploy Open edX on Kubernetes. Although Tutor does include basic support for Kubernetes, it is focused only on a basic working deployment, and lacks the flexibility and capability that operators require for large, multi-instance deployments.
 
 Despite this, many major commercial Open edX hosting providers have migrated toward deploying Open edX on Kubernetes. In doing so, they developed several different approaches for doing so, each fairly different from each other but all focused on deploying Tutor-generated images into a Kubernetes cluster. This has resulted in duplicated effort and made it difficult to share best practices and lessons learned with each other. For further context, read the forum discussion `Deploying multiple Open edX instances onto a Kubernetes Cluster with Tutor`_.
 
 
 .. _Kubernetes: https://kubernetes.io/
 .. _Deploying multiple Open edX instances onto a Kubernetes Cluster with Tutor: https://discuss.openedx.org/t/tech-talk-demo-deploying-multiple-open-edx-instances-onto-a-kubernetes-cluster-with-tutor/4641
+.. _decision 0001: https://open-edx-proposals.readthedocs.io/en/latest/architectural-decisions/oep-0045/decisions/0001-tutor-as-replacement-for-edx-configuration.html
 
 
 Decision
 ********
 
-For Open edX operators who wish to deploy Open edX on Kubernetes, community-maintained `Helm Charts`_ will be used to simplify the process of deploying one or more Open edX instances onto a Kubernetes cluster, while following relevant best practices.
+For Open edX operators who wish to deploy Open edX on Kubernetes, community-maintained `Helm Charts`_ will be used to simplify the process of deploying a kubernetes cluster capable of loading one or more Open edX instances.
 
-Building on the decisions in `OEP-45 Configuring and Operating Open edX`_ and `OEP-45/decisions/0001 Tutor as a replacement for edx/configuration`_, the Helm charts will aim only to support Docker images built by Tutor.
+Building on top of the `decision 0001`_ those single instances will in turn be managed by Tutor and the Tutor plugin ecosystem.
 
-As the needs and deployment scale of Open edX operators can vary significantly, the Helm charts will be designed to be flexible, incorporating sensible defaults but allowing customization of almost every aspect of the deployment. This includes supporting various cloud providers.
+As the needs and deployment scale of Open edX operators can vary significantly, the Helm charts will be designed to be flexible, incorporating sensible defaults but allowing customization of almost every aspect of the deployment. This includes supporting various cloud providers and different underlying technologies for Kubernetes ressources. E.g. Ingress controllers.
 
 The goal is for these Helm charts to be developed and maintained collaboratively, by the Open edX Operators that are using them. All relevant best practices from both the Open edX and Helm projects should be followed from the start, such as `OEP-55 Project Maintainers`_.
 
-.. _OEP-45 Configuring and Operating Open edX: https://open-edx-proposals.readthedocs.io/en/latest/architectural-decisions/oep-0045-arch-ops-and-config.html
-.. _OEP-45/decisions/0001 Tutor as a replacement for edx/configuration: https://open-edx-proposals.readthedocs.io/en/latest/architectural-decisions/oep-0045/decisions/0001-tutor-as-replacement-for-edx-configuration.html
+
 .. _OEP-55 Project Maintainers: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
 .. _Helm Charts: https://helm.sh/
 
