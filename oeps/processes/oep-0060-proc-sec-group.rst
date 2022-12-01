@@ -1,5 +1,5 @@
-OEP-0060 Open Source Security Working Group
-###########################################
+OEP-60 Open Source Security Working Group
+#########################################
 
 +-----------------+--------------------------------------------------------+
 | OEP             | :doc:`OEP-60 <oep-0060-proc-sec-group>`                |
@@ -20,7 +20,7 @@ OEP-0060 Open Source Security Working Group
 +-----------------+--------------------------------------------------------+
 | Created         | 2022-10-25                                             |
 +-----------------+--------------------------------------------------------+
-| Review Period   | 2022-10-25 - 2022-11-30                                |
+| Review Period   | 2022-11-30 - 2023-01-02                                |
 +-----------------+--------------------------------------------------------+
 
 Context
@@ -38,8 +38,10 @@ community.
 
 Proposal
 ********
-Having a security process does not mean that we guarantee the security of the code.  It is still provided as-is.
-The work done here will be a best effort by the Open edX Community to keep our ecosystem safe and healthy.
+.. note::
+
+   Having a security process does not mean that we guarantee the security of the code.  It is still provided as-is.
+   The work done here will be a best effort by the Open edX Community to keep our ecosystem safe and healthy.
 
 Security Process
 ================
@@ -51,6 +53,8 @@ security policy.
 
 Disclosure triage by on-call Security Working Group Member
 ----------------------------------------------------------
+The on-call security working group member will triage the incoming report.
+
 Triage responsibilities include:
 
 * On-call person stays with security issue until it is resolved
@@ -67,21 +71,31 @@ Triage responsibilities include:
 Because the on-call member is expected to follow a disclosure through its eventual resolution, some of these
 responsibilities will extend beyond the initial scheduled on-call time.
 
-We would also like to specifically note that if an on-call week is particularly time intensive, the on-call member can
-ask the other working group members for support.
+.. note::
+
+   We would also like to specifically note that if an on-call week is particularly time intensive, the on-call member can
+   ask the other working group members for support.
 
 .. _security-releases:
 
 Security Releases
 -----------------
-As opposed to the current security process, which involves sending a disclosure and security patch to members of the
-open source security email list and waiting two days before making the patch public, are proposing the following
-security release process:
+The current process for releasing security fixes involves sending a disclosure and security patch to members of the
+open source security email list and waiting two days before making the patch public.  Instead of this process, we
+propose the following security release process:
 
-#. A notice will be sent to major deployers to announce an upcoming security patch, specifying the date and time at which
+#. A notice will be sent to everyone to announce an upcoming security patch, specifying the date and time at which
    the patch will become public
-#. Updates will be merged directly to master and backported to the current supported named release.
-#. At the time that the update is merged to master, the update will also be announced to everyone.
+
+   * This announcement will occur in the `Security Announcement Section`_ on https://discuss.openedx.org
+
+#. Updates will be merged directly to master and backported to the current supported named release(s).
+
+#. At the time that the update is merged to master, the announcement post on the forum will be updated linking
+   to the PRs that merged the fix to master and the relevant supported release
+   branch(es).
+
+.. _Security Announcement Section: https://discuss.openedx.org/c/announcements/security/19
 
 Focus on proactive security improvements
 ========================================
@@ -144,6 +158,12 @@ What do I do if I am an operator and someone reports a vulnerability to me?
 
 Change History
 **************
+
+2022-12-01
+==========
+
+* Updated the announcement plan to use discourse instead of the mailing list.
+* Cosmetic Changes
 
 2022-10-24
 ==========
