@@ -1,34 +1,28 @@
-OEP-59: Deploying Open edX on Kubernetes Using Helm
-###################################################
-
-.. list-table::
-   :widths: 25 75
-
-   * - OEP
-     - :doc:`OEP-0059 <oep-0059-arch-kubernetes-helm>`
-   * - Title
-     - Deploying Open edX on Kubernetes Using Helm
-   * - Last Modified
-     - 2022-08-30
-   * - Authors
-     - Felipe Montoya <felipe.montoya@edunext.co>, Braden MacDonald <braden@opencraft.com>
-   * - Arbiter
-     - TBD
-   * - Status
-     - Draft
-   * - Type
-     - Architecture
-   * - Created
-     - 2022-08-19
-   * - Review Period
-     - 2022-08-19 - 2022-09-30
-
-.. contents::
-   :local:
-   :depth: 3
+Deploying Open edX on Kubernetes Using Helm
+###########################################
 
 
-Abstract
+Status
+******
+
+Draft
+
+
+Context
+*******
+
+For most of the history of the Open edX project, production deployments were done primarily using Virtual Machines that had been provisioned using the ansible scripts in the ``edx/configuration`` repository. Over time, enthusiasm for container-based deployments grew, eventually becoming the officially recommended way to deploy Open edX in production (see `OEP-45 Configuring and Operating Open edX`_ and related decisions).
+
+A popular way to deploy containerized applications is to use `Kubernetes`_. However, Kubernetes has a lot of complexity so the overhead it brings is usually not worthwhile for small, singe-instance deployments. For that reason (as explained in OEP-45) as well as a general lack of experience with Kubernetes, to date there has been no officially recommended way to deploy Open edX on Kubernetes. Although Tutor (see `OEP-45/decisions/0001 Tutor as a replacement for edx/configuration`_) does include basic support for Kubernetes, it is focused only on a basic working deployment, and lacks the flexibility and capability that operators require for large, multi-instance deployments.
+
+Despite this, many major commercial Open edX hosting providers have migrated toward deploying Open edX on Kubernetes. In doing so, they developed several different approaches for doing so, each fairly different from each other but all focused on deploying Tutor-generated images into a Kubernetes cluster. This has resulted in duplicated effort and made it difficult to share best practices and lessons learned with each other. For further context, read the forum discussion `Deploying multiple Open edX instances onto a Kubernetes Cluster with Tutor`_.
+
+
+.. _Kubernetes: https://kubernetes.io/
+.. _Deploying multiple Open edX instances onto a Kubernetes Cluster with Tutor: https://discuss.openedx.org/t/tech-talk-demo-deploying-multiple-open-edx-instances-onto-a-kubernetes-cluster-with-tutor/4641
+
+
+Decision
 ********
 
 For Open edX operators who wish to deploy Open edX on Kubernetes, community-maintained `Helm Charts`_ will be used to simplify the process of deploying one or more Open edX instances onto a Kubernetes cluster, while following relevant best practices.
@@ -44,34 +38,18 @@ The goal is for these Helm charts to be developed and maintained collaboratively
 .. _OEP-55 Project Maintainers: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
 .. _Helm Charts: https://helm.sh/
 
-Context
-*******
 
-For most of the history of the Open edX project, production deployments were done primarily using Virtual Machines that had been provisioned using the ansible scripts in the ``edx/configuration`` repository. Over time, enthusiasm for container-based deployments grew, eventually becoming the officially recommended way to deploy Open edX in production (see `OEP-45 Configuring and Operating Open edX`_ and related decisions).
+Consequences
+************
 
-A popular way to deploy containerized applications is to use `Kubernetes`_. However, Kubernetes has a lot of complexity so the overhead it brings is usually not worthwhile for small, singe-instance deployments. For that reason (as explained in OEP-45) as well as a general lack of experience with Kubernetes, to date there has been no officially recommended way to deploy Open edX on Kubernetes. Although Tutor (see `OEP-45/decisions/0001 Tutor as a replacement for edx/configuration`_) does include basic support for Kubernetes, it is focused only on a basic working deployment, and lacks the flexibility and capability that operators require for large, multi-instance deployments.
-
-Despite this, many major commercial Open edX hosting providers have migrated toward deploying Open edX on Kubernetes. In doing so, they developed several different approaches for doing so, each fairly different from each other but all focused on deploying Tutor-generated images into a Kubernetes cluster. This has resulted in duplicated effort and made it difficult to share best practices and lessons learned with each other. For further context, read the forum discussion `Deploying multiple Open edX instances onto a Kubernetes Cluster with Tutor`_.
-
-
-
-.. _Kubernetes: https://kubernetes.io/
-.. _Deploying multiple Open edX instances onto a Kubernetes Cluster with Tutor: https://discuss.openedx.org/t/tech-talk-demo-deploying-multiple-open-edx-instances-onto-a-kubernetes-cluster-with-tutor/4641
-
-
-Helm
-====
+Helm Considerations
+===================
 
 Helm is the best known package manager for Kubernetes. It's status as a graduated project from the Cloud Native Computing Foundation is a clear indication of the thriving adoption, open governance and commitment to the open community.
 
 Helm makes it possible to packages and publish charts, which can be rendered as kubernetes manifests. This charts provide robust support for versioning, deployment and rollback. At the same time Helm makes it easy for operators to customize application configurations during deployment and for developers to provide sensible defaults.
 
 Charts are build with the Go language templating engine which is a drawback since it means adding a new language to the ecosystem with a new learning curve. This is considered acceptable due to the large adoption of Helm in the devops community.
-
-
-**Other**
-
-TODO
 
 
 Best Practices
@@ -111,12 +89,38 @@ A `custom templating tool`_ built as a tutor plugin and leveraging kustomize for
 
 .. _custom templating tool: https://github.com/eduNEXT/drydock
 
+
 Implementation Strategy
 ***********************
 
-Once this OEP has reached Provisional status:
+Once this ADR has reached Provisional status:
 
 1. A new repository will be created on GitHub, e.g. at https://github.com/openedx/openedx-helm-charts
-2. The authors of this OEP will create a roadmap using GitHub Issues by defining the initial development issues.
+2. The authors of this ADR will create a roadmap using GitHub Issues by defining the initial development issues.
 3. Invite interested parties to become core contributors on the repo, and nominate some of them.
 4. Participating core contributors will then complete the roadmap and begin developing an MVP.
+
+
+References
+**********
+
+A `working proof of concept`_ that was writen as part of the research for this ADR. See `2022-11-22 meeting recap`_ for further information.
+
+.. _`working proof of concept`: https://github.com/open-craft/tutor-contrib-multi
+.. _`2022-11-22 meeting recap`: https://discuss.openedx.org/t/deploying-open-edx-on-kubernetes-using-helm/8771
+
+
+Change History
+**************
+
+2022-11-30
+==========
+
+* Document updated to become an ADR of OEP-45 instead of a standalone OEP.
+
+
+2022-08-19
+==========
+
+* Document created
+* `Pull request #372 <https://github.com/openedx/open-edx-proposals/pull/372>`_
