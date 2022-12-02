@@ -90,7 +90,7 @@ Maintainers will be routinely reminded to remediate disclosures in a frequency p
 ========    =====   ==================
 Severity    Score   Reminder frequency
 ========    =====   ==================
-Low         ≥0.1    Once a semester
+Low         ≥0.1    Twice annually 
 Medium      ≥4.0    Once a quarter
 High        ≥7.0    Once a month
 Critical    ≥9.0    Once a week
