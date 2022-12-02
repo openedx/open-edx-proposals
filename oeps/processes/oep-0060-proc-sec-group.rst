@@ -128,9 +128,9 @@ propose the following security release process:
 
 #. The maintainer will add a reply to the announcement post linking to:
 
-    * The published GitHub security advisory.
-    * The pull requests that merged the fix to master.
-    * The pull requests that merged the fix to the relevant supported release branches.
+   * The published GitHub security advisory.
+   * The pull requests that merged the fix to master.
+   * The pull requests that merged the fix to the relevant supported release branches.
 
 .. _Security Announcement Section: https://discuss.openedx.org/c/announcements/security/19
 .. _publish the GitHub security advisory: https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory
@@ -221,14 +221,14 @@ Change History
 ==========
 * Address:
 
-    * Annual security survey
-    * Confidentiality
-    * Disagreements on severity classification (and associated SLAs)
-    * Disclosure timeline
-    * Follow up on remediation & on-call transition
-    * Security scoring
-    * Temporary private forks
-    * Vulnerabilities for operators
+  * Annual security survey
+  * Confidentiality
+  * Disagreements on severity classification (and associated SLAs)
+  * Disclosure timeline
+  * Follow up on remediation & on-call transition
+  * Security scoring
+  * Temporary private forks
+  * Vulnerabilities for operators
 
 2022-12-01
 ==========
