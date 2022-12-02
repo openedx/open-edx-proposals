@@ -23,7 +23,7 @@ OEP-52: Event Bus Architecture
    * - Created
      - 2021-08-16
    * - Review Period
-     - 2022-11-09 - 2022-06-30
+     - 2022-06-09 - 2022-06-30
    * - References
      - Follow up work: `event bus project roadmap`_
 
@@ -79,8 +79,8 @@ Decision
 
 * Event bus events will further extend the Hooks Extension Framework events, and use an Avro schema to serialize the existing hooks signals.
 
-  * See (provisional) `ADR on External event bus and Django Signal events`_ to learn more about how the ``OpenEdxPublicSignal`` internal event will be used to send the same internal signal-based events across services, and then fire the signal-based events again within consuming services.
-  * See `ADR on External Event Schema Format`_ and (provisional) `ADR on Event Schema Serialization and Evolution`_ to learn about how the Avro Schema format will be used for serializing external events published to Kafka, and consumed from Kafka. Additionally, learn about tooling to automatically handle the translation from ``OpenEdxPublicSignal`` internal events to Avro Schema formatted events, and back again. Also learn how this explicit schema format can aid in schema evolution.
+  * See `ADR on External event bus and Django Signal events`_ to learn more about how the ``OpenEdxPublicSignal`` internal event will be used to send the same internal signal-based events across services, and then fire the signal-based events again within consuming services.
+  * See `ADR on External Event Schema Format`_ and `ADR on Event Schema Serialization and Evolution`_ to learn about how the Avro Schema format will be used for serializing external events published to Kafka, and consumed from Kafka. Additionally, learn about tooling to automatically handle the translation from ``OpenEdxPublicSignal`` internal events to Avro Schema formatted events, and back again. Also learn how this explicit schema format can aid in schema evolution.
 
 .. _ADR on Kafka-Based Event Bus: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0002-kafka-based-event-bus.rst
 .. _ADR on Kafka Managed Hosting: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0004-kafka-managed-hosting.rst
@@ -105,7 +105,8 @@ Change History
 2022-11-29
 ==========
 
-* Removed disclaimer about provisional ADRs (all have since been accepted) and added follow-up work in References
+* Removed disclaimer about provisional ADRs (most have since been accepted) and added follow-up work in References
+
 
 2022-07-11
 ==========
