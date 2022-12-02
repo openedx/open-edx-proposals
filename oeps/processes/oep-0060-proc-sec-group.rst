@@ -51,8 +51,8 @@ Reports come into security@openedx.org
 The email will be added to SECURITY.md in Github, and an email link will be provided on openedx.org along with the Open edX
 security policy.
 
-Reports are triaged by the on-call Security Working Group member
-----------------------------------------------------------------
+Issue Triage and Routing
+------------------------
 The on-call Security Working Group member will triage the incoming report.
 
 They will:
@@ -65,11 +65,11 @@ They will:
 #. Open a GitHub security advisory in relevant repositories.
 #. Notify the maintainers of the vulnerable repositories.
 
-The Security Working Group gives security severity and remediation advice to maintainers
-----------------------------------------------------------------------------------------
+SWG Responsibility
+------------------
 The Security Working Group is responsible for advising on security and providing security-scoring-as-a-service for maintainers.
 
-Maintainers are welcomed to email security@openedx.org anytime they need security advice. The Security Working Group will do their best advise.
+Maintainers are welcomed to email security@openedx.org anytime they need security advice. The Security Working Group will do their best to advise.
 
 The Security Working Group will also score incoming vulnerability disclosures using the `Common Vulnerability Scoring System (CVSS), version 3.1`_. This system provides a way to score vulernabilities from 0.0 to 10.0, which map to a severity of Low, Medium, High, or Critical.
 
@@ -77,9 +77,9 @@ The Security Working Group will provide this numerical score and qualitative sev
 
 .. _Common Vulnerability Scoring System (CVSS), version 3.1: https://www.first.org/cvss/v3.1/specification-document
 
-Maintainers are ultimately responsible for the security of their repositories
------------------------------------------------------------------------------
-Maintainers are responsible for resolving disclosed security vulnerabilies and notifying the Security Working Group once they are resolved.
+Maintainer Responsibility
+-------------------------
+Maintainers are ultimately responsible for resolving disclosed security vulnerabilities.
 
 To assist the maintainer with tracking their repository's vulnerabilities, the Security Working Group will create a `GitHub repository security advisory`_ pre-assigned with the scored severity.
 
@@ -104,41 +104,36 @@ The on-call Security Working Group member is responsible for sending reminders f
 
 .. _GitHub repository security advisory: https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory
 
-Details of security vulnerabilities are private until a fix is released
------------------------------------------------------------------------
-Members of the Open edX community with access to the details of a disclosure are asked to keep those details private until the scheduled release time for the vulnerability's fix. This includes the Security Working Group members, maintainers, and their delegates.
+Security Vulnerability Privacy
+------------------------------
+Details of security vulnerabilities will remain private until a fix is released. Members of the Open edX community with access to the details of a disclosure are asked to keep those details private until a fix is publicly released for the vulnerability.
 
 Maintainers and their delegates should use GitHub's `temporary private fork`_ feature within the GitHub repository security advisory created by the Security Working Group to keep the implementation details of a fix for a vulnerability private until the appropriate time to release the fix to the public.
 
 .. _temporary private fork: https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
 
-Operators are ultimately responsible for the security of their Open edX instance
---------------------------------------------------------------------------------
-The Security Working Group will put forth good faith effort to responsibly forward disclosures related to the operation of a specific Open edX instance to the relevant operator.
-
-Operators wishing to register a desired primary point of contact for security-related matters should email security@openedx.org with the name, domain, contact information for an individual point of contact for security, and an email address to which security reports should be forwarded.
-
-Operators are encouraged to forward or to invite reporters to forward to security@openedx.org any security issue they receive that may be relevant to the Open edX project.
-
 .. _security-releases:
 
-Maintainers will work together with the on-call Security Working Group member to release the security fix
----------------------------------------------------------------------------------------------------------
+Security Releases
+-----------------
 The current process for releasing security fixes involves sending a disclosure and security patch to members of the
 open source security email list and waiting two days before making the patch public.  Instead of this process, we
 propose the following security release process:
 
-#. The maintainer will email security@openedx.org notifying that a fix is ready to be merged and the date and time of when they would like to merge it. The merge time should be at least 72 hours after the security patch is announced.
-
-#. The on-call Security Working Group member will create an announcement post in the `Security Announcement Section`_ on https://discuss.openedx.org. It should specify the affected repository, the date and time at which the patch will become public, and the severity of the vulnerability it fixes.
+#. The maintainer will create an announcement post in the `Security Announcement Section`_ on https://discuss.openedx.org. It should specify the affected repository, the date and time at which the patch will become public, and the severity of the vulnerability it fixes.
 
 #. The maintainer will merge the fix to the repository's main branch and backport the fix to the current supported named releases around the date and time specified by the post.
 
-#. The maintainer will email security@openedx.org that the fix is merged and send the links to the pull requests that merged the fix into their repository's main branch and the branches for all current supported named releases.
+#. The maintainer will `publish the GitHub security advisory`_.
 
-#.  The on-call Security Working Group member will add a reply to the announcement post linking to the pull requests that merged the fix to master and the relevant supported release branches.
+#. The maintainer will add a reply to the announcement post linking to:
+
+    * The published GitHub security advisory.
+    * The pull requests that merged the fix to master.
+    * The pull requests that merged the fix to the relevant supported release branches.
 
 .. _Security Announcement Section: https://discuss.openedx.org/c/announcements/security/19
+.. _publish the GitHub security advisory: https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory
 
 
 Focus on proactive security improvements
@@ -164,7 +159,7 @@ Consequences
 Security Working Group
 ======================
 
-Invite only
+Invite Only
 -----------
 Initial members of the working group will come from the existing internal security group and members of tCRIL. If more
 volunteers are needed, we will put out a call to join. Volunteers will need to ask for support from other core contributors
@@ -173,13 +168,13 @@ group at a time.
 
 There will also be ways to participate in the security of the Open edX platform without being a member of the working group. Maintainers and core contributors of the Open edX community interested in volunteering to implement security hotfixes for other maintainers who may not have the bandwidth to immediately address vulnerabilities are encouraged to email their interest to security@openedx.org.
 
-Security work will be a mix of private and public tickets
----------------------------------------------------------
-Proactive work for security improvements will be made public, while vulnerability reports will be handled privately.
-We propose using Github Security Advisories to handle the triage of vulnerability reports to the owners of
-vulnerable components.
+Visibility
+----------
+Security work will be a mix of private and public tickets. Proactive work for security improvements will be made public, while vulnerability reports will be handled privately.
 
-Member responsibilities
+We propose using Github Security Advisories to handle the triage of vulnerability reports to the owners of vulnerable components.
+
+Member Responsibilities
 -----------------------
 #. Participate in the on-call rotation
 
@@ -198,9 +193,9 @@ No more early warning via security-notifications mailing list
 =============================================================
 Members of this mailing list had to apply the patch to their forks of edx-platform, which are also public, so we
 are not guaranteed that the patch wouldn't accidentally become public. Dealing with patches and private deployment
-sources adds complexity to deployments, which can be minimized by the `steps outlined above`_.
+sources adds complexity to deployments, which can be minimized by the steps outlined in `Security Releases`_ above.
 
-.. _steps outlined above: `security-releases`_
+.. _Security Releases: `security-releases`_
 
 
 Guidance for Operators
@@ -212,7 +207,7 @@ What do I do if I am an operator and someone reports a vulnerability to me?
 
 What will happen if a report is accidentally sent to security@openedx.org for the operation of my Open edX instance?
 
-* Please let security@openedx.org know the best email to forward such reports to, along with your Open edX instance name, domain, and separate contact information for an indidual responsible for security at your organization. The Security Working Group will do their best to forward such reports to the correct organization.
+* Please let security@openedx.org know the best email (preferably a group email, like security@company.com) to forward such reports to, along with your Open edX instance name, domain, and separate contact information for an indidual responsible for security at your organization. The Security Working Group will do their best to forward such reports to the correct organization.
 
 How do I receive notification of the release of upcoming security patches?
 
@@ -221,6 +216,10 @@ How do I receive notification of the release of upcoming security patches?
 
 Change History
 **************
+
+2022-12-02
+==========
+
 
 2022-12-01
 ==========
