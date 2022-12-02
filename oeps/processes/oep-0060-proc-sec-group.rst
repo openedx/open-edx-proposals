@@ -48,7 +48,7 @@ Security Process
 
 Reports come into security@openedx.org
 --------------------------------------
-The email will be added to SECURITY.md in Github, and an email link will be provided on openedx.org along with the Open edX
+The email will be added to SECURITY.md in GitHub, and an email link will be provided on openedx.org along with the Open edX
 security policy.
 
 Issue Triage and Routing
@@ -143,10 +143,10 @@ include the below examples.
 
 Examples
 --------
-#. Security suites as part of Github CI.
+#. Security suites as part of GitHub CI.
 #. Better visibility for security supply chain issues.
 
-   * How can we take advantage of the alerts that Github provides for security prioritization?
+   * How can we take advantage of the alerts that GitHub provides for security prioritization?
 #. Iterations on the security process.
 #. Review industry best practices that we should consider implementing.
 #. Running an annual security survey.
@@ -172,7 +172,7 @@ Visibility
 ----------
 Security work will be a mix of private and public tickets. Proactive work for security improvements will be made public, while vulnerability reports will be handled privately.
 
-We propose using Github Security Advisories to handle the triage of vulnerability reports to the owners of vulnerable components.
+We propose using GitHub Security Advisories to handle the triage of vulnerability reports to the owners of vulnerable components.
 
 Member Responsibilities
 -----------------------
