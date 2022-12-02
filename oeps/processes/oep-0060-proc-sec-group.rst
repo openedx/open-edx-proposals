@@ -57,23 +57,23 @@ The on-call Security Working Group member will triage the incoming report.
 
 They will:
 
-* Verify the report
-* Reply to the reporter
-* Forward operator-specific vulnerabilities to any relevant Open edX operators
-* Score the severity of the disclosure
-* Identify the affected repositories
-* Open a GitHub repository security advisory for the vulnerability in the relevant repositories
-* Notify the Open edX maintainers of those repositories of the vulnerability
+#. Verify the report.
+#. Reply to the reporter.
+#. Forward operator-specific disclosures to the relevant Open edX operator.
+#. Identify the affected Open edX repositories.
+#. Score the severity of the vulnerability.
+#. Open a GitHub security advisory in relevant repositories.
+#. Notify the maintainers of the vulnerable repositories.
 
 The Security Working Group gives security severity and remediation advice to maintainers
 ----------------------------------------------------------------------------------------
 The Security Working Group is responsible for advising on security and providing security-scoring-as-a-service for maintainers.
 
-Maintainers are encouraged and welcome to email security@openedx.org with any security questions they would like advice on. The Security Working Group will do their best to provide good security advice.
+Maintainers are welcomed to email security@openedx.org anytime they need security advice. The Security Working Group will do their best advise.
 
-The Security Working Group will also score incoming vulnerabilities using the `Common Vulnerability Scoring System (CVSS), version 3.1`_. This system provides a way to score vulernabilities from 0.0 to 10.0, which map to a severity of Low, Medium, High, or Critical.
+The Security Working Group will also score incoming vulnerability disclosures using the `Common Vulnerability Scoring System (CVSS), version 3.1`_. This system provides a way to score vulernabilities from 0.0 to 10.0, which map to a severity of Low, Medium, High, or Critical.
 
-This numerical score and qualitative severity rating will be provided to maintainers so they are better informed on how severe the vulnerability is and have a sense of how important it may be to interrupt their work on the repository to resolve the vulnerability.
+The Security Working Group will provide this numerical score and qualitative severity rating when notifying maintainers. This is so maintainers are better informed on how severe the vulnerability is and have a sense of how important it may be to interrupt their work on the repository to resolve the vulnerability.
 
 .. _Common Vulnerability Scoring System (CVSS), version 3.1: https://www.first.org/cvss/v3.1/specification-document
 
@@ -81,11 +81,11 @@ Maintainers are ultimately responsible for the security of their repositories
 -----------------------------------------------------------------------------
 Maintainers are responsible for resolving disclosed security vulnerabilies and notifying the Security Working Group once they are resolved.
 
-To assist the maintainer with keeping track of their repository's vulnerabilities, the Security Working Group will create a `GitHub repository security advisory`_ pre-assigned with the scored severity.
+To assist the maintainer with tracking their repository's vulnerabilities, the Security Working Group will create a `GitHub repository security advisory`_ pre-assigned with the scored severity.
 
-Maintainers are requested to notify the Security Working Group if they would like to adjudicate a vulnerability to a different severity than what was originally triaged. The Security Working Group must accept the maintainer's adjudication, but should comment on any considerations around the adjudication.
+Maintainers should inform the Security Working Group if they judge a vulnerability to be a different severity than what was originally triaged. The Security Working Group must accept the maintainer's adjudication, but should comment on any considerations around the adjudication.
 
-Maintainers will be reminded to remediate disclosures in proportion to the severity of the disclosure. The following table shows the reminder frequency until resolution of each severity classification:
+Maintainers will be routinely reminded to remediate disclosures in a frequency proportional to the severity of the disclosure. The following table shows the default reminder frequency until resolution of each severity classification:
 
 ========    =====   ==================
 Severity    Score   Reminder frequency
@@ -96,7 +96,7 @@ High        ≥7.0    Once a month
 Critical    ≥9.0    Once a week
 ========    =====   ==================
 
-The on-call Security Working Group member is responsible for sending reminders for any vulnerability reminders due during the time they are on-call.
+The on-call Security Working Group member is responsible for sending reminders for any vulnerability reminders due during the time they are on-call. These routine reminders should be batched so that all reminders of the same frequency for a maintainer are compiled into a single notification.
 
 .. note::
 
@@ -106,9 +106,9 @@ The on-call Security Working Group member is responsible for sending reminders f
 
 Details of security vulnerabilities are private until a fix is released
 -----------------------------------------------------------------------
-Members of the Open edX community with access to the details of a disclosure are asked to keep those details private until a fix is publically released for the vulnerability.
+Members of the Open edX community with access to the details of a disclosure are asked to keep those details private until the scheduled release time for the vulnerability's fix. This includes the Security Working Group members, maintainers, and their delegates.
 
-Maintainers should use GitHub's `temporary private fork`_ feature within the GitHub repository security advisory created by the Security Working Group to keep the implementation details of a fix for a vulnerability private.
+Maintainers and their delegates should use GitHub's `temporary private fork`_ feature within the GitHub repository security advisory created by the Security Working Group to keep the implementation details of a fix for a vulnerability private until the appropriate time to release the fix to the public.
 
 .. _temporary private fork: https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
 
@@ -171,6 +171,8 @@ volunteers are needed, we will put out a call to join. Volunteers will need to a
 and will then be evaluated by the existing working group members. We hope to have six to seven members of the working
 group at a time.
 
+There will also be ways to participate in the security of the Open edX platform without being a member of the working group. Maintainers and core contributors of the Open edX community interested in volunteering to implement security hotfixes for other maintainers who may not have the bandwidth to immediately address vulnerabilities are encouraged to email their interest to security@openedx.org.
+
 Security work will be a mix of private and public tickets
 ---------------------------------------------------------
 Proactive work for security improvements will be made public, while vulnerability reports will be handled privately.
@@ -210,7 +212,7 @@ What do I do if I am an operator and someone reports a vulnerability to me?
 
 What will happen if a report is accidentally sent to security@openedx.org for the operation of my Open edX instance?
 
-* Please let security@openedx.org know the best email to forward such reports to, along with your Open edX instance name, domain, and separate contact information for an indidual responsible for security at your organization. The Security Working Group will do its best to forward such reports to the correct organization.
+* Please let security@openedx.org know the best email to forward such reports to, along with your Open edX instance name, domain, and separate contact information for an indidual responsible for security at your organization. The Security Working Group will do their best to forward such reports to the correct organization.
 
 How do I receive notification of the release of upcoming security patches?
 
