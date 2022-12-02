@@ -6,7 +6,7 @@ OEP-60 Open Source Security Working Group
 +-----------------+--------------------------------------------------------+
 | Title           | Open Source Security Working Group                     |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2022-12-01                                             |
+| Last Modified   | 2022-12-02                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Alie Langston <alangston@2u.com>                       |
 |                 | Feanil Patel <fpatel@tcril.org>                        |
@@ -219,7 +219,16 @@ Change History
 
 2022-12-02
 ==========
+* Address:
 
+    * Annual security survey
+    * Confidentiality
+    * Disagreements on severity classification (and associated SLAs)
+    * Disclosure timeline
+    * Follow up on remediation & on-call transition
+    * Security scoring
+    * Temporary private forks
+    * Vulnerabilities for operators
 
 2022-12-01
 ==========
