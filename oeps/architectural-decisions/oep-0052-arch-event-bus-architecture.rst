@@ -105,7 +105,7 @@ Change History
 2022-11-29
 ==========
 
-* Removed disclaimer about provisional ADRs (all have since been accepted)
+* Removed disclaimer about provisional ADRs (all have since been accepted) and added follow-up work in References
 
 2022-07-11
 ==========
