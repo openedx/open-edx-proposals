@@ -71,7 +71,7 @@ The Security Working Group is responsible for advising on security and providing
 
 Maintainers are welcomed to email security@openedx.org anytime they need security advice. The Security Working Group will do their best to advise.
 
-The Security Working Group will also score incoming vulnerability disclosures using the `Common Vulnerability Scoring System (CVSS), version 3.1`_. This system provides a way to score vulernabilities from 0.0 to 10.0, which map to a severity of Low, Medium, High, or Critical.
+The Security Working Group will also score incoming vulnerability disclosures using the `Common Vulnerability Scoring System (CVSS), version 3.1`_. This system provides a way to score vulnerabilities from 0.0 to 10.0, which map to a severity of Low, Medium, High, or Critical.
 
 The Security Working Group will provide this numerical score and qualitative severity rating when notifying maintainers. This is so maintainers are better informed on how severe the vulnerability is and have a sense of how important it may be to interrupt their work on the repository to resolve the vulnerability.
 
