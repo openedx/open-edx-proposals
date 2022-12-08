@@ -211,7 +211,7 @@ What will happen if a report is accidentally sent to security@openedx.org for th
 
 How do I receive notification of the release of upcoming security patches?
 
-* Please watch the Open edX Discourse Security Announcements topic at https://discuss.openedx.org/c/announcements/security/19. If you are logged in, the button with a bell icon on the top right corner above the topic list will let you customize how you are notified of security announcements.
+* Please watch the Open edX Discourse Security Announcements topic at https://discuss.openedx.org/c/announcements/security/19. If you are logged in, select the button with a bell icon on the top right corner above the topic list and choose "Watching First Post". Discord should send the announcements to your email that have "[Open edX discussions] [Announcements/Security]" in the subject line.
 
 
 Change History
