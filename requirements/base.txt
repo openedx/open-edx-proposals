@@ -10,7 +10,7 @@ babel==2.11.0
     # via sphinx
 beautifulsoup4==4.11.1
     # via pydata-sphinx-theme
-certifi==2022.9.24
+certifi==2022.12.7
     # via requests
 charset-normalizer==2.1.1
     # via requests
@@ -21,8 +21,6 @@ docutils==0.17.1
 idna==3.4
     # via requests
 imagesize==1.4.1
-    # via sphinx
-importlib-metadata==5.1.0
     # via sphinx
 jinja2==3.1.2
     # via sphinx
@@ -50,14 +48,14 @@ soupsieve==2.3.2.post1
     # via beautifulsoup4
 sphinx==4.5.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   pydata-sphinx-theme
     #   sphinx-book-theme
     #   sphinx-copybutton
 sphinx-book-theme==0.3.3
-    # via -r requirements/base.in
+    # via -r base.in
 sphinx-copybutton==0.5.1
-    # via -r requirements/base.in
+    # via -r base.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
 sphinxcontrib-devhelp==1.0.2
@@ -72,5 +70,3 @@ sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
 urllib3==1.26.13
     # via requests
-zipp==3.11.0
-    # via importlib-metadata
