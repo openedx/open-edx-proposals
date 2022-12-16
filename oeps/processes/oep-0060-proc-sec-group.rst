@@ -6,7 +6,7 @@ OEP-60 Open Source Security Working Group
 +-----------------+--------------------------------------------------------+
 | Title           | Open Source Security Working Group                     |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2022-12-02                                             |
+| Last Modified   | 2022-12-16                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Alie Langston <alangston@2u.com>                       |
 |                 | Feanil Patel <fpatel@tcril.org>                        |
@@ -62,7 +62,7 @@ They will:
 #. Forward operator-specific disclosures to the relevant Open edX operator.
 #. Identify the affected Open edX repositories.
 #. Score the severity of the vulnerability.
-#. Open a GitHub security advisory in relevant repositories.
+#. Open a GitHub draft security advisory in relevant repositories.
 #. Notify the maintainers of the vulnerable repositories.
 
 SWG Responsibility
@@ -81,7 +81,7 @@ Maintainer Responsibility
 -------------------------
 Maintainers are ultimately responsible for resolving disclosed security vulnerabilities.
 
-To assist the maintainer with tracking their repository's vulnerabilities, the Security Working Group will create a `GitHub repository security advisory`_ pre-assigned with the scored severity.
+To assist the maintainer with tracking their repository's vulnerabilities, the Security Working Group will create a `GitHub repository security advisory`_ pre-assigned with the scored severity. Security advisories in a draft state are not visible to the public.
 
 Maintainers should inform the Security Working Group if they judge a vulnerability to be a different severity than what was originally triaged. The Security Working Group must accept the maintainer's adjudication, but should comment on any considerations around the adjudication.
 
@@ -124,7 +124,7 @@ propose the following security release process:
 
 #. The maintainer will merge the fix to the repository's main branch and backport the fix to the current supported named releases around the date and time specified by the post.
 
-#. The maintainer will `publish the GitHub security advisory`_.
+#. The maintainer will `publish the GitHub security advisory`_. At this point the security advisory will become public.
 
 #. The maintainer will add a reply to the announcement post linking to:
 
@@ -216,6 +216,11 @@ How do I receive notification of the release of upcoming security patches?
 
 Change History
 **************
+
+2022-12-16
+==========
+
+* Clarified GitHub security advisory visibility
 
 2022-12-02
 ==========
