@@ -1,18 +1,51 @@
 
-
-
-OEP-XX: Working Groups
+OEP-62: Working Groups
 ######################
 
+.. list-table::
+   :widths: 25 75
+
+   * - OEP
+     - Link to the doc in the following format::
+
+        :doc:`OEP-XXXX <oep-XXXX-YYYY-ZZZZ>`
+
+        * <XXXX is the next available OEP number>
+        * <YYYY is the abbreviated Type: proc | bp | arch>
+        * <ZZZZ is a brief (< 5 words) version of the title>
+
+   * - Title
+     - <OEP title>
+   * - Last Modified
+     - <date string, in YYYY-MM-DD format>
+   * - Authors
+     - <list of authors' real names and optionally, email addresses>
+   * - Arbiter
+     - <Arbiter's real name and email address>
+   * - Status
+     - <Draft | Under Review | Deferred | Provisional | Accepted | Rejected | Withdrawn | Final | Replaced>
+   * - Type
+     - <Architecture | Best Practice | Process>
+   * - Created
+     - <date created on, in YYYY-MM-DD format>
+   * - Review Period
+     - <start - target end dates for review>
+   * - Resolution
+     - <links to any discussions where the final status was decided>
+   * - References
+     - <links to any other relevant discussions or relevant related materials>
 Abstract
 ********
 
 Working groups are voluntary associations of Open edX community members formed around some aspect of the project. These groups are organically formed and dissolved by consensus amongst those interested. While they must follow a few basic community guidelines, working groups have autonomy to decide their own structure and operating procedures.
 
-Background
+Motivation
 **********
 
-< Some background >
+The motivation is critical for OEPs that will change any part of the Open edX
+ecosystem. Explain why the existing architecture or process is inadequate to
+address the problem that the OEP solves, or why adopting the best practice
+would significantly improve the Open edX world.
 
 
 Specification
@@ -117,12 +150,27 @@ If a working group is inactive and their last known chairperson cannot be reache
 
 For any merging, splitting, or dissolution of working groups, the community should be informed via an announcment, and any relevant documentation should be updated in order to reflect the new catalog of working groups.
 
-Consequences
-************
+Rationale
+*********
 
-< no consequences really >
+The rationale adds to the specification by describing the events or
+requirements that led to the proposal, what influenced the design, and why
+particular design decisions were made. The rationale could provide evidence
+of consensus within the community and discuss important objections or
+concerns raised during discussion. It could identify any related work,
+for example, how the feature is supported in other systems.
 
-References
-**********
+Rejected Alternatives
+*********************
 
-< need to add in all the links >
+This statement describes any alternative designs or implementations that were
+considered and rejected, and why they were not chosen.
+
+Change History
+**************
+
+YYYY-MM-DD
+==========
+
+* Document created
+* `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
