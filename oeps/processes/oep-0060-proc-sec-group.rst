@@ -108,7 +108,9 @@ Security Vulnerability Privacy
 ------------------------------
 Details of security vulnerabilities will remain private until a fix is released. Members of the Open edX community with access to the details of a disclosure are asked to keep those details private until a fix is publicly released for the vulnerability.
 
-Maintainers and their delegates should use GitHub's `temporary private fork`_ feature within the GitHub repository security advisory created by the Security Working Group to keep the implementation details of a fix for a vulnerability private until the appropriate time to release the fix to the public.
+Maintainers and their delegates must use GitHub's `temporary private fork`_ feature within the GitHub repository security advisory created by the Security Working Group to keep the implementation details of a fix for a vulnerability private until the appropriate time to release the fix to the public.
+
+If a public PR is mistakenly created, it will be up to the Open Source Security Working Group to determine appropriate steps to take depending on the severity of the vulnerability.
 
 .. _temporary private fork: https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
 
@@ -120,9 +122,9 @@ The current process for releasing security fixes involves sending a disclosure a
 open source security email list and waiting two days before making the patch public.  Instead of this process, we
 propose the following security release process:
 
-#. The maintainer will create an announcement post in the `Security Announcement Section`_ on https://discuss.openedx.org. It should specify the affected repository, the date and time at which the patch will become public, and the severity of the vulnerability it fixes.
+#. The maintainer will create an announcement post in the `Security Announcement Section`_ on https://discuss.openedx.org. It should specify the affected repository, the date and time at which the patch will become public, and the severity of the vulnerability it fixes. This post must be made at least two days in advance of the patch being made public.
 
-#. The maintainer will merge the fix to the repository's main branch and backport the fix to the current supported named releases around the date and time specified by the post.
+#. The maintainer will merge the fix from the private fork to the repository's main branch and backport the fix to the current supported named releases around the date and time specified by the post. By merging the private fork, the commit containing the fix will become public.
 
 #. The maintainer will `publish the GitHub security advisory`_. At this point the security advisory will become public.
 
@@ -131,6 +133,8 @@ propose the following security release process:
    * The published GitHub security advisory.
    * The pull requests that merged the fix to master.
    * The pull requests that merged the fix to the relevant supported release branches.
+
+Steps 3 and 4 should be done within two hours after step 2 is completed.
 
 .. _Security Announcement Section: https://discuss.openedx.org/c/announcements/security/19
 .. _publish the GitHub security advisory: https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory
@@ -216,6 +220,13 @@ How do I receive notification of the release of upcoming security patches?
 
 Change History
 **************
+
+2022-12-17
+==========
+* Address:
+
+    * Timing of security release
+    * Expectations around security vulnerability privacy
 
 2022-12-16
 ==========
