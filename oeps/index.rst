@@ -14,13 +14,6 @@ choice. OEPs are not the only way for a change to be made to Open edX, however,
 the goal is to create a collection of OEP documents as a repository or knowledge
 archive of large and broadly relevant choices made for the platform.
 
-.. note::
-
-    This is the listing of all Open edX Proposals (OEPs). If you are looking for
-    OER Enhancement Proposals, please visit `oep.readthedocs.io`_.
-
-.. _oep.readthedocs.io: https://oep.readthedocs.io
-
 OEPs
 ****
 
