@@ -43,7 +43,7 @@ The first community-lead Open edX working groups were the *Transifex Working Gro
 
 Since then, several more working groups have organized themselves using a similar model. The groups operate autonomously, but have largely standardized around a set of best practices to foster an inclusive and productive environment. Many of the groups play important roles in the project, such as organizing community events, developing standard user interface components, and driving project strategy. As a whole, working groups provide a space for Open edX contributors from different organizations and geographic regions to collaborate and form working relationships.
 
-Given the importance of working groups to the health of the Open edX project, it may surprise new Open edX contributors that litle formal documentation exists to establish the working group system. The only official guidance so far is found in the `Technical Oversight Committee (TOC) Charter`_:
+Given the importance of working groups to the health of the Open edX project, it may surprise new Open edX contributors that little formal documentation exists to establish the working group system. The only official guidance so far is found in the `Technical Oversight Committee (TOC) Charter`_:
 
     **10. Working Groups**
 
@@ -51,7 +51,7 @@ Given the importance of working groups to the health of the Open edX project, it
 
     b. The TOC will typically delegate tactical decision making to those who best understand the details, including Working Groups, Task Forces, Expert Groups, etc. Only significant changes in the status quo or decisions that are difficult to reverse should be escalated to the TOC for consideration
 
-While this excert is true, TOC-created working groups are only a special case of the broader working group system. In this document, we aim to capture the generally-applicable processes and best practices for working groups so that they can be more readily understood by newcomers to the Open edX project and more easily referenced by all community members. In order to avoid disruptive the already-successful working group system that exists today, this OEP mandates only a lightweight framework, one which mostly aligns with how the community already operates.
+While this excerpt is true, TOC-created working groups are only a special case of the broader working group system. In this document, we aim to capture the generally-applicable processes and best practices for working groups so that they can be more readily understood by newcomers to the Open edX project and more easily referenced by all community members. In order to avoid disrupting the already-successful working group system that exists today, this OEP mandates only a lightweight framework, one which mostly aligns with how the community already operates.
 
 
 Specification
@@ -72,7 +72,7 @@ What is important is that the group strives to reach consensus in a manner that 
 Name and Purpose
 ----------------
 
-Evey working group must have a specific name and statement of pupose. The purpose can be brief: a sentance or a paragraph is sufficient. The name and purpose of can be amended at any time via consensus of working group members, although major changes should be announced to the community.
+Every working group must have a specific name and statement of purpose. The purpose can be brief: a sentence or a paragraph is sufficient. The name and purpose can be amended at any time via consensus of working group members, although major changes should be announced to the community.
 
 Following this guideline will help community members understand the role of each working group in developing the Open edX platform. It will help them evaluate whether they would like to become involved in any given group.
 
@@ -87,7 +87,7 @@ When a chairperson wishes to retire from their role, they should make a brief an
 * any information that will help their successor transition into the role, and
 * optionally: any person or people who they recommend as their successor.
 
-The working group should aim to fill the role before the departing chairperson steps down. If they cannot, the group is encouraged to reach out the `Core Contributors`_ group for assisstance.
+The working group should aim to fill the role before the departing chairperson steps down. If they cannot, the group is encouraged to reach out the `Core Contributors`_ group for assistance.
 
 Openness and Inclusivity
 ------------------------
@@ -140,9 +140,9 @@ Generally speaking, working groups can contribute to the Open edX project in any
 * assist community members; or
 * simply discuss an aspect Open edX platform.
 
-Certain working group may step up to fulfill a responsibility called for in an Open edX Propsal. For example, at the time of writing, the Product Working Group is leading the implemenation `the Core Product from OEP-57`_, the DevOps Working Group handles `the release process from OEP-10`_, and the Architecture Coordination Working Group facilitates `the architecture advisory process from OEP-56`_. Due to the fluid nature of working groups, the association between OEP-declared responsibilities and specific working group names is subject to change over time.
+Certain working groups may step up to fulfill a responsibility called for in an Open edX Proposal. For example, at the time of writing, the Product Working Group is leading the implementation `the Core Product from OEP-57`_, the DevOps Working Group handles `the release process from OEP-10`_, and the Architecture Coordination Working Group facilitates `the architecture advisory process from OEP-56`_. Due to the fluid nature of working groups, the association between OEP-declared responsibilities and specific working group names is subject to change over time.
 
-Furthermore, working groups can step up to support maintenance Open edX components, per the process detailed in `OEP-55 <https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0055-proc-project-maintainers.html>`_.
+Furthermore, working groups can step up to support maintenance of Open edX components, per the process detailed in `OEP-55 <https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0055-proc-project-maintainers.html>`_.
 
 How are working groups formed and dissolved?
 ============================================
@@ -173,7 +173,7 @@ If the working group was responsible for handling any community processes, the r
 
 Finally, one of the remaining working group members should update the public listing working groups and announce the dissolution and any related responsibility transfers to the community.
 
-If there seem to be no remaining members in working group and the last chairperson cannot be reached, then the group is *de facto* dissolved. Any Core Contributor is enocuraged to take the above steps in lieu of the abandoned working group.
+If there seem to be no remaining members in working group and the last chairperson cannot be reached, then the group is *de facto* dissolved. Any Core Contributor is encouraged to take the above steps in lieu of the abandoned working group.
 
 Rejected Alternatives
 *********************
