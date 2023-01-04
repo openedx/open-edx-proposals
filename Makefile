@@ -220,8 +220,8 @@ pseudoxml:
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
 
 .PHONY: develop
-develop:
-	sphinx-autobuild -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html -p $(PORT) --ignore '.git/**' --open-browser
+develop: dev-requirements
+	sphinx-autobuild -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html --port $(PORT) --ignore '.git/**' --open-browser
 
 COMMON_CONSTRAINTS_TXT=requirements/common_constraints.txt
 .PHONY: $(COMMON_CONSTRAINTS_TXT)
