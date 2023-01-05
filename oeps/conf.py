@@ -131,7 +131,7 @@ html_theme = 'sphinx_book_theme'
 html_theme_options = {
     "repository_url": "https://github.com/openedx/open-edx-proposals",
     "repository_branch": "master",
-    "path_to_docs": "source",
+    "path_to_docs": "oeps",
     "logo_only": False,
     "home_page_in_toc": True,
     "use_repository_button": True,
