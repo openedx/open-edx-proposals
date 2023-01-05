@@ -225,8 +225,8 @@ Change History
 ==========
 * Address:
 
-    * Timing of security release
-    * Expectations around security vulnerability privacy
+  * Timing of security release
+  * Expectations around security vulnerability privacy
 
 2022-12-16
 ==========
