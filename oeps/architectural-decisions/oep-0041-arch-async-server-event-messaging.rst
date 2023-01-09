@@ -9,7 +9,7 @@ OEP-41: Asynchronous Server Event Message Format
    * - Title
      - Asynchronous Server Event Message Format
    * - Last Modified
-     - 2022-03-24
+     - 2022-01-09
    * - Authors
      - David Ormsbee <dave@edx.org>
    * - Arbiter
@@ -320,7 +320,8 @@ Example: ``"2020-02-23T09:00:00Z"``
 Timestamp that the event occurred, in UTC using `RFC 3339
 <https://tools.ietf.org/html/rfc3339>`_. If this event was sent because we
 created a new row in the database, we should pull this ``time`` directly from
-the ``created_at`` field in that model so that the output matches exactly. Do
+the ``created_at`` field in that model so that the output matches exactly.
+Likewise, use ``updated_at`` for database updates. Do
 *not* call ``datetime.now()`` in these situations because we will get times
 that are just a few milliseconds offset from the database record of these
 actions. Do call ``datetime.now()`` if the event happens and has no
@@ -477,6 +478,8 @@ management.
 **************
 Change History
 **************
+
+2022-01-09: Clarified that time field could be based on updated_at time when appropriate.
 
 2022-03-24: Enhance "Architectural Goals" section and minor edits.
 
