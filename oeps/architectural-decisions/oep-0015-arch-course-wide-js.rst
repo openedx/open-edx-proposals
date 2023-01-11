@@ -44,27 +44,24 @@ As an additional benefit, a course-wide JavaScript mechanism would also simplify
 Specification
 *************
 
-The proposed implementation adds a new policy key for custom course-wide scripts (name TBD):
+The proposed implementation adds new policy keys for custom course-wide scripts, `course_wide_js` for adding JavaScript, and `course_wide_css` for adding CSS code. These both take a list of URLs to JavaScript and CSS resources respectively.
 
 .. code-block:: json
 
-   {
-     "global_scripts": [
-       "/static/experiment.js",
+   [
+       "//lms.site.com/asset-v1:edX+DemoX+Demo_Course+type@asset+block@script.js",
+       "/asset-v1:edX+DemoX+Demo_Course+type@asset+block@script.js",
        "//some.cdn.com/library.js"
-     ]
-   }
+   ]
 
-Since the edX courseware template already receives and renders an XBlock fragment (which includes JavaScript resources), additional script resources would simply be added to this fragment `when the courseware context is created`_.
-
-.. _when the courseware context is created: https://github.com/openedx/edx-platform/blob/d497e194623dd32ad5a66f141529129267db645c/lms/djangoapps/courseware/views/index.py#L372-L441
+These resources will then be directly loaded in all pages in the course by including them in the base templates.
 
 Rationale
 *********
 
-The approach above leverages the existing XBlock/Django infrastructure to handle de-duping and rendering, so little new code should be needed for a working implementation. This also means that changes to script loading in the XBlock runtime (e.g., AMD-style loading `as brought up on the edx-code thread`_) will automatically affect course-wide script loading too.
+The approach above requires very little code for a working implementation as can be seen in the `related PR`_.
 
-For the user-facing portion of the feature, a course policy setting (which would appear on the *Advanced Settings* page of edX Studio) seems like a good fit:
+For the user-facing portion of the feature, course policy settings (which would appear on the *Advanced Settings* page of edX Studio) seem like a good fit:
 
 - Research script inclusion fits well within the `existing description and warning`_ on the Studio *Advanced Settings* page:
 
@@ -78,7 +75,7 @@ For the user-facing portion of the feature, a course policy setting (which would
 
 - Policy settings are conceptually course-wide in scope, which matches the scope of course-wide scripts
 
-.. _as brought up on the edx-code thread: https://groups.google.com/d/msg/edx-code/T83TDxhH74E/cOKZkpkTAQAJ
+.. _related PR: https://github.com/openedx/edx-platform/pull/28411
 .. _existing description and warning: https://github.com/openedx/edx-platform/blob/d497e194623dd32ad5a66f141529129267db645c/cms/templates/settings_advanced.html#L83-L86
 
 Why not XBlocks?
@@ -136,7 +133,7 @@ The proposed feature does not introduce any known backward incompatibilities.
 Reference Implementation
 ************************
 
-(This section will link to an edX platform pull request after the OEP is accepted and an implementation written.)
+- https://github.com/openedx/edx-platform/pull/28411
 
 Rejected Alternatives
 *********************
