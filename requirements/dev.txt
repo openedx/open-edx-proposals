@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-alabaster==0.7.12
+alabaster==0.7.13
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -20,7 +20,7 @@ certifi==2022.12.7
     # via
     #   -r requirements/base.txt
     #   requests
-charset-normalizer==2.1.1
+charset-normalizer==3.0.1
     # via
     #   -r requirements/base.txt
     #   requests
@@ -66,7 +66,7 @@ pygments==2.14.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-pytz==2022.7
+pytz==2022.7.1
     # via
     #   -r requirements/base.txt
     #   babel
@@ -74,7 +74,7 @@ pyyaml==6.0
     # via
     #   -r requirements/base.txt
     #   sphinx-book-theme
-requests==2.28.1
+requests==2.28.2
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -128,7 +128,7 @@ sphinxcontrib-serializinghtml==1.1.5
     #   sphinx
 tornado==6.2
     # via livereload
-urllib3==1.26.13
+urllib3==1.26.14
     # via
     #   -r requirements/base.txt
     #   requests
