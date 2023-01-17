@@ -6,7 +6,7 @@ OEP-60 Open Source Security Working Group
 +-----------------+--------------------------------------------------------+
 | Title           | Open Source Security Working Group                     |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2022-12-16                                             |
+| Last Modified   | 2023-12-17                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Alie Langston <alangston@2u.com>                       |
 |                 | Feanil Patel <fpatel@tcril.org>                        |
@@ -53,7 +53,7 @@ security policy.
 
 Issue Triage and Routing
 ------------------------
-The on-call Security Working Group member will triage the incoming report.
+The on-duty Security Working Group member will triage the incoming report.
 
 They will:
 
@@ -96,7 +96,7 @@ High        ≥7.0    Once a month
 Critical    ≥9.0    Once a week
 ========    =====   ==================
 
-The on-call Security Working Group member is responsible for sending reminders for any vulnerability reminders due during the time they are on-call. These routine reminders should be batched so that all reminders of the same frequency for a maintainer are compiled into a single notification.
+The on-duty Security Working Group member is responsible for sending reminders for any vulnerability reminders due during the time they are on duty. These routine reminders should be batched so that all reminders of the same frequency for a maintainer are compiled into a single notification.
 
 .. note::
 
@@ -180,9 +180,9 @@ We propose using GitHub Security Advisories to handle the triage of vulnerabilit
 
 Member Responsibilities
 -----------------------
-#. Participate in the on-call rotation
+#. Participate in the triage rotation
 
-   * All on-call responsibilities outlined above
+   * All triage responsibilities outlined above
 #. Dedicate time towards proactive security work.
 #. Participate in regular Security Working Group meetings.
 #. Keep vulnerabilities private until a coordinated disclosure occurs.
@@ -220,6 +220,10 @@ How do I receive notification of the release of upcoming security patches?
 
 Change History
 **************
+
+2023-01-17
+==========
+* Rename "on-call" to "on-duty" to clarify level of service.
 
 2022-12-17
 ==========
