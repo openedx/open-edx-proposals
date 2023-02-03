@@ -5,7 +5,7 @@ Deploying Open edX on Kubernetes Using Helm
 Status
 ******
 
-Draft
+Provisional
 
 
 Context
@@ -47,9 +47,9 @@ Helm Considerations
 
 Helm is the best known package manager for Kubernetes. It's status as a graduated project from the Cloud Native Computing Foundation is a clear indication of the thriving adoption, open governance and commitment to the open community.
 
-Helm makes it possible to packages and publish charts, which can be rendered as kubernetes manifests. This charts provide robust support for versioning, deployment and rollback. At the same time Helm makes it easy for operators to customize application configurations during deployment and for developers to provide sensible defaults.
+Helm makes it possible to package and publish charts, which can be rendered as kubernetes manifests. These charts provide robust support for versioning, deployment and rollback. At the same time Helm makes it easy for operators to customize application configurations during deployment and for developers to provide sensible defaults.
 
-Charts are build with the Go language templating engine which is a drawback since it means adding a new language to the ecosystem with a new learning curve. This is considered acceptable due to the large adoption of Helm in the devops community.
+Charts are built with the Go language templating engine.  This is a drawback, since it means adding a new language to the ecosystem with a new learning curve. Nevertheless, this is considered acceptable due to the large adoption of Helm in the devops community.
 
 
 Best Practices
@@ -112,6 +112,12 @@ A `working proof of concept`_ that was writen as part of the research for this A
 
 Change History
 **************
+
+2023--30
+==========
+
+* Document updated to include community feedback.
+
 
 2022-11-30
 ==========
