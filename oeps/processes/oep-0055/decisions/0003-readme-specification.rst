@@ -27,8 +27,9 @@ Specification
 *************
 
 The readme of a well-maintained repo should contain at least the following
-sections.  Ideally in this exact order with additional sections added where it
-makes sense based on the maintainers judgement.
+sections (an example template follows this section). Ideally in this exact
+order with additional sections added where it makes sense based on the
+maintainers judgement.
 
 * **Title** - The name of the component.
 
