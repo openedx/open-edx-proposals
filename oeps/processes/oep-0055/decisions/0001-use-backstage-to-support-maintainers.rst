@@ -105,7 +105,7 @@ References
 
     apiVersion: backstage.io/v1alpha1
     # (Required) Acceptable Values: Component, Resource, System
-    # A repo will almost certainly be a Component.
+    # Use `Component` unless you know how backstage works and what the other kinds mean.
     kind: Component
     metadata:
       name: 'docs.openedx.org'
