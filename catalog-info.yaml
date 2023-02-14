@@ -4,7 +4,7 @@
 apiVersion: backstage.io/v1alpha1
 # (Required) Acceptable Values: Component, Resource, System
 # A repo will almost certainly be a Component.
-kind: Resource
+kind: Component
 metadata:
   name: 'open-edx-proposals'
   description: "Open edX (Enhancement) Proposals"
