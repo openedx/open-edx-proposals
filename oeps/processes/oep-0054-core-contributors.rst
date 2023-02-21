@@ -270,7 +270,7 @@ commit rights generally holds commit rights for only some of the 150+
 Expanding a CC's responsibilities should follow the same process as establishing
 a new contributor, although in most cases, the comment period need only be one
 week. In addition, for newly created repositories or similar situations, a
-single forum thread can be used to nominate several CCs at once, provided they
+single forum thread can be used to nominate several existing CCs at once, provided they
 already hold similar responsibilities (e.g. proposing several people who are
 already coding CCs to get commit rights for a new repo).
 
