@@ -44,7 +44,7 @@ requests==2.28.2
     # via sphinx
 snowballstemmer==2.2.0
     # via sphinx
-soupsieve==2.3.2.post1
+soupsieve==2.4
     # via beautifulsoup4
 sphinx==4.5.0
     # via
@@ -71,5 +71,5 @@ sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
 urllib3==1.26.14
     # via requests
-zipp==3.13.0
+zipp==3.14.0
     # via importlib-metadata
