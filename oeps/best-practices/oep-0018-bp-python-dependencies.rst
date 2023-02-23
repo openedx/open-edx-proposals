@@ -6,7 +6,7 @@ OEP-18: Python Dependency Management
 +-----------------+--------------------------------------------------------+
 | Title           | Python Dependencies Management                         |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2019-02-20                                             |
+| Last Modified   | 2023-03-06                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Jeremy Bowman <jbowman@edx.org>                        |
 +-----------------+--------------------------------------------------------+
@@ -345,8 +345,8 @@ identify the problem.
 Installing Dependencies from URLs
 =================================
 
-As noted above, you should generally avoid installing requirements from a URL
-or local directory instead of PyPI.  But there are a few circumstances where
+As noted above, you should almost always avoid installing requirements from a URL
+or local directory instead of PyPI.  But there are two circumstances where
 it can be appropriate:
 
 * You need to test a release candidate of the dependency to make sure it will
@@ -355,11 +355,16 @@ it can be appropriate:
   a release, and you cannot arrange for a release to be made in a timely
   manner.
 
-In most other circumstances, the package should be added to PyPI instead.  If
-you do need to include a package at a URL, it should have both the package
-name and version specified (end with "#egg=NAME==VERSION").  For example::
+In all other circumstances, the package should be added to PyPI instead.  If
+you do need to include a package at a URL, it must:
 
-    git+https://github.com/openedx/edx-ora2.git@2.1.15#egg=ora2==2.1.15
+* have both the package name and version specified (end with "#egg=NAME==VERSION"), and
+* have a comment with a link to a public issue, whose acceptance criteria is to install the dependency from PyPI.
+
+For example::
+
+    # TODO: Install this from PyPI (https://github.com/openedx/blockstore/issues/212).
+    git+https://github.com/openedx/blockstore.git@1.2.4#egg=blockstore==1.2.4
 
 Rationale
 *********
@@ -430,6 +435,9 @@ packages from URLs whenever possible:
 * When installing a package from PyPI, pip will not pull requirements
   from URLs for security reasons (the content of the URLs can
   change). It will only pull requirements from PyPI.
+* Dependency URLs are incompatible with automated updates. That is, running
+  ``make upgrade`` will not update the version of a dependency specified
+  in a URL, even if new, compatible versions are available.
 
 .. _relative local paths are expanded to absolute paths: https://github.com/jazzband/pip-tools/issues/204
 .. _edx-platform: https://github.com/openedx/edx-platform
@@ -475,3 +483,13 @@ fixed.
 
 Change History
 **************
+
+2023-03-06
+==========
+
+* Made language around URL-specified dependencies stricter
+* Note that URL-specified dependencies subvert the upgrade process
+* Add requirement that URL-specified dependencies be accompanied with
+  a comment linking to a follow-up issue
+* `Pull request <https://github.com/openedx/open-edx-proposals/pull/450>`_
+
