@@ -37,8 +37,7 @@ process.
 Motivation
 **********
 
-Open edX releases happen roughly every six months. Open edX engineers are typically
-focused on the much more frequent edx.org releases.  This document standardizes
+Open edX releases happen roughly every six months.  This document standardizes
 aspects of the release process to ensure that all involved understand and
 participate appropriately.
 
