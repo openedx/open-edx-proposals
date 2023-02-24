@@ -37,7 +37,7 @@ process.
 Motivation
 **********
 
-Open edX releases happen roughly every six months. EdX engineers are typically
+Open edX releases happen roughly every six months. Open edX engineers are typically
 focused on the much more frequent edx.org releases.  This document standardizes
 aspects of the release process to ensure that all involved understand and
 participate appropriately.
@@ -187,57 +187,24 @@ Currently, none of the supported installation methods are intended for
 production.  Running production servers requires making many choices based on
 factors such as expected load, budget, and expertise.
 
-Our installations are based on Ansible playbooks.  Up until the Eucalyptus
-release, all supported installation methods were single-machine: all of
-the Open edX software was installed and ran on a single machine, either a
-Virtualbox image, or a native machine.
-
-That model does not scale up as the number of services and applications grows.
-Newer services are supporting Docker for installation.  Eventually, we would
-like the supported installation methods to be based on an all-Docker model
-where an installation is just a constellation of Docker containers.
-
-To allow us to move gradually from a single-machine model to an all-Docker
-model, we'll support a machine running a number of edX services and
-applications, and also running a number of Docker containers.
-
 
 Installation methods
 ====================
 
 There are two supported installation methods:
 
-- Devstack: for developers planning to modify Open edX code.
 
-- Native: for adopters looking to experiment with Open edX in a non-production
-  environment.  Also useful as a starting point for people designing their
-  production deployment.
+- `Tutor <https://overhang.io/tutor/>`_
 
-.. note::
-
-    In Ginkgo and before, there was a third installation method, called
-    Fullstack.  This was similar to the native installation, but ran under
-    Vagrant.  There was no conceptual difference between Native and Fullstack,
-    so we dropped Fullstack.  If adopters want to run the Native installation
-    under Vagrant, it is not hard to do.
-
-The devstack installation is Docker-based and follows :doc:`OEP-5 </architectural-decisions/oep-0005-arch-containerize-devstack>`.
-
-.. note::
-
-    We haven't determined how best to allow developers to configure which
-    services to run and which should be editable.
-
-The native installation will use an Ansible playbook to install Open edX
-components onto the machine.
-
-.. note::
-
-    We will update this OEP later with specifics of the playbook used.
-
+- `Devstack <https://github.com/openedx/devstack>`_
 
 Change History
 **************
+
+2022-02-24
+==========
+
+* Remove info about older installation methods that are no longer relevant.
 
 2020-04-26
 ==========
