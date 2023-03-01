@@ -17,7 +17,7 @@ OEP-49: Django App Patterns
    * - Status
      - Accepted
    * - Type
-     - Architecture
+     - Best Practice
    * - Created
      - 2021-01-29
    * - Review Period
@@ -271,3 +271,21 @@ Consequences
 ************
 
 At this time, there is no plan to enforce any of these guidelines. The vast majority of current Open edX code doesn't yet meet these guidelines, and there will always be exceptions to the rule. The hope is that as developers write new code or refactor existing code, they follow these patterns as best they can. We also hope that code reviewers will ensure these guidelines are followed in the code they approve.
+
+Change History
+**************
+
+2023-03-01
+==========
+
+* Changed type from "Architecture" to "Best Practice"
+
+2021-04-23
+==========
+
+* Accepted
+
+2021-04-12
+==========
+
+* Initial publication
