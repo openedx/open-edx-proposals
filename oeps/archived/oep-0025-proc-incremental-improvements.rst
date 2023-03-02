@@ -12,7 +12,7 @@ OEP-25: Incremental Improvements
 +-----------------+----------------------------------------------------------+
 | Arbiter         | Adam Stankiewicz <astankiewicz@edx.org>                  |
 +-----------------+----------------------------------------------------------+
-| Status          | Accepted                                                 |
+| Status          | Obsolete                                                 |
 +-----------------+----------------------------------------------------------+
 | Type            | Process                                                  |
 +-----------------+----------------------------------------------------------+
@@ -24,6 +24,14 @@ OEP-25: Incremental Improvements
 +-----------------+----------------------------------------------------------+
 
 .. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/66#pullrequestreview-151034037
+
+.. attention::
+
+   The incremental improvements process is no longer being actively maintained.
+   If you are looking for places where you can help the project check out issues
+   tagged as `help wanted
+   <https://github.com/openedx/public-engineering/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22>`
+   in the ``public-engineering`` project.
 
 TL;DR
 *****

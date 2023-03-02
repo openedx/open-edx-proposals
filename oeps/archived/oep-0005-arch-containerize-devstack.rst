@@ -12,12 +12,18 @@ OEP-5: Pre-built Developer Environments
 +---------------+----------------------------------------------------+
 | Arbiter       | Jesse Zoldak <jzoldak@edx.org>                     |
 +---------------+----------------------------------------------------+
-| Status        | Accepted                                           |
+| Status        | Replaced                                           |
 +---------------+----------------------------------------------------+
 | Type          | Architecture                                       |
 +---------------+----------------------------------------------------+
 | Created       | 2016-06-28                                         |
 +---------------+----------------------------------------------------+
+
+.. attention::
+
+   This OEP has been replaced by
+   :doc:`/architectural-decisions/oep-0045/decisions/0001-tutor-as-replacement-for-edx-configuration`
+   a decision made as a part of :doc:`/architectural-decisions/oep-0045-arch-ops-and-config`
 
 Abstract
 ********

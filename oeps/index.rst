@@ -57,8 +57,8 @@ is no clear code repository where they should reside.
 
    architectural-decisions/oep-*
 
-Obsolete Or Replaced
-====================
+Archived Proposals
+==================
 
 These are older decisions or documents that are no longer relevant to the
 project but that we leave here for posterity and as useful reference if we run
@@ -69,4 +69,4 @@ into similar situations in the future.
    :glob:
    :caption: Obsolete or Replaced
 
-   obsolete_or_replaced/oep-*
+   archived/oep-*
