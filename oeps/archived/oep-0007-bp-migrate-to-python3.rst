@@ -13,7 +13,7 @@ OEP-7: Migrating to Python 3
 +---------------+-----------------------------------------------+
 | Arbiter       | Christopher Pappas <cpappas@edx.org>          |
 +---------------+-----------------------------------------------+
-| Status        | Accepted                                      |
+| Status        | Obsolete                                      |
 +---------------+-----------------------------------------------+
 | Type          | Best Practice                                 |
 +---------------+-----------------------------------------------+
@@ -23,6 +23,15 @@ OEP-7: Migrating to Python 3
 +---------------+-----------------------------------------------+
 
 .. _open-edx-proposals#21: https://github.com/openedx/open-edx-proposals/pull/21#pullrequestreview-18018383
+
+
+.. attention::
+
+   This OEP is Obsolete as all systems within the Open edX platform now run on
+   Python >= 3.8
+
+   This OEP served as a coordination point for the upgrade related decisions but
+   is no longer relevant to the project.
 
 Abstract
 ********

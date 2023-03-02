@@ -12,7 +12,7 @@ OEP-12: Pluggable User Interfaces
 +---------------+----------------------------------------------------+
 | Arbiter       | Clinton Blackburn <clinton@edx.org>                |
 +---------------+----------------------------------------------------+
-| Status        | Accepted                                           |
+| Status        | Obsolete                                           |
 +---------------+----------------------------------------------------+
 | Type          | Architecture                                       |
 +---------------+----------------------------------------------------+
@@ -22,6 +22,12 @@ OEP-12: Pluggable User Interfaces
 +---------------+----------------------------------------------------+
 
 .. _open-edx-proposals#34: https://github.com/openedx/open-edx-proposals/pull/34#pullrequestreview-18294926
+
+.. attention::
+
+   This OEP assumes UI components managed by Django however, the Open edX
+   platform has moved to JS based Micro-Frontends for its user interfaces and
+   thus the decisions and proposals in this OEP are no longer relevant.
 
 Abstract
 ********
