@@ -17,7 +17,7 @@ OEP-49: Django App Patterns
    * - Status
      - Accepted
    * - Type
-     - Architecture
+     - Best Practice
    * - Created
      - 2021-01-29
    * - Review Period
@@ -267,7 +267,36 @@ Do note that even if you expose your tasks through ``api.py`` to be used by othe
 still be configured with the ``tasks`` import name, as the celery identifier for your task (as set by the celery
 decorator) is based off the original file.
 
+docs/decisions/0001-purpose-of-this-app.rst
+===========================================
+
+This should be an architectural decision record (ADR) describing the decision behind adding the app. Future ADRs should also be placed in this directory. See more about what should go in ADRs in the `ADRs section of OEP-0019`_.
+
+If this is the only app in the repository, this ADR should just be a stub linking to the full ADR in `0001-purpose-of-this-repo.rst` (see `TODOs after running cookiecutter`_).
+
+.. _ADRs section of OEP-0019: https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#adrs
+.. _TODOs after running cookiecutter: https://github.com/openedx/edx-cookiecutters#3-todos-after-running-cookiecutter
+
 Consequences
 ************
 
 At this time, there is no plan to enforce any of these guidelines. The vast majority of current Open edX code doesn't yet meet these guidelines, and there will always be exceptions to the rule. The hope is that as developers write new code or refactor existing code, they follow these patterns as best they can. We also hope that code reviewers will ensure these guidelines are followed in the code they approve.
+
+Change History
+**************
+
+2023-03-01
+==========
+
+* Changed type from "Architecture" to "Best Practice"
+* Added section for an ADR justifying the new app
+
+2021-04-23
+==========
+
+* Accepted
+
+2021-04-12
+==========
+
+* Initial publication
