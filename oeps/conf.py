@@ -36,9 +36,13 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.graphviz',
     'sphinx_copybutton',
+    'sphinxext.rediraffe',
 ]
 
 graphviz_output_format = 'svg'
+
+rediraffe_redirects = "redirects.txt"
+rediraffe_branch = 'origin/master'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
