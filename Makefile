@@ -248,3 +248,11 @@ requirements:
 
 dev-requirements:
 	pip install -r requirements/dev.txt
+
+update_redirects:
+	# If files got moved there should be a redirect in redirects.txt
+	sphinx-build -b rediraffewritediff oeps $(BUILDDIR)
+
+check_redirects:
+	# Check to make sure that any files that got moved have a redirect in redirects.txt
+	sphinx-build -b rediraffecheckdiff oeps $(BUILDDIR)
