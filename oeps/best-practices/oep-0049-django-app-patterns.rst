@@ -62,7 +62,7 @@ Listed below are each of the files or folders your app should contain and what t
 README.rst
 ==========
 
-Each app should contain a README.rst to explain its use. See full details of what should go in the README.rst in OEP-0019_
+Each app should contain a README.rst to explain its use. See full details of what should go in the README.rst in OEP-0019_.
 
 .. _OEP-0019: https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#readmes
 
