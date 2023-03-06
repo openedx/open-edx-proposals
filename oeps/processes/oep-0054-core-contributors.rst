@@ -269,10 +269,16 @@ commit rights generally holds commit rights for only some of the 150+
 
 Expanding a CC's responsibilities should follow the same process as establishing
 a new contributor, although in most cases, the comment period need only be one
-week. However, in cases where the new responsibilities are greatly different
+week. In addition, for newly created repositories or similar situations, a
+single forum thread can be used to nominate several existing CCs at once, provided they
+already hold similar responsibilities (e.g. proposing several people who are
+already coding CCs to get commit rights for a new repo).
+
+However, in cases where the new responsibilities are greatly different
 from the responsibilities currently held (for example, a coding contributor
 having previously held only backend repo commit rights asking for permission to
-a ``frontend-*`` repo), consider making the comment period the full 2 weeks.
+a ``frontend-*`` repo), consider making the comment period the full 2 weeks,
+and use a separate thread for each individual as usual.
 
 Where Do I Start?
 -----------------
@@ -358,6 +364,12 @@ the ``#core-contributors`` Slack room in the `Open edX Slack
 
 Change History
 **************
+
+2023-02-20
+==========
+
+* Establish a streamlined process for assigning existing CCs to a newly created
+  repo.
 
 2022-07-18
 ==========
