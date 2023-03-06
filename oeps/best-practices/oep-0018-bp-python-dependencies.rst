@@ -493,3 +493,30 @@ Change History
   a comment linking to a follow-up issue
 * `Pull request <https://github.com/openedx/open-edx-proposals/pull/450>`_
 
+2021-04-30
+==========
+
+* Clarify recommendation on using `--rebuild` flag
+* Update cookiecutters URL, since the cookie cutter repos were combined
+* Use syntax highlighting for code blocks only where appropriate
+* Remove reference to deprecated `owner` field from OEP-2
+* Remove reference to dead site "allmychanges"
+* `Pull request <https://github.com/openedx/open-edx-proposals/pull/211>`_
+
+2019-02-20
+==========
+
+* Remind that pip ignores transitive URL-based dependencies
+* `Pull request <https://github.com/openedx/open-edx-proposals/pull/106>`_
+
+2018-10-18
+==========
+
+* Add tip about ``pip compile -v``
+* `Pull request <https://github.com/openedx/open-edx-proposals/pull/82>`_
+
+2018-05-02
+==========
+
+* Document created
+* `Pull request <https://github.com/openedx/open-edx-proposals/pull/56>`_
