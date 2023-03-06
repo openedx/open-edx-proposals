@@ -491,7 +491,7 @@ Change History
 * Note that URL-specified dependencies subvert the upgrade process
 * Add requirement that URL-specified dependencies be accompanied with
   a comment linking to a follow-up issue
-* `Pull request <https://github.com/openedx/open-edx-proposals/pull/450>`_
+* `Pull request #450 <https://github.com/openedx/open-edx-proposals/pull/450>`_
 
 2021-04-30
 ==========
@@ -501,22 +501,22 @@ Change History
 * Use syntax highlighting for code blocks only where appropriate
 * Remove reference to deprecated `owner` field from OEP-2
 * Remove reference to dead site "allmychanges"
-* `Pull request <https://github.com/openedx/open-edx-proposals/pull/211>`_
+* `Pull request #211 <https://github.com/openedx/open-edx-proposals/pull/211>`_
 
 2019-02-20
 ==========
 
 * Remind that pip ignores transitive URL-based dependencies
-* `Pull request <https://github.com/openedx/open-edx-proposals/pull/106>`_
+* `Pull request #106 <https://github.com/openedx/open-edx-proposals/pull/106>`_
 
 2018-10-18
 ==========
 
 * Add tip about ``pip compile -v``
-* `Pull request <https://github.com/openedx/open-edx-proposals/pull/82>`_
+* `Pull request #82 <https://github.com/openedx/open-edx-proposals/pull/82>`_
 
 2018-05-02
 ==========
 
 * Document created
-* `Pull request <https://github.com/openedx/open-edx-proposals/pull/56>`_
+* `Pull request #56 <https://github.com/openedx/open-edx-proposals/pull/56>`_
