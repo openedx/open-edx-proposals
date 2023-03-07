@@ -4,17 +4,21 @@
 #
 #    make upgrade
 #
+accessible-pygments==0.0.3
+    # via pydata-sphinx-theme
 alabaster==0.7.13
     # via sphinx
-babel==2.11.0
-    # via sphinx
+babel==2.12.1
+    # via
+    #   pydata-sphinx-theme
+    #   sphinx
 beautifulsoup4==4.11.2
     # via pydata-sphinx-theme
 certifi==2022.12.7
     # via requests
-charset-normalizer==3.0.1
+charset-normalizer==3.1.0
     # via requests
-docutils==0.17.1
+docutils==0.19
     # via
     #   pydata-sphinx-theme
     #   sphinx
@@ -32,28 +36,29 @@ packaging==23.0
     # via
     #   pydata-sphinx-theme
     #   sphinx
-pydata-sphinx-theme==0.8.1
+pydata-sphinx-theme==0.13.1
     # via sphinx-book-theme
 pygments==2.14.0
-    # via sphinx
+    # via
+    #   accessible-pygments
+    #   pydata-sphinx-theme
+    #   sphinx
 pytz==2022.7.1
     # via babel
-pyyaml==6.0
-    # via sphinx-book-theme
 requests==2.28.2
     # via sphinx
 snowballstemmer==2.2.0
     # via sphinx
 soupsieve==2.4
     # via beautifulsoup4
-sphinx==4.5.0
+sphinx==5.3.0
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
     #   pydata-sphinx-theme
     #   sphinx-book-theme
     #   sphinx-copybutton
-sphinx-book-theme==0.3.3
+sphinx-book-theme==1.0.0
     # via -r requirements/base.in
 sphinx-copybutton==0.5.1
     # via -r requirements/base.in
