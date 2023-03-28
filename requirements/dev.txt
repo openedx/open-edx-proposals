@@ -4,15 +4,20 @@
 #
 #    make upgrade
 #
+accessible-pygments==0.0.4
+    # via
+    #   -r requirements/base.txt
+    #   pydata-sphinx-theme
 alabaster==0.7.13
     # via
     #   -r requirements/base.txt
     #   sphinx
-babel==2.11.0
+babel==2.12.1
     # via
     #   -r requirements/base.txt
+    #   pydata-sphinx-theme
     #   sphinx
-beautifulsoup4==4.11.2
+beautifulsoup4==4.12.0
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
@@ -20,13 +25,13 @@ certifi==2022.12.7
     # via
     #   -r requirements/base.txt
     #   requests
-charset-normalizer==3.0.1
+charset-normalizer==3.1.0
     # via
     #   -r requirements/base.txt
     #   requests
 colorama==0.4.6
     # via sphinx-autobuild
-docutils==0.17.1
+docutils==0.19
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
@@ -39,7 +44,7 @@ imagesize==1.4.1
     # via
     #   -r requirements/base.txt
     #   sphinx
-importlib-metadata==6.0.0
+importlib-metadata==6.1.0
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -58,22 +63,20 @@ packaging==23.0
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
     #   sphinx
-pydata-sphinx-theme==0.8.1
+pydata-sphinx-theme==0.13.1
     # via
     #   -r requirements/base.txt
     #   sphinx-book-theme
 pygments==2.14.0
     # via
     #   -r requirements/base.txt
+    #   accessible-pygments
+    #   pydata-sphinx-theme
     #   sphinx
-pytz==2022.7.1
+pytz==2023.2
     # via
     #   -r requirements/base.txt
     #   babel
-pyyaml==6.0
-    # via
-    #   -r requirements/base.txt
-    #   sphinx-book-theme
 requests==2.28.2
     # via
     #   -r requirements/base.txt
@@ -88,7 +91,7 @@ soupsieve==2.4
     # via
     #   -r requirements/base.txt
     #   beautifulsoup4
-sphinx==4.5.0
+sphinx==5.3.0
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
@@ -99,7 +102,7 @@ sphinx==4.5.0
     #   sphinxext-rediraffe
 sphinx-autobuild==2021.3.14
     # via -r requirements/dev.in
-sphinx-book-theme==0.3.3
+sphinx-book-theme==1.0.0
     # via -r requirements/base.txt
 sphinx-copybutton==0.5.1
     # via -r requirements/base.txt
@@ -131,7 +134,7 @@ sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
 tornado==6.2
     # via livereload
-urllib3==1.26.14
+urllib3==1.26.15
     # via
     #   -r requirements/base.txt
     #   requests
