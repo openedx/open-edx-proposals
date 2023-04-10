@@ -136,8 +136,6 @@ html_theme_options = {
     "repository_url": "https://github.com/openedx/open-edx-proposals",
     "repository_branch": "master",
     "path_to_docs": "oeps",
-    "logo_only": False,
-    "home_page_in_toc": True,
     "use_repository_button": True,
     "use_issues_button": True,
     "use_edit_page_button": True,
