@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Open edX Proposals Index
-########################
+Open edX Proposals
+##################
 
 OEP (pronounced “oh-epp”) stands for Open edX (Enhancement) Proposal. An OEP is
 a document that details a specific technology or community decision being made by
