@@ -17,7 +17,7 @@ babel==2.12.1
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
     #   sphinx
-beautifulsoup4==4.12.0
+beautifulsoup4==4.12.2
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
@@ -44,7 +44,7 @@ imagesize==1.4.1
     # via
     #   -r requirements/base.txt
     #   sphinx
-importlib-metadata==6.1.0
+importlib-metadata==6.3.0
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -67,7 +67,7 @@ pydata-sphinx-theme==0.13.3
     # via
     #   -r requirements/base.txt
     #   sphinx-book-theme
-pygments==2.14.0
+pygments==2.15.0
     # via
     #   -r requirements/base.txt
     #   accessible-pygments
