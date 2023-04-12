@@ -10,9 +10,9 @@ OEP-26: Real-time Events
 +-----------------+--------------------------------------------------------+
 | Authors         | Nimisha Asthagiri <nimisha@edx.org>,                   |
 |                 | Danial Malik <danial.malik@edly.io>,                   |
-|                 | Ed Zarecor <ed@tcril.org>                              |
+|                 | Ed Zarecor <ed@axim.org>                              |
 +-----------------+--------------------------------------------------------+
-| Arbiter         | Brian Mesick <bmesick@tcril.org>                       |
+| Arbiter         | Brian Mesick <bmesick@axim.org>                       |
 +-----------------+--------------------------------------------------------+
 | Status          | Provisional                                            |
 +-----------------+--------------------------------------------------------+

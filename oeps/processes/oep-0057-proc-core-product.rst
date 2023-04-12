@@ -17,9 +17,9 @@ OEP-57: Core Product
    * - Last Modified
      - 2022-11-07
    * - Authors
-     - | Sarina Canelake <sarina@tcril.org>
-       | Kyle McCormick <kyle@tcril.org>
-       | Jenna Makowski <jmakowski@tcril.org>
+     - | Sarina Canelake <sarina@axim.org>
+       | Kyle McCormick <kyle@axim.org>
+       | Jenna Makowski <jmakowski@axim.org>
    * - Arbiter
      - Ali Hugo <ali@opencraft.com>
    * - Status

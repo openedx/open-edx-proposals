@@ -10,7 +10,7 @@ OEP-54: Core Contributors
    * - Last Modified
      - 2022-02-11
    * - Authors
-     - Sarina Canelake <sarina@tcril.org>
+     - Sarina Canelake <sarina@axim.org>
    * - Arbiter
      - Xavier Antoviaque <xavier@opencraft.com>
    * - Status
@@ -360,7 +360,7 @@ Contact the Program Administrators
 
 Questions about the Program can be directed to the Axim administrator(s) via
 the ``#core-contributors`` Slack room in the `Open edX Slack
-<https://openedx.slack.com/>`_ or at ``cc-program-admins@tcril.org``.
+<https://openedx.slack.com/>`_ or at ``cc-program-admins@axim.org``.
 
 Change History
 **************

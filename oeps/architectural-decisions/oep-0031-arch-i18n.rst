@@ -12,7 +12,7 @@ OEP-31: Micro-frontend Internationalization
    * - Authors
      - Albemarle <albemarle@edx.org>, David Joy <djoy@edx.org>
    * - Arbiter
-     - Sarina Canelake <sarina@tcril.org>
+     - Sarina Canelake <sarina@axim.org>
    * - Status
      - Accepted
    * - Type

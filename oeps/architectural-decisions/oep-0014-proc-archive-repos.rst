@@ -9,7 +9,7 @@ OEP-14: Archiving edX GitHub Repositories
 | Last Modified | 2022-01-26                                               |
 +---------------+----------------------------------------------------------+
 | Author        | Christina Roberts <christina@edx.org>                    |
-|               | Feanil Patel <feanil@tcril.org>                          |
+|               | Feanil Patel <feanil@axim.org>                          |
 +---------------+----------------------------------------------------------+
 | Arbiter       | Nimisha Asthagiri <nasthagiri@edx.org>                   |
 +---------------+----------------------------------------------------------+
