@@ -86,8 +86,8 @@ environment [#ops]_.
 Motivation
 **********
 
-With the change in stewardship from edX to The Center for Reimagining
-Learning, it is essential to have a well defined plan for maintaining
+With the change in stewardship from edX to Axim Collaborative,
+it is essential to have a well defined plan for maintaining
 the platform.
 
 In order to ensure that the project is sustainable for the long term,

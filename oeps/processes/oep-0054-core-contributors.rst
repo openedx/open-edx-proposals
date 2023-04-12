@@ -87,8 +87,8 @@ expected.
 Core Contributor Program Administration
 =======================================
 
-The Core Contributor Program is administered by The Center for Re-imagining
-Learning (Axim). One or more persons at Axim (the "Program administrator(s)")
+The Core Contributor Program is administered by Axim Collaborative.
+One or more persons at Axim (the "Program administrator(s)")
 work with the community to make sure the program runs smoothly: this entails
 facilitating communication amongst community members, `selecting new members`_,
 and ensuring that existing members renew their commitment to the community and
