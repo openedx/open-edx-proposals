@@ -9,7 +9,7 @@ OEP-34: Lint Amnesty
 | Last Modified   | 2021-05-04                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Calen Pennington <cale@edx.org>                        |
-|                 | Feanil Patel <feanil@tcril.org>                        |
+|                 | Feanil Patel <feanil@axim.org>                         |
 +-----------------+--------------------------------------------------------+
 | Arbiter         | Usama Sadiq <usadiq@edx.org>                           |
 +-----------------+--------------------------------------------------------+

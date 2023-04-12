@@ -433,8 +433,8 @@ arbiter of last resort for governance matters.
 Contact the Program Administrators
 **********************************
 
-Questions about the Program can be directed to the tCRIL administrator(s) via
-the ``#ask-tcril`` Slack room in the `Open edX Slack
+Questions about the Program can be directed to the Axim administrator(s) via
+the ``#ask-axim`` Slack room in the `Open edX Slack
 <https://openedx.slack.com/>`_. Questions or concerns of a more sensitive nature
 may be directed to ``maintainer-program-admins@tcril.org``.
 

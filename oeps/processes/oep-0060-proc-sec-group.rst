@@ -165,7 +165,7 @@ Security Working Group
 
 Invite Only
 -----------
-Initial members of the working group will come from the existing internal security group and members of tCRIL. If more
+Initial members of the working group will come from the existing internal security group and members of Axim. If more
 volunteers are needed, we will put out a call to join. Volunteers will need to ask for support from other core contributors
 and will then be evaluated by the existing working group members. We hope to have six to seven members of the working
 group at a time.
