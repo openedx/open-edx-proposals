@@ -11,8 +11,8 @@ OEP-55: Project Maintainers
    * - Last Modified
      - 2022-05-13
    * - Authors
-     - Edward Zarecor <e0d@tcril.org>, Sarina Canelake
-       <sarina@tcril.org>, Xavier Antoviaque <antoviaque>, Olivia
+     - Edward Zarecor <e0d@axim.org>, Sarina Canelake
+       <sarina@axim.org>, Xavier Antoviaque <antoviaque>, Olivia
        Ruiz-Knott <oliviaruizknott>, Ned Batchelder <nedbat>, David
        Joy <davidjoy>
    * - Arbiter
@@ -86,8 +86,8 @@ environment [#ops]_.
 Motivation
 **********
 
-With the change in stewardship from edX to The Center for Reimagining
-Learning, it is essential to have a well defined plan for maintaining
+With the change in stewardship from edX to Axim Collaborative,
+it is essential to have a well defined plan for maintaining
 the platform.
 
 In order to ensure that the project is sustainable for the long term,
@@ -433,10 +433,10 @@ arbiter of last resort for governance matters.
 Contact the Program Administrators
 **********************************
 
-Questions about the Program can be directed to the tCRIL administrator(s) via
-the ``#ask-tcril`` Slack room in the `Open edX Slack
+Questions about the Program can be directed to the Axim administrator(s) via
+the ``#ask-axim`` Slack room in the `Open edX Slack
 <https://openedx.slack.com/>`_. Questions or concerns of a more sensitive nature
-may be directed to ``maintainer-program-admins@tcril.org``.
+may be directed to ``maintainer-program-admins@axim.org``.
 
 Related Decisions
 *****************

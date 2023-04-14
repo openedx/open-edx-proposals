@@ -10,7 +10,7 @@ OEP-54: Core Contributors
    * - Last Modified
      - 2022-02-11
    * - Authors
-     - Sarina Canelake <sarina@tcril.org>
+     - Sarina Canelake <sarina@axim.org>
    * - Arbiter
      - Xavier Antoviaque <xavier@opencraft.com>
    * - Status
@@ -87,8 +87,8 @@ expected.
 Core Contributor Program Administration
 =======================================
 
-The Core Contributor Program is administered by The Center for Re-imagining
-Learning (tCRIL). One or more persons at tCRIL (the "Program administrator(s)")
+The Core Contributor Program is administered by Axim Collaborative.
+One or more persons at Axim (the "Program administrator(s)")
 work with the community to make sure the program runs smoothly: this entails
 facilitating communication amongst community members, `selecting new members`_,
 and ensuring that existing members renew their commitment to the community and
@@ -97,9 +97,9 @@ Core Contributor conduct, particularly whether they follow the "3 Cs"
 (Commitment, Conduct, Caliber), and may issue reminders, suspensions, and even
 removal from the Program. `Contact the Program Administrators`_ as needed.
 
-The tCRIL administrator(s) are the point people for making sure that needed
+The Axim administrator(s) are the point people for making sure that needed
 agreements are signed. Formost, this is a Program Agreement between the CC and
-tCRIL (sent to you by a Program Administrator). Additionally, if the CC commits
+Axim (sent to you by a Program Administrator). Additionally, if the CC commits
 code to a GitHub repo, a CLA is needed (which should have been signed when you
 made your first PR). Finally, for new companies or organizations joining the
 community, an Entity Contributor Agreement most be signed (please communicate
@@ -119,7 +119,7 @@ Contributors duties, and counted towards an organization's commitments, is
 defined at 
 `<https://openedx.atlassian.net/wiki/spaces/COMM/pages/3593502844/Core+Contributor+-+Work+Scope>`_
 
-Questions about the Program can be directed to the tCRIL administrator(s) via
+Questions about the Program can be directed to the Axim administrator(s) via
 the ``#core-contributors`` Slack room in the `Open edX Slack
 <https://openedx.slack.com/>`_.
 
@@ -358,9 +358,9 @@ fast-track getting their access back.
 Contact the Program Administrators
 ==================================
 
-Questions about the Program can be directed to the tCRIL administrator(s) via
+Questions about the Program can be directed to the Axim administrator(s) via
 the ``#core-contributors`` Slack room in the `Open edX Slack
-<https://openedx.slack.com/>`_ or at ``cc-program-admins@tcril.org``.
+<https://openedx.slack.com/>`_ or at ``cc-program-admins@axim.org``.
 
 Change History
 **************

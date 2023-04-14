@@ -45,8 +45,8 @@ Consequences
 * As a result of adding the ``catalog-info.yaml`` file we end with two top-level
   files that have very similar data.  If this decision is not reversed after the
   initial pilot, it may make sense to revisit this consequence and see if we can
-  consolidate this metadata into a single file. `tcril-engineering#331
-  <https://github.com/openedx/tcril-engineering/issues/331>`_ has been created
+  consolidate this metadata into a single file. `axim-engineering#331
+  <https://github.com/openedx/axim-engineering/issues/331>`_ has been created
   to follow up on this work.
 
 
@@ -129,8 +129,8 @@ References
       # Don't forget the "user:" or "group:" prefix. Groups must be GitHub team
       # names in the openedx GitHub organization: https://github.com/orgs/openedx/teams
       #
-      # If you need a new team created, create an issue with tCRIL engineering:
-      # https://github.com/openedx/tcril-engineering/issues/new/choose
+      # If you need a new team created, create an issue with Axim engineering:
+      # https://github.com/openedx/axim-engineering/issues/new/choose
       owner: group:docs.edx.org-maintainers
 
       # (Required) Acceptable Type Values: service, website, library

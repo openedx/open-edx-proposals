@@ -17,9 +17,9 @@ OEP-57: Core Product
    * - Last Modified
      - 2022-11-07
    * - Authors
-     - | Sarina Canelake <sarina@tcril.org>
-       | Kyle McCormick <kyle@tcril.org>
-       | Jenna Makowski <jmakowski@tcril.org>
+     - | Sarina Canelake <sarina@axim.org>
+       | Kyle McCormick <kyle@axim.org>
+       | Jenna Makowski <jmakowski@axim.org>
    * - Arbiter
      - Ali Hugo <ali@opencraft.com>
    * - Status
@@ -328,7 +328,7 @@ Notes
 ..
    The editable LucidChart source file is here:
    https://lucid.app/lucidchart/45a5cd3f-60c8-4d40-8bb4-3aee2eae66d2/edit?invitationId=inv_e152fc16-d759-4cdc-bdf3-d987f11a6612&page=MHqY~t-BcHS8#
-   As of publish time, the OEP authors, arbiter, and tCRIL Engineering Team have edit access
+   As of publish time, the OEP authors, arbiter, and Axim Engineering Team have edit access
    (which can be requested for those looking to edit in the future)
 
 .. _Problem Block: https://github.com/openedx/edx-platform/blob/open-release/olive.master/xmodule/capa_module.py

@@ -11,7 +11,7 @@ OEP-21: Deprecation and Removal
 | Authors         | Greg Sham <gsham@edx.org>,                             |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
 |                 | Diana Huang <dkh@edx.org>                              |
-|                 | Sarina Canelake <sarina@tcril.org>                     |
+|                 | Sarina Canelake <sarina@axim.org>                      |
 +-----------------+--------------------------------------------------------+
 | Arbiter         | Matt Tuchfarber <mtuchfarber@edx.org>                  |
 +-----------------+--------------------------------------------------------+

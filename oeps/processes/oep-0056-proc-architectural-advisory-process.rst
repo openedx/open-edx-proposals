@@ -13,7 +13,7 @@ OEP-56: Architectural Advisory Process
    * - Authors
      - David Joy <djoy@edx.org>
    * - Arbiter
-     - Feanil Patel <feanil@tcril.org>
+     - Feanil Patel <feanil@axim.org>
    * - Status
      - Provisional
    * - Type

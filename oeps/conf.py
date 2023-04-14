@@ -61,7 +61,7 @@ master_doc = 'index'
 # General information about the project.
 project = u'Open edX Proposals'
 current_year = datetime.utcnow().year
-copyright = f"{current_year}, The Center for Reimagining Learning"
+copyright = f"{current_year}, Axim Collaborative"
 
 html_context = {
     "display_github": True, # Integrate GitHub
@@ -153,7 +153,7 @@ html_theme_options = {
                 href="https://openedx.org"
                 property="cc:attributionName"
                 rel="cc:attributionURL"
-            >The Center for Reimagining Learning</a>
+            >Axim Collaborative</a>
         are licensed under a
             <a
                 rel="license"

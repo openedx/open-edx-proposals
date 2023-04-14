@@ -9,7 +9,7 @@ OEP-14: Archiving edX GitHub Repositories
 | Last Modified | 2022-01-26                                               |
 +---------------+----------------------------------------------------------+
 | Author        | Christina Roberts <christina@edx.org>                    |
-|               | Feanil Patel <feanil@tcril.org>                          |
+|               | Feanil Patel <feanil@axim.org>                           |
 +---------------+----------------------------------------------------------+
 | Arbiter       | Nimisha Asthagiri <nasthagiri@edx.org>                   |
 +---------------+----------------------------------------------------------+
@@ -62,13 +62,13 @@ First, if the repository is public, and a part of Open edX releases, follow thes
 
 2. If someone does wish to take ownership of the repository, post a new notice to `Open edX Deprecation Announcements`_, clearly indicating who the new proposed owner is, how much time they have to spend maintaining the repo, and when the transfer will take place. Cross post in the above mentioned Slack channels. Wait at least 2 business days before proceeding.
 
-3. Create a new `GitHub Request on the tCRIL board`_ for the repository to be transferred to the new organization.
+3. Create a new `GitHub Request on the Axim board`_ for the repository to be transferred to the new organization.
 
 4. Once the transfer has occurred, create a fork of the transferred repository into the `openedx organization`_ and follow the `Archive Steps`_ below for the forked repo.
 
 .. _Open edX Deprecation Announcements: https://discuss.openedx.org/c/announcements/deprecation
 .. _Open edX slack: http://openedx.org/slack
-.. _GitHub Request on the tCRIL board: https://github.com/openedx/tcril-engineering/issues/new/choose
+.. _GitHub Request on the Axim board: https://github.com/openedx/axim-engineering/issues/new/choose
 
 
 Archive Steps
@@ -78,7 +78,7 @@ These steps should be followed for all repos within the Open edX organization (f
 
 1. Update the README.rst file in the repository to add a brief note about why the repo is being archived, and what is serving as its replacement (where applicable). This may be as simple as a linking to the appropriate DEPR ticket.
 
-2. Unless you have the relevant permissions to perform this step, create a new `GitHub Request on the tCRIL board`_  and ask them to do the following:
+2. Unless you have the relevant permissions to perform this step, create a new `GitHub Request on the Axim board`_  and ask them to do the following:
 
   - Archive the repository per `GitHub's archive process`_
 

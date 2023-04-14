@@ -12,9 +12,9 @@ OEP-58: Translations Management
      - 2022-11-22
    * - Authors
      - 
-       * Carlos Muniz <cmuniz@tcril.org>
-       * Feanil Patel <feanil@tcril.org>
-       * Sarina Canelake <sarina@tcril.org>
+       * Carlos Muniz <cmuniz@axim.org>
+       * Feanil Patel <feanil@axim.org>
+       * Sarina Canelake <sarina@axim.org>
    * - Arbiter
      - Ned Batchelder <ned@edx.org>
    * - Status

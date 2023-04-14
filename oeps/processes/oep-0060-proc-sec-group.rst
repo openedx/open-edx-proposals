@@ -9,10 +9,10 @@ OEP-60 Open Source Security Working Group
 | Last Modified   | 2023-12-17                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Alie Langston <alangston@2u.com>                       |
-|                 | Feanil Patel <fpatel@tcril.org>                        |
+|                 | Feanil Patel <fpatel@axim.org>                         |
 |                 | Phil Shiu <pshiu@2u.com>                               |
 +-----------------+--------------------------------------------------------+
-| Arbiter         | Feanil Patel <fpatel@tcril.org>                        |
+| Arbiter         | Feanil Patel <fpatel@axim.org>                         |
 +-----------------+--------------------------------------------------------+
 | Status          | Accepted                                               |
 +-----------------+--------------------------------------------------------+
@@ -165,7 +165,7 @@ Security Working Group
 
 Invite Only
 -----------
-Initial members of the working group will come from the existing internal security group and members of tCRIL. If more
+Initial members of the working group will come from the existing internal security group and members of Axim. If more
 volunteers are needed, we will put out a call to join. Volunteers will need to ask for support from other core contributors
 and will then be evaluated by the existing working group members. We hope to have six to seven members of the working
 group at a time.
