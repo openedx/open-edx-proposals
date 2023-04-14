@@ -9,10 +9,10 @@ OEP-60 Open Source Security Working Group
 | Last Modified   | 2023-12-17                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Alie Langston <alangston@2u.com>                       |
-|                 | Feanil Patel <fpatel@axim.org>                        |
+|                 | Feanil Patel <fpatel@axim.org>                         |
 |                 | Phil Shiu <pshiu@2u.com>                               |
 +-----------------+--------------------------------------------------------+
-| Arbiter         | Feanil Patel <fpatel@axim.org>                        |
+| Arbiter         | Feanil Patel <fpatel@axim.org>                         |
 +-----------------+--------------------------------------------------------+
 | Status          | Accepted                                               |
 +-----------------+--------------------------------------------------------+
