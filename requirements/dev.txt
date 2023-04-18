@@ -44,7 +44,7 @@ imagesize==1.4.1
     # via
     #   -r requirements/base.txt
     #   sphinx
-importlib-metadata==6.3.0
+importlib-metadata==6.4.1
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -58,7 +58,7 @@ markupsafe==2.1.2
     # via
     #   -r requirements/base.txt
     #   jinja2
-packaging==23.0
+packaging==23.1
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
@@ -87,7 +87,7 @@ snowballstemmer==2.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-soupsieve==2.4
+soupsieve==2.4.1
     # via
     #   -r requirements/base.txt
     #   beautifulsoup4
@@ -104,7 +104,7 @@ sphinx-autobuild==2021.3.14
     # via -r requirements/dev.in
 sphinx-book-theme==1.0.1
     # via -r requirements/base.txt
-sphinx-copybutton==0.5.1
+sphinx-copybutton==0.5.2
     # via -r requirements/base.txt
 sphinxcontrib-applehelp==1.0.4
     # via
@@ -132,7 +132,7 @@ sphinxcontrib-serializinghtml==1.1.5
     #   sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
-tornado==6.2
+tornado==6.3
     # via livereload
 typing-extensions==4.5.0
     # via
