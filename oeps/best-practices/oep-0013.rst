@@ -34,7 +34,7 @@ Abstract
 
 This document captures the conventions to be used for all Open edX web APIs.
 
-Update: moved to https://openedx.atlassian.net/wiki/display/OpenDev/edX+REST+API+Conventions.
+Update: moved to https://openedx.atlassian.net/wiki/spaces/AC/pages/18350757/edX+REST+API+Conventions.
 
 Motivation
 **********
