@@ -122,6 +122,11 @@ Not exposing an app's data structures can be tricky because it's very easy to ex
 
 2. Create a ``data.py`` file to house simple data objects that can be passed from your app's function to the calling app. By creating these objects, we can avoid both passing Django model objects or querysets directly and having to serialize data. Other apps may import data classes from ``data.py`` in additional to functionality from ``api.py``. See data.py_ for more details.
 
+Import Linter
+-------------
+
+For django apps used in ``edx-platform``, you can use the `import linter <https://github.com/openedx/edx-platform/pull/31903>`_ to ensure that other parts of the platform are only importing from ``api.py``. This feature is currently opt-in but highly recommended. To do so, add your app to `the list of participating apps in setup.cfg <https://github.com/openedx/edx-platform/blob/626f11f6080a124dbd0db07a2280f74c67c611bb/setup.cfg#L158-L166>`_.
+
 Performance caveat
 ------------------
 
@@ -284,6 +289,11 @@ At this time, there is no plan to enforce any of these guidelines. The vast majo
 
 Change History
 **************
+
+2023-04-20
+==========
+
+* In the section about api.py, mentioned the new import linter
 
 2023-03-01
 ==========
