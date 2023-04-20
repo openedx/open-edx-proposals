@@ -2,103 +2,109 @@
 
 .. Below is the display in the left sidebar on RTD. Please omit leading 0's
 
-OEP-XXXX: OEP Template
-######################
-
-.. This OEP template is based on Python's PEP standard.
+OEP-63: TOC Appeal
+##################
 
 .. list-table::
    :widths: 25 75
 
    * - OEP
-     - Link to the doc in the following format::
-
-        :doc:`OEP-XXXX <oep-XXXX-YYYY-ZZZZ>`
-
-        * <XXXX is the next available OEP number>
-        * <YYYY is the abbreviated Type: proc | bp | arch>
-        * <ZZZZ is a brief (< 5 words) version of the title>
-
+     - :doc:`OEP-0063 <oep-0063-proc-toc-appeal>`
    * - Title
-     - <OEP title>
+     - TOC Appeal
    * - Last Modified
-     - <date string, in YYYY-MM-DD format>
+     - 2023-05-18
    * - Authors
-     - <list of authors' real names and optionally, email addresses>
+     - Xavier Antoviaque
    * - Arbiter
-     - <Arbiter's real name and email address>
+     - Ed Zarecor
    * - Status
-     - <Draft | Under Review | Deferred | Provisional | Accepted | Rejected | Withdrawn | Final | Replaced>
+     - Draft
    * - Type
-     - <Architecture | Best Practice | Process>
+     - Process
    * - Created
-     - <date created on, in YYYY-MM-DD format>
+     - 2023-05-18
    * - Review Period
-     - <start - target end dates for review>
+     - <start - target end dates for review> -- until the next TOC meeting?
    * - Resolution
-     - <links to any discussions where the final status was decided>
+     - TBD (include links to public discussions)
    * - References
-     - <links to any other relevant discussions or relevant related materials>
+     - `TOC meeting notes - governance norms <https://discuss.openedx.org/t/2023-04-11-toc-meeting-summary/10019#governance-norms-5>`_
 
 Abstract
 ********
 
-The abstract is a short description of the technical issue that
-this Open edX proposal (OEP) addresses.
+The Technical Oversight Committee (TOC) aims to empower the project's contributors to take decisions. The person closest to the work will often take the best decisions, and empowered contributors face less friction. 
+
+However, some of the decisions can sometimes be complex: lack of consensus, decisions with long-lasting reprecussions. This can result in delaying taking *any* decision, which can be more hurtful than any of the choices.
+
+In this OEP, the TOC defines a process for community members to bring up topics to the board's attention, and request to take a decision about a proposal (an "Appeal"). 
 
 Motivation
 **********
 
-The motivation is critical for OEPs that will change any part of the Open edX
-ecosystem. Explain why the existing architecture or process is inadequate to
-address the problem that the OEP solves, or why adopting the best practice
-would significantly improve the Open edX world.
+The TOC discussed during the April 2023 meeting a `series of guidelines for operating and taking decisions <https://discuss.openedx.org/t/2023-04-11-toc-meeting-summary/10019#governance-norms-5>`_. This includes establishing a way for the community to use the TOC to help take decisions, which this OEP implements.
+
+Guidelines
+==========
+
+From the `TOC meeting notes <https://discuss.openedx.org/t/2023-04-11-toc-meeting-summary/10019#governance-norms-5>`_:
+
+*The TOC should not operate “in the weeds.” We don’t have the time to be involved day-to-day technical decisions, and those closest to the work will make the best decisions. The TOC should not act as a “stage gate.” We should not create friction for contributors unnecessarily, but should:*
+   
+- *Guide the project toward shared goals*
+- *Help refine and improve plans and designs*
+- *Prevent the project from making bad decisions that are hard to reverse.*
+   
+*The TOC should weigh in:*
+   
+- *on “one-way-doors,” decisions that are hard to reverse, where choices are mutually exclusive*
+- *when the community is having difficulty reaching consensus*
+- *when an important decision is being deferred and not making a call is causing friction*
+- *to focus the community to collaborate on key, shared value, say, investment in maturing LTI*
 
 Specification
 *************
 
-The specification describes the technical details of the Architecture, Best
-Practice or Process proposed by the OEP. If the proposal includes a new API,
-specify its syntax and semantics.
+- Appeals can be posted by anyone in the community - but need to be supported by at least two core contributors or a TOC member
+- The TOC members are encouraged to participate in community discussions early on, before the TOC is asked to take the final decision.
 
-Rationale
-*********
+Step-by-step - How to submit an appeal
+======================================
 
-The rationale adds to the specification by describing the events or
-requirements that led to the proposal, what influenced the design, and why
-particular design decisions were made. The rationale could provide evidence
-of consensus within the community and discuss important objections or
-concerns raised during discussion. It could identify any related work,
-for example, how the feature is supported in other systems.
+- Open a discussion in a public place, such as the `forum <discuss.openedx.org/>`_ or using one of the formal decision recording formats such as `OEPs <https://open-edx-proposals.readthedocs.io/en/latest/>`_. The topics presented need to have been discussed in the community before being formally considered by the TOC.
+- After public review, post a formal request to appeal to the TOC. This can be done in a forum post or a `github ticket <https://github.com/openedx/wg-coordination/issues/new>`_ mentioning the TOC chair (@e0d). See the format below.
+- Core contributors and/or TOC members supporting the appeal reply in the thread to say so
+- If the requirements are met, the TOC will schedule the topic for a future meeting. 
+- If the appeal contains a suggested decision, the TOC can choose to accept the suggested decision, with or without changes, or to refuse it. 
+- The decision is communicated as a reply to the forum thread of the appeal, with a comment to explain the decision.
 
-Backward Compatibility
-**********************
+Appeal - Post template (forum or github)
+========================================
 
-This statement identifies whether the proposed change is backward compatible.
-An OEP that introduces backward incompatibilities must describe the
-incompatibilities, with their severity and an explanation of how you propose to
-address these incompatibilities.
+.. code-block:: none
 
-Reference Implementation
-************************
-
-The reference implementation must be completed before any OEP is given "Final"
-status, but it need not be completed before the OEP is "Accepted". While there is
-merit to the approach of reaching consensus on the specification and rationale
-before writing code, the principle of "rough consensus and running code" is
-still useful when it comes to resolving many discussions.
-
-Rejected Alternatives
-*********************
-
-This statement describes any alternative designs or implementations that were
-considered and rejected, and why they were not chosen.
+   Subj: TOC Appeal - [Title for the appeal]
+   Category: Community
+   
+   ---------------------
+   
+   ## [Title for the appeal]
+   
+   ## Summary 
+   [Prior discussion of this topic (with links)]
+   
+   ## Rationale for involving the TOC
+   [Why this topic would benefit from the TOC involvement]
+   
+   ## Decision requested
+   [The precise description of the decision that is requested from the TOC. Note that the TOC doesn't have to take exactly that decision, it can modify it, or refuse it.]
 
 Change History
 **************
 
-YYYY-MM-DD
+2023-05-18
 ==========
 
-* Document created
-* `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
+* Document created with rough first draft
+* `Pull request #484 <https://github.com/openedx/open-edx-proposals/pull/484>`_ created
