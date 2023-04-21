@@ -320,7 +320,9 @@ Once the message is posted, include a link to the Discourse thread in the GitHub
 To openedx.slack.com
 ~~~~~~~~~~~~~~~~~~~~
 
-Post the following in the #open-edx-proposals and #general `Open edX slack`_ channels:
+Once you have created a Discourse thread, the `Discourse Chat Integration bot <https://www.discourse.org/plugins/chat-integration.html>`_ should automatically post to the #open-edx-proposals and #general `Open edX slack`_ channels.
+
+If the bot isn't working, post a message using the following template:
 
     *Removal of <*Technology Name*>:*
     We plan to deprecate and remove <*Short description of the technology*>.
@@ -441,6 +443,12 @@ References
 
 Change History
 **************
+
+2023-04-21
+==========
+
+* Added information about discourse chat integration bot.
+* `Pull request #468 <https://github.com/openedx/open-edx-proposals/pull/468>`_
 
 2022-11-01
 ==========
