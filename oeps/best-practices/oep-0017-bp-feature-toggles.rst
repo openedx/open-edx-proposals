@@ -580,7 +580,7 @@ Although feature toggles have been in use from the very early stages of developm
 
 Additionally, there have been recent episodes with `end-to-end test failures`_ resulting from ad-hoc changes to waffle settings on a central Staging environment.
 
-.. _Feature Flags and Settings on edx-platform: https://openedx.atlassian.net/wiki/spaces/OpenDev/pages/40862688/Feature+Flags+and+Settings+on+edx-platform
+.. _Feature Flags and Settings on edx-platform: https://openedx.atlassian.net/wiki/spaces/AC/pages/40862688/Feature+Flags+and+Settings+on+edx-platform
 .. _end-to-end test failures: https://openedx.atlassian.net/browse/LEARNER-4098
 
 Related work
