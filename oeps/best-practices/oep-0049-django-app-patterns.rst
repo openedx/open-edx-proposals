@@ -203,26 +203,17 @@ Example
 
   from enum import Enum
 
-  import attr
-
-  def ProgramStatus(Enum):
+  from attrs import field, frozen, validators
+  
+  class ProgramStatus(Enum):
       ACTIVE = "active"
       RETIRED = "retired"
 
-  @attr.attrs(frozen=True)
+  @frozen
   class ProgramData:
-      uuid: str = attr.attrib(
-          validator=[attr.validators.instance_of(str)]
-      )
-      title: str = attr.attrib(
-          validator=[attr.validators.instance_of(str)]
-      )
-      status: str = attr.attrib(
-          validator=[
-              attr.validators.instance_of(str),
-              attr.validators.in_(ProgramStatus)
-          ]
-      )
+      uuid: str = field(validator=validators.instance_of(str))
+      title: str = field(validator=validators.instance_of(str))
+      status: ProgramStatus = field(validator=validators.in_(ProgramStatus), converter=ProgramStatus)
 
 .. _rest_api:
 
@@ -289,6 +280,11 @@ At this time, there is no plan to enforce any of these guidelines. The vast majo
 
 Change History
 **************
+
+2023-04-26
+==========
+
+* In the section about data.py, fixed some broken examples of enum handling and converted to modern ``attrs`` syntax
 
 2023-04-20
 ==========
