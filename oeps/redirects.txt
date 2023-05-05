@@ -8,3 +8,4 @@
 "best-practices/oep-0007-bp-migrate-to-python3.rst" "archived/oep-0007-bp-migrate-to-python3.rst"
 "best-practices/oep-0034-bp-lint-amnesty.rst" "archived/oep-0034-bp-lint-amnesty.rst"
 "processes/oep-0025-proc-incremental-improvements.rst" "archived/oep-0025-proc-incremental-improvements.rst"
+"architectural-decisions/oep-0023-style-customization.rst" "archived/oep-0023-style-customization.rst"
