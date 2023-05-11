@@ -43,7 +43,7 @@ TL;DR
   Slack and Discourse to let others know your proposed plan. Collect and monitor feedback to
   avoid potential disruptions to other code/projects.
 * **Others can take responsibility:** In some cases, an item may be useful to others but not
-  to you.  That's okay, part of the deprecation process is given others the ability to take
+  to you.  That's okay; part of the deprecation process is given others the ability to take
   over ownership of those parts of the system. Those who value a feature should support maintaining
   it.
 * **The formal process outlined in this document can help make deprecation and removal
@@ -181,7 +181,7 @@ When proposing a removal, consider the following analysis:
 Timeline
 --------
 
-Deprecation can have one of two results, the feature gets removed or someone
+Deprecation can have one of two results: the feature gets removed, or someone
 else takes over the feature and becomes responsible for maintaining it.
 
 To communicate a proposed removal, you will need to determine the *earliest*
