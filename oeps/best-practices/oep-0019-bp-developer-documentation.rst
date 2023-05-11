@@ -9,7 +9,7 @@ OEP-19: Developer Documentation
    * - Title
      - Developer Documentation
    * - Last Modified
-     - 2022-06-22
+     - 2023-05-11
    * - Authors
      - Grant Goodman, Robert Raposa, Ned Batchelder, Nimisha Asthagiri
    * - Arbiter
@@ -162,6 +162,8 @@ A suggested ADR template:
 
   Status
   ******
+
+  **Accepted** *2023-05-11*
 
   .. Standard statuses
       - **Draft** if the decision is newly proposed and in active discussion
@@ -467,6 +469,11 @@ Next Steps
 
 Change History
 ==============
+
+2023-05-11
+----------
+
+* Minor update to the ADR template in OEP-19, providing a specific example for status. The new example provides a date format, and also removes the bullet that may be used if copying from the list of examples of status.
 
 2022-11-10
 ----------
