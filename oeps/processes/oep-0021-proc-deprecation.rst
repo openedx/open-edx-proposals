@@ -42,6 +42,10 @@ TL;DR
   to go about it. Inform individual stakeholders and use Open edX community channels such as
   Slack and Discourse to let others know your proposed plan. Collect and monitor feedback to
   avoid potential disruptions to other code/projects.
+* **Others can take responsibility:** In some cases, an item may be useful to others but not
+  to you.  That's okay, part of the deprecation process is given others the ability to take
+  over ownership of those parts of the system. Those who value a feature should support maintaining
+  it.
 * **The formal process outlined in this document can help make deprecation and removal
   projects happen more proactively:** Having a defined process and common language takes
   the guesswork out and allows for easier access to get rid of dead code. The steps outlined
@@ -177,6 +181,9 @@ When proposing a removal, consider the following analysis:
 Timeline
 --------
 
+Deprecation can have one of two results, the feature gets removed or someone
+else takes over the feature and becomes responsible for maintaining it.
+
 To communicate a proposed removal, you will need to determine the *earliest*
 Open edX named release that could no longer have the removed functionality,
 based on the release's *cut date*. Choosing the earliest named release where
@@ -307,7 +314,9 @@ Post a message to `Open edX Discourse Deprecation Announcements`_, using the fol
         more information and to post any questions/comments. The proposed
         deadline for comments before acceptance is <*Target Accepted Date*>.
 
-        Once the ticket is accepted, removal can happen at any time.
+        Once the ticket is accepted, removal can happen at any time.  If you believe
+        that <*techonology name*> is valuable and wish to make a case for retaining
+        it and taking over its maintainership, please speak up on the issue linked above.
 
         Thanks,
         <*Your name*>
@@ -320,7 +329,8 @@ Once the message is posted, include a link to the Discourse thread in the GitHub
 To openedx.slack.com
 ~~~~~~~~~~~~~~~~~~~~
 
-Post the following in the #open-edx-proposals and #general `Open edX slack`_ channels:
+The above discourse post should automatically get posted to the #open-edx-proposals and #general channels in
+the `Open edX slack`_.  If not, you could post something like:
 
     *Removal of <*Technology Name*>:*
     We plan to deprecate and remove <*Short description of the technology*>.
