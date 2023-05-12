@@ -11,7 +11,7 @@ OEP-52: Event Bus Architecture
    * - Title
      - Event Bus Architecture
    * - Last Modified
-     - 2022-07-11
+     - 2022-05-12
    * - Authors
      - Feanil Patel <feanil@edx.org>, Robert Raposa <rraposa@edx.org>
    * - Arbiter
@@ -71,7 +71,7 @@ Decision
 
 * An abstraction layer will be provided to enable the choice of multiple technologies for implementing an Open edX event bus.
   
-  * See `ADR on Multiple Event Types Per Topic`_ to learn more about the requirement of Open edX event bus implementations to support multiple event types per topic
+  * See `ADR on Multiple Event Types Per Topic`_ to learn more about the requirement of Open edX event bus implementations to support multiple event types per topic.
 
 * An initial event bus implementation is being implemented using Kafka.
 
@@ -105,6 +105,11 @@ Consequences
 
 Change History
 **************
+
+2023-05-12
+==========
+
+* Added link to new openedx-events ADR
 
 2022-11-29
 ==========
