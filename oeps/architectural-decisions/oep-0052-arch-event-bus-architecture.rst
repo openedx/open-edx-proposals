@@ -70,6 +70,7 @@ Decision
 * For the purpose of this OEP, the focus of the event bus is to provide `publish-subscribe messaging pattern`_ (pub/sub) and event-driven capabilities.
 
 * An abstraction layer will be provided to enable the choice of multiple technologies for implementing an Open edX event bus.
+  * See `ADR on Multiple Event Types Per Topic`_ to learn more about the requirement of Open edX event bus implementations to support multiple event types per topic
 
 * An initial event bus implementation is being implemented using Kafka.
 
@@ -81,6 +82,8 @@ Decision
 
   * See `ADR on External event bus and Django Signal events`_ to learn more about how the ``OpenEdxPublicSignal`` internal event will be used to send the same internal signal-based events across services, and then fire the signal-based events again within consuming services.
   * See `ADR on External Event Schema Format`_ and `ADR on Event Schema Serialization and Evolution`_ to learn about how the Avro Schema format will be used for serializing external events published to Kafka, and consumed from Kafka. Additionally, learn about tooling to automatically handle the translation from ``OpenEdxPublicSignal`` internal events to Avro Schema formatted events, and back again. Also learn how this explicit schema format can aid in schema evolution.
+
+.. _ADR on Multiple Event Types Per Topic: https://openedx-events.readthedocs.io/en/latest/decisions/0010-multiple-event-types-per-topic.html
 
 .. _ADR on Kafka-Based Event Bus: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0002-kafka-based-event-bus.rst
 .. _ADR on Kafka Managed Hosting: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0004-kafka-managed-hosting.rst
