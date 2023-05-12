@@ -70,6 +70,7 @@ Decision
 * For the purpose of this OEP, the focus of the event bus is to provide `publish-subscribe messaging pattern`_ (pub/sub) and event-driven capabilities.
 
 * An abstraction layer will be provided to enable the choice of multiple technologies for implementing an Open edX event bus.
+  
   * See `ADR on Multiple Event Types Per Topic`_ to learn more about the requirement of Open edX event bus implementations to support multiple event types per topic
 
 * An initial event bus implementation is being implemented using Kafka.
