@@ -93,14 +93,14 @@ contexts and the file names often used for them:
   corresponding key in ``extras_require`` from ``setup.py``)
 * Assorted testing libraries to run automated test suites (``test.in``)
 * Static code analysis tools to perform code quality checks (``quality.in``)
-* The utilities called directly by a CI server to create and use one or more
-  virtualenvs and report code coverage statistics to a 3rd-party service
-  (``jenkins.in``, ``travis.in``)
+* The utilities called directly by a CI server, typically including tools such
+  as `tox`_ used to create virtualenvs but not the testing, quality, etc.
+  libraries that are installed in those virtualenvs (``ci.in``)
 * `Sphinx`_ and other utilities used to generate developer documentation
   (``doc.in``)
 * Additional utilities needed to perform common development tasks (``dev.in``)
 * Utilities that a particular developer likes to use with a repository, but
-  aren't strictly needed for any of the regular contexts (``private.in``).
+  aren't strictly needed for any of the regular contexts (``private.in``)
 
 .. _Sphinx: http://www.sphinx-doc.org/
 
@@ -238,7 +238,7 @@ to automatically update the detailed requirements files
 (``requirements/*.txt``) to use the newest available packages which satisfy
 the constraints in the direct dependencies files.  These generated files are
 then used anywhere that runs a command to install dependencies: ``tox.ini``,
-``.travis.yml``, the ``requirements`` make target (for updating a local
+GitHub Actions workflows, the ``requirements`` make target (for updating a local
 development environment), etc.
 
 By default ``pip-compile`` uses a cache of calculated dependency relationships
@@ -398,7 +398,7 @@ encountered in the past:
   remembers why it was added to the requirements file (especially true for
   indirect dependencies that were later dropped as requirements of the package
   we use directly).
-* We install an exhaustive set of testing dependencies in Travis, even though
+* We install an exhaustive set of testing dependencies in CI, even though
   we really only need it to run tox and codecov; the rest of the testing
   dependencies are installed in a separate virtualenv created by tox, which
   should have a separate requirements file.
@@ -483,6 +483,13 @@ fixed.
 
 Change History
 **************
+
+2023-05-19
+==========
+
+* Update the standard name for CI requirements files and remove references to
+  Travis CI now that we've switched to GitHub Actions
+* Add more clarification about what typically goes into a CI requirements file
 
 2023-03-06
 ==========
