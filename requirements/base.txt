@@ -45,7 +45,7 @@ pygments==2.15.1
     #   sphinx
 pytz==2023.3
     # via babel
-requests==2.30.0
+requests==2.31.0
     # via sphinx
 snowballstemmer==2.2.0
     # via sphinx
@@ -77,7 +77,7 @@ sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.in
-typing-extensions==4.5.0
+typing-extensions==4.6.0
     # via pydata-sphinx-theme
 urllib3==2.0.2
     # via requests
