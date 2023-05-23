@@ -77,7 +77,7 @@ pytz==2023.3
     # via
     #   -r requirements/base.txt
     #   babel
-requests==2.30.0
+requests==2.31.0
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -134,7 +134,7 @@ sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
 tornado==6.3.2
     # via livereload
-typing-extensions==4.5.0
+typing-extensions==4.6.0
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
