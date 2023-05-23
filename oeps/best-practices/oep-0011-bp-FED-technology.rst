@@ -277,6 +277,14 @@ Rejected Alternatives
    * It does not and will not support React 18.
    * The community is unwilling to create an adapter for React 18.
 
+Change History
+**************
+
+2023-05-23
+==========
+* Mark Enzyme as deprecated
+* `Pull request #487 <https://github.com/openedx/open-edx-proposals/pull/487>`_
+
 .. Cross-references
 .. _AMD Modules: https://github.com/amdjs/amdjs-api/wiki/AMD
 .. _Angular: https://angular.io/
