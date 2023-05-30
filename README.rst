@@ -106,7 +106,7 @@ maintainers of this repo are and how to get in touch with them.
 Reporting Security Issues
 *************************
 
-Please do not report security issues in public. Please email security@tcril.org.
+Please do not report security issues in public. Please email security@openedx.org.
 
 
 .. |license-badge| image:: https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg
