@@ -163,13 +163,7 @@ Technology Selection
 
    You can find out more about Sass in the official `Sass documentation`_.
 
-10. **Bootstrap for styling consistency**
-
-  **Rationale**: In order accelerate development, and provide a more consistent
-  user experience for our users, Open edX will adopt Bootstrap 4 to style its web
-  applications. For more details, see :doc:`oep-0016-bp-adopt-bootstrap`.
-
-11. **API calls should be made with the edX Frontend Auth Client or Axios**
+10. **API calls should be made with the edX Frontend Auth Client or Axios**
 
    **Rationale**: The `edX Frontend Auth Client`_ simplifies the process of
    talking to edX APIs by using Axios inteceptors and handling JWT Cookie
@@ -181,7 +175,7 @@ Technology Selection
    intuitive API, particularly when handling HTTP errors with rejected
    promises.
 
-12. **Server-side content should be rendered with Django Templates**
+11. **Server-side content should be rendered with Django Templates**
 
    **Rationale**: Although it is advised to use client side templating with
    React, see `Use React and Redux`_,  when rendering on the server Django templates
