@@ -30,7 +30,7 @@ OEP-25: Incremental Improvements
    The incremental improvements process is no longer being actively maintained.
    If you are looking for places where you can help the project check out issues
    tagged as `help wanted
-   <https://github.com/openedx/public-engineering/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22>`
+   <https://github.com/openedx/public-engineering/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22>`_
    in the ``public-engineering`` project.
 
 TL;DR
