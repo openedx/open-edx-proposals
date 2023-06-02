@@ -11,13 +11,13 @@ OEP-52: Event Bus Architecture
    * - Title
      - Event Bus Architecture
    * - Last Modified
-     - 2022-05-12
+     - 2022-05-15
    * - Authors
      - Feanil Patel <feanil@edx.org>, Robert Raposa <rraposa@edx.org>
    * - Arbiter
      - Tobias Macey <tmacey@mit.edu>
    * - Status
-     - Provisional
+     - Accepted
    * - Type
      - Architecture
    * - Created
@@ -38,9 +38,9 @@ Overview
 
 * An abstraction layer will be provided to enable the choice of multiple technologies for implementing an Open edX event bus.
 
-* An initial event bus implementation is being implemented using Kafka.
+* Kafka and Redis streams implementations of the event bus have been implemented.
 
-* Event bus events will further extend the Hooks Extension Framework events, and use an Avro schema to serialize the existing hooks signals.
+* Event bus events extend the Hooks Extension Framework events, and use an Avro schema to serialize the existing hooks signals.
 
 .. _event bus project roadmap: https://github.com/openedx/platform-roadmap/issues/28
 
@@ -70,25 +70,31 @@ Decision
 * For the purpose of this OEP, the focus of the event bus is to provide `publish-subscribe messaging pattern`_ (pub/sub) and event-driven capabilities.
 
 * An abstraction layer will be provided to enable the choice of multiple technologies for implementing an Open edX event bus.
-  
+
   * See `ADR on Multiple Event Types Per Topic`_ to learn more about the requirement of Open edX event bus implementations to support multiple event types per topic.
 
-* An initial event bus implementation is being implemented using Kafka.
+* An initial event bus implementation has been implemented using Kafka.
 
   * See edx.org `ADR on Kafka-Based Event Bus`_ when considering other event-bus technologies.
   * See edx.org `ADR on Kafka Managed Hosting`_ if considering Kafka hosting options.
   * See edx.org `ADR on Managing Kafka Consumers`_ if exploring how to deploy consumers for Kafka.
 
-* Event bus events will further extend the Hooks Extension Framework events, and use an Avro schema to serialize the existing hooks signals.
+* A secondary implementation has been implemented using Redis streams.
 
-  * See `ADR on External event bus and Django Signal events`_ to learn more about how the ``OpenEdxPublicSignal`` internal event will be used to send the same internal signal-based events across services, and then fire the signal-based events again within consuming services.
-  * See `ADR on External Event Schema Format`_ and `ADR on Event Schema Serialization and Evolution`_ to learn about how the Avro Schema format will be used for serializing external events published to Kafka, and consumed from Kafka. Additionally, learn about tooling to automatically handle the translation from ``OpenEdxPublicSignal`` internal events to Avro Schema formatted events, and back again. Also learn how this explicit schema format can aid in schema evolution.
+  * See `ADR on Redis streams Event Bus`_.
+
+* Event bus events extend the Hooks Extension Framework events, and use an Avro schema to serialize the existing hooks signals.
+
+  * See `ADR on External event bus and Django Signal events`_ to learn more about how the ``OpenEdxPublicSignal`` internal used to send the same internal signal-based events across services, and then fire the signal-based events again within consuming services.
+  * See `ADR on External Event Schema Format`_ and `ADR on Event Schema Serialization and Evolution`_ to learn about how the Avro Schema format is used for serializing external events published to Kafka, and consumed from Kafka. Additionally, learn about tooling to automatically handle the translation from ``OpenEdxPublicSignal`` internal events to Avro Schema formatted events, and back again. Also learn how this explicit schema format can aid in schema evolution.
 
 .. _ADR on Multiple Event Types Per Topic: https://openedx-events.readthedocs.io/en/latest/decisions/0010-multiple-event-types-per-topic.html
 
 .. _ADR on Kafka-Based Event Bus: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0002-kafka-based-event-bus.rst
 .. _ADR on Kafka Managed Hosting: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0004-kafka-managed-hosting.rst
 .. _ADR on Managing Kafka Consumers: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0003-managing-kafka-consumers.rst
+
+.. _ADR on Redis streams Event Bus: https://github.com/openedx/event-bus-redis/blob/main/docs/decisions/0002-redis-streams-based-event-bus.rst
 
 .. _ADR on External event bus and Django Signal events: https://openedx-events.readthedocs.io/en/latest/decisions/0004-external-event-bus-and-django-signal-events.html
 .. _ADR on External Event Schema Format: https://openedx-events.readthedocs.io/en/latest/decisions/0005-external-event-schema-format.html
@@ -99,12 +105,18 @@ Consequences
 
 * Individual usage of any new Open edX event bus cannot be required until there is an implementation available as part of a named release of the Open edX platform.
 
-* Offering an abstraction layer for the event bus is the current intent, but will require additional work and support. Additionally, any alternative technology implementations (in addition to Kafka) will require implementation and support.
+* Offering an abstraction layer for the event bus is the current intent, but will require additional work and support. Additionally, any alternative technology implementations (in addition to Kafka and Redis) will require implementation and support.
 
 * Although external events offer many benefits, it also requires a different mindset around eventual consistency. Proper education and experience will be needed to support the success of the event bus.
 
 Change History
 **************
+
+2023-05-15
+==========
+
+* Added link to event_bus_redis implementation ADR.
+* Updated OEP status to Accepted.
 
 2023-05-12
 ==========
