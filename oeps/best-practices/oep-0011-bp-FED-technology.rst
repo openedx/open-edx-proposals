@@ -65,8 +65,10 @@ Technology Selection
    easy way to pass data into a React component from Django via props. For
    more information about react_render see `ReactRender`_.
 
-   React also has a strong testing story. React components can be tested in
-   isolation with unit tests using `Jest`_ and `Enzyme`_.
+   We use `Jest`_ and `React-Testing-Library`_ to test React components.
+   We are deprecating the `Enzyme`_ library.
+   New tests must not use Enzyme, and any repositories planning to move to React 18 or newer need to
+   replace Enzyme. See `Reasons for deprecating Enzyme`_.
 
    Other modern frameworks considered for use
    included Polymer and Angular. See `Reasons for rejecting Angular`_  and
@@ -246,7 +248,7 @@ Rejected Alternatives
 
 .. _Reasons for rejecting Mako:
 
-4. **Mako**
+5. **Mako**
 
    There are a number of reasons why Django templates is preferred to Mako:
 
@@ -258,6 +260,25 @@ Rejected Alternatives
      that is passed to it, so it is very easy to simulate all possible
      scenarios.
 
+.. _Reasons for deprecating Enzyme:
+
+6. **Enzyme**
+
+   `Enzyme is dead`_.
+
+   * Enzyme is not considered to be actively maintained anymore.
+   * It does not support React hooks.
+   * It does not and will not support React 18.
+   * The community is unwilling to create an adapter for React 18.
+
+Change History
+**************
+
+2023-05-23
+==========
+* Mark Enzyme as deprecated
+* `Pull request #487 <https://github.com/openedx/open-edx-proposals/pull/487>`_
+
 .. Cross-references
 .. _AMD Modules: https://github.com/amdjs/amdjs-api/wiki/AMD
 .. _Angular: https://angular.io/
@@ -266,6 +287,8 @@ Rejected Alternatives
 .. _edX ESLint Config for ES5: https://github.com/edx/eslint-config-edx/tree/master/packages/eslint-config-edx-es5
 .. _edx Frontend Auth Client: https://github.com/edx/frontend-auth
 .. _enzyme: https://airbnb.io/enzyme/
+.. _Enzyme is dead: https://dev.to/wojtekmaj/enzyme-is-dead-now-what-ekl
+.. _enzyme-adapter-react-17: https://www.npmjs.com/package/@wojtekmaj/enzyme-adapter-react-17
 .. _ESLint configuration cascading: https://eslint.org/docs/user-guide/configuring/configuration-files#cascading-and-hierarchy
 .. _ES2015 Modules: http://www.ecma-international.org/ecma-262/6.0/#sec-imports
 .. _ES2017: https://tc39.github.io/ecma262/
@@ -279,6 +302,7 @@ Rejected Alternatives
 .. _Polymer: https://www.polymer-project.org/
 .. _React: https://github.com/facebook/react
 .. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React
+.. _React-Testing-Library: https://testing-library.com/docs/react-testing-library/intro
 .. _ReactRender: https://github.com/openedx/edx-platform/blob/master/common/djangoapps/pipeline_mako/templates/static_content.html#L146
 .. _Sass documentation: http://sass-lang.com/
 .. _Typescript: https://www.typescriptlang.org/
