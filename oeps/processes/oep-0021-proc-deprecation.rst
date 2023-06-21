@@ -6,7 +6,7 @@ OEP-21: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2023-06-21                                            |
+| Last Modified   | 2023-06-21                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>,                             |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
