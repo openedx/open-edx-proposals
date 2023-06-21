@@ -169,6 +169,11 @@ Reasons rejected:
 Change History
 **************
 
+2022-06-21
+==========
+
+* Fix OEP-14 directory to be "processes" instead of "architectural-decisions".
+
 2022-09-07
 ==========
 
