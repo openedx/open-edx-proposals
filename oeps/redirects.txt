@@ -10,3 +10,4 @@
 "processes/oep-0025-proc-incremental-improvements.rst" "archived/oep-0025-proc-incremental-improvements.rst"
 "architectural-decisions/oep-0023-style-customization.rst" "archived/oep-0023-style-customization.rst"
 "best-practices/oep-0016-bp-adopt-bootstrap.rst" "archived/oep-0016-bp-adopt-bootstrap.rst"
+"architectural-decisions/oep-0014-proc-archive-repos.rst" "processes/oep-0014-proc-archive-repos.rst"
