@@ -6,7 +6,7 @@ OEP-14: Archiving edX GitHub Repositories
 +---------------+----------------------------------------------------------+
 | Title         | Archiving edX GitHub Repositories                        |
 +---------------+----------------------------------------------------------+
-| Last Modified | 2022-01-26                                               |
+| Last Modified | 2022-06-21                                               |
 +---------------+----------------------------------------------------------+
 | Author        | Christina Roberts <christina@edx.org>                    |
 |               | Feanil Patel <feanil@axim.org>                           |
@@ -80,6 +80,10 @@ These steps should be followed for all repos within the Open edX organization (f
 
 2. Unless you have the relevant permissions to perform this step, create a new `GitHub Request on the Axim board`_  and ask them to do the following:
 
+  - Transfer the associated DEPR issue from the to-be-archived repo to `public-engineering`_ (if applicable).
+
+    - Note: the actual Github transfer request takes a little time, so be patient to avoid creating multiple tickets.
+
   - Archive the repository per `GitHub's archive process`_
 
   - Move the repository to the openedx-unsupported organization
@@ -92,6 +96,7 @@ These steps should be followed for all repos within the Open edX organization (f
     One such circumstance is if the previous fork is being used by a supported Open edX named release. In this case, one option would be to port any referenced branches in the old fork to the new fork before deleting the old fork.
 
 .. _openedx github organization: https://github.com/openedx
+.. _public-engineering: https://github.com/openedx/public-engineering/
 .. _GitHub's archive process: https://help.github.com/en/articles/archiving-repositories
 
 Rationale
@@ -173,6 +178,7 @@ Change History
 ==========
 
 * Fix OEP-14 directory to be "processes" instead of "architectural-decisions".
+* Add step for transferring DEPR issue before archiving repo.
 
 2022-09-07
 ==========
