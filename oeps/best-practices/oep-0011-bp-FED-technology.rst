@@ -271,8 +271,25 @@ Rejected Alternatives
    * It does not and will not support React 18.
    * The community is unwilling to create an adapter for React 18.
 
+Related Decisions
+*****************
+
+The following related decisions modify or enhance this OEP, but have not yet been fully incorporated as updates to this OEP:
+
+.. toctree::
+   :caption: OEP-11 Decisions
+   :maxdepth: 1
+   :glob:
+
+   oep-0011/decisions/*
+
 Change History
 **************
+
+2023-06-23
+==========
+* Add related decisions section and ADR for enzyme deprecation process
+* `Pull request #501 <https://github.com/openedx/open-edx-proposals/pull/501>`_
 
 2023-05-23
 ==========

@@ -43,8 +43,7 @@ Rejected Alternatives
 
 - Migrate directly to `react-testing-library`_. This is not considered feasible due to effort and risk.
 - Create a new wrapper library around `react-testing-library`_ that has a similar API to enzyme. This has been
-tried and has not worked.
-
+  tried and has not worked.
 
 .. _updated OEP-11 to deprecate enzyme: https://github.com/openedx/open-edx-proposals/pull/487
 .. _deprecation process for enzyme: https://github.com/openedx/public-engineering/issues/195
