@@ -318,8 +318,8 @@ Post a message to `Open edX Discourse Deprecation Announcements`_, using the fol
         that <*techonology name*> is valuable and wish to make a case for retaining
         it and taking over its maintainership, please speak up on the issue linked above.
 
-        After acceptance, you must watch the Github issue for any future notifications
-        around removal, or wait for the release notes of the relevant named release.
+        After acceptance, all future notifications around removal will only be posted
+        to the GitHub issue, so be sure to watch that issue if you want further updates.
 
         Thanks,
         <*Your name*>
