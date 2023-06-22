@@ -6,7 +6,7 @@ OEP-21: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2022-11-01                                             |
+| Last Modified   | 2023-06-21                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>,                             |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
@@ -318,6 +318,9 @@ Post a message to `Open edX Discourse Deprecation Announcements`_, using the fol
         that <*techonology name*> is valuable and wish to make a case for retaining
         it and taking over its maintainership, please speak up on the issue linked above.
 
+        After acceptance, all future notifications around removal will only be posted
+        to the GitHub issue, so be sure to watch that issue if you want further updates.
+
         Thanks,
         <*Your name*>
 
@@ -451,6 +454,11 @@ References
 
 Change History
 **************
+
+2023-06-21
+==========
+
+* Update Discourse template to describe how to stay up to date on removal status.
 
 2022-11-01
 ==========
