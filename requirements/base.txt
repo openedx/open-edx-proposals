@@ -76,7 +76,7 @@ sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.in
-typing-extensions==4.6.3
+typing-extensions==4.7.1
     # via pydata-sphinx-theme
 urllib3==2.0.3
     # via requests
