@@ -80,5 +80,5 @@ typing-extensions==4.7.1
     # via pydata-sphinx-theme
 urllib3==2.0.3
     # via requests
-zipp==3.16.0
+zipp==3.16.2
     # via importlib-metadata
