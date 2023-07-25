@@ -45,7 +45,7 @@ In this OEP, the TOC defines a process for community members to bring up topics 
 Motivation
 **********
 
-The TOC discussed during the April 2023 meeting a `series of guidelines for operating and taking decisions <https://discuss.openedx.org/t/2023-04-11-toc-meeting-summary/10019#governance-norms-5>`_. This includes establishing a way for the community to use the TOC to help take decisions, which this OEP implements.
+The TOC discussed during the April 2023 meeting a `series of guidelines for operating and making decisions <https://discuss.openedx.org/t/2023-04-11-toc-meeting-summary/10019#governance-norms-5>`_. This includes establishing a way for the community to use the TOC to help make decisions, which this OEP implements.
 
 Guidelines
 ==========
