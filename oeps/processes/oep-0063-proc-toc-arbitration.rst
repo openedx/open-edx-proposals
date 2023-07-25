@@ -78,7 +78,7 @@ Step-by-step - How to submit an arbitration
 - After public review, post a formal arbitration request to the TOC. This can be done in a forum post or a `github ticket <https://github.com/openedx/wg-coordination/issues/new>`_ mentioning the `TOC chair <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3575939113/Technical+Oversight+Committee+TOC#Details>`_. See the format below.
 - Core contributors and/or TOC members supporting the arbitration reply in the thread to say so.
 - If the requirements are met, the TOC will schedule the topic for a future meeting. 
-- If the arbitration contains a suggested decision, the TOC can choose to accept the suggested decision, with or without changes, or to refuse it. 
+- If the arbitration request contains a suggested decision, the TOC can choose to accept the suggested decision, with or without changes, or to refuse it. 
 - The outcome of the arbitration is communicated as a reply to the forum thread of the arbitration, with a comment to explain the decision.
 
 Arbitration - Post template (forum or github)
