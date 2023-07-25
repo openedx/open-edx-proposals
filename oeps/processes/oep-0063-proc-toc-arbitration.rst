@@ -38,7 +38,7 @@ The Technical Oversight Committee (TOC) is meant to be a resource for the Open e
 
 The TOC aims to empower the project's contributors to make decisions. The person closest to the work will often make the best decisions, and empowered contributors face less friction. 
 
-However, some of the decisions can sometimes be complex: lack of consensus, decisions with long-lasting reprecussions. This can result in delaying taking *any* decision, which can be more hurtful than any of the choices.
+However, some of the decisions can be complex, such as ones with a lack of consensus or decisions with long-lasting repercussions. This can result in delaying taking *any* decision, which can be more hurtful than any of the choices.
 
 In this OEP, the TOC defines a process for community members to bring up topics to the board's attention, and request to take a decision about a proposal (an "Arbitration"). 
 
