@@ -21,7 +21,7 @@ beautifulsoup4==4.12.2
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
-certifi==2023.5.7
+certifi==2023.7.22
     # via
     #   -r requirements/base.txt
     #   requests
@@ -137,7 +137,7 @@ typing-extensions==4.7.1
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
-urllib3==2.0.3
+urllib3==2.0.4
     # via
     #   -r requirements/base.txt
     #   requests
