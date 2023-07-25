@@ -40,7 +40,7 @@ The TOC aims to empower the project's contributors to make decisions. The person
 
 However, some of the decisions can be complex, such as ones with a lack of consensus or decisions with long-lasting repercussions. This can result in delaying taking *any* decision, which can be more hurtful than any of the choices.
 
-In this OEP, the TOC defines a process for community members to bring up topics to the board's attention, and request to take a decision about a proposal (an "Arbitration"). 
+In this OEP, the TOC defines a process for community members to bring up topics to the committee's attention, and request to take a decision about a proposal (an "Arbitration"). 
 
 Motivation
 **********
