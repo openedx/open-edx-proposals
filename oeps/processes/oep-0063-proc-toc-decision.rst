@@ -2,16 +2,16 @@
 
 .. Below is the display in the left sidebar on RTD. Please omit leading 0's
 
-OEP-63: TOC Arbitration
+OEP-63: TOC Decision
 #######################
 
 .. list-table::
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0063 <oep-0063-proc-toc-arbitration>`
+     - :doc:`OEP-0063 <oep-0063-proc-toc-decision>`
    * - Title
-     - TOC Arbitration
+     - TOC Decision
    * - Last Modified
      - 2023-05-29
    * - Authors
@@ -40,7 +40,7 @@ The TOC aims to empower the project's contributors to make decisions. The person
 
 However, some of the decisions can be complex, such as ones with a lack of consensus or decisions with long-lasting repercussions. This can result in delaying taking *any* decision, which can be more hurtful than any of the choices.
 
-In this OEP, the TOC defines a process for community members to bring up topics to the committee's attention, and request to take a decision about a proposal (an "Arbitration"). 
+In this OEP, the TOC defines a process for community members to bring up topics to the committee's attention, and request to take a decision about a proposal. 
 
 Motivation
 **********
@@ -68,30 +68,30 @@ From the `TOC meeting notes <https://discuss.openedx.org/t/2023-04-11-toc-meetin
 Specification
 *************
 
-- Requests for arbitration can be posted by anyone in the community - but need to be supported by at least two core contributors or a TOC member
+- Requests for Decision can be posted by anyone in the community - but need to be supported by at least two core contributors or a TOC member
 - The TOC members are encouraged to participate in community discussions early on, before the TOC is asked to arbitrate.
 
-Step-by-step - How to submit an arbitration
-===========================================
+Step-by-step - How to Submit a Decision
+=======================================
 
 - Open a discussion in a public place, such as the `forum <discuss.openedx.org/>`_ or using one of the formal decision recording formats such as `OEPs <https://open-edx-proposals.readthedocs.io/en/latest/>`_. The topics presented need to have been discussed in the community before being formally considered by the TOC.
-- After public review, post a formal arbitration request to the TOC. This can be done in a forum post or a `github ticket <https://github.com/openedx/wg-coordination/issues/new>`_ mentioning the `TOC chair <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3575939113/Technical+Oversight+Committee+TOC#Details>`_. See the format below.
-- Core contributors and/or TOC members supporting the arbitration reply in the thread to say so.
+- After public review, post a formal Decision Request to the TOC. This can be done in a forum post or a `github ticket <https://github.com/openedx/wg-coordination/issues/new>`_ mentioning the `TOC chair <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3575939113/Technical+Oversight+Committee+TOC#Details>`_. See the format below.
+- Core contributors and/or TOC members supporting the Decision Request reply in the thread to say so.
 - If the requirements are met, the TOC will schedule the topic for a future meeting. 
-- If the arbitration request contains a suggested decision, the TOC can choose to accept the suggested decision, with or without changes, or to refuse it. 
-- The outcome of the arbitration is communicated as a reply to the forum thread of the arbitration, with a comment to explain the decision.
+- If the Decision Request contains a suggested decision, the TOC can choose to accept the suggested decision, with or without changes, or to refuse it. 
+- The outcome of the Decision is communicated as a reply to the forum thread of the decision, with a comment to explain it.
 
-Arbitration - Post template (forum or github)
-=============================================
+Decision - Post Template (Forum or Github)
+==========================================
 
 .. code-block:: none
 
-   Subj: TOC Arbitration - [Title for the arbitration]
+   Subj: TOC Decision - [Title for the Decision]
    Category: Community
    
    ---------------------
    
-   ## [Title for the arbitration]
+   ## [Title for the Decision]
    
    ## Summary 
    [Prior discussion of this topic (with links)]
