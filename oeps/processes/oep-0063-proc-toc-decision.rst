@@ -105,11 +105,6 @@ Decision - Post Template (Forum or Github)
 Change History
 **************
 
-2023-05-29
-==========
-
-* Changed the name of the procedure from "appeal" to "arbitration" to address review comments.
-
 2023-05-18
 ==========
 
