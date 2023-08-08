@@ -67,7 +67,7 @@ pydata-sphinx-theme==0.13.3
     # via
     #   -r requirements/base.txt
     #   sphinx-book-theme
-pygments==2.15.1
+pygments==2.16.1
     # via
     #   -r requirements/base.txt
     #   accessible-pygments
