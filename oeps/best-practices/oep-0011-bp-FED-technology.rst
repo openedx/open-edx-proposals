@@ -50,32 +50,33 @@ Technology Selection
 
 .. _Use React and Redux:
 
-1. **Use React and Redux**
+#. **Use React**
 
-   **Rationale**: React should be used for building new UIs, as it is
+   **Rationale**: React must be used for building new UIs, as it is
    widely adopted by the community and strikes a balance between
-   flexibility and feature richness. For state management of complex
-   client-side interactions, Redux should be used. This library was chosen
-   because it sees strong use in the React community, but is also flexible
-   enough to be used in situations where a hybrid React/Backbone architecture
-   exists.
+   flexibility and feature richness.
 
    When building in existing Django server-rendered pages, one can use the
    react_render helper method to bridge to React. This bridge provides an
    easy way to pass data into a React component from Django via props. For
    more information about react_render see `ReactRender`_.
 
+#. **Use Redux**
+
+   For state management of complex
+   client-side interactions, Redux must be used. This library was chosen
+   because it sees strong use in the React community, but is also flexible
+   enough to be used in situations where a hybrid React/Backbone architecture
+   exists.
+
+#. **Use Jest and React-Testing-Library to test React components**
+
    We use `Jest`_ and `React-Testing-Library`_ to test React components.
    We are deprecating the `Enzyme`_ library.
    New tests must not use Enzyme, and any repositories planning to move to React 18 or newer need to
-   replace Enzyme. See `Reasons for deprecating Enzyme`_.
+   replace Enzyme.
 
-   Other modern frameworks considered for use
-   included Polymer and Angular. See `Reasons for rejecting Angular`_  and
-   `Reasons for rejecting Polymer`_ for an exploration of why these
-   alternatives do not work as well as React for edX.
-
-2. **Target the latest standardised JavaScript version (ECMA-262)**
+#. **Target the latest standardised JavaScript version (ECMA-262)**
 
    **Rationale**: edX JavaScript should be written consistent with the latest
    ECMA-262 specification in order to ensure future support, the largest
@@ -92,11 +93,9 @@ Technology Selection
 
    **Note**: edX previously used CoffeeScript, but its use has now been
    deprecated. Community interest in TypeScript has also grown, but it and
-   other languages that do not follow the ECMA-262 spec should not be used. See
-   `Reasons for rejecting CoffeeScript`_ and
-   `Reasons for rejecting TypeScript`_ for more detail.
+   other languages that do not follow the ECMA-262 spec should not be used.
 
-3. **JavaScript code should follow the edX ESLint configuration**
+#. **JavaScript code should follow the edX ESLint configuration**
 
    **Rationale**: In order to standardize and enforce Open edX's JavaScript
    coding style across multiple codebases, edX has published an ESLint
@@ -108,7 +107,7 @@ Technology Selection
    is in use. Both configs may be used in the same codebase through the
    use of `ESLint configuration cascading`_.
 
-4. **JavaScript libraries should be installed via npm**
+#. **JavaScript libraries should be installed via npm**
 
    **Rationale**: It is important that JavaScript libraries are kept
    up-to-date, and one key component is to make it as simple as possible
@@ -116,7 +115,7 @@ Technology Selection
    library requirements in a single `package.json` file, which can be
    easily changed as the versions change.
 
-5. **JavaScript projects should publish a package.lock file**
+#. **JavaScript projects should publish a package.lock file**
 
    **Rationale**: To keep dependencies up-to-date and builds consistent, JavaScript
    projects should allow patch and minor upgrades in their package.json file and
@@ -126,14 +125,14 @@ Technology Selection
    Python code - see `OEP 18`_ for more information. For more information on
    package-lock files see `Package Lock`_.
 
-6. **Keep dependencies up to date by using Greenkeeper**
+#. **Keep dependencies up to date by using Greenkeeper**
 
    **Rationale**: JavaScript dependencies are updated constantly and can be difficult
    to maintain over time. `Greenkeeper`_ makes this easier by automatically updating
    dependencies in a package.json file and verifying the tests still work. When
    possible, leverage Greenkeeper to ensure JavaScript software remains up to date.
 
-7. **JavaScript should be bundled using Webpack**
+#. **JavaScript should be bundled using Webpack**
 
    **Rationale**: `Webpack`_ is the tool of choice for code optimization and
    bundling, as it is widely used throughout the industry, and because
@@ -142,7 +141,7 @@ Technology Selection
    implemented to handle as much of the "asset pipeline" as possible,
    rather than passing this responsibility on to Django.
 
-8. **JavaScript dependencies should be managed with ES2015 Modules**
+#. **JavaScript dependencies should be managed with ES2015 Modules**
 
    **Rationale**: JavaScript module systems allow front end code to specify
    its dependencies and be grouped into bundles that minimize the assets
@@ -155,7 +154,7 @@ Technology Selection
    with ES2015 Modules if Webpack is used for bundling, so AMD is an
    acceptable module definition if the code must remain ES5.
 
-9. **CSS should be generated using Sass**
+#. **CSS should be generated using Sass**
 
    **Rationale**: Sass's SCSS syntax is an extension of CSS that adds power
    and elegance to the basic language. It makes the maintenance of large
@@ -165,7 +164,7 @@ Technology Selection
 
    You can find out more about Sass in the official `Sass documentation`_.
 
-10. **API calls should be made with the edX Frontend Auth Client or Axios**
+#. **API calls should be made with the edX Frontend Auth Client or Axios**
 
    **Rationale**: The `edX Frontend Auth Client`_ simplifies the process of
    talking to edX APIs by using Axios inteceptors and handling JWT Cookie
@@ -177,7 +176,7 @@ Technology Selection
    intuitive API, particularly when handling HTTP errors with rejected
    promises.
 
-11. **Server-side content should be rendered with Django Templates**
+#. **Server-side content should be rendered with Django Templates**
 
    **Rationale**: Although it is advised to use client side templating with
    React, see `Use React and Redux`_,  when rendering on the server Django templates
@@ -185,8 +184,7 @@ Technology Selection
    but the simplest option is to use the built-in Django template engine.
    The Open edX codebase has a mixture of Django and Mako templates, but the
    former are easier to reason about because they don't support arbitrary
-   code evaluation. See `Reasons for rejecting Mako`_ for a more detailed
-   explanation.
+   code evaluation.
 
    **Exception**: Mako templates can continue to be used within edx-platform
    for consistency with the existing code base. This is because the base
@@ -195,81 +193,15 @@ Technology Selection
    There is much desire to replace Mako within edx-platform so this
    exception may eventually be removed.
 
-Rejected Alternatives
-*********************
+Decisions
+*********
 
-.. _Reasons for rejecting Angular:
+.. toctree::
+   :caption: OEP-11 Decisions
+   :maxdepth: 1
+   :glob:
 
-1. **Angular**
-
-   `Angular`_ was a popular web framework in its 1.x iteration, and its
-   maintainer (Google) recently released Angular 2. Angular 1 was not considered
-   due to its support status. Angular 2 was rejected due to its opinionated
-   characteristics including its use of TypeScript (a compile-to-JavaScript
-   language) and the difficulty of incrementally integrating Angular into an
-   existing application (e.g., alongside legacy Backbone). Consensus in the
-   front end community is that Angular has a higher learning curve than
-   alternatives like React, which matches poorly with edX's limited front end
-   developers and larger community of infrequent JavaScript contributors.
-
-.. _Reasons for rejecting Polymer:
-
-2. **Polymer**
-
-   `Polymer`_ is a framework built around `Web Components`_, a set of draft
-   extensions to the HTML and DOM specs for UI encapsulation. Web Components
-   are a very interesting area of emergent Web technology, but are not yet
-   finalized as a spec or supported in many browsers. Because of this, the
-   Polymer community is small and performance issues exist. As Web Components
-   become more mature, edX may reevaluate their use, either with Polymer or
-   without.
-
-.. _Reasons for rejecting CoffeeScript:
-
-3. **CoffeeScript**
-
-   The Open edX codebase made heavy use of CoffeeScript for several years,
-   but its use at edX has now been officially deprecated. Most of the language
-   benefits of CoffeeScript were made available in JavaScript as of the ES2015 spec,
-   and CoffeeScript's community has largely moved on.
-
-.. _Reasons for rejecting TypeScript:
-
-4. **TypeScript**
-
-   Several variants of typed JavaScript have grown in community popularity
-   recently, with `TypeScript`_ as the most popular. edX believes adding
-   typing to our JavaScript would raise the barrier to entry for less
-   experienced front end developers, and that using TypeScript in particular
-   would lock us into a tool with an uncertain future (as we experienced with
-   CoffeeScript). If typing is an absolute necessity for a feature
-   (e.g., an API client or sensitive business logic), `Flow`_ is recommended,
-   as it can be incrementally added and evaluated alongside non-typed code.
-
-.. _Reasons for rejecting Mako:
-
-5. **Mako**
-
-   There are a number of reasons why Django templates is preferred to Mako:
-
-   * Mako templates are not safe by default, meaning that it is very easy
-     to introduce cross-site scripting vulnerabilities.
-   * Mako templates are hard to unit test because they require that the
-     whole Django context be available in case the template tries to
-     access it. Django templates only have access to the context object
-     that is passed to it, so it is very easy to simulate all possible
-     scenarios.
-
-.. _Reasons for deprecating Enzyme:
-
-6. **Enzyme**
-
-   `Enzyme is dead`_.
-
-   * Enzyme is not considered to be actively maintained anymore.
-   * It does not support React hooks.
-   * It does not and will not support React 18.
-   * The community is unwilling to create an adapter for React 18.
+   oep-0011/decisions/*
 
 Change History
 **************
@@ -281,30 +213,24 @@ Change History
 
 .. Cross-references
 .. _AMD Modules: https://github.com/amdjs/amdjs-api/wiki/AMD
-.. _Angular: https://angular.io/
 .. _Babel: https://babeljs.io/
 .. _edX ESLint Config: https://github.com/edx/eslint-config-edx/tree/master/packages/eslint-config-edx
 .. _edX ESLint Config for ES5: https://github.com/edx/eslint-config-edx/tree/master/packages/eslint-config-edx-es5
 .. _edx Frontend Auth Client: https://github.com/edx/frontend-auth
 .. _enzyme: https://airbnb.io/enzyme/
-.. _Enzyme is dead: https://dev.to/wojtekmaj/enzyme-is-dead-now-what-ekl
 .. _enzyme-adapter-react-17: https://www.npmjs.com/package/@wojtekmaj/enzyme-adapter-react-17
 .. _ESLint configuration cascading: https://eslint.org/docs/user-guide/configuring/configuration-files#cascading-and-hierarchy
 .. _ES2015 Modules: http://www.ecma-international.org/ecma-262/6.0/#sec-imports
 .. _ES2017: https://tc39.github.io/ecma262/
 .. _Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-.. _Flow: https://flow.org/
 .. _Greenkeeper: https://greenkeeper.io/
 .. _Jest: https://jestjs.io/
 .. _JSX: https://facebook.github.io/react/docs/introducing-jsx.html
 .. _oep 18: https://open-edx-proposals.readthedocs.io/en/latest/oep-0018-bp-python-dependencies.html
 .. _package lock: https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
-.. _Polymer: https://www.polymer-project.org/
 .. _React: https://github.com/facebook/react
 .. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React
 .. _React-Testing-Library: https://testing-library.com/docs/react-testing-library/intro
-.. _ReactRender: https://github.com/openedx/edx-platform/blob/master/common/djangoapps/pipeline_mako/templates/static_content.html#L146
+.. _ReactRender: https://github.com/openedx/edx-platform/blob/4b38b1f750918ff83c02cff776681aabe44bd689/common/djangoapps/pipeline_mako/templates/static_content.html#L159-L167
 .. _Sass documentation: http://sass-lang.com/
-.. _Typescript: https://www.typescriptlang.org/
 .. _Webpack: https://webpack.github.io/
-.. _Web Components: https://www.webcomponents.org/
