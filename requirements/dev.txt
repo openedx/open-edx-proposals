@@ -131,7 +131,7 @@ sphinxcontrib-serializinghtml==1.1.5
     #   sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
-tornado==6.3.2
+tornado==6.3.3
     # via livereload
 typing-extensions==4.7.1
     # via
