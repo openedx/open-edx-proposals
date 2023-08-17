@@ -12,7 +12,7 @@ OEP-XXXX: OEP RBAC (Role Based Access Control)
    * - Title
      - RBAC (Role Based Access Control)
    * - Last Modified
-     - 2023-08-15
+     - 2023-08-16
    * - Authors
      - Hilary Sinkoff <hsinkoff@2u.com>
    * - Arbiter
@@ -22,7 +22,7 @@ OEP-XXXX: OEP RBAC (Role Based Access Control)
    * - Type
      - Architecture
    * - Created
-     - 2023-08-15
+     - 2023-08-16
    * - Review Period
      - TBD
 
@@ -61,8 +61,8 @@ Consequences
 ************
 
 Once completed this will remove one level of complexity from the overall authorization picture 
-by lower the systems involved by one, however during the interim it will add complexity by increasing 
-the number of involved systems and requiring all access checks to check for an additional value.
+by decreasing the systems involved by one, however during the interim it will add complexity by increasing 
+the number of involved systems and requiring all access checks to check for a role and a permission.
 
 After implementation, access checks will check for a permission instead of a role. This will mean that 
 if a new permission is added, each default role will need to be updated to indicate if it grants the new 
@@ -81,7 +81,7 @@ References
 Change History
 **************
 
-2023-08-15
+2023-08-16
 ==========
 
 * Document created
