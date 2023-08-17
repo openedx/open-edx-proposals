@@ -1,5 +1,5 @@
 ==============================================
-OEP-XXXX: OEP RBAC (Role Based Access Control)
+OEP-66: OEP RBAC (Role Based Access Control)
 ==============================================
 
 .. This OEP template is based on Nygard's Architecture Decision Records.
@@ -8,7 +8,7 @@ OEP-XXXX: OEP RBAC (Role Based Access Control)
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-XXXX <oep-XXXX-arch-role-based-access-control>`
+     - :doc:`OEP-66 <oep-0066-arch-role-based-access-control>`
    * - Title
      - RBAC (Role Based Access Control)
    * - Last Modified
@@ -76,7 +76,7 @@ an organization or instance level.
 References
 **********
 
-.. image:: oep-xxxx/rbac_overview.png
+.. image:: oep-0066/rbac_overview.png
 
 Change History
 **************
@@ -85,4 +85,4 @@ Change History
 ==========
 
 * Document created
-* `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
+* `Pull request #510 <https://github.com/openedx/open-edx-proposals/pull/510>`_
