@@ -193,6 +193,16 @@ Technology Selection
    There is much desire to replace Mako within edx-platform so this
    exception may eventually be removed.
 
+#. **Codecov should be used to measure code covered by tests**
+
+   **Rationale**: It is important to measure the amount of code covered by our
+   automated test suites. By striving for a high level of test coverage, we can
+   reduce the number of bugs that can only be found via manual testing. another
+   added benefit comes when we include coverage runs in the CI process, as
+   contributors are automatically reminded to include tests for any new code.
+
+   The Open edX community has standardized around `Codecov`_ as a measurement tool.
+
 Decisions
 *********
 
@@ -214,6 +224,7 @@ Change History
 .. Cross-references
 .. _AMD Modules: https://github.com/amdjs/amdjs-api/wiki/AMD
 .. _Babel: https://babeljs.io/
+.. _Codecov: https://about.codecov.io/
 .. _edX ESLint Config: https://github.com/edx/eslint-config-edx/tree/master/packages/eslint-config-edx
 .. _edX ESLint Config for ES5: https://github.com/edx/eslint-config-edx/tree/master/packages/eslint-config-edx-es5
 .. _edx Frontend Auth Client: https://github.com/edx/frontend-auth
