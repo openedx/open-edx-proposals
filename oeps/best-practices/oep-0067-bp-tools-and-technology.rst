@@ -235,6 +235,13 @@ Frontend Technology Selection
    There is much desire to replace Mako within edx-platform so this
    exception may eventually be removed.
 
+#. **BundleWatch should be used to automatically monitor JavaScript bundle sizes**
+
+   **Rationale**: It is important for users of the Open edX platform that we deliver
+   reasonably sized JavaScript bundles. This provides faster load times to all users,
+   and is vital for users with low bandwidth and/or metered connections. To ensure we 
+   don't unintentionally increase the size of our JavaScript bundles, we utilize BundleWatch
+   for automated bundle size monitoring.
 
 Backend Technology Selection
 ============================
