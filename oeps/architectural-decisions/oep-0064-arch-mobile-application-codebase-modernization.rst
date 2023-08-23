@@ -17,13 +17,13 @@ OEP-64: Mobile App Codebase Modernization
    * - Arbiter
      - Ed Zarecor <ezarecor@axim.org>
    * - Status
-     - Under Review
+     - Approved
    * - Type
      - Architecture Decision
    * - Created
      - 2023-06-09
    * - Review Period
-     - 2023-06-15 - 2023-08-01
+     - 2023-06-15 - 2023-08-23
    * - References
      - `Related Funded Contribution <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3663429666/FC-0011+-+Mobile+Product+Strategy+Backlog+Development>`_
 
@@ -57,8 +57,10 @@ The existing mobile repositories are maintained by edX / 2U and can be accessed 
 * After the publication of the Quince release we will move the original repositories or the openedx-unsupported github organization to help make clear that these are no longer the default mobile application builds moving forward. A corresponding DEPR ticket will be linked to this OEP once it exists. 
 
 The new mobile repositories are maintained by Raccoon Gang and can be accessed here:
+
 * https://github.com/raccoongang/educationx-app-ios
 * https://github.com/raccoongang/educationx-app-android
+
 * The new repositories will be migrated to the ``openedx`` github organization under the names ``openedx-app-ios`` and ``openedx-app-android``.
 * The new repositories will be maintained in accordance with OEP-55.
 * Relevant funded contributions and projects relation to the new mobile repositories will be linked from their main project README as a way to help community members find ongoing and future efforts.
@@ -97,3 +99,4 @@ Change History
 * `Pull request #496 <https://github.com/openedx/open-edx-proposals/pull/496>`_
 * Updated PR to reflect the latest OEP number and the named release planned
 * Updates to match conventions and other OEP feedback
+* Minor styling and formatting updates to document, including final Approved status. 
