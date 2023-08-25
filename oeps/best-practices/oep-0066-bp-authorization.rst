@@ -1,0 +1,384 @@
+OEP-66: Authorization
+######################
+
+.. list-table::
+   :widths: 25 75
+
+   * - OEP
+     - :doc:`OEP-66 <oep-0066-bp-authorization>`
+   * - Title
+     - User Authorization
+   * - Last Modified
+     - 2023-08-21
+   * - Authors
+     - Hilary Sinkoff (hsinkoff@2u.com), Jeremy Bowman (jbowman@edx.org)   
+   * - Arbiter
+     - TBD
+   * - Status
+     - Draft
+   * - Type
+     - Best Practice
+   * - Created
+     - 2023-08-21
+   * - `Review Period`
+     - TBD
+   * - Replaces
+     - :doc:`OEP-09 <oep-0009-bp-permissions>`
+   * - References
+     - `OEP-04`_, `OEP-42`_
+
+.. _OEP-04: https://open-edx-proposals.readthedocs.io/en/latest/oeps/oep-0004.html
+.. _OEP-42: https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0042-bp-authentication.html
+
+Summary
+*******
+
+There are a variety of manners in which authorization is handled within the Open edX ecosystem. 
+The goal of OEP-66 is to outline the currently in use systems/protocols and provide best practices 
+that should be used with all the systems/protocols.
+
+
+Defined Terms
+*************
+
+Authorization (Authz)
+---------------------
+
+Authorization is the granting of permission of a certain user to perform specific operations in an application. A user can also delegate an application to be authorized to perform operations on their behalf without being logged in or authenticated, which is the basis of OAuth.
+
+.. note::
+  The definition of authorization found here is the same as that found in 
+  `OEP-42. <https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0042-bp-authentication.html>`_
+  Credit for this definition belongs to the authors of OEP-42; Robert Raposa, Nimisha Asthagiri, and Julia Eskew.
+
+Authentication (Authn)
+----------------------
+
+Authentication is the verification of the identity of a user, which typically initiates at a “login” application point. Authentication is required whenever we need to identify a client/caller/user/etc.
+
+.. note::
+
+  Authentication is out of scope of this OEP. 
+  The definition is included here to clarify the difference from Authorization.
+  The definition comes from `OEP-42. <https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0042-bp-authentication.html>`_
+  Credit for this definition belongs to the authors of OEP-42; Robert Raposa, Nimisha Asthagiri, and Julia Eskew.
+
+RBAC
+--------------
+Role Based Access Control. A system in which roles are assigned to a user 
+in order to grant that user permission to perform specific operations.
+
+There are multiple RBAC implementations in use within Open edX, 
+including, but not limited to, edx-rbac and student_courseaccessrole.
+The implementations will be described in detail below.
+
+Explicit Role
+--------------
+A role that is specifically assigned to a user with 
+the intent of providing the user permission to perform specific operations.
+
+Implicit Role
+--------------
+A "role" that is understood to belong to a user based 
+on data that is not role assignment data. 
+
+Implicit roles grant users permissions, but are not specifically assigned 
+to a user.
+
+Systems/Protocols Overview
+***************************
+The following systems/protocols are currently used in the Open edX ecosystem 
+to grant users different levels of access. Each system/protocol is used in different 
+ways. A user's authz level is determined based on a combination of these systems/protocols. 
+It is important to note that it is the interplay of these systems/protocols that 
+determines whether a user has permissions for a given operation, not necessarily a single 
+system.
+
+django Admin (auth_permission)
+-------------------------------
+
+Permissions are granted for the entire instance.
+
+There are two ways in which the django auth_permissions can be used to grant access.
+
+* Users can be granted model permissions based on the database models.
+* Users can be assigned to groups which can be granted model permissions based on the database models.
+
+django Admin auth_permissions grants permissions to users or groups, but does not 
+control whether the user is able to login to a service (authn) or access a service through other permissions 
+(i.e. an implicit student role). 
+In this way, it can grant permissions to a user that they will not be able to use.
+
+auth_permission users and groups are assigned through the django Admin Dashboard. Each 
+service can have its own django Admin Dashboard. In Open edX, the LMS django Admin Dashboard 
+will be used to control (most) user and group permissions.
+
+student_courseaccessrole
+-------------------------
+
+Explicit roles are assigned to users, generally on a course level basis. 
+
+The roles are hardcoded strings that can be granted in the LMS or CMS.
+In addition to granting the roles in the UI, it is possible to assign 
+the roles through the LMS django Admin Dashboard. 
+
+Each role assignment will generate one row in the database table. The values 
+in the row will determine if the user is granted access for a single course, all 
+courses in the org, or all courses in the instance.
+
+* If the course_id is not nil, the role grants permissions on the course level.
+* If the course_id is nil and the org_id is not nil, the role grants permissions on the organization level.
+* If the course_id and org_id are both nil, the role grants permissions on the instance level.
+
+django_comment_client_role
+----------------------------
+
+Explicit roles are assigned to users on a course level basis. 
+
+These roles require that the user already be enrolled in the course 
+(have an enrollment, audit or verified).
+
+Roles are assigned through the LMS in the same place in the UI as the student_courseaccessrole roles. 
+They can also be granted in the LMS django Admin Dashboard.
+
+edx-rbac
+----------------------------
+
+Permission is granted on a Feature. 
+
+edx-rbac is a protocol that can be implemented by any feature, but each 
+feature that implements it would need to set up its own implementation.
+
+It allows for creating feature specific roles with feature specific permissions.
+The feature specific roles can be accessed by other 
+features which can choose to use or ignore this data point. 
+
+The feature specific roles are stored on the jwt token. This mixes authz into an 
+authn data point, but is an accepted way to implement feature specific roles and permissions. 
+It is advisable to be very careful regarding the jwt token header limits if adding a new feature specific 
+set of roles using this implementation path.
+
+content_libraries_contentlibrarypermission
+-------------------------------------------
+
+Permission is granted on a Feature, in this case Content Library. 
+
+Permission is assigned in the CMS exclusively for providiing explicit permission to 
+view or edit a library in the CMS. 
+
+It grants access on a library by library basis and is used for v2 of content libraries 
+in the CMS. 
+
+.. note::
+  v1 libraries (deprecated) granted access to libraries on a course by course basis 
+  and was controlled by student_courseaccessrole.
+
+student/learner
+----------------------------
+student/learner is an implicit role. 
+
+It is not currently controlled by a system/protocol 
+whose primary focus is authorization.  
+
+Best Practices
+***********************
+
+Permission Checks
+-----------------------
+
+Most authorization checks in Python code should use the standard
+`Django authorization API`_, including the optional support for object-level
+permissions which isn't implemented in the default backends.  Some examples
+can help give context for the details:
+
+.. _Django authorization API: https://docs.djangoproject.com/en/1.10/topics/auth/default/#permissions-and-authorization
+
+`This code checks if a user has the permission stated.`
+
+.. code-block:: python
+
+   if user.has_perm('my_app.change_modelname', model_instance):
+       # Code which depends on the user being allowed to edit that specific model instance
+
+   if user.has_perm('other_app.add_othermodel'):
+       # Code which depends on the user being allowed to create new instances of OtherModel
+
+`This code requires the permission polls.vote in order to perform the my_view action.`
+
+.. code-block:: python
+
+   from django.contrib.auth.decorators import permission_required
+
+   @permission_required('app.modelname')
+   def my_view(request):
+       # ...
+
+.. note::
+  A permission name should respect the following rules:
+
+  * It should contain only lower-case ASCII letters, periods, and underscores.
+  * It should start with the name of a Django application followed by a period.
+  * It should follow an "action_modelname" pattern for the rest of the name
+    if appropriate (especially because several of these are used by the Django
+    admin interface if defined), or a short description of an action otherwise.
+
+  `Example permission names:`
+
+  *  my_app.change_modelname
+  *  other_app.add_othermodel
+
+Extending Permission Checks
+============================
+
+While the 
+`Django authorization API`_ is quite flexible, many Django developers
+have not really utilized it because the default authentication backend that
+comes with Django lacks support for object-level permissions and requires the
+addition of per-user database records for even the most trivial permission
+checks.  Fortunately, Django supports custom authentication backends, and
+checks each one that's in use when making authorization checks.  
+
+The backend
+which we currently recommend for use in defining new permission checks is
+`rules`_.  
+
+`rules`_ makes no changes to the authentication of users trying to log
+into the system. It allows the creation of new permissions by mapping
+the permission name to a function which implements the permission check.  
+
+Django apps which are
+implemented in the repository for a service should generally define their
+custom permissions in a ``rules.py`` module where they will be automatically
+loaded, as described in the documentation.  For example:
+
+.. _Django authorization API: https://docs.djangoproject.com/en/1.10/topics/auth/default/#permissions-and-authorization
+.. _rules: https://github.com/dfunckt/django-rules
+
+`This code grants the my_app.view_report permission to users that return true from the new 
+is_report_owner function or the imported is_superuser function.`
+
+.. code-block:: python
+
+   import rules
+   from rules.predicates import is_superuser
+
+   @rules.predicate
+   def is_report_owner(user, report):
+       return report.owner == user
+
+   rules.add_perm('my_app.view_report', is_report_owner | is_superuser)
+
+This allows permissions to be named and implemented in one place, without
+requiring any additional database configuration.  Note that reusable Django
+applications should not automatically register implementations of their
+permissions, as the actual services using them may need to implement their
+own rules for them.  ``rules`` also provides an improved
+``permission_required`` view decorator which support testing object-level
+permissions; see the documentation for details.
+
+Note that although the optional second argument to ``User.has_perm()`` is
+often a model instance, it can technically be any Python object which contains
+information relevant to the permission being tested.  This allows for even
+greater flexibility in the kinds of authorization rules that can be
+implemented.
+
+Query Sets 
+***********
+  .. Check if there is now a different perferred implementation
+
+
+
+
+Django REST Framework
+***********************
+
+When using Django REST Framework (DRF) to build a REST API, note that it has object
+permissions and query filtering mechanisms which are designed to be compatible
+with Django's authorization API.  This means they also work well with the
+``rules`` authentication backend described above.  
+
+You can
+`set the permissions policy`_ to a class such as `DjangoObjectPermissions`_
+and DRF will automatically check the appropriate object permission whenever
+performing an action on a single object.  That particular class always denies
+permission to anonymous users and assumes that there are no ``view_*``
+permissions relevant to viewing or listing objects; those points can be
+changed if desired by creating a subclass, for example:
+
+.. _DjangoObjectPermissions: https://www.django-rest-framework.org/api-guide/permissions/#djangoobjectpermissions
+.. _set the permissions policy: https://www.django-rest-framework.org/api-guide/permissions/#setting-the-permission-policy
+
+.. code-block:: python
+
+   class DjangoObjectPermissionsIncludingView(permissions.DjangoObjectPermissions):
+       authenticated_users_only = False
+       perms_map = {
+           'GET': ['%(app_label)s.view_%(model_name)s'],
+           'OPTIONS': ['%(app_label)s.view_%(model_name)s'],
+           'HEAD': ['%(app_label)s.view_%(model_name)s'],
+           'POST': ['%(app_label)s.add_%(model_name)s'],
+           'PUT': ['%(app_label)s.change_%(model_name)s'],
+           'PATCH': ['%(app_label)s.change_%(model_name)s'],
+           'DELETE': ['%(app_label)s.delete_%(model_name)s'],
+       }
+
+If additional information about the session is needed beyond the user's
+identity in order to make a permission decision (for example, if an action
+should only be allowed if the client has been granted a particular OAuth
+scope, as outlined in `OEP-4`_), then a custom `BasePermission`_ subclass can
+be implemented which both consults the Django authorization API and makes the
+necessary checks against the session or other properties of the request
+object.
+
+.. _OEP-4: https://open-edx-proposals.readthedocs.io/en/latest/oeps/oep-0004.html
+
+In order to filter the querysets used to generate list responses to only
+include objects appropriate for the users permissions, an appropriate filter
+class should also be set.  A generic implementation using the library
+proposed above for mapping permissions to Q objects might look as follows:
+
+.. code-block:: python
+
+    from qpermissions import perms
+
+    class DjangoPermissionRulesFilter(BaseFilterBackend):
+
+        perm_format = '%(app_label)s.view_%(model_name)s'
+
+        def filter_queryset(self, request, queryset, view):
+            user = request.user
+            model_cls = queryset.model
+            kwargs = {
+                'app_label': model_cls._meta.app_label,
+                'model_name': get_model_name(model_cls)
+            }
+            permission = self.perm_format % kwargs
+            if permission not in perms:
+                return queryset
+            return queryset.filter(perms[permission](user))
+
+Such a class would be used in a view's `filter_backends`_ attribute or
+could be used by default for all view classes which don't override it.
+
+.. _BasePermission: https://www.django-rest-framework.org/api-guide/permissions/#custom-permissions
+.. _filter_backends: https://www.django-rest-framework.org/api-guide/filtering/#setting-filter-backends
+
+Historical Systems/Protocols
+*****************************
+
+This is a listing of the systems/protocols that have been used historically, but have since been phased out.
+This list should include a link to any ADRs or documents that reflect why these changes were made.
+
+References
+**********
+
+`Authorization Architecture Vision & Principles <https://openedx.atlassian.net/wiki/spaces/AC/pages/935919751/Authorization>`_
+
+`django Authentication System <https://docs.djangoproject.com/en/4.1/topics/auth/default/#permissions-and-authorization>`_
+
+
+Change History
+**************
+
+* Document created
+* `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
