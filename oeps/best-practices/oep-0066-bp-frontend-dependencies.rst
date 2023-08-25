@@ -2,7 +2,7 @@
 
 .. Below is the display in the left sidebar on RTD. Please omit leading 0's
 
-OEP-0065: Frontend Dependencies Update
+OEP-0066: Frontend Dependencies Update
 ######################################
 
 .. This OEP template is based on Nygard's Architecture Decision Records.
@@ -39,12 +39,12 @@ OEP-0065: Frontend Dependencies Update
 Abstract
 ********
 
-Proposes best practices for maintaining dependencies on Javscript repositories of Open edX
+Proposes best practices for maintaining dependencies on Javascript repositories of Open edX
 
 Context
 *******
 
-Openedx mico-frontends(MFEs) use javascript. We maintain these repositoriesusing  To upgrade its dependencies through package.json, we can either use `^` or `~` operators to automatically upgrade major and patch versions respectively. 
+Openedx micro-frontends(MFEs) use javascript. We maintain these repositories using  To upgrade its dependencies through package.json, we can either use `^` or `~` operators to automatically upgrade major and patch versions respectively. 
 It might lead to some complexities since its hard to debug what upgrade actually caused the issue. 
 To overcome this issue, we can use renovate bot. Renovate Bot is a popular GitHub app that automatically keeps your npm dependencies (including the package-lock.json) up-to-date. Once installed, Renovate Bot scans your repository for outdated packages and creates pull requests with updated versions. You can configure the bot's behavior through a renovate.json file in your repository.
 
@@ -89,7 +89,7 @@ Renovate Bot PRs have very good documentation of changes with proper linking.
 
 Best Practices
 **************
-We can configure Renovate Bot in our repositories by introducing `renovate.json` file. Here are some best practices we can follow to 
+We can configure Renovate Bot in our repositories by introducing `renovate.json` file. Here are some best practices on how to configure it.
 
 We can enforce our repos to use basic configurations like schedule, automerging, rebasingStalePrs. 
 In addition to that, we can also add package specific rules. For example
@@ -122,7 +122,7 @@ In addition to that, we can also add package specific rules. For example
         "automerge": true
       },
       {
-        "matchPackagePatterns": ["@edx"],
+        "matchPackagePatterns": ["@edx", "@openedx"],
         "matchUpdateTypes": ["minor", "patch"],
         "automerge": true
       }
@@ -131,7 +131,7 @@ In addition to that, we can also add package specific rules. For example
   }
 
 We can set schedule of whole Renovate Bot or we can set independent schedules.
-We can also set the automerge rules to be satisfy. 
+We can also set the automerge rules to be satisfied. 
 Renovate allow us to set multiple package rules, for example, we can add a rule to auto update ``@edx`` namespaced minor and patch versions.
 
 Consequences
