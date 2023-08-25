@@ -44,7 +44,7 @@ Proposes best practices for maintaining dependencies on Javascript repositories 
 Context
 *******
 
-Openedx micro-frontends(MFEs) use javascript. We maintain these repositories using  To upgrade its dependencies through package.json, we can either use `^` or `~` operators to automatically upgrade major and patch versions respectively. 
+Open edX micro-frontends(MFEs) use javascript. We maintain these repositories using  To upgrade its dependencies through package.json, we can either use `^` or `~` operators to automatically upgrade major and patch versions respectively. 
 It might lead to some complexities since its hard to debug what upgrade actually caused the issue. 
 To overcome this issue, we can use renovate bot. Renovate Bot is a popular GitHub app that automatically keeps your npm dependencies (including the package-lock.json) up-to-date. Once installed, Renovate Bot scans your repository for outdated packages and creates pull requests with updated versions. You can configure the bot's behavior through a renovate.json file in your repository.
 
@@ -141,18 +141,21 @@ If we have renovate configured in all of our frontend repos, we can standardise 
 References
 **********
 
-List any additional references here that would be useful to the future reader.
-See `Documenting Architecture Decisions`_ for further input.
+`Renovate`_
 
-.. _Documenting Architecture Decisions: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+.. _Renovate: https://docs.renovatebot.com/
+
+`How To Enable Javascript Upgrade Automation`_ 
+
+.. _How To Enable Javascript Upgrade Automation: https://docs.openedx.org/en/latest/developers/how-tos/enable-javascript-upgrade-automation.html
+
+
 
 Change History
 **************
 
-
-YYYY-MM-DD
-==========
-
+YYYY-MM-DD 
+===========
 
 * Document created
-* `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
+* `Pull request #513 <https://github.com/openedx/open-edx-proposals/pull/513>`_
