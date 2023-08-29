@@ -94,6 +94,10 @@ It is important to note that it is the interplay of these systems/protocols that
 determines whether a user has permissions for a given operation, not necessarily a single 
 system.
 
+.. image:: oep-0066/Open_edX_Authorization.png
+   :alt: A diagram that shows the different systems/protocols used in Open edX to control authorization.
+
+
 django Admin (auth_permission)
 -------------------------------
 
