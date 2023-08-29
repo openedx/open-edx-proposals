@@ -1,5 +1,5 @@
-OEP-66: Authorization
-######################
+OEP-66: User Authorization
+###########################
 
 .. list-table::
    :widths: 25 75
@@ -59,7 +59,7 @@ Authentication is the verification of the identity of a user, which typically in
 .. note::
 
   Authentication is out of scope of this OEP. 
-  The definition is included here to clarify the difference from Authorization.
+  The definition is included here to clarify the difference between it and Authorization.
   The definition comes from `OEP-42. <https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0042-bp-authentication.html>`_
   Credit for this definition belongs to the authors of OEP-42; Robert Raposa, Nimisha Asthagiri, and Julia Eskew.
 
@@ -203,7 +203,7 @@ can help give context for the details:
    if user.has_perm('other_app.add_othermodel'):
        # Code which depends on the user being allowed to create new instances of OtherModel
 
-`This code requires the permission polls.vote in order to perform the my_view action.`
+`This code requires the permission app.modelname in order to perform the my_view action.`
 
 .. code-block:: python
 
@@ -240,11 +240,11 @@ checks each one that's in use when making authorization checks.
 
 The backend
 which we currently recommend for use in defining new permission checks is
-`rules`_.  
+`bridgekeeper`_.  
 
-`rules`_ makes no changes to the authentication of users trying to log
-into the system. It allows the creation of new permissions by mapping
-the permission name to a function which implements the permission check.  
+`bridgekeeper`_ is "heavily inspired by `django-rules`_". It allows the creation of new permissions by mapping
+the permission name to a function which implements the permission check.  It also allows permission checking by 
+QuerySet.
 
 Django apps which are
 implemented in the repository for a service should generally define their
@@ -252,17 +252,19 @@ custom permissions in a ``rules.py`` module where they will be automatically
 loaded, as described in the documentation.  For example:
 
 .. _Django authorization API: https://docs.djangoproject.com/en/1.10/topics/auth/default/#permissions-and-authorization
-.. _rules: https://github.com/dfunckt/django-rules
+.. _bridgekeeper: https://bridgekeeper.readthedocs.io/en/latest/index.html
+.. _django-rules: https://github.com/dfunckt/django-rules
 
 `This code grants the my_app.view_report permission to users that return true from the new 
 is_report_owner function or the imported is_superuser function.`
 
 .. code-block:: python
 
-   import rules
-   from rules.predicates import is_superuser
+   import bridgekeeper
+   from bridgekeeper.rules import blanket_rule
+   from .rules import is_superuser
 
-   @rules.predicate
+   @blanket_rule
    def is_report_owner(user, report):
        return report.owner == user
 
@@ -272,22 +274,13 @@ This allows permissions to be named and implemented in one place, without
 requiring any additional database configuration.  Note that reusable Django
 applications should not automatically register implementations of their
 permissions, as the actual services using them may need to implement their
-own rules for them.  ``rules`` also provides an improved
-``permission_required`` view decorator which support testing object-level
-permissions; see the documentation for details.
+own rules for them. 
 
 Note that although the optional second argument to ``User.has_perm()`` is
 often a model instance, it can technically be any Python object which contains
-information relevant to the permission being tested.  This allows for even
+information relevant to the permission being tested, including a QuerySet.  This allows for even
 greater flexibility in the kinds of authorization rules that can be
 implemented.
-
-Query Sets 
-***********
-  .. Check if there is now a different perferred implementation
-
-
-
 
 Django REST Framework
 ***********************
@@ -295,7 +288,7 @@ Django REST Framework
 When using Django REST Framework (DRF) to build a REST API, note that it has object
 permissions and query filtering mechanisms which are designed to be compatible
 with Django's authorization API.  This means they also work well with the
-``rules`` authentication backend described above.  
+``bridgekeeper`` authentication backend described above.  
 
 You can
 `set the permissions policy`_ to a class such as `DjangoObjectPermissions`_
@@ -369,6 +362,12 @@ Historical Systems/Protocols
 This is a listing of the systems/protocols that have been used historically, but have since been phased out.
 This list should include a link to any ADRs or documents that reflect why these changes were made.
 
+* `rules`_ was previously the preferred method for extending permission checks. 
+   * `ADR for adding django-rules <https://github.com/openedx/edx-platform/blob/master/lms/djangoapps/courseware/docs/decisions/0002-permissions-via-django-rules.rst>`_
+   * `ADR for switching to bridgekeeper <https://github.com/openedx/edx-platform/blob/master/lms/djangoapps/courseware/docs/decisions/0003-permissions-via-bridgekeeper.rst>`_
+
+.. _rules: https://github.com/dfunckt/django-rules
+
 References
 **********
 
@@ -376,6 +375,9 @@ References
 
 `django Authentication System <https://docs.djangoproject.com/en/4.1/topics/auth/default/#permissions-and-authorization>`_
 
+`django-rules <https://github.com/dfunckt/django-rules>`_
+
+`bridgekeeper <https://bridgekeeper.readthedocs.io/en/latest/index.html>`_ 
 
 Change History
 **************
