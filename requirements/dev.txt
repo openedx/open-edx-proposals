@@ -73,7 +73,7 @@ pygments==2.16.1
     #   accessible-pygments
     #   pydata-sphinx-theme
     #   sphinx
-pytz==2023.3
+pytz==2023.3.post1
     # via
     #   -r requirements/base.txt
     #   babel
@@ -87,7 +87,7 @@ snowballstemmer==2.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-soupsieve==2.4.1
+soupsieve==2.5
     # via
     #   -r requirements/base.txt
     #   beautifulsoup4
