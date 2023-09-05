@@ -1,53 +1,95 @@
-OEP-11: Front End Technology Standards
-######################################
+OEP-67: Standard Tools and Technologies
+#######################################
 
-+---------------+--------------------------------------------------+
-| OEP           | :doc:`OEP-11 <oep-0011-bp-FED-technology>`       |
-+---------------+--------------------------------------------------+
-| Title         | Front End Technology Standards                   |
-+---------------+--------------------------------------------------+
-| Last Modified | 2018-02-22                                       |
-+---------------+--------------------------------------------------+
-| Author        | Andy Armstrong <andya@edx.org>,                  |
-|               | George Babey <gbabey@edx.org>                    |
-+---------------+--------------------------------------------------+
-| Arbiter       | Matt Drayer <mattdrayer@edx.org>                 |
-+---------------+--------------------------------------------------+
-| Status        | Accepted                                         |
-+---------------+--------------------------------------------------+
-| Type          | Best Practice                                    |
-+---------------+--------------------------------------------------+
-| Created       | 2016-10-19                                       |
-+---------------+--------------------------------------------------+
+.. list-table::
+   :widths: 25 75
+
+   * - OEP
+     - :doc:`OEP-67 <oep-0067-bp-tools-and-technology>`
+   * - Title
+     - Tools and Technology Standards
+   * - Last Modified
+     - 2023-09-05
+   * - Authors
+     - Feanil Patel <feanil@axim.org>
+   * - Arbiter
+     - Braden MacDonald  <braden@opencraft.com>
+   * - Status
+     - Accepted
+   * - Type
+     - Best Practice
+   * - Created
+     - 2023-09-05
+   * - Review Period
+     - 2023-09-05 - 2023-10-10
+   * - Resolution
+     - * https://github.com/openedx/open-edx-proposals/pull/518
+   * - References
+     - :doc:`/archived/oep-0011-bp-FED-technology`
 
 Abstract
 ********
 
-This document describes the technology standards for developing
-front end applications and components for Open edX. It covers the techniques
-and approaches that are currently recommended, as well as the technologies
-and libraries that should be used.
+The Open edX Platform is built using many first- and third-party tools and technologies.
+This document covers the current recommendations for which tools and technologies should be used.
 
 Motivation
 **********
 
-The rapid pace of development in front end tooling has created opportunities
-to greatly improve the quality of the Open edX user and developer experience.
-After an assesment of industry best practices, the edX Front End Working Group
-(FedX) has made a number of technology recommendations for libraries, frameworks
-and tooling to modernize the edX front end.
+The Open edX platform has a lot of first and third party tools and technology that it uses.
+The problems we're trying to solve are:
 
-Within this document, the phrase "front end" is used to mean any part
-of the platform that is shown to users. This encompasses views rendered in
-Python on the server, interactive interfaces written using JavaScript, and
-CSS styling.
+* It is difficult to know the current best practice for a given area.
+
+* It is unclear how to go about the discussion and decision-making process to
+  change a best practice.
+
+:doc:`OEP-11 </archived/oep-0011-bp-FED-technology>` serves as a great example for the
+usefulness of this kind of OEP but limits itself to be relevant only to
+frontend technologies.  This OEP would supersede :doc:`OEP-11
+</archived/oep-0011-bp-FED-technology>` and encompass not only front-end technology but any
+technology that:
+
+* Is considered a best practice for the Open edX Platform
+
+* Is relevant to a large subset of the Open edX Platform
 
 Specification
 *************
 
-Technology Selection
-====================
+.. note:: We'll fill this out before the OEP lands but leaving mostly blank for initial feedback.
 
+General Technology Selection
+============================
+
+This technology is not specific to frontend or backend code.
+
+#. **Codecov should be used to report code coverage by unit tests**
+
+   **Rationale**: It is important to measure the amount of code covered by our
+   automated test suites. By striving for a high level of test coverage, we can
+   reduce the number of bugs that can only be found via manual testing, 
+   and by using codecov to run coverage in CI,
+   contributors are automatically reminded to include tests for any new code.
+
+   The Open edX community has standardized around `Codecov`_ as a coverage reporting service.
+
+#. **Use Github actions for CI Testing**
+
+   **Rationale**: As a healthy open source project we need good continuous integration
+   testing to prevent the introduction of obvious bugs into the platform code.  The Github Actions
+   tool should be used to perform Continuous Integration (CI) testing for all Open edX repositories
+   that perform any sort of software testing.
+
+Frontend Technology Selection
+=============================
+
+.. note:: 
+
+   The phrase “frontend” is used to mean any part of the platform that is shown to
+   users. This encompasses views rendered in Python on the server, interactive
+   interfaces written using JavaScript, and CSS styling.
+   
 .. _Use React and Redux:
 
 #. **Use React**
@@ -115,7 +157,7 @@ Technology Selection
    library requirements in a single `package.json` file, which can be
    easily changed as the versions change.
 
-#. **JavaScript projects should publish a package.lock file**
+#. **JavaScript projects should publish a package-lock file**
 
    **Rationale**: To keep dependencies up-to-date and builds consistent, JavaScript
    projects should allow patch and minor upgrades in their package.json file and
@@ -154,7 +196,7 @@ Technology Selection
    with ES2015 Modules if Webpack is used for bundling, so AMD is an
    acceptable module definition if the code must remain ES5.
 
-#. **CSS should be generated using Sass**
+#. **CSS should be generated using SCSS**
 
    **Rationale**: Sass's SCSS syntax is an extension of CSS that adds power
    and elegance to the basic language. It makes the maintenance of large
@@ -193,33 +235,85 @@ Technology Selection
    There is much desire to replace Mako within edx-platform so this
    exception may eventually be removed.
 
-#. **Codecov should be used to measure code covered by tests**
 
-   **Rationale**: It is important to measure the amount of code covered by our
-   automated test suites. By striving for a high level of test coverage, we can
-   reduce the number of bugs that can only be found via manual testing. another
-   added benefit comes when we include coverage runs in the CI process, as
-   contributors are automatically reminded to include tests for any new code.
+Backend Technology Selection
+============================
 
-   The Open edX community has standardized around `Codecov`_ as a measurement tool.
+This section will cover any technology or tools that are not considered a part
+of the frontend.
+
+.. This section will be empty to begin with and I'll create a separate PR to add any
+   technologies that we consider standard today. This will probably include:
+
+    * Django
+
+    * Django Rest Framework
+
+    * Python?
+
+    * drf-yasg (A thing that is currently standard but that I hope to change)
+
+    * tox
+
+    * pytest
+
+    * edx-lint/pylint
+
+
 
 Decisions
 *********
 
+This section lists the decision records for any time a standard technology has
+been change in the system along with the reasons why and the alternatives
+considered.
+
+.. We'll have a toctree to an ADR folder with decisions.  We'll move all the existing fronted decisions to under this OEP.
+
 .. toctree::
-   :caption: OEP-11 Decisions
+   :caption: Overall Decisions
    :maxdepth: 1
    :glob:
 
-   oep-0011/decisions/*
+..   oep-0067/decisions/overall/*
+
+.. toctree::
+   :caption: Frontend Decisions
+   :maxdepth: 1
+   :glob:
+   :numbered:
+
+   oep-0067/decisions/frontend/*
+
+.. toctree::
+   :caption: Backend Decisions
+   :maxdepth: 1
+   :glob:
+
+..   oep-0067/decisions/backend/*
+
+
+
+Consequences
+************
+
+* :doc:`OEP-11 </archived/oep-0011-bp-FED-technology>` will be superseded.
+
+* All ADRs under OEP-11 will be moved to be under this OEP instead.
+
+* Future decisions for technology changes will require an ADR and an update to this OEP
+
+* The tech radar will serve as a snapshot of the current state of those decisions and to simplify
+  making changes, we will co-locate it with the supporting documents for this OEP.
 
 Change History
 **************
 
-2023-05-23
+2023-09-05
 ==========
-* Mark Enzyme as deprecated
-* `Pull request #487 <https://github.com/openedx/open-edx-proposals/pull/487>`_
+
+* Document created
+* `Pull request #518 <https://github.com/openedx/open-edx-proposals/pull/518>`_
 
 .. Cross-references
 .. _AMD Modules: https://github.com/amdjs/amdjs-api/wiki/AMD
