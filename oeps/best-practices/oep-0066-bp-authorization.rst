@@ -394,4 +394,4 @@ Change History
 **************
 
 * Document created
-* `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
+* `Pull request #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
