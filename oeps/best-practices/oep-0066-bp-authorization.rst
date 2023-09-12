@@ -9,11 +9,11 @@ OEP-66: User Authorization
    * - Title
      - User Authorization
    * - Last Modified
-     - 2023-08-21
+     - 2023-09-12
    * - Authors
      - Hilary Sinkoff (hsinkoff@2u.com), Jeremy Bowman (jbowman@edx.org)   
    * - Arbiter
-     - TBD
+     - Feanil Patel
    * - Status
      - Draft
    * - Type
@@ -21,7 +21,7 @@ OEP-66: User Authorization
    * - Created
      - 2023-08-21
    * - `Review Period`
-     - TBD
+     - 2023-09-12 - 
    * - Replaces
      - :doc:`OEP-09 <oep-0009-bp-permissions>`
    * - References
