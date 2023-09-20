@@ -23,13 +23,12 @@ OEP-66: User Authorization
    * - `Review Period`
      - 2023-09-12 - 
    * - Replaces
-     - :doc:`OEP-09 <oep-0009-bp-permissions>`
+     - :doc:`oep-0009-bp-permissions`
    * - References
-     - `OEP-04`_, `OEP-42`_
-
-.. _OEP-04: https://open-edx-proposals.readthedocs.io/en/latest/oeps/oep-0004.html
-.. _OEP-42: https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0042-bp-authentication.html
-
+     - 
+       * :doc:`/architectural-decisions/oep-0004-arch-oauth-scopes`
+       * :doc:`oep-0042-bp-authentication`
+     
 Summary
 *******
 
@@ -48,7 +47,7 @@ Authorization is the granting of permission of a certain user to perform specifi
 
 .. note::
   The definition of authorization found here is the same as that found in 
-  `OEP-42. <https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0042-bp-authentication.html>`_
+  :doc:`OEP 42 <oep-0042-bp-authentication>`.
   Credit for this definition belongs to the authors of OEP-42; Robert Raposa, Nimisha Asthagiri, and Julia Eskew.
 
 Authentication (Authn)
@@ -60,7 +59,7 @@ Authentication is the verification of the identity of a user, which typically in
 
   Authentication is out of scope of this OEP. 
   The definition is included here to clarify the difference between it and Authorization.
-  The definition comes from `OEP-42. <https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0042-bp-authentication.html>`_
+  The definition comes from :doc:`OEP 42 <oep-0042-bp-authentication>`.
   Credit for this definition belongs to the authors of OEP-42; Robert Raposa, Nimisha Asthagiri, and Julia Eskew.
 
 RBAC
@@ -84,112 +83,6 @@ on data that is not role assignment data.
 
 Implicit roles grant users permissions, but are not specifically assigned 
 to a user.
-
-Systems/Protocols Overview
-***************************
-The following systems/protocols are currently used in the Open edX ecosystem 
-to grant users different levels of access. Each system/protocol is used in different 
-ways. A user's authz level is determined based on a combination of these systems/protocols. 
-It is important to note that it is the interplay of these systems/protocols that 
-determines whether a user has permissions for a given operation, not necessarily a single 
-system.
-
-Open edX Authorization Systems Diagram
-
-.. image:: oep-0066/Open_edX_Authorization.png
-   :alt: A diagram that shows the different systems/protocols used in Open edX to control authorization. The information in the diagram is also in the Open edX Authorization Systems Table (linked to in this document).
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   oep-0066/Open_edX_Authorization_Systems_Table.rst
-
-django Admin (auth_permission)
--------------------------------
-
-Permissions are granted for the entire instance.
-
-There are two ways in which the django auth_permissions can be used to grant access.
-
-* Users can be granted model permissions based on the database models.
-* Users can be assigned to groups which can be granted model permissions based on the database models.
-
-django Admin auth_permissions grants permissions to users or groups, but does not 
-control whether the user is able to login to a service (authn) or access a service through other permissions 
-(i.e. an implicit student role). 
-In this way, it can grant permissions to a user that they will not be able to use.
-
-auth_permission users and groups are assigned through the django Admin Dashboard. Each 
-service can have its own django Admin Dashboard. In Open edX, the LMS django Admin Dashboard 
-will be used to control (most) user and group permissions.
-
-student_courseaccessrole
--------------------------
-
-Explicit roles are assigned to users, generally on a course level basis. 
-
-The roles are hardcoded strings that can be granted in the LMS or CMS.
-In addition to granting the roles in the UI, it is possible to assign 
-the roles through the LMS django Admin Dashboard. 
-
-Each role assignment will generate one row in the database table. The values 
-in the row will determine if the user is granted access for a single course, all 
-courses in the org, or all courses in the instance.
-
-* If the course_id is not nil, the role grants permissions on the course level.
-* If the course_id is nil and the org_id is not nil, the role grants permissions on the organization level.
-* If the course_id and org_id are both nil, the role grants permissions on the instance level.
-
-django_comment_client_role
-----------------------------
-
-Explicit roles are assigned to users on a course level basis. 
-
-These roles require that the user already be enrolled in the course 
-(have an enrollment, audit or verified).
-
-Roles are assigned through the LMS in the same place in the UI as the student_courseaccessrole roles. 
-They can also be granted in the LMS django Admin Dashboard.
-
-edx-rbac
-----------------------------
-
-Permission is granted on a Feature. 
-
-edx-rbac is a protocol that can be implemented by any feature, but each 
-feature that implements it would need to set up its own implementation.
-
-It allows for creating feature specific roles with feature specific permissions.
-The feature specific roles can be accessed by other 
-features which can choose to use or ignore this data point. 
-
-The feature specific roles are stored on the jwt token. This mixes authz into an 
-authn data point, but is an accepted way to implement feature specific roles and permissions. 
-It is advisable to be very careful regarding the jwt token header limits if adding a new feature specific 
-set of roles using this implementation path.
-
-content_libraries_contentlibrarypermission
--------------------------------------------
-
-Permission is granted on a Feature, in this case Content Library. 
-
-Permission is assigned in the CMS exclusively for providiing explicit permission to 
-view or edit a library in the CMS. 
-
-It grants access on a library by library basis and is used for v2 of content libraries 
-in the CMS. 
-
-.. note::
-  v1 libraries (deprecated) granted access to libraries on a course by course basis 
-  and was controlled by student_courseaccessrole.
-
-student/learner
-----------------------------
-student/learner is an implicit role. 
-
-It is not currently controlled by a system/protocol 
-whose primary focus is authorization.  
 
 Best Practices
 ***********************
@@ -329,12 +222,11 @@ changed if desired by creating a subclass, for example:
 If additional information about the session is needed beyond the user's
 identity in order to make a permission decision (for example, if an action
 should only be allowed if the client has been granted a particular OAuth
-scope, as outlined in `OEP-4`_), then a custom `BasePermission`_ subclass can
+scope, as outlined in :doc:`OEP 4 </architectural-decisions/oep-0004-arch-oauth-scopes>`), 
+then a custom `BasePermission`_ subclass can
 be implemented which both consults the Django authorization API and makes the
 necessary checks against the session or other properties of the request
 object.
-
-.. _OEP-4: https://open-edx-proposals.readthedocs.io/en/latest/oeps/oep-0004.html
 
 In order to filter the querysets used to generate list responses to only
 include objects appropriate for the users permissions, an appropriate filter
@@ -366,6 +258,112 @@ could be used by default for all view classes which don't override it.
 
 .. _BasePermission: https://www.django-rest-framework.org/api-guide/permissions/#custom-permissions
 .. _filter_backends: https://www.django-rest-framework.org/api-guide/filtering/#setting-filter-backends
+
+Systems/Protocols Overview
+***************************
+The following systems/protocols are currently used in the Open edX ecosystem 
+to grant users different levels of access. Each system/protocol is used in different 
+ways. A user's authz level is determined based on a combination of these systems/protocols. 
+It is important to note that it is the interplay of these systems/protocols that 
+determines whether a user has permissions for a given operation, not necessarily a single 
+system.
+
+Open edX Authorization Systems Diagram
+
+.. image:: oep-0066/Open_edX_Authorization.png
+   :alt: A diagram that shows the different systems/protocols used in Open edX to control authorization. The information in the diagram is also in the Open edX Authorization Systems Table (linked to in this document).
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   oep-0066/Open_edX_Authorization_Systems_Table.rst
+
+django Admin (auth_permission)
+-------------------------------
+
+Permissions are granted for the entire instance.
+
+There are two ways in which the django auth_permissions can be used to grant access.
+
+* Users can be granted model permissions based on the database models.
+* Users can be assigned to groups which can be granted model permissions based on the database models.
+
+django Admin auth_permissions grants permissions to users or groups, but does not 
+control whether the user is able to login to a service (authn) or access a service through other permissions 
+(i.e. an implicit student role). 
+In this way, it can grant permissions to a user that they will not be able to use.
+
+auth_permission users and groups are assigned through the django Admin Dashboard. Each 
+service can have its own django Admin Dashboard. In Open edX, the LMS django Admin Dashboard 
+will be used to control (most) user and group permissions.
+
+student_courseaccessrole
+-------------------------
+
+Explicit roles are assigned to users, generally on a course level basis. 
+
+The roles are hardcoded strings that can be granted in the LMS or CMS.
+In addition to granting the roles in the UI, it is possible to assign 
+the roles through the LMS django Admin Dashboard. 
+
+Each role assignment will generate one row in the database table. The values 
+in the row will determine if the user is granted access for a single course, all 
+courses in the org, or all courses in the instance.
+
+* If the course_id is not nil, the role grants permissions on the course level.
+* If the course_id is nil and the org_id is not nil, the role grants permissions on the organization level.
+* If the course_id and org_id are both nil, the role grants permissions on the instance level.
+
+django_comment_client_role
+----------------------------
+
+Explicit roles are assigned to users on a course level basis. 
+
+These roles require that the user already be enrolled in the course 
+(have an enrollment, audit or verified).
+
+Roles are assigned through the LMS in the same place in the UI as the student_courseaccessrole roles. 
+They can also be granted in the LMS django Admin Dashboard.
+
+edx-rbac
+----------------------------
+
+Permission is granted on a Feature. 
+
+edx-rbac is a protocol that can be implemented by any feature, but each 
+feature that implements it would need to set up its own implementation.
+
+It allows for creating feature specific roles with feature specific permissions.
+The feature specific roles can be accessed by other 
+features which can choose to use or ignore this data point. 
+
+The feature specific roles are stored on the jwt token. This mixes authz into an 
+authn data point, but is an accepted way to implement feature specific roles and permissions. 
+It is advisable to be very careful regarding the jwt token header limits if adding a new feature specific 
+set of roles using this implementation path.
+
+content_libraries_contentlibrarypermission
+-------------------------------------------
+
+Permission is granted on a Feature, in this case Content Library. 
+
+Permission is assigned in the CMS exclusively for providiing explicit permission to 
+view or edit a library in the CMS. 
+
+It grants access on a library by library basis and is used for v2 of content libraries 
+in the CMS. 
+
+.. note::
+  v1 libraries (deprecated) granted access to libraries on a course by course basis 
+  and was controlled by student_courseaccessrole.
+
+student/learner
+----------------------------
+student/learner is an implicit role. 
+
+It is not currently controlled by a system/protocol 
+whose primary focus is authorization.  
 
 Historical Systems/Protocols
 *****************************
