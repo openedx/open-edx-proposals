@@ -36,7 +36,7 @@ packaging==23.1
     # via
     #   pydata-sphinx-theme
     #   sphinx
-pydata-sphinx-theme==0.14.0
+pydata-sphinx-theme==0.14.1
     # via sphinx-book-theme
 pygments==2.16.1
     # via
@@ -78,7 +78,7 @@ sphinxext-rediraffe==0.2.7
     # via -r requirements/base.in
 typing-extensions==4.8.0
     # via pydata-sphinx-theme
-urllib3==2.0.4
+urllib3==2.0.5
     # via requests
 zipp==3.17.0
     # via importlib-metadata

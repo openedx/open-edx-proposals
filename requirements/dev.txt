@@ -63,7 +63,7 @@ packaging==23.1
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
     #   sphinx
-pydata-sphinx-theme==0.14.0
+pydata-sphinx-theme==0.14.1
     # via
     #   -r requirements/base.txt
     #   sphinx-book-theme
@@ -137,7 +137,7 @@ typing-extensions==4.8.0
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
-urllib3==2.0.4
+urllib3==2.0.5
     # via
     #   -r requirements/base.txt
     #   requests
