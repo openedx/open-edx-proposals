@@ -144,39 +144,13 @@ Releases will be tagged "open-release/RELEASENAME.1",
 Involving repos in the Open edX build process
 =============================================
 
-:doc:`OEP-2 </best-practices/oep-0002-bp-repo-metadata>` defines a file format for repository metadata.  The
-``openedx-release`` key is an optional dictionary governing the participation
-of the repo in the Open edX release process.
+:doc:`/processes/oep-0055/decisions/0004-release-data-in-catalog-info-files`
+defines annotations the ``catalog-info.yaml`` metadata file that can be used to
+indicate that a repo needs to be tagged for releases.
 
-Repos for applications and IDAs that are part of the Open edX software need to
-have the ``openedx-release`` key.   Libraries that are part of Open edX do not
-need the key, because they will be pulled in by whatever component uses them as
-a dependency.
-
-``openedx-release``: dictionary (optional)
-
-    Possible keys:
-
-    ``ref``
-        The name of the release-from branch in this repo. This is the branch
-        that will be tagged when an Open edX release is made.
-
-    ``maybe``
-        A boolean, but only ever "true" if present.  This key is created by the
-        repo initialization tool (cookiecutter).  If it is present, the repo
-        will be skipped during releases, but will be flagged so the release
-        manager can start a conversation with the repo owner to determine if
-        the repo should be included.
-
-    Obsolete keys:
-
-    ``requirements``
-        This key is obsolete, and can be removed.
-
-    ``parent-repo``
-        This key is obsolete. It was used by libraries. Repos marked with this
-        key should have the entire ``openedx-release`` key removed.
-
+Details can be found in the above ADR but in summary there will be a new catalog
+annotation by the name of ``openedx.org/release`` that will indicate whether or
+not a given repo should be tagged for Open edX releases.
 
 Installing Open edX
 ===================
@@ -199,6 +173,12 @@ There are two supported installation methods:
 
 Change History
 **************
+
+2023-09-28
+==========
+
+* Reference catalog-info.yaml instead of OEP-2 for where we store
+  release metadata.
 
 2022-02-24
 ==========
