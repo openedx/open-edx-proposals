@@ -11,7 +11,7 @@ Context
 
 * Currently we have 2 high-level metadata files that will live in every repo. The ``openedx.yaml`` file and the ``catalog-info.yaml`` file.
 
-* The only information in ``openedx.yaml`` that is still useful and kept up-to-date is ``release`` tag that tells you what repos are part of the twice-annual Open edX release.
+* The only information in ``openedx.yaml`` that is still useful and kept up-to-date is the ``release`` tag that tells you what repos are part of the twice-annual Open edX release.
 
 Decision
 ********
