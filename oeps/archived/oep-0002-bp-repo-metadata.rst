@@ -15,11 +15,15 @@ OEP-2: Repository Metadata
    * - Arbiter
      - Calen Pennington <cale@edx.org>
    * - Status
-     - Accepted
+     - Replaced
    * - Type
      - Best Practice
    * - Created
      - 2016-04-21
+
+.. warning::
+
+   This OEP has been replaced with :doc:`/processes/oep-0055/decisions/0004-release-data-in-catalog-info-files`.
 
 Abstract
 ********
