@@ -95,7 +95,7 @@ Most authorization checks in Python code should use the standard
 permissions which isn't implemented in the default backends.  Some examples
 can help give context for the details:
 
-.. _Django authorization API: https://docs.djangoproject.com/en/1.10/topics/auth/default/#permissions-and-authorization
+.. _Django authorization API: https://docs.djangoproject.com/en/3.2/topics/auth/default/#permissions-and-authorization
 
 `This code checks if a user has the permission stated.`
 
