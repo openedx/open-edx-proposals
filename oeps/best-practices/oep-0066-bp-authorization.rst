@@ -21,7 +21,7 @@ OEP-66: User Authorization
    * - Created
      - 2023-08-21
    * - `Review Period`
-     - 2023-09-12 - 
+     - 2023-09-27 - 2023-10-18
    * - Replaces
      - :doc:`oep-0009-bp-permissions`
    * - References
@@ -33,9 +33,44 @@ Summary
 *******
 
 There are a variety of manners in which authorization is handled within the Open edX ecosystem. 
-The goal of OEP-66 is to outline the currently in use systems/protocols and provide best practices 
-that should be used with all the systems/protocols.
+The goal of OEP-66 is to provide best practices that should be used with all the 
+systems/protocols and outline the currently in use systems/protocols.
 
+Motivation
+***********
+
+Best Practices Motivation
+--------------------------
+To date, the implementation and verification of permissions have been somewhat
+conflated in the edX codebase.  When a user attempts an action which is not
+permitted for all users, the code typically directly checks properties of the
+user: are they a superuser, do they belong to a particular group or have a
+particular role, etc.  This has a few drawbacks:
+
+* This is often a violation of DRY ("Don't Repeat Yourself") which results in
+  the same basic permission check being copied in multiple code locations,
+  making it very difficult to consistently change its implementation (as may
+  happen when a new type of user is introduced, or the need for a special
+  exception becomes clear).
+* Fine-grained permission checks have sometimes been avoided even when
+  appropriate due to the difficulty of copying the permission code around,
+  finding a common place to store it, or updating all the code that used a
+  coarser initial implementation.  This has resulted in some users being
+  technically capable of performing actions which logically should not be
+  permitted.
+* When a decision is made to change who is granted a particular permission,
+  it can be difficult to avoid accidentally changing other permissions with
+  a similar implementation.
+
+In Use System/Protocol Motivation
+----------------------------------
+There are currently multiple systems/protocols that control authorization. 
+Determining which combination of systems/protocols are responsible for granting access 
+is a complex task made more complex by the lack of 
+unified documentation on the systems/protocols. This OEP aims to compile existing 
+knowledge and documentation into a central document that will give an overview of each 
+system/protocol. The aim is not to be the only source of information for each system/protocol, 
+but rather a starting point when learning about authorization within Open edX.
 
 Defined Terms
 *************
@@ -155,7 +190,6 @@ implemented in the repository for a service should generally define their
 custom permissions in a ``rules.py`` module where they will be automatically
 loaded, as described in the documentation.  For example:
 
-.. _Django authorization API: https://docs.djangoproject.com/en/1.10/topics/auth/default/#permissions-and-authorization
 .. _bridgekeeper: https://bridgekeeper.readthedocs.io/en/latest/index.html
 .. _django-rules: https://github.com/dfunckt/django-rules
 
