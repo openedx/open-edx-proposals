@@ -6,7 +6,7 @@ OEP-9: User Authorization (Permissions)
 +---------------+-------------------------------------------------------+
 | Title         | User Authorization (Permissions)                      |
 +---------------+-------------------------------------------------------+
-| Last Modified | 2016-10-13                                            |
+| Last Modified | 2023-10-02                                            |
 +---------------+-------------------------------------------------------+
 | Author        | Jeremy Bowman <jbowman@edx.org>                       |
 +---------------+-------------------------------------------------------+
@@ -298,3 +298,9 @@ still uses a copy of the original implementation.
 
 Change History
 **************
+
+2023-10-02
+===========
+
+* Status updated to "Replaced by :doc:`OEP-66 <oep-0066-bp-authorization>`"
+* `PR #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_

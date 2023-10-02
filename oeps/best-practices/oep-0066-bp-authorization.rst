@@ -9,7 +9,7 @@ OEP-66: User Authorization
    * - Title
      - User Authorization
    * - Last Modified
-     - 2023-09-12
+     - 2023-10-02
    * - Authors
      - Hilary Sinkoff (hsinkoff@2u.com), Jeremy Bowman (jbowman@edx.org)   
    * - Arbiter
@@ -425,5 +425,9 @@ References
 Change History
 **************
 
+2023-08-21
+----------- 
+
 * Document created
 * `Pull request #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
+
