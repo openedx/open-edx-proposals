@@ -16,7 +16,7 @@ beautifulsoup4==4.12.2
     # via pydata-sphinx-theme
 certifi==2023.7.22
     # via requests
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via requests
 docutils==0.19
     # via
@@ -32,7 +32,7 @@ jinja2==3.1.2
     # via sphinx
 markupsafe==2.1.3
     # via jinja2
-packaging==23.1
+packaging==23.2
     # via
     #   pydata-sphinx-theme
     #   sphinx
@@ -78,7 +78,7 @@ sphinxext-rediraffe==0.2.7
     # via -r requirements/base.in
 typing-extensions==4.8.0
     # via pydata-sphinx-theme
-urllib3==2.0.5
+urllib3==2.0.6
     # via requests
 zipp==3.17.0
     # via importlib-metadata
