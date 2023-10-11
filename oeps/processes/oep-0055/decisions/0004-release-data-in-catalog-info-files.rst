@@ -21,7 +21,7 @@ We will use metadata in the ``catalog-info.yaml`` file to determine whether or n
 Specification
 *************
 
-The data will be housed in a new annotation by the name of ``openedx.org/release``.  Non-null values of this key will indicate the branch that should be tagged for releases.
+The data will be housed in a new annotation by the name of ``openedx.org/release``.  Non-null values of this key will indicate the branch that should be tagged for releases. A null value will indicate that the repository should not be tagged and a missing value will indicate that no decision has been made about the given repository.
 
 .. code-block:: yaml
    :caption: Annotating that the ``master`` branch should be tagged for new releases.
@@ -44,6 +44,12 @@ The data will be housed in a new annotation by the name of ``openedx.org/release
      annotations:
        openedx.org/release: null
 
+.. code-block:: yaml
+   :caption: If the annotation is missing, we should consider that no decision has been made about tagging this repository.
+
+   metadata:
+     annotations:
+       ...
 
 Consequences
 ************
