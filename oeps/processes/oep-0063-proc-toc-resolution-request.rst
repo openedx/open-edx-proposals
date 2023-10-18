@@ -1,7 +1,5 @@
 .. _pep_based_template:
 
-.. Below is the display in the left sidebar on RTD. Please omit leading 0's
-
 OEP-63: TOC Resolution Request
 ##############################
 
@@ -26,8 +24,6 @@ OEP-63: TOC Resolution Request
      - 2023-05-18
    * - Review Period
      - <start - target end dates for review> -- until the next TOC meeting?
-   * - Resolution
-     - TBD (include links to public discussions)
    * - References
      - `TOC meeting notes - governance norms <https://discuss.openedx.org/t/2023-04-11-toc-meeting-summary/10019#governance-norms-5>`_
 
