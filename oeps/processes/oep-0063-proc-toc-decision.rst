@@ -2,16 +2,16 @@
 
 .. Below is the display in the left sidebar on RTD. Please omit leading 0's
 
-OEP-63: TOC Decision
-#######################
+OEP-63: TOC Resolution Request
+##############################
 
 .. list-table::
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0063 <oep-0063-proc-toc-decision>`
+     - :doc:`OEP-0063 <oep-0063-proc-toc-resolution-request>`
    * - Title
-     - TOC Decision
+     - TOC Resolution Request
    * - Last Modified
      - 2023-05-29
    * - Authors
@@ -38,14 +38,12 @@ The Technical Oversight Committee (TOC) is meant to be a resource for the Open e
 
 The TOC aims to empower the project's contributors to make decisions. The person closest to the work will often make the best decisions, and empowered contributors face less friction. 
 
-However, some of the decisions can be complex, such as ones with a lack of consensus or decisions with long-lasting repercussions. This can result in delaying taking *any* decision, which can be more hurtful than any of the choices.
-
-In this OEP, the TOC defines a process for community members to bring up topics to the committee's attention, and request to take a decision about a proposal. 
+However, some of the topics can be complex, such as making changes which will have long-lasting repercussions or when there is no consensus on a topic within the community. In this OEP, the TOC defines a process for community members to bring up topics to the committee's attention, and request its support on the matter. The TOC responds through the adoption of resolutions, for example intervening on the discussion or taking a decision about a proposal. 
 
 Motivation
 **********
 
-The TOC discussed during the April 2023 meeting a `series of guidelines for operating and making decisions <https://discuss.openedx.org/t/2023-04-11-toc-meeting-summary/10019#governance-norms-5>`_. This includes establishing a way for the community to use the TOC to help make decisions, which this OEP implements.
+The TOC discussed during the April 2023 meeting a `series of guidelines for operating and making decisions <https://discuss.openedx.org/t/2023-04-11-toc-meeting-summary/10019#governance-norms-5>`_. This includes establishing a way for the community to request support from the TOC on specific topics and decisions, which this OEP implements.
 
 Guidelines
 ==========
@@ -68,30 +66,29 @@ From the `TOC meeting notes <https://discuss.openedx.org/t/2023-04-11-toc-meetin
 Specification
 *************
 
-- Requests for Decision can be posted by anyone in the community - but need to be supported by at least two core contributors or a TOC member
+- Resolution Requests for the TOC can be posted by anyone in the community - but need to be supported by at least two core contributors or a TOC member
 - The TOC members are encouraged to participate in community discussions early on, before the TOC is asked to arbitrate.
 
 Step-by-step - How to Submit a Decision
 =======================================
 
 - Open a discussion in a public place, such as the `forum <discuss.openedx.org/>`_ or using one of the formal decision recording formats such as `OEPs <https://open-edx-proposals.readthedocs.io/en/latest/>`_. The topics presented need to have been discussed in the community before being formally considered by the TOC.
-- After public review, post a formal Decision Request to the TOC. This can be done in a forum post or a `github ticket <https://github.com/openedx/wg-coordination/issues/new>`_ mentioning the `TOC chair <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3575939113/Technical+Oversight+Committee+TOC#Details>`_. See the format below.
-- Core contributors and/or TOC members supporting the Decision Request reply in the thread to say so.
+- After public review, post a formal Resolution Request to the TOC, by opening a `github ticket <https://github.com/openedx/wg-coordination/issues/new>`_. Mention the `TOC chair <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3575939113/Technical+Oversight+Committee+TOC#Details>`_ in the request to make sure they get notified. See the format below.
+- Core contributors and/or TOC members supporting the Resolution Request reply in the thread to say so.
 - If the requirements are met, the TOC will schedule the topic for a future meeting. 
-- If the Decision Request contains a suggested decision, the TOC can choose to accept the suggested decision, with or without changes, or to refuse it. 
-- The outcome of the Decision is communicated as a reply to the forum thread of the decision, with a comment to explain it.
+- If the Resolution Request contains a suggested decision, the TOC can choose to accept the suggested decision, with or without changes, or to refuse it. 
+- The adopted Resolution is communicated as a reply to the github ticket, with a comment to explain it.
 
-Decision - Post Template (Forum or Github)
-==========================================
+Decision - Github Ticket Template
+=================================
 
 .. code-block:: none
 
-   Subj: TOC Decision - [Title for the Decision]
-   Category: Community
+   Subj: TOC Resolution Request - [Title]
    
    ---------------------
    
-   ## [Title for the Decision]
+   ## [Title]
    
    ## Summary 
    [Prior discussion of this topic (with links)]
@@ -99,8 +96,8 @@ Decision - Post Template (Forum or Github)
    ## Rationale for involving the TOC
    [Why this topic would benefit from the TOC involvement]
    
-   ## Decision requested
-   [The precise description of the decision that is requested from the TOC. Note that the TOC doesn't have to take exactly that decision, it can modify it, or refuse it.]
+   ## Resolution requested
+   [The precise description of the request to the TOC, optionally including a specific decision to take if applicable. Note that the TOC doesn't have to take exactly that decision, it can modify it, or refuse it.]
 
 Change History
 **************
