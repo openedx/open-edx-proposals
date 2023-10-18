@@ -1,8 +1,8 @@
 Open edX Authorization Systems Tables
-######################################
+#####################################
 
 edX Platform - Course Roles
---------------------------------
+---------------------------
 .. list-table:: 
    :widths: 15 75
 
@@ -41,7 +41,7 @@ edX Platform - Course Roles
        *Note: If the course_id column is an empty string the role is for the org, if the org and course_id are empty strings the role is for the entire system.*
 
 comment_client - Discussion Roles
-----------------------------------
+---------------------------------
 .. list-table:: 
    :widths: 15 75
 
@@ -73,7 +73,7 @@ comment_client - Discussion Roles
           * django_comment_client_permission table with name field
 
 edx Platform - Django Admin Flow
----------------------------------
+--------------------------------
 .. list-table:: 
    :widths: 15 75
 
@@ -108,8 +108,8 @@ edx Platform - Django Admin Flow
           * auth_user_groups table with group_id, id, user_id, _sdc_deleted_at fields
           * auth_user_user_permissions table with id, permission_id, user_id fields 
 
-edX rbac
-----------
+edx-rbac
+--------
 .. list-table:: 
    :widths: 15 75
 
@@ -138,7 +138,7 @@ edX rbac
        * Each service that uses edX-rbac has its own db tables.
 
 content_libraries - v2 Library Roles
---------------------------------------
+------------------------------------
 .. list-table:: 
    :widths: 15 75
 
@@ -168,7 +168,7 @@ content_libraries - v2 Library Roles
        * content_libraries_contentlibrarypermission table in the edx-platform LMS database with access_level, id, library_id, user_id, _sdc_deleted_at fields
 
 Open edX Authorization Systems Implicit Roles Table
-----------------------------------------------------
+---------------------------------------------------
 .. list-table:: 
    :widths: 100
    :header-rows: 1
@@ -180,7 +180,7 @@ Open edX Authorization Systems Implicit Roles Table
    * - Student/Learner can be audit or verified, each with different permissions.
 
 Open edX Auth Overview Table
-------------------------------
+----------------------------
 .. list-table:: 
    :widths: 50 50
    :header-rows: 1

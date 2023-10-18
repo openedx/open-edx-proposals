@@ -1,5 +1,5 @@
 OEP-66: User Authorization
-###########################
+##########################
 
 .. list-table::
    :widths: 25 75
@@ -13,7 +13,7 @@ OEP-66: User Authorization
    * - Authors
      - Hilary Sinkoff (hsinkoff@2u.com), Jeremy Bowman (jbowman@edx.org)   
    * - Arbiter
-     - Feanil Patel
+     - Feanil Patel (feanil@axim.org)
    * - Status
      - Draft
    * - Type
@@ -33,16 +33,16 @@ Summary
 *******
 
 There are a variety of manners in which authorization is handled within the Open edX ecosystem. 
-The goal of OEP-66 is to provide best practices that should be used with all the 
-systems/protocols and outline the currently in use systems/protocols.
+The goal of OEP-66 is to provide best practices that should be used with each of the 
+systems/protocols and outline the systems/protocols that are currently in use.
 
 Motivation
-***********
+**********
 
 Best Practices Motivation
---------------------------
+-------------------------
 To date, the implementation and verification of permissions have been somewhat
-conflated in the edX codebase.  When a user attempts an action which is not
+conflated in the Open edX codebase.  When a user attempts an action which is not
 permitted for all users, the code typically directly checks properties of the
 user: are they a superuser, do they belong to a particular group or have a
 particular role, etc.  This has a few drawbacks:
@@ -62,15 +62,15 @@ particular role, etc.  This has a few drawbacks:
   it can be difficult to avoid accidentally changing other permissions with
   a similar implementation.
 
-In Use System/Protocol Motivation
-----------------------------------
+Systems/Protocols Overview Motivation
+-------------------------------------
 There are currently multiple systems/protocols that control authorization. 
 Determining which combination of systems/protocols are responsible for granting access 
 is a complex task made more complex by the lack of 
 unified documentation on the systems/protocols. This OEP aims to compile existing 
 knowledge and documentation into a central document that will give an overview of each 
 system/protocol. The aim is not to be the only source of information for each system/protocol, 
-but rather a starting point when learning about authorization within Open edX.
+but rather a starting point when learning about authorization within the Open edX codebase.
 
 Defined Terms
 *************
@@ -98,21 +98,24 @@ Authentication is the verification of the identity of a user, which typically in
   Credit for this definition belongs to the authors of OEP-42; Robert Raposa, Nimisha Asthagiri, and Julia Eskew.
 
 RBAC
---------------
+----
 Role Based Access Control. A system in which roles are assigned to a user 
 in order to grant that user permission to perform specific operations.
 
-There are multiple RBAC implementations in use within Open edX, 
-including, but not limited to, edx-rbac and student_courseaccessrole.
+There are multiple RBAC implementations in use within the Open edX codebase, 
+including, but not limited to, `edx-rbac`_` and `student_courseaccessrole`_.
 The implementations will be described in detail below.
 
+.. _student_courseaccessrole: https://github.com/openedx/edx-platform/blob/master/common/djangoapps/student/roles.py
+.. _edx-rbac: https://github.com/openedx/edx-rbac/tree/master
+
 Explicit Role
---------------
+-------------
 A role that is specifically assigned to a user with 
 the intent of providing the user permission to perform specific operations.
 
 Implicit Role
---------------
+-------------
 A "role" that is understood to belong to a user based 
 on data that is not role assignment data. 
 
@@ -120,10 +123,10 @@ Implicit roles grant users permissions, but are not specifically assigned
 to a user.
 
 Best Practices
-***********************
+**************
 
 Permission Checks
------------------------
+-----------------
 
 Most authorization checks in Python code should use the standard
 `Django authorization API`_, including the optional support for object-level
@@ -167,7 +170,7 @@ can help give context for the details:
   *  other_app.add_othermodel
 
 Extending Permission Checks
-============================
+===========================
 
 While the 
 `Django authorization API`_ is quite flexible, many Django developers
@@ -221,7 +224,7 @@ greater flexibility in the kinds of authorization rules that can be
 implemented.
 
 Django REST Framework
-***********************
+*********************
 
 When using Django REST Framework (DRF) to build a REST API, note that it has object
 permissions and query filtering mechanisms which are designed to be compatible
@@ -294,7 +297,7 @@ could be used by default for all view classes which don't override it.
 .. _filter_backends: https://www.django-rest-framework.org/api-guide/filtering/#setting-filter-backends
 
 Systems/Protocols Overview
-***************************
+**************************
 The following systems/protocols are currently used in the Open edX ecosystem 
 to grant users different levels of access. Each system/protocol is used in different 
 ways. A user's authz level is determined based on a combination of these systems/protocols. 
@@ -305,7 +308,7 @@ system.
 Open edX Authorization Systems Diagram
 
 .. image:: oep-0066/Open_edX_Authorization.png
-   :alt: A diagram that shows the different systems/protocols used in Open edX to control authorization. The information in the diagram is also in the Open edX Authorization Systems Table (linked to in this document).
+   :alt: A diagram that shows the different systems/protocols used in the Open edX codebase to control authorization. The information in the diagram is also in the Open edX Authorization Systems Table (linked to in this document).
 
 .. toctree::
    :maxdepth: 1
@@ -313,33 +316,33 @@ Open edX Authorization Systems Diagram
 
    oep-0066/Open_edX_Authorization_Systems_Table.rst
 
-django Admin (auth_permission)
--------------------------------
+Django Admin (auth_permission)
+------------------------------
 
 Permissions are granted for the entire instance.
 
-There are two ways in which the django auth_permissions can be used to grant access.
+There are two ways in which the Django auth_permissions can be used to grant access.
 
 * Users can be granted model permissions based on the database models.
 * Users can be assigned to groups which can be granted model permissions based on the database models.
 
-django Admin auth_permissions grants permissions to users or groups, but does not 
+Django Admin auth_permissions grants permissions to users or groups, but does not 
 control whether the user is able to login to a service (authn) or access a service through other permissions 
 (i.e. an implicit student role). 
 In this way, it can grant permissions to a user that they will not be able to use.
 
-auth_permission users and groups are assigned through the django Admin Dashboard. Each 
-service can have its own django Admin Dashboard. In Open edX, the LMS django Admin Dashboard 
+auth_permission users and groups are assigned through the Django Admin Dashboard. Each 
+service can have its own Django Admin Dashboard. In the Open edX software, the LMS Django Admin Dashboard 
 will be used to control (most) user and group permissions.
 
 student_courseaccessrole
--------------------------
+------------------------
 
 Explicit roles are assigned to users, generally on a course level basis. 
 
 The roles are hardcoded strings that can be granted in the LMS or CMS.
 In addition to granting the roles in the UI, it is possible to assign 
-the roles through the LMS django Admin Dashboard. 
+the roles through the LMS Django Admin Dashboard. 
 
 Each role assignment will generate one row in the database table. The values 
 in the row will determine if the user is granted access for a single course, all 
@@ -350,7 +353,7 @@ courses in the org, or all courses in the instance.
 * If the course_id and org_id are both nil, the role grants permissions on the instance level.
 
 django_comment_client_role
-----------------------------
+--------------------------
 
 Explicit roles are assigned to users on a course level basis. 
 
@@ -358,10 +361,10 @@ These roles require that the user already be enrolled in the course
 (have an enrollment, audit or verified).
 
 Roles are assigned through the LMS in the same place in the UI as the student_courseaccessrole roles. 
-They can also be granted in the LMS django Admin Dashboard.
+They can also be granted in the LMS Django Admin Dashboard.
 
 edx-rbac
-----------------------------
+--------
 
 Permission is granted on a Feature. 
 
@@ -378,7 +381,7 @@ It is advisable to be very careful regarding the jwt token header limits if addi
 set of roles using this implementation path.
 
 content_libraries_contentlibrarypermission
--------------------------------------------
+------------------------------------------
 
 Permission is granted on a Feature, in this case Content Library. 
 
@@ -393,14 +396,14 @@ in the CMS.
   and was controlled by student_courseaccessrole.
 
 student/learner
-----------------------------
+---------------
 student/learner is an implicit role. 
 
 It is not currently controlled by a system/protocol 
 whose primary focus is authorization.  
 
 Historical Systems/Protocols
-*****************************
+****************************
 
 This is a listing of the systems/protocols that have been used historically, but have since been phased out.
 This list should include a link to any ADRs or documents that reflect why these changes were made.
@@ -426,7 +429,7 @@ Change History
 **************
 
 2023-08-21
------------ 
+----------
 
 * Document created
 * `Pull request #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
