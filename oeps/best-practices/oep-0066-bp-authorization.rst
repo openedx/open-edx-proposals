@@ -122,6 +122,16 @@ on data that is not role assignment data.
 Implicit roles grant users permissions, but are not specifically assigned 
 to a user.
 
+System-Wide Role
+----------------
+A role that can be used across all Open edX Software.
+
+Super User
+----------
+A service specific role that exists only for the specified service and 
+grants the a high level of access to the service (for exampe access to Django Admin 
+or read-write access for all database models).
+
 Best Practices
 **************
 
@@ -401,6 +411,20 @@ student/learner is an implicit role.
 
 It is not currently controlled by a system/protocol 
 whose primary focus is authorization.  
+
+system-wide roles
+----------------------
+System-wide roles are configurable and can differ between different Open edX instances. This 
+means that different instances can have different system-wide roles. 
+
+System-wide user-roles (user assignments to a specific system-wide role) are
+stored in a central user service (currently LMS) and communicated via JWT Tokens. 
+
+Each feature/service enforces the roles in its own codebase,
+if the feature/service is using the system-wide role.
+
+Example system-wide role:
+* Global Staff - propogated in JWTs as the "administrator" field
 
 Historical Systems/Protocols
 ****************************
