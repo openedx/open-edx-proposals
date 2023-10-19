@@ -129,7 +129,7 @@ A role that can be used across all Open edX Software.
 Super User
 ----------
 A service specific role that exists only for the specified service and 
-grants the a high level of access to the service (for exampe access to Django Admin 
+grants a high level of access to the service (for example access to Django Admin 
 or read-write access for all database models).
 
 Best Practices
