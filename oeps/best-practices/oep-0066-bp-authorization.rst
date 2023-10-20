@@ -9,7 +9,7 @@ OEP-66: User Authorization
    * - Title
      - User Authorization
    * - Last Modified
-     - 2023-10-02
+     - 2023-10-20
    * - Authors
      - Hilary Sinkoff (hsinkoff@2u.com), Jeremy Bowman (jbowman@edx.org)   
    * - Arbiter
@@ -122,7 +122,7 @@ on data that is not role assignment data.
 Implicit roles grant users permissions, but are not specifically assigned 
 to a user.
 
-System-Wide Role
+System-wide Role
 ----------------
 A role that can be used across all Open edX Software.
 
@@ -405,26 +405,69 @@ in the CMS.
   v1 libraries (deprecated) granted access to libraries on a course by course basis 
   and was controlled by student_courseaccessrole.
 
-student/learner
+Student/Learner
 ---------------
 student/learner is an implicit role. 
 
 It is not currently controlled by a system/protocol 
 whose primary focus is authorization.  
 
-system-wide roles
-----------------------
+System-wide Roles
+-----------------
 System-wide roles are configurable and can differ between different Open edX instances. This 
 means that different instances can have different system-wide roles. 
 
 System-wide user-roles (user assignments to a specific system-wide role) are
 stored in a central user service (currently LMS) and communicated via JWT Tokens. 
 
-Each feature/service enforces the roles in its own codebase,
-if the feature/service is using the system-wide role.
+If a feature/service utilizes a system-wide role, the feature/service enforces the roles in its own codebase.
 
-Example system-wide role:
+Example System-wide Role:
+
 * Global Staff - propogated in JWTs as the "administrator" field
+
+Example AuthZ User Access Flows
+-------------------------------
+.. image:: oep-0066/Open_edX_Authorization_User_Flows.png
+   :alt: A diagram that attempts to show different ways in which users can be granted elevated access.
+
+Users can be granted elevated access via different means (system-wide roles, edx-rbac, student_courseaccessroles, etc). 
+This diagram illustrates some, but not all, ways a user can be granted elevated access.
+
+User 1 is assigned to User Group 1 and User Group 2. 
+Being in User Group 1 grants the user System-wide Role A and System-wide Role B, 
+which in turn each grant a specific permission set or sets for a service. 
+Being in User Group 2 grants access to System-wide Role C 
+which grants access to a service permisison set.
+
+User 2 is assigned to User Group 2.
+Being in User Group 2 grants access to System-wide Role C
+which grants access to a service permission set.
+User 2 is also directly assigned System-wide Role D 
+which grants access to a different servie permission set.
+User 2 is also assigned Service/Feature Role A 
+which grants access to a service permission set.
+
+User 3 is assigned to Service/Feature Role A and Service/Feature Role B.
+Each role grants the user a specific service permission set.
+
+
+As demonstrated by the above flows:
+
+* a user can belong to multiple user groups
+* a user can be granted one or many service/feature roles
+* a user can belong to one or many user groups and one or many service/feature roles
+* a user group can assign a user one or many system-wide roles
+* a user can be assigned a system-wide role directly
+* system-wide roles and service/feature roles all assign users permission sets that apply only to a specific service
+* a system-wide role can have one or many associated service permission sets within a service
+* a service/feature role can have one or many associated service permission sets
+* a service permission set can be associated with multiple system-wide roles and/or service/feature roles
+
+.. note::
+  Not illustrated in the diagram or user flows is the fact that multiple services can use the same 
+  system-wide roles to grant different permission sets. 
+  The permission sets do not persist between services, but the system-wide roles are available globally.
 
 Historical Systems/Protocols
 ****************************
@@ -455,6 +498,8 @@ Change History
 2023-08-21
 ----------
 
+* PR comment updates - add additional diagram, add information from `Authorization Architecture Vision & Principles`_
+* `Pull request #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
 * Document created
 * `Pull request #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
 
