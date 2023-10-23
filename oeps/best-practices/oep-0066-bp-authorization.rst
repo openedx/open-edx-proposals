@@ -315,16 +315,44 @@ It is important to note that it is the interplay of these systems/protocols that
 determines whether a user has permissions for a given operation, not necessarily a single 
 system.
 
-Open edX Authorization Systems Diagram
+Basic information about each system/protocol is included in the diagram and data tables. 
+More in-depth information is included in the sections below the diagrams.
 
-.. image:: oep-0066/Open_edX_Authorization.png
-   :alt: A diagram that shows the different systems/protocols used in the Open edX codebase to control authorization. The information in the diagram is also in the Open edX Authorization Systems Table (linked to in this document).
+Open edX Auth Overview Diagram
+------------------------------
+
+.. image:: oep-0066/Open_edX_Auth_Overview.png
+  :alt: A diagram that provides an overview of Auth in the Open edX codebase. The information in the diagram is also in the Open edX Auth Overview Table (linked to in this document).
 
 .. toctree::
-   :maxdepth: 1
-   :glob:
+  :maxdepth: 1
+  :glob:
 
-   oep-0066/Open_edX_Authorization_Systems_Table.rst
+  oep-0066/Open_edX_Auth_Overview_Table.rst
+
+Open edX Authorization Explicit Roles Diagram
+---------------------------------------------
+
+.. image:: oep-0066/Open_edX_Authorization_Explicit_Roles.png
+  :alt: A diagram that shows the different systems/protocols that are used to control explicit roles in the Open edX codebase. The information in the diagram is also in the Open edX Authorization Explicit Roles Table (linked to in this document).
+
+.. toctree::
+  :maxdepth: 1
+  :glob:
+
+  oep-0066/Open_edX_Authorization_Explicit_Roles_Table.rst
+
+Open edX Authorization Implicit Roles Diagram
+---------------------------------------------
+
+.. image:: oep-0066/Open_edX_Authorization_Implicit_Roles.png
+  :alt: A diagram that shows the implicit roles in the Open edX codebase. The information in the diagram is also in the Open edX Authorization Implicit Roles Table (linked to in this document).
+
+.. toctree::
+  :maxdepth: 1
+  :glob:
+
+  oep-0066/Open_edX_Authorization_Implicit_Roles_Table.rst
 
 Django Admin (auth_permission)
 ------------------------------

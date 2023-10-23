@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2023-10-23T17:57:19.711Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="lnughn_JQAus0NxgwL3g" version="21.7.3">
+  <diagram id="F-n7hpazRKv476HL2PQl" name="Page-4">
+    <mxGraphModel dx="954" dy="494" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="k0kVZrXkjgEdAVZEJoY--1" value="Authentication&lt;br&gt;AuthN" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="250" y="150" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="k0kVZrXkjgEdAVZEJoY--2" value="Authorization&lt;br&gt;AuthZ" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="600" y="150" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="k0kVZrXkjgEdAVZEJoY--5" value="Users should receive a JWT Token once authenticated.&amp;nbsp;&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;align=left;" vertex="1" parent="1">
+          <mxGeometry x="250" y="240" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="k0kVZrXkjgEdAVZEJoY--6" value="Each Open edX instance may utilize different authentication options.&amp;nbsp;&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;align=left;" vertex="1" parent="1">
+          <mxGeometry x="250" y="360" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="k0kVZrXkjgEdAVZEJoY--7" value="Access is determined using a combination of the explicit and implicit role granting. Logic may check a combination of the systems (or just one) and may check them in any order. Logic may use &amp;amp;&amp;amp; or || depending on the specific Authn and Authz needs.&amp;nbsp;&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;align=left;" vertex="1" parent="1">
+          <mxGeometry x="600" y="240" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="k0kVZrXkjgEdAVZEJoY--11" value="Roles assigned with edx-rbac are stored on the JWT and retrieved as part of &lt;a href=&quot;https://github.com/openedx/edx-platform/blob/45efafb07aebd231b61de75503fee012914638b8/openedx/core/djangoapps/oauth_dispatch/jwt.py#L192&quot;&gt;JWT creation&lt;/a&gt;.&amp;nbsp;&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;align=left;" vertex="1" parent="1">
+          <mxGeometry x="600" y="360" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="k0kVZrXkjgEdAVZEJoY--12" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Scopes are stored on the JWT and retrieved as part of &lt;/span&gt;&lt;a style=&quot;background-color: initial;&quot; href=&quot;https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/jwt.py#LL31C8-L31C8&quot;&gt;JWT creation&lt;/a&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;.&lt;/span&gt;&lt;/div&gt;&lt;p style=&quot;text-align: left;&quot;&gt;In this context, scopes limit access to the token bearer and control which optional claims are included in the token.&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="600" y="480" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="k0kVZrXkjgEdAVZEJoY--13" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Individual models have helper functions to determine access level (role) of the users.&lt;/span&gt;&lt;/div&gt;&lt;p style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/openedx/edx-platform/blob/master/common/djangoapps/student/roles.py#L118&quot;&gt;Example&lt;/a&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="600" y="600" width="250" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

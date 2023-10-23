@@ -1,5 +1,5 @@
-Open edX Authorization Systems Tables
-#####################################
+Open edX Authorization Systems Explicit Roles Table
+###################################################
 
 edX Platform - Course Roles
 ---------------------------
@@ -166,34 +166,3 @@ content_libraries - v2 Library Roles
    * - **Data Model**
      - 
        * content_libraries_contentlibrarypermission table in the edx-platform LMS database with access_level, id, library_id, user_id, _sdc_deleted_at fields
-
-Open edX Authorization Systems Implicit Roles Table
----------------------------------------------------
-.. list-table:: 
-   :widths: 100
-   :header-rows: 1
-
-   * - Student / learner
-   * - Student/Learner is an implicit role with permissions assigned based on logic within the code.
-   * - Student/Learner is determined on a course basis.
-   * - Student/Learner is determined based on related data (enrollment, payment, etc).
-   * - Student/Learner can be audit or verified, each with different permissions.
-
-Open edX Auth Overview Table
-----------------------------
-.. list-table:: 
-   :widths: 50 50
-   :header-rows: 1
-
-   * - Authentication (AuthN)
-     - Authorization (AuthZ)
-   * - Users should receive a JWT Token once authenticated.
-     - Access is determined using a combination of the explicit and implicit role gratning. Logic may check a combination of the systems (or just one) and may check them in any order. Logic may use && or || depending on the specific Authn and Authz needs.
-   * - Each Open edX instance may utilize different authentication options.
-     - Roles assigned with edx-rbac are stored on the JWT and retrieved as part of `JWT creation <https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/jwt.py#LL31C8-L31C8>`_
-   * - 
-     - Scopes are stored on the JWT and retrieved as part of `JWT creation <https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/jwt.py#LL31C8-L31C8>`_. In this context, scopes limit access to the token bearer and control which optional claims are included in the token.
-   * - 
-     - Individual models have helper functions to determine access level (role) of the users. 
-
-       `Example <https://github.com/openedx/edx-platform/blob/master/common/djangoapps/student/roles.py#L118>`_
