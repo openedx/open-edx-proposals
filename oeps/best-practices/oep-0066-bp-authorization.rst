@@ -523,11 +523,15 @@ References
 Change History
 **************
 
-2023-08-21
+2023-10-23
 ----------
 
 * PR comment updates - add additional diagram, add information from `Authorization Architecture Vision & Principles`_
 * `Pull request #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
+
+2023-08-21
+----------
+
 * Document created
 * `Pull request #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
 
