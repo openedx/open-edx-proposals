@@ -15,7 +15,7 @@ OEP-66: User Authorization
    * - Arbiter
      - Feanil Patel (feanil@axim.org)
    * - Status
-     - Draft
+     - Accepted
    * - Type
      - Best Practice
    * - Created
