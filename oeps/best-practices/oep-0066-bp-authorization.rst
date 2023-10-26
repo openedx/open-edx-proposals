@@ -23,7 +23,7 @@ OEP-66: User Authorization
    * - `Review Period`
      - 2023-09-27 - 2023-10-18
    * - Replaces
-     - :doc:`oep-0009-bp-permissions`
+     - :doc:`/archived/oep-0009-bp-permissions`
    * - References
      - 
        * :doc:`/architectural-decisions/oep-0004-arch-oauth-scopes`
