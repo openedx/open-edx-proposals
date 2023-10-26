@@ -19,3 +19,4 @@
 "best-practices/oep-0011/decisions/0005-django-templates.rst" "best-practices/oep-0067/decisions/frontend/0005-django-templates.rst"
 "best-practices/oep-0011/decisions/0006-codecov.rst" "best-practices/oep-0067/decisions/frontend/0006-codecov.rst"
 "best-practices/oep-0011-bp-FED-technology.rst" "archived/oep-0011-bp-FED-technology.rst"
+"best-practices/oep-0009-bp-permissions.rst" "archived/oep-0009-bp-permissions.rst"
