@@ -315,7 +315,7 @@ Post a message to `Open edX Discourse Deprecation Announcements`_, using the fol
         deadline for comments before acceptance is <*Target Accepted Date*>.
 
         Once the ticket is accepted, removal can happen at any time.  If you believe
-        that <*techonology name*> is valuable and wish to make a case for retaining
+        that <*technology name*> is valuable and wish to make a case for retaining
         it and taking over its maintainership, please speak up on the issue linked above.
 
         After acceptance, all future notifications around removal will only be posted
@@ -343,7 +343,7 @@ the `Open edX slack`_.  If not, you could post something like:
     deadline for comments before acceptance is <*Target Accepted Date*>.
     Once the ticket is accepted, removal can happen at any time.
 
-.. _`Open edX slack`: http://openedx.org/slack
+.. _`Open edX slack`: https://openedx.org/slack
 
 Monitor Feedback
 ----------------
@@ -352,7 +352,7 @@ Once announcements are made, update the GitHub Issue to the `Communicated`
 state.
 
 Allocate time to be responsive to any and all feedback and input on your
-**DEPR** ticket. Update the ticket and the proposal, if neccessary, with any
+**DEPR** ticket. Update the ticket and the proposal, if necessary, with any
 information that should be captured from the ongoing feedback. Continue to
 iterate and do this until the announced target *Accepted* date.
 
@@ -422,7 +422,7 @@ During this phase, remember the following:
 * Remove any related documentation on docs.edx.org_ and elsewhere.
 * Continue to update the ticket with any delays or issues that may arise.
 
-.. _docs.edx.org: http://docs.edx.org/
+.. _docs.edx.org: https://docs.edx.org/
 
 Removed
 =======
@@ -475,7 +475,7 @@ Change History
 ==========
 
 * Suggest alignment with release cycle
-* `Pull reqest #252 <https://github.com/openedx/open-edx-proposals/pull/252>`_
+* `Pull request #252 <https://github.com/openedx/open-edx-proposals/pull/252>`_
 
 2022-02-08
 ==========
