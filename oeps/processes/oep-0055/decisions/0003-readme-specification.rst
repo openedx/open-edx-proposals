@@ -50,9 +50,7 @@ maintainers judgement.
 * **Purpose** - A paragraph or two summarizing the purpose of this component.
   This should be oriented towards people who are new to the Open edX project.
 
-* **Getting Started** - A section that details various aspects of getting
-  started with this component.  Some common use cases include, getting started
-  with development or how to deploy this component.
+* **Getting Started** - A section that helps developers get oriented. Unless the repo has unusual workflows, this might be as simple as linking to the `Python <https://docs.openedx.org/en/latest/developers/how-tos/get-ready-for-python-dev.html>`_ or `frontend <https://docs.openedx.org/en/latest/developers/how-tos/get-ready-for-frontend-dev.html>`_ developer how-to.
 
 * **Getting Help** - A section to indicate where and how the user can get help
   with the component, including how they should go about reporting issues with
