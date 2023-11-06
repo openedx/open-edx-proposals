@@ -98,7 +98,7 @@ Core Contributor conduct, particularly whether they follow the "3 Cs"
 removal from the Program. `Contact the Program Administrators`_ as needed.
 
 The Axim administrator(s) are the point people for making sure that needed
-agreements are signed. Formost, this is a Program Agreement between the CC and
+agreements are signed. Foremost, this is a Program Agreement between the CC and
 Axim (sent to you by a Program Administrator). Additionally, if the CC commits
 code to a GitHub repo, a CLA is needed (which should have been signed when you
 made your first PR). Finally, for new companies or organizations joining the
@@ -387,19 +387,19 @@ Change History
 2022-02-28
 ==========
 
-* Elaborate on CC's responsibilites to fulfill their commitment
+* Elaborate on CC's responsibilities to fulfill their commitment
 * `Pull request #304 <https://github.com/openedx/open-edx-proposals/pull/304>`_
 
 2022-02-16
 ==========
 
-* Added clarifiations around the voting process for new CC members.
+* Added clarifications around the voting process for new CC members.
 * `Pull request #293 <https://github.com/openedx/open-edx-proposals/pull/293>`_
 
 2022-02-11
 ==========
 
-* Specify how to expand responsibilites for roles with fine-grained permissions
+* Specify how to expand responsibilities for roles with fine-grained permissions
   (such as code committers)
 * `Pull request #296 <https://github.com/openedx/open-edx-proposals/pull/296>`_
 

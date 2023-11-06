@@ -241,7 +241,7 @@ Open edX development environment.
 Support for master
 ------------------
 
-Like the production version, Tutor does not currently support runnning the ``master`` branch of ``edx-platform`` for
+Like the production version, Tutor does not currently support running the ``master`` branch of ``edx-platform`` for
 development.
 
 Setup procedure

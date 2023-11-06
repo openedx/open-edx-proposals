@@ -110,7 +110,7 @@ Later enhancements will likely include the following:
   contingent on the completion and implementation of another OEP specifically
   for push notifications in Open edX.
 * Support for tasks which can be monitored by multiple users with sufficient
-  access priveleges.  Different permissions could be created for status
+  access privileges.  Different permissions could be created for status
   viewing, generated artifact access, the ability to cancel the task, and the
   ability to delete the task.
 

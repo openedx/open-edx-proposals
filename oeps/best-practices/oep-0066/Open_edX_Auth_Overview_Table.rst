@@ -7,7 +7,7 @@ Open edX Auth Overview Table
    * - Authentication (AuthN)
      - Authorization (AuthZ)
    * - Users should receive a JWT Token once authenticated.
-     - Access is determined using a combination of the explicit and implicit role gratning. Logic may check a combination of the systems (or just one) and may check them in any order. Logic may use && or || depending on the specific Authn and Authz needs.
+     - Access is determined using a combination of the explicit and implicit role granting. Logic may check a combination of the systems (or just one) and may check them in any order. Logic may use && or || depending on the specific Authn and Authz needs.
    * - Each Open edX instance may utilize different authentication options.
      - Roles assigned with edx-rbac are stored on the JWT and retrieved as part of `JWT creation <https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/jwt.py#LL31C8-L31C8>`_
    * - 

@@ -108,7 +108,7 @@ If there is corresponding dev data that needs to be loaded into another IDA(i.e,
 
 To keep data loading modular, the dev data specification for each IDA should live in its own yaml file.
 
-Each ``load_dev_data`` management command should take the specification from the yaml file and call on the data generation fuctions that correspond to keys in yaml file.
+Each ``load_dev_data`` management command should take the specification from the yaml file and call on the data generation functions that correspond to keys in yaml file.
 
 Each data loading function should be executed during the respective IDA's test suite, in order to ensure that it stays functional across schema and code changes.  This also makes it clear what change triggered failure to load the data, making it much faster to make the appropriate fixes.
 
@@ -119,7 +119,7 @@ Data Files
 
 Dev data for an individual IDA will be specified in a YAML file.  The path or URL of this file is passed to the ``load_dev_data`` management command, which uses the information in it to call the appropriate data generation function to create database records for a particular service as shown above.
 
-These data files should be as minimal as possible, containing just enough information for a data loading function familiar with this format to generate appropriate records using factory classes to fill in reasonable defaults for anything not explicitly specified. This is to increase robustness to code changes and to keep the maintanance cost of these files as low as possible.
+These data files should be as minimal as possible, containing just enough information for a data loading function familiar with this format to generate appropriate records using factory classes to fill in reasonable defaults for anything not explicitly specified. This is to increase robustness to code changes and to keep the maintenance cost of these files as low as possible.
 
 Such a file might look like this:
 

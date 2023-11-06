@@ -90,7 +90,7 @@ If a new maintainer is found, initiate the transfer process.
 
 #. Add the new maintainer(s) to the relevant maintainers GitHub group.  ``<component_name>-maintainers``
 
-#. (Optional but recommended) Meet with the new maintainers and review what is being transfered and any relevant knowledge that needs to be transferred.
+#. (Optional but recommended) Meet with the new maintainers and review what is being transferred and any relevant knowledge that needs to be transferred.
 
 #. Ask the new maintainers to remove you from the maintainers group.
 

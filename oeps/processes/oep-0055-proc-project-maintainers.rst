@@ -204,7 +204,7 @@ See `Jobs of the Maintainer`_ for more details on these requirements.
 
 It is acceptable for a component to be maintained by a team or group as long as
 that arrangement does not reduce the reachability of at least one maintainer or
-reduce accountability for the above responsibilites. The maintaining team must
+reduce accountability for the above responsibilities. The maintaining team must
 have ways of direct contact, such as an email address and a GitHub team, that
 anyone can use to get ahold of someone - it is completely acceptable for the
 team to figure out arrangements for list monitoring, such as an "on-call"
@@ -307,7 +307,7 @@ any member of the community including the nominee themselves.  If
 there is no objection from existing maintainers, the role will be
 conferred.
 
-If consensus cannot be reached lazily [#lazy_concensus]_, a vote of existing maintainers
+If consensus cannot be reached lazily [#lazy_consensus]_, a vote of existing maintainers
 will be taken.  Maintainers can approve a nomination with the approval
 of at least three quarters of the members.
 
@@ -333,7 +333,7 @@ Trigger events for removing a maintainer would be:
   despite feedback
 
 In the case that a maintainer has violated the `Code of Conduct`_, the
-Goverance Team, specified in the Code of Conduct, will decide what the
+Governance Team, specified in the Code of Conduct, will decide what the
 repercussions of the violation will be, including whether the violator
 can continue in the role of maintainer.  It should be noted that
 maintainers are expected to be exemplars and, as such, will be held to
@@ -481,7 +481,7 @@ Notes
        maintainer great, what are the best-practices maintainers
        should follow, how do we ensure maintainer don't burn out, how
        do we ensure critical parts of the software supply chain, like
-       OpenSSL are maintained, etc.  I have included some revelant
+       OpenSSL are maintained, etc.  I have included some relevant
        materials in the **Source Material** section.
 
 .. [#ops] Needless to say, there must be feedback loops between
@@ -498,13 +498,13 @@ Notes
        (2021 IEEE/ACM 43rd International Conference on Software
        Engineering (ICSE))(`Alternative Link <http://gustavopinto.org/lost+found/icse2021.pdf>`_).
 
-.. [#lazy_concensus] Lazy concensus is a process by which decisions
+.. [#lazy_consensus] Lazy consensus is a process by which decisions
        are approved unless there are objections.  It is sometimes
-       described as the "silence is concent" method.  Lazy concensus
-       reduces ceremony and overhead and thus increases spead.  It is
+       described as the "silence is concent" method.  Lazy consensus
+       reduces ceremony and overhead and thus increases speed.  It is
        essential, however, that decisions to be made are published.
        There should be a review period that is commensurate with the
-       gravity of the decision at hand.  Lazy concensus is used by
+       gravity of the decision at hand.  Lazy consensus is used by
        other open-source projects and foundations including the
        `Apache foundation <https://community.apache.org/committers/lazyConsensus.html>`_
 

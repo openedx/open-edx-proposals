@@ -140,7 +140,7 @@ as a blog post or a textbook.
 New named scopes
 ================
 
-As is the situtation today, XBlock runtimes would generally not be expected to
+As is the situation today, XBlock runtimes would generally not be expected to
 implement every possible combination of ``BlockScope`` and ``UserScope``.
 Instead, XBlock runtimes are encouraged to implement these new named scopes,
 which would be defined in the XBlock python package:
@@ -308,7 +308,7 @@ Open Questions
 
 #. If yes (see previous bullet), can we use a field attribute to allow XBlocks
    to opt-out of this auto-generated settings UIs on a per-field basis? This may
-   best be addressed at the same time as a standard API for definining editor UI
+   best be addressed at the same time as a standard API for defining editor UI
    options such as ``allow_reset``, ``multiline_editor``, ``list_style``, and
    ``values_provider`` as implemented in `xblock-utils`_.
 

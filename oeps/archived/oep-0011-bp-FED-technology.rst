@@ -39,7 +39,7 @@ Motivation
 
 The rapid pace of development in front end tooling has created opportunities
 to greatly improve the quality of the Open edX user and developer experience.
-After an assesment of industry best practices, the edX Front End Working Group
+After an assessment of industry best practices, the edX Front End Working Group
 (FedX) has made a number of technology recommendations for libraries, frameworks
 and tooling to modernize the edX front end.
 
@@ -82,7 +82,7 @@ Technology Selection
    New tests must not use Enzyme, and any repositories planning to move to React 18 or newer need to
    replace Enzyme.
 
-#. **Target the latest standardised JavaScript version (ECMA-262)**
+#. **Target the latest standardized JavaScript version (ECMA-262)**
 
    **Rationale**: edX JavaScript should be written consistent with the latest
    ECMA-262 specification in order to ensure future support, the largest
@@ -173,7 +173,7 @@ Technology Selection
 #. **API calls should be made with the edX Frontend Auth Client or Axios**
 
    **Rationale**: The `edX Frontend Auth Client`_ simplifies the process of
-   talking to edX APIs by using Axios inteceptors and handling JWT Cookie
+   talking to edX APIs by using Axios interceptors and handling JWT Cookie
    authentication. It also provides React components to handle private routes
    and should be used when possible. When making calls to non-edX APIs
    Axios should be used to provide a consistent API.
@@ -214,7 +214,7 @@ Decisions
 
 .. note::
 
-   The decesions from this OEP have been moved to :doc:`/best-practices/oep-0067-bp-tools-and-technology`.
+   The decisions from this OEP have been moved to :doc:`/best-practices/oep-0067-bp-tools-and-technology`.
 
 Change History
 **************

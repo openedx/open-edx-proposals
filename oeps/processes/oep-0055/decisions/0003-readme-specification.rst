@@ -10,7 +10,7 @@ Context
 *******
 
 `OEP-55`_ states that one of the jobs of a maintainer is to maintain an
-up-to-date and useful readme. While it laid out some possibilites about what
+up-to-date and useful readme. While it laid out some possibilities about what
 should go into a README, it did not go into much detail.
 
 `OEP-19`_ also suggests that README files should exist but does not provide a

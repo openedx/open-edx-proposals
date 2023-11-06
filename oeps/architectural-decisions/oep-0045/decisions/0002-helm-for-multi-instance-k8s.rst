@@ -30,7 +30,7 @@ For Open edX operators who wish to deploy Open edX on Kubernetes, community-main
 
 Building on top of the `decision 0001`_ those single instances will in turn be managed by Tutor and the Tutor plugin ecosystem.
 
-As the needs and deployment scale of Open edX operators can vary significantly, the Helm charts will be designed to be flexible, incorporating sensible defaults but allowing customization of almost every aspect of the deployment. This includes supporting various cloud providers and different underlying technologies for Kubernetes ressources. E.g. Ingress controllers.
+As the needs and deployment scale of Open edX operators can vary significantly, the Helm charts will be designed to be flexible, incorporating sensible defaults but allowing customization of almost every aspect of the deployment. This includes supporting various cloud providers and different underlying technologies for Kubernetes resources. E.g. Ingress controllers.
 
 The goal is for these Helm charts to be developed and maintained collaboratively, by the Open edX Operators that are using them. All relevant best practices from both the Open edX and Helm projects should be followed from the start, such as `OEP-55 Project Maintainers`_.
 
@@ -104,7 +104,7 @@ Once this ADR has reached Provisional status:
 References
 **********
 
-A `working proof of concept`_ that was writen as part of the research for this ADR. See `2022-11-22 meeting recap`_ for further information.
+A `working proof of concept`_ that was written as part of the research for this ADR. See `2022-11-22 meeting recap`_ for further information.
 
 .. _`working proof of concept`: https://github.com/open-craft/tutor-contrib-multi
 .. _`2022-11-22 meeting recap`: https://discuss.openedx.org/t/deploying-open-edx-on-kubernetes-using-helm/8771

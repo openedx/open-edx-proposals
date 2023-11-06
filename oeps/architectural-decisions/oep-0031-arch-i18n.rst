@@ -218,7 +218,7 @@ There is a special accessibility use case where a message ID doesn't have a tran
 Currency localization
 =====================
 
-We should correctly localize currency, which is an issue of country rather than language, and reliant on having an accurate currency conversion service.  This is beyond the scope of our i18n libary.
+We should correctly localize currency, which is an issue of country rather than language, and reliant on having an accurate currency conversion service.  This is beyond the scope of our i18n library.
 
 ======================
 Consistent terminology
