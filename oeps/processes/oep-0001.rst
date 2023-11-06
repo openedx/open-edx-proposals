@@ -51,7 +51,7 @@ Overview
 ********
 
 * An Open edX Proposal specifies a best practice, architectural decision, or
-  community process that the Open edX communty has agreed should be adopted by
+  community process that the Open edX community has agreed should be adopted by
   the project.
 * OEPs are not used to dictate small decisions made in every day feature work.
   See `OEP-19 <https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0019-bp-developer-documentation.html?highlight=documentation#agile-documentation-types>`_
@@ -115,7 +115,7 @@ An Author of an OEP cannot concurrently be the Arbiter of that OEP.
 
 In brief, the Arbiter...
 
-* Is knowledgable about the contents of the proposal, while also being able to
+* Is knowledgeable about the contents of the proposal, while also being able to
   fairly hear all sides of a discussion.
 
 * Helps the Authors move the OEP through the `OEP Workflow`_, namely:
@@ -518,7 +518,7 @@ described below. All other rows are required.
 
 .. _Review Period:
 
-* The **Review Period** header specifes the target dates for reviewing the OEP, as
+* The **Review Period** header specifies the target dates for reviewing the OEP, as
   agreed by the Authors and Arbiter. The recommended duration of the review is
   2 weeks. However, if the review exposes areas of the proposal that need
   further discussion and fleshing out, then the Arbiter may choose to extend

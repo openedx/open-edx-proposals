@@ -39,7 +39,7 @@ variety of issues were uncovered while working on caching fixes and
 improvements within one of our services.
 
 1. There is a common caching bug while using Django caches where someone
-   caches a value that is Falsey (e.g., None or []) and it is mistakenly
+   caches a value that is Falsy (e.g., None or []) and it is mistakenly
    treated as a cache miss.
 
 2. In Django we commonly use the Memcached back-end. There are various
@@ -77,7 +77,7 @@ The following is a common defect when caching using Django caches::
     cached_value = cache.get(key)
     if not cached_value:
         # calculate value, set in cache, and return
-        # if the calculated value is Falsey (e.g., None or []), it will
+        # if the calculated value is Falsy (e.g., None or []), it will
         # be treated as a cache miss above.
     return cached_value
 
@@ -88,7 +88,7 @@ The simplest fix for this defect is::
     cached_value = cache.get(key, _CACHE_MISS)
     if cached_value is _CACHE_MISS:
         # calculate value, set in cache, and return
-        # if the calculated value is Falsey (e.g., None or []), it will
+        # if the calculated value is Falsy (e.g., None or []), it will
         # no longer be treated as a cache miss above.
     return cached_value
 

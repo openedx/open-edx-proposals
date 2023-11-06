@@ -211,7 +211,7 @@ What do I do if I am an operator and someone reports a vulnerability to me?
 
 What will happen if a report is accidentally sent to security@openedx.org for the operation of my Open edX instance?
 
-* Please let security@openedx.org know the best email (preferably a group email, like security@company.com) to forward such reports to, along with your Open edX instance name, domain, and separate contact information for an indidual responsible for security at your organization. The Security Working Group will do their best to forward such reports to the correct organization.
+* Please let security@openedx.org know the best email (preferably a group email, like security@company.com) to forward such reports to, along with your Open edX instance name, domain, and separate contact information for an individual responsible for security at your organization. The Security Working Group will do their best to forward such reports to the correct organization.
 
 How do I receive notification of the release of upcoming security patches?
 

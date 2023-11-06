@@ -149,7 +149,7 @@ Eventing Components
 
 While the exact technical framework and tools for supporting real-time events *at scale* is to be determined, we can begin with implementing the various components of the eventing service from a modular perspective so they can be adopted into any scalable infrastructure (e.g., an Apache framework). So while we propose a framework in this section, each subcomponent is expected to be independent and modular so it can be recomposed as needed.
 
-The proposed framework integrates into and builds upon the features of the `Open edX Event Tracking`_ library. The library's RoutingBackend_ provides powerful and flexible tools with its two fundamental building blocks of `processors and backends`_. The diagram below depicts a possibility of using these tools to implement our real-time Eventing subsytem.
+The proposed framework integrates into and builds upon the features of the `Open edX Event Tracking`_ library. The library's RoutingBackend_ provides powerful and flexible tools with its two fundamental building blocks of `processors and backends`_. The diagram below depicts a possibility of using these tools to implement our real-time Eventing subsystem.
 
 .. _Open edX Event Tracking: https://github.com/openedx/event-tracking
 .. _RoutingBackend: https://github.com/openedx/event-tracking/blob/03bedd4c4f269c65f266f7e95621a9c1b91f908d/eventtracking/backends/routing.py#L11
@@ -263,6 +263,6 @@ Here are a list of current Open edX frameworks that are related to "eventing" bu
 
 * **Notifications and messaging framework** - It is also not the intention of this OEP's real-time eventing framework to support real-time messaging to users. The Open edX `Automated Communication Engine (ACE)`_ is a Django library that supports personalized delivery of user-targeted messages. It is a pluggable and modular framework that supports multiple delivery channels with theme-aware and user-language-aware message templates.
 
-  Although it is possible for this OEP's real-time eventing framwork to send events targeted to IoT and personal devices, those events will not be translated nor customized for each individual recipient, nor be adaptive to the individual's policies and time sensitivities. ACE would be a better alternative for those requirements.
+  Although it is possible for this OEP's real-time eventing framework to send events targeted to IoT and personal devices, those events will not be translated nor customized for each individual recipient, nor be adaptive to the individual's policies and time sensitivities. ACE would be a better alternative for those requirements.
 
 .. _Automated Communication Engine (ACE): https://edx-ace.readthedocs.io/en/latest/index.html

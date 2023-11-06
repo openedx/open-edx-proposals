@@ -10,7 +10,7 @@ Caliper Real-time Events
 Standardized Integration with Caliper
 *************************************
 
-Caliper Analtyics® is a specification defining "a structured approach to describing, collecting and exchanging learning activity data. Establishing a common vocabulary for describing learning interactions is a central objective. Promoting data interoperability, data sharing and data-informed decision making are also important goals."[#caliperDesignGoals]_  The standard has been described as "common-gauge rail for disparate applications to use and share data from student interactions with learning software and administrative systems."[#commonGaugeRail]_
+Caliper Analytics® is a specification defining "a structured approach to describing, collecting and exchanging learning activity data. Establishing a common vocabulary for describing learning interactions is a central objective. Promoting data interoperability, data sharing and data-informed decision making are also important goals."[#caliperDesignGoals]_  The standard has been described as "common-gauge rail for disparate applications to use and share data from student interactions with learning software and administrative systems."[#commonGaugeRail]_
 
 Caliper Learning Analytics Ecosystem
 ************************************

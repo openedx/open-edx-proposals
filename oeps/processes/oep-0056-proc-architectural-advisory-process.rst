@@ -77,7 +77,7 @@ We will adjust our current architectural decision making process by:
 
 - Formalizing and clarifying an **Architectural Advisory Process** in which we conversationally provide input on and promptly review the status of ADRs, as well as review updates to our architectural principles and tech radar, with the goal of enabling more effective, informed decision making.
 - Improve the discoverability of impacted stakeholders and subject matter experts via a **decision impact checklist**.
-- Set decision makers up for success by reducing the barrier to entry for new ADRs.  This may include an updated ADR template, PR templates, a short step by step guide, and increasing the visiblity and discoverability of active decisions and documentation on the AAP.
+- Set decision makers up for success by reducing the barrier to entry for new ADRs.  This may include an updated ADR template, PR templates, a short step by step guide, and increasing the visibility and discoverability of active decisions and documentation on the AAP.
 - Maintain cross-team and cross-organization alignment by using the Architectural Advisory Process to **vet changes to our architectural principles and tech radar**.  Our architectural values and technology choices are both are crucial inputs into the decision making process.
 
 Architectural Advisory Process (AAP)
@@ -123,7 +123,7 @@ We assert that anyone can make an architectural decision, and that the only cave
 Encourage approachable decision making
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The process of making a technical decision is not atomic, nor do many parts of it occur while writing a document about the decision.  Many decisions are *made* while writing code as we problem solve and navigate the idiosyncracies of the system.  The goal of our process should be to find a way of sharing and capturing those decisions where they impact others.  In this spirit, we encourage using "low-friction" artifacts - such as GitHub Issues - in those moments where drafting a full ADR document would be prohibitively distracting.  An issue is an easy place to gather quick, initial input, and naturally becomes resolved by a GitHub Pull Request - the ADR - which describes the decision in more detail.
+The process of making a technical decision is not atomic, nor do many parts of it occur while writing a document about the decision.  Many decisions are *made* while writing code as we problem solve and navigate the idiosyncrasies of the system.  The goal of our process should be to find a way of sharing and capturing those decisions where they impact others.  In this spirit, we encourage using "low-friction" artifacts - such as GitHub Issues - in those moments where drafting a full ADR document would be prohibitively distracting.  An issue is an easy place to gather quick, initial input, and naturally becomes resolved by a GitHub Pull Request - the ADR - which describes the decision in more detail.
 
 Decisions can have varying impacts and scopes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

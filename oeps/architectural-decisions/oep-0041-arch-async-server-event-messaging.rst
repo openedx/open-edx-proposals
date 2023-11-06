@@ -326,7 +326,7 @@ Likewise, use ``updated_at`` for database updates. Do
 that are just a few milliseconds offset from the database record of these
 actions. Do call ``datetime.now()`` if the event happens and has no
 corresponding database changes. If you are sending out multiple event messages
-describing the same occurance (e.g. a version 1 and version 2 of an event), they
+describing the same occurrence (e.g. a version 1 and version 2 of an event), they
 should have the *exact* same timestamp.
 
 
@@ -388,7 +388,7 @@ ability to control its own load. For instance, a sudden increase in Courseware
 traffic might generate a burst of student analytics events. If this stream of
 events overwhelms your service's ability to consume them, the queue may start to
 back up with unread events. Yet this shouldn't cause your service to fail, since
-it still gets to control how quicky it consumes events off of that queue. It has
+it still gets to control how quickly it consumes events off of that queue. It has
 the freedom to either slowly catch up (if the burst was a momentary spike), or
 to scale up additional workers to handle the higher throughput. Your service's
 decision to scale up or down does not directly impact other services.
@@ -421,7 +421,7 @@ be expired by the time a consumer gets them.
 Architectural Goals
 ===================
 
-This OEP is strongly aligned with the `Achitecture Manifesto
+This OEP is strongly aligned with the `Architecture Manifesto
 <https://openedx.atlassian.net/l/c/wN425om2>`_ themes of decentralization and
 asynchronous communication. In addition, there are a number of specific pain
 points we hope to address by introducing this kind of system.

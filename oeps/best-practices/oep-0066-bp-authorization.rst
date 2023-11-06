@@ -423,7 +423,7 @@ content_libraries_contentlibrarypermission
 
 Permission is granted on a Feature, in this case Content Library. 
 
-Permission is assigned in the CMS exclusively for providiing explicit permission to 
+Permission is assigned in the CMS exclusively for providing explicit permission to 
 view or edit a library in the CMS. 
 
 It grants access on a library by library basis and is used for v2 of content libraries 
@@ -452,7 +452,7 @@ If a feature/service utilizes a system-wide role, the feature/service enforces t
 
 Example System-wide Role:
 
-* Global Staff - propogated in JWTs as the "administrator" field
+* Global Staff - propagated in JWTs as the "administrator" field
 
 Example AuthZ User Access Flows
 -------------------------------
@@ -466,13 +466,13 @@ User 1 is assigned to User Group 1 and User Group 2.
 Being in User Group 1 grants the user System-wide Role A and System-wide Role B, 
 which in turn each grant a specific permission set or sets for a service. 
 Being in User Group 2 grants access to System-wide Role C 
-which grants access to a service permisison set.
+which grants access to a service permission set.
 
 User 2 is assigned to User Group 2.
 Being in User Group 2 grants access to System-wide Role C
 which grants access to a service permission set.
 User 2 is also directly assigned System-wide Role D 
-which grants access to a different servie permission set.
+which grants access to a different service permission set.
 User 2 is also assigned Service/Feature Role A 
 which grants access to a service permission set.
 

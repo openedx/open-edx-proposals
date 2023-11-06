@@ -1,4 +1,4 @@
-Target the latest standardised JavaScript version
+Target the latest standardized JavaScript version
 #################################################
 
 Status

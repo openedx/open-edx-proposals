@@ -94,7 +94,7 @@ edx Platform - Django Admin Flow
    * - **System Details**
      - 
        * Set in the Django Admin Control Panel
-       * users for the instance with superiser role (highest access level) have access to this functionality
+       * users for the instance with superuser role (highest access level) have access to this functionality
        * poor UX, poor discoverability, overly complex and possibly more error prone 
 
        *Note: Other services have their own Django Admin Panels that grant permissions.*
@@ -103,7 +103,7 @@ edx Platform - Django Admin Flow
        * All tables are in the edx-platform LMS database
           * auth_permission table with codename, content_type_id, id_name fields
           * auth_group table with id, name fields
-          * auth_group_permissions table with group_id, permission, permission_id, _sdc_deteled_at fields
+          * auth_group_permissions table with group_id, permission, permission_id, _sdc_deleted_at fields
           * auth_user table with id, email, username, and many other fields
           * auth_user_groups table with group_id, id, user_id, _sdc_deleted_at fields
           * auth_user_user_permissions table with id, permission_id, user_id fields 
@@ -132,7 +132,7 @@ edx-rbac
        * Each service determines what other roles can explicitly grant access and where implicit access can come from (i.e. a system wide role may have implicit access)
        * Roles can be assigned for a feature or the service
        * The edX-rbac spec is designed to be usable by an instance, org, or service
-       * Role assignments typlically "stored" in the JWT cookie, but roles are stored in the db and therefore can be used from the db.
+       * Role assignments typically "stored" in the JWT cookie, but roles are stored in the db and therefore can be used from the db.
    * - **Data Model**
      - 
        * Each service that uses edX-rbac has its own db tables.

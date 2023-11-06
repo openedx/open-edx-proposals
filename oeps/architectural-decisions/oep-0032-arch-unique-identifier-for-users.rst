@@ -79,7 +79,7 @@ The following table summarizes the comparisons of a list of candidate user ident
    * - LMS user_id
      - * anonymous (is not considered PII)
 
-       * Segment (used for anlytics) recommends database IDs because they never change.
+       * Segment (used for analytics) recommends database IDs because they never change.
 
        * Availability across all services is almost, but not yet complete.
 

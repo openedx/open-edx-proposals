@@ -10,7 +10,7 @@ Context
 *******
 
 The Open edX community needs a standardized framework for building new UIs that is
-widely adopted, flexibile, and feature rich.
+widely adopted, flexible, and feature rich.
 
 Decision
 ********

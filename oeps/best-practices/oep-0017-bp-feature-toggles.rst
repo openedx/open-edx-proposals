@@ -604,7 +604,7 @@ Existing feature toggles that don't use edx-toggles_ will need to gradually migr
 Non-Django Applications
 =======================
 
-edX applications that are not written in Django (for examply Ruby on Rails or Drupal applications) are currently considered technical debt. There is expectation they will eventually be rewritten or migrated. If in the meantime they need to use feature toggles, they cannot use Django-based edx-toggles_ and should therefore have their own application-specific feature toggle best practices document that applies to their own application.
+edX applications that are not written in Django (for example Ruby on Rails or Drupal applications) are currently considered technical debt. There is expectation they will eventually be rewritten or migrated. If in the meantime they need to use feature toggles, they cannot use Django-based edx-toggles_ and should therefore have their own application-specific feature toggle best practices document that applies to their own application.
 
 Reference Implementation
 ************************
@@ -625,7 +625,7 @@ Here are a few examples of usages of the toggle classes:
 
 Updated examples of feature toggle reporting:
 
-* Sample `readthedocs documention for edx-platform feature toggles`_.
+* Sample `readthedocs documentation for edx-platform feature toggles`_.
 * Based on `annotated toggles in the edx-platform codebase`_.
 
 Updated documentation on feature toggles and reporting:
@@ -634,7 +634,7 @@ Updated documentation on feature toggles and reporting:
 * See `how to document feature toggles`_.
 * See `how to enable feature toggle reports for an IDA`_.
 
-.. _readthedocs documention for edx-platform feature toggles: https://edx.readthedocs.io/projects/edx-platform-technical/en/latest/featuretoggles.html
+.. _readthedocs documentation for edx-platform feature toggles: https://edx.readthedocs.io/projects/edx-platform-technical/en/latest/featuretoggles.html
 .. _annotated toggles in the edx-platform codebase: https://github.com/openedx/edx-platform/search?q=toggle_name
 .. _how to document feature toggles: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/documenting_new_feature_toggles.html
 .. _grading enhancements: https://github.com/openedx/edx-platform/pull/16082
