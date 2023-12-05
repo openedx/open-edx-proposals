@@ -44,7 +44,7 @@ imagesize==1.4.1
     # via
     #   -r requirements/base.txt
     #   sphinx
-importlib-metadata==6.8.0
+importlib-metadata==7.0.0
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -131,7 +131,7 @@ sphinxcontrib-serializinghtml==1.1.5
     #   sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
-tornado==6.3.3
+tornado==6.4
     # via livereload
 typing-extensions==4.8.0
     # via
