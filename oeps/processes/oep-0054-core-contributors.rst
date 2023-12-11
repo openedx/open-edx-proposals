@@ -8,9 +8,10 @@ OEP-54: Core Contributors
    * - Title
      - Core Contributor Program
    * - Last Modified
-     - 2022-02-11
+     - 2023-11-28
    * - Authors
      - Sarina Canelake <sarina@axim.org>
+     - Edward Zarecor <ezarecor@axim.org>
    * - Arbiter
      - Xavier Antoviaque <xavier@opencraft.com>
    * - Status
@@ -195,12 +196,14 @@ The process for nomination is as follows:
    contributors, translation team rooms, etc). **The messages must indicate the
    dates of the comment period.**
 
-#. During the comment period, other CCs should weigh in on the thread. As much
-   as possible, posts should conclude with a definitive "yes" or "no" vote.
-   "Liking" the nomination post does not count as a vote.
+#. During the comment period, other CCs should weigh in on the thread. Core
+   contributor posts should conclude with a definitive "yes" or "no" vote.
+   While comments and support from the entire community are welcome, for the
+   purposes of this process, CCs are the only authorized voters.  "Liking" the
+   nomination post does not count as a vote.
 
-   #. Any Core Contributor may vote on any CC nomination, regardless of their
-      contributor role.
+   #. Any Core Contributor may vote on any CC nomination, regardless
+      of their contributor role.
 
    #. In the case of Core Contributor nominations that involve granting commit
       access to repos, anyone who has commit access to any of the repos in
@@ -236,7 +239,7 @@ The process for nomination is as follows:
       candidate should leave a note on the thread, and close it if they wish.
 
 #. At the end of the comment period, a candidate is approved if there are at
-   least 5 (five) affirmative "yes" votes, and zero "no" votes.
+   least 5 (five) affirmative "yes" votes from current CCs, and zero "no" votes.
 
    #. Candidates coming from an organization must have support from someone
       outside their organization. This can be done by having a sponsor from
@@ -364,6 +367,13 @@ the ``#core-contributors`` Slack room in the `Open edX Slack
 
 Change History
 **************
+
+2023-11-28
+==========
+
+* Clarify that CCs are the voters in this process and that 5 CC votes are
+  required.
+
 
 2023-02-20
 ==========
