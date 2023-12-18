@@ -108,6 +108,7 @@ References
     # Use `Component` unless you know how backstage works and what the other kinds mean.
     kind: Component
     metadata:
+      # (Required) Must be the name of the repo, without the owning organization.
       name: 'docs.openedx.org'
       description: "The root documentation site for https://docs.openedx.org"
       links:
