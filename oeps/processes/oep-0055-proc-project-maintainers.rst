@@ -206,7 +206,7 @@ It is acceptable for a component to be maintained by a team or group as long as
 that arrangement does not reduce the reachability of at least one maintainer or
 reduce accountability for the above responsibilities. The maintaining team must
 have ways of direct contact, such as an email address and a GitHub team, that
-anyone can use to get ahold of someone - it is completely acceptable for the
+anyone can use to get hold of someone - it is completely acceptable for the
 team to figure out arrangements for list monitoring, such as an "on-call"
 rotation.
 
@@ -362,7 +362,7 @@ As it is essential that maintainers are discoverable and reachable, the person
 or persons responsible for maintaining a component should be listed in the
 repository.  Per :doc:`the backstage ADR
 <oep-0055/decisions/0001-use-backstage-to-support-maintainers>` we will use a
-``catalog-info.yaml`` file to capture the github handles for the maintainers of
+``catalog-info.yaml`` file to capture the GitHub handles for the maintainers of
 a repository.
 
 Jobs of the Maintainer
