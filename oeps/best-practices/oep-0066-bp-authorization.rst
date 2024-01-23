@@ -587,7 +587,7 @@ Change History
 
 * Update django_comment_client_role section
 * Add draft course_roles section
-* `Pull request # <https://github.com/openedx/open-edx-proposals/pull/>`_
+* `Pull request #556 <https://github.com/openedx/open-edx-proposals/pull/556>`_
 
 2023-10-23
 ----------
