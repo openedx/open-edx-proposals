@@ -88,6 +88,14 @@ These steps should be followed for all repos within the Open edX organization (f
 
   - Move the repository to the openedx-unsupported organization
 
+  - Remove references to the repository from the ``openedx-translations`` `repository <https://github.com/openedx/openedx-translations/>`_
+    
+    - The entry in the ``extract-translation-source-files`` `workflow <https://github.com/openedx/openedx-translations/blob/main/.github/workflows/extract-translation-source-files.yml>`_
+    
+    - The subdirectory in the ``translations`` `directory <https://github.com/openedx/openedx-translations/tree/main/translations>`_
+
+  - Create an ``axim-engineering`` `request <https://github.com/openedx/axim-engineering/issues/new/choose>`_ to remove the repository resource from the ``openedx-translations`` project on Transifex
+
 .. note::
     Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, if possible un-archive the old fork and update it.  If you've already made a new fork, delete the old copy of the fork before you move the new repo to openedx-unsupported.
 
