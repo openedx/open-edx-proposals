@@ -88,6 +88,14 @@ These steps should be followed for all repos within the Open edX organization (f
 
   - Move the repository to the openedx-unsupported organization
 
+  - Remove the repo from ``openedx-translations`` and Transifex
+    
+    - Remove the repo entry from the ``extract-translation-source-files`` workflow
+    
+    - Remove the repo directory from the ``translations`` directory
+
+    - Remove the repo resource from the ``openedx-translations`` project on Transifex
+
 .. note::
     Over the lifetime of Open edX, we may fork the same external open source repository multiple times.  In this case, we may need to archive the fork multiple times as we move between our fork and following upstream.  When this is necessary, if possible un-archive the old fork and update it.  If you've already made a new fork, delete the old copy of the fork before you move the new repo to openedx-unsupported.
 
