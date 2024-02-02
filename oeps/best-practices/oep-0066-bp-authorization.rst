@@ -417,33 +417,31 @@ course_roles_role (Proposed Service)
 Explicit course level roles are assigned to users. The roles grant access on the course level, 
 but can also be assigned organization or instance wide. 
 
+**Permissions:** 
+
 Each role is a combination of the permissions found in the course_roles_permission database table. 
 The permissions in course_roles_permission are used to determine authorization (access) within the code. As a result, 
 new roles can be added to the database, connected to existing permissions, and utilized in the system 
 with minimal effort.
 
-A course_roles_role can be assigned to a user in the LMS or CMS.
-Some roles are granted in the LMS, some the CMS, and some both.
-Which UI can be used to grant access will depend upon the values in the course_roles_roleservice database table. 
-In addition to granting the roles in the UI, it is possible to assign 
-the roles through the LMS Django Admin Dashboard.
+**Role Assignment**
+
+A course_roles_role can be assigned to a user in the LMS, CMS, or Django Admin Dashboard.
+These three locations are stored in the course_roles_service database table.
+If needed, additional UI locations can be added at a later date.
+When a course_roles_role is created, a course_roles_roleservice database row (or rows) should also be created that link the role to the UI service where the role should be assignable to users.
+The course_roles_role list will be filtered by course_roles_roleservice values to determine which roles to show in each UI role assignment page (Course Team, Membership, Course_Roles).
 
 Each role assignment will generate one row in the course_roles_userrole database table. The values 
 in the row will determine if the user is granted access for a single course, all 
 courses in the org, or all courses in the instance.
 
-If a userrole is assigned to a course, it grants access based on the related permissions to that course.
-If a userrole is assigned on an organization wide level, it grants access based on the related permissions to 
-all courses that belong to the organization.
-If a userrole is assigned on an instance wide level, it grants access based on the related permissions to 
-all courses that belong to the instance.
+* If a userrole is assigned to a course, it grants access based on the related permissions to that course.
+* If a userrole is assigned on an organization wide level, it grants access based on the related permissions to all courses that belong to the organization.
+* If a userrole is assigned on an instance wide level, it grants access based on the related permissions to all courses that belong to the instance.
 
 The course_roles_userrole database table utilizes foreign keys to user, role, course (CourseOverview), and organization. It is not 
 possible to assign a course_roles_userrole on an object that is not a course (does not have a CourseOverview) in the database.
-
-* If the course_id is not nil, the role grants permissions on the course level.
-* If the course_id is nil and the org_id is not nil, the role grants permissions on the organization level.
-* If the course_id and org_id are both nil, the role grants permissions on the instance level.
 
 .. note::
   Once the proposed course_roles architecture is created, the next planned step is to migrate 
