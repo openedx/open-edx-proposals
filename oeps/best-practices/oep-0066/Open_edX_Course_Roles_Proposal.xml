@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-23T18:00:13.048Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="jWlRrfuoB4L5AE9jP54G" version="22.1.22">
+  <diagram id="-F2SkiLnIjIm0Y4cHd-g" name="Page-2">
+    <mxGraphModel dx="681" dy="351" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-1" value="System Users" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="40" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-3" value="System Role Options" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="140" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-4" value="edX Platform - student_courseaccessrole" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BABABA;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="160" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-12" value="comment_client - Discussion Roles&amp;nbsp;&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9933FF;opacity=80;" parent="1" vertex="1">
+          <mxGeometry x="350" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-13" value="edX Platform - course_roles_role" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#67AB9F;" parent="1" vertex="1">
+          <mxGeometry x="530" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-16" value="&lt;div style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;Roles are assigned by instructors in the LMS and by CMS admins in the CMS.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;Roles are assigned to users (other than students) who need elevated access in the LMS or CMS, but roles may also apply to other systems.&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;Roles can be assigned in the django admin dashboard.&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="160" y="40" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-17" value="&lt;div style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;p&gt;Roles are assigned by instructors in the LMS.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Roles can be assigned to any user who needs elevated access to Discussions. The role of administrator cannot be removed from the instructor.&lt;/p&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="350" y="40" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-21" value="&lt;div style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;p&gt;Example roles as named in db: instructor, staff, beta_tester, etc.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Example roles as named in Instructor Dashboard/Course Teams: Admin, Staff, Beta Tester, etc.&lt;/p&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="160" y="140" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-22" value="&lt;div style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;p&gt;Example roles as named in db: Administrator, Moderator, etc.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Example roles as named in Instructor Dashboard: Discussion Admin, Discussion Moderator, etc.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="350" y="140" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-23" value="&lt;div style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;p&gt;Once implemented, the planned roles include current student_courseaccessrole roles and potentially comment_client roles.&lt;/p&gt;&lt;p&gt;Existing roles and role assignments would be migrated from student_courseaccess and potentially comment_client.&lt;/p&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="530" y="140" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-26" value="Example Use Cases" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="220" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-28" value="&lt;div style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Course level access&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Course Level Access, granted across an org or the system&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Role/Permission set likely to be needed for many users&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Roles need to be assignable within the UI&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Roles need to be assignable by others with a specific role on the course&lt;/span&gt;&lt;br&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="160" y="220" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-29" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;- Discussion Service&lt;/font&gt;&lt;div style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="350" y="220" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-30" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;/p&gt;&lt;div style=&quot;font-size: 8px; line-height: 100%;&quot;&gt;- Course level access&lt;/div&gt;&lt;div style=&quot;font-size: 8px; line-height: 100%;&quot;&gt;- Course level access granted org or instance wide&lt;/div&gt;&lt;div style=&quot;font-size: 8px; line-height: 100%;&quot;&gt;- Role/Permission set likely to be needed for many users&lt;/div&gt;&lt;div style=&quot;font-size: 8px; line-height: 100%;&quot;&gt;- Roles need to be assignable within the UI&lt;/div&gt;&lt;div style=&quot;font-size: 8px; line-height: 100%;&quot;&gt;- Roles need to be assignable by others with a specific role on the course&lt;/div&gt;&lt;p&gt;&lt;/p&gt;&lt;div style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="530" y="220" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-34" value="System Details" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="310" width="120" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-35" value="LMS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="160" y="310" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-36" value="CMS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="250" y="310" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-37" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;Instructor role can access and assign course roles&lt;/font&gt;&amp;nbsp;&amp;nbsp;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="160" y="350" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-40" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Roles can be assigned in the membership tab on the instructor dashboard page&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="160" y="400" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-41" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Roles assigned in the LMS may exist in the CMS&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="160" y="460" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-42" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;CMS Admin role can access and assign course roles&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="250" y="350" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-43" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Roles can be assigned on course team page&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="250" y="400" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-44" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Roles assigned in the CMS must also exist in the LMS&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="250" y="460" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-46" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Connected to the django admin dashboard through admin.py file.&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="160" y="500" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-47" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;b&gt;Roles assigned on a course by course basis, an org by org basis, or for the entire system.&lt;/b&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="160" y="540" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-48" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Instructor role can access and assign discussion roles&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#9933FF;opacity=40;" parent="1" vertex="1">
+          <mxGeometry x="350" y="350" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-49" value="LMS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9933FF;opacity=40;" parent="1" vertex="1">
+          <mxGeometry x="350" y="310" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-50" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Roles can be assigned in the membership tab on the instructor dashboard page&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#9933FF;opacity=40;" parent="1" vertex="1">
+          <mxGeometry x="350" y="395" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-51" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Roles assigned in the LMS only apply to the LMS Discussions&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#9933FF;opacity=40;" parent="1" vertex="1">
+          <mxGeometry x="350" y="445" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-52" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Administrator role is given to the instructor by default and cannot be removed. Additional administrators can be added&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#9933FF;opacity=40;" parent="1" vertex="1">
+          <mxGeometry x="350" y="520" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-53" value="LMS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#67AB9F;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="530" y="310" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-54" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;font style=&quot;border-color: var(--border-color);&quot;&gt;Instructor role can access and assign course roles&lt;/font&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#67AB9F;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="530" y="350" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-56" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;Roles assigned on a course by course basis, an org wide basis, or a system/instance wide basis.&lt;/b&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#67AB9F;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="530" y="540" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-71" value="Data Model" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="580" width="120" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-72" value="edX Platform LMS DB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFB570;" parent="1" vertex="1">
+          <mxGeometry x="160" y="580" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-73" value="edX Platform LMS DB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFB570;" parent="1" vertex="1">
+          <mxGeometry x="530" y="580" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-89" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If the course_id column is an empty string the role is for the org, if the org and course_id are empty strings the role is for the entire system.&amp;nbsp;&lt;/font&gt;&amp;nbsp;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#BABABA;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="160" y="750" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-97" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="160" y="620" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-80" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;student_courseaccessrole&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#BABABA;opacity=60;" parent="-k1ULDomLM8NtpxqhHXa-97" vertex="1">
+          <mxGeometry width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-81" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;course_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#FFFFFF;opacity=60;" parent="-k1ULDomLM8NtpxqhHXa-97" vertex="1">
+          <mxGeometry y="20" width="100" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-82" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#FFFFFF;opacity=60;" parent="-k1ULDomLM8NtpxqhHXa-97" vertex="1">
+          <mxGeometry y="30" width="100" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-83" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;org&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#FFFFFF;opacity=60;" parent="-k1ULDomLM8NtpxqhHXa-97" vertex="1">
+          <mxGeometry y="40" width="100" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-84" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;role&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#FFFFFF;opacity=60;" parent="-k1ULDomLM8NtpxqhHXa-97" vertex="1">
+          <mxGeometry y="50" width="100" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-85" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;user_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#FFFFFF;opacity=60;" parent="-k1ULDomLM8NtpxqhHXa-97" vertex="1">
+          <mxGeometry y="60" width="100" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-88" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;_sdc_deleted_at&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#FFFFFF;opacity=60;" parent="-k1ULDomLM8NtpxqhHXa-97" vertex="1">
+          <mxGeometry y="70" width="100" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-98" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="350" y="610" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-91" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;django_comment_client_role&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#9933FF;opacity=40;" parent="-k1ULDomLM8NtpxqhHXa-98" vertex="1">
+          <mxGeometry width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-92" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;course_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;" parent="-k1ULDomLM8NtpxqhHXa-98" vertex="1">
+          <mxGeometry y="20" width="110" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-93" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;" parent="-k1ULDomLM8NtpxqhHXa-98" vertex="1">
+          <mxGeometry y="30" width="110" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-94" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;name&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;" parent="-k1ULDomLM8NtpxqhHXa-98" vertex="1">
+          <mxGeometry y="40" width="110" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-108" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="350" y="670" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-107" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;_sdc_deleted_at&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="-k1ULDomLM8NtpxqhHXa-108" vertex="1">
+          <mxGeometry y="50" width="130" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-101" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;django_comment_client_role_users&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#9933FF;container=0;opacity=40;" parent="-k1ULDomLM8NtpxqhHXa-108" vertex="1">
+          <mxGeometry width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-102" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="-k1ULDomLM8NtpxqhHXa-108" vertex="1">
+          <mxGeometry y="20" width="130" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-103" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;role_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="-k1ULDomLM8NtpxqhHXa-108" vertex="1">
+          <mxGeometry y="30" width="130" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-104" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;user_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="-k1ULDomLM8NtpxqhHXa-108" vertex="1">
+          <mxGeometry y="40" width="130" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-110" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="350" y="740" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-112" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;django_comment_client_permission_roles&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#9933FF;container=0;opacity=40;" parent="-k1ULDomLM8NtpxqhHXa-110" vertex="1">
+          <mxGeometry width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-113" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="-k1ULDomLM8NtpxqhHXa-110" vertex="1">
+          <mxGeometry y="20" width="160" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-114" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;role_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="-k1ULDomLM8NtpxqhHXa-110" vertex="1">
+          <mxGeometry y="30" width="160" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-115" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;permission_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="-k1ULDomLM8NtpxqhHXa-110" vertex="1">
+          <mxGeometry y="40" width="160" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-122" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="350" y="800" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-118" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;django_comment_client_permission&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#9933FF;container=0;opacity=40;" parent="-k1ULDomLM8NtpxqhHXa-122" vertex="1">
+          <mxGeometry width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-119" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="-k1ULDomLM8NtpxqhHXa-122" vertex="1">
+          <mxGeometry y="20" width="150" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-124" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;exitX=0.441;exitY=0.01;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="-k1ULDomLM8NtpxqhHXa-89" target="-k1ULDomLM8NtpxqhHXa-88" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="750" as="sourcePoint" />
+            <mxPoint x="270" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-1" value="&lt;div style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;Roles are assigned by instructors in the LMS and by CMS admins in the CMS.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;Roles are assigned to users (other than students) who need elevated access in the LMS or CMS, but roles may also apply to other systems.&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;Roles can be assigned in the django admin dashboard.&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="530" y="40" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-2" value="CMS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#67AB9F;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="640" y="310" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-3" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Roles can be assigned in the membership tab on the instructor dashboard page&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#67AB9F;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="530" y="400" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-4" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Roles assigned in the LMS may exist in the CMS&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#67AB9F;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="530" y="450" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-6" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Connected to the django admin dashboard through admin.py file.&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#67AB9F;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="530" y="500" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-7" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;CMS Admin role can access and assign course roles&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#67AB9F;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="642.5" y="350" width="97.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-8" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Roles can be assigned on course team page&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#67AB9F;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="642.5" y="400" width="97.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-9" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;Roles assigned in the CMS must also exist in the LMS&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#67AB9F;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="642.5" y="450" width="97.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-27" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="532.5" y="720" width="105" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-28" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;course_roles_service&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#67AB9F;container=0;opacity=60;" vertex="1" parent="n3rwgslXIGttyyPZfj7O-27">
+          <mxGeometry width="105.00000000000001" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-29" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;name&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" vertex="1" parent="n3rwgslXIGttyyPZfj7O-27">
+          <mxGeometry y="20" width="105.00000000000001" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-34" value="&lt;p style=&quot;line-height: 100%; font-size: 8px;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If the course_id column is empty the role is org wide, if the organization_id and course_id are empty the role is instance/system wide.&amp;nbsp;&lt;/font&gt;&amp;nbsp;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#BABABA;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="670" y="740" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-35" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="n3rwgslXIGttyyPZfj7O-34" target="-k1ULDomLM8NtpxqhHXa-164">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="719" y="771" as="sourcePoint" />
+            <mxPoint x="700" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-126" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;course_roles_role&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#67AB9F;container=0;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="532.5" y="610" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-127" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;name&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="1" vertex="1">
+          <mxGeometry x="532.5" y="630" width="80" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-36" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;id&lt;/span&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" vertex="1" parent="1">
+          <mxGeometry x="532.5" y="640" width="80" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-13" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;course_roles_permission&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#67AB9F;container=0;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="630" y="610" width="105.00000000000001" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-14" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;name&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" vertex="1" parent="1">
+          <mxGeometry x="630" y="630" width="105.00000000000001" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-37" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" vertex="1" parent="1">
+          <mxGeometry x="630" y="640" width="105.00000000000001" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-146" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;course_roles_rolepermission&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#67AB9F;container=0;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="532.5" y="660" width="110.00000000000001" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-147" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;permission_id&lt;/span&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="1" vertex="1">
+          <mxGeometry x="532.5" y="690" width="110.00000000000001" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-149" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;role_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="1" vertex="1">
+          <mxGeometry x="532.5" y="680" width="110.00000000000001" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-38" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;id&lt;/span&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" vertex="1" parent="1">
+          <mxGeometry x="532.5" y="700" width="110.00000000000001" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-160" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;organization_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="1" vertex="1">
+          <mxGeometry x="655" y="710" width="80" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-161" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;course_roles_userrole&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#67AB9F;container=0;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="655" y="660" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-162" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;user_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="1" vertex="1">
+          <mxGeometry x="655" y="680" width="80" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-163" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;role_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="1" vertex="1">
+          <mxGeometry x="655" y="690" width="80" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-k1ULDomLM8NtpxqhHXa-164" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;course_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" parent="1" vertex="1">
+          <mxGeometry x="655" y="700" width="80" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-39" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" vertex="1" parent="1">
+          <mxGeometry x="655" y="720" width="80" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-40" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" vertex="1" parent="1">
+          <mxGeometry x="532.5" y="750" width="105.00000000000001" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-31" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;course_roles_roleservice&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=#67AB9F;container=0;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="532.5" y="770" width="110.00000000000001" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-32" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;service_id&lt;/span&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" vertex="1" parent="1">
+          <mxGeometry x="532.5" y="800" width="110.00000000000001" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-33" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;role_id&lt;/font&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" vertex="1" parent="1">
+          <mxGeometry x="532.5" y="790" width="110.00000000000001" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="n3rwgslXIGttyyPZfj7O-42" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;id&lt;/span&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=30;fillColor=default;container=0;" vertex="1" parent="1">
+          <mxGeometry x="532.5" y="810" width="110.00000000000001" height="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -395,11 +395,68 @@ django_comment_client_role
 
 Explicit roles are assigned to users on a course level basis. 
 
+Each role is made up of a combination of permissions stored in the database. 
+
 These roles require that the user already be enrolled in the course 
 (have an enrollment, audit or verified).
 
 Roles are assigned through the LMS in the same place in the UI as the student_courseaccessrole roles. 
 They can also be granted in the LMS Django Admin Dashboard.
+
+Access is granted through a combination of checking a user's role and checking if a user has a specified permission. 
+In some situations, the code also checks if a user has a combination (and or or) of permissions to grant access.
+
+course_roles_role (Proposed Service)
+------------------------------------
+
+.. note::
+  Code related to the course_role schema is in progress. 
+  This section describes the intended usage, but not all portions have been implemented at this time.
+  The code is not being used in production at this time.
+
+Explicit course level roles are assigned to users. The roles grant access on the course level, 
+but can also be assigned organization or instance wide. 
+
+**Permissions:** 
+
+Each role is a combination of the permissions found in the course_roles_permission database table. 
+The permissions in course_roles_permission are used to determine authorization (access) within the code. As a result, 
+new roles can be added to the database, connected to existing permissions, and utilized in the system 
+with minimal effort.
+
+**Role Assignment**
+
+A course_roles_role can be assigned to a user in the LMS, CMS, or Django Admin Dashboard.
+These three locations are stored in the course_roles_service database table.
+If needed, additional UI locations can be added at a later date.
+When a course_roles_role is created, a course_roles_roleservice database row (or rows) should also be created that link the role to the UI service where the role should be assignable to users.
+The course_roles_role list will be filtered by course_roles_roleservice values to determine which roles to show in each UI role assignment page (Course Team, Membership, Course_Roles).
+
+Each role assignment will generate one row in the course_roles_userrole database table. The values 
+in the row will determine if the user is granted access for a single course, all 
+courses in the org, or all courses in the instance.
+
+* If a userrole is assigned to a course, it grants access based on the related permissions to that course.
+* If a userrole is assigned on an organization wide level, it grants access based on the related permissions to all courses that belong to the organization.
+* If a userrole is assigned on an instance wide level, it grants access based on the related permissions to all courses that belong to the instance.
+
+The course_roles_userrole database table utilizes foreign keys to user, role, course (CourseOverview), and organization. It is not 
+possible to assign a course_roles_userrole on an object that is not a course (does not have a CourseOverview) in the database.
+
+.. note::
+  Once the proposed course_roles architecture is created, the next planned step is to migrate 
+  existing student_courseaccessrole roles to the course_roles schema and deprecate the student_courseaccessrole roles. 
+  The comment_client roles are also being considered for migration to course_roles, but are considered lower 
+  priority because they are already based upon permissions.
+
+.. image:: oep-0066/Open_edX_Course_Roles_Proposal.png
+  :alt: A diagram that provides an overview of the proposed architecture for course_roles. The information in the diagram is also in the Open edX Course Roles Proposal Table (linked to in this document).
+
+.. toctree::
+  :maxdepth: 1
+  :glob:
+
+  oep-0066/Open_edX_Course_Roles_Proposal_Table.rst
 
 edx-rbac
 --------
@@ -522,6 +579,13 @@ References
 
 Change History
 **************
+
+2024-01-23
+----------
+
+* Update django_comment_client_role section
+* Add draft course_roles section
+* `Pull request #556 <https://github.com/openedx/open-edx-proposals/pull/556>`_
 
 2023-10-23
 ----------
