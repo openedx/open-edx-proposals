@@ -413,6 +413,8 @@ course_roles_role (Proposed Service)
   Code related to the course_role schema is in progress. 
   This section describes the intended usage, but not all portions have been implemented at this time.
   The code is not being used in production at this time.
+  
+  Please see `platform-roadmap issue 246 <https://github.com/openedx/platform-roadmap/issues/246>`_ for more information about the status of the project.
 
 Explicit course level roles are assigned to users. The roles grant access on the course level, 
 but can also be assigned organization or instance wide. 
