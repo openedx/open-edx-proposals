@@ -5,7 +5,7 @@ Deploying Open edX on Kubernetes Using Helm
 Status
 ******
 
-Provisional
+Accepted
 
 
 Context

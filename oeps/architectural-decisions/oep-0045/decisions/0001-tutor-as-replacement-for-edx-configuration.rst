@@ -5,7 +5,7 @@ Tutor as a replacement for ``edx/configuration``
 Status
 ******
 
-Provisional
+Accepted
 
 
 Context

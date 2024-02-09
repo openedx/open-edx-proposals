@@ -15,7 +15,7 @@ OEP-45: Configuring and Operating Open edX
    * - Arbiter
      - Felipe Montoya <felipe.montoya@edunext.co>
    * - Status
-     - Provisional
+     - Accepted
    * - Type
      - Architecture
    * - Created
