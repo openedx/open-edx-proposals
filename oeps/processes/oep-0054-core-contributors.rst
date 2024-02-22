@@ -155,6 +155,8 @@ Administrators will indicate this by posting in the `Core Contributors
 discussion category
 <https://discuss.openedx.org/c/working-groups/core-contributors/36>`_.
 
+.. _new cc process:
+
 New Core Contributor Nomination Process
 ---------------------------------------
 
@@ -184,6 +186,9 @@ The process for nomination is as follows:
       covered as part of the organization's signature to the Declaration of
       Commitment to the Core Contributor Program, as covered in the `program
       administration`_ section.
+
+   #. This post should tag the maintainer(s) for the candidate repo(s) if they
+      exist.
 
    #. Finally, the post must mention the date when the comment period ends,
       which is at least 2 weeks from the start of the thread. Please be mindful
@@ -262,6 +267,8 @@ The process for nomination is as follows:
    sponsor/Administrator to help the candidate develop a plan of action so that
    they can be successful in the future.
 
+.. _expanding cc rights:
+
 Expansion of Core Contributor Responsibilities
 ----------------------------------------------
 
@@ -316,6 +323,8 @@ the program and your interests directly either in the `Core Contributors
 discussion category
 <https://discuss.openedx.org/c/working-groups/core-contributors/36>`_ or in the
 ``#core-contributors`` room on Slack.
+
+.. _removing ccs:
 
 Removing Core Contributors
 ==========================
