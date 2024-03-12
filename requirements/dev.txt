@@ -44,7 +44,7 @@ imagesize==1.4.1
     # via
     #   -r requirements/base.txt
     #   sphinx
-importlib-metadata==7.0.1
+importlib-metadata==7.0.2
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -58,7 +58,7 @@ markupsafe==2.1.5
     # via
     #   -r requirements/base.txt
     #   jinja2
-packaging==23.2
+packaging==24.0
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
