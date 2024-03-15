@@ -70,14 +70,8 @@ Documentation Writers, QA, and Product Managers.
 All CCs are granted some Rights to the project as part of participating - the
 ability to merge code, the final say on marketing copy, etc. In exchange for
 these Rights to contribute, we ask that CCs abide by their Responsibilities. For
-more on the CC roles, and Rights & Responsibilities, see:
-
-- `Core Contributor Role Definitions
-  <https://openedx.atlassian.net/wiki/spaces/COMM/pages/2759460357/Core+Contributor+Role+Definitions>`_
-- `Core Contributor Rights & Responsibilities
-  <https://openedx.atlassian.net/wiki/spaces/COMM/pages/2952003698/Core+Contributor+Rights+Responsibilities+excluding+code+contributors>`_
-- `Code Committer Rights & Responsibilities
-  <https://openedx.atlassian.net/wiki/spaces/COMM/pages/1529675973/Rights+Responsibilities+for+Code+Contributors>`_
+more on the CC roles, and Rights & Responsibilities, see `Core Contributor Role
+Definitions <https://openedx.atlassian.net/wiki/spaces/COMM/pages/2759460357/Core+Contributor+Role+Definitions>`_.
 
 Note that roles vary in what they need from members; the wiki will be the most
 up to date source of what each role entails and what types of commitments are
@@ -374,8 +368,22 @@ Questions about the Program can be directed to the Axim administrator(s) via
 the ``#core-contributors`` Slack room in the `Open edX Slack
 <https://openedx.slack.com/>`_ or at ``cc-program-admins@axim.org``.
 
+Appendix: What Are The 3 C's
+****************************
+
+The "3 Cs" (Commitment, Conduct, and Caliber) are the guiding principles of the
+Core Contributor program. We expect all Core Contributors to exemplify these
+values every day.
+
 Change History
 **************
+
+2023-11-28
+==========
+
+* Add "3 C's" appendix.
+* Update outdated wiki link.
+
 
 2023-11-28
 ==========
