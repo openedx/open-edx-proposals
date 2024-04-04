@@ -104,7 +104,7 @@ Shared Libraries (Current Option #1)
 
 Because each MFE is siloed from each other - both in repositories and at runtime - our only viable mechanism for sharing code has historically been to extract it into a shared library that gets bundled with each at build time.  This creates more repository/dependency overhead.
 
-Frontend Plugins (Curent Option #2)
+Frontend Plugins (Current Option #2)
 -----------------------------------
 
 With the creation of the `frontend-plugin-framework <https://github.com/openedx/frontend-plugin-framework>`_, we're starting to have the capability to share components across MFEs as plugins, either at build time (direct plugins) or runtime (iframe plugins)
