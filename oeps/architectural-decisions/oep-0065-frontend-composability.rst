@@ -99,6 +99,8 @@ We have no clean, low-overhead way of composing components from multiple MFEs in
 
 The reality of MFEs is that while each application may represent a cohesive domain or bounded context, sometimes you need content and functionality from more than one domain on the page at the same time.
 
+Alternately, providers may want to show different MFEs to different users while keeping the rest of the app (header, navigation, other MFEs) unchanged.
+
 Shared Libraries (Current Option #1)
 ------------------------------------
 
