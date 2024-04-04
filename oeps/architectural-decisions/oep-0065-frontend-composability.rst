@@ -11,7 +11,10 @@ OEP-65: Frontend Composability
    * - Last Modified
      - 2024-04-03
    * - Authors
-     - David Joy <david@joy.engineering>
+     -
+       * Adolfo R. Brandes <adolfo@axim.org>
+       * Pedro Martello <pedro@hammerlabs.net>
+       * David Joy <david@joy.engineering>
    * - Arbiter
      - <Arbiter's real name and email address>
    * - Status
