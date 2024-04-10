@@ -123,35 +123,30 @@ With the creation of the `frontend-plugin-framework <https://github.com/openedx/
 Direct plugins create some flexibility, but couple our repositories' builds together. Iframes are good for sandboxing and isolating code, but they're a very inefficient way to compose a UI, especially given the consistency and UX/DX concerns raised above. In a way, they exacerbate the problem even more. There's no way to do direct plugins via the MFE config API, since they rely on importing modules directly into the build.
 
 Specification
-************
+*************
 
-Fundamentally, runtime module loading and shared dependencies address the majority of these problems, so our approach centers on enabling these two things.
-
-Both are the primary value proposition of module federation. Module federation is an advanced technique designed specifically for use cases like ours, and encompasses a few related ideas. It can be accomplished manually by leveraging Webpack externals, via Webpack module federation, or other similar mechanisms in other bundlers/module loaders, such as rspack and System.js.
-
-We've chosen to proceed with Webpack module federation. It provides flexibility in terms of how it resolves incompatibilities, enforcement of 'singletons', and a module loading lifecycle that supports extensions to the module federation system itself. Further, we already use Webpack, so the work to add it to our configurations is small.
+Fundamentally, enabling runtime module loading and shared dependencies address the majority of these problems, so our approach centers on enabling these two things.
 
 Runtime Module Loading
 ======================
 
-The capability to lazily load content from a different, independently built MFEs into the page - without iframes - solves a few of the issues mentioned above. In particular, it gives us a way of composing UI elements from different MFEs/Domains dynamically at runtime without a "host" application needing to know anything about the "guest" at build time. The two remain completely decoupled, save some shared runtime configuration.
+The capability to lazily load content from independently built modules into the page - without iframes - solves a few of the issues mentioned above. In particular, it gives us a way of composing UI elements from different MFEs/Domains dynamically at runtime without a "host" application needing to know anything about the "guest" at build-time. The two remain completely decoupled, save some shared runtime configuration.
 
-This capability has a high degree of overlap with the goals of the frontend-plugin-framework (FPF), and was the inspiration and approach for the original POC for that framework. We expect that the FPF would add a new plugin type - probably "module plugin" - which handles loading plugins via Webpack module federation.
+This capability has a high degree of overlap with the goals of the `frontend-plugin-framework <https://github.com/openedx/frontend-plugin-framework>`_ (FPF), and was the inspiration and approach for the original POC for that framework. We expect that the FPF would add a new plugin type - probably "module plugin" - which handles loading plugins via runtime module loading.
 
-Runtime module loading improves:
+Runtime module loading advantages
+---------------------------------
 
-- Frequency of full page refreshes
-- Composability across MFEs/domains
-- Runtime extensiblity
-
-It also helps preserve the independent deployability and autonomy of our MFEs.
+- Reduces the frequency of full page refreshes. MFEs today are completely independent, so navigating between them means loading a completely new page (even if they share dependencies).
+- Improves composability across MFEs/domains. We have no way to show more than one MFE on the same page today except by using iframes or by creating hard dependencies between MFEs at build-time by extracting 'shared' code into a new library, like `frontend-component-header <https://github.com/openedx/frontend-component-header>`_, `frontend-component-footer <https://github.com/openedx/frontend-component-footer>`_, or `frontend-lib-content-components <https://github.com/openedx/frontend-lib-content-components>`_, which increases our dependency maintenance burden significantly.
+- Improves runtime extensiblity by allowing us to configure where an MFE's code should be loaded from, rather than needing to build it in to an app. It dovetails nicely with the FPF by providing us with a seamless, performant, and flexible way of extending our frontends without needing to rebuild the host.
 
 Shared Dependencies
 ===================
 
-Going along with runtime module loading is the ability to share dependencies between MFEs. This is another core capability of Webpack module federation.
+Sharing dependencies between MFEs at runtime compliments runtime module loading.
 
-As noted above, MFEs have a number of dependencies which are common between them, but which aren't actually shared at runtime in any way. The capability to share these dependencies - such as ``react``, ``@openedx/paragon``, etc. - would mitigate a great deal of our inconsistency and UX/DX issues.
+As noted above, MFEs have a number of dependencies which are common between them, but which aren't actually shared at runtime in any way. The capability to share these dependencies - such as ``react``, ``@openedx/paragon``, etc. - would mitigate a great deal of our `Consistency`_ and `User and Developer Experience`_ issues.
 
 We expect the following packages - which are used in the vast majority of MFEs today - could all be shared between MFEs.
 
@@ -175,7 +170,7 @@ We expect the following packages - which are used in the vast majority of MFEs t
      -
    * - @openedx/paragon (or @edx/paragon)
      - ~950k
-     - bundlephobia.com threw an error on the Paragon build, but we expect it’s the largest package here.
+     - bundlephobia.com threw an error on the Paragon build, but we expect it's the largest package here.
    * - classnames
      - 0.8k
      -
@@ -209,58 +204,105 @@ We expect the following packages - which are used in the vast majority of MFEs t
 
 Total size: ~2,087.2k unzipped
 
-Sharing these dependencies has several important positive effects:
+Shared dependency advantages
+----------------------------
 
-- Enforces runtime consistency across all types of dependencies
-- Reduces runtime bundle size
+- Encourages runtime consistency across all types of dependencies. If our MFEs use the same version, we significantly reduce the cognitive load and context switching involved in working with multiple MFEs, cut down on visual inconsistencies at runtime, etc.
+- Reduces runtime bundle size. We'll ship far less code to the client across a user's browsing session.
 
-Note that "build time" and "dependency maintenance" are not mentioned above.
+Caveat: "build time" and "dependency maintenance"
+-------------------------------------------------
 
-Interestingly, because of the way Webpack module federation's dependency sharing is implemented, this may not have a large impact on build time or dependency maintenance. "Guest" MFEs still need to have the dependencies installed for the build to succeed, and artifacts for them will still be created and deployed - they just won't generally be used at runtime unless there's a version conflict.
+Note that "build time" and "dependency maintenance" are not mentioned in the advantages above.  The reasons for this have to do with how shared dependencies are resolved for modules at runtime, and are described in more detail in the `Module federation`_ section below.
 
-These dependencies still need to exist in the package.json file (and be installed by npm) for the build to succeed, and for IDE hinting, auto completion, linting, etc.
+At a high level, even if MFEs share dependencies, we want to preserve the ability for them to "fall back" to their own version of a shared dependency if a version already loaded on the page is incompatible with their own.  To do this, each MFE builds and deploys its own version of all its dependencies in case dependency resolution determines they're needed.
+
+This means their build has to take time to bundle them, and the repository still needs the dependencies present in the package.json file.  Sharing dependencies doesn't help us much w/r/t build time and dependency maintenance.
+
+Approach
+========
+
+We intend to enable runtime module loading and shared dependencies via `Webpack module federation <https://webpack.js.org/concepts/module-federation>`_. More information on module federation beyond its webpack implementation can be found on its `dedicated site at module-federation.io <https://module-federation.io/>`_.
+
+Further, we believe that we also need an approach to maintaining and enforcing dependency consistency across MFEs to realize the benefits of shared dependencies. MFEs need a compatible version of the shared dependency to be available, otherwise they need to fall back to their own version. The process, tooling, and/or code organization necessary to provide that consistency is not something module federation can help with and needs to be addressed separately.
+
+Module Federation
+-----------------
+
+Module federation is implemented as a `plugin for Webpack <https://webpack.js.org/plugins/module-federation-plugin/>`_ that enables micro-frontends to be composed into the same page at runtime even if they're built separately and independently deployed. The pieces being composed are "modules". It lets us configure which dependencies should be shared between modules on a page and what modules a particular frontend exposes to be loaded by other frontends.
+
+If two modules require incompatible versions of a shared dependency, the second one loaded can fall back to loading a version it's compatible with from its own build. (see the link in step #4 below for details.)
+
+In terms of Open edX MFEs, this means:
+
+1. MFEs can continue to be built independently.
+2. The Webpack build will include a manifest of which sub-modules the MFE provides at runtime.
+3. @edx/frontend-build will specify - through its Webpack configs - a common set of shared dependencies to be used at runtime by all MFEs.
+4. Webpack will intelligently resolve those dependencies at runtime, `taking into account each module's specific version requirements <https://www.angulararchitects.io/en/blog/getting-out-of-version-mismatch-hell-with-module-federation>`_.
+5. MFEs can dynamically load modules from other MFEs at runtime with Webpack handling hooking them up to the right dependencies.
+
+Because we already use Webpack, the work to add the ModuleFederationPlugin to our configurations is small and uninvasive (see proof of concept in the `Reference Implementation`_ section below).
 
 Maintaining Dependency Consistency
-==================================
+----------------------------------
 
-This proposal fundamentally changes how we work with MFE dependencies, and will require us to adopt a more rigorous approach to ensuring dependency consistency and compatiblity.
+This proposal fundamentally changes how we work with MFE dependencies, and will require us to adopt a more rigorous approach to ensuring dependency consistency and compatiblity. That consistency doesn't come for free just by adopting shared dependencies at runtime: independent codebases will need to be kept in sync.
 
-We expect that this may need to take a number of possible forms:
+We expect that this may need to take a number of possible forms.
 
 Process
--------
+^^^^^^^
 
-We need to ensure maintainers and developers know what dependency versions to use, and when they need to upgrade to stay consistent. We also need a process to migrate through breaking changes in third-party dependencies.
+We need to ensure maintainers and developers know what dependency versions to use, and when they need to upgrade to stay consistent. Open edX release documentation should include documentation of which frontend dependency versions are compatible with the release, likely pinned to a major version (i.e., React 17.x, Paragon 22.x, etc.)
+
+We also need a process to migrate core repositories through breaking changes in third-party dependencies. DO WE HAVE DOCUMENTATION OF THIS SOMEWHERE? HOW DO WE ORGANIZE AROUND PYTHON UPGRADES TODAY, FOR INSTANCE?
 
 Best Practices
---------------
+^^^^^^^^^^^^^^
 
-We need to ensure we minimize breaking changes in our own libraries (such as Paragon).
+We need to ensure we minimize breaking changes in our own libraries (such as Paragon, the header, footer, frontend-platform, frontend-build, etc.) We suggest accomplishing this by:
+
+- Creating new versions of components with breaking changes (ButtonV2, webpack.dev.config.v2.js) rather than modifying existing ones.
+- Leveraging the DEPR process for communication and removing old component versions
+- Aligning that removal and the subsequent breaking changes with Open edX releases, and documenting it in their release notes.
+
+Further, we could reduce the overhead of dependency maintenance and ensure MFEs stay up to date by pinning dependencies to major versions using ``^`` on versions in our package.json files.
 
 Tooling
--------
+^^^^^^^
 
 Maintainers and developers should be warned of incompatibilities created by their PRs, or outside the repository by another project (such as the shell).
 
+This could take the form of Github tooling which notifies maintainers and developers that their frontend code has:
+
+1. Drifted behind the compatible version of a shared dependency for a given Open edX release or the main branch.
+2. Has upgraded beyond what is compatible with a given Open edX release or the main branch.
+
 Code Organization
------------------
+^^^^^^^^^^^^^^^^^
 
-We could adopt a more drastic code organization scheme, such as a monorepo, which provides shared dependencies to core applications and libraries via a common package.json file, while otherwise maintaining applications' independent deployability.
+We propose creating a passthrough library of shared dependencies. MFEs would depend on this single library in its package.json rather than on individual shared dependencies. This library would be versioned in accordance with the `Best Practices`_ suggestions above, meaning that breaking changes would be minimized and dependencies would be pinned to major versions via ``^`` on version numbers. Its version manifest would be the source of the version numbers for the `Process`_ and `Tooling`_ suggestions.
 
-Alternately, we could create a new, versioned shared library which provides shared dependencies to MFE repositories as a single dependency (TBD how that would work).  This library could be paired with webpack aliases to prevent MFEs from needing to update their library import paths.
+To minimize impact on our MFEs, this library may need to be supported with some build-time configuration in Webpack that aliases its passthrough imports to their original package names. This would let us continue to write:
 
-One way or another, we're abandoning some of the independence of MFEs as originally envisioned years ago, in favor of more consistency between them, and we'll need a way to manage that.
+  ``import React from 'react';``
+
+Instead of having to write something like:
+
+  ``import React from '@openedx/<passthrough library name>/react';``
+
+or:
+
+  ``import { React } from '@openedx/<passthrough library name>';``
 
 Out of Scope
 ============
 
-There are various aspects of this which are considered out of scope for this OEP and its resulting reference implementation.
+There are a few important - but tangental - concerns which are considered out of scope for this OEP and its resulting reference implementation.
 
-- Opinions on which dependencies we should adopt going forward (such as redux or other state management solutions)
 - Implementation details of how module federation would be added in the frontend-plugin-framework.
-- Details of a monorepo approach.
-- How we will enforce dependency consistency.
 - How Tutor and other distributions will need to change to adopt module federation.
+- Opinions on which dependencies we should adopt going forward (such as redux or other state management solutions)
 
 Rationale
 *********
@@ -269,14 +311,16 @@ The majority of the concerns expressed in the Motivation section revolve around 
 
 Module federation specifically addresses these use cases exactly. It's right-sized to the problem at hand, can be accomplished with a minimum of impact on our existing MFEs, and can be done in a backwards compatible way (more on that below).
 
+An approach to maintaining dependency consistency is essential to realize the benefits of sharing dependencies, or we've accomplished very little even though we've added the capability. An approach to providing this consistency is not a prerequisite for implementing module federation, to be clear, but the `success` of module federation is tightly coupled to it.
+
 Backward Compatibility
 **********************
 
 We intend to maintain backwards compatibility while migrating to using module federation. We can do this by creating a separate set of Webpack configurations in ``@edx/frontend-build`` and separate build targets in converted MFEs; the footprint of module federation on "guest" MFEs is very small, requiring virtually no code changes in the application itself, and a few additional configuration options in the MFE's Webpack config to identify exposed components.
 
-Ultimately MFEs will no longer be responsible for initializing frontend-platform or rendering the header and footer.  We will follow the DEPR process for retiring this code in MFEs once (and if) we make the module federation architecture required.
+Ultimately MFEs will no longer be responsible for initializing frontend-platform or rendering the header and footer. We will follow the DEPR process for retiring this code in MFEs once (and if) we make the module federation architecture required.
 
-In the interim, MFEs will have both a webpack configuration that exposes modules for consumption by other hosts as alternate entry points (to use Webpack parlance) _and_ the primary entry point which initializes frontend platform and loads the header/footer.  Early POC testing indicates this won't be a problem.
+In the interim, MFEs will have both a webpack configuration that exposes modules for consumption by other hosts as alternate entry points (to use Webpack parlance) _and_ the primary entry point which initializes frontend platform and loads the header/footer. Early POC testing indicates this won't be a problem.
 
 Reference Implementation
 ************************
@@ -288,13 +332,51 @@ The POC repositories can be found here:
 - `frontend-app-mf-host <https://github.com/davidjoy/frontend-app-mf-host>`_
 - `frontend-app-mf-guest <https://github.com/davidjoy/frontend-app-mf-guest>`_
 
-To convert this into a reference implementation, we need to minimally:
+Proposed MFE Architecture
+=========================
+
+MFEs and Modules
+----------------
+
+Each of our MFEs will export a set of one or more modules that can be loaded by other MFEs. For instance, ``frontend-app-profile`` would likely export the ``ProfilePage`` component. Other MFEs may export their own pages, or perhaps plugins/widgets/components to be loaded by the `frontend-plugin-framework <https://github.com/openedx/frontend-plugin-framework>`_ via a "module" plugin type based on this implementation.
+
+Hosts and Guests
+----------------
+
+MFEs become either "hosts" or "guests" or both. A host is an MFE that loads runtime modules from a guest. A guest may itself act as a host to modules from another guest.
+
+Shell MFE
+---------
+
+We will create a new "shell" MFE to act as the top-level host for all other MFEs. It is exclusively responsible for:
+
+- Initializing the application via ``@edx/frontend-platform``.
+- Loading the base, expected version of all our shared dependencies.
+- Rendering the "layout" of the application, including the header and footer.
+- Loading the brand.
+
+Like other hosts, it is also responsible for:
+
+- Loading all the manifests from the "guest" MFEs it intends to load.
+- Using module federation to load the guest MFEs on demand.
+
+Guest MFEs (not the shell)
+--------------------------
+
+Guest MFEs that require a version of a shared dependency that's incompatible with the shell's version may load their own, provided that dependency isn't a singleton (like ``react`` or ``@edx/frontend-platform``). Singletons may only be loaded once because they break if they're loaded more than once on a single page.
+
+Guests loading their own versions of shared dependencies degrades the performance and experience of end users. MFE authors should endeavor to use dependencies compatible with the version loaded by the shell. If we use a passthrough library of shared dependencies, this becomes easier.
+
+Converting the POC to a reference implementation
+================================================
+
+To convert this POC into a reference implementation, we need to minimally:
 
 - Create a new "shell" micro-frontend to be the top-level "host" for all our other micro-frontends.
 - Create module federation-based development and production Webpack configurations in ``@edx/frontend-build``.
 - Modify the Webpack configuration to share the complete list of shared dependencies from the shell.
 - Pick an existing MFE (or two) to convert to use module federation. Add build targets to these "guest" micro-frontends that can be used to build them in module-federation mode.
-- Extend the Webpack configuration in the MFEs by defining what modules each "guest" MFE exposes.
+- Extend the Webpack configuration in the MFEs by defining what modules each "guest" MFE exports.  We suggest that the package.json `exports <https://nodejs.org/api/packages.html#subpath-exports>`_ field be used to codify this list of exports, and that Webpack pull it in from package.json to configure ``ModuleFederationPlugin``.  The format appears to be the same.
 - Give "guest" MFEs a way of seeing their own config, since they'll be getting ``@edx/frontend-platform`` as a shared dependency from the shell, and won't be initializing it themselves.
 
 Secondary concerns include:
@@ -327,12 +409,21 @@ We need a mechanism to provide shared dependencies and composable frontends that
 
 It feels like our needs more closely align with the narrower scope of module federation, and that it's a more right-sized solution to our architectural problems.
 
-Combining MFEs
-==============
+Combining MFEs into 2-3 monoliths
+=================================
 
 Folding our micro-frontends together into a few larger frontends (LMS and Studio, for instance) solves our need for shared dependencies in a different way - it just shares all the code so there's one set of dependencies for all of it. We could continue to rely on frontend-plugin-framework for cross-domain plugins, but "plugins" within the larger domain become a simple import from another part of the application.
 
 This approach was abandoned because we still believe that MFE independence is a core need for our platform, and we can't go back to a few monolithic frontends.
+
+Combining MFEs into a monorepo
+==============================
+
+A monorepo would co-locate all of our core MFEs and libraries (paragon, frontend-platform, frontend-component-header, frontend-component-footer, etc.) in the same repository, but maintain their independent release and deployment cycles. We believe this would help us more readily keep consistent dependency versions across MFEs. But it would also introduce a layer of complexity to our code organization and be a highly invasive way of solving our dependency consistency issues, as we'd have to move all of our core frontend code into a new repository.
+
+Further, it wouldn't solve our consistency problems for anyone working with a non-core MFE or library. We want to create parity between the process for core and non-core repositories to ensure our approach is serving everyone's needs, not just maintainers of core repositories.
+
+We acknowledge that there are benefits here, but believe that it's more work than it's worth, is only a partial solution, and we have less complex options available to us.
 
 Doing Nothing
 =============
@@ -368,3 +459,12 @@ Change History
 * Adding another use case for composability.
 * Adding build-time package overrides as a composability option.
 * Adding more details to the reference implementation section.
+
+2024-04-09
+==========
+
+* Rewriting and clarifying the Specification section. Simplifying language around Webpack module federation and adding a variety of links out to external resources.
+* Adding specific recommendations for Maintaining Dependency Consistency.  Also adding it to the Rationale.
+* Rewriting the section on why "build time" and "dependency maintenance" aren't improved by adding shared dependencies.
+* Adding monorepos to the Rejected Alternatives section.
+* Adding a sub-section on Proposed MFE Architecture to the Reference Implementation section.
