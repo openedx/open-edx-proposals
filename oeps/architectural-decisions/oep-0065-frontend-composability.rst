@@ -338,6 +338,8 @@ The POC repositories can be found here:
 Proposed MFE Architecture
 =========================
 
+.. image:: oep-0065/proposed-mfe-architecture.png
+
 MFEs and Modules
 ----------------
 
@@ -476,3 +478,4 @@ Change History
 ==========
 
 * Adding references to the discovery projects for this OEP: FC-0054 and FC-0007.
+* Adding a diagram of the proposed MFE architecture.
