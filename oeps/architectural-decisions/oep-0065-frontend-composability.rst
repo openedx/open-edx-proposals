@@ -237,7 +237,7 @@ In terms of Open edX MFEs, this means:
 
 1. MFEs can continue to be built independently.
 2. The Webpack build will include a manifest of which sub-modules the MFE provides at runtime.
-3. @edx/frontend-build will specify - through its Webpack configs - a common set of shared dependencies to be used at runtime by all MFEs.
+3. ``@edx/frontend-build`` will specify - through its Webpack configs - a common set of shared dependencies to be used at runtime by all MFEs.
 4. Webpack will intelligently resolve those dependencies at runtime, `taking into account each module's specific version requirements <https://www.angulararchitects.io/en/blog/getting-out-of-version-mismatch-hell-with-module-federation>`_.
 5. MFEs can dynamically load modules from other MFEs at runtime with Webpack handling hooking them up to the right dependencies.
 
@@ -255,14 +255,14 @@ Process
 
 We need to ensure maintainers and developers know what dependency versions to use, and when they need to upgrade to stay consistent. Open edX release documentation should include documentation of which frontend dependency versions are compatible with the release, likely pinned to a major version (i.e., React 17.x, Paragon 22.x, etc.)
 
-We also need a process to migrate core repositories through breaking changes in third-party dependencies. DO WE HAVE DOCUMENTATION OF THIS SOMEWHERE? HOW DO WE ORGANIZE AROUND PYTHON UPGRADES TODAY, FOR INSTANCE?
+We also need a process to migrate core repositories through breaking changes in third-party dependencies. Ideally follow the `Upgrade Project Runbook <https://openedx.atlassian.net/wiki/spaces/AC/pages/3660316693/Upgrade+Project+Runbook>`_.
 
 Best Practices
 ^^^^^^^^^^^^^^
 
 We need to ensure we minimize breaking changes in our own libraries (such as Paragon, the header, footer, frontend-platform, frontend-build, etc.) We suggest accomplishing this by:
 
-- Creating new versions of components with breaking changes (ButtonV2, webpack.dev.config.v2.js) rather than modifying existing ones.
+- Creating new versions of components with breaking changes (``ButtonV2``, ``webpack.dev.config.v2.js``) rather than modifying existing ones.
 - Leveraging the DEPR process for communication and removing old component versions
 - Aligning that removal and the subsequent breaking changes with Open edX releases, and documenting it in their release notes.
 
@@ -419,7 +419,7 @@ This approach was abandoned because we still believe that MFE independence is a 
 Combining MFEs into a monorepo
 ==============================
 
-A monorepo would co-locate all of our core MFEs and libraries (paragon, frontend-platform, frontend-component-header, frontend-component-footer, etc.) in the same repository, but maintain their independent release and deployment cycles. We believe this would help us more readily keep consistent dependency versions across MFEs. But it would also introduce a layer of complexity to our code organization and be a highly invasive way of solving our dependency consistency issues, as we'd have to move all of our core frontend code into a new repository.
+A monorepo would co-locate all of our core MFEs and libraries (``@openedx/paragon``, ``@edx/frontend-platform``, ``@edx/frontend-component-header``, ``@edx/frontend-component-footer``, etc.) in the same repository, but maintain their independent release and deployment cycles. We believe this would help us more readily keep consistent dependency versions across MFEs. But it would also introduce a layer of complexity to our code organization and be a highly invasive way of solving our dependency consistency issues, as we'd have to move all of our core frontend code into a new repository.
 
 Further, it wouldn't solve our consistency problems for anyone working with a non-core MFE or library. We want to create parity between the process for core and non-core repositories to ensure our approach is serving everyone's needs, not just maintainers of core repositories.
 
@@ -440,7 +440,6 @@ Without reproducing the details of Webpack's module federation documentation, ef
 - The host application loads those remote entry points as scripts to the document's <head> tag for later use.
 - To load a module, the host application loads the module's JavaScript file based on the URL in the remote entry file, and Webpack's runtime provides that module with any shared dependencies already loaded in the host application.
 - If the Webpack runtime can't reconcile the version of a dependency needed by a guest module with those already loaded, it will use the remote entry manifest to load the guest's version as well.
-
 
 Change History
 **************
@@ -468,3 +467,4 @@ Change History
 * Rewriting the section on why "build time" and "dependency maintenance" aren't improved by adding shared dependencies.
 * Adding monorepos to the Rejected Alternatives section.
 * Adding a sub-section on Proposed MFE Architecture to the Reference Implementation section.
+* Adding a link to the Upgrade Project Runbook.
