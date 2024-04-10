@@ -28,7 +28,10 @@ OEP-65: Frontend Composability
    * - Resolution
      - <links to any discussions where the final status was decided>
    * - References
-     - <links to any other relevant discussions or relevant related materials>
+     -
+       * `FC-0054 - Composable Micro-frontends Discovery <https://openedx.atlassian.net/wiki/spaces/COMM/pages/4063821827/FC-0054+-+Composable+Micro-frontends+Piral+Discovery>`_
+       * `FC-0007 - Modular MFE Domains Discovery <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3614900241/CLOSED+FC-0007+-+Modular+MFE+Domains+Discovery>`_
+
 
 Abstract
 ********
@@ -468,3 +471,8 @@ Change History
 * Adding monorepos to the Rejected Alternatives section.
 * Adding a sub-section on Proposed MFE Architecture to the Reference Implementation section.
 * Adding a link to the Upgrade Project Runbook.
+
+2024-04-10
+==========
+
+* Adding references to the discovery projects for this OEP: FC-0054 and FC-0007.
