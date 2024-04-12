@@ -9,7 +9,7 @@ OEP-65: Frontend Composability
    * - Title
      - Frontend Composability
    * - Last Modified
-     - 2024-04-03
+     - 2024-04-12
    * - Authors
      -
        * Adolfo R. Brandes <adolfo@axim.org>
@@ -18,13 +18,13 @@ OEP-65: Frontend Composability
    * - Arbiter
      - Adam Stankiewicz <astankiewicz@2u.com>
    * - Status
-     - Draft
+     - Under Review
    * - Type
      - Architecture
    * - Created
      - 2024-04-03
    * - Review Period
-     - <start - target end dates for review>
+     - April 15, 2024 - April 29, 2024
    * - Resolution
      - <links to any discussions where the final status was decided>
    * - References
