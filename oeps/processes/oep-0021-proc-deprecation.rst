@@ -499,6 +499,11 @@ References
 Change History
 **************
 
+2024-04-12
+==========
+
+* Changed process to require every DEPR have a coordinator.
+
 2023-06-21
 ==========
 
