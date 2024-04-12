@@ -175,7 +175,7 @@ When proposing a removal, consider the following analysis:
   viable automated migration path from the deprecated code to the removed code?
 * Deprecation - Based on expected usage and effort to migrate, for how long
   should the deprecation period be?
-* Ownership - Who is going to take responsibility for moving the deprecation
+* Coordination - Who is going to take responsibility for moving the deprecation
   forward?
 
 .. _how to monitor deprecation/removal: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3472654465/Monitoring+and+observability+around+deprecating+old+code
@@ -281,43 +281,50 @@ Do the following to document your proposal:
 
       - If there is any additional publicly shareable information or data from
         your earlier analysis, include that in the **Additional Info** section.
-      - If you know who plans to take ownership of the ticket, include the
-        name in the **Additional Info** section. **Important**: the deprecation
-        ticket will not move forward until someone takes ownership.
+      - If you know who plans to coordinate the ticket, include the
+        name in the **Additional Info** section. The deprecation
+        ticket is not active until there is a coordinator.
 
 #. Check that your ticket appears on the `DEPR Project Board`_.
 
 .. note::
   You can create a ticket even if you don't yet have all the information
   gathered yet. You simply must wait until you have completed the issue and
-  have an owner before moving on to the formal **Communication** step.
+  have a coordinator before moving on to the formal **Communication** step.
 
-(Optional) Start a discussion
------------------------------
-If you want to start a discussion or seek an owner for the deprecation ticket,
-you can post a message in the `Development Discussion Board`_ and any
-appropriate channels in the `Open edX slack`_.
+(Optional) Start a preliminary discussion
+-----------------------------------------
+If you want to start a preliminary discussion or seek an owner for the
+deprecation ticket, you can post a message in the `Development Discussion
+Board`_ and any appropriate channels in the `Open edX slack`_.  This allows
+you to start a discussion and ask for feedback before somebody commits to
+coordinating the DEPR process.
 
 .. _Development Discussion Board: https://discuss.openedx.org/c/development/11
 
-Take Ownership
---------------
-The person taking ownership of the ticket is not necessarily the person doing
-all the work. Instead, it's the person responsible for making sure the work
-happens, making sure that all of the process steps occur in appropriate times,
-and for informing the community about any changes.
+Claim the DEPR Ticket as Coordinator
+------------------------------------
+A DEPR ticket is not active until it has a coordinator.
 
-When you are ready to take ownership of the ticket, post a comment on the
-GitHub issue saying you're doing so, and mark yourself as the owner.
+The coordinator is responsible for:
+
+- Moving the deprecation work forward
+- Following the DEPR workflow phases
+- Informing the community about any changes
+- Communicating if they are unable to continue coordinating the DEPR
+
+When you are ready to coordinate the ticket, post a comment on the
+GitHub issue saying you're doing so, and mark yourself as the GitHub
+issue's owner.
 
 .. note::
- If the owner can no longer be responsible for the ticket, we ask that you find
- another owner if you can.  If you cannot find another owner, it's the
- responsibility of the current owner to:
+ If the coordinator can no longer be responsible for the ticket, we ask that you find
+ another coordinator if you can.  If you can't find another coordinator, it's the
+ responsibility of the current coordinator to:
 
- - Remove yourself as the ticket owner.
- - Change the issue state back to **Proposed**.
- - Update stakeholders in whatever channel is appropriate.
+ #. Remove yourself as the ticket owner
+ #. Change the issue state back to **Proposed**
+ #. Update stakeholders in whatever channel is appropriate
 
 Now you are ready to communicate your proposal!
 
