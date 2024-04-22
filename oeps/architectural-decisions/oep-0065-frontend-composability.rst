@@ -43,9 +43,9 @@ Motivation
 
 Micro-frontends were originally designed to avoid some of the limitations of the monolithic ``edx-platform`` frontend, namely that otherwise independent teams were beholden to the build, test, and release lifecycle of the rest of the codebase. This dramatically slowed down the pace of frontend feature development, experimentation, and innovation.
 
-As a result, the architecture focused on creating an unopinionated, loosely coupled set of applications with the goal of enabling teams to iterate quickly and independently. This goal was successful.
+As a result, the Open edX "micro-frontend" architecture focused on creating an unopinionated, loosely coupled set of applications with the goal of enabling teams to iterate quickly and independently. This goal was successful.
 
-However, now roughly 5 years into this gradual re-platforming, we've discovered that the completely siloed nature of these MFEs has created its own set of problems. These problems are described below.
+However, now roughly 6 years into this gradual re-platforming, we've discovered that the completely siloed nature of these MFEs has created its own set of problems.  Our frontends are more like independent single-page applications than micro-frontends, as we never invested in ways of composing them together. The problems inherent in today's MFE architecture are described below.
 
 Consistency
 ===========
@@ -65,12 +65,12 @@ MFEs may use different versions of ``@edx/frontend-component-header`` and ``@edx
 Branding
 --------
 
-Brand packages created from ``@edx/brand-openedx`` may be different versions, resulting in any number of subtle visual differences.
+Brand packages created from ``@openedx/brand-openedx`` may be different versions, resulting in any number of subtle visual differences.
 
 Other Dependencies
 ------------------
 
-MFEs may have completely different versions of any other dependency. We mitigate some of this by consolidating some important dependencies in ``@edx/frontend-build`` and ``@edx/frontend-platform``, but even those can have different versions from MFE to MFE. For developers, this increases cognitive load and slows velocity because of the need to adjust to the idiosyncracies of each application.
+MFEs may have completely different versions of any other dependency. We mitigate some of this by consolidating some important dependencies in ``@openedx/frontend-build`` and ``@edx/frontend-platform``, but even those can have different versions from MFE to MFE. For developers, this increases cognitive load and slows velocity because of the need to adjust to the idiosyncracies of each application.
 
 User and Developer Experience
 =============================
@@ -116,7 +116,7 @@ Build-time package overrides (Current Option #2)
 
 NPM and package.json allow operators to override dependency resolution by installing an alternate version of a dependency prior to build time. This has historically been how we've allowed operators to override the header, footer, and brand.
 
-The system is confusing and somewhat brittle and only works at build time. If an operator needs different headers/footers/brands for different clients, we've just multiplied the number of builds they need to do (already a problem even without this - see the "Build time" issue above!)
+The system is confusing, somewhat brittle, and only works at build time. If an operator needs different headers/footers/brands for different clients, we've just multiplied the number of builds they need to do (already a problem even without this - see the "Build time" issue above!)
 
 Frontend Plugins (Current Option #3)
 ------------------------------------
@@ -171,7 +171,7 @@ We expect the following packages - which are used in the vast majority of MFEs t
    * - @edx/frontend-platform
      - 355.3k
      -
-   * - @openedx/paragon (or @edx/paragon)
+   * - @openedx/paragon
      - ~950k
      - bundlephobia.com threw an error on the Paragon build, but we expect it's the largest package here.
    * - classnames
@@ -240,7 +240,7 @@ In terms of Open edX MFEs, this means:
 
 1. MFEs can continue to be built independently.
 2. The Webpack build will include a manifest of which sub-modules the MFE provides at runtime.
-3. ``@edx/frontend-build`` will specify - through its Webpack configs - a common set of shared dependencies to be used at runtime by all MFEs.
+3. ``@openedx/frontend-build`` will specify - through its Webpack configs - a common set of shared dependencies to be used at runtime by all MFEs.
 4. Webpack will intelligently resolve those dependencies at runtime, `taking into account each module's specific version requirements <https://www.angulararchitects.io/en/blog/getting-out-of-version-mismatch-hell-with-module-federation>`_.
 5. MFEs can dynamically load modules from other MFEs at runtime with Webpack handling hooking them up to the right dependencies.
 
@@ -319,7 +319,7 @@ An approach to maintaining dependency consistency is essential to realize the be
 Backward Compatibility
 **********************
 
-We intend to maintain backwards compatibility while migrating to using module federation. We can do this by creating a separate set of Webpack configurations in ``@edx/frontend-build`` and separate build targets in converted MFEs; the footprint of module federation on "guest" MFEs is very small, requiring virtually no code changes in the application itself, and a few additional configuration options in the MFE's Webpack config to identify exposed components.
+We intend to maintain backwards compatibility while migrating to using module federation. We can do this by creating a separate set of Webpack configurations in ``@openedx/frontend-build`` and separate build targets in converted MFEs; the footprint of module federation on "guest" MFEs is very small, requiring virtually no code changes in the application itself, and a few additional configuration options in the MFE's Webpack config to identify exposed components.
 
 Ultimately MFEs will no longer be responsible for initializing frontend-platform or rendering the header and footer. We will follow the DEPR process for retiring this code in MFEs once (and if) we make the module federation architecture required.
 
@@ -378,7 +378,7 @@ Converting the POC to a reference implementation
 To convert this POC into a reference implementation, we need to minimally:
 
 - Create a new "shell" micro-frontend to be the top-level "host" for all our other micro-frontends.
-- Create module federation-based development and production Webpack configurations in ``@edx/frontend-build``.
+- Create module federation-based development and production Webpack configurations in ``@openedx/frontend-build``.
 - Modify the Webpack configuration to share the complete list of shared dependencies from the shell.
 - Pick an existing MFE (or two) to convert to use module federation. Add build targets to these "guest" micro-frontends that can be used to build them in module-federation mode.
 - Extend the Webpack configuration in the MFEs by defining what modules each "guest" MFE exports.  We suggest that the package.json `exports <https://nodejs.org/api/packages.html#subpath-exports>`_ field be used to codify this list of exports, and that Webpack pull it in from package.json to configure ``ModuleFederationPlugin``.  The format appears to be the same.
@@ -484,3 +484,9 @@ Change History
 ==========
 
 * Updates the OEP-65 status from "Draft" to "Under Review" and set a 2-week review period from April 15, 2024 - April 29, 2024.
+
+2024-04-22
+==========
+
+* Clarifying the "Motivation" section to talk about how our MFEs are more like single-page apps than true micro-frontends.
+* Review feedback: correct package names around @edx/@openedx npm orgs and some punctuation fixes.
