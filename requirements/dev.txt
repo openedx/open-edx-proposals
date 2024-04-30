@@ -36,7 +36,7 @@ docutils==0.19
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
     #   sphinx
-idna==3.6
+idna==3.7
     # via
     #   -r requirements/base.txt
     #   requests
