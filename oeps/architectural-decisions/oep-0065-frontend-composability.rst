@@ -467,51 +467,8 @@ Without reproducing the details of Webpack's module federation documentation, ef
 Change History
 **************
 
-2024-05-01
-==========
-
-* Added table of contents.
-* Editing for clarity throughout.
-* Linking out to Open edX repositories and dropping the organization prefix from their names.
-
-2024-04-22
-==========
-
-* Clarifying the "Motivation" section to talk about how our MFEs are more like single-page apps than true micro-frontends.
-* Review feedback: correct package names around @edx/@openedx npm orgs and some punctuation fixes.
-
-2024-04-12
-==========
-
-* Updates the OEP-65 status from "Draft" to "Under Review" and set a 2-week review period from April 15, 2024 - April 29, 2024.
-
-2024-04-10
-==========
-
-* Adding references to the discovery projects for this OEP: FC-0054 and FC-0007.
-* Adding a diagram of the proposed MFE architecture.
-
-2024-04-09
-==========
-
-* Rewriting and clarifying the Specification section. Simplifying language around Webpack module federation and adding a variety of links out to external resources.
-* Adding specific recommendations for Maintaining Dependency Consistency.  Also adding it to the Rationale.
-* Rewriting the section on why "build time" and "dependency maintenance" aren't improved by adding shared dependencies.
-* Adding monorepos to the Rejected Alternatives section.
-* Adding a sub-section on Proposed MFE Architecture to the Reference Implementation section.
-* Adding a link to the Upgrade Project Runbook.
-
-2024-04-04
-==========
-
-* `Pull request #575 <https://github.com/openedx/open-edx-proposals/pull/575>`_
-* Adding an arbiter.
-* Light editing for punctuation and clarity
-* Adding another use case for composability.
-* Adding build-time package overrides as a composability option.
-* Adding more details to the reference implementation section.
-
 2024-04-03
 ==========
 
 * Document created
+* `Pull request #575 <https://github.com/openedx/open-edx-proposals/pull/575>`_ contains all review feedback.
