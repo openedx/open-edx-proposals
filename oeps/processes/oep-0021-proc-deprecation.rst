@@ -455,7 +455,7 @@ Removing
 ========
 
 When a team begins development work to remove the code, change the **DEPR**
-ticket's state *Removing* and make a comment on the issue saying you've done so.
+ticket's state to *Removing* and make a comment on the issue saying you've done so.
 
 During this phase, remember the following:
 
