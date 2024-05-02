@@ -315,7 +315,8 @@ The coordinator is responsible for:
 
 When you are ready to coordinate the ticket, post a comment on the
 GitHub issue saying you're doing so, and mark yourself as the GitHub
-issue's owner.
+issue's owner.  This can be done even if you don't have write access to 
+the ticket by making a comment on the ticket that says ``assign me``.
 
 .. note::
  If the coordinator can no longer be responsible for the ticket, we ask that you find
