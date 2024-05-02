@@ -6,7 +6,7 @@ OEP-21: Deprecation and Removal
 +-----------------+--------------------------------------------------------+
 | Title           | Deprecation and Removal                                |
 +-----------------+--------------------------------------------------------+
-| Last Modified   | 2023-06-21                                             |
+| Last Modified   | 2024-04-04                                             |
 +-----------------+--------------------------------------------------------+
 | Authors         | Greg Sham <gsham@edx.org>,                             |
 |                 | Nimisha Asthagiri <nimisha@edx.org>                    |
@@ -175,6 +175,8 @@ When proposing a removal, consider the following analysis:
   viable automated migration path from the deprecated code to the removed code?
 * Deprecation - Based on expected usage and effort to migrate, for how long
   should the deprecation period be?
+* Coordination - Who is going to take responsibility for moving the deprecation
+  forward?
 
 .. _how to monitor deprecation/removal: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3472654465/Monitoring+and+observability+around+deprecating+old+code
 
@@ -275,15 +277,57 @@ Do the following to document your proposal:
       **Deprecation** section. See Deprecated_ for considerations.
    #. If automated migration will be needed, explain your migration plan in the
       **Migration** section.
-   #. If there is any additional publicly shareable information or data from
-      your earlier analysis, include that in the **Additional Info** section.
+   #. **Additional Info**:
+
+      - If there is any additional publicly shareable information or data from
+        your earlier analysis, include that in the **Additional Info** section.
+      - If you know who plans to coordinate the ticket, include the
+        name in the **Additional Info** section. The deprecation
+        ticket is not active until there is a coordinator.
 
 #. Check that your ticket appears on the `DEPR Project Board`_.
 
 .. note::
   You can create a ticket even if you don't yet have all the information
-  gathered yet. You simply must wait until you have completed the issue before
-  moving on to communicating.
+  gathered yet. You simply must wait until you have completed the issue and
+  have a coordinator before moving on to the formal **Communication** step.
+
+(Optional) Start a preliminary discussion
+-----------------------------------------
+If you want to start a preliminary discussion or seek an owner for the
+deprecation ticket, you can post a message in the `Development Discussion
+Board`_ and any appropriate channels in the `Open edX slack`_.  This allows
+you to start a discussion and ask for feedback before somebody commits to
+coordinating the DEPR process.  Note: This does not replace the formal
+:ref:`announce-ref` of the DEPR ticket.
+
+
+.. _Development Discussion Board: https://discuss.openedx.org/c/development/11
+
+Claim the DEPR Ticket as Coordinator
+------------------------------------
+A DEPR ticket is not active until it has a coordinator.
+
+The coordinator is responsible for:
+
+- Ensuring the deprecation work happens
+- Following the DEPR workflow phases
+- Informing the community about any changes
+- Communicating if they are unable to continue coordinating the DEPR
+
+When you are ready to coordinate the ticket, post a comment on the
+GitHub issue saying you're doing so, and mark yourself as the GitHub
+issue's owner.  This can be done even if you don't have write access to 
+the ticket by making a comment on the ticket that says ``assign me``.
+
+.. note::
+ If the coordinator can no longer be responsible for the ticket, we ask that you find
+ another coordinator if you can.  If you can't find another coordinator, it's the
+ responsibility of the current coordinator to:
+
+ #. Remove yourself as the ticket owner
+ #. Change the issue state back to **Proposed**
+ #. Update stakeholders in whatever channel is appropriate
 
 Now you are ready to communicate your proposal!
 
@@ -292,6 +336,8 @@ Now you are ready to communicate your proposal!
 
 Communicated
 ============
+
+.. _announce-ref:
 
 Announce
 --------
@@ -349,7 +395,7 @@ Monitor Feedback
 ----------------
 
 Once announcements are made, update the GitHub Issue to the `Communicated`
-state.
+state and add a comment to the issue saying you've done so.
 
 Allocate time to be responsive to any and all feedback and input on your
 **DEPR** ticket. Update the ticket and the proposal, if necessary, with any
@@ -368,7 +414,8 @@ Accepted
 
 Once enough time is allotted for community feedback, all concerns on the
 **DEPR** ticket are responded to, and the target *Accepted* date has passed,
-update the state of the **DEPR** ticket to *Accepted*.
+update the state of the **DEPR** ticket to *Accepted* and make a comment on the
+issue saying you've done so.
 
 For larger changes, it may be important to mention the upcoming deprecation
 in the release notes of the next named release.
@@ -384,7 +431,8 @@ Deprecated
 
 If you decided to mark the code for deprecation during your Analyze_ or
 `Monitor Feedback`_ phases, invest time in doing so and update the state of the
-**DEPR** ticket to *Deprecated* once that is completed.
+**DEPR** ticket to *Deprecated* once that is completed and make a comment on the
+issue saying you've done so.
 
 Here are some common ways to mark a technology as deprecated:
 
@@ -411,8 +459,8 @@ Here are some common ways to mark a technology as deprecated:
 Removing
 ========
 
-When a team begins development work to remove the code, the **DEPR** ticket's
-state should be updated to *Removing*.
+When a team begins development work to remove the code, change the **DEPR**
+ticket's state to *Removing* and make a comment on the issue saying you've done so.
 
 During this phase, remember the following:
 
@@ -433,7 +481,8 @@ When removal is complete:
    release`_ to keep track of which removals occurred in which named release.
    Note: Eventually, this should be included in a .rst file bundled with the
    codebase.
-#. Update the **DEPR** ticket's state to *Removed*.
+#. Update the **DEPR** ticket's state to *Removed* and make a corresponding
+   comment on the issue.
 #. Announce the removal in the #open-edx-proposals and #general `Open edX slack`_
    channels.
 #. Optionally, celebrate with your team by banging and breaking a piñata_!
@@ -454,6 +503,11 @@ References
 
 Change History
 **************
+
+2024-04-12
+==========
+
+* Changed process to require every DEPR have a coordinator.
 
 2023-06-21
 ==========
