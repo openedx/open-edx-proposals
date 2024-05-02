@@ -308,7 +308,7 @@ A DEPR ticket is not active until it has a coordinator.
 
 The coordinator is responsible for:
 
-- Moving the deprecation work forward
+- Ensuring the deprecation work happens
 - Following the DEPR workflow phases
 - Informing the community about any changes
 - Communicating if they are unable to continue coordinating the DEPR
