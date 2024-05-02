@@ -298,7 +298,9 @@ If you want to start a preliminary discussion or seek an owner for the
 deprecation ticket, you can post a message in the `Development Discussion
 Board`_ and any appropriate channels in the `Open edX slack`_.  This allows
 you to start a discussion and ask for feedback before somebody commits to
-coordinating the DEPR process.
+coordinating the DEPR process.  Note: This does not replace the formal
+:ref:`announce-ref` of the DEPR ticket.
+
 
 .. _Development Discussion Board: https://discuss.openedx.org/c/development/11
 
@@ -334,6 +336,8 @@ Now you are ready to communicate your proposal!
 
 Communicated
 ============
+
+.. _announce-ref:
 
 Announce
 --------
