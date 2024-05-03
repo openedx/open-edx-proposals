@@ -268,31 +268,13 @@ This could take the form of Github tooling which notifies maintainers and develo
 Code Organization
 -----------------
 
-We propose creating a "passthrough" library of shared dependencies. In this context, passthrough means that the library provides no functionality of its own, it merely re-exports the exports of its own dependencies and is versioned with its own unfied version number. The goal of this library is to:
+We may want to refactor how we organize our code to help MFEs ensure they are utilizing dependency versions that align with what other MFEs are using. The goals of such a refactoring are to:
 
-#. Reduce the number of individual dependency updates necessary in MFEs, reducing maintenance burden
+#. Reduce the number of individual dependency updates necessary in MFEs, which in turn reduces maintenance burden.
 #. Provide MFEs with a set of shared dependencies guaranteed to be the same as the shell application.
 #. Provide MFEs with a more predictable update cycle for shared dependencies, in-line with the Open edX Release cadence.
 
-MFEs would depend on this single library in its package.json rather than on individual shared dependencies. This library would be versioned in accordance with the `Best Practices`_ suggestions above, meaning that breaking changes would be minimized and dependencies would be pinned to major versions via ``^`` on version numbers. Its version manifest would be the source of the version numbers for the `Process`_ and `Tooling`_ suggestions.
-
-To minimize impact on our MFEs, this library may need to be supported with build-time configuration in Webpack that aliases its passthrough imports to their original package names. This would let us continue to write:
-
-.. code-block:: javascript
-
-  import React from 'react';
-
-Instead of having to write something like:
-
-.. code-block:: javascript
-
-  import React from '@openedx/<passthrough library name>/react';
-
-or:
-
-.. code-block:: javascript
-
-  import { React } from '@openedx/<passthrough library name>';
+An ADR attached to this OEP will describe the final approach taken to solve this problem.
 
 Out of Scope
 ============
@@ -369,7 +351,7 @@ Guest MFEs (not the shell)
 
 Guest MFEs that require a version of a shared dependency that's incompatible with the shell's version may load their own provided that dependency isn't a "singleton". Singletons in this context are dependencies that may only be loaded into the page once because they break if there are multiple instances active on the same page. React and `frontend-platform <frontend-platform_>`_ are singletons, for example.
 
-If a guest needs to load its own versions of shared dependencies, this degrades the performance and experience of end users. MFE developers and maintainers should endeavor to use dependencies compatible with the version loaded by the shell. If we use a passthrough library of shared dependencies, this becomes easier.
+If a guest needs to load its own versions of shared dependencies, this degrades the performance and experience of end users. MFE developers and maintainers should endeavor to use dependencies compatible with the version loaded by the shell.  See `Approach: Maintaining Dependency Consistency`_ for details of how we might approach this.
 
 Converting the POC to a reference implementation
 ================================================
