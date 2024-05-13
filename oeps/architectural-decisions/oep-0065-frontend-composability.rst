@@ -17,13 +17,13 @@ OEP-65: Frontend Composability
    * - Arbiter
      - Adam Stankiewicz <astankiewicz@2u.com>
    * - Status
-     - Under Review
+     - Provisional
    * - Type
      - Architecture
    * - Created
      - 2024-04-03
    * - Review Period
-     - April 15, 2024 - April 29, 2024
+     - April 15, 2024 - May 10, 2024
    * - Resolution
      - <links to any discussions where the final status was decided>
    * - References
