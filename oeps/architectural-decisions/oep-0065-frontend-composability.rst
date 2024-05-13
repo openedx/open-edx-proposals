@@ -157,7 +157,7 @@ MFEs have a number of dependencies which are common between them but which aren'
 We expect the following packages - which are used in the vast majority of MFEs today - should all be shared between MFEs.
 
 .. list-table::
-   :widths: 30 20 50
+   :widths: 50 50
 
    * - **Package**
      - **Estimated Size**
@@ -197,13 +197,13 @@ Total size: ~2,087.2k unzipped (Note that these sizes are solely based on bundle
 Advantages: Shared Dependencies
 -------------------------------
 
-* When MFEs use the same version of a given dependency we see many benefits: significant reduction of developer cognitive load and context switching involved in working with multiple MFEs, fewer visual inconsistencies at runtime, and more. The `Approach`_ section has more details on how we foresee this working.
+* When MFEs use the same version of a given dependency we see many benefits: significant reduction of developer cognitive load and context switching involved in working with multiple MFEs, fewer visual inconsistencies at runtime, and more. The `Approach: Webpack Module Federation`_ section has more details on how we foresee this working.
 * Reduces runtime bundle size. We'll ship far less code to the client across a user's browsing session.
 
 Caveat: "build-time" and "dependency maintenance"
 -------------------------------------------------
 
-Note that "build-time" and "dependency maintenance" are not mentioned in the advantages above. The reasons for this have to do with how shared dependencies are resolved for modules at runtime, and are described in more detail in the `Module federation`_ section below.
+Note that "build-time" and "dependency maintenance" are not mentioned in the advantages above. The reasons for this have to do with how shared dependencies are resolved for modules at runtime, and are described in more detail in the `Approach: Webpack Module Federation`_ section below.
 
 At a high level, even if MFEs share dependencies, we want to preserve the ability for them to "fall back" to their own version of a shared dependency if a version already loaded on the page is incompatible with their own. To do this, each MFE builds and deploys its own version of all its dependencies in case dependency resolution determines they're needed.
 
