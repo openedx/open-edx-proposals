@@ -429,6 +429,11 @@ We feel that the siloing of micro-frontends, the proliferation of dependencies, 
 Change History
 **************
 
+2024-05-13
+==========
+
+* Merging OEP-65 as Provisional.
+
 2024-04-03
 ==========
 
