@@ -1,0 +1,5 @@
+OEP-0065 File README
+
+The source for the architecture diagram lives in LucidChart.
+
+It can be found `at this LucidChart URL <https://lucid.app/lucidchart/8c2db108-7c14-4525-8e3a-d2853db68b9e/edit?invitationId=inv_7a61f692-df0b-465b-8ec1-5a18ce4447ca>`_ and should be visible by everyone. If you need to edit the chart, either copy the chart into your own Lucid account or get in touch with the original authors if possible (David Joy - listed on the OEP) for access.
