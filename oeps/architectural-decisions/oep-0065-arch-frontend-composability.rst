@@ -5,7 +5,7 @@ OEP-65: Frontend Composability
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-65 <oep-0065-frontend-composability>`
+     - :doc:`OEP-65 <oep-0065-arch-frontend-composability>`
    * - Title
      - Frontend Composability
    * - Last Modified
@@ -25,7 +25,7 @@ OEP-65: Frontend Composability
    * - Review Period
      - April 15, 2024 - May 10, 2024
    * - Resolution
-     - <links to any discussions where the final status was decided>
+     - Slack discussion on merging as Provisional: https://openedx.slack.com/archives/C1L370YTZ/p1713215512929479
    * - References
      - * `FC-0054 - Composable Micro-frontends Discovery <https://openedx.atlassian.net/wiki/spaces/COMM/pages/4063821827/FC-0054+-+Composable+Micro-frontends+Piral+Discovery>`_
        * `FC-0007 - Modular MFE Domains Discovery <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3614900241/CLOSED+FC-0007+-+Modular+MFE+Domains+Discovery>`_
@@ -428,6 +428,11 @@ We feel that the siloing of micro-frontends, the proliferation of dependencies, 
 
 Change History
 **************
+
+2024-05-13
+==========
+
+* Merging OEP-65 as Provisional.
 
 2024-04-03
 ==========
