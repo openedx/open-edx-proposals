@@ -5,7 +5,7 @@ OEP-65: Frontend Composability
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-65 <oep-0065-arch-frontend-composability>`
+     - :doc:`OEP-65 <oep-0065-frontend-composability>`
    * - Title
      - Frontend Composability
    * - Last Modified
