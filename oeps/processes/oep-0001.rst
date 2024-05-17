@@ -245,7 +245,7 @@ OEP Status
         "Under Review" -> { "Deferred" "Provisional" } [dir=both]
         "Under Review" ->  { "Accepted" "Rejected" "Withdrawn" }
         "Accepted" -> "Final"
-        "Final" -> { "Replaced" "Obsolete" } [style=dashed] [style=dashed]
+        "Final" -> { "Replaced" "Obsolete" "Needs Revision" } [style=dashed] [style=dashed]
     }
 
 Draft
@@ -308,6 +308,19 @@ guidelines. In this case the OEP's status should be changed to "Obsolete" and
 the OEP should be updated with an explanation as to why the OEP is no
 longer relevant.
 
+Needs Revision
+--------------
+
+Over time, some OEPs may stay relevant - for example, they may have many
+sections or core ideas that are still relevant to the project - while containing
+many details that have become stale over time. When we are in agreement that the
+OEP needs updating, we use this status to indicate to those browsing the OEPs
+that this particular one requires some renewed attention.
+
+When changing status to "Needs Revision", a row titled "Revision Ticket" should
+be added to the preamble (directly under the status field) that directs to the
+GitHub issue or draft pull request in the ``open-edx-proposals`` repository that
+describes what about the OEP that needs revisioning.
 
 Status changes
 --------------
@@ -551,6 +564,11 @@ at the top of the list.
 
 Change History
 **************
+
+2024-05-16
+==========
+* Add a "Needs Revision" status
+* `Pull request #586 <https://github.com/openedx/open-edx-proposals/pull/586>`_
 
 2022-10-05
 ==========
