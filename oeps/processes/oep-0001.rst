@@ -242,6 +242,7 @@ OEP Status
         [fontname=Arial]
 
         "Draft" -> { "Under Review" "Deferred" }
+        "Needs Revision" -> "Under Review"
         "Under Review" -> { "Deferred" "Provisional" } [dir=both]
         "Under Review" ->  { "Accepted" "Rejected" "Withdrawn" }
         "Accepted" -> "Final"
