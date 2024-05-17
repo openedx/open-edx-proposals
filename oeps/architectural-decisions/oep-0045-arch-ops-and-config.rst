@@ -9,13 +9,15 @@ OEP-45: Configuring and Operating Open edX
    * - Title
      - Configuring and Operating Open edX
    * - Last Modified
-     - 2020-04-06
+     - 2024-05-17
    * - Authors
      - Bill DeRusha <bill@edx.org>
    * - Arbiter
      - Felipe Montoya <felipe.montoya@edunext.co>
    * - Status
-     - Accepted
+     - Needs Revision
+   * - Revision Ticket
+     - https://github.com/openedx/open-edx-proposals/issues/587
    * - Type
      - Architecture
    * - Created
@@ -210,3 +212,10 @@ The following related decisions modify or enhance this OEP, but have not yet bee
 
    oep-0045/decisions/*
 
+Change History
+**************
+
+2024-05-16
+==========
+* Change status to "Needs Revision"
+* `Pull request #586 <https://github.com/openedx/open-edx-proposals/pull/586>`_
