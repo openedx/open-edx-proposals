@@ -167,12 +167,14 @@ Frontend Technology Selection
    Python code - see `OEP 18`_ for more information. For more information on
    package-lock files see `Package Lock`_.
 
-#. **Keep dependencies up to date by using Greenkeeper**
+#. **Keep dependencies up to date by using Renovate**
 
    **Rationale**: JavaScript dependencies are updated constantly and can be difficult
-   to maintain over time. `Greenkeeper`_ makes this easier by automatically updating
-   dependencies in a package.json file and verifying the tests still work. When
-   possible, leverage Greenkeeper to ensure JavaScript software remains up to date.
+   to maintain over time. `Renovate`_ makes this easier by automatically updating
+   dependencies in a ``package.json`` file and verifying the tests still work. When
+   possible, leverage Renovate to ensure JavaScript software remains up to date.
+   Documentation on how to configure Renovate automation on a repository is available
+   in the `Upgrade Automation How-to`_.
 
 #. **JavaScript should be bundled using Webpack**
 
@@ -322,6 +324,11 @@ Change History
 * Document created
 * `Pull request #518 <https://github.com/openedx/open-edx-proposals/pull/518>`_
 
+2024-05-23
+==========
+
+* Updated "Keep dependencies up to date" to recommend `Renovate`_ instead of Greenkeeper
+
 .. Cross-references
 .. _AMD Modules: https://github.com/amdjs/amdjs-api/wiki/AMD
 .. _Babel: https://babeljs.io/
@@ -335,7 +342,6 @@ Change History
 .. _ES2015 Modules: http://www.ecma-international.org/ecma-262/6.0/#sec-imports
 .. _ES2017: https://tc39.github.io/ecma262/
 .. _Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-.. _Greenkeeper: https://greenkeeper.io/
 .. _Jest: https://jestjs.io/
 .. _JSX: https://facebook.github.io/react/docs/introducing-jsx.html
 .. _oep 18: https://open-edx-proposals.readthedocs.io/en/latest/oep-0018-bp-python-dependencies.html
@@ -344,5 +350,7 @@ Change History
 .. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React
 .. _React-Testing-Library: https://testing-library.com/docs/react-testing-library/intro
 .. _ReactRender: https://github.com/openedx/edx-platform/blob/4b38b1f750918ff83c02cff776681aabe44bd689/common/djangoapps/pipeline_mako/templates/static_content.html#L159-L167
+.. _Renovate: https://renovatebot.com/
 .. _Sass documentation: http://sass-lang.com/
+.. _Upgrade Automation How-to: https://docs.openedx.org/en/latest/developers/how-tos/enable-javascript-upgrade-automation.html
 .. _Webpack: https://webpack.github.io/
