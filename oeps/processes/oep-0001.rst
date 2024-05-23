@@ -8,11 +8,11 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Last-Modified | 2022-06-22                                                   |
 +---------------+--------------------------------------------------------------+
-| Authors       | Calen Pennington <cale@edx.org>,                             |
-|               | Joel Barciauskas <joel@edx.org>,                             |
-|               | Nimisha Asthagiri <nimisha@edx.org>,                         |
-|               | Feanil Patel <feanil@axim.org>,                              |
-|               | Sarina Canelake <sarina@axim.org>                            |
+| Authors       | - Calen Pennington <cale@edx.org>                            |
+|               | - Joel Barciauskas <joel@edx.org>                            |
+|               | - Nimisha Asthagiri <nimisha@edx.org>                        |
+|               | - Feanil Patel <feanil@axim.org>                             |
+|               | - Sarina Canelake <sarina@axim.org>                          |
 +---------------+--------------------------------------------------------------+
 | Arbiter       | - Eddie Fagin <efagin@edx.org>,                              |
 |               | - Calen Pennington <cale@edx.org>                            |
