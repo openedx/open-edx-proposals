@@ -21,7 +21,7 @@ beautifulsoup4==4.12.3
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
-certifi==2024.2.2
+certifi==2024.6.2
     # via
     #   -r requirements/base.txt
     #   requests
@@ -78,7 +78,7 @@ pytz==2024.1
     # via
     #   -r requirements/base.txt
     #   babel
-requests==2.32.2
+requests==2.32.3
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -134,7 +134,7 @@ sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
 tornado==6.4
     # via livereload
-typing-extensions==4.12.0
+typing-extensions==4.12.1
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
@@ -142,7 +142,7 @@ urllib3==2.2.1
     # via
     #   -r requirements/base.txt
     #   requests
-zipp==3.19.0
+zipp==3.19.1
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
