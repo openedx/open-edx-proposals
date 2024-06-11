@@ -59,7 +59,7 @@ markupsafe==2.1.5
     # via
     #   -r requirements/base.txt
     #   jinja2
-packaging==24.0
+packaging==24.1
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
@@ -132,9 +132,9 @@ sphinxcontrib-serializinghtml==1.1.5
     #   sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
-tornado==6.4
+tornado==6.4.1
     # via livereload
-typing-extensions==4.12.1
+typing-extensions==4.12.2
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
@@ -142,7 +142,7 @@ urllib3==2.2.1
     # via
     #   -r requirements/base.txt
     #   requests
-zipp==3.19.1
+zipp==3.19.2
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
