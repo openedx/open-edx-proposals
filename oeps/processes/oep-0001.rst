@@ -287,13 +287,6 @@ The OEP is "Rejected" by the Arbiter. Perhaps after all is said and
 done it was not a good idea. It is still important to have a record of this
 fact.
 
-Withdrawn
----------
-
-Similar to "Rejected", the "Withdrawn" status means that the OEP Authors
-themselves have decided that the OEP is undesired or that a competing proposal
-is a better alternative.
-
 Replaced
 ---------
 
@@ -375,6 +368,14 @@ Once an OEP has merged to the open-edx-proposals repository (which can
 happen when the OEP is in any status, including "Under Review"), changes can be
 suggested to it via new pull requests. Whether those changes are included is up
 to the Authors of the OEP.
+
+Unpublished OEPs
+----------------
+
+Sometimes an OEP is written but ultimately abandoned before being merged. These
+can be found in closed, unmerged, PRs (see the list `here`_).
+
+.. _here: https://github.com/openedx/open-edx-proposals/pulls?q=is%3Apr+is%3Aclosed+is%3Aunmerged
 
 Updating Best Practice and Process OEPs
 ---------------------------------------
@@ -565,6 +566,11 @@ at the top of the list.
 
 Change History
 **************
+
+2024-06-25
+==========
+* Remove "Withdrawn" status
+* `Pull request #597 <https://github.com/openedx/open-edx-proposals/pull/597>`_
 
 2024-05-16
 ==========

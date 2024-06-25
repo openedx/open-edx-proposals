@@ -22,3 +22,4 @@
 "best-practices/oep-0009-bp-permissions.rst" "archived/oep-0009-bp-permissions.rst"
 "architectural-decisions/oep-0065-frontend-composability.rst" "architectural-decisions/oep-0065-arch-frontend-composability.rst"
 "best-practices/oep-0067/decisions/frontend/0007-typescript.rst" "best-practices/oep-0067/decisions/frontend/0008-typescript.rst"
+"best-practices/oep-0013.rst" "archived/oep-0013.rst"
