@@ -570,7 +570,7 @@ Change History
 2024-06-25
 ==========
 * Remove "Withdrawn" status
-* `Pull request # <>`_
+* `Pull request #597 <https://github.com/openedx/open-edx-proposals/pull/597>`_
 
 2024-05-16
 ==========
