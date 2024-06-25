@@ -6,7 +6,7 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Title         | OEP Purpose and Guidelines                                   |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2024-06-25                                                   |
+| Last-Modified | 2022-06-22                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | - Calen Pennington <cale@edx.org>                            |
 |               | - Joel Barciauskas <joel@edx.org>                            |
