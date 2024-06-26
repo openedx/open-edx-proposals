@@ -427,6 +427,18 @@ We feel that the siloing of micro-frontends, the proliferation of dependencies, 
 .. _frontend-template-application: https://github.com/openedx/frontend-template-application
 .. _LucidChart source: https://lucid.app/lucidchart/8c2db108-7c14-4525-8e3a-d2853db68b9e/edit?invitationId=inv_7a61f692-df0b-465b-8ec1-5a18ce4447ca
 
+Related Decisions
+*****************
+
+The following related decisions modify or enhance this OEP, but have not yet been fully incorporated as updates to this OEP:
+
+.. toctree::
+   :caption: OEP-65 Decisions
+   :maxdepth: 1
+   :glob:
+
+   oep-0065/decisions/*
+
 Change History
 **************
 
