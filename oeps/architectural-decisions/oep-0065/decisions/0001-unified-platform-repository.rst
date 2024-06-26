@@ -67,7 +67,7 @@ Runtime library
 The library will export a subset of the APIs in ``frontend-platform``, along with ``frontend-plugin-framework``'s API and new APIs specific to the module MFE architecture and the shell.  This library will be a dependency of MFEs, as ``frontend-platform`` has been historically.
 
 Development tool configurations
-==============================
+===============================
 
 The library will provide base ESLint, Jest, TypeScript, and Webpack configurations.  ESLint, Jest, and TypeScript will be similar to what ``frontend-build`` provides.
 
@@ -97,4 +97,13 @@ We believe this is a reasonable migration strategy given the generally low rate 
 References
 **********
 
-* :doc:`OEP-65: Frontend Composability <oep-0065-arch-frontend-composability>`
+* :doc:`OEP-65: Frontend Composability <../../oep-0065-arch-frontend-composability>`
+
+Change History
+**************
+
+2024-06-26
+==========
+
+* Document created
+* `Pull request #598 <https://github.com/openedx/open-edx-proposals/pull/598>`_
