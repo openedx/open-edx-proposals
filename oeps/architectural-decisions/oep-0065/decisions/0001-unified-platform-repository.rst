@@ -1,5 +1,5 @@
 OEP-65 Create a unified platform repository
-##########################################
+###########################################
 
 Status
 ******
@@ -29,7 +29,7 @@ It will also involve the creation of a new *shell application* to initialize the
 There are several related concerns which influence our strategy for migrating these library repositories to the new module MFE architecture.
 
 Significant API changes
-======================
+=======================
 
 The creation of the shell application and the move toward using plugins and module federation is expected to significantly change our libraries' API surface as the shell takes responsibility for much of what ``frontend-platform`` provides to MFEs in the application MFE architecture.
 
@@ -48,7 +48,7 @@ Modernization
 We also feel the need to continue to modernize our library repositories by adopting industry standard technologies like Typescript, or more performant webpack loaders, and there's some sentiment that this may be the right time to make these changes as we're already undergoing a paradigm shift.  ``frontend-platform``, for instance, simplifies significantly if we use TypeScript types instead of the bespoke "interface" and "service implementation" system in that repository.
 
 Deprecation of the application MFE architecture
-=================================================
+===============================================
 
 One way or another, this is a paradigm shift that will involve breaking changes and migration work on behalf of community members.  We would like to provide a clear a path forward for operators, developers, and maintainers to adopt the module MFE architecture.  We believe that a clean break and a cohesive and clear platform for module MFEs is more approachable than a more granular deprecation of certain features and code in the existing library repositories.
 
@@ -83,7 +83,7 @@ These webpack configurations will be exposed via a function like ``frontend-buil
 CLI tool
 ========
 
-Similar to ``fedx-scripts`` provided by ``frontend-build``, the unified library will provide a CLI tool.  This tool will expose commands to run the above webpack configurations, as well as other commands related to frontend projects.  The rationale and details of frontend projects and these CLI commands are the subject of :doc:`ADR-0002: Frontend projects and CLI tooling <0002-frontend-projects-cli-tooling>`.
+Similar to ``fedx-scripts`` provided by ``frontend-build``, the unified library will provide a CLI tool.  This tool will expose commands to run the above webpack configurations, as well as other commands related to frontend projects.  The rationale and details of frontend projects and these CLI commands are the subject of a future ADR.
 
 Consequences
 ************
@@ -98,4 +98,3 @@ References
 **********
 
 * :doc:`OEP-65: Frontend Composability <oep-0065-arch-frontend-composability>`
-* :doc:`ADR-0002: Frontend projects and CLI tooling <0002-frontend-projects-cli-tooling>`
