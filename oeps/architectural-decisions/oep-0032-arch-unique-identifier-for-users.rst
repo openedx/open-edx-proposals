@@ -11,19 +11,27 @@ OEP-32: Unique Identifier for Users
    * - Title
      - Unique Identifier for Users
    * - Last Modified
-     - 2021-04-16
+     - 2024-07-08
    * - Authors
      - Brian Wilson, Robert Raposa, Nimisha Asthagiri
    * - Arbiter
      - Olga Stroilova
    * - Status
-     - Approved
+     - Needs Revision
+   * - Revision Ticket
+     - https://github.com/openedx/open-edx-proposals/issues/407
    * - Type
      - Architecture
    * - Created
      - 2019-01-25
    * - `Review Period`
      - 2019-04-15 - 2019-04-29
+
+.. note::
+
+    The guidance for external ids in this OEP is currently incorrect; it has been superseded by `this ADR <https://github.com/openedx/edx-platform/blob/e1c8fb51bec2be3aa8da9750cb52b01728d1a740/openedx/core/djangoapps/external_user_ids/docs/decisions/0001-externalid.rst>`_.
+
+    The guidance in this OEP is partially correct. It is valid for internal ids, and invalid for external ids. For questions and discussion, please post on `GitHub issue 407 <https://github.com/openedx/open-edx-proposals/issues/407>`_.
 
 Decision
 ********
@@ -128,3 +136,12 @@ However, the introduction of a new id has large costs:
 * Data analytics is one area where, even though we don't have 100% compliance with use of the *LMS user_id*, we have enough compliance to make the data useful. Switching the user identifier for data analytics would require a large coordinated effort that would be difficult for data scientists with no benefit to them.
 
 * Adding another user id without being able to retire an old id also has the drawback of making the system less approachable, as each developer tries to learn which id to use in which situation.
+
+Change History
+**************
+
+2024-07-08
+==========
+* Change status to "Needs Revision"
+* `Discussion issue #407 <https://github.com/openedx/open-edx-proposals/issues/407>`
+* `Pull request #603 <https://github.com/openedx/open-edx-proposals/pull/603>`_
