@@ -6,7 +6,7 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Title         | OEP Purpose and Guidelines                                   |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2022-06-22                                                   |
+| Last-Modified | 2024-07-08                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | - Calen Pennington <cale@edx.org>                            |
 |               | - Joel Barciauskas <joel@edx.org>                            |
@@ -126,7 +126,8 @@ In brief, the Arbiter...
   * During the review period, the Arbiter keeps discussions on track and guides
     them towards resolution.
   * At the end of this period, the Arbiter decides if the OEP should be
-    accepted, rejected, or remain open for additional discussion.
+    merged & published (with an Accepted or Provisional status), rejected (PR is
+    closed without merge), or remain open for additional discussion.
 
 The Arbiter will be the person making the final decision on whether the OEP
 should be Accepted, and as such, the Arbiter should be knowledgeable about
@@ -136,10 +137,10 @@ and against it by the rest of the community.
 The Arbiter is also responsible for helping the Authors move the proposal
 through the OEP process, providing technical and process expertise as needed.
 The Arbiter also assists the Authors in soliciting feedback from the
-community on the OEP and moving it towards a final decision (whether that
-decision is Accepted, Rejected, or Deferred). The Arbiter (in discussion with
-the Authors) can merge an in-progress OEP (if it has reached a stage of relative
-stability) to allow for additional incremental updates.
+community on the OEP and moving it towards a final decision (whether the pull
+request is merged as Accepted or closed). The Arbiter (in discussion with the Authors) can
+merge an in-progress OEP (if it has reached a stage of relative stability) to
+allow for additional incremental updates.
 
 Architecture Group
 ==================
@@ -231,9 +232,9 @@ OEP Status
 
 .. graphviz::
   :alt: A flowchart of OEP statuses, from Draft to Under Review, then to
-      Accepted or Rejected. There are 2 transitional statuses from
-      Draft and Under Review: to/from Provisional and to/from Deferred. An
-      Accepted OEP can be Replaced.
+      Accepted. There are 2 transitional statuses from Draft and Under Review:
+      to/from Provisional and to/from Deferred. An Accepted OEP can be Replaced,
+      become Obsolete, or marked as Needing Revision.
 
 
     digraph oep_process {
@@ -244,7 +245,7 @@ OEP Status
         "Draft" -> { "Under Review" "Deferred" }
         "Needs Revision" -> "Under Review"
         "Under Review" -> { "Deferred" "Provisional" } [dir=both]
-        "Under Review" ->  { "Accepted" "Rejected" }
+        "Under Review" ->  { "Accepted" }
         "Accepted" -> "Final"
         "Final" -> { "Replaced" "Obsolete" "Needs Revision" } [style=dashed] [style=dashed]
     }
@@ -280,13 +281,6 @@ since it hasn't been vetted and adopted in the platform. Once viable reference
 examples and platform adoption occurs, the OEP can transition back to Under
 Review and be Accepted.
 
-Rejected
---------
-
-The OEP is "Rejected" by the Arbiter. Perhaps after all is said and
-done it was not a good idea. It is still important to have a record of this
-fact.
-
 Replaced
 ---------
 
@@ -316,24 +310,25 @@ be added to the preamble (directly under the status field) that directs to the
 GitHub issue or draft pull request in the ``open-edx-proposals`` repository that
 describes what about the OEP that needs revisioning.
 
+Rejecting an OEP
+----------------
+
+Sometimes after all is said and done, it was not a good idea. In this case, the
+pull request proposing the change is closed and the description's first line is
+edited to indicate that the OEP is no longer being pursued, and why.
+
 Status changes
 --------------
 
-When an OEP is Accepted or Rejected, the OEP should be updated
-accordingly. In addition to updating the Status field, at the very least the
-Resolution header should be added with a link to the appropriate section of
-the PR, and the Last-Modified header should be set to the current date.
+When an OEP is Accepted, the OEP should be updated accordingly. In addition to
+updating the Status field, at the very least the Resolution header should be
+added with a link to the appropriate section of the PR, and the Last-Modified
+header should be set to the current date.
 
-Please note that OEP statuses do not necessarily coincide with the status of
-the pull request that contains the OEP. For example, OEPs that have been
-rejected should still be merged, but should be marked with the "Rejected" status.
-This preserves the rationale and description of the OEP in the generated
-documentation.
-
-Likewise, an OEP that is in Under Review, Provisional, or Deferred statuses can
+An OEP that is in Under Review, Provisional, or Deferred statuses can
 be merged to capture a set of edits, and to make the proposal more visible to
 community comment. From that point, additional pull requests can be opened to
-edit the OEP, until it converges to being either "Accepted" or "Rejected".
+edit the OEP, until it converges to being either "Accepted" or "Obsolete".
 
 When an OEP PR calls for significant work after it merges, add a link named
 "Follow-up Work" to the References section of the OEP header. Use the linked
@@ -341,7 +336,10 @@ page to keep readers up-to-date on the plan for completing and/or implementing
 the proposal. For OEPs merging with the status of Draft or Provisional,
 a Follow-up Work link is required.
 
-If an OEP has Draft or Under Review status and the PR is under review, you can either use the intended merged status (e.g. Provisional, Accepted, etc.), or you can clarify both the current and intended status using something like the following: "Under Review (=> Provisional)". Either of these options is especially useful if the merged status is not intended to be Accepted.
+If an OEP has Draft or Under Review status and the PR is under review, you
+should clarify both the current and intended status using something like the
+following: "Under Review (=> Provisional)". This option is
+especially useful if the merged status is not intended to be Accepted.
 
 OEP Maintenance
 ===============
@@ -488,7 +486,7 @@ described below. All other rows are required.
 | Arbiter         | <Arbiter's real name and email address>   |
 +-----------------+-------------------------------------------+
 | Status          | <Draft | Under Review | Deferred |        |
-|                 | Accepted | Rejected |                     |
+|                 | Accepted                                  |
 |                 | Final | Replaced | Provisional >          |
 +-----------------+-------------------------------------------+
 | Type            | <Architecture | Best Practice | Process>  |
@@ -566,6 +564,13 @@ at the top of the list.
 
 Change History
 **************
+
+2024-07-08
+==========
+* Reflect reality that rejected or withdrawn proposals are frequently left
+  unmerged even though OEP-1 calls for it.
+* Remove "Rejected" status, as it is unused.
+* `Pull request #601 <https://github.com/openedx/open-edx-proposals/pull/601>`_
 
 2024-06-25
 ==========
