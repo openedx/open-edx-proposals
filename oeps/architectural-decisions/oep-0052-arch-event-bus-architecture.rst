@@ -30,10 +30,6 @@ OEP-52: Event Bus Architecture
 Overview
 ********
 
-.. note::
-
-    This provisional OEP is expected to be updated with references to new sub-decision ADRs and documentation to add clarity as work progresses. See the `event bus project roadmap`_ for more details.
-
 * Adding an event bus to the Open edX platform allows asynchronous event messaging across services, which enables a number of improvements aligned with our architectural goals.
 
 * An abstraction layer will be provided to enable the choice of multiple technologies for implementing an Open edX event bus.
@@ -111,6 +107,11 @@ Consequences
 
 Change History
 **************
+
+2024-07-09
+==========
+
+* Removed note about OEP being provisional, as it has been marked as Accepted.
 
 2023-05-15
 ==========
