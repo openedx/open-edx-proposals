@@ -23,3 +23,4 @@
 "architectural-decisions/oep-0065-frontend-composability.rst" "architectural-decisions/oep-0065-arch-frontend-composability.rst"
 "best-practices/oep-0067/decisions/frontend/0007-typescript.rst" "best-practices/oep-0067/decisions/frontend/0008-typescript.rst"
 "best-practices/oep-0013.rst" "archived/oep-0013.rst"
+"processes/oep-0056-proc-architectural-advisory-process.rst" "archived/oep-0056-proc-architectural-advisory-process.rst"
