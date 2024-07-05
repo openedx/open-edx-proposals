@@ -9,7 +9,7 @@ OEP-56: Architectural Advisory Process
    * - Title
      - Architectural Advisory Process
    * - Last Modified
-     - 2022-02-25
+     - 2024-07-10
    * - Authors
      - David Joy <djoy@edx.org>
    * - Arbiter
