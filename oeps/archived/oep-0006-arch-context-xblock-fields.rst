@@ -12,7 +12,7 @@ OEP-6: Context-scoped XBlock Fields
 +---------------+----------------------------------------------------------+
 | Arbiter       | Calen Pennington <cale@edx.org>                          |
 +---------------+----------------------------------------------------------+
-| Status        | Provisional                                              |
+| Status        | Obsolete                                                 |
 +---------------+----------------------------------------------------------+
 | Type          | Architecture                                             |
 +---------------+----------------------------------------------------------+
@@ -425,3 +425,12 @@ This work is licensed under a `Creative Commons Attribution-ShareAlike 4.0
 International License`_.
 
 .. _Creative Commons Attribution-ShareAlike 4.0 International License: https://creativecommons.org/licenses/by-sa/4.0/
+
+Change History
+**************
+
+2022-07-10
+==========
+
+* Marked as Obsolete, as this was never implemented
+* `Pull request #606 <https://github.com/openedx/open-edx-proposals/pull/606>`_
