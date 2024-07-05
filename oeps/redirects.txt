@@ -24,3 +24,4 @@
 "best-practices/oep-0067/decisions/frontend/0007-typescript.rst" "best-practices/oep-0067/decisions/frontend/0008-typescript.rst"
 "best-practices/oep-0013.rst" "archived/oep-0013.rst"
 "processes/oep-0056-proc-architectural-advisory-process.rst" "archived/oep-0056-proc-architectural-advisory-process.rst"
+"architectural-decisions/oep-0006-arch-context-xblock-fields.rst" "archived/oep-0006-arch-context-xblock-fields.rst"
