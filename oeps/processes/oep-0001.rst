@@ -231,7 +231,7 @@ OEP Status
 
 .. graphviz::
   :alt: A flowchart of OEP statuses, from Draft to Under Review, then to
-      Accepted, Rejected, or Withdrawn. There are 2 transitional statuses from
+      Accepted or Rejected. There are 2 transitional statuses from
       Draft and Under Review: to/from Provisional and to/from Deferred. An
       Accepted OEP can be Replaced.
 
@@ -244,7 +244,7 @@ OEP Status
         "Draft" -> { "Under Review" "Deferred" }
         "Needs Revision" -> "Under Review"
         "Under Review" -> { "Deferred" "Provisional" } [dir=both]
-        "Under Review" ->  { "Accepted" "Rejected" "Withdrawn" }
+        "Under Review" ->  { "Accepted" "Rejected" }
         "Accepted" -> "Final"
         "Final" -> { "Replaced" "Obsolete" "Needs Revision" } [style=dashed] [style=dashed]
     }
@@ -319,7 +319,7 @@ describes what about the OEP that needs revisioning.
 Status changes
 --------------
 
-When an OEP is Accepted, Rejected, or Withdrawn, the OEP should be updated
+When an OEP is Accepted or Rejected, the OEP should be updated
 accordingly. In addition to updating the Status field, at the very least the
 Resolution header should be added with a link to the appropriate section of
 the PR, and the Last-Modified header should be set to the current date.
@@ -488,7 +488,7 @@ described below. All other rows are required.
 | Arbiter         | <Arbiter's real name and email address>   |
 +-----------------+-------------------------------------------+
 | Status          | <Draft | Under Review | Deferred |        |
-|                 | Accepted | Rejected | Withdrawn |         |
+|                 | Accepted | Rejected |                     |
 |                 | Final | Replaced | Provisional >          |
 +-----------------+-------------------------------------------+
 | Type            | <Architecture | Best Practice | Process>  |
