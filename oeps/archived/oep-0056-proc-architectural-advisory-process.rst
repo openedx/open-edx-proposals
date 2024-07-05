@@ -15,7 +15,7 @@ OEP-56: Architectural Advisory Process
    * - Arbiter
      - Feanil Patel <feanil@axim.org>
    * - Status
-     - Provisional
+     - Obsolete
    * - Type
      - Process
    * - Created
@@ -207,6 +207,12 @@ We see three significant problems with the idea of having such a forum:
 
 Change History
 **************
+
+2022-07-10
+==========
+
+* Marked as Obsolete, as this was never implemented
+* `Pull request #606 <https://github.com/openedx/open-edx-proposals/pull/606>`_
 
 2022-03-28
 ==========
