@@ -9,7 +9,7 @@ OEP-58: Translations Management
    * - Title
      - Translations Management
    * - Last Modified
-     - 2022-11-22
+     - 2024-07-25
    * - Authors
      - 
        * Carlos Muniz <cmuniz@axim.org>
@@ -18,7 +18,7 @@ OEP-58: Translations Management
    * - Arbiter
      - Ned Batchelder <ned@edx.org>
    * - Status
-     - Provisional
+     - Accepted
    * - Type
      - Architecture Decision
    * - Created
@@ -26,7 +26,10 @@ OEP-58: Translations Management
    * - Review Period
      - 2022-11-07 - 2022-11-21
    * - References
-     - `Follow-up Work <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3578494977/Translations+Management+Design+Implementation>`_
+     -
+       * `Concept doc about translations <https://docs.openedx.org/en/latest/translators/concepts/translation-process.html>`_
+       * `Enabling translations on a new repo <https://docs.openedx.org/en/latest/developers/how-tos/enable-translations-new-repo.html>`_
+       * `Follow-up Work <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3578494977/Translations+Management+Design+Implementation>`_
 
 .. contents::
   :local:
@@ -263,6 +266,19 @@ Transifex Project, each Transifex Project will need to be maintained separately,
 debugging issues or tracking the progress of each Transifex Project time-consuming. In
 addition, the Transifex editor does not support editing strings across multiple projects
 making it extremely time consuming for users to translate strings from many projects.
+
+Change History
+**************
+
+2024-07-25
+==========
+* Mark OEP as "Accepted", due to the full implementation of the proposal
+* `Pull request #610 <https://github.com/openedx/open-edx-proposals/pull/610>`_
+
+2022-08-08
+==========
+* Document created
+* `Pull request #367 <https://github.com/openedx/open-edx-proposals/pull/367>`_
 
 .. _ecommerce-scripts: https://github.com/openedx/ecommerce-scripts/tree/master/transifex
 .. _edx-platform: https://github.com/openedx/edx-platform
