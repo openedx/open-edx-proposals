@@ -90,7 +90,7 @@ soupsieve==2.5
     # via
     #   -r requirements/base.txt
     #   beautifulsoup4
-sphinx==7.4.4
+sphinx==7.4.7
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
@@ -112,7 +112,7 @@ sphinxcontrib-devhelp==1.0.6
     # via
     #   -r requirements/base.txt
     #   sphinx
-sphinxcontrib-htmlhelp==2.0.5
+sphinxcontrib-htmlhelp==2.0.6
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -120,7 +120,7 @@ sphinxcontrib-jsmath==1.0.1
     # via
     #   -r requirements/base.txt
     #   sphinx
-sphinxcontrib-qthelp==1.0.7
+sphinxcontrib-qthelp==1.0.8
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -130,7 +130,7 @@ sphinxcontrib-serializinghtml==1.1.10
     #   sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
-starlette==0.37.2
+starlette==0.38.0
     # via sphinx-autobuild
 typing-extensions==4.12.2
     # via
@@ -140,7 +140,7 @@ urllib3==2.2.2
     # via
     #   -r requirements/base.txt
     #   requests
-uvicorn==0.30.1
+uvicorn==0.30.3
     # via sphinx-autobuild
 watchfiles==0.22.0
     # via sphinx-autobuild
