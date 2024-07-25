@@ -340,6 +340,8 @@ Change History
 2024-07-25
 ==========
 
+* Added "Development dependencies should be separated into devDependencies"
+* `Pull request #615 <https://github.com/openedx/open-edx-proposals/pull/615>`_
 * Changed guidance on React state/data loading to recommend React Query instead of Redux
 * Updated JavaScript/TypeScript guidance
 * `Pull request #616 <https://github.com/openedx/open-edx-proposals/pull/616>`_
