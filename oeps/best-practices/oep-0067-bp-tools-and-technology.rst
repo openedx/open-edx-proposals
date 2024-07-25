@@ -328,6 +328,12 @@ Consequences
 Change History
 **************
 
+2024-07-25
+==========
+
+* Added "Development dependencies should be separated into devDependencies"
+* `Pull request #615 <https://github.com/openedx/open-edx-proposals/pull/615>`_
+
 2023-09-05
 ==========
 
