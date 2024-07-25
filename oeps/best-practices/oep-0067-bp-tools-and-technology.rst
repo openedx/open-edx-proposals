@@ -254,6 +254,16 @@ Frontend Technology Selection
    don't unintentionally increase the size of our JavaScript bundles, we utilize BundleWatch
    for automated bundle size monitoring.
 
+#. **Development dependencies should be separated into devDependencies**
+
+   **Rationale**: To keep installation and deployment of our MFEs as fast as
+   possible, the "dependencies" field in ``package.json`` should reference only
+   the packages needed to build the bundle of the MFE (this includes webpack via
+   frontend-build, as well as any dependencies used in the actual MFE/React
+   code). Any dependencies used only for testing, linting, formatting, or other
+   development tasks should be put into "devDependencies" (e.g. Jest, eslint,
+   TypeScript, ``@types/`` packages, etc.).
+
 Backend Technology Selection
 ============================
 
