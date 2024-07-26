@@ -6,7 +6,7 @@ OEP-1: OEP Purpose and Guidelines
 +---------------+--------------------------------------------------------------+
 | Title         | OEP Purpose and Guidelines                                   |
 +---------------+--------------------------------------------------------------+
-| Last-Modified | 2024-07-08                                                   |
+| Last-Modified | 2024-07-25                                                   |
 +---------------+--------------------------------------------------------------+
 | Authors       | - Calen Pennington <cale@edx.org>                            |
 |               | - Joel Barciauskas <joel@edx.org>                            |
@@ -224,6 +224,20 @@ The Open edX community is given the opportunity to comment on the OEP.
 The Arbiter serves to keep the discussion on track and to bring the review
 process to a final resolution.
 
+Step 4. Announcing Changes
+--------------------------
+
+After merging a pull request - whether it was the addition of a new OEP, a
+wording/status change to an existing OEP, or the addition of a new ADR to an
+OEP - please announce the change:
+
+#. Announce the merge - and briefly describe the change - in the
+   `#open-edx-proposals Slack channel`_.
+#. If applicable, announce to an appropriate working group in Slack or at an
+   upcoming working group meeting.
+#. If applicable, close the associated GitHub ticket(s) associated with the
+   change.
+
 .. _Announcements - Architecture category: https://discuss.openedx.org/c/announcements/architecture
 .. _#open-edx-proposals Slack channel: https://openedx.slack.com/messages/C1L370YTZ/details/
 
@@ -395,6 +409,9 @@ through the following steps:
 #. Follow the `Step 3. Review with Arbiter`_ process, with a review period of at
    least one week (for smaller changes).
 
+#. Finally, please follow `Step 4. Announcing Changes`_ to inform the community
+   about what has been changed in the OEP.
+
 Updating Architecture OEPs
 --------------------------
 
@@ -412,6 +429,9 @@ OEP.
 * Adding links to additional relevant resources and discussions.
 * Additional diagrams or clarifying material (as long as the `Architecture
   Group`_ agrees that the substance of the OEP isn't changed).
+
+When making changes larger than simple formatting or spelling corrections, please follow `Step 4. Announcing Changes`_ to inform
+the community about what has been changed in the OEP.
 
 The following updates warrant replacement OEPs.
 
@@ -564,6 +584,11 @@ at the top of the list.
 
 Change History
 **************
+
+2024-07-25
+==========
+* Add guidance on announcing changes (new as well as changed OEPs and ADRs)
+* `Pull request #602 <https://github.com/openedx/open-edx-proposals/pull/602>`_
 
 2024-07-08
 ==========
