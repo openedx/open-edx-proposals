@@ -587,7 +587,7 @@ Change History
 
 2024-07-25
 ==========
-* Add a guidance on announcing changes (new as well as changed OEPs and ADRs)
+* Add guidance on announcing changes (new as well as changed OEPs and ADRs)
 * `Pull request #602 <https://github.com/openedx/open-edx-proposals/pull/602>`_
 
 2024-07-08
