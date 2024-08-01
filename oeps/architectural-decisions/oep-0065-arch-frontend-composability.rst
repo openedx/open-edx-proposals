@@ -138,6 +138,8 @@ Capability: Runtime Module Loading
 
 The capability to lazily load content from independently built modules into the page - without iframes - solves many of the `Composability`_ and `User and Developer Experience`_ issues above. In particular, it gives us a way of composing UI elements from different MFEs/Domains dynamically at runtime without a "host" application needing to know anything about the "guest" at build-time. The two remain completely decoupled, save some shared runtime configuration. It also cuts down on the number of full page refreshes experienced by users.
 
+Not only do we want to load modules at runtime, but we want to *configure* which modules to load at runtime.  This feature is called **runtime remote discovery**, i.e., discovering which "guests" exist, perhaps from some API like the MFE configuration API, at runtime as the application is loading.  We believe this is a hard requirement of our runtime module loading implementation because we want to avoid rebuilding 'hosts' just because their module federation configuration changed.
+
 It's worth noting that adopting runtime module loading has a high degree of overlap with the capabilities of the `frontend-plugin-framework <frontend-plugin-framework_>`_ (FPF) and is a natural extension of its feature set.
 
 Advantages: Runtime Module Loading
@@ -400,7 +402,7 @@ Unfortunately, both of these implementations have limitations and drawbacks that
 
 Another related alternative we considered was to write our own module federation implementation using Vite for its build.  This option significantly means there's even less documentation and no community support, and Vite lacks support excluding dependencies from its output bundle, similar to how `Webpack externals <https://webpack.js.org/configuration/externals/>`_ works.  We would need a mechanism like this to support a custom implementation.
 
-For all these reasons, we've rejected a Vite-based implementation of module federation.  If, at a later date, a more viable Vite implementation of module federation is available, we might strongly consider migrating to Vite to be a great way of improving the performance and developer experience of our frontend builds.
+For all these reasons, we've rejected a Vite-based implementation of module federation.  If, at a later date, a more viable Vite implementation of module federation is available or we no longer have runtime remote discovery as a hard requirement, we might strongly consider migrating to Vite to be a great way of improving the performance and developer experience of our frontend builds.
 
 Piral
 =====
