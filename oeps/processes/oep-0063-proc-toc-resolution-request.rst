@@ -17,7 +17,7 @@ OEP-63: TOC Resolution Request
    * - Arbiter
      - Ed Zarecor
    * - Status
-     - Draft
+     - Accepted
    * - Type
      - Process
    * - Created
