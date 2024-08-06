@@ -140,7 +140,7 @@ urllib3==2.2.2
     # via
     #   -r requirements/base.txt
     #   requests
-uvicorn==0.30.3
+uvicorn==0.30.5
     # via sphinx-autobuild
 watchfiles==0.22.0
     # via sphinx-autobuild
