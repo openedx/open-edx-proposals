@@ -112,6 +112,9 @@ Frontend Technology Selection
    approach. However, for new code or major refactorings of existing code, it is
    recommended to use React Query and plain React state instead as described.
 
+   **Decision Record**: For details, see
+   :doc:`OEP-0067-0010 React Query <oep-0067/decisions/frontend/0010-react-query>`.
+
 #. **Use Jest and React-Testing-Library to test React components**
 
    We use `Jest`_ and `React-Testing-Library`_ to test React components.
@@ -131,7 +134,8 @@ Frontend Technology Selection
 
    **TypeScript**: TypeScript should be utilized in frontend code wherever it
    seems to provide value (especially in any code that is reused: libraries, API
-   wrappers, shared components, data type definitions, etc.).
+   wrappers, shared components, data type definitions, etc.). For details, see
+   :doc:`OEP-0067-0008 TypeScript <oep-0067/decisions/frontend/0008-typescript>`.
 
    **JSX**: Babel or other tooling may be used to add JSX syntax support to our
    JavaScript/TypeScript code.
