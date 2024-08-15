@@ -9,7 +9,7 @@ OEP-67: Standard Tools and Technologies
    * - Title
      - Tools and Technology Standards
    * - Last Modified
-     - 2023-09-05
+     - 2024-07-25
    * - Authors
      - Feanil Patel <feanil@axim.org>
    * - Arbiter
@@ -90,7 +90,7 @@ Frontend Technology Selection
    users. This encompasses views rendered in Python on the server, interactive
    interfaces written using JavaScript, and CSS styling.
    
-.. _Use React and Redux:
+.. _Use React:
 
 #. **Use React**
 
@@ -98,18 +98,22 @@ Frontend Technology Selection
    widely adopted by the community and strikes a balance between
    flexibility and feature richness.
 
-   When building in existing Django server-rendered pages, one can use the
-   react_render helper method to bridge to React. This bridge provides an
-   easy way to pass data into a React component from Django via props. For
-   more information about react_render see `ReactRender`_.
+#. **Use React Query for data loading**
 
-#. **Use Redux**
+   For loading data from the platform or other external sources (e.g. via REST
+   APIs), `React Query`_ should be used.
 
-   For state management of complex
-   client-side interactions, Redux must be used. This library was chosen
-   because it sees strong use in the React community, but is also flexible
-   enough to be used in situations where a hybrid React/Backbone architecture
-   exists.
+   For client-side state management, regular React "state" and "context" should
+   be used alongside React Query, following the best practices described in the
+   official React docs: `Managing State`_.
+
+   **Exception**: Much of our frontend code is currently written using Redux for
+   both data loading and state management, and that is also an accepted
+   approach. However, for new code or major refactorings of existing code, it is
+   recommended to use React Query and plain React state instead as described.
+
+   **Decision Record**: For details, see
+   :doc:`OEP-0067-0010 React Query <oep-0067/decisions/frontend/0010-react-query>`.
 
 #. **Use Jest and React-Testing-Library to test React components**
 
@@ -122,20 +126,23 @@ Frontend Technology Selection
 
    **Rationale**: edX JavaScript should be written consistent with the latest
    ECMA-262 specification in order to ensure future support, the largest
-   community and the availability of modern features. Currently, the ECMA-262
-   edition 6 (ES6) is the edition with the largest support and should be used.
-   To support this syntax in older browsers, use `Babel`_. Babel may also be
-   configured to add syntax extensions widely adopted by the community of our
-   recommended framework (e.g., `JSX`_).
+   community and the availability of modern features. Currently, ES2022 is
+   the latest version with full compatibility from `the browsers we support`_.
+   There is no need to use Babel, core-js, nor polyfills to provide backwards
+   compatibility with unsupported browsers nor to transform ES2022 code into
+   ES6/ES5 code.
 
-   **Exception**: Much of edX's existing front end code is written conformant
-   to the edition of ECMA-262 released in 2009 (ES5). Files written in ES5
-   should be gradually converted to the newer standard as new development in
-   those feature areas requires.
+   **TypeScript**: TypeScript should be utilized in frontend code wherever it
+   seems to provide value (especially in any code that is reused: libraries, API
+   wrappers, shared components, data type definitions, etc.). For details, see
+   :doc:`OEP-0067-0008 TypeScript <oep-0067/decisions/frontend/0008-typescript>`.
 
-   **Note**: edX previously used CoffeeScript, but its use has now been
-   deprecated. Community interest in TypeScript has also grown, but it and
-   other languages that do not follow the ECMA-262 spec should not be used.
+   **JSX**: Babel or other tooling may be used to add JSX syntax support to our
+   JavaScript/TypeScript code.
+
+   **Porting**: Files written in ES5 and/or plain JS should be gradually
+   converted to the newer standard (e.g. TypeScript with ES2022 syntax) as new
+   development in those feature areas allows.
 
 #. **JavaScript code should follow the edX ESLint configuration**
 
@@ -185,18 +192,18 @@ Frontend Technology Selection
    implemented to handle as much of the "asset pipeline" as possible,
    rather than passing this responsibility on to Django.
 
-#. **JavaScript dependencies should be managed with ES2015 Modules**
+#. **JavaScript dependencies should be managed with ES Modules**
 
    **Rationale**: JavaScript module systems allow front end code to specify
    its dependencies and be grouped into bundles that minimize the assets
    needed to provide page functionality. The most prevalent module syntax
    is currently `ES2015 Modules`_, which should be adopted everywhere
-   edX code is written to the ES2015 spec or later.
+   JavaScript/TypeScript code is used.
 
-   **Exception**: Much of edX's existing (ES5) JavaScript uses the older
+   **Exception**: Some of our existing JavaScript uses the older
    `AMD Modules`_ syntax for modules. AMD Modules are interoperable
-   with ES2015 Modules if Webpack is used for bundling, so AMD is an
-   acceptable module definition if the code must remain ES5.
+   with ES2015 Modules if Webpack is used for bundling, so this is fine in
+   legacy code, but should not be used in new or refactored code.
 
 #. **CSS should be generated using SCSS**
 
@@ -223,9 +230,11 @@ Frontend Technology Selection
 #. **Server-side content should be rendered with Django Templates**
 
    **Rationale**: Although it is advised to use client side templating with
-   React, see `Use React and Redux`_,  when rendering on the server Django templates
-   should be used. There are many template languages available for Django,
-   but the simplest option is to use the built-in Django template engine.
+   React, see `Use React`_,  in legacy code that generates HTML on the server,
+   Django templates should be used. There are many template languages available
+   for Django, but the simplest option is to use the built-in Django template
+   engine.
+
    The Open edX codebase has a mixture of Django and Mako templates, but the
    former are easier to reason about because they don't support arbitrary
    code evaluation.
@@ -318,6 +327,13 @@ Consequences
 Change History
 **************
 
+2024-07-25
+==========
+
+* Changed guidance on React state/data loading to recommend React Query instead of Redux
+* Updated JavaScript/TypeScript guidance
+* `Pull request #616 <https://github.com/openedx/open-edx-proposals/pull/616>`_
+
 2023-09-05
 ==========
 
@@ -344,13 +360,16 @@ Change History
 .. _Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 .. _Jest: https://jestjs.io/
 .. _JSX: https://facebook.github.io/react/docs/introducing-jsx.html
+.. _Managing State: https://react.dev/learn/managing-state
 .. _oep 18: https://open-edx-proposals.readthedocs.io/en/latest/oep-0018-bp-python-dependencies.html
 .. _package lock: https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 .. _React: https://github.com/facebook/react
 .. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React
+.. _React Query: https://tanstack.com/query/latest/docs/framework/react/overview
 .. _React-Testing-Library: https://testing-library.com/docs/react-testing-library/intro
 .. _ReactRender: https://github.com/openedx/edx-platform/blob/4b38b1f750918ff83c02cff776681aabe44bd689/common/djangoapps/pipeline_mako/templates/static_content.html#L159-L167
 .. _Renovate: https://renovatebot.com/
 .. _Sass documentation: http://sass-lang.com/
+.. _the browsers we support: https://github.com/openedx/browserslist-config#supported-browsers
 .. _Upgrade Automation How-to: https://docs.openedx.org/en/latest/developers/how-tos/enable-javascript-upgrade-automation.html
 .. _Webpack: https://webpack.github.io/

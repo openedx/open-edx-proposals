@@ -4,7 +4,9 @@ Use Redux
 Status
 ******
 
-Accepted
+Replaced
+
+(See :doc:`OEP-0067-0010 <0010-react-query>`)
 
 Context
 *******
