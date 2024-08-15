@@ -24,9 +24,11 @@ The bulk of the work to build OEP-65's reference implementation is related to th
 * frontend-component-header
 * frontend-component-footer
 
-It will also involve the creation of a new *shell application* to initialize the frontend at runtime and load existing MFEs as modules.
+It will also involve the creation of a new *shell application* to initialize the frontend at runtime and load existing MFEs as modules.  Prior to this decision, we might have considered putting the shell application in its own repository as well:
 
-There are several related concerns which influence our strategy for migrating these library repositories to the new module MFE architecture.
+* frontend-app-shell
+
+There are several related concerns which influence our strategy for migrating these library repositories to the new module MFE architecture, and which influence where we decide to put the shell.
 
 Significant API changes
 =======================
@@ -49,6 +51,8 @@ We also feel the need to continue to modernize our library repositories by adopt
 
 Deprecation of the application MFE architecture
 ===============================================
+
+As described in OEP-65, we're migrating from an "application" MFE architecture, where each MFE is a standalone, independently deployed app, to a "module" MFE architecture where the MFEs are modules loaded into a common "shell" application which owns the header, footer, initialization, and shared libraries.
 
 One way or another, this is a paradigm shift that will involve breaking changes and migration work on behalf of community members.  We would like to provide a clear a path forward for operators, developers, and maintainers to adopt the module MFE architecture.  We believe that a clean break and a cohesive and clear platform for module MFEs is more approachable than a more granular deprecation of certain features and code in the existing library repositories.
 
