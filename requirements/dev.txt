@@ -86,7 +86,7 @@ snowballstemmer==2.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-soupsieve==2.5
+soupsieve==2.6
     # via
     #   -r requirements/base.txt
     #   beautifulsoup4
@@ -140,7 +140,7 @@ urllib3==2.2.2
     # via
     #   -r requirements/base.txt
     #   requests
-uvicorn==0.30.5
+uvicorn==0.30.6
     # via sphinx-autobuild
 watchfiles==0.23.0
     # via sphinx-autobuild
