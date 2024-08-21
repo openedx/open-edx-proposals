@@ -33,11 +33,32 @@ There are several related concerns which influence our strategy for migrating th
 Significant API changes
 =======================
 
-The creation of the shell application and the move toward using plugins and module federation is expected to significantly change our libraries' API surface as the shell takes responsibility for much of what ``frontend-platform`` provides to MFEs in the application MFE architecture.
+The creation of the shell application and the move toward using plugins and module federation is expected to significantly change the API surface across our various libraries.
 
-The development environment will also change, as we want to be able to run a single development server that loads the MFE under development into the shell, which means alternatives to frontend-build's existing helpers will need to be created.
+``frontend-platform``
+---------------------
 
-The header and footer will be owned by the shell and need not be libraries any more (caveat: maintaining good ways to customize them), and we expect ``frontend-plugin-framework`` to be folded into ``frontend-platform`` to unify the two, as they will be intimately tied to each other going forward.
+As the shell takes responsibility for much of what ``frontend-platform`` provides to MFEs in the application MFE architecture, many of the APIs it exposes will become internal to the shell.  We will also likely need to add new APIs for interactions between the shell and MFEs.
+
+``frontend-build``
+------------------
+
+The development environment will also change, as we want to be able to run a single development server that loads the MFE under development into the shell.  This means creating alternatives to frontend-build's existing helpers to support the new architecture.
+
+``frontend-component-header`` / ``frontend-component-footer``
+-------------------------------------------------------------
+
+The header and footer will be owned by the shell and need not be libraries any more.  A caveat to this is, of course, that we need to maintain good ways to customize them.
+
+``frontend-plugin-framework``
+-----------------------------
+
+We expect ``frontend-plugin-framework`` to be folded into ``frontend-platform`` to unify the two, as they will be intimately tied to each other going forward.  We'll also be creating new APIs around loading plugins that support module federation.
+
+``frontend-app-*`` Repositories
+-------------------------------
+
+While we don't expect to merge these into a unified library, they are the consumers of all the API changes above.  We expect it will be simpler for developers to absorb these changes - and the inevitable bug fixes - by updating a single library dependency, rather than trying to navigate an interconnected dependency tree with cascading version updates.
 
 Reducing Dependency Maintenance
 ===============================
