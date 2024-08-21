@@ -29,6 +29,7 @@ OEP-65: Frontend Composability
    * - References
      - * `FC-0054 - Composable Micro-frontends Discovery <https://openedx.atlassian.net/wiki/spaces/COMM/pages/4063821827/FC-0054+-+Composable+Micro-frontends+Piral+Discovery>`_
        * `FC-0007 - Modular MFE Domains Discovery <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3614900241/CLOSED+FC-0007+-+Modular+MFE+Domains+Discovery>`_
+       * :doc:`ADR 0001 - Create a unified platform repository </architectural-decisions/oep-0045/decisions/0001-tutor-as-replacement-for-edx-configuration>`
 
 .. contents::
 	   :local:
@@ -449,6 +450,18 @@ We feel that the siloing of micro-frontends, the proliferation of dependencies, 
 .. _frontend-template-application: https://github.com/openedx/frontend-template-application
 .. _LucidChart source: https://lucid.app/lucidchart/8c2db108-7c14-4525-8e3a-d2853db68b9e/edit?invitationId=inv_7a61f692-df0b-465b-8ec1-5a18ce4447ca
 
+Related Decisions
+*****************
+
+The following related decisions modify or enhance this OEP, but have not yet been fully incorporated as updates to this OEP:
+
+.. toctree::
+   :caption: OEP-65 Decisions
+   :maxdepth: 1
+   :glob:
+
+   oep-0065/decisions/*
+
 Change History
 **************
 
@@ -467,3 +480,8 @@ Change History
 
 * Document created
 * `Pull request #575 <https://github.com/openedx/open-edx-proposals/pull/575>`_ contains all review feedback.
+
+2024-06-26
+==========
+
+* Adding a reference to ADR-0001, which describes creation of a unified platform repository.
