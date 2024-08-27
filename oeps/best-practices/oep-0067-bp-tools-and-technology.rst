@@ -254,6 +254,16 @@ Frontend Technology Selection
    don't unintentionally increase the size of our JavaScript bundles, we utilize BundleWatch
    for automated bundle size monitoring.
 
+#. **Development dependencies should be separated into devDependencies**
+
+   **Rationale**: To keep installation and deployment of our MFEs as fast as
+   possible, the "dependencies" field in ``package.json`` should reference only
+   the packages needed to build the bundle of the MFE (this includes webpack via
+   frontend-build, as well as any dependencies used in the actual MFE/React
+   code). Any dependencies used only for testing, linting, formatting, or other
+   development tasks should be put into "devDependencies" (e.g. Jest, eslint,
+   TypeScript, ``@types/`` packages, etc.).
+
 Backend Technology Selection
 ============================
 
@@ -330,6 +340,8 @@ Change History
 2024-07-25
 ==========
 
+* Added "Development dependencies should be separated into devDependencies"
+* `Pull request #615 <https://github.com/openedx/open-edx-proposals/pull/615>`_
 * Changed guidance on React state/data loading to recommend React Query instead of Redux
 * Updated JavaScript/TypeScript guidance
 * `Pull request #616 <https://github.com/openedx/open-edx-proposals/pull/616>`_
