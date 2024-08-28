@@ -117,3 +117,4 @@ Change History
 ==========
 
 * Document created
+* `Pull request #626 <https://github.com/openedx/open-edx-proposals/pull/626>`_
