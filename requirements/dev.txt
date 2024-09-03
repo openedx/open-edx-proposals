@@ -25,7 +25,7 @@ beautifulsoup4==4.12.3
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
-certifi==2024.7.4
+certifi==2024.8.30
     # via
     #   -r requirements/base.txt
     #   requests
@@ -130,7 +130,7 @@ sphinxcontrib-serializinghtml==2.0.0
     #   sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
-starlette==0.38.2
+starlette==0.38.4
     # via sphinx-autobuild
 typing-extensions==4.12.2
     # via
@@ -142,7 +142,7 @@ urllib3==2.2.2
     #   requests
 uvicorn==0.30.6
     # via sphinx-autobuild
-watchfiles==0.23.0
+watchfiles==0.24.0
     # via sphinx-autobuild
-websockets==13.0
+websockets==13.0.1
     # via sphinx-autobuild
