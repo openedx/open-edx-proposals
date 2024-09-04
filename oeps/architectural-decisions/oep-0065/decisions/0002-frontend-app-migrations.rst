@@ -1,5 +1,5 @@
-OEP-65 Frontend App Migrations
-##############################
+Frontend App Migrations
+#######################
 
 Status
 ******
@@ -9,7 +9,7 @@ Accepted
 Summary
 *******
 
-This ADR describes a migration path and simplified repository organization for the frontend-app-* repositories that is compatible with the shell provided by frontend-base as well as module federation and frontend projects.
+This ADR describes a migration path and simplified repository organization for the frontend-app-* repositories that is compatible with the shell provided by frontend-base, module federation, and frontend projects.
 
 Context
 *******
@@ -18,87 +18,102 @@ OEP-65 proposes adopting webpack module federation for Open edX micro-frontends 
 
 This reference implementation is effectively a new underlying architecture for our frontend. This ADR refers to this new architecture as the "module" architecture, as opposed to the historical "micro-frontend" architecture that has existed prior to OEP-65.
 
-As part of this paradigm shift, our frontend-app-* repositories (MFEs) will need to be migrated to work with frontend-base.  Of particular note, this will require the repositories to:
+As part of this paradigm shift, our ``frontend-app-*`` repositories (MFEs) will need to be migrated to work with `frontend-base <https://github.com/openedx/frontend-base>`_.  Of particular note, this will require the repositories to:
 
 * Adopt a new set of build/development CLI helpers
 * Use the shell to provide the header, footer, and runtime initialization code, amongst other things.
-* Organize their code into loosely-coupled top-level components, which we'll call *modules*.
+* Organize their code into loosely-coupled top-level components, which we'll call *application modules*.
 
-As we adopt frontend-base, the libraries it replaces will undergo their own deprecation processes, which will need to coordinate with the migration of micro-frontends included in Open edX releases.  After that deprecation, the micro-frontend architecture will cease to be supported.
+As we adopt ``frontend-base``, the libraries it replaces will undergo their own deprecation processes, which will need to coordinate with the migration of micro-frontends included in Open edX releases.  After that deprecation, the micro-frontend architecture will cease to be supported.
 
 Decision
 ********
 
-Each of our frontend-app-* repositories will migrate from being an independent "micro-frontend application" to being a library of modules that can be loaded into a common Shell, deployed as a Site.  We will document the migration process in detail.  At a high level:
+Each of our ``frontend-app-*`` repositories will migrate from being an independent "micro-frontend application" to being a library of modules that can be loaded into a common Shell, deployed as a Site.  These are called *application module libraries*.  We will document the migration process in detail.  At a high level, this will involve the following changes.
 
-* They will be deployable via a variety of methods, all of which will use the Shell.
-* They will be deployable together or independently.
-* They will no longer contain .env or env.config files for any environment, including Devstack and Tutor.
-* They will cease to use the following libraries in favor of frontend-base:
+New Deployment Methods
+======================
 
-  * @openedx/frontend-build
-  * @edx/frontend-plaform
-  * @openedx/frontend-plugin-framework
-  * @edx/frontend-component-header
-  * @edx/frontend-component-footer
-  * @openedx/frontend-slot-footer
-  * @edx/brand
-  * core-js
-  * regenerator-runtime
+The application module libraries will be buildable in several different ways.
 
-* The following dependencies will become peer dependencies:
+* Built as an independent Site using the Shell for initialization, the header and footer, configuration, and other foundational services (logging, analytics, i18n, etc.)
+* Built as federated modules to be loaded into the Shell at runtime via webpack module federation.
+* Built and released as an NPM package for build-time inclusion in a frontend Project, perhaps alongside other application modules from other libraries.
 
-  * @openedx/frontend-base
-  * @openedx/paragon
-  * react
-  * react-dom
-  * react-redux
-  * react-router
-  * react-router-dom
-  * redux
+Environment Agnostic
+====================
 
-* They will replace the frontend-build ``fedx-scripts`` CLI tools with the frontend-base ``openedx`` CLI tools.  We'll discuss some of them in detail here, as they help illustrate what the library will be able to do:
+The application module libraries will no longer contain ``.env`` or ``env.config`` files for any specific environment, including Devstack and Tutor. Config filename patterns will be added to the ``.gitignore`` file.  They will continue to support adding a (git ignored) config file into the repository to build or develop it, but we also expect operators to use Projects and check their config files into those project repositories as their primary way of working with the application module libraries.
 
-  * ``dev`` will start a dev server, loading the repository's application modules into the shell in a site.
-  * ``dev:module`` will start a dev server that provides the application modules via module federation.
-  * ``build`` will create a standalone deployable artifact that uses the shell (similar to the micro-frontend architecture)
-  * ``build:module`` will create a standalone deployable artifact that provides the application modules via module federation.
-  * ``release`` will package the library for distribution on npm.
-  * ``serve`` will work with ``build`` or ``build:module`` to locally serve the production assets they generated.
-  * ``pack`` will work with ``release`` to create a ``.tgz`` file suitable for installing in local git checkouts that depend on the library.  (this is a development tool)
+Projects and these config files will be the subject of a subsequent ADR.
 
-* The ``dev``, ``dev:module``, ``build``, and ``build:module`` CLI commands will rely on the existence of a "Site Config" file (the replacement for .env/env.config files) which will not be checked into the repository.
-* frontend-app-* repositories that are part of Open edX releases will be expected to be published on NPM as a library which exports its modules.
+Removed Dependencies
+====================
 
-Redefining "application"
-========================
+Application module libraries will cease to use the following libraries in favor of ``frontend-base``:
 
-This decision constitutes a re-definition of "application" in the Open edX frontend ecosystem.  In the past, "application" was synonymous with the entire frontend-app-* repository.  With this ADR, "application" will be synonymous with the top-level modules provided by a frontend-app-* repository. Those modules are applications.
+* @openedx/frontend-build
+* @edx/frontend-plaform
+* @openedx/frontend-plugin-framework
+* @edx/frontend-component-header
+* @edx/frontend-component-footer
+* @openedx/frontend-slot-footer
+* @edx/brand
+* core-js
+* regenerator-runtime
 
-We believe that the boundaries of our frontend-app-* repositories are fairly arbitrary and not as semantically meaningful as the boundaries of the *application modules* within them.  We want these modules to be the primary unit of modularity - not the entire repository.  The shell will be configured to load applications, not repositories.
+Peer Dependencies
+=================
 
-As an example:
+We expect application module libraries to be dependencies of Frontend Projects by default for most operators.  Because of this, the following dependencies will become peer dependencies in the application module libraries themselves:
 
-* The ``frontend-app-learning`` repository contains modules related to "learning" - course outline, courseware, the progress and dates pages, etc.
-* The ``frontend-app-authn`` repository contains modules related to "authentication" - login, registration, logout, forgot password, etc.
+* @openedx/frontend-base
+* @openedx/paragon
+* react
+* react-dom
+* react-redux
+* react-router
+* react-router-dom
+* redux
 
-The shell will be configured to load things like "courseware" or "login", not "learning" and "authn" - the repository the module is in is incidental.
+New CLI Tools
+=============
 
-Regarding "plugins"
--------------------
+The ``fedx-scripts`` CLI tools from ``frontend-build`` will be replaced with the ``openedx`` CLI tools from ``frontend-base``.  We'll discuss some of them in detail here, as they help illustrate what the library will be able to do:
 
-Plugins are another type of module.  We believe that they are different than application modules because they have a different interface with the shell.  Plugins are generally UI widgets loaded into a slot, though some can be larger.  Applications are generally large and complex, comprising multiple pages of functionality with internal routing.  They are also loaded at a path in the application, not in a plugin slot.
+* ``dev`` will start a dev server, loading the repository's application modules into the shell in a site.
+* ``dev:module`` will start a dev server that provides the application modules via module federation.
+* ``build`` will create a standalone deployable artifact that uses the shell (similar to the micro-frontend architecture)
+* ``build:module`` will create a standalone deployable artifact that provides the application modules via module federation.
+* ``release`` will package the library for distribution on npm.
+* ``serve`` will work with ``build`` or ``build:module`` to locally serve the production assets they generated.
+* ``pack`` will work with ``release`` to create a ``.tgz`` file suitable for installing in local git checkouts that depend on the library.  (this is a development tool)
 
-Modeling applications as Plugins is a possibility, but we believe that it feels like too much indirection and abstraction, and minimizes the importance of applications.  Without them there's no site, and many are likely *required* functionality for the Open edX frontend to function at all.
+The ``dev``, ``dev:module``, ``build``, and ``build:module`` CLI commands will rely on the existence of a "Site Config" file (the replacement for .env/env.config files) which will not be checked into the repository.
 
-Some frontend-app-* repositories may also include Plugins, but they aren't the primary subject of this ADR.
+Distributed as NPM Packages
+===========================
+
+``frontend-app-*`` repositories that are part of Open edX releases will be expected to be published on NPM as a library which exports its modules.  These libraries will primarily be consumed by Frontend Projects.
 
 Consequences
 ************
 
-As the module architecture stabilizes, frontend-app-* maintainers and developers will be encouraged to migrate their micro-frontends into application module libraries, and to adopt the module architecture provided by frontend-base.  (There will be a migration guide.)
+As the module architecture stabilizes, ``frontend-app-*`` maintainers and developers will be encouraged to migrate their micro-frontends into application module libraries, and to adopt the module architecture provided by ``frontend-base``.  (There will be a migration guide.)
 
-As micro-frontends are migrated application modules using the shell, there will be a deployment approach that mimics the micro-frontend architecture, but which will require operators to adopt a new underlying configuration and build process to achieve a similar result.  Each frontend-app-* repository will need a deprecation process for the micro-frontend configuration and build infrastructure.
+As micro-frontends are migrated to application module libraries using the shell, there will be a deployment approach that mimics the micro-frontend architecture, but which will require operators to adopt a new underlying configuration and build process to achieve a similar result.  Each ``frontend-app-*`` repository will need a deprecation process for the micro-frontend configuration and build infrastructure.
+
+Thinking in Modules
+===================
+
+Our definition of "module" aligns with the `industry standard definition <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules>`_.  It is also used in the context of `module federation <https://module-federation.io>`_. It's a self-contained part of the frontend that represents a specific part of the Site, and can be loaded in a variety of ways.  We have several sub-types of module:
+
+* An *application module* represents a well-bounded sub-area of the Open edX frontend at a particular path.  This might be "courseware", "the login page", or "account settings". There are a number of application modules that are *required* for a functioning Open edX frontend Site.
+* A "plugin module" represents an optional UI component that is generally added somewhere in an application module, or in the shell.  The header and footer, for instance, would be overridden with alternate implementations via plugin modules.  New tabs added to the course homepage are also plugin modules.
+* *Service modules* which act as implementations of the logging or analytics services.
+* *Script modules* which allow attaching arbitrary scripts to the page.
+
+Our ``frontend-app-*`` repositories go from being "micro-frontend applications" to being a collection of application modules centered around a particular domain (learning, authoring, authn, etc.)  The question of which application modules belong in which repositories, and where the right boundaries are, is beyond the scope of this ADR.
 
 Unsupported Customizations
 ==========================

@@ -1,5 +1,5 @@
-OEP-65 Create a unified platform repository
-###########################################
+Create a unified platform repository
+####################################
 
 Status
 ******
