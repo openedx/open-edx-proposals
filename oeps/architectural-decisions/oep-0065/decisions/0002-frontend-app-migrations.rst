@@ -123,6 +123,8 @@ The micro-frontend architecture took an extreme approach to "flexibility", allow
 Consistent Dependency Versions
 ==============================
 
+Addressing our *lack* of dependency version consistency is one of the primary drivers of OEP-65.
+
 The shell will support specific versions of shared dependencies (such as React, Paragon, or React Router).  All applications loaded into the shell's Site will be expected to use (or at least be compatible) with that version.  We intend to create lock-step version consistency of shared dependencies across all applications in the platform.  We envision each Open edX release supporting a particular major version of each shared dependency.
 
 References
