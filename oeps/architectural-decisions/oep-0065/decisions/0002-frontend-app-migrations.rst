@@ -20,9 +20,9 @@ This reference implementation is effectively a new underlying architecture for o
 
 As part of this paradigm shift, our frontend-app-* repositories (MFEs) will need to be migrated to work with frontend-base.  Of particular note, this will require the repositories to:
 
-- Adopt a new set of build/development CLI helpers
-- Use the shell to provide the header, footer, and runtime initialization code, amongst other things.
-- Organize their code into loosely-coupled top-level components, which we'll call *modules*.
+* Adopt a new set of build/development CLI helpers
+* Use the shell to provide the header, footer, and runtime initialization code, amongst other things.
+* Organize their code into loosely-coupled top-level components, which we'll call *modules*.
 
 As we adopt frontend-base, the libraries it replaces will undergo their own deprecation processes, which will need to coordinate with the migration of micro-frontends included in Open edX releases.  After that deprecation, the micro-frontend architecture will cease to be supported.
 
@@ -31,38 +31,44 @@ Decision
 
 Each of our frontend-app-* repositories will migrate from being an independent "micro-frontend application" to being a library of modules that can be loaded into a common Shell, deployed as a Site.  We will document the migration process in detail.  At a high level:
 
-- They will be deployable via a variety of methods, all of which will use the Shell.
-- They will be deployable together or independently.
-- They will no longer contain .env or env.config files for any environment, including Devstack and Tutor.
-- They will cease to use the following libraries in favor of frontend-base:
-  - @openedx/frontend-build
-  - @edx/frontend-plaform
-  - @openedx/frontend-plugin-framework
-  - @edx/frontend-component-header
-  - @edx/frontend-component-footer
-  - @openedx/frontend-slot-footer
-  - @edx/brand
-  - core-js
-  - regenerator-runtime
-- The following dependencies will become peer dependencies:
-  - @openedx/frontend-base
-  - @openedx/paragon
-  - react
-  - react-dom
-  - react-redux
-  - react-router
-  - react-router-dom
-  - redux
-- They will replace the frontend-build ``fedx-scripts`` CLI tools with the frontend-base ``openedx`` CLI tools.  We'll discuss some of them in detail here, as they help illustrate what the library will be able to do:
-  - ``dev`` will start a dev server, loading the repository's application modules into the shell in a site.
-  - ``dev:module`` will start a dev server that provides the application modules via module federation.
-  - ``build`` will create a standalone deployable artifact that uses the shell (similar to the micro-frontend architecture)
-  - ``build:module`` will create a standalone deployable artifact that provides the application modules via module federation.
-  - ``release`` will package the library for distribution on npm.
-  - ``serve`` will work with ``build`` or ``build:module`` to locally serve the production assets they generated.
-  - ``pack`` will work with ``release`` to create a ``.tgz`` file suitable for installing in local git checkouts that depend on the library.  (this is a development tool)
-- The ``dev``, ``dev:module``, ``build``, and ``build:module`` CLI commands will rely on the existence of a "Site Config" file (the replacement for .env/env.config files) which will not be checked into the repository.
-- frontend-app-* repositories that are part of Open edX releases will be expected to be published on NPM as a library which exports its modules.
+* They will be deployable via a variety of methods, all of which will use the Shell.
+* They will be deployable together or independently.
+* They will no longer contain .env or env.config files for any environment, including Devstack and Tutor.
+* They will cease to use the following libraries in favor of frontend-base:
+
+  * @openedx/frontend-build
+  * @edx/frontend-plaform
+  * @openedx/frontend-plugin-framework
+  * @edx/frontend-component-header
+  * @edx/frontend-component-footer
+  * @openedx/frontend-slot-footer
+  * @edx/brand
+  * core-js
+  * regenerator-runtime
+
+* The following dependencies will become peer dependencies:
+
+  * @openedx/frontend-base
+  * @openedx/paragon
+  * react
+  * react-dom
+  * react-redux
+  * react-router
+  * react-router-dom
+  * redux
+
+* They will replace the frontend-build ``fedx-scripts`` CLI tools with the frontend-base ``openedx`` CLI tools.  We'll discuss some of them in detail here, as they help illustrate what the library will be able to do:
+
+  * ``dev`` will start a dev server, loading the repository's application modules into the shell in a site.
+  * ``dev:module`` will start a dev server that provides the application modules via module federation.
+  * ``build`` will create a standalone deployable artifact that uses the shell (similar to the micro-frontend architecture)
+  * ``build:module`` will create a standalone deployable artifact that provides the application modules via module federation.
+  * ``release`` will package the library for distribution on npm.
+  * ``serve`` will work with ``build`` or ``build:module`` to locally serve the production assets they generated.
+  * ``pack`` will work with ``release`` to create a ``.tgz`` file suitable for installing in local git checkouts that depend on the library.  (this is a development tool)
+
+* The ``dev``, ``dev:module``, ``build``, and ``build:module`` CLI commands will rely on the existence of a "Site Config" file (the replacement for .env/env.config files) which will not be checked into the repository.
+* frontend-app-* repositories that are part of Open edX releases will be expected to be published on NPM as a library which exports its modules.
 
 Redefining "application"
 ========================
