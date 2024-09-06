@@ -101,8 +101,8 @@ community, an Entity Contributor Agreement most be signed (please communicate
 with a Program Administrator about this).
 
 We are additionally asking that all companies and teams joining the Open edX
-community sign the `Revised Declaration of Commitment to the Core Contributor
-Program <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3216900524>`_ to
+community sign the `Declaration of Commitment to the Core Contributor
+Program`_ to
 demonstrate that they are willing to engage with and commit resources to the
 Open edX project. We encourage a commitment of 20 hours/month from each of an
 organization's Core Contributors, however, we recognize that circumstances
@@ -117,6 +117,25 @@ defined at
 Questions about the Program can be directed to the Axim administrator(s) via
 the ``#core-contributors`` Slack room in the `Open edX Slack
 <https://openedx.slack.com/>`_.
+
+Renewing Organizational and Personal Commitments
+------------------------------------------------
+
+The Program Administrators will conduct a yearly commitment renewal for both
+organizations and individuals participating in the Core Contributor program.
+
+Organizations will be asked to affirm and/or revise their commitment in the
+`Declaration of Commitment to the Core Contributor Program`_ each year in December,
+for the following calendar year (January through December).
+
+Individuals will be asked to affirm their continued commitment to and
+involvement in the program each year in January, for the following calendar year
+(February through January). Individuals who are unable to affirm their
+commitment will be removed from the program as described in `removing ccs`_, and
+are more than welcome to re-join the Program if and when their time allows them
+to.
+
+.. _Declaration of Commitment to the Core Contributor Program: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3216900524
 
 .. _selecting new members:
 
@@ -335,9 +354,9 @@ Contributor program. Some reasons this may happen include:
 Trigger events for removing a CC would be:
 
 * A CC informs the Program Administrators that they can no longer continue in
-  the role
+  the role, or are unable to renew their commitment for a given year
 * A CC has not been able to fulfill the commitments made in the
-  `Revised Declaration of Commitment to the Core Contributor Program`_,
+  `Declaration of Commitment to the Core Contributor Program`_,
   or has been unreachable, for more than 6 months. See
   `fulfilling CC commitments`_
 * A CC hasn't met project quality standards consistently despite feedback
@@ -348,11 +367,14 @@ Trigger events for removing a CC would be:
 For those wishing to indicate they are leaving the CC program, or to report a
 Code of Conduct violation, please `Contact the Program Administrators`_.
 
+Core Contributors who depart from the program are noted as Core Contributor
+Alumni in the Core Contributor wiki page.
+
 .. _fulfilling CC commitments:
 
 Core contributors are responsible for reporting when they aren't able to
 fulfill their commitments. Program administrators
-will do regular checks, at least once per quarter, to identify CCs who are
+will do regular checks, once per year, to identify CCs who are
 unreachable or fall short of their commitments. In such cases, the program
 administrator will reach out to the CC to discuss the best corrective actions
 to take.
