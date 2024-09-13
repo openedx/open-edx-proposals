@@ -31,6 +31,7 @@ OEP-65: Frontend Composability
        * `FC-0007 - Modular MFE Domains Discovery <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3614900241/CLOSED+FC-0007+-+Modular+MFE+Domains+Discovery>`_
        * :doc:`ADR 0001 - Create a unified platform repository </architectural-decisions/oep-0065/decisions/0001-unified-platform-repository>`
        * :doc:`ADR 0002 - Frontend app migrations </architectural-decisions/oep-0065/decisions/0002-frontend-app-migrations>`
+       * :doc:`ADR 0003 - Frontend projects </architectural-decisions/oep-0065/decisions/0003-frontend-projects>`
        * :doc:`OEP-65 Frontend Glossary </architectural-decisions/oep-0065/decisions/frontend-glossary>`
 
 .. contents::
@@ -40,14 +41,14 @@ OEP-65: Frontend Composability
 Abstract
 ********
 
-This OEP proposes that Open edX micro-frontends (MFEs) adopt shared dependencies and runtime module loading - implemented via webpack module federation - as an approach to improve the consistency, performance, and flexibility of the MFE architecture.
+This OEP proposes that Open edX micro-frontends (MFEs) adopt :term:`shared dependencies` and :term:`runtime module loading` - implemented via webpack :term:`module federation` - as an approach to improve the consistency, performance, and flexibility of the frontend architecture.
 
 Motivation
 **********
 
 Micro-frontends were originally designed to avoid some of the limitations of the monolithic ``edx-platform`` frontend, namely that otherwise independent teams in edX's large engineering organization were beholden to the build, test, and release lifecycle of the rest of the codebase. This dramatically slowed down the pace of frontend feature development, experimentation, and innovation on the master branch where the rate of change is particularly high.
 
-As a result, the Open edX "micro-frontend" architecture focused on creating an un-opinionated, loosely coupled set of applications with the goal of enabling teams to iterate quickly and independently. This goal was successful.
+As a result, the Open edX :term:`"micro-frontend" architecture <Micro-frontend Architecture>` focused on creating an un-opinionated, loosely coupled set of applications with the goal of enabling teams to iterate quickly and independently. This goal was successful.
 
 However, we've discovered that the completely siloed nature of these MFEs has created its own set of problems. Our frontends are more like independent single-page applications than `micro-frontends <https://micro-frontends.org>`_, as we never invested in ways of composing them together. The problems inherent in siloed MFE architecture are described below.
 
@@ -87,7 +88,7 @@ Each MFE bundles all of its own dependencies, even if they're the same version a
 Full Page Refreshes
 -------------------
 
-Each MFE has its own index.html page, and needs to load all its own dependencies from scratch whenever you navigate to it. This means that the browser performs a full page refresh each time a user transfers from MFE to MFE.
+Each MFE has its own ``index.html`` page, and needs to load all its own dependencies from scratch whenever you navigate to it. This means that the browser performs a full page refresh each time a user transfers from MFE to MFE.
 
 Build time
 ----------
@@ -108,7 +109,7 @@ The reality of MFEs is that while each application seeks to represent a single c
 
 Alternately, site operators may want to show different *versions* of MFEs to different users while keeping the rest of the app (header, navigation, other MFEs) unchanged.
 
-There are alternatives to runtime module loading and shared dependencies which are used in some situations. These are not *rejected* alternatives, and so we include them here to help illuminate how their limitations are motivation for adopting runtime module loading and shared dependencies.
+There are alternatives to :term:`runtime module loading` and :term:`shared dependencies` which are used in some situations. These are not *rejected* alternatives, and so we include them here to help illuminate how their limitations are motivation for adopting runtime module loading and shared dependencies.
 
 Shared Libraries (Alternative #1)
 ------------------------------------
@@ -118,7 +119,7 @@ Because each MFE is siloed from each other - both in repositories and at runtime
 Build-time package overrides (Alternative #2)
 ------------------------------------------------
 
-NPM and package.json allow site operators to override dependency resolution by installing an alternate version of a dependency prior to build-time. This has historically been how we've allowed operators to override the header, footer, and brand.
+NPM and ``package.json`` allow site operators to override dependency resolution by installing an alternate version of a dependency prior to build-time. This has historically been how we've allowed operators to override the header, footer, and brand.
 
 The system is confusing, brittle, and only works at build-time. If a site operator needs different headers/footers/brands for different instances, this multiplies the number of required build processes for an instance.
 
@@ -132,16 +133,16 @@ Direct plugins create some flexibility, but couple our repositories' builds toge
 Specification
 *************
 
-Our approach centers on enabling *runtime module loading* and *shared dependencies*. Together, these two capabilities address the majority of the motivating problems described above (Consistency, User and Developer Experience, and Composability).
+Our approach centers on enabling :term:`runtime module loading` and :term:`shared dependencies`. Together, these two capabilities address the majority of the motivating problems described above (Consistency, User and Developer Experience, and Composability).
 
 We intend to enable runtime module loading and shared dependencies via `Webpack module federation <https://webpack.js.org/concepts/module-federation>`_. Further, we need to complement this new architectural approach with ways of *maintaining dependency consistency* between MFEs or we won't be able to realize the benefits of sharing dependencies.
 
 Capability: Runtime Module Loading
 ==================================
 
-The capability to lazily load content from independently built modules into the page - without iframes - solves many of the `Composability`_ and `User and Developer Experience`_ issues above. In particular, it gives us a way of composing UI elements from different MFEs/Domains dynamically at runtime without a "host" application needing to know anything about the "guest" at build-time. The two remain completely decoupled, save some shared runtime configuration. It also cuts down on the number of full page refreshes experienced by users.
+The capability to lazily load content from independently built modules into the page - without iframes - solves many of the `Composability`_ and `User and Developer Experience`_ issues above. In particular, it gives us a way of composing UI elements from different MFEs/Domains dynamically at runtime without a :term:`host` application needing to know anything about the :term:`guest` at build-time. The two remain completely decoupled, save some shared runtime configuration. It also cuts down on the number of full page refreshes experienced by users.
 
-Not only do we want to load modules at runtime, but we want to *configure* which modules to load at runtime.  This feature is called **runtime remote discovery**, i.e., discovering which "guests" exist, perhaps from some API like the MFE configuration API, at runtime as the application is loading.  We believe this is a hard requirement of our runtime module loading implementation because we want to avoid rebuilding 'hosts' just because their module federation configuration changed.
+Not only do we want to load modules at runtime, but we want to *configure* which modules to load at runtime.  This feature is called **runtime** :term:`remote discovery`, i.e., discovering which "guests" exist, perhaps from some API like the MFE configuration API, at runtime as the application is loading.  We believe this is a hard requirement of our runtime module loading implementation because we want to avoid rebuilding "hosts" just because their module federation configuration changed.
 
 It's worth noting that adopting runtime module loading has a high degree of overlap with the capabilities of the `frontend-plugin-framework <frontend-plugin-framework_>`_ (FPF) and is a natural extension of its feature set.
 
@@ -208,7 +209,7 @@ Advantages: Shared Dependencies
 Caveat: "build-time" and "dependency maintenance"
 -------------------------------------------------
 
-Note that "build-time" and "dependency maintenance" are not mentioned in the advantages above. The reasons for this have to do with how shared dependencies are resolved for modules at runtime, and are described in more detail in the `Approach: Webpack Module Federation`_ section below.
+Note that "build-time" and "dependency maintenance" are not mentioned in the advantages above. The reasons for this have to do with how shared dependencies are resolved for :term:`modules <Module>` at runtime, and are described in more detail in the `Approach: Webpack Module Federation`_ section below.
 
 At a high level, even if MFEs share dependencies, we want to preserve the ability for them to "fall back" to their own version of a shared dependency if a version already loaded on the page is incompatible with their own. To do this, each MFE builds and deploys its own version of all its dependencies in case dependency resolution determines they're needed.
 
@@ -217,7 +218,7 @@ This means that the build of a given MFE has to take time to bundle their own de
 Approach: Webpack Module Federation
 ===================================
 
-Module federation is implemented as a `plugin for Webpack <https://webpack.js.org/plugins/module-federation-plugin/>`_ that enables micro-frontends to be composed into the same page at runtime even if they're built separately and independently deployed. The pieces being composed are "modules". It lets us configure which dependencies should be shared between modules on a page and what modules a particular frontend exposes to be loaded by other frontends.
+:term:`Module federation` is implemented as a `plugin for Webpack <https://webpack.js.org/plugins/module-federation-plugin/>`_ that enables :term:`micro-frontends <Micro-frontend>` to be composed into the same page at runtime even if they're built separately and independently deployed. The pieces being composed are :term:`modules <Module>`. It lets us configure which dependencies should be shared between modules on a page and what modules a particular frontend exposes to be loaded by other frontends.
 
 More information on module federation beyond its webpack implementation can be found on its `dedicated site at module-federation.io <https://module-federation.io/>`_.
 
@@ -286,16 +287,16 @@ Out of Scope
 
 There are a few important - but tangential - concerns which are considered out of scope for this OEP and its resulting reference implementation.
 
-* Implementation details of how module federation would be added in the frontend-plugin-framework.
-* How Tutor and other distributions will need to change to adopt module federation.
-* Opinions on which dependencies we should adopt going forward (such as redux or other state management solutions)
+* Implementation details of how module federation would be added in the `frontend-plugin-framework <frontend-plugin-framework_>`_.
+* How `Tutor <https://docs.tutor.edly.io/>`_ and other distributions will need to change to adopt module federation.
+* Opinions on which dependencies we should adopt going forward (such as ``redux`` or other state management solutions)
 
 Rationale
 *********
 
 The majority of the concerns expressed in the `Motivation`_ section revolve around a lack of shared dependencies and the way in which MFEs are currently siloed from each other, preventing us from creating a more seamless, cohesive experience.
 
-Module federation specifically addresses these use cases exactly. It's right-sized to the problem at hand, can be accomplished with a minimum of impact on our existing MFEs, and can be done in a backwards compatible way (more on that below).
+:term:`Module federation` specifically addresses these use cases exactly. It's right-sized to the problem at hand, can be accomplished with a minimum of impact on our existing MFEs, and can be done in a backwards compatible way (more on that below).
 
 An approach to maintaining dependency consistency is essential to realize the benefits of sharing dependencies. Without it, we've accomplished very little even though we've added the capability. An approach to providing this consistency is not a prerequisite for implementing module federation, to be clear, but the *success* of module federation is tightly coupled to it.
 
@@ -306,7 +307,7 @@ We intend to maintain backwards compatibility while migrating to and adopting mo
 
 Ultimately MFEs will no longer be responsible for initializing `frontend-platform <frontend-platform_>`_ or rendering the header and footer. We will follow the `DEPR process <depr-process_>`_ for retiring this code in MFEs once (and if) we make the module federation architecture required.
 
-In the interim, MFEs will have both a Webpack configuration that exposes modules for consumption by other hosts as alternate entry points (to use Webpack parlance) _and_ the primary entry point which initializes `frontend-platform <frontend-platform_>`_ and loads the header/footer. The POC below suggests this won't be a problem.
+In the interim, MFEs will have both a Webpack configuration that exposes :term:`modules <Module>` for consumption by other hosts as alternate entry points (to use Webpack parlance) _and_ the primary entry point which initializes `frontend-platform <frontend-platform_>`_ and loads the header/footer. The POC below suggests this won't be a problem.
 
 Reference Implementation
 ************************
@@ -323,23 +324,23 @@ Proposed MFE Architecture
 
 .. image:: oep-0065/proposed-mfe-architecture.png
 
-Diagram description: A diagram showing the proposed MFE architecture using Webpack module federation (`LucidChart source`_). Contains the shell application and a "guest" MFE. Shows how the `Shell MFE`_ loads a manifest from MFEs (remoteEntry.js), and then uses that to load modules from the MFE, on demand, at runtime. The decision process around incompatible dependencies is shown, showing how an MFE that needs an incompatible version of a shared dependency loads its own version into the page as necessary - unless that dependency is a "singleton", in which case it will always resolve to the first version loaded.
+Diagram description: A diagram showing the proposed MFE architecture using Webpack module federation (`LucidChart source`_). Contains the shell application and a "guest" MFE. Shows how the `Shell`_ loads a manifest from MFEs (remoteEntry.js), and then uses that to load modules from the MFE, on demand, at runtime. The decision process around incompatible dependencies is shown, showing how an MFE that needs an incompatible version of a shared dependency loads its own version into the page as necessary - unless that dependency is a "singleton", in which case it will always resolve to the first version loaded.
 
 
 MFEs and Modules
 ----------------
 
-Each of our MFEs will export a set of one or more modules that can be loaded by other MFEs or the `Shell MFE`_. For instance, ``frontend-app-profile`` would likely export the ``ProfilePage`` component. Other MFEs may export their own pages, or perhaps plugins/widgets/components to be loaded by the `frontend-plugin-framework <frontend-plugin-framework_>`_ via a "module" plugin type based on this implementation.
+Each of our MFEs will export a set of one or more modules that can be loaded by other MFEs or the :term:`Shell`. For instance, ``frontend-app-profile`` would likely export the ``ProfilePage`` component. Other MFEs may export their own pages, or perhaps plugins/widgets/components to be loaded by the `frontend-plugin-framework <frontend-plugin-framework_>`_ via a "module" plugin type based on this implementation.
 
 Hosts and Guests
 ----------------
 
-MFEs become either "hosts" or "guests" or both. A host is an MFE that loads runtime modules from a guest. A guest may itself act as a host to modules from another guest. For example, the `Shell MFE`_ is only a host and all MFEs are guests in the shell; further, some pairs of MFEs might have a host/guest relationship with each other.
+MFEs become either :term:`hosts <Host>` or :term:`guests <Guest>` or both. A host is an MFE that loads runtime modules from a guest. A guest may itself act as a host to modules from another guest. For example, the :term:`Shell` is only a host and all MFEs are guests in the shell; further, some pairs of MFEs might have a host/guest relationship with each other.
 
-Shell MFE
----------
+Shell
+-----
 
-We will create a new "shell" MFE to act as the top-level host for all other MFEs. It is exclusively responsible for:
+We will create a new "shell" frontend to act as :term:`site` which hosts all the modules from our ``frontend-app-*`` repositories. It is exclusively responsible for:
 
 * Initializing the application via `frontend-platform <frontend-platform_>`_.
 * Loading the default, expected version of all our shared dependencies.
@@ -363,7 +364,7 @@ Converting the POC to a reference implementation
 
 To convert this POC into a reference implementation, we need to minimally:
 
-* Create a new "shell" micro-frontend to be the top-level "host" for all our other micro-frontends.
+* Create a new "shell" frontend to be the top-level "host" for all our other micro-frontends.
 * Create module federation-based development and production Webpack configurations in `frontend-build <frontend-build_>`_.
 * Modify the Webpack configuration to share the complete list of shared dependencies from the shell.
 * Pick an existing MFE (or two) to convert to use module federation. Add build targets to these "guest" micro-frontends that can be used to build them in module-federation mode.
