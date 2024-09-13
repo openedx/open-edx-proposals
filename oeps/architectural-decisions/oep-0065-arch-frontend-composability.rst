@@ -248,7 +248,11 @@ Process
 
 We need to ensure maintainers and developers know what dependency versions to use, and when they need to upgrade to stay consistent. Open edX release documentation should include information on which frontend dependency versions are compatible with the release, likely pinned to a major version (i.e., React 17.x, Paragon 22.x, etc.)
 
+Further, we recommend that each Open edX release have a single supported major version of all shared dependencies, and that all MFEs be upgraded to it prior to release.
+
 We also need a process to migrate Open edX repositories through breaking changes in third-party dependencies. Ideally following the `Upgrade Project Runbook <https://openedx.atlassian.net/wiki/spaces/AC/pages/3660316693/Upgrade+Project+Runbook>`_.
+
+The :term:`module architecture` allows for migrations through breaking changes in third-party dependencies via the :term:`Linked Module` loading method, which will allow a frontend to run as separate, linked :term:`sites <Site>` while migrating modules incrementally.
 
 Best Practices
 --------------
@@ -488,3 +492,9 @@ Change History
 ==========
 
 * Adding a reference to ADR-0001, which describes creation of a unified platform repository.
+
+2024-09-13
+==========
+
+* Updating language to match OEP-65's ADRs and leverage the frontend glossary.
+* Adding a recommendation to standardize on a single major version of shared dependencies in a given Open edX release.
