@@ -131,6 +131,7 @@ References
 **********
 
 * :doc:`OEP-65: Frontend Composability <../../oep-0065-arch-frontend-composability>`
+* :doc:`OEP-65 Frontend Glossary <./frontend-glossary>`
 * :doc:`ADR-0001: Unified Platform Repository <./0001-unified-platform-repository>`
 
 Change History

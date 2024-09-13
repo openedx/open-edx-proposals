@@ -31,6 +31,7 @@ OEP-65: Frontend Composability
        * `FC-0007 - Modular MFE Domains Discovery <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3614900241/CLOSED+FC-0007+-+Modular+MFE+Domains+Discovery>`_
        * :doc:`ADR 0001 - Create a unified platform repository </architectural-decisions/oep-0065/decisions/0001-unified-platform-repository>`
        * :doc:`ADR 0002 - Frontend app migrations </architectural-decisions/oep-0065/decisions/0002-frontend-app-migrations>`
+       * :doc:`OEP-65 Frontend Glossary </architectural-decisions/oep-0065/decisions/frontend-glossary>`
 
 .. contents::
 	   :local:
