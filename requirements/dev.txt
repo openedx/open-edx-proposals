@@ -44,7 +44,7 @@ docutils==0.21.2
     #   sphinx
 h11==0.14.0
     # via uvicorn
-idna==3.8
+idna==3.10
     # via
     #   -r requirements/base.txt
     #   anyio
@@ -136,7 +136,7 @@ typing-extensions==4.12.2
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
-urllib3==2.2.2
+urllib3==2.2.3
     # via
     #   -r requirements/base.txt
     #   requests
