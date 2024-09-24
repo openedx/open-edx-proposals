@@ -6,11 +6,6 @@ High Level Concepts
 
 .. glossary::
 
-  Application Module Library
-    Application module libraries are a collection of related modules co-located in a repository together (``frontend-app-*``) in the :term:`Module Architecture`. As an example, a library might be named ``frontend-app-learning``, and it would contain modules such as courseware, course outline, progress page, and dates page.
-
-    Note that this stands in contrast to how the ``frontend-app-*`` repositories were used in the :term:`Micro-frontend Architecture`.
-
   Guest
     A Guest is the :term:`Module` being loaded into a :term:`Site` via module federation.
 
@@ -20,7 +15,7 @@ High Level Concepts
   Micro-frontend
     Micro-frontend is an industry standard term for small, composable, independently deployed pieces of a frontend. It has a specific and narrower meaning in Open edX's frontend. Open edX's decoupled frontend architecture has been called the "micro-frontend architecture" since 2018 or so, and the ``frontend-app-*`` repositories, specifically, are referred to as "micro-frontends" or "MFEs" for short. They're often called "micro-frontend applications" as well. Some might argue it's a misnomer, as many of our MFEs are quite large. Regardless, MFEs in Open edX refer to our independently deployed, siloed frontends which do not share dependencies, and which may contain one or more distinct parts of the overall frontend.
 
-    To support a cohesive vernacular for our post-MFE architecture (The "module" architecture?), we propose co-opting "micro-frontend" and "application" to refer to a sub-type of modules - :term:`application modules <Application Module>`. Each of the ``frontend-app-*`` repositories is really a collection of related micro-frontend applications co-located in the repository together because they share code and dependencies unique to their domain. For instance, the "learning" MFE - course outline, courseware, progress page, dates page, etc. - share a significant amount of code, but may be better thought of as a collection of related apps, not as "the learning app".
+    To support a cohesive vernacular for our post-MFE architecture (the :term:`Module Architecture`), we propose co-opting "application" to refer to a sub-type of modules - :term:`application modules <Application Module>`. Each of the ``frontend-app-*`` repositories is really a collection of related applications co-located in the repository together because they share code and dependencies unique to their domain. For instance, the modules in the "learning" MFE - course outline, courseware, progress page, dates page, etc. - share a significant amount of code, but may be better thought of as a collection of related apps, not as "the learning app".
 
     The rest of this glossary reflects the proposed usage of "application".
 
@@ -40,6 +35,11 @@ High Level Concepts
 
   Module Federation
     Module federation is a method that allows separate JavaScript builds to share code at runtime, forming a single application, while maintaining build and deployment independence. While not specific to Webpack, the initial `implementation of module federation <https://webpack.js.org/concepts/module-federation/>`_ is in Webpack.
+
+  Module Library
+    Module libraries are a collection of related modules co-located in a repository together (``frontend-app-*``) in the :term:`Module Architecture`. As an example, a library might be named ``frontend-app-learning``, and it would contain modules such as courseware, course outline, progress page, and dates page.  A module library may contain :term:`Modules <Module>` of all different subtypes.
+
+    Note that this stands in contrast to how the ``frontend-app-*`` repositories were used in the :term:`Micro-frontend Architecture`.
 
   Open edX Frontend
     The complete set of interfaces shown to a user of an Open edX instance. Includes at least one independently deployed :term:`Site` and zero or more :term:`Federated Modules <Federated Module>`.
@@ -96,7 +96,7 @@ Related: See :term:`Module` in the `High Level Concepts`_ section.
   Application Module
     A sub-type of :term:`Module` that represents a logical portion of the UI of a :term:`Site`. A ``frontend-app-*`` repository will contain one or more application modules.
 
-    Applications are generally loaded at a path within a :term:`Site`, such as ``/learning`` or ``/profile``. They are a specialized kind of :term:`Module` fulfilling a core function of the :term:`Open edX Frontend`. They are known, registered entities, and other :term:`Modules <Module>` can query the :term:`Shell` configuration to locate, navigate, or interact with them.
+    Application Modules are loaded at a path within a :term:`Site`, such as ``/learning`` or ``/profile``. They are a specialized kind of :term:`Module` fulfilling a core function of the :term:`Open edX Frontend`. They are known, registered entities, and other :term:`Modules <Module>` can query the :term:`Shell` configuration to locate, navigate, or interact with them.
 
   Plugin Module
     A plugin is a :term:`Module` that adheres to the rules of the frontend plugin framework.  Plugins are optional and must be loaded into a :term:`Plugin Slot`.

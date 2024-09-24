@@ -69,7 +69,7 @@ Module Projects
 
 .. image:: ../module-project-architecture.png
 
-A Module Project uses a ``config`` data structure in ``package.json`` to define what modules it should bundle for :term:`module federation`. This mirrors the ``config`` data structure in the :term:`application module libraries <Application Module Library>` (``frontend-app-*`` repositories). It also uses a :term:`Module Config` file for additional configuration of those modules beyond that which will be supplied by the site's :term:`Site Config`, i.e., module-specific configuration.
+A Module Project uses a ``config`` data structure in ``package.json`` to define what modules it should bundle for :term:`module federation`. This mirrors the ``config`` data structure in the :term:`module libraries <Module Library>` (``frontend-app-*`` repositories). It also uses a :term:`Module Config` file for additional configuration of those modules beyond that which will be supplied by the site's :term:`Site Config`, i.e., module-specific configuration.
 
 To describe the steps in the above image:
 
@@ -95,7 +95,7 @@ To describe the steps in the above image:
 
 5. Webpack builds :term:`federated modules <Federated Module>` from the ``src`` based on the above configuration in ``package.json``.
 6. The modules will be responsible for importing module-specific configuration from a :term:`Module Config` file.
-7. The federated modules in ``src`` may be custom modules, or "pass-through" modules that re-export :term:`application modules <Application Module>` from one of the project's dependencies. Note that webpack module federation cannot export modules from dependencies directly; a thin shim module is required (unfortunately).
+7. The federated modules in ``src`` may be custom modules, or "pass-through" modules that re-export :term:`modules <Module>` from one of the project's dependencies. Note that webpack module federation cannot export modules from dependencies directly; a thin shim module is required (unfortunately).  This will function the same for all module sub-types.
 
 Implicit Projects
 =================
@@ -109,7 +109,7 @@ Fundamentally, site and module projects consist of:
 
 This means that any repository that satisfies these requirements can act as a project. These are :term:`"implicit" projects <Implicit Project>`.
 
-Of particular note, ``frontend-app-*`` repositories will satisfy these requirements if we add a git-ignored Site Config or Module Config file to them, and in fact, we anticipate this will be a desirable way to do local development on application module libraries.
+Of particular note, ``frontend-app-*`` repositories will satisfy these requirements if we add a git-ignored Site Config or Module Config file to them, and in fact, we anticipate this will be a desirable way to do local development on module libraries.
 
 Consequences
 ************

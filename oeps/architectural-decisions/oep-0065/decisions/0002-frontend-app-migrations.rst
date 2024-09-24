@@ -31,21 +31,21 @@ As we adopt ``frontend-base``, the libraries it replaces will undergo their own 
 Decision
 ********
 
-Each of our ``frontend-app-*`` repositories will migrate from being an independent "micro-frontend application" to being a library of modules that can be loaded into a common :term:`Shell`, deployed as a :term:`Site`. These are called :term:`application module libraries <Application Module Library>`. We will document the migration process in detail. At a high level, this will involve the following changes.
+Each of our ``frontend-app-*`` repositories will migrate from being an independent "micro-frontend application" to being a library of modules that can be loaded into a common :term:`Shell`, deployed as a :term:`Site`. These are called :term:`module libraries <Module Library>`. We will document the migration process in detail. At a high level, this will involve the following changes.
 
 New Deployment Methods
 ======================
 
-The application module libraries will be buildable in several different ways.
+The module libraries will be buildable in several different ways.
 
 * Built as :term:`imported modules <Imported Module>` into an independent Site using the Shell for initialization, the header and footer, configuration, and other foundational services (logging, analytics, i18n, etc.)
 * Built as :term:`federated modules <Federated Module>` to be loaded into the Shell at runtime via webpack module federation.
-* Built and released as an NPM package for build-time inclusion in a frontend :term:`Project`, perhaps alongside other application modules from other libraries.
+* Built and released as an NPM package for build-time inclusion in a frontend :term:`Project`, perhaps alongside other modules from other libraries.
 
 Environment Agnostic
 ====================
 
-The :term:`application module libraries <Application Module Library>` will no longer contain ``.env`` or ``env.config`` files for any specific environment, including `Devstack <https://github.com/openedx/devstack>`_ and `Tutor <https://docs.tutor.edly.io/>`_. Config filename patterns will be added to the ``.gitignore`` file. They will continue to support adding a (git ignored) config file into the repository to build or develop it, but we also expect operators to use Projects and check their config files into those project repositories as their primary way of working with the application module libraries.
+The :term:`module libraries <Module Library>` will no longer contain ``.env`` or ``env.config`` files for any specific environment, including `Devstack <https://github.com/openedx/devstack>`_ and `Tutor <https://docs.tutor.edly.io/>`_. Config filename patterns will be added to the ``.gitignore`` file. They will continue to support adding a (git ignored) config file into the repository to build or develop it, but we also expect operators to use Projects and check their config files into those project repositories as their primary way of working with the module libraries.
 
 Please see :doc:`0003-frontend-projects` for more information on projects.
 
@@ -67,7 +67,7 @@ Application module libraries will cease to use the following libraries in favor 
 Peer Dependencies
 =================
 
-We expect application module libraries to be dependencies of Frontend Projects by default for most operators. Because of this, the following dependencies will become peer dependencies in the application module libraries themselves:
+We expect module libraries to be dependencies of Frontend Projects by default for most operators. Because of this, the following dependencies will become peer dependencies in the module libraries themselves:
 
 * @openedx/frontend-base
 * @openedx/paragon
@@ -83,15 +83,15 @@ New CLI Tools
 
 The ``fedx-scripts`` CLI tools from ``frontend-build`` will be replaced with the ``openedx`` CLI tools from ``frontend-base``. We'll discuss some of them in detail here, as they help illustrate what the library will be able to do:
 
-* ``dev`` will start a dev server, loading the repository's application modules into the shell in a site.
-* ``dev:module`` will start a dev server that provides the application modules via module federation.
+* ``dev`` will start a dev server, loading the repository's modules into the shell in a site.
+* ``dev:module`` will start a dev server that provides the modules via module federation.
 * ``build`` will create a standalone deployable artifact that uses the shell (similar to the micro-frontend architecture)
-* ``build:module`` will create a standalone deployable artifact that provides the application modules via module federation.
+* ``build:module`` will create a standalone deployable artifact that provides the modules via module federation.
 * ``release`` will package the library for distribution on npm.
 * ``serve`` will work with ``build`` or ``build:module`` to locally serve the production assets they generated.
 * ``pack`` will work with ``release`` to create a ``.tgz`` file suitable for installing in local git checkouts that depend on the library. (this is a development tool)
 
-The ``dev``, ``dev:module``, ``build``, and ``build:module`` CLI commands will rely on the existence of a :term:`Site Config` file (the replacement for .env/env.config files) which will not be checked into the repository.
+The ``dev``, ``dev:module``, ``build``, and ``build:module`` CLI commands will rely on the existence of a :term:`Site Config` file (the replacement for .env/env.config files) which will not be checked into the module library's repository.
 
 Distributed as NPM Packages
 ===========================
@@ -101,9 +101,9 @@ Distributed as NPM Packages
 Consequences
 ************
 
-As the module architecture stabilizes, ``frontend-app-*`` maintainers and developers will be encouraged to migrate their micro-frontends into application module libraries, and to adopt the module architecture provided by ``frontend-base``. (There will be a migration guide.)
+As the module architecture stabilizes, ``frontend-app-*`` maintainers and developers will be encouraged to migrate their micro-frontends into module libraries, and to adopt the module architecture provided by ``frontend-base``. (There will be a migration guide.)
 
-For micro-frontends that are migrated to application module libraries using the shell, there will be a deployment approach that mimics the micro-frontend architecture, but which will require operators to adopt a new underlying configuration and build process to achieve a similar result. Each ``frontend-app-*`` repository will need a deprecation process for the micro-frontend configuration and build infrastructure.
+For micro-frontends that are migrated to module libraries using the shell, there will be a deployment approach that mimics the micro-frontend architecture, but which will require operators to adopt a new underlying configuration and build process to achieve a similar result. Each ``frontend-app-*`` repository will need a deprecation process for the micro-frontend configuration and build infrastructure.
 
 Thinking in Modules
 ===================
@@ -115,7 +115,7 @@ Our definition of :term:`module` aligns with the `industry standard definition <
 * *Service modules* which act as implementations of the logging or analytics services.
 * *Script modules* which allow attaching arbitrary scripts to the page.
 
-Our ``frontend-app-*`` repositories go from being "micro-frontend applications" to being a collection of application modules centered around a particular domain (learning, authoring, authn, etc.) The question of which application modules belong in which repositories, and where the right boundaries are, is beyond the scope of this ADR.
+Our ``frontend-app-*`` repositories go from being "micro-frontend applications" to being a collection of modules centered around a particular domain (learning, authoring, authn, etc.) The question of which modules belong in which repositories, and where the right boundaries are, is beyond the scope of this ADR.
 
 Unsupported Customizations
 ==========================
