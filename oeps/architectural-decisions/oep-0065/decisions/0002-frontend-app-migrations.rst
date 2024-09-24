@@ -26,7 +26,7 @@ As part of this paradigm shift, our ``frontend-app-*`` repositories (MFEs) will 
 * Use the :term:`shell` to provide the header, footer, and runtime initialization code, amongst other things.
 * Organize their code into loosely-coupled top-level components, which are called :term:`application modules <Application Module>`.
 
-As we adopt ``frontend-base``, the libraries it replaces will undergo their own deprecation processes, which will need to coordinate with the migration of micro-frontends included in Open edX releases. After that deprecation, the micro-frontend architecture will cease to be supported.
+As we adopt ``frontend-base``, the libraries it replaces will undergo their own deprecation processes, which we will need to coordinate with the migration of micro-frontends included in Open edX releases. After that deprecation, the micro-frontend architecture will cease to be supported.
 
 Decision
 ********
