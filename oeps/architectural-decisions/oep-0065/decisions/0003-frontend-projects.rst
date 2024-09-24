@@ -43,6 +43,8 @@ There are two primary types of projects: *site projects* and *module projects*.
 Site Projects
 =============
 
+Site projects serve the shell, contain the bulk of the frontend's configuration, and are a place to check in customizations and extensions to the shell and modules built as part of the project.
+
 A site project uses a :term:`Site Config` file to define the configuration for a :term:`Site`, which is an independently deployed portion of the Open edX frontend which renders a header, footer, and loads one or more Modules.
 
 A site project consists of:
@@ -66,6 +68,8 @@ To describe the steps in the above image:
 
 Module Projects
 ===============
+
+Module projects are a place to put customizations and extensions to federated modules, and contain configuration specific to those modules.
 
 .. image:: ../module-project-architecture.png
 
