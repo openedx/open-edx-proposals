@@ -23,9 +23,9 @@ OEP-68: AI-Driven Chatbot Integration for Enhanced User Support
    * - Review Period
      - 2024-10-01-2024-11-30
    * - Resolution
-     -
+     - xxx
    * - References
-     -
+     - xxx
 
 .. contents::
    :local:
@@ -184,4 +184,4 @@ Change History
 ==========
 
 * Document created
-* `Pull request #638 <https://github.com/openedx/open-edx-proposals/pull/638>`_
+* Pull request #638 <https://github.com/openedx/open-edx-proposals/pull/638>
