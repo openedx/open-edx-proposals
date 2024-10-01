@@ -1,47 +1,36 @@
-.. _pep_based_template:
-
-.. Below is the display in the left sidebar on RTD. Please omit leading 0's
-
-OEP-XXXX: OEP Template
-######################
-
-.. This OEP template is based on Python's PEP standard.
+OEP-68: AI-Driven Chatbot Integration for Enhanced User Support
+###############################################################
 
 .. list-table::
    :widths: 25 75
 
-   ai-chatbot-integration
-
    * - OEP
-     - Link to the doc in the following format::
-
-        :doc:`OEP-XXXX <oep-XXXX-YYYY-ZZZZ>`
-
-        * <XXXX is the next available OEP number>
-        * <YYYY is the abbreviated Type: proc | bp | arch>
-        * <ZZZZ is a brief (< 5 words) version of the title>
-
-   * - AI-Driven Chatbot Integration for Enhanced User Support
-     - <OEP title>
-   * - 2024-10-01
-     - <date string, in YYYY-MM-DD format>
-   * - Abstract Technology - Ronak and Ghassan
-     - <list of authors' real names and optionally, email addresses>
-   * - Arbiter TBD
-     - <Arbiter's real name and email address>
-   * - Draft
-     - <Draft | Under Review | Deferred | Provisional | Accepted | Final | Replaced>
-   * - Best Practice
-     - <Architecture | Best Practice | Process>
-   * - 2024-09-23
-     - <date created on, in YYYY-MM-DD format>
-   * - start
-     - <start - target end dates for review>
+     - :doc:`OEP-68 <oep-0068-ai-chatbot-integration>`
+   * - Title
+     - AI-Driven Chatbot Integration for Enhanced User Support
+   * - Last modified
+     - 2024-10-01
+   * - Authors
+     - Abstract-Technology <r.pansuriya@abstract-technology.de> <stefania.trabucchi@abstract-technology.de>
+   * - Arbiter 
+     - <TBD>
+   * - Status
+     - Draft
+   * - Type
+     - Best Practice
+   * - Created
+     - 2024-09-23
+   * - Review Period
+     - 2024-10-01-2024-11-30
    * - Resolution
-     - <links to any discussions where the final status was decided>
+     -
    * - References
-     - <links to any other relevant discussions or relevant related materials>
+     -
 
+.. contents::
+   :local:
+   :depth: 2
+  
 Abstract
 ********
 
@@ -191,4 +180,4 @@ Change History
 ==========
 
 * Document created
-* `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
+* `Pull request #638 <https://github.com/openedx/open-edx-proposals/pull/638>`_
