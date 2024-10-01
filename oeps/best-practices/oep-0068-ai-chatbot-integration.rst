@@ -70,73 +70,77 @@ Specification
 
 The proposed AI-driven chatbot will be implemented using Django on the Open edX platform, integrated with OpenAI’s large language models (LLMs) to enhance user support through conversational abilities. The chatbot provides several key features:
 
-General and Platform-Specific Question Detection: 
+* General and Platform-Specific Question Detection: 
 The system distinguishes between general queries (e.g., "What is AI?") and platform-specific queries (e.g., "How do I enroll in a course?"). General questions are discouraged, and users are guided toward platform-related inquiries.
 
-Course Summarization: 
+* Course Summarization: 
 Using an LLM, the chatbot generates both concise and detailed summaries of course content. Summaries are presented in a user-friendly, HTML-formatted structure with sections like "Overview" and "Key Concepts."
 
-Course Recommendations: 
+* Course Recommendations: 
 Based on user input, the system suggests relevant courses from Open edX's course catalog. Fuzzy matching techniques and TF-IDF are used to ensure that recommendations are highly relevant to the user’s interests.
 
-Quiz Generation: 
+* Quiz Generation: 
 The chatbot generates dynamic quizzes based on the content a user has completed in a course. These quizzes are designed to reinforce learning outcomes and provide a more interactive learning experience.
 
-Rate Limiting: 
+* Rate Limiting: 
 To prevent system overload, the chatbot includes a rate-limiting feature that controls the number of requests a user can make within a specific time frame, ensuring fair and consistent access.
 
-Platform-Related Assistance: 
+* Platform-Related Assistance: 
 The chatbot provides support for platform-related questions, such as navigating the system, enrolling in courses, and accessing course materials, helping users get the most out of the Open edX platform.
 
-Course Enrollment: 
+* Course Enrollment: 
 Users can inquire about their enrollment status, and the chatbot will inform them of the courses they are currently enrolled in and help manage their enrollments.
 
-Difficulty Assistance: 
+* Difficulty Assistance: 
 If a user expresses difficulty with a course topic, the chatbot offers support by suggesting beginner-friendly courses or additional resources to help the user better understand the concept.
 
-Discussion Forum Question Handling: (Pending) 
+* Discussion Forum Question Handling: (Pending) 
 The chatbot gathers questions from the discussion forum and provides answers, making it easier for students to find responses to common queries without needing to manually search through threads. This helps improve forum engagement and support.
 
-User Progress Tracking:(pending) 
+* User Progress Tracking:(pending) 
 Users can ask for updates on their course progress, and the chatbot provides real-time data, including completed units, grades, and overall course progress.
 
-Backend: 
+
+Backend
+*************
+
 The chatbot is built using Django and Open edX APIs for accessing course data. It also uses the Langchain library for building the interaction chain with OpenAI’s GPT-based LLM models. For text processing, it relies on the fuzzywuzzy library for matching user queries with course titles and descriptions, and TfidfVectorizer for content-based similarity comparisons.
 
-Front-End Integration:(Pending)
+* Front-End Integration:(Pending)
 
-AI and NLP Integration:
+* AI and NLP Integration:
 
 The AI-driven functionality relies on OpenAI’s GPT models for both summarization and conversation. For recommendations, NLP techniques such as TF-IDF and cosine similarity are used to match user input to relevant course content.
 
-User Interface:
+* User Interface (Pending)
 
-Pending
+* Security Considerations:
 
-Security Considerations:
-
-Authentication: 
+* Authentication: 
 Users must be authenticated to interact with the chatbot, ensuring only valid users can access course data and personalized recommendations.
 
-Rate Limiting: 
+* Rate Limiting: 
 Implement rate limiting to prevent abuse and ensure fair usage of the chatbot services.
 
+
 Missing Features and Pending Implementations:
+*************
+
 Discussion Forum Integration (Pending):
 
-Description: The ability for the chatbot to gather questions from the discussion forum and provide answers is not yet implemented.
+* Description: The ability for the chatbot to gather questions from the discussion forum and provide answers is not yet implemented.
 
-Impact: This feature would enhance student engagement by making it easier to find answers without manually searching through forum threads.
+* Impact: This feature would enhance student engagement by making it easier to find answers without manually searching through forum threads.
 
-Plan: We intend to develop an API integration that allows the chatbot to pull questions from the forum and use OPENAI APIs to generate appropriate responses.
+* Plan: We intend to develop an API integration that allows the chatbot to pull questions from the forum and use OPENAI APIs to generate appropriate responses.
 
 User Progress Tracking (Pending):
 
-Description: Real-time tracking of user progress, including completed units, grades, and overall course progress, is a feature that's pending.
+* Description: Real-time tracking of user progress, including completed units, grades, and overall course progress, is a feature that's pending.
 
-Impact: This would provide users with immediate feedback on their learning journey, helping them stay motivated and on track.
+* Impact: This would provide users with immediate feedback on their learning journey, helping them stay motivated and on track.
 
-Plan: We plan to integrate with Open edX's progress tracking APIs to fetch and display this information upon user request.
+* Plan: We plan to integrate with Open edX's progress tracking APIs to fetch and display this information upon user request.
 
 Front-End Integration (Pending):
 
