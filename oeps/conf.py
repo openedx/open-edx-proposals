@@ -14,6 +14,7 @@
 
 import sys
 import os
+import re
 
 from datetime import datetime
 
@@ -337,11 +338,23 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 
+# Intersphinx Extension Configuration
+DIGITS_ONLY = r"^\d+$"
+rtd_language = os.environ.get("READTHEDOCS_LANGUAGE", "en")
+rtd_version = os.environ.get("READTHEDOCS_VERSION", "latest")
+if re.search(DIGITS_ONLY, rtd_version):
+    # This is a PR build, use the latest versions of the other repos.
+    rtd_version = "latest"
+
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     "python": (
         'https://docs.python.org/',
         None
+    ),
+    "edx-platform": (
+        f"https://docs.openedx.org/projects/edx-platform/{rtd_language}/{rtd_version}",
+        None,
     ),
 }
 
