@@ -37,7 +37,7 @@ Motivation
 **********
 
 Following the open-closed principle, it would be desirable for the open edX
-project to allow the extension points (great `summary of the current options`_)
+project to allow the extension points (great :doc:`summary of the current options<edx-platform:hooks/index>`)
 to modify as much of the code paths that define the business rules of an
 open edX instance in a way that is consistent and repeatable.
 
@@ -55,9 +55,6 @@ easier to reuse and far easier to migrate to newer versions of the codebase.
 This proposal draws inspiration from the cumulative experience of eduNEXT as the
 lead author, other members of the community, and from one of the largest
 extendable platforms for the web today for many years already, WordPress.
-
-.. _summary of the current options: https://github.com/openedx/edx-platform/blob/master/docs/guides/extension_points.rst
-
 
 Specification
 *************
