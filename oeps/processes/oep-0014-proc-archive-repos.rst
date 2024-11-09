@@ -89,9 +89,9 @@ These steps should be followed for all repos within the Open edX organization (f
   - Move the repository to the openedx-unsupported organization
 
   - Remove references to the repository from the ``openedx-translations`` `repository <https://github.com/openedx/openedx-translations/>`_
-    
+
     - The entry in the ``extract-translation-source-files`` `workflow <https://github.com/openedx/openedx-translations/blob/main/.github/workflows/extract-translation-source-files.yml>`_
-    
+
     - The subdirectory in the ``translations`` `directory <https://github.com/openedx/openedx-translations/tree/main/translations>`_
 
   - Create an ``axim-engineering`` `request <https://github.com/openedx/axim-engineering/issues/new/choose>`_ to remove the repository resource from the ``openedx-translations`` project on Transifex

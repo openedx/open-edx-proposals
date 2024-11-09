@@ -9,8 +9,8 @@ Accepted
 Context
 *******
 
-As documented in :doc:`OEP-0011-0004 <0004-js-ecma>`, the Open edX community has previously 
-:ref:`decided against adopting TypeScript <Reasons for rejecting TypeScript>`. In the time 
+As documented in :doc:`OEP-0011-0004 <0004-js-ecma>`, the Open edX community has previously
+:ref:`decided against adopting TypeScript <Reasons for rejecting TypeScript>`. In the time
 since that decision was made, TypeScript has grown to be quite popular and commonplace for JavaScript developers.
 This has led to more discussion within the community about the `pros and cons of adopting TypeScript`_.
 
@@ -33,7 +33,7 @@ Rejected Alternatives
 *********************
 
 1. **Continue without TypeScript**
-  
+
    It is possible to use other tools to add some of the functionality TypeScript provides
    to JavaScript code. However, considering the main point of opposition to TypeScript adoption
    was keeping a low barrier of entry for frontend developers, this could be counterproductive.
@@ -42,6 +42,6 @@ Rejected Alternatives
 
    It would be possible to convert all JavaScript throughout the Open edX project (or any given
    repository within the project) to TypeScript. It is not clear what the benefit of doing so would
-   be. 
+   be.
 
 .. _pros and cons of adopting TypeScript: https://github.com/openedx/paragon/discussions/1186

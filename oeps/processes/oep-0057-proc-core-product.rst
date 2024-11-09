@@ -86,7 +86,7 @@ Product Narrative
 The *Product Narrative* is defined as the high-level vision statement for the
 Open edX project. It succinctly articulates the value proposition and impact of
 the project, the features which differentiate it, and the values and
-characteristics that position it as a market-leading solution. 
+characteristics that position it as a market-leading solution.
 
 Ongoing work to define the Product Narrative and subsequent deliverables can be
 tracked on the `Product Narrative wiki space`_.
@@ -114,7 +114,7 @@ questions such as:
   Product, and why?
 
 * What is the spectrum of alternatives if a developed feature doesn't align with
-  the Core Product? 
+  the Core Product?
 
 Ongoing work to define the Core Product and subsequent deliverables can be
 tracked on the `Core Product Offering wiki space`_.
@@ -245,7 +245,7 @@ the highest impact parts of the project, as determined by a broad cross-section
 of the community itself. It will be clearer to the community which portions of
 the release they can expect support on, and which portions will have little to
 no support. Those components residing outside of the Core Product's Bundled
-Extensions will not be a priority of the project's product strategy. 
+Extensions will not be a priority of the project's product strategy.
 
 The Core Product will be the focus of the project's product strategy; the
 project's various working groups are expected to prioritize support of the Core
@@ -273,7 +273,7 @@ A clearly defined Core Product will assist product managers conducting market
 research to more easily identify feature gaps and parity analyses. They can ask
 questions such as: Do the highest impact features of the project adequately meet
 user needs? Where are they weak? How can we best invest to address those
-weaknesses? 
+weaknesses?
 
 Marketing and Growth Efforts
 ============================
@@ -297,7 +297,7 @@ Notes
     There is desire in the Open edX community to refactor some or all of these
     features to be Bundled Extensions, which would reduce the size of the Kernel
     and bring it closer to our conceptions of an Ideal Kernel.
-    
+
     The diagram of the Product Offerings and what they contain in the text
     represents a simplified version of what the Product Offerings are, and how
     they interact. A more full version of this visual can be seen below
@@ -341,7 +341,7 @@ Notes
 
 .. _Richie: https://richie.education/
 
-.. _FUN MOOC: https://www.fun-mooc.fr/en/ 
+.. _FUN MOOC: https://www.fun-mooc.fr/en/
 
 .. _OEP-10: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0010-proc-openedx-releases.html
 

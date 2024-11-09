@@ -204,7 +204,7 @@ Example
   from enum import Enum
 
   from attrs import field, frozen, validators
-  
+
   class ProgramStatus(Enum):
       ACTIVE = "active"
       RETIRED = "retired"
