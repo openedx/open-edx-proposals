@@ -46,7 +46,7 @@ chosen, and how they work together.
 Overview
 ********
 
-The Open edX platform is a service oriented platform for authoring and
+The Open edX platform is a service-oriented platform for authoring and
 delivering online learning based on the `Django framework`_.  At the
 highest level, the platform is composed of numerous services (IDAs
 [#ida]_), micro-frontends (MFEs [#mfe]_) and libraries.  The code for these
@@ -57,7 +57,7 @@ Each component part of the Open edX platform requires maintenance to
 ensure that it meets, and continues to meet, the project definition of
 high quality.  That definition will include project standards,
 appropriate documentation, and fitness for use, among other things.
-That definition will evolve as project needs do and we learn what
+That definition will evolve as the project needs to do and we learn what
 works and what doesn't.
 
 Component maintenance is work.  To ensure that that work is done, a
@@ -66,7 +66,7 @@ and held accountable for its performance.
 
 The Open edX project, like many projects, calls this role
 "maintainer."  The notion of a project maintainer is typical of
-open-source projects and widely considered a best practice [#maintainer]_.
+open-source projects and is widely considered a best practice [#maintainer]_.
 
 The maintainer role is a leadership role that encompasses both technical and
 community management elements.  Both dimensions of the role are equally
@@ -87,7 +87,7 @@ Motivation
 **********
 
 With the change in stewardship from edX to Axim Collaborative,
-it is essential to have a well defined plan for maintaining
+it is essential to have a well-defined plan for maintaining
 the platform.
 
 In order to ensure that the project is sustainable for the long term,
@@ -95,7 +95,7 @@ maintenance must be shared by the entire community.  The project must
 be robust enough that it can tolerate firms and contributors leaving
 the ecosystem.
 
-As a project we must acknowledge that maintenance is hard work, but
+As a project, we must acknowledge that maintenance is hard work, but
 work that must be done for the platform to be fit for use.  The best
 way of ensuring this is to have a named person or persons who are
 responsible for getting the work done, a measurable definition of
@@ -144,7 +144,7 @@ Historical Context
 Historically, the Open edX project has not had a well-defined role
 of maintainer.  At times, community members stepped into this role
 informally.  The role was also part of a broader "owner" role at edX.
-Owners were also responsible for the health of the component they
+Owners were also responsible for the health of the component(s) they
 owned both in the repository and in production; owners answered the
 pager when something went wrong.
 
@@ -155,9 +155,9 @@ The role of the repository or project maintainer is both a community
 focused and a technical role [#role]_.  Maintainers will be the public face
 of each component and should be welcoming and available.  While
 maintainers should strive to always be friendly and kind in their
-communication, firmness and directness are equally important.
+communication, firmness, and directness are equally important.
 Maintainers must enforce the project's standards.  In cases where a
-proposed change isn't aligned with the our standards or direction, it
+proposed change isn't aligned with our standards or direction, it
 is best to make that clear as early as possible.
 
 Non-technical responsibilities of maintainers include:
@@ -204,7 +204,7 @@ See `Jobs of the Maintainer`_ for more details on these requirements.
 
 It is acceptable for a component to be maintained by a team or group as long as
 that arrangement does not reduce the reachability of at least one maintainer or
-reduce accountability for the above responsibilities. The maintaining team must
+reduce accountability for the above responsibilities. The maintenance team must
 have ways of direct contact, such as an email address and a GitHub team, that
 anyone can use to get hold of someone - it is completely acceptable for the
 team to figure out arrangements for list monitoring, such as an "on-call"
@@ -221,13 +221,13 @@ In order to be a repository maintainer, you must
 * Abide by the Open edX `Code of Conduct`_
 * Be a member of the `Core Contributor Program`_ with rights to the repository
   in question who has demonstrated excellence in the role of Core Contributor.
-  From time-to-time, in the case of a strong candidate and project need, core
+  From time to time, in the case of a strong candidate and project need, core
   contributor status and maintainer status may be conferred at the same time
 * In the case of repos being moved into the `openedx GitHub organization`_, be
   an original maintainer of the code
 
 We value the level of commitment that comes with being a Core Contributor and
-think it is a necessary pre-requisite to becoming a Maintainer. We want to
+think it is a necessary prerequisite to becoming a Maintainer. We want to
 ensure that the programs are congruent and not working at cross purposes; hours
 spent maintaining a component will count as Core Contributor hours. If we find
 that the requirement of being a Core Contributor limits participation in the
@@ -237,7 +237,7 @@ Bootstrapping
 =============
 
 Upon acceptance of this OEP, a bootstrapping period, starting with a small pilot
-phase, will occur whereby 2U staff and community members will formally take on
+phase will occur whereby 2U staff and community members will formally take on
 maintainership roles. Details of this period will be documented in the
 `maintainership documents`_ on the Open edX wiki, due to their rapidly changing
 nature.
@@ -254,9 +254,9 @@ complete the critical activities.
 
 Coordination will typically be over asynchronous channels.
 
-From time-to-time, a task force may be required to complete certain
+From time to time, a task force may be required to complete certain
 project-wide responsibilities like developing repository standards,
-as well as tools for measuring compliance to those standards.
+as well as tools for measuring compliance with those standards.
 
 Becoming a Maintainer
 =====================
@@ -279,16 +279,16 @@ A new maintainer can be added in any of the following ways:
   teams-as-maintainers above).
 
 In both of the above cases, the request for maintainership change should be
-publicized in Discourse with a comment period not less than two weeks. All
+publicized in Discourse with a comment period of not less than two weeks. All
 community members are welcome to voice their support ("liking" the post does not
-count), or comment with question/concerns. Existing maintainers and core
+count) or comment with questions/concerns. Existing maintainers and core
 contributors may object to the nomination. If there is no objection from
 existing maintainers or core contributors at the end of the comment period, the
 role will be conferred.
 
 We are not currently limiting staff of companies from appointing,
 nominating, or voting for other employees of their company.  This
-would be impractical as, currently, single companies are locus of
+would be impractical as, currently, single companies are the locus of
 component maintenance work. This may be addressed in future revisions
 to this proposal.
 
@@ -309,12 +309,12 @@ conferred.
 
 If consensus cannot be reached lazily [#lazy_consensus]_, a vote of existing maintainers
 will be taken.  Maintainers can approve a nomination with the approval
-of at least three quarters of the members.
+of at least three-quarters of the members.
 
 Removing a Maintainer
 =====================
 
-From time-to-time it will be necessary to remove a component
+From time to time it will be necessary to remove a component
 maintainer.  This might happen because:
 
 * A maintainer leaves the project or changes employment
@@ -395,7 +395,7 @@ categories
   following questions:
 
   * What is the component for?
-  * How it fits into the overall platform?
+  * How does it fit into the overall platform?
   * What are its limitations and key areas of debt?
   * What new patterns or technologies should be adopted to improve the
     component?
@@ -479,7 +479,7 @@ Notes
        can be seen in much literature that starts from the assumption
        that maintainers are essential and instead asks, what makes a
        maintainer great, what are the best-practices maintainers
-       should follow, how do we ensure maintainer don't burn out, how
+       should follow, how do we ensure maintainers don't burn out, how
        do we ensure critical parts of the software supply chain, like
        OpenSSL are maintained, etc.  I have included some relevant
        materials in the **Source Material** section.
