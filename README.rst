@@ -18,7 +18,7 @@ View the published list of `Open edX Proposals (OEPs)`_ on ReadTheDocs.
 Getting Started
 ***************
 
-This repository holds a bunch of text files, each of which represent an OEP or
+This repository holds a bunch of text files, each of which represents an OEP or
 supplementary documentation. For browsing these OEPs, we recommend you read them
 in `their published form <https://open-edx-proposals.readthedocs.io>`_ on ReadTheDocs.
 
