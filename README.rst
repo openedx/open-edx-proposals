@@ -43,8 +43,6 @@ all proposed changes and additions on `pull requests`_.
 .. _ReStructured Text (RST): https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _pull requests: https://docs.openedx.org/en/latest/developers/quickstarts/first_openedx_pr.html
 
-
-
 Testing Locally
 ***************
 
@@ -56,7 +54,6 @@ Next run the following commands::
 
   pip install sphinx  # it may fail for non-obvious reasons without this
   make requirements
-
   make html
 
 Common Warnings

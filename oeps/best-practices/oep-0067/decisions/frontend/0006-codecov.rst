@@ -27,6 +27,6 @@ Rejected Alternatives
 Coveralls
 =========
 
-Coveralls has been historically used for tracking coverage but the service has become less reliable over time and the larger python has moved away from it. 
+Coveralls has been historically used for tracking coverage but the service has become less reliable over time and the larger python has moved away from it.
 
 .. _Codecov: https://about.codecov.io/

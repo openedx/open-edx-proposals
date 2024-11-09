@@ -123,7 +123,7 @@ References
         # names that might be interested in changes to the architecture of this
         # component.
         openedx.org/arch-interest-groups: "feanil"
-        # (Optional) We use the below annotation to indicate whether or not this 
+        # (Optional) We use the below annotation to indicate whether or not this
         # repository should be tagged for openedx releases and which branch is tagged.
         openedx.org/release: "main"
     spec:

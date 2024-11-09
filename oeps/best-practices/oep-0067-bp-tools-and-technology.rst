@@ -68,7 +68,7 @@ This technology is not specific to frontend or backend code.
 
    **Rationale**: It is important to measure the amount of code covered by our
    automated test suites. By striving for a high level of test coverage, we can
-   reduce the number of bugs that can only be found via manual testing, 
+   reduce the number of bugs that can only be found via manual testing,
    and by using codecov to run coverage in CI,
    contributors are automatically reminded to include tests for any new code.
 
@@ -84,12 +84,12 @@ This technology is not specific to frontend or backend code.
 Frontend Technology Selection
 =============================
 
-.. note:: 
+.. note::
 
    The phrase “frontend” is used to mean any part of the platform that is shown to
    users. This encompasses views rendered in Python on the server, interactive
    interfaces written using JavaScript, and CSS styling.
-   
+
 .. _Use React:
 
 #. **Use React**
@@ -250,7 +250,7 @@ Frontend Technology Selection
 
    **Rationale**: It is important for users of the Open edX platform that we deliver
    reasonably sized JavaScript bundles. This provides faster load times to all users,
-   and is vital for users with low bandwidth and/or metered connections. To ensure we 
+   and is vital for users with low bandwidth and/or metered connections. To ensure we
    don't unintentionally increase the size of our JavaScript bundles, we utilize BundleWatch
    for automated bundle size monitoring.
 

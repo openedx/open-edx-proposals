@@ -48,9 +48,9 @@ Rejected Alternatives
      for identifying the root cause of a test failure but resulted in a
      pretty high volume of PRs that needed to be reviewed (especially in
      repositories which normally don't need to be updated very often). Renovate has
-     `configuration options to set the frequency of checking for new dependency 
+     `configuration options to set the frequency of checking for new dependency
      releases <https://renovatebot.com/docs/noise-reduction/#scheduling-renovate>`_,
-     and to allow related packages to be `updated in the same pull 
+     and to allow related packages to be `updated in the same pull
      request <https://renovatebot.com/docs/noise-reduction/#package-grouping>`_. This may
      delay notification of security patch releases or make it harder to identify the
      exact cause of a test failure, but also makes it less likely that the PRs will be
