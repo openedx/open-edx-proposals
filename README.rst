@@ -50,7 +50,9 @@ Before you make a pull request with your proposed changes, please try to visuall
 
 To test locally in a Python virtual env, you will first need to install `GraphViz <http://graphviz.org/>`_
 On a Mac, this can be done via ``brew install graphviz``; on Ubuntu, use ``sudo apt install graphviz``; on Red Hat variants use ``sudo dnf install graphviz``.
-Next run the following commands::
+Next, run the following commands
+
+.. code-block:: bash
 
   pip install sphinx  # it may fail for non-obvious reasons without this
   make requirements
@@ -64,7 +66,9 @@ Document isn't Included in any toctree
 
 If you have some documents that you only reference via ``:doc:`` or ``:ref:`` tags you may get this error.
 If there is no table of contents that the files obviously belong in, an easy way to fix this error is to put the
-documents in a hidden toctree near where they are referenced::
+documents in a hidden toctree near where they are referenced:
+
+.. code-block:: rst
 
     .. toctree::
         :hidden:
