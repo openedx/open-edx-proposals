@@ -129,7 +129,7 @@ sphinxcontrib-serializinghtml==2.0.0
     #   sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
-starlette==0.41.2
+starlette==0.41.3
     # via sphinx-autobuild
 typing-extensions==4.12.2
     # via
@@ -143,5 +143,5 @@ uvicorn==0.32.0
     # via sphinx-autobuild
 watchfiles==0.24.0
     # via sphinx-autobuild
-websockets==14.0
+websockets==14.1
     # via sphinx-autobuild
