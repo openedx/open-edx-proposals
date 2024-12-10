@@ -12,7 +12,7 @@ alabaster==1.0.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-anyio==4.6.2.post1
+anyio==4.7.0
     # via
     #   starlette
     #   watchfiles
@@ -134,6 +134,7 @@ starlette==0.41.3
 typing-extensions==4.12.2
     # via
     #   -r requirements/base.txt
+    #   anyio
     #   pydata-sphinx-theme
 urllib3==2.2.3
     # via
