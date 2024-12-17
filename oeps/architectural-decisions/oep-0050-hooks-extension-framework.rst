@@ -37,7 +37,7 @@ Motivation
 **********
 
 Following the open-closed principle, it would be desirable for the open edX
-project to allow the extension points (great :doc:`summary of the current options<edx-platform:hooks/index>`)
+project to allow the extension points (great :doc:`summary of the current options<docs.openedx.org:developers/concepts/hooks_extension_framework>`)
 to modify as much of the code paths that define the business rules of an
 open edX instance in a way that is consistent and repeatable.
 

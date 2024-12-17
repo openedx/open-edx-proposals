@@ -356,6 +356,10 @@ intersphinx_mapping = {
         f"https://docs.openedx.org/projects/edx-platform/{rtd_language}/{rtd_version}",
         None,
     ),
+    "docs.openedx.org": (
+        f"https://docs.openedx.org/{rtd_language}/{rtd_version}",
+        None,
+    ),
 }
 
 # -- Read the Docs Specific Configuration
