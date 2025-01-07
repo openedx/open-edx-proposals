@@ -34,7 +34,7 @@ packaging==24.2
     # via sphinx
 pydata-sphinx-theme==0.16.1
     # via sphinx-book-theme
-pygments==2.19.0
+pygments==2.19.1
     # via
     #   accessible-pygments
     #   pydata-sphinx-theme
