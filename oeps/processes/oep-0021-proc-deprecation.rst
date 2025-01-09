@@ -211,19 +211,25 @@ considers the timing of the next `Open edX named release`_.
 * **Proposed** on Day 1
 * **Communicated** from Day 2 to Day 13
 * **Accepted** on Day 14 *(depending on influx of feedback)*
-* **Deprecated/Removing/Removed** - from Day 15 onwards *(depending on resources and technology being removed).*
+* **Deprecated/Removing/Removed** - TODO: UPDATE TO MATCH NEW RECOMMENDATION: from Day 15 onwards *(depending on resources and technology being removed).*
   Consider when the next Named Release is cut; if it is very soon, you may wish to delay final
   removal until after the cut date.
 
-Consider choosing deprecation and removal dates that allow for a full
-release cycle for transition planning. For example, a deprecation
-proposal could be accepted while Maple is being finalized, then
-implement the removal some time after Maple is released so that the
-removal itself will land in Nutmeg. (Removal could even happen as soon as
-a named release's branches are cut, but this may interfere with fixes that
-need to be backported.) Any deployment following the
-named releases would then have a number of months to prepare before
-Nutmeg comes out.
+
+The removal date should default to 6 months of advance communication,
+including at least 1 month window of overlapping support between old
+and new features.
+
+Additionally, the ability to negotiate dates on the DEPR ticket is an
+explicit part of the process. This could include adjusting the default
+dates for a specific ticket, or negotiating extensions as-needed (e.g. 
+difficulties that arise, or too many maintenance requests landing at 
+the same time, etc.). It could also include providing a very short
+window for changes that don't require much warning.
+
+The 6 month window has the benefit of givig at least one named release
+(e.g. Redwood) worth of warning, because the named releases are
+currently on a 6 month window. 
 
 This approach would be most appropriate for features that can be left
 in place for an extended period before removal and where a transition
@@ -231,6 +237,7 @@ to an alternative would require a moderate to large amount of
 effort. For more trivial deprecations, it may be appropriate to simply
 deprecate and remove within the same release cycle.
 
+TODO: UPDATE THIS AND ALL OTHER PLACES TO MENTION target month + named release. Check the DEPR issue template as well. And scan throught the rest of this DEPR.
 Remember to use the named release's *cut date* when determining the
 appropriate named release. Additionally, if the named release is far
 enough in the future that it only has a letter (and not a full name),
