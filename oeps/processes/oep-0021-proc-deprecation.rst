@@ -218,14 +218,17 @@ considers the timing of the next `Open edX named release`_.
 
 The removal date should default to 6 months of advance communication,
 including at least 1 month window of overlapping support between old
-and new features.
+and new features. If you have a high level of confidence that it's not
+used elsewhere and you still comunicate it to the community you may use
+a more accelerated process which is as short as 2 weeks.
 
 Additionally, the ability to negotiate dates on the DEPR ticket is an
 explicit part of the process. This could include adjusting the default
 dates for a specific ticket, or negotiating extensions as-needed (e.g. 
 difficulties that arise, or too many maintenance requests landing at 
 the same time, etc.). It could also include providing a very short
-window for changes that don't require much warning.
+window for changes that don't require much warning or where there are
+very few actual users of the code.
 
 The 6 month window has the benefit of givig at least one named release
 (e.g. Redwood) worth of warning, because the named releases are
@@ -433,13 +436,8 @@ in the release notes of the next named release.
     then the contributor must provide an ADR justifying its usage. This is because
     using the deprecated feature obviously adds new technical debt to the system.
 
-Deprecated
-==========
-
-If you decided to mark the code for deprecation during your Analyze_ or
-`Monitor Feedback`_ phases, invest time in doing so and update the state of the
-**DEPR** ticket to *Deprecated* once that is completed and make a comment on the
-issue saying you've done so.
+As a part of acceptance, all relevant warnings should go into code/documentation to indicate what
+will be removed or replaced. 
 
 Here are some common ways to mark a technology as deprecated:
 
@@ -463,21 +461,29 @@ Here are some common ways to mark a technology as deprecated:
 .. _OEP-17: https://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html
 .. _OEP-14 Archiving Open edX GitHub Repositories: https://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html
 
+If the new version of the code will be using toggles/waffles, the names and settings of those waffles should be communicated to operators.
+e.g. "If you don't want to use the new content libraries, set "xxx" waffle flag to false before that lands.  Do we need more here?
+
+Ready for Migration
+===================
+For code where there is a replacement, this state indicates that the replacement is ready for use and we are in a period where both the old and new code are working.  This is a temporary state that allows developers/operators to migrate to the replacement option before the old code is removed.  Unless otherwise negotiated/communicated, this stage will last one month to give everyone ample time to transition.
+
+This state implies that there are flags or toggles to be able to switch between the two versions, and the DEPR ticket should communicate if the default is changing with enough time for operators to be able to set relevant flags to choose between the implementations.
+
 Removing
 ========
 
-When a team begins development work to remove the code, change the **DEPR**
-ticket's state to *Removing* and make a comment on the issue saying you've done so.
+This state indicates that support for the old implementation has been officially dropped and developers are able to begin removing code. If an item is in this state you should not expect the old implementation to work.
 
-During this phase, remember the following:
+During this phase, the following will occur:
 
-* Implement the proposed and agreed upon migration path.
 * Remove related code from all places, including the frontend, APIs, and
   the backend, perhaps even in that order.
-* Remove any related documentation on docs.edx.org_ and elsewhere.
+* Remove any unnecessary feature flags introduced as a part of the transition.
+* Remove any related documentation on docs.openedx.org_ and elsewhere.
 * Continue to update the ticket with any delays or issues that may arise.
 
-.. _docs.edx.org: https://docs.edx.org/
+.. _docs.openedx.org: https://docs.openedx.org/
 
 Removed
 =======
