@@ -136,13 +136,14 @@ typing-extensions==4.12.2
     #   -r requirements/base.txt
     #   anyio
     #   pydata-sphinx-theme
-urllib3==2.3.0
+urllib3==2.2.3
     # via
+    #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
     #   requests
 uvicorn==0.34.0
     # via sphinx-autobuild
-watchfiles==1.0.3
+watchfiles==1.0.4
     # via sphinx-autobuild
 websockets==14.1
     # via sphinx-autobuild
