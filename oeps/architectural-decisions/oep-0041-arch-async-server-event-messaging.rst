@@ -475,9 +475,15 @@ Having a clearly defined set of events would allow for simpler third party
 integration in areas like student learner event processing and course catalog
 management.
 
+------------
+
+.. note:: All future decisions related to :doc:`Open edX Events <openedx-events:index>` that adhere to these guidelines for asynchronous event messaging will now be documented and made publicly available through the Architectural Decision Records (ADRs) in :doc:`Open edX Events ADRs <openedx-events:decisions/index>`. This includes decisions regarding the Event Bus, schema format, serialization, evolution, and design practices for event-driven architecture.
+
 **************
 Change History
 **************
+
+2024-01-14: Added note about decisions related to Open edX Events being documented and made publicly available through the Architectural Decision Records (ADRs) in the repository.
 
 2022-01-09: Clarified that time field could be based on updated_at time when appropriate.
 

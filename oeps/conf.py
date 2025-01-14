@@ -360,6 +360,14 @@ intersphinx_mapping = {
         f"https://docs.openedx.org/{rtd_language}/{rtd_version}",
         None,
     ),
+    "openedx-events": (
+        f"https://docs.openedx.org/projects/openedx-events/{rtd_language}/latest",
+        None,
+    ),
+    "openedx-filters": (
+        f"https://docs.openedx.org/projects/openedx-filters/{rtd_language}/latest",
+        None,
+    ),
 }
 
 # -- Read the Docs Specific Configuration
