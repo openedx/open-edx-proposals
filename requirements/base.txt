@@ -72,5 +72,7 @@ sphinxext-rediraffe==0.2.7
     # via -r requirements/base.in
 typing-extensions==4.12.2
     # via pydata-sphinx-theme
-urllib3==2.3.0
-    # via requests
+urllib3==2.2.3
+    # via
+    #   -c requirements/common_constraints.txt
+    #   requests
