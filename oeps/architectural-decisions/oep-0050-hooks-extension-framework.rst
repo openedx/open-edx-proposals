@@ -263,8 +263,13 @@ The current documentation for the Hooks Extension Framework can be found at `Ope
 
 .. _Open edX Guides Hooks: https://github.com/openedx/edx-platform/tree/master/docs/guides/hooks
 
+.. note:: All decisions related to Open edX Events and Filters will now be documented and made publicly available through their respective Architectural Decision Records (ADRs). For more information, see the :doc:`Open edX Events ADRs <openedx-events:decisions/index>` and :doc:`Open edX Filters ADRs <openedx-filters:decisions/index>`.
+
 Change History
 **************
+
+14 January 2025 - Maria Grimaldi
+Added note about decisions related to Open edX Events and Filters being documented and made publicly available through the Architectural Decision Records (ADRs) in the repository.
 
 20 July 2022 - Maria Grimaldi
 Update OEP-50 with latest documentation.

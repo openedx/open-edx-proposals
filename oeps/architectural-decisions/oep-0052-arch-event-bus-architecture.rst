@@ -96,6 +96,8 @@ Decision
 .. _ADR on External Event Schema Format: https://openedx-events.readthedocs.io/en/latest/decisions/0005-external-event-schema-format.html
 .. _ADR on Event Schema Serialization and Evolution: https://openedx-events.readthedocs.io/en/latest/decisions/0006-event-schema-serialization-and-evolution.html
 
+.. note:: All decisions related to Open edX Events where the event bus key components are implemented will now be documented and made publicly available through the Architectural Decision Records (ADRs) in the repository. For more details, refer to the :doc:`Open edX Events ADRs <openedx-events:decisions/index>`.
+
 Consequences
 ************
 
@@ -107,6 +109,11 @@ Consequences
 
 Change History
 **************
+
+2025-01-14
+==========
+
+* Added note about decisions related to Open edX Events being documented and made publicly available through the Architectural Decision Records (ADRs) in the repository.
 
 2024-07-09
 ==========
