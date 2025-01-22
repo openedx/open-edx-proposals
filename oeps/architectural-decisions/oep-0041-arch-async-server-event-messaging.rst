@@ -483,7 +483,7 @@ management.
 Change History
 **************
 
-2024-01-14: Added note about decisions related to Open edX Events being documented and made publicly available through the Architectural Decision Records (ADRs) in the repository.
+2024-01-14: Added note about decisions related to Open edX Events being documented and made publicly available through the Architectural Decision Records (ADRs) in the `openedx-events <https://github.com/openedx/openedx-events>`_ repository.
 
 2022-01-09: Clarified that time field could be based on updated_at time when appropriate.
 

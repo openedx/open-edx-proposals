@@ -269,7 +269,7 @@ Change History
 **************
 
 14 January 2025 - Maria Grimaldi
-Added note about decisions related to Open edX Events and Filters being documented and made publicly available through the Architectural Decision Records (ADRs) in the repository.
+Added note about decisions related to Open edX Events and Filters being documented and made publicly available through the Architectural Decision Records (ADRs) in the `openedx-events <https://github.com/openedx/openedx-events>`_ and `openedx-filters <https://github.com/openedx/openedx-events>`_ repositories.
 
 20 July 2022 - Maria Grimaldi
 Update OEP-50 with latest documentation.
