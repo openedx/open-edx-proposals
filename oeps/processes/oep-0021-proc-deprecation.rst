@@ -209,9 +209,11 @@ considers the timing of the next `Open edX named release`_.
     periods will vary by the type and scope of the technical change.
 
 * **Proposed** on Day 1
-* **Communicated** from Day 2 to Day 13
+* **Communicated** - Up to 6 months before the change is expected to land.
 * **Accepted** on Day 14 *(depending on influx of feedback)*
-* **Deprecated/Removing/Removed** - TODO: UPDATE TO MATCH NEW RECOMMENDATION: from Day 15 onwards *(depending on resources and technology being removed).*
+* **Replacement Ready** - At least 1 month to allow operators to transition.
+* **Removal Pending** - Once the transition period has concluded (However long the replacement ready phase was).
+* **Removed** - The resolved state.
   Consider when the next Named Release is cut; if it is very soon, you may wish to delay final
   removal until after the cut date.
 
@@ -464,13 +466,13 @@ Here are some common ways to mark a technology as deprecated:
 If the new version of the code will be using toggles/waffles, the names and settings of those waffles should be communicated to operators.
 e.g. "If you don't want to use the new content libraries, set "xxx" waffle flag to false before that lands.  Do we need more here?
 
-Ready for Migration
+Replacement Ready
 ===================
 For code where there is a replacement, this state indicates that the replacement is ready for use and we are in a period where both the old and new code are working.  This is a temporary state that allows developers/operators to migrate to the replacement option before the old code is removed.  Unless otherwise negotiated/communicated, this stage will last one month to give everyone ample time to transition.
 
 This state implies that there are flags or toggles to be able to switch between the two versions, and the DEPR ticket should communicate if the default is changing with enough time for operators to be able to set relevant flags to choose between the implementations.
 
-Removing
+Removal Pending
 ========
 
 This state indicates that support for the old implementation has been officially dropped and developers are able to begin removing code. If an item is in this state you should not expect the old implementation to work.
