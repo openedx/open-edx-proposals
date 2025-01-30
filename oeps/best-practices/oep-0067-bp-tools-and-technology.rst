@@ -268,7 +268,7 @@ Backend Technology Selection
 This section will cover any technology or tools that are not considered a part
 of the frontend.
 
-..note::
+.. note::
 
    This section is incomplete. It should include:
 
