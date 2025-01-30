@@ -9,7 +9,7 @@ OEP-67: Standard Tools and Technologies
    * - Title
      - Tools and Technology Standards
    * - Last Modified
-     - 2024-07-25
+     - 2025-01-30
    * - Authors
      - Feanil Patel <feanil@axim.org>
    * - Arbiter
@@ -46,7 +46,7 @@ The problems we're trying to solve are:
 
 :doc:`OEP-11 </archived/oep-0011-bp-FED-technology>` serves as a great example for the
 usefulness of this kind of OEP but limits itself to be relevant only to
-frontend technologies.  This OEP would supersede :doc:`OEP-11
+frontend technologies.  This OEP supersedes :doc:`OEP-11
 </archived/oep-0011-bp-FED-technology>` and encompass not only front-end technology but any
 technology that:
 
@@ -56,8 +56,6 @@ technology that:
 
 Specification
 *************
-
-.. note:: We'll fill this out before the OEP lands but leaving mostly blank for initial feedback.
 
 General Technology Selection
 ============================
@@ -124,7 +122,7 @@ Frontend Technology Selection
 
 #. **Target the latest standardized JavaScript version (ECMA-262)**
 
-   **Rationale**: edX JavaScript should be written consistent with the latest
+   **Rationale**: Open edX JavaScript should be written consistent with the latest
    ECMA-262 specification in order to ensure future support, the largest
    community and the availability of modern features. Currently, ES2022 is
    the latest version with full compatibility from `the browsers we support`_.
@@ -170,7 +168,7 @@ Frontend Technology Selection
    projects should allow patch and minor upgrades in their package.json file and
    commit a package-lock.json file. The package-lock.json file will keep a full list
    of dependencies and their versions, ensuring when built for deployments the
-   version of libraries are consistent. This follows the same pattern used in edX
+   version of libraries are consistent. This follows the same pattern used in Open edX
    Python code - see `OEP 18`_ for more information. For more information on
    package-lock files see `Package Lock`_.
 
@@ -188,7 +186,7 @@ Frontend Technology Selection
    **Rationale**: `Webpack`_ is the tool of choice for code optimization and
    bundling, as it is widely used throughout the industry, and because
    it seamlessly handles modern code bases as well as all of the older
-   technologies used by edX, such as `AMD Modules`_. Webpack should be
+   technologies used by Open edX, such as `AMD Modules`_. Webpack should be
    implemented to handle as much of the "asset pipeline" as possible,
    rather than passing this responsibility on to Django.
 
@@ -218,9 +216,9 @@ Frontend Technology Selection
 #. **API calls should be made with the edX Frontend Auth Client or Axios**
 
    **Rationale**: The `edX Frontend Auth Client`_ simplifies the process of
-   talking to edX APIs by using Axios interceptors and handling JWT Cookie
+   talking to Open edX APIs by using Axios interceptors and handling JWT Cookie
    authentication. It also provides React components to handle private routes
-   and should be used when possible. When making calls to non-edX APIs
+   and should be used when possible. When making calls to non-Open edX APIs
    Axios should be used to provide a consistent API.
 
    The `fetch`_ API was considered but Axios was chosen for its more
@@ -270,8 +268,9 @@ Backend Technology Selection
 This section will cover any technology or tools that are not considered a part
 of the frontend.
 
-.. This section will be empty to begin with and I'll create a separate PR to add any
-   technologies that we consider standard today. This will probably include:
+..note::
+
+   This section is incomplete. It should include:
 
     * Django
 
@@ -279,7 +278,7 @@ of the frontend.
 
     * Python?
 
-    * drf-yasg (A thing that is currently standard but that I hope to change)
+    * drf-yasg (A thing that is currently standard but that we hope to change)
 
     * tox
 
@@ -296,7 +295,7 @@ This section lists the decision records for any time a standard technology has
 been change in the system along with the reasons why and the alternatives
 considered.
 
-.. We'll have a toctree to an ADR folder with decisions.  We'll move all the existing fronted decisions to under this OEP.
+.. A set of toctrees to ADR folders with decisions.  We moved all the existing fronted decisions to under this OEP.
 
 .. toctree::
    :caption: Overall Decisions
@@ -337,6 +336,13 @@ Consequences
 Change History
 **************
 
+2025-01-30
+==========
+
+* Updated "edX"-specific language to "Open edX" where applicable
+* Removed and/or updated author notes from when the OEP was being written
+* `Pull request #616 <https://github.com/openedx/open-edx-proposals/pull/616>`_
+
 2024-07-25
 ==========
 
@@ -344,7 +350,7 @@ Change History
 * `Pull request #615 <https://github.com/openedx/open-edx-proposals/pull/615>`_
 * Changed guidance on React state/data loading to recommend React Query instead of Redux
 * Updated JavaScript/TypeScript guidance
-* `Pull request #616 <https://github.com/openedx/open-edx-proposals/pull/616>`_
+* `Pull request #666 <https://github.com/openedx/open-edx-proposals/pull/666>`_
 
 2023-09-05
 ==========
