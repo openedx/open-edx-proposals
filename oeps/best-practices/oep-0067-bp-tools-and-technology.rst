@@ -341,7 +341,7 @@ Change History
 
 * Updated "edX"-specific language to "Open edX" where applicable
 * Removed and/or updated author notes from when the OEP was being written
-* `Pull request #616 <https://github.com/openedx/open-edx-proposals/pull/616>`_
+* `Pull request #666 <https://github.com/openedx/open-edx-proposals/pull/666>`_
 
 2024-07-25
 ==========
@@ -350,7 +350,7 @@ Change History
 * `Pull request #615 <https://github.com/openedx/open-edx-proposals/pull/615>`_
 * Changed guidance on React state/data loading to recommend React Query instead of Redux
 * Updated JavaScript/TypeScript guidance
-* `Pull request #666 <https://github.com/openedx/open-edx-proposals/pull/666>`_
+* `Pull request #616 <https://github.com/openedx/open-edx-proposals/pull/616>`_
 
 2023-09-05
 ==========
