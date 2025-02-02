@@ -6,13 +6,13 @@ OEP-3: Asynchronous Task Management
 +---------------+-------------------------------------------+
 | Title         | Asynchronous Task Management              |
 +---------------+-------------------------------------------+
-| Last-Modified | 2016-10-13                                |
+| Last-Modified | 2025-02-02                                |
 +---------------+-------------------------------------------+
 | Author        | Jeremy Bowman <jbowman@edx.org>           |
 +---------------+-------------------------------------------+
 | Arbiter       | Eddie Fagin <eddie@edx.org>               |
 +---------------+-------------------------------------------+
-| Status        | Provisional                               |
+| Status        | Accepted                                  |
 +---------------+-------------------------------------------+
 | Type          | Architecture                              |
 +---------------+-------------------------------------------+
@@ -26,6 +26,10 @@ Proposes a system which allows users to initiate, monitor, and retrieve the
 results of various long-running tasks in a consistent manner.  This system
 leverages existing libraries where practical and makes the development of new
 asynchronous tasks straightforward.
+
+.. note::
+
+  This OEP served as the blueprint for `django-user-tasks <https://github.com/openedx/django-user-tasks/blob/master/README.rst>`_.
 
 
 Motivation
@@ -122,10 +126,10 @@ Database Schema
 ===============
 
 Celery provides a pretty full-featured and well understood platform for
-running asynchronous tasks, but celery’s ``AsyncResult`` doesn’t store all
+running asynchronous tasks, but celery's ``AsyncResult`` doesn't store all
 of the information we need for the desired features.  Rather than try to
-straddle the data we access across celery’s result backend and the MySQL
-database, we’ll just store everything we need in database models and let
+straddle the data we access across celery's result backend and the MySQL
+database, we'll just store everything we need in database models and let
 celery manage and clean up its own result store as normal.  Presented here is
 a suggested initial design for these models (they may be altered over time
 via migrations as more features are added).
@@ -219,3 +223,8 @@ Backwards Compatibility
 
 Change History
 **************
+
+2025-02-02
+==========
+* Mark OEP as "Accepted", due to the implementation of the proposal in ``django-user-tasks``
+* `Pull request #672 <https://github.com/openedx/open-edx-proposals/pull/672>`_
