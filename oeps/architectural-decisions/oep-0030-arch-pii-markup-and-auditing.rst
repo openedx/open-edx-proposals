@@ -6,13 +6,14 @@ OEP-30: PII Markup and Auditing
 +---------------+------------------------------------------------------------+
 | Title         | Personally Identifiable Information Markup and Auditing    |
 +---------------+------------------------------------------------------------+
-| Last Modified | 2019-01-24                                                 |
+| Last Modified | 2025-02-03                                                 |
 +---------------+------------------------------------------------------------+
-| Author        | Brian Mesick <bmesick@edx.org>                             |
+| Author        | - Brian Mesick <bmesick@edx.org>                           |
+|               | - Ty Hob <ty@axim.org>                                     |
 +---------------+------------------------------------------------------------+
 | Arbiter       | Alex Dusenbury <adusenbury@edx.org>                        |
 +---------------+------------------------------------------------------------+
-| Status        | Provisional                                                |
+| Status        | Accepted                                                   |
 +---------------+------------------------------------------------------------+
 | Type          | Architecture                                               |
 +---------------+------------------------------------------------------------+
@@ -20,15 +21,15 @@ OEP-30: PII Markup and Auditing
 +---------------+------------------------------------------------------------+
 | Resolution    | - `Original pull request`_                                 |
 |               | - `Update pull request`_                                   |
+|               | - `Second update pull request`_                            |
 +---------------+------------------------------------------------------------+
 | References    | - `NIST Special Publication 800-122 (pdf)`_                |
-|               | - `OEP-002`_                                               |
 +---------------+------------------------------------------------------------+
 
 .. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/81
 .. _Update pull request: https://github.com/openedx/open-edx-proposals/pull/101
+.. _Second update pull request: https://github.com/openedx/open-edx-proposals/pull/676
 .. _NIST Special Publication 800-122 (pdf): http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf
-.. _OEP-002: https://open-edx-proposals.readthedocs.io/en/latest/oep-0002-bp-repo-metadata.html
 
 Abstract
 ********
@@ -80,11 +81,13 @@ Information that is considered PII in Open edX includes, but is not limited to:
 - Forum posts
 - Notes service entries
 
-Each case where we store data relating to a learner should be considered individually as to whether that information alone, or combined with other stored information, can be used to identify a learner or violate their privacy. In some cases PII must be kept for legal reasons that supersede the need to forget. If there is any doubt about what constitutes PII or whether a specific piece of information can be safely forgotten, seek legal assistance.
+Each case where we store data relating to a learner should be considered individually as to whether that information alone, or combined with other stored information, can be used to identify a learner or violate their privacy. In some cases PII must be kept for legal reasons that supersede the need to forget. If there is any doubt about what constitutes PII or whether a specific piece of information can be safely forgotten, seek `assistance from Axim`_.
+
+.. _assistance from Axim: https://github.com/openedx/axim-engineering/issues/new/choose
 
 Open edX Ecosystem
 ==================
-Used in this document the phrase "Open edX Ecosystem" include the services that comprise and support the running of an Open edX installation (ex. edx.org). This includes:
+Used in this document the phrase "Open edX Ecosystem" include the services that comprise and support the running of an Open edX installation. This includes:
 
 - The LMS and Studio
 - IDAs such as Notes, Ecommerce, and Forums
@@ -102,37 +105,26 @@ Specification
 
 Developer Responsibility
 ========================
-The responsibility for identifying and appropriately labeling PII rests on the developers working in Open edX code. When any new information is being saved to a persistent storage medium (ex. MySQL, Mongo, S3, reporting services, 3rd party marketing tools) the developer must identify whether any of that information may be (alone, or in conjunction with other stored data) PII, seeking legal assistance if necessary. Specifically the developer's responsibilities are:
+The responsibility for identifying and appropriately labeling PII rests on the developers working in Open edX code. When any new information is being saved to a persistent storage medium (ex. MySQL, Mongo, S3, reporting services, 3rd party marketing tools) the developer must identify whether any of that information may be (alone, or in conjunction with other stored data) PII, seeking assistance from Axim if necessary. Specifically the developer's responsibilities are:
 
 - Avoid storing PII when it is not necessary
 - Ensure that any PII that is stored will be retired upon learner request *before* that information is stored in a production environment
-    - Exceptions may be made for classes of PII that need to be kept for legal, financial auditing, or research purposes. Consult legal counsel for approval and annotate appropriately if you encounter such a case.
+    - Exceptions may be made for classes of PII that need to be kept for legal, financial auditing, or research purposes. Consult Axim for approval and annotate appropriately if you encounter such a case.
 - Ensure that any PII that is stored is annotated appropriately (see `Docstring Annotations`_ for details)
 - Run the PII documentation tool to update the PII documentation when you add, remove, or update a PII annotation (see `Documentation Tooling`_ for details)
-- Maintain openedx.yaml to keep the PII repository state up to date (see `Repository Maintenance`_ for details)
 
 Code Reviewer Responsibility
 ============================
-It becomes the responsibility of code reviewers to confirm the developer assertions about the presence of PII in their pull request are accurate, and that retirement steps and annotations are present and correct when necessary. This is especially important with pull requests coming from outside of edX, where the original developer may not know of this OEP and their responsibilities in regards to PII.
+It becomes the responsibility of code reviewers to confirm the developer assertions that the presence of PII in their pull request are accurate, and that retirement steps and annotations are present and correct when necessary.
 
 Responsibility for Third-party Service Integrations
 ===================================================
-When dealing with third-parties that may store PII (ex. Optimizely, Google Analytics, Sailthru) the implementing developer(s) or team members should work with the drivers of the feature and legal counsel to ensure that:
+When dealing with third-parties that may store PII (ex. Optimizely, Google Analytics, Sailthru) the implementing developer(s) or team members should work with the drivers of the feature and Axim engineering to ensure that:
 
 - The third party has a legitimate need for that information to provide the necessary service
 - We send only the minimum necessary information to meet the goals of the feature
 - The third party has an automated, usable way to request that they forget individual learner data (or has a retention policy that results in the routine purging of such data within an acceptable period of time)
 - The retirement process is updated to include the third party's retirement API before the feature is launched
-
-Github Pull Request Templates
-=============================
-In order to assist developers in remembering to check all new data for PII, each Open edX repository that might store such data will have a GitHub pull request template that reminds the developer and reviewers to check for the addition of such data in their commits and asks them to affirmatively state that either no such data exists or that it does exist and that appropriate retirement steps are, or will be, ready to retire that data before the request is merged.
-
-Repository Maintenance
-======================
-Per `OEP-002`_ all Open edX repositories the `openedx.yaml` files containing metadata about the repository must be updated to contain the OEP state for this OEP inside the `oeps` dictionary. If a repository does not store PII it may simply mark `oep-0030: False` or `applicable: False` with a `reason` as outlined in the OEP-002 specification. The tooling that will inform and enforce our compliance with this OEP will rely on this metadata to determine which repositories to look at so it is vital that these values be kept up to date.
-
-The automatically run tooling should verify the presence and accuracy of `openedx.yaml`.
 
 Docstring Annotations
 =====================
@@ -142,7 +134,7 @@ When adding or modifying **any** data storing models (ex. Django model, MongoDB 
 
 It is important to note that under this OEP all Django model classes must be annotated with an assertion of PII / no PII to enable enforcement (see `Enforcement Tooling`_).
 
-These annotations should take the form of Sphinx-style docstrings. In the case where PII is present, the following group of 3 annotations must be used together:
+These annotations should take the form of Sphinx-style docstrings. In the case where PII is present, the following group of 3 annotations must be used together::
 
     .. pii: <required description of the PII>
 
@@ -150,7 +142,7 @@ These annotations should take the form of Sphinx-style docstrings. In the case w
 
     .. pii_retirement: <comma separated list of retirement types, required if the pii annotation exists>
 
-In the case where no PII exists in a Django model, the following single annotation is used:
+In the case where no PII exists in a Django model, the following single annotation is used::
 
     .. no_pii: <optional description>
 
@@ -252,29 +244,19 @@ It is likely that other use cases will come up that encompass new languages and 
 
 Enforcement Tooling
 ===================
-A tool will be created and integrated into the Open edX test / build systems that will examine all Django models in a project and ensure that they have PII annotations. It is acknowledged that this tool will not handle all cases where PII is stored, but represents an effort to enforce best practices on the majority of places where PII is stored in the Open edX ecosystem.
+The `Code Annotations`_ tool has been built to facilitate PII annotations in the Open edX ecosystem. This tool is a reference implementation of the enforcement tooling described in this OEP and provides a working version of the Django Model Search Tool and Static Search Tool for several different types of annotations that are integrated in edx-platform continuous integration.
 
-This tool will instantiate a development-like Django environment inside the project and use Django introspection to look at all installed apps and their models for docstrings containing PII. Given that this list will contain many third party packages we will also need to maintain a list of the PII stored in those apps and models. This "safelist" will need to be hand maintained by the developers adding or modifying packages, though the tooling does assist by generating an initial list of packages that need to be vetted. This mechanism will also allow the rollout of the annotations to take place over time across our own packages.
-
-The tool's output will optionally include a report of the repository's model annotation percentage along with details of which models are not covered, and fail if the repository does not meet a configurable minimum percentage. These potential coverage failures will allow us to track and prioritize the annotization process.
+The Django Model Search Tool is a Django management command that searches for the presence of PII annotations in Django models. It is run as part of the test suite and will fail if any Django model has a malformed PII annotation (linting) or if a certain percentage of models do not have PII annotations (coverage). The Static Search Tool is a command line tool that searches for the presence of PII annotations in Python and Javascript files, but it not yet integrated into the Open edX continuous integration.
 
 Documentation Tooling
 =====================
-A tool will be created that reads the annotations in each PII-containing repository and generates a reStructuredText (reST) file named ``pii.rst`` which will be located at the top level directory of the repository or with the repository's documentation and linked to from the top-level README file. This file will gather all of the PII annotations for the project in one place so that the PII load of any given project can be quickly seen and understood. Projects that do not have PII may have their top level README file updated to reflect that.
+The `Code Annotations`_ tool also handles create documentation for PII annotations in raw JSON format, which can be rendered to reStructuredText (reST) or HTML formats for readability.
 
-The tools should also export the list of annotations into a JSON-formatted file named ``pii.json`` which will allow downstream consumers of the data, such as reporting, to discover changes in PII and adjust their own cleanup processes to include the new data.
-
-This tool should be run as part of the test or build processes (depending on project needs) and diff'd against the current version to confirm that the RST and JSON files are up to date.
-
-It is desirable for this tool to use static analysis of the files (instead of executing in a runtime context such as in unit tests) to make sure that all files are examined, and to prevent missing annotations in cases where configuration changes can exclude or break imports.
+This tool should be run as part of the build processes (depending on project needs) and human-readable output should be stored in such a way that the state of PII in the system is easily discoverable. See the Code Annotations documentation for more information.
 
 Organization-wide Tooling
 =========================
-A tool will be created or enhanced that will be usable at the Github organization level to provide org-wide insight into our stored PII. It should be a wrapper around the Documentation tool, allowing all repos in an org to be cloned and searched for annotations. The tool will also optionally verify the presence of a `openedx.yaml` file in the top level of the repository and verify that its `oep-30` dictionary matches the state of the repository.
-
-Backporting Annotations
-=======================
-Annotations will need to be added to existing code across the Open edX ecosystem. It is acknowledged that this is significant work, but is beyond the scope of this OEP to determine the resourcing and timing of this effort. It is possible within the framework presented in this OEP to roll out a partial implementation of annotations and expand on it over time.
+A tool will be created or enhanced that will be usable at the Github organization level to provide org-wide insight into our stored PII. It should be a wrapper around the Documentation tool, allowing all repos in an org to be cloned and searched for annotations. `Code Annotations`_ can be used to do this if wrapped in a script to pull multiple repositories.
 
 Rationale
 *********
@@ -307,13 +289,13 @@ Backward Compatibility
 **********************
 The proposed updates do not introduce any known backward incompatibilities, but would require a comprehensive effort to annotate existing PII in all Open edX repositories. The desire for that effort is what drove the initial tasks that led to this OEP, so this is not undesirable or duplicate work.
 
+As of February 2025 edx-platform and all of its dependencies are annotated to 88% coverage, with the remaining 12% being in the process of being annotated. The enforcement tooling is in place and is blocking new PII from being added to the platform without annotation.
+
 Reference Implementation
 ************************
 The `Code Annotations`_ project is a reference implementation containing working versions of the Enforcement Tool (called the Django Model Search Tool) and Documentation Tool (called the Static Search Tool). Documentation on how to use Code Annotations and implementation specific details can be found here: https://code-annotations.readthedocs.org/
 
-The `Organization-wide Tooling`_ does not yet have a reference implementation.
-
-.. _Code Annotations: https://github.com/openedx/code-annotations
+The `Organization-wide Tooling`_ does not yet have a reference implementation, nor do we have documentation storage implemented for edx-platform yet.
 
 
 Rejected Alternatives
@@ -340,3 +322,6 @@ Experimentation was done to try to use modifications directly to Django models i
 django-scrub-pii
 ================
 `django-scrub-pii <https://github.com/MatthewWilkes/django-scrub-pii>`_ is a defunct project that had some potentially useful ideas, and was the only thing close to what we're looking for that seems to exist in the Django ecosystem. Unfortunately it only works on Django models, requires the Meta model context manager hack, and is designed only for creating a dump-sanitize-and-load SQL script that would not work for us.
+
+
+.. _Code Annotations: https://github.com/openedx/code-annotations
