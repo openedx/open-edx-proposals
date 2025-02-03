@@ -9,7 +9,7 @@ OEP-67: Standard Tools and Technologies
    * - Title
      - Tools and Technology Standards
    * - Last Modified
-     - 2025-01-30
+     - 2025-02-10
    * - Authors
      - Feanil Patel <feanil@axim.org>
    * - Arbiter
@@ -205,6 +205,14 @@ Frontend Technology Selection
 
 #. **CSS should be generated using SCSS**
 
+   .. note::
+
+      While there are no current plans to deprecate SCSS, the recommendation
+      as of February 2025 is to use CSS variables instead of SCSS variables
+      wherever possible now that browsers support them directly.
+
+      See :ref:`CSS variables should be used to support runtime theming <use-css-variables>`
+
    **Rationale**: Sass's SCSS syntax is an extension of CSS that adds power
    and elegance to the basic language. It makes the maintenance of large
    CSS files more manageable though the ability to use variables, mixins,
@@ -212,6 +220,14 @@ Frontend Technology Selection
    ability to override variables that define colors, fonts etc.
 
    You can find out more about Sass in the official `Sass documentation`_.
+
+#. **CSS variables should be used to support runtime theming**
+
+   .. _use-css-variables:
+
+   **Rationale**: SCSS variables are evaluated by the SASS preprocessor, and cannot be
+   changed afterwards. CSS variables are evaluated by the browser and
+   therefore can be changed at runtime, enabling dynamic theming support.
 
 #. **API calls should be made with the edX Frontend Auth Client or Axios**
 
@@ -330,11 +346,15 @@ Consequences
 
 * Future decisions for technology changes will require an ADR and an update to this OEP
 
-* The tech radar will serve as a snapshot of the current state of those decisions and to simplify
-  making changes, we will co-locate it with the supporting documents for this OEP.
-
 Change History
 **************
+
+2025-02-10
+==========
+
+* Add note encouraging CSS Variables instead of SCSS
+* Remove note about the Tech Radar as it is deprecated (`DEPR ticket <https://github.com/openedx/public-engineering/issues/264>`_)
+* `Pull request #675 <https://github.com/openedx/open-edx-proposals/pull/675>`_
 
 2025-01-30
 ==========
