@@ -1,5 +1,5 @@
-OEP-37: Dev Data
-################
+OEP-37: Dev Data (Deferred)
+###########################
 
 .. list-table::
    :widths: 25 75
@@ -7,7 +7,7 @@ OEP-37: Dev Data
    * - OEP
      - :doc:`OEP-37 <oep-0037-bp-test-data>`
    * - Title
-     - Devstack Dev Data
+     - Devstack Dev Data (Deferred)
    * - Last Modified
      - 2019-11-25
    * - Authors
@@ -186,3 +186,9 @@ Change History
 **************
 
 A list of dated sections that describes a brief summary of each revision of the OEP.
+
+2025-02-03
+==========
+
+* Add "Deferred" to the title of the OEP to more clearly indicate the status of this OEP.
+* `Pull request #674 <https://github.com/openedx/open-edx-proposals/pull/674>`_
