@@ -9,7 +9,7 @@ OEP-37: Dev Data (Deferred)
    * - Title
      - Devstack Dev Data (Deferred)
    * - Last Modified
-     - 2019-11-25
+     - 2025-02-03
    * - Authors
      - Jeremy Bowman <jbowman@edx.org>
    * - Arbiter
@@ -28,6 +28,12 @@ Abstract
 ********
 
 Proposes best practices in creating and maintaining sample dev data for use in Open edX test cases and development environments.
+
+.. note::
+
+  This OEP mentions devstack, which is now a deprecated Open edX development environment.
+
+  The implementation is not devstack-specific. These references could be removed or replaced with Tutor without significantly altering the OEP's content.
 
 Motivation
 **********
