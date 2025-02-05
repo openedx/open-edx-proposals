@@ -144,66 +144,10 @@ We can provide context in events in the following way:
 Open edX events
 ***************
 
-Currently, the Open edX system supports and maintains events that are sent to tracking logs, as described in `Tracking Log Events <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/index.html>`__.
+Currently, the Open edX system supports and maintains events that are sent to tracking logs, as described in `Tracking Log Events`_. Please see the `Open edX Caliper Events`_ document for a detailed view of the mapping between the above Open edX events and their equivalent Open edX Caliper formats.
 
-Prioritized List of Events
-==========================
-
-For this first iteration, we will focus primarily on the following events:
-
-- **Enrollment events**
-
-  + `edx.course.enrollment.activated <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-course-enrollment-activated-and-edx-course-enrollment-deactivated>`_.
-       Whenever a learner enrolls in a course.
-  + `edx.course.enrollment.deactivated <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-course-enrollment-activated-and-edx-course-enrollment-deactivated>`_.
-       Whenever a learner unenrolls from a course.
-
-- **Problem interaction events**
-
-  + `edx.grades.problem.submitted <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/course_team_event_types.html#edx-grades-problem-submitted>`_.
-      Whenever a learner submits any problem.
-  + `problem_check <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#problem-check>`_.
-       Whenever a learner's answer to a problem is checked.
-  + `showanswer <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#showanswer>`_.
-       Whenever a learner is shown the answer to a problem.
-  + `edx.problem.hint.demandhint_displayed <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-problem-hint-demandhint-displayed>`_.
-       Whenever a learner requests a hint to a problem.
-
-- **Video events**
-
-  + `edx.video.loaded <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#load-video-edx-video-loaded>`_.
-       Whenever a learner loads a video.
-  + `edx.video.played <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#play-video-edx-video-played>`_.
-       Whenever a learner plays a video.
-  + `edx.video.stopped <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#stop-video-edx-video-stopped>`_.
-       Whenever a learner stops a video.
-  + `edx.video.paused <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#pause-video-edx-video-paused>`_.
-       Whenever a learner pauses a video.
-  + `edx.video.position.changed <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#seek-video-edx-video-position-changed>`_.
-       Whenever a learner navigates to a different position in a video.
-
-- **Course navigation events**
-
-  + `edx.ui.lms.sequence.outline.selected <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-ui-lms-outline-selected>`_.
-       Whenever a learner navigates to a subsection in the course.
-  + `edx.ui.lms.sequence.next_selected <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#example-edx-ui-lms-sequence-next-selected-events>`_.
-       Whenever a learner navigates to the next content in the course.
-  + `edx.ui.lms.sequence.previous_selected <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-ui-lms-sequence-previous-selected>`_.
-       Whenever a learner navigates to the previous content in the course.
-  + `edx.ui.lms.sequence.tab_selected <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-ui-lms-sequence-tab-selected>`_.
-       Whenever a learner navigates to another unit within a subsection.
-  + `edx.ui.lms.link_clicked <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-ui-lms-link-clicked>`_.
-       Whenever a learner clicks on any link in the course.
-
-.. _Tracking Log Events: https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/index.html
-
-Event Field Mapping
-===================
-
-Please see the `Open edX Caliper Events`_ document for a detailed view of the mapping between the above Open edX events and their equivalent Open edX Caliper formats.
-
-
-.. _Open edX Caliper Events: https://github.com/openedx/event-routing-backends/blob/d4cb7c1e2c1b5c80f807206cf47eb358f388627c/docs/event-mapping/Caliper_mapping.rst
+.. _Tracking Log Events: https://docs.openedx.org/en/latest/developers/references/internal_data_formats/index.html
+.. _Open edX Caliper Events: https://github.com/openedx/event-routing-backends/blob/master/docs/event-mapping/Caliper_mapping.rst
 
 .. |ecosystem| image:: ./caliper_ecosystem.png
    :width: 6.5in

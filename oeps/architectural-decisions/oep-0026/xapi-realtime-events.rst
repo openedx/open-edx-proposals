@@ -41,11 +41,7 @@ xAPI Actor
 ==========
 Although the **Actor** field can be either an *Agent* or a *Group*, we will primarily support only the *Agent* type, which is used for individuals performing an activity (`xAPI Verb`_ on an `xAPI Object`_).
 
-An Actor can be identified using `Friend of a Friend (FOAF)`_ vocabulary with either: (1) `email address`_, (2) `hash of email address`_, (3) `OpenID URI`_, or (4) `account`_ with a *homepage*-scoped identifier.  One of these is sent along with the Actor's "name". To be mindful of learner privacy, we will initially take a conservative approach and only send #3, with an Open edX anonymized unique identifier of the learner (:ref:`oep-26-user-id`).
-
-In the future, if certain external systems require `Personally Identifiable Information (PII)`_, like the learner's email address or name, then those may be conditionally sent with appropriate permissions. Adaptive engines, however, do not need PII.
-
-Initially, we will exclude the "name" field. However, if we find that xAPI JSON parsers assume this field always exists, then we can include the field but provide a non-PII value, such as a copy of the :ref:`oep-26-user-id`.
+An Actor can be identified using `Friend of a Friend (FOAF)`_ vocabulary with either: (1) `email address`_, (2) `hash of email address`_, (3) `OpenID URI`_, or (4) `account`_ with a *homepage*-scoped identifier.  One of these is sent along with the Actor's "name". As of February 2025 we send #4 as the default, with an Open edX anonymized unique identifier of the learner (:ref:`oep-26-user-id`) however the system can be configured to use #1 or #2 if necessary.
 
 Example
 -------
@@ -56,9 +52,12 @@ Here is an example of an **Actor** JSON value that we would generate:
 
     "actor": {
         "objectType": "Agent",
-        "openid": "https://openedx.org/users/user-v1:<anonymized-user-id>",
-        "name": "https://openedx.org/users/user-v1:<anonymized-user-id>"  # only include this field if necessary
+        "account": {
+            "name": "<anonymized-user-id>",
+            "homePage": "https://openedx.org/"
+        }
     }
+
 
 See `Deep Dive: Actor/Agent`_ for more information on xAPI Actors.
 
@@ -175,62 +174,7 @@ See `Deep Dive: Result`_ for more information on xAPI Result.
 Open edX Events
 ***************
 
-Currently, the Open edX system supports and maintains events that are sent to tracking logs, as described in `Tracking Log Events`_.
+Currently, the Open edX system supports and maintains events that are sent to tracking logs, as described in `Tracking Log Events`_. The authoritative source for the mapping between these events and their xAPI equivalents is the `event-routing-backends XAPI transform`_ documentation.
 
-Prioritized List of Events
-==========================
-
-For this first iteration, we will focus primarily on the following events:
-
-- **Enrollment events**
-
-  + `edx.course.enrollment.activated <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-course-enrollment-activated-and-edx-course-enrollment-deactivated>`_.
-       Whenever a learner enrolls in a course.
-  + `edx.course.enrollment.deactivated <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-course-enrollment-activated-and-edx-course-enrollment-deactivated>`_.
-       Whenever a learner unenrolls from a course.
-
-- **Problem interaction events**
-
-  + `edx.grades.problem.submitted <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/course_team_event_types.html#edx-grades-problem-submitted>`_.
-      Whenever a learner submits any problem.
-  + `problem_check <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#problem-check>`_.
-       Whenever a learner's answer to a problem is checked.
-  + `showanswer <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#showanswer>`_.
-       Whenever a learner is shown the answer to a problem.
-  + `edx.problem.hint.demandhint_displayed <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-problem-hint-demandhint-displayed>`_.
-       Whenever a learner requests a hint to a problem.
-
-- **Video events**
-
-  + `edx.video.loaded <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#load-video-edx-video-loaded>`_.
-       Whenever a learner loads a video.
-  + `edx.video.played <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#play-video-edx-video-played>`_.
-       Whenever a learner plays a video.
-  + `edx.video.stopped <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#stop-video-edx-video-stopped>`_.
-       Whenever a learner stops a video.
-  + `edx.video.paused <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#pause-video-edx-video-paused>`_.
-       Whenever a learner pauses a video.
-  + `edx.video.position.changed <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#seek-video-edx-video-position-changed>`_.
-       Whenever a learner navigates to a different position in a video.
-
-- **Course navigation events**
-
-  + `edx.ui.lms.sequence.outline.selected <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-ui-lms-outline-selected>`_.
-       Whenever a learner navigates to a subsection in the course.
-  + `edx.ui.lms.sequence.next_selected <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#example-edx-ui-lms-sequence-next-selected-events>`_.
-       Whenever a learner navigates to the next content in the course.
-  + `edx.ui.lms.sequence.previous_selected <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-ui-lms-sequence-previous-selected>`_.
-       Whenever a learner navigates to the previous content in the course.
-  + `edx.ui.lms.sequence.tab_selected <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-ui-lms-sequence-tab-selected>`_.
-       Whenever a learner navigates to another unit within a subsection.
-  + `edx.ui.lms.link_clicked <https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#edx-ui-lms-link-clicked>`_.
-       Whenever a learner clicks on any link in the course.
-
-.. _Tracking Log Events: https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/index.html
-
-Event Field Mapping
-===================
-
-Please see the `Open edx xAPI Events`_ document for a detailed view of the mapping between the above Open edX events and their equivalent Open edX xAPI formats.
-
-.. _Open edx xAPI Events: https://docs.google.com/spreadsheets/d/1oTClCxuUj1vCzytbmjDaHWFmcI6JZDqqJtZmYVwnOTA/view
+.. _Tracking Log Events: https://docs.openedx.org/en/latest/developers/references/internal_data_formats/index.html
+.. _event-routing-backends XAPI transform: https://github.com/openedx/event-routing-backends/blob/master/docs/event-mapping/xAPI_mapping.rst

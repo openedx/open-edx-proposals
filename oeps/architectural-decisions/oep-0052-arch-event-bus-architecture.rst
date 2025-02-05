@@ -1,3 +1,5 @@
+.. _oep-52:
+
 OEP-52: Event Bus Architecture
 ##############################
 
