@@ -201,18 +201,26 @@ with all team members so the removal can be prioritized and completed in a
 timely manner. A suggested timeline is shown in the diagram below, which
 considers the timing of the next `Open edX named release`_.
 
-.. image:: oep-0021/timeline.png
-   :align: center
-   :alt: A diagram that suggests having a 2 week time period between the
-    *Proposed* and *Accepted* states, giving the community enough time to provide
-    feedback. After which, the *Deprecated*, *Removing*, and *Removed* transition
-    periods will vary by the type and scope of the technical change.
+.. https://dreampuf.github.io/GraphvizOnline
+.. graphviz::
+
+   digraph shells {
+
+       node [fontsize=20, shape = box];
+
+       Draft -> RFC [label=" Someone is ready to own the ticket and does RFC work"];
+       RFC -> "Plan Accepted" [label=" 2 weeks (negotiable)"];
+       "Plan Accepted" -> "Transition Unblocked"
+       "Plan Accepted" -> "Breaking Changes Unblocked" [label=" 6 months (negotiable)"]
+       "Transition Unblocked" -> "Breaking Changes Unblocked" [label=" 1 month (negotiable)"];
+       "Breaking Changes Unblocked" -> "Plan Completed"
+   }
 
 * **Proposed** on Day 1
 * **Communicated** - Up to 6 months before the change is expected to land.
 * **Accepted** on Day 14 *(depending on influx of feedback)*
-* **Replacement Ready** - At least 1 month to allow operators to transition.
-* **Removal Pending** - Once the transition period has concluded (However long the replacement ready phase was).
+* **Replacement Ready** - At least 1 month to allow operators to transition to the replacement.
+* **Removal Pending** - Once the transition period has concluded (However long the ``Replacement Ready`` phase was).
 * **Removed** - The resolved state.
   Consider when the next Named Release is cut; if it is very soon, you may wish to delay final
   removal until after the cut date.
@@ -226,15 +234,15 @@ a more accelerated process which is as short as 2 weeks.
 
 Additionally, the ability to negotiate dates on the DEPR ticket is an
 explicit part of the process. This could include adjusting the default
-dates for a specific ticket, or negotiating extensions as-needed (e.g. 
-difficulties that arise, or too many maintenance requests landing at 
+dates for a specific ticket, or negotiating extensions as-needed (e.g.
+difficulties that arise, or too many maintenance requests landing at
 the same time, etc.). It could also include providing a very short
 window for changes that don't require much warning or where there are
 very few actual users of the code.
 
 The 6 month window has the benefit of givig at least one named release
 (e.g. Redwood) worth of warning, because the named releases are
-currently on a 6 month window. 
+currently on a 6 month window.
 
 This approach would be most appropriate for features that can be left
 in place for an extended period before removal and where a transition
@@ -286,7 +294,7 @@ Do the following to document your proposal:
    #. **Removal**: A description with links to what is being removed.
    #. **Replacement**: A description with links to what it is being replaced by.
    #. If you plan to mark the code for deprecation, explain how in the
-      **Deprecation** section. See Deprecated_ for considerations.
+      **Deprecation** section. See Deprecated for considerations.
    #. If automated migration will be needed, explain your migration plan in the
       **Migration** section.
    #. **Additional Info**:
@@ -439,7 +447,7 @@ in the release notes of the next named release.
     using the deprecated feature obviously adds new technical debt to the system.
 
 As a part of acceptance, all relevant warnings should go into code/documentation to indicate what
-will be removed or replaced. 
+will be removed or replaced.
 
 Here are some common ways to mark a technology as deprecated:
 
@@ -467,13 +475,13 @@ If the new version of the code will be using toggles/waffles, the names and sett
 e.g. "If you don't want to use the new content libraries, set "xxx" waffle flag to false before that lands.  Do we need more here?
 
 Replacement Ready
-===================
+=================
 For code where there is a replacement, this state indicates that the replacement is ready for use and we are in a period where both the old and new code are working.  This is a temporary state that allows developers/operators to migrate to the replacement option before the old code is removed.  Unless otherwise negotiated/communicated, this stage will last one month to give everyone ample time to transition.
 
 This state implies that there are flags or toggles to be able to switch between the two versions, and the DEPR ticket should communicate if the default is changing with enough time for operators to be able to set relevant flags to choose between the implementations.
 
 Removal Pending
-========
+===============
 
 This state indicates that support for the old implementation has been officially dropped and developers are able to begin removing code. If an item is in this state you should not expect the old implementation to work.
 
