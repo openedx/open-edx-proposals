@@ -273,3 +273,104 @@ Here are a list of current Open edX frameworks that are related to "eventing" bu
   Although it is possible for this OEP's real-time eventing framework to send events targeted to IoT and personal devices, those events will not be translated nor customized for each individual recipient, nor be adaptive to the individual's policies and time sensitivities. ACE would be a better alternative for those requirements.
 
 .. _Automated Communication Engine (ACE): https://edx-ace.readthedocs.io/en/latest/index.html
+
+Change History
+**************
+
+2025-02-05
+==========
+
+* Mark as accepted
+* Update to reflect current implementation
+* `PR #678 <https://github.com/openedx/open-edx-proposals/pull/678>`_
+
+2023-11-06
+==========
+
+* Fixed various typos
+* `PR #537 <https://github.com/openedx/open-edx-proposals/pull/537>`_
+
+2023-04-14
+==========
+
+* Replace tCRIL references with Axim references
+* `PR #464 <https://github.com/openedx/open-edx-proposals/pull/464>`_
+
+2022-11-04
+==========
+
+* Change Ed Zarecor from arbiter to author, add Brian Mesick as Arbiter
+* Clarify language and update to reflect current thoughts
+* Remove references to Validator Processor
+* Change implementation of an LRS from "Deferring implementation" to "Out of scope"
+* `PR #405 <https://github.com/openedx/open-edx-proposals/pull/405>`_
+
+2022-09-27
+==========
+
+* Change arbiter from Brian Wilson to Ed Zarecor
+* `PR #386 <https://github.com/openedx/open-edx-proposals/pull/386>`_
+
+2022-09-16
+==========
+
+* Change Github organization references from edx to openedx
+* `PR #376 <https://github.com/openedx/open-edx-proposals/pull/376>`_
+
+2021-01-20 - 2022-08-02
+=======================
+
+* RsT style cleanup and minor content updates
+* `PR #365 <https://github.com/openedx/open-edx-proposals/pull/365>`_
+* `PR #248 <https://github.com/openedx/open-edx-proposals/pull/248>`_
+* `PR #245 <https://github.com/openedx/open-edx-proposals/pull/245>`_
+* `PR #206 <https://github.com/openedx/open-edx-proposals/pull/206>`_
+
+2021-04-09
+==========
+
+* Change http URLs to https
+* `PR #200 <https://github.com/openedx/open-edx-proposals/pull/200>`_
+
+2021-01-20
+==========
+
+* Clarify when we should build on Django admin vs settings or a self-service portal
+* `PR #156 <https://github.com/openedx/open-edx-proposals/pull/156>`_
+
+2020-12-07
+==========
+
+* Update example code
+* `PR #175 <https://github.com/openedx/open-edx-proposals/pull/175>`_
+
+2020-09-20 - 2020-09-30
+=======================
+
+* Cleaning up links and references
+* `PR #162 <https://github.com/openedx/open-edx-proposals/pull/162>`_
+* `PR #163 <https://github.com/openedx/open-edx-proposals/pull/163>`_
+
+2020-06-04
+==========
+
+* Significant updates to Caliper documentation
+* `PR #152 <https://github.com/openedx/open-edx-proposals/pull/152>`_
+
+2019-05-25
+==========
+
+* Update title to remove prefixing zeros for consistency
+* `PR #115 <https://github.com/openedx/open-edx-proposals/pull/115>`_
+
+2019-05-15
+==========
+
+* Update anonymized user ID section to unique user id as part of adding OEP-32
+* `PR #103 <https://github.com/openedx/open-edx-proposals/pull/103>`_
+
+2019-01-19
+==========
+
+* Initial publication
+* `PR #73 <https://github.com/openedx/open-edx-proposals/pull/73>`_

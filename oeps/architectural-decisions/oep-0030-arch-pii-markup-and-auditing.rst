@@ -325,3 +325,55 @@ django-scrub-pii
 
 
 .. _Code Annotations: https://github.com/openedx/code-annotations
+
+
+Change History
+**************
+
+2025-02-04
+==========
+
+* Mark as accepted
+* Update to reflect current implementation
+* `PR #676 <https://github.com/openedx/open-edx-proposals/pull/676>`_
+
+2022-09-16
+==========
+
+* Change Github organization references from edx to openedx
+* `PR #376 <https://github.com/openedx/open-edx-proposals/pull/376>`_
+
+2021-01-20 - 2022-08-02
+=======================
+
+* RsT style cleanup and minor content updates
+* `PR #365 <https://github.com/openedx/open-edx-proposals/pull/365>`_
+* `PR #248 <https://github.com/openedx/open-edx-proposals/pull/248>`_
+* `PR #245 <https://github.com/openedx/open-edx-proposals/pull/245>`_
+* `PR #206 <https://github.com/openedx/open-edx-proposals/pull/206>`_
+
+2020-02-19
+==========
+
+* Fix code blocks that weren't rendering, and typos
+* `PR #134 <https://github.com/openedx/open-edx-proposals/pull/134>`_
+
+2019-01-30
+==========
+
+* Update to match reference implementation, add links to it
+* Break our Organization tool into its own section
+* Change double colons to single colons in annotation tokens
+* `PR #101 <https://github.com/openedx/open-edx-proposals/pull/101>`_
+
+2018-11-06
+==========
+
+* Change status from Provisional to Draft
+* `PR #85 <https://github.com/openedx/open-edx-proposals/pull/85>`_
+
+2018-10-09
+==========
+
+* Initial draft
+* `PR #81 <https://github.com/openedx/open-edx-proposals/pull/81>`_
