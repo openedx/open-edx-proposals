@@ -2,7 +2,7 @@
 
 .. Below is the display in the left sidebar on RTD. Please omit leading 0's
 
-OEP-66: OpenFeature Format For Feature Toggles
+OEP-68: OpenFeature Format For Feature Toggles
 ##############################################
 
 .. This OEP template is based on Python's PEP standard.
@@ -13,7 +13,7 @@ OEP-66: OpenFeature Format For Feature Toggles
    * - OEP
      - Link to the doc in the following format::
 
-        :doc:`OEP-0066 <oep-0066-bp-openfeature-toggles>`
+        :doc:`OEP-0068 <oep-0068-bp-openfeature-toggles>`
 
    * - Title
      - Implement All Toggles Using OpenFeature Specification
