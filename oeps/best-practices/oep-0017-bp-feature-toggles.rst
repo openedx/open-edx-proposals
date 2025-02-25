@@ -634,7 +634,7 @@ Updated documentation on feature toggles and reporting:
 * See `how to document feature toggles`_.
 * See `how to enable feature toggle reports for an IDA`_.
 
-.. _readthedocs documentation for edx-platform feature toggles: https://edx.readthedocs.io/projects/edx-platform-technical/en/latest/featuretoggles.html
+.. _readthedocs documentation for edx-platform feature toggles: https://docs.openedx.org/projects/edx-platform/en/latest/references/featuretoggles.html
 .. _annotated toggles in the edx-platform codebase: https://github.com/openedx/edx-platform/search?q=toggle_name
 .. _how to document feature toggles: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/documenting_new_feature_toggles.html
 .. _grading enhancements: https://github.com/openedx/edx-platform/pull/16082

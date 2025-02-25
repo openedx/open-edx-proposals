@@ -49,7 +49,7 @@ with particular environment(s) and user(s). A field's ``Scope`` is generally a
 composite property, defined as the combination of a ``BlockScope``, a
 ``UserScope``, and a ``name``.
 
-.. _scopes: https://edx.readthedocs.io/projects/xblock/en/latest/fields.html
+.. _scopes: https://docs.openedx.org/projects/xblock/en/latest/fields.html
 
 For reference, the ``UserScope`` can have three values (no changes to these are
 being proposed):
@@ -189,7 +189,7 @@ that define the ``context_settings_view``. Clicking on the name of that XBlock
 would display the HTML fragment and allow the author to edit the context-scoped
 fields.
 
-.. _studio_view: https://edx.readthedocs.io/projects/xblock-tutorial/en/latest/edx_platform/edx_studio.html
+.. _studio_view: https://docs.openedx.org/projects/xblock/en/latest/xblock-tutorial/edx_platform/edx_studio.html
 
 Context-scoped fields in OLX (Provisional)
 ==========================================
@@ -235,7 +235,7 @@ The reasoning behind the above provisional spec is as follows:
 * ``<xblock-settings>`` is suggested as a wrapper to keep these new XML nodes
   organized and indicate their purpose clearly.
 
-.. _(docs): https://edx.readthedocs.io/projects/edx-open-learning-xml/en/latest/directory-structure.html#top-level-directory
+.. _(docs): https://docs.openedx.org/en/latest/educators/olx/directory-structure.html#top-level-directory
 
 Rationale
 *********
