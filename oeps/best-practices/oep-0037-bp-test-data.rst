@@ -92,7 +92,7 @@ The function can take one or more positional arguments if useful for using it in
 .. _rosie: https://www.npmjs.com/package/rosie
 .. _factory-girl: https://www.npmjs.com/package/factory-girl
 .. _SimpleNamespace: https://docs.python.org/3/library/types.html#types.SimpleNamespace
-.. _OLX: https://edx.readthedocs.io/projects/edx-open-learning-xml/en/latest/index.html
+.. _OLX: https://docs.openedx.org/en/latest/educators/navigation/olx.html
 .. _Faker: https://faker.readthedocs.io/en/stable/
 
 Loading Data
