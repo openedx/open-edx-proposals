@@ -52,7 +52,7 @@ This OEP proposes an evolutionary change to Open edX's eventing system that will
 
 This document describes a design proposal for supporting standard real-time events in the Open edX system.
 
-.. _Events in the Tracking Logs: https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/index.html
+.. _Events in the Tracking Logs: https://docs.openedx.org/en/latest/developers/references/internal_data_formats/index.html
 .. _xAPI: https://xapi.com/
 .. _Caliper: https://www.imsglobal.org/activity/caliper
 .. _human perception: https://www.pubnub.com/blog/how-fast-is-realtime-human-perception-and-technology/
