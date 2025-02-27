@@ -183,6 +183,21 @@ Frontend Technology Selection
    Documentation on how to configure Renovate automation on a repository is available
    in the `Upgrade Automation How-to`_.
 
+#. **JavaScript projects should use caret ranges for npm dependencies**
+
+   **Rationale**: Using caret ranges (e.g., ``"^1.2.3"``) in our package.json more clearly
+   communicates that our projects are designed to accept semver-compatible (minor and patch)
+   updates. This intent is important because merely pinning top-level dependencies does not
+   extend to their transitive dependencies—potentially leading to duplicative or outdated
+   packages in our bundles. Moreover, specifying dependencies with caret ranges streamlines
+   our Renovate workflow. With caret ranges, non-breaking updates are typically resolved
+   automatically during installation, so Renovate will primarily flag major version bumps
+   that require manual intervention. In contrast, pinned dependencies can trigger frequent
+   Renovate updates for every minor or patch change, increasing maintenance overhead.
+
+   **Decision Record**: For details, see
+   :doc:`OEP-0067-0011 Caret Ranges for npm Dependencies <oep-0067/decisions/frontend/0011-caret-ranges-dependencies>`.
+
 #. **JavaScript should be bundled using Webpack**
 
    **Rationale**: `Webpack`_ is the tool of choice for code optimization and
