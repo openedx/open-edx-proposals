@@ -41,7 +41,9 @@ Abstract
 
 OpenFeature is an open standard and ecosystem for managing feature toggles across
 various languages and frameworks. This offers a single, consistent format for managing
-the ubiquitous toggles in Open edX to improve their discoverability and maintenance.
+the ubiquitous toggles in Open edX to improve their discoverability and maintenance. The
+core problem that adoption of OpenFeature addresses is the need to synchronize different
+toggle settings across the boundaries of repositories and processes.
 
 Motivation
 **********
@@ -78,6 +80,19 @@ the adoption of OpenFeature, the differently named toggles that share purpose ac
 repositories will be aligned. This will enable operators to manage a single toggle
 setting to enable the functionality across the full Open edX stack.
 
+The adoption of OpenFeature will be through the use of their provided Python and
+JavaScript SDKs. Those SDKs already encapsulate the interfaces mandated by the
+specification, freeing the Open edX community from having to implement those
+capabilities on their own. The adoption of those SDKs can happen within the existing
+libraries used and maintained by the Open edX community, namely edx-toggles for IDAs and
+frontend-platform for MFEs.
+
+The current approach of annotating toggles with explicit metadata will be
+maintained. The OpenFeature specification and client implementations do not provide any
+method for annotating flags in the context of the source code. Providers are able to
+populate metadata that is returned as part of the evaluation response, but this is not
+versioned and maintained in the Open edX projects.
+
 Rationale
 *********
 
@@ -99,11 +114,88 @@ Waffle, but that will be created as part of the adoption process for this propos
 Reference Implementation
 ************************
 
-The reference implementation must be completed before any OEP is given "Final"
-status, but it need not be completed before the OEP is "Accepted". While there is
-merit to the approach of reaching consensus on the specification and rationale
-before writing code, the principle of "rough consensus and running code" is
-still useful when it comes to resolving many discussions.
+An example implementation of a Python provider that retrieves toggle values from Django settings could look like this:
+
+.. code-block:: python
+
+    from typing import Any, Dict
+    from django.conf import settings
+    from openfeature.provider.provider import AbstractProvider
+    from openfeature.flag_evaluation import FlagResolutionDetails, EvaluationContext
+
+    class DjangoSettingsProvider(AbstractProvider):
+        def __init__(self):
+            super().__init__()
+            self.name = "Django Settings Provider"
+
+        def get_metadata(self):
+            return {"name": self.name}
+
+        def get_bool_value(
+            self,
+            flag_key: str,
+            default_value: bool,
+            evaluation_context: EvaluationContext = None,
+        ) -> FlagResolutionDetails[bool]:
+            value = self._get_flag_value(flag_key, default_value)
+            return FlagResolutionDetails(value=bool(value))
+
+        def get_string_value(
+            self,
+            flag_key: str,
+            default_value: str,
+            evaluation_context: EvaluationContext = None,
+        ) -> FlagResolutionDetails[str]:
+            value = self._get_flag_value(flag_key, default_value)
+            return FlagResolutionDetails(value=str(value))
+
+        def get_integer_value(
+            self,
+            flag_key: str,
+            default_value: int,
+            evaluation_context: EvaluationContext = None,
+        ) -> FlagResolutionDetails[int]:
+            value = self._get_flag_value(flag_key, default_value)
+            return FlagResolutionDetails(value=int(value))
+
+        def get_float_value(
+            self,
+            flag_key: str,
+            default_value: float,
+            evaluation_context: EvaluationContext = None,
+        ) -> FlagResolutionDetails[float]:
+            value = self._get_flag_value(flag_key, default_value)
+            return FlagResolutionDetails(value=float(value))
+
+        def get_object_value(
+            self,
+            flag_key: str,
+            default_value: Dict,
+            evaluation_context: EvaluationContext = None,
+        ) -> FlagResolutionDetails[Dict]:
+            value = self._get_flag_value(flag_key, default_value)
+            return FlagResolutionDetails(value=dict(value))
+
+        def _get_flag_value(self, flag_key: str, default_value: Any) -> Any:
+            return getattr(settings, flag_key, default_value)
+
+
+Usage of the above provider could look like:
+
+.. code-block:: python
+
+    import openfeature.api
+    from django.conf import settings
+
+    # In your Django settings.py
+    FEATURE_FLAG_EXAMPLE = True
+
+    # In your application code
+    client = openfeature.api.get_client("edx")
+    openfeature.api.set_provider(DjangoSettingsProvider())
+
+    # Evaluate a flag
+    is_enabled = client.get_boolean_value("FEATURE_FLAG_EXAMPLE", False)
 
 Rejected Alternatives
 *********************
