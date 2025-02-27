@@ -255,8 +255,8 @@ variety of sites in the Open edX community.
 .. _Bootstrap Proof-of-Concept PR: https://github.com/openedx/edx-platform/pull/14834
 .. _Bootstrap RTL Discovery ticket: https://openedx.atlassian.net/browse/FEDX-352
 .. _Bootstrap 4: https://v4-alpha.getbootstrap.com/
-.. _edX accessibility guidelines: https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/conventions/accessibility.html
-.. _edX Front End Working Group: https://openedx.atlassian.net/wiki/display/FEDX/Front+End+Working+Group
+.. _edX accessibility guidelines: https://docs.openedx.org/en/latest/developers/references/a11y-ref.html
+.. _edX Front End Working Group: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3090056949/Frontend+Working+Group
 .. _edX UI Toolkit: http://ui-toolkit.edx.org/
 .. _edX Pattern Library: https://github.com/edx/ux-pattern-library
 .. _OEP-11 - Front End Technology Standards: https://open-edx-proposals.readthedocs.io/en/latest/oep-0011.html
