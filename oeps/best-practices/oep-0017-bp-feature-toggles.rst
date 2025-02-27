@@ -418,7 +418,7 @@ Eventually, the following classes should be added if/when needed:
   * supports the "Group" toggle type with `Beta Testing`_ for user-provider (enterprise) organization-level overrides.
 
 .. _waffle_utils: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/waffle_utils/__init__.py
-.. _how to choose the right toggle class: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/implement_the_right_toggle_type.html#implementing-the-right-toggle-class
+.. _how to choose the right toggle class: https://docs.openedx.org/projects/edx-toggles/en/latest/how_to/implement_the_right_toggle_type.html#implementing-the-right-toggle-class
 
 Req 8: Non-collision
 ~~~~~~~~~~~~~~~~~~~~
@@ -636,11 +636,11 @@ Updated documentation on feature toggles and reporting:
 
 .. _readthedocs documentation for edx-platform feature toggles: https://docs.openedx.org/projects/edx-platform/en/latest/references/featuretoggles.html
 .. _annotated toggles in the edx-platform codebase: https://github.com/openedx/edx-platform/search?q=toggle_name
-.. _how to document feature toggles: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/documenting_new_feature_toggles.html
+.. _how to document feature toggles: https://docs.openedx.org/projects/edx-toggles/en/latest/how_to/documenting_new_feature_toggles.html
 .. _grading enhancements: https://github.com/openedx/edx-platform/pull/16082
 .. _user-facing change: https://github.com/openedx/edx-platform/blob/6db93fc791fd2fb52ce705d47320e7868a937587/openedx/features/learner_profile/__init__.py#L13
 .. _course-wide Beta Testing and Opt-outs: https://github.com/openedx/edx-platform/blob/6db93fc791fd2fb52ce705d47320e7868a937587/openedx/features/course_experience/__init__.py#L13-L44
-.. _how to enable feature toggle reports for an IDA: https://edx.readthedocs.io/projects/edx-toggles/en/latest/how_to/adding_new_ida_to_toggle_report.html
+.. _how to enable feature toggle reports for an IDA: https://docs.openedx.org/projects/edx-toggles/en/latest/how_to/adding_new_ida_to_toggle_report.html
 
 Rejected Alternatives
 *********************
