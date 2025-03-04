@@ -94,7 +94,7 @@ soupsieve==2.6
     # via
     #   -r requirements/base.txt
     #   beautifulsoup4
-sphinx==8.2.1
+sphinx==8.2.3
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
