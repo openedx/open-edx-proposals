@@ -79,6 +79,8 @@ This technology is not specific to frontend or backend code.
    tool should be used to perform Continuous Integration (CI) testing for all Open edX repositories
    that perform any sort of software testing.
 
+.. _Frontend Technology Selection:
+
 Frontend Technology Selection
 =============================
 
