@@ -213,12 +213,11 @@ rotation.
 Prerequisites
 =============
 
-In order to be a repository maintainer, you must
+In order to be a repository maintainer, an **individual** must:
 
 * Be an active member of the Open edX community who has made technical
   contributions to the project in the last 6 months, such as feature work,
   upgrades, bug fixes, or architectural/design contributions
-* Abide by the Open edX `Code of Conduct`_
 * Be a member of the `Core Contributor Program`_ with rights to the repository
   in question who has demonstrated excellence in the role of Core Contributor.
   From time to time, in the case of a strong candidate and project need, core
@@ -226,12 +225,20 @@ In order to be a repository maintainer, you must
 * In the case of repos being moved into the `openedx GitHub organization`_, be
   an original maintainer of the code
 
+In order to be a repository maintainer, a **group** must:
+
+* Have at least one member who satisifies the requirements to be an individual
+  maintainer of the repository.
+
 We value the level of commitment that comes with being a Core Contributor and
 think it is a necessary prerequisite to becoming a Maintainer. We want to
 ensure that the programs are congruent and not working at cross purposes; hours
 spent maintaining a component will count as Core Contributor hours. If we find
 that the requirement of being a Core Contributor limits participation in the
 Maintainers program, we may choose to revisit this requirement.
+
+Finally, all maintainers (whether they are individuals or group members) must
+abide by the Open edX `Code of Conduct`_.
 
 Bootstrapping
 =============
@@ -322,6 +329,8 @@ maintainer.  This might happen because:
   role
 * A maintainer is unreachable
 * A maintainer is not fulfilling the responsibilities of the role
+* In the case of a group maintainer: the individual(s) with relevant core contributor access depart the group
+* In the case of a group maintainer: the group dissolves
 
 Trigger events for removing a maintainer would be:
 
@@ -359,11 +368,11 @@ Documenting Maintainers
 =======================
 
 As it is essential that maintainers are discoverable and reachable, the person
-or persons responsible for maintaining a component should be listed in the
+or group responsible for maintaining a component should be listed in the
 repository.  Per :doc:`the backstage ADR
 <oep-0055/decisions/0001-use-backstage-to-support-maintainers>` we will use a
-``catalog-info.yaml`` file to capture the GitHub handles for the maintainers of
-a repository.
+``catalog-info.yaml`` file to capture the GitHub username or team name of each
+repository maintainer.
 
 Jobs of the Maintainer
 ======================
@@ -450,7 +459,12 @@ Related Decisions
 Change History
 **************
 
-01-28-2022 - `Document created <https://github.com/openedx/open-edx-proposals/pull/290/>`_
+* 2025-03-10 - A group can maintain a repo as long as at least one person in
+  the group satisifies all the indivudal requirements. Before, it was
+  unclear/impied that every group member needed CC access to the repo.
+  `PR 691 <https://github.com/openedx/open-edx-proposals/pull/691>`_.
+
+* 2022-01-28 - `Document created <https://github.com/openedx/open-edx-proposals/pull/290/>`_
 
 
 Source Material
