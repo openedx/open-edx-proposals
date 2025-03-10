@@ -219,10 +219,11 @@ In order to be a repository maintainer, you must
   contributions to the project in the last 6 months, such as feature work,
   upgrades, bug fixes, or architectural/design contributions
 * Abide by the Open edX `Code of Conduct`_
-* Be a member of the `Core Contributor Program`_ with rights to the repository
-  in question who has demonstrated excellence in the role of Core Contributor.
-  From time to time, in the case of a strong candidate and project need, core
-  contributor status and maintainer status may be conferred at the same time
+* Be on track to become or already be a member of the `Core Contributor Program`_
+  with rights to the repository in question who has demonstrated excellence in
+  the role of Core Contributor. From time to time, in the case of a strong
+  candidate and project need, core contributor status and maintainer status may
+  be conferred at the same time
 * In the case of repos being moved into the `openedx GitHub organization`_, be
   an original maintainer of the code
 
