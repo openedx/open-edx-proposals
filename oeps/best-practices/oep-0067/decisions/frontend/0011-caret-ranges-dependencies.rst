@@ -1,3 +1,5 @@
+.. _Use Caret Ranges for npm Dependency Versions:
+
 Use Caret Ranges for npm Dependency Versions
 ############################################
 
