@@ -33,10 +33,10 @@ Why?
 #. **More Clearly Communicates Engineering Intent**: Specifying caret ranges explicitly indicates that a project intends to accept non-breaking
    updates in accordance with semantic versioning. This improves clarity for maintainers and contributors.
 
-#. **Improves Renovate Workflow and Reduces Maintenance Overhead**: With caret ranges, Renovate still detects and opens PRs for minor and patch
-   updates, but these updates typically require only a package-lock.json change rather than modifying package.json. This allows Renovate to group
-   updates more efficiently and reduces unnecessary PR churn. In contrast, pinned dependencies require Renovate to open a PR for every minor or patch
-   update to explicitly modify package.json, increasing maintenance overhead.
+#. **Improves Renovate Workflow and Reduces Maintenance Overhead**: The Open edX platform uses `Renovate`_ to automate and manage dependency updates. With
+   caret ranges, Renovate still detects and opens PRs for minor and patch updates, but these updates typically require only a ``package-lock.json`` change
+   rather than modifying ``package.json``. This allows Renovate to group updates more efficiently and reduces unnecessary PR churn. In contrast, pinned
+   dependencies require Renovate to open a PR for every minor or patch update to explicitly modify ``package.json``, increasing maintenance overhead.
 
 Consequence
 ***********
@@ -55,3 +55,5 @@ Rejected Alternatives
    * Leads to unnecessary duplication of packages in Webpack bundles, increasing size and complexity.
    * Results in excessive Renovate PRs for minor and patch updates, increasing maintenance burden.
 
+.. Cross-references
+.. _Renovate: https://renovatebot.com/
