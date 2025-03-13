@@ -12,11 +12,13 @@ OEP-15: Course-wide Custom JavaScript
 +---------------+----------------------------------------------------+
 | Arbiter       | Scott Dunn <sdunn@edx.org>                         |
 +---------------+----------------------------------------------------+
-| Status        | Provisional                                        |
+| Status        | Accepted                                           |
 +---------------+----------------------------------------------------+
 | Type          | Architecture                                       |
 +---------------+----------------------------------------------------+
 | Created       | 2016-08-29                                         |
++---------------+----------------------------------------------------+
+| Last Updated  | 2025-03-13                                         |
 +---------------+----------------------------------------------------+
 | Resolution    | `Original pull request`_                           |
 +---------------+----------------------------------------------------+
@@ -139,3 +141,24 @@ Rejected Alternatives
 *********************
 
 None so far (other than hacks involving scripts to automate the process of modifying every vertical in a course).
+
+Change History
+**************
+
+2025-03-13
+==========
+
+* Mark as accepted
+* `PR #693 <https://github.com/openedx/open-edx-proposals/pull/693>`_
+
+2022-10-07
+==========
+
+* There were differences between the approach described in OEP-15 and the final implemntation in `edx-platform#28411 <https://github.com/openedx/edx-platform/pull/28411>`_ . This commit updated the OEP to match the latest implementation.
+* `PR #396 <https://github.com/openedx/open-edx-proposals/pull/396>`_
+
+2017-01-24
+==========
+
+* Initial draft
+* `PR #43 <https://github.com/openedx/open-edx-proposals/pull/43>`_
