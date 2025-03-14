@@ -1,3 +1,5 @@
+.. _Use Renovate to update dependencies:
+
 Use Renovate to update dependencies
 ###################################
 
