@@ -194,7 +194,7 @@ References
       https://github.com/openedx/edx-platform/blob/master/themes/README.rst
 
 4. Comprehensive Theming
-      https://edx.readthedocs.io/projects/edx-installing-configuring-and-running/en/latest/configuration/changing_appearance/theming/index.html
+      https://docs.openedx.org/en/latest/site_ops/install_configure_run_guide/configuration/changing_appearance/theming/index.html
 
 5. edX Pattern Library https://github.com/edx/ux-pattern-library
 
