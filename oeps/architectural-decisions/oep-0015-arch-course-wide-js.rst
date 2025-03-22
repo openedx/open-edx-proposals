@@ -25,11 +25,13 @@ OEP-15: Course-wide Custom JavaScript
 | References    | - `Initial OEP suggestion`_ on the edx-code list   |
 |               | - `An edx-code question`_ from another user at MIT |
 |               |   who was hoping to include course-wide JS/CSS     |
+|               | - `Documentation on course-wide JS/CSS`_           |
 +---------------+----------------------------------------------------+
 
 .. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/43
 .. _Initial OEP suggestion: https://groups.google.com/d/topic/edx-code/T83TDxhH74E/discussion
 .. _An edx-code question: https://groups.google.com/d/topic/edx-code/idjPWUIx8Ls/discussion
+.. _Documentation on course-wide JS/CSS: https://docs.openedx.org/en/latest/educators/how-tos/add_custom_css_or_javascript_code_to_a_course.html
 
 Abstract
 ********
