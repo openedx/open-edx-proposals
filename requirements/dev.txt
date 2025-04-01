@@ -136,7 +136,7 @@ sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
 starlette==0.46.1
     # via sphinx-autobuild
-typing-extensions==4.12.2
+typing-extensions==4.13.0
     # via
     #   -r requirements/base.txt
     #   anyio
