@@ -201,29 +201,48 @@ with all team members so the removal can be prioritized and completed in a
 timely manner. A suggested timeline is shown in the diagram below, which
 considers the timing of the next `Open edX named release`_.
 
-.. image:: oep-0021/timeline.png
-   :align: center
-   :alt: A diagram that suggests having a 2 week time period between the
-    *Proposed* and *Accepted* states, giving the community enough time to provide
-    feedback. After which, the *Deprecated*, *Removing*, and *Removed* transition
-    periods will vary by the type and scope of the technical change.
+.. https://dreampuf.github.io/GraphvizOnline
+.. graphviz::
+
+   digraph shells {
+
+       node [fontsize=20, shape = box];
+
+       Draft -> RFC [label=" Someone is ready to own the ticket and does RFC work"];
+       RFC -> "Plan Accepted" [label=" 2 weeks (negotiable)"];
+       "Plan Accepted" -> "Transition Unblocked"
+       "Plan Accepted" -> "Breaking Changes Unblocked" [label=" 6 months (negotiable)"]
+       "Transition Unblocked" -> "Breaking Changes Unblocked" [label=" 1 month (negotiable)"];
+       "Breaking Changes Unblocked" -> "Plan Completed"
+   }
 
 * **Proposed** on Day 1
-* **Communicated** from Day 2 to Day 13
+* **Communicated** - Up to 6 months before the change is expected to land.
 * **Accepted** on Day 14 *(depending on influx of feedback)*
-* **Deprecated/Removing/Removed** - from Day 15 onwards *(depending on resources and technology being removed).*
+* **Replacement Ready** - At least 1 month to allow operators to transition to the replacement.
+* **Removal Pending** - Once the transition period has concluded (However long the ``Replacement Ready`` phase was).
+* **Removed** - The resolved state.
   Consider when the next Named Release is cut; if it is very soon, you may wish to delay final
   removal until after the cut date.
 
-Consider choosing deprecation and removal dates that allow for a full
-release cycle for transition planning. For example, a deprecation
-proposal could be accepted while Maple is being finalized, then
-implement the removal some time after Maple is released so that the
-removal itself will land in Nutmeg. (Removal could even happen as soon as
-a named release's branches are cut, but this may interfere with fixes that
-need to be backported.) Any deployment following the
-named releases would then have a number of months to prepare before
-Nutmeg comes out.
+
+The removal date should default to 6 months of advance communication,
+including at least 1 month window of overlapping support between old
+and new features. If you have a high level of confidence that it's not
+used elsewhere and you still comunicate it to the community you may use
+a more accelerated process which is as short as 2 weeks.
+
+Additionally, the ability to negotiate dates on the DEPR ticket is an
+explicit part of the process. This could include adjusting the default
+dates for a specific ticket, or negotiating extensions as-needed (e.g.
+difficulties that arise, or too many maintenance requests landing at
+the same time, etc.). It could also include providing a very short
+window for changes that don't require much warning or where there are
+very few actual users of the code.
+
+The 6 month window has the benefit of givig at least one named release
+(e.g. Redwood) worth of warning, because the named releases are
+currently on a 6 month window.
 
 This approach would be most appropriate for features that can be left
 in place for an extended period before removal and where a transition
@@ -231,6 +250,7 @@ to an alternative would require a moderate to large amount of
 effort. For more trivial deprecations, it may be appropriate to simply
 deprecate and remove within the same release cycle.
 
+TODO: UPDATE THIS AND ALL OTHER PLACES TO MENTION target month + named release. Check the DEPR issue template as well. And scan throught the rest of this DEPR.
 Remember to use the named release's *cut date* when determining the
 appropriate named release. Additionally, if the named release is far
 enough in the future that it only has a letter (and not a full name),
@@ -274,7 +294,7 @@ Do the following to document your proposal:
    #. **Removal**: A description with links to what is being removed.
    #. **Replacement**: A description with links to what it is being replaced by.
    #. If you plan to mark the code for deprecation, explain how in the
-      **Deprecation** section. See Deprecated_ for considerations.
+      **Deprecation** section. See Deprecated for considerations.
    #. If automated migration will be needed, explain your migration plan in the
       **Migration** section.
    #. **Additional Info**:
@@ -426,13 +446,8 @@ in the release notes of the next named release.
     then the contributor must provide an ADR justifying its usage. This is because
     using the deprecated feature obviously adds new technical debt to the system.
 
-Deprecated
-==========
-
-If you decided to mark the code for deprecation during your Analyze_ or
-`Monitor Feedback`_ phases, invest time in doing so and update the state of the
-**DEPR** ticket to *Deprecated* once that is completed and make a comment on the
-issue saying you've done so.
+As a part of acceptance, all relevant warnings should go into code/documentation to indicate what
+will be removed or replaced.
 
 Here are some common ways to mark a technology as deprecated:
 
@@ -456,21 +471,29 @@ Here are some common ways to mark a technology as deprecated:
 .. _OEP-17: https://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html
 .. _OEP-14 Archiving Open edX GitHub Repositories: https://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html
 
-Removing
-========
+If the new version of the code will be using toggles/waffles, the names and settings of those waffles should be communicated to operators.
+e.g. "If you don't want to use the new content libraries, set "xxx" waffle flag to false before that lands.  Do we need more here?
 
-When a team begins development work to remove the code, change the **DEPR**
-ticket's state to *Removing* and make a comment on the issue saying you've done so.
+Replacement Ready
+=================
+For code where there is a replacement, this state indicates that the replacement is ready for use and we are in a period where both the old and new code are working.  This is a temporary state that allows developers/operators to migrate to the replacement option before the old code is removed.  Unless otherwise negotiated/communicated, this stage will last one month to give everyone ample time to transition.
 
-During this phase, remember the following:
+This state implies that there are flags or toggles to be able to switch between the two versions, and the DEPR ticket should communicate if the default is changing with enough time for operators to be able to set relevant flags to choose between the implementations.
 
-* Implement the proposed and agreed upon migration path.
+Removal Pending
+===============
+
+This state indicates that support for the old implementation has been officially dropped and developers are able to begin removing code. If an item is in this state you should not expect the old implementation to work.
+
+During this phase, the following will occur:
+
 * Remove related code from all places, including the frontend, APIs, and
   the backend, perhaps even in that order.
-* Remove any related documentation on docs.edx.org_ and elsewhere.
+* Remove any unnecessary feature flags introduced as a part of the transition.
+* Remove any related documentation on docs.openedx.org_ and elsewhere.
 * Continue to update the ticket with any delays or issues that may arise.
 
-.. _docs.edx.org: https://docs.edx.org/
+.. _docs.openedx.org: https://docs.openedx.org/
 
 Removed
 =======
