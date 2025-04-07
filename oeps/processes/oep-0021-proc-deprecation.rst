@@ -1,207 +1,54 @@
 OEP-21: Deprecation and Removal
 ###############################
 
-+-----------------+--------------------------------------------------------+
-| OEP             | :doc:`OEP-21 <oep-0021-proc-deprecation>`              |
-+-----------------+--------------------------------------------------------+
-| Title           | Deprecation and Removal                                |
-+-----------------+--------------------------------------------------------+
-| Last Modified   | 2024-04-04                                             |
-+-----------------+--------------------------------------------------------+
-| Authors         | Greg Sham <gsham@edx.org>,                             |
-|                 | Nimisha Asthagiri <nimisha@edx.org>                    |
-|                 | Diana Huang <dkh@edx.org>                              |
-|                 | Sarina Canelake <sarina@axim.org>                      |
-+-----------------+--------------------------------------------------------+
-| Arbiter         | Matt Tuchfarber <mtuchfarber@edx.org>                  |
-+-----------------+--------------------------------------------------------+
-| Status          | Accepted                                               |
-+-----------------+--------------------------------------------------------+
-| Type            | Process                                                |
-+-----------------+--------------------------------------------------------+
-| Created         | 2018-05-18                                             |
-+-----------------+--------------------------------------------------------+
-| Review Period   | 2018-06-06 - 2018-06-20                                |
-+-----------------+--------------------------------------------------------+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 0
 
-TL;DR
-*****
-
-* **Removing unneeded or legacy code is crucial to optimizing programs and reducing
-  costs:** Having dead or broken code laying around can inadvertently introduce bugs,
-  cause the runtime footprint to be larger than necessary, and cost time and money to
-  maintain. Additionally, unneeded code may make it more difficult to understand or
-  navigate a project.
-* **It’s important to know exactly when and what to remove:** Some code may be outdated
-  and can be replaced with a new implementation, or some may have very low usage and is
-  not worth holding on to. It’s important to analyze to what extent the code is no longer
-  needed and what (if any) ripple effects it could have elsewhere. Monitoring can be a useful
-  tool for this discovery.
-* **Communicating out proposed changes can help guide the path to depreciation/removal:**
-  It is crucial to let others know you believe there’s code needing removal and how you plan
-  to go about it. Inform individual stakeholders and use Open edX community channels such as
-  Slack and Discourse to let others know your proposed plan. Collect and monitor feedback to
-  avoid potential disruptions to other code/projects.
-* **Others can take responsibility:** In some cases, an item may be useful to others but not
-  to you.  That's okay; part of the deprecation process is given others the ability to take
-  over ownership of those parts of the system. Those who value a feature should support maintaining
-  it.
-* **The formal process outlined in this document can help make deprecation and removal
-  projects happen more proactively:** Having a defined process and common language takes
-  the guesswork out and allows for easier access to get rid of dead code. The steps outlined
-  in this document regarding analysis, communication, and documentation will help guide the
-  process, and by using GitHub Issues as tickets to track the DEPR process (see the steps outlined
-  in the `Document`_ section), these projects can be clearly tracked providing transparency on progress.
-
-High-Level Overview of Code Removal Process
-===========================================
-* For further details on each of these steps, please see `Process States`_ and
-  `Timeline`_. For DEPR ticket details, please refer to the `Document`_ process.
-
-.. image:: oep-0021/Removal-Workflow.png
-   :align: center
-
-Best Practices for Proposing Code for Removal
-=============================================
-
-* For further details on each of these steps, please see `Proposed`_ section.
-  For DEPR ticket details, please refer to the `Document`_ process.
-
-.. image:: oep-0021/Best-Practices.png
-   :align: center
+   * - OEP
+     - :doc:`OEP-21 <oep-0021-proc-deprecation>`
+   * - Title
+     - Deprecation and Removal
+   * - Last Modified
+     - 2025-04-07
+   * - Authors
+     - Greg Sham <gsham@edx.org>,
+       Nimisha Asthagiri <nimisha@edx.org>,
+       Diana Huang <dkh@edx.org>,
+       Sarina Canelake <sarina@axim.org>
+   * - Arbiter
+     - Matt Tuchfarber <mtuchfarber@edx.org>
+   * - Status
+     - Accepted
+   * - Type
+     - Process
+   * - Created
+     - 2018-05-18
+   * - Review Period
+     - 2018-06-06 - 2018-06-20
 
 Abstract
 ********
 
-*"Remove dead code wherever possible. It gets in the way and slows you down."* [OREILLY]_
-
-This document defines a formal process for proposing, communicating, deprecating
-and removing legacy and unneeded code in the Open edX platform.
-
-.. image:: oep-0021/dead-code.png
-   :align: center
+This document defines a formal process for proposing, communicating, deprecating, and removing legacy and unneeded code in the Open edX platform.
 
 Motivation
 **********
 
-Without a clearly defined and agreed upon process for removing legacy code,
-Open edX developers will hesitate to do so. As a result, the platform will have
-redundant implementations and dormant features that over time will slow down
-development and developer onboarding.
+Without a clear process for removing legacy code, developers hesitate to do so, leading to redundant implementations and dormant features that slow down development.
 
-This is a problem shared by the software engineering industry and many have
-learned the benefits of investing in code removal:
+Benefits of code removal include:
 
-* It is undeniable that unnecessary code, like any other code, requires
-  maintenance over time. It costs time and money. [OREILLY]_
+* Reducing maintenance burden and costs [OREILLY]_
+* Improving project learnability and navigation [OREILLY]_
+* Enabling better refactoring and optimization [OREILLY]_
+* Preventing potential bugs from dormant code [SO]_ [SEC]_
+* Reducing runtime footprint [INFOQ]_
+* Encouraging continuous improvement [INFOQ]_
 
-* Extra code also makes it harder to learn the project, and requires extra
-  understanding and navigating. [OREILLY]_
+High-Level Overview of Code Removal Process
+===========================================
 
-* It is harder to refactor, simplify, or optimize your program when it is bogged
-  down by zombie code. [OREILLY]_
-
-* There is a danger that someone inadvertently involves the 'dormant' code and
-  introduces bugs. [SO]_ [SEC]_
-
-* Dead code makes the runtime footprint larger than it needs to be. [INFOQ]_
-
-* Dead code discourages a culture of treating the software as soft, and therefore
-  always open to revision and improvement. [INFOQ]_
-
-Given the above, we define a common language and process to remove unneeded
-code, that is, code that may be superseded by a new implementation or may be deemed no
-longer necessary or supported. Following this process guarantees alignment
-across all stakeholders and a path towards complete removal of all unused code.
-
-Specification
-**************
-
-This section explains each step in the process to remove a technology from the
-Open edX platform.
-
-Process States
-==============
-
-Per the `workflow chart`_, the next sections go through the details of each state and transition.
-
-.. _workflow chart: oep-0021/Removal-Workflow.png
-
-Proposed
-========
-
-Do you think a piece of the codebase should be removed? If you even asked that
-question, chances are likely that it probably should be.
-
-When to remove?
----------------
-
-Here are a few common cases for code removal:
-
-* There is now a new implementation that replaces the old implementation. If so,
-  the old implementation should be deprecated and then removed in favor of the
-  new.
-* Static analysis or runtime analysis shows that the code is never executed on
-  your Open edX instance. If so, it should be removed (if no one in the community
-  requires it) or should become a pluggable extension since it's not core to all
-  instances.
-* There is a legacy feature that never really saw the light of the day or was
-  adopted by very few users. If so, this should be confirmed by usage analysis
-  and then removed.
-
-What to remove?
----------------
-
-Here are a few technologies that are commonly removed:
-
-* User features, including their APIs, frontend, and backend implementations
-* Modular components, such as Django apps, Frontend apps, XBlocks
-* Technologies, such as CoffeeScript, outdated frameworks
-* Feature toggles used for temporary rollout and testing
-* Interfaces, such as REST APIs and Plugin APIs
-
-Analyze
--------
-
-When proposing a removal, consider the following analysis:
-
-* Usage - Which users and services are currently using the code proposed for
-  removal on your own Open edX instance?  Perform a quick search across the edX
-  codebase to gauge the level of impact and identify potential stakeholders.
-  https://github.com/search?q=org%3Aopenedx+sample&type=Code. Also read `how to
-  monitor deprecation/removal`_ to support this entire process.
-* Replacement - What, if any, is a viable replacement for the code being removed?
-* Migration path - If there is existing high usage in the community, what is a
-  viable automated migration path from the deprecated code to the removed code?
-* Deprecation - Based on expected usage and effort to migrate, for how long
-  should the deprecation period be?
-* Coordination - Who is going to take responsibility for moving the deprecation
-  forward?
-
-.. _how to monitor deprecation/removal: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3472654465/Monitoring+and+observability+around+deprecating+old+code
-
-Timeline
---------
-
-Deprecation can have one of two results: the feature gets removed, or someone
-else takes over the feature and becomes responsible for maintaining it.
-
-To communicate a proposed removal, you will need to determine the *earliest*
-Open edX named release that could no longer have the removed functionality,
-based on the release's *cut date*. Choosing the earliest named release where
-functionality could be removed is the simplest way to summarize what is often
-a lot of guesswork, and to clearly communicate to others how to prepare for the
-removal. The following discussion is meant to help determine the earliest named
-release.
-
-When determining target dates to propose for the removal process, consider that
-it will vary depending on team resources and the technology being removed.
-The importance of removal (as described in Motivation_) should be communicated
-with all team members so the removal can be prioritized and completed in a
-timely manner. A suggested timeline is shown in the diagram below, which
-considers the timing of the next `Open edX named release`_.
-
-.. https://dreampuf.github.io/GraphvizOnline
 .. graphviz::
 
    digraph shells {
@@ -216,305 +63,123 @@ considers the timing of the next `Open edX named release`_.
        "Breaking Changes Unblocked" -> "Plan Completed"
    }
 
-* **Proposed** on Day 1
-* **Communicated** - Up to 6 months before the change is expected to land.
-* **Accepted** on Day 14 *(depending on influx of feedback)*
-* **Replacement Ready** - At least 1 month to allow operators to transition to the replacement.
-* **Removal Pending** - Once the transition period has concluded (However long the ``Replacement Ready`` phase was).
-* **Removed** - The resolved state.
-  Consider when the next Named Release is cut; if it is very soon, you may wish to delay final
-  removal until after the cut date.
+Process States
+==============
 
+The following sections describe each state in the deprecation and removal process.
 
-The removal date should default to 6 months of advance communication,
-including at least 1 month window of overlapping support between old
-and new features. If you have a high level of confidence that it's not
-used elsewhere and you still comunicate it to the community you may use
-a more accelerated process which is as short as 2 weeks.
+Draft
+-----
 
-Additionally, the ability to negotiate dates on the DEPR ticket is an
-explicit part of the process. This could include adjusting the default
-dates for a specific ticket, or negotiating extensions as-needed (e.g.
-difficulties that arise, or too many maintenance requests landing at
-the same time, etc.). It could also include providing a very short
-window for changes that don't require much warning or where there are
-very few actual users of the code.
+Initial state where code is identified for removal but no one has committed to coordinating the process. A ticket created with the "Deprecation (DEPR) Ticket" template remains in Draft until someone claims it as coordinator.
 
-The 6 month window has the benefit of givig at least one named release
-(e.g. Redwood) worth of warning, because the named releases are
-currently on a 6 month window.
+When to Consider Removal
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-This approach would be most appropriate for features that can be left
-in place for an extended period before removal and where a transition
-to an alternative would require a moderate to large amount of
-effort. For more trivial deprecations, it may be appropriate to simply
-deprecate and remove within the same release cycle.
+* New implementation replaces old functionality
+* Static/runtime analysis shows code is never executed
+* Feature has very low adoption
 
-TODO: UPDATE THIS AND ALL OTHER PLACES TO MENTION target month + named release. Check the DEPR issue template as well. And scan throught the rest of this DEPR.
-Remember to use the named release's *cut date* when determining the
-appropriate named release. Additionally, if the named release is far
-enough in the future that it only has a letter (and not a full name),
-just use the letter of the release. Reach out to the
-`#wg-build-test-release` in Slack if you're still not sure what the most
-appropriate earliest named release would be.
+What Can Be Removed
+~~~~~~~~~~~~~~~~~~~
 
-.. _Open edX named release: https://open-edx-proposals.readthedocs.io/en/latest/oep-0010-proc-openedx-releases.html
+* User features (APIs, frontend, backend)
+* Modular components (Django apps, Frontend apps, XBlocks)
+* Outdated technologies or frameworks
+* Temporary feature toggles
+* Deprecated interfaces
 
-Document
+RFC (Request for Comments)
+--------------------------
+
+A coordinator has claimed the ticket and is actively gathering community feedback. During this phase:
+
+1. Announce the proposed deprecation on:
+   - Open edX Discourse Deprecation Announcements category
+   - Slack channels #general and any relevant working groups (e.g., #wg-frontend, #wg-build-test-release, #wg-maintenance)
+
+2. Allow time for feedback (typically 2 weeks, but negotiable)
+
+3. Respond to concerns and update the proposal as needed
+
+If significant issues arise, be willing to extend the feedback period or revise the plan. For complex cases, consider consulting the Deprecation Working Group for guidance.
+
+Plan Accepted
+-------------
+
+After the RFC period and once all community concerns are addressed, the coordinator updates the ticket to "Plan Accepted" status. At this point:
+
+1. The deprecation plan is officially approved
+2. No new usage of the deprecated code should be introduced
+3. Code should be marked as deprecated:
+
+   - REST API: Add to docstring `"Deprecated <link-to-gh-issue>"`
+   - JavaScript: `console.log("<Technology name> is deprecated. See <link-to-gh-issue>.")`
+   - Python: `warnings.warn("<Technology name> is deprecated. See <link-to-gh-issue>.", DeprecationWarning)`
+   - Feature toggles: Set expiration date as in OEP-17
+   - GitHub repo: Follow OEP-14 for archiving
+
+For larger changes, include a link to the deprecation ticket in the release notes for the next named release.
+
+After acceptance, the ticket will proceed to either:
+- "Transition Unblocked" when a replacement is ready, or
+- Wait for the negotiated timeline (default: 6 months) before proceeding to "Breaking Changes Unblocked"
+
+Transition Unblocked
+--------------------
+
+This state indicates that a replacement for the deprecated code is ready and available. During this period:
+
+1. Both old and new implementations operate in parallel
+2. Users have time to transition to the new implementation (default: 1 month)
+3. Feature flags/toggles control which implementation is active
+
+The DEPR ticket should clearly communicate:
+- How to enable/disable each implementation
+- Any changes to default settings
+- Documentation for the new implementation
+
+This transition period provides a safe migration path before breaking changes occur.
+
+Breaking Changes Unblocked
+--------------------------
+
+In this state, support for the old implementation has been officially dropped and developers can begin removing code. This state can be reached either:
+
+1. Directly from "Plan Accepted" after a negotiated waiting period (default: 6 months), or
+2. From "Transition Unblocked" after the transition period (default: 1 month)
+
+During this phase:
+- Remove related code from frontends, APIs, and backends
+- Remove any feature flags introduced during transition
+- Update documentation to remove references to the old implementation
+- Keep the DEPR ticket updated with progress and any issues encountered
+
+Users should expect the deprecated code to stop working at any point during this phase.
+
+Plan Completed
+--------------
+
+This is the final state, reached when all aspects of the deprecation and removal plan have been completed. When removal is complete:
+
+1. Add the DEPR ticket to the wiki page for the next Open edX named release
+2. Update the DEPR ticket's state to "Plan Completed" with a final comment
+3. Announce completion in the #wg-depr-slash-and-burn Slack channel
+
+This state marks the successful conclusion of the deprecation and removal process.
+
+Timeline
 --------
 
-Do the following to document your proposal:
-
-#. Create a GitHub Issue in the repo where the code being deprecated lives, and
-   be sure to choose the "Deprecation (DEPR) Ticket" template. If your
-   deprecation spans multiple repos, choose the primary/most relevant repo, or
-   use the `public-engineering`_ project.
-
-   .. note::
-      While it is possible to create Issues with no template, it is strongly
-      encouraged that you go to `github.com/openedx/:repo/issues`, click "New
-      Issue", and choose the DEPR template so you don't miss any fields and
-      automation works properly. The template fields help us more quickly
-      address deprecation issues and reduce the amount of back and forth needed
-      to make progress on work. If you must create an Issue outside the
-      template, please preface your issue title with ``[DEPR]``.
-
-#. When writing the ticket, include the following information:
-
-   #. **Title**: The title of the ticket should read "[DEPR]: <technology name being
-      deprecated>".
-   #. **Proposal Date**: the day the proposal is being put up for consideration.
-   #. **Target Ticket Acceptance Date**. A good default is 2 weeks from the Proposal
-      Date. See Timeline_ for additional considerations.
-   #. **Earliest Open edX Named Release Without This Functionality**. See
-      Timeline_ for help choosing the earliest `Open edX named
-      release`_ where the code will have been removed, based on its *cut date*.
-   #. **Rationale**: A few sentences explaining the rationale for removing this
-      technology.
-   #. **Removal**: A description with links to what is being removed.
-   #. **Replacement**: A description with links to what it is being replaced by.
-   #. If you plan to mark the code for deprecation, explain how in the
-      **Deprecation** section. See Deprecated for considerations.
-   #. If automated migration will be needed, explain your migration plan in the
-      **Migration** section.
-   #. **Additional Info**:
-
-      - If there is any additional publicly shareable information or data from
-        your earlier analysis, include that in the **Additional Info** section.
-      - If you know who plans to coordinate the ticket, include the
-        name in the **Additional Info** section. The deprecation
-        ticket is not active until there is a coordinator.
-
-#. Check that your ticket appears on the `DEPR Project Board`_.
-
-.. note::
-  You can create a ticket even if you don't yet have all the information
-  gathered yet. You simply must wait until you have completed the issue and
-  have a coordinator before moving on to the formal **Communication** step.
-
-(Optional) Start a preliminary discussion
------------------------------------------
-If you want to start a preliminary discussion or seek an owner for the
-deprecation ticket, you can post a message in the `Development Discussion
-Board`_ and any appropriate channels in the `Open edX slack`_.  This allows
-you to start a discussion and ask for feedback before somebody commits to
-coordinating the DEPR process.  Note: This does not replace the formal
-:ref:`announce-ref` of the DEPR ticket.
-
-
-.. _Development Discussion Board: https://discuss.openedx.org/c/development/11
-
-Claim the DEPR Ticket as Coordinator
-------------------------------------
-A DEPR ticket is not active until it has a coordinator.
-
-The coordinator is responsible for:
-
-- Ensuring the deprecation work happens
-- Following the DEPR workflow phases
-- Informing the community about any changes
-- Communicating if they are unable to continue coordinating the DEPR
-
-When you are ready to coordinate the ticket, post a comment on the
-GitHub issue saying you're doing so, and mark yourself as the GitHub
-issue's owner.  This can be done even if you don't have write access to
-the ticket by making a comment on the ticket that says ``assign me``.
-
-.. note::
- If the coordinator can no longer be responsible for the ticket, we ask that you find
- another coordinator if you can.  If you can't find another coordinator, it's the
- responsibility of the current coordinator to:
-
- #. Remove yourself as the ticket owner
- #. Change the issue state back to **Proposed**
- #. Update stakeholders in whatever channel is appropriate
-
-Now you are ready to communicate your proposal!
-
-.. _public-engineering: https://github.com/openedx/public-engineering
-.. _DEPR Project Board: https://github.com/orgs/openedx/projects/9
-
-Communicated
-============
-
-.. _announce-ref:
-
-Announce
---------
-Announce your proposal to deprecate and remove to the following communication
-channels.
-
-To the Open edX Discourse
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Post a message to `Open edX Discourse Deprecation Announcements`_, using the following template:
-
-    Subject: Deprecation/Removal: <*Technology Name*> <*repo*>#<*issue-number*>
-
-    Body:
-        Hi there,
-
-        We plan to deprecate and remove <*Short description of the technology*>.
-
-        Please read https://github.com/openedx/<*repo*>/issues/<*issue-number*> for
-        more information and to post any questions/comments. The proposed
-        deadline for comments before acceptance is <*Target Accepted Date*>.
-
-        Once the ticket is accepted, removal can happen at any time.  If you believe
-        that <*technology name*> is valuable and wish to make a case for retaining
-        it and taking over its maintainership, please speak up on the issue linked above.
-
-        After acceptance, all future notifications around removal will only be posted
-        to the GitHub issue, so be sure to watch that issue if you want further updates.
-
-        Thanks,
-        <*Your name*>
-
-Once the message is posted, include a link to the Discourse thread in the GitHub issue.
-
-
-.. _Open edX Discourse Deprecation Announcements: https://discuss.openedx.org/c/announcements/deprecation
-
-To openedx.slack.com
-~~~~~~~~~~~~~~~~~~~~
-
-The above discourse post should automatically get posted to the #open-edx-proposals and #general channels in
-the `Open edX slack`_.  If not, you could post something like:
-
-    *Removal of <*Technology Name*>:*
-    We plan to deprecate and remove <*Short description of the technology*>.
-
-    Please read https://github.com/openedx/<*repo*>/issues/<*issue-number*> for
-    more information and to post any questions/comments. The proposed
-    deadline for comments before acceptance is <*Target Accepted Date*>.
-    Once the ticket is accepted, removal can happen at any time.
-
-.. _`Open edX slack`: https://openedx.org/slack
-
-Monitor Feedback
-----------------
-
-Once announcements are made, update the GitHub Issue to the `Communicated`
-state and add a comment to the issue saying you've done so.
-
-Allocate time to be responsive to any and all feedback and input on your
-**DEPR** ticket. Update the ticket and the proposal, if necessary, with any
-information that should be captured from the ongoing feedback. Continue to
-iterate and do this until the announced target *Accepted* date.
-
-If during this time, there is a large amount of churn or concern, be open to
-adjusting the target dates and revisiting the proposal. If community alignment
-seems difficult, reach out to the `Deprecation Working Group`_ for directional
-guidance. In some cases, the proposal may need to be *Abandoned* entirely.
-
-.. _Deprecation Working Group: https://openedx.atlassian.net/wiki/spaces/AC/pages/825983190/Deprecation+Working+Group
-
-Accepted
-========
-
-Once enough time is allotted for community feedback, all concerns on the
-**DEPR** ticket are responded to, and the target *Accepted* date has passed,
-update the state of the **DEPR** ticket to *Accepted* and make a comment on the
-issue saying you've done so.
-
-For larger changes, it may be important to mention the upcoming deprecation
-in the release notes of the next named release.
-
-.. note::
-
-    If there's a new use of a feature once its deprecation ticket is accepted,
-    then the contributor must provide an ADR justifying its usage. This is because
-    using the deprecated feature obviously adds new technical debt to the system.
-
-As a part of acceptance, all relevant warnings should go into code/documentation to indicate what
-will be removed or replaced.
-
-Here are some common ways to mark a technology as deprecated:
-
-* REST API - Specify in the 1st line of the API's docstring::
-
-    "Deprecated <link-to-gh-issue>"
-
-* Javascript code - Add a log statement that executes once without being noisy::
-
-    console.log("<Technology name> is deprecated. See <link-to-gh-issue>.")
-
-* Python code - Add a warnings.warn_ statement so it executes once without being noisy::
-
-    warnings.warn("<Technology name> is deprecated. See <link-to-gh-issue>.", DeprecationWarning)
-
-* Feature toggles - Set the “Expiration Date” as described in OEP-17_.
-
-* GitHub repo - See `OEP-14 Archiving Open edX GitHub Repositories`_.
-
-.. _warnings.warn: https://docs.python.org/2/library/warnings.html#warnings.warn
-.. _OEP-17: https://open-edx-proposals.readthedocs.io/en/latest/oep-0017-bp-feature-toggles.html
-.. _OEP-14 Archiving Open edX GitHub Repositories: https://open-edx-proposals.readthedocs.io/en/latest/oep-0014-proc-archive-repos.html
-
-If the new version of the code will be using toggles/waffles, the names and settings of those waffles should be communicated to operators.
-e.g. "If you don't want to use the new content libraries, set "xxx" waffle flag to false before that lands.  Do we need more here?
-
-Replacement Ready
-=================
-For code where there is a replacement, this state indicates that the replacement is ready for use and we are in a period where both the old and new code are working.  This is a temporary state that allows developers/operators to migrate to the replacement option before the old code is removed.  Unless otherwise negotiated/communicated, this stage will last one month to give everyone ample time to transition.
-
-This state implies that there are flags or toggles to be able to switch between the two versions, and the DEPR ticket should communicate if the default is changing with enough time for operators to be able to set relevant flags to choose between the implementations.
-
-Removal Pending
-===============
-
-This state indicates that support for the old implementation has been officially dropped and developers are able to begin removing code. If an item is in this state you should not expect the old implementation to work.
-
-During this phase, the following will occur:
-
-* Remove related code from all places, including the frontend, APIs, and
-  the backend, perhaps even in that order.
-* Remove any unnecessary feature flags introduced as a part of the transition.
-* Remove any related documentation on docs.openedx.org_ and elsewhere.
-* Continue to update the ticket with any delays or issues that may arise.
-
-.. _docs.openedx.org: https://docs.openedx.org/
-
-Removed
-=======
-
-When removal is complete:
-
-#. Add the **DEPR** ticket to the `wiki page for the next Open edX named
-   release`_ to keep track of which removals occurred in which named release.
-   Note: Eventually, this should be included in a .rst file bundled with the
-   codebase.
-#. Update the **DEPR** ticket's state to *Removed* and make a corresponding
-   comment on the issue.
-#. Announce the removal in the #open-edx-proposals and #general `Open edX slack`_
-   channels.
-#. Optionally, celebrate with your team by banging and breaking a piñata_!
-
-.. image:: oep-0021/pinata.png
-   :align: center
-
-.. _wiki page for the next Open edX named release: https://openedx.atlassian.net/wiki/spaces/COMM/pages/13205845/Open+edX+Release+Planning
-.. _piñata: https://en.wikipedia.org/wiki/Pi%C3%B1ata
+The deprecation process follows these default timeframes, though all are negotiable based on complexity and impact:
+
+* **Draft to RFC**: When a coordinator claims the ticket
+* **RFC Period**: 2 weeks for community feedback
+* **Plan Accepted to Breaking Changes Unblocked**: 6 months (if no replacement needed)
+* **Transition Unblocked Period**: 1 month for users to migrate to the new implementation
+* **Breaking Changes to Plan Completed**: Varies based on removal complexity
+
+When scheduling removal, consider the Open edX named release cycle (currently 6 months). The 6-month default waiting period ensures that operators have some warning before functionality is removed.
 
 References
 **********
@@ -527,19 +192,21 @@ References
 Change History
 **************
 
+2025-04-07
+==========
+* Updated process with new workflow states
+* Simplified document for greater clarity and conciseness
+
 2024-04-12
 ==========
-
 * Changed process to require every DEPR have a coordinator.
 
 2023-06-21
 ==========
-
 * Update Discourse template to describe how to stay up to date on removal status.
 
 2022-11-01
 ==========
-
 * Simplified guidance around the earliest named release and removal dates.
 * Clarify that proposal can be made while incomplete, as long as they aren't communicated until they are complete.
 
