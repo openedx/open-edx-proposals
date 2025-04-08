@@ -74,7 +74,7 @@ sphinxcontrib-serializinghtml==2.0.0
     # via sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.in
-typing-extensions==4.13.0
+typing-extensions==4.13.1
     # via
     #   beautifulsoup4
     #   pydata-sphinx-theme
