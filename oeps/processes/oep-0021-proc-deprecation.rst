@@ -12,12 +12,13 @@ OEP-21: Deprecation and Removal
    * - Last Modified
      - 2025-04-07
    * - Authors
-     - Greg Sham <gsham@edx.org>,
-       Nimisha Asthagiri <nimisha@edx.org>,
-       Diana Huang <dkh@edx.org>,
-       Sarina Canelake <sarina@axim.org>
+     - | Greg Sham <gsham@edx.org>,
+       | Nimisha Asthagiri <nimisha@edx.org>,
+       | Diana Huang <dkh@edx.org>,
+       | Sarina Canelake <sarina@axim.org>
+       | Feanil Patel <feanil@axim.org>
    * - Arbiter
-     - Matt Tuchfarber <mtuchfarber@edx.org>
+     - | Matt Tuchfarber <mtuchfarber@edx.org>
    * - Status
      - Accepted
    * - Type
@@ -51,7 +52,7 @@ High-Level Overview of Code Removal Process
 
 .. graphviz::
 
-   digraph shells {
+   digraph process {
 
        node [fontsize=20, shape = box];
 
@@ -95,14 +96,22 @@ RFC (Request for Comments)
 A coordinator has claimed the ticket and is actively gathering community feedback. During this phase:
 
 1. Announce the proposed deprecation on:
-   - Open edX Discourse Deprecation Announcements category
-   - Slack channels #general and any relevant working groups (e.g., #wg-frontend, #wg-build-test-release, #wg-maintenance)
+
+   - `Open edX Discourse Deprecation Announcements category`_
+   - Slack channels `#general`_ and any relevant working groups (e.g., `#wg-frontend`_, `#wg-build-test-release`_, `#wg-maintenance`_)
 
 2. Allow time for feedback (typically 2 weeks, but negotiable)
 
 3. Respond to concerns and update the proposal as needed
 
 If significant issues arise, be willing to extend the feedback period or revise the plan. For complex cases, consider consulting the Deprecation Working Group for guidance.
+
+.. _Open edX Discourse Deprecation Announcements category: https://discuss.openedx.org/c/announcements/deprecation/20
+.. _#general: https://openedx.slack.com/archives/C02SNA1U4
+.. _#wg-frontend: https://openedx.slack.com/archives/C04BM6YC7A6
+.. _#wg-build-test-release: https://openedx.slack.com/archives/C049JQZFR5E
+.. _#wg-maintenance: https://openedx.slack.com/archives/C03R320AFJP
+
 
 Plan Accepted
 -------------
@@ -116,14 +125,15 @@ After the RFC period and once all community concerns are addressed, the coordina
    - REST API: Add to docstring `"Deprecated <link-to-gh-issue>"`
    - JavaScript: `console.log("<Technology name> is deprecated. See <link-to-gh-issue>.")`
    - Python: `warnings.warn("<Technology name> is deprecated. See <link-to-gh-issue>.", DeprecationWarning)`
-   - Feature toggles: Set expiration date as in OEP-17
-   - GitHub repo: Follow OEP-14 for archiving
+   - Feature toggles: Set expiration date as in :ref:`OEP-17 <OEP-17>`
+   - GitHub repo: Follow :ref:`OEP-14 <OEP-14>` for archiving
 
 For larger changes, include a link to the deprecation ticket in the release notes for the next named release.
 
 After acceptance, the ticket will proceed to either:
+
 - "Transition Unblocked" when a replacement is ready, or
-- Wait for the negotiated timeline (default: 6 months) before proceeding to "Breaking Changes Unblocked"
+- Stay in "Plan Accepted" and wait for the negotiated timeline (default: 6 months) before proceeding to "Breaking Changes Unblocked"
 
 Transition Unblocked
 --------------------
@@ -135,6 +145,7 @@ This state indicates that a replacement for the deprecated code is ready and ava
 3. Feature flags/toggles control which implementation is active
 
 The DEPR ticket should clearly communicate:
+
 - How to enable/disable each implementation
 - Any changes to default settings
 - Documentation for the new implementation
@@ -150,6 +161,7 @@ In this state, support for the old implementation has been officially dropped an
 2. From "Transition Unblocked" after the transition period (default: 1 month)
 
 During this phase:
+
 - Remove related code from frontends, APIs, and backends
 - Remove any feature flags introduced during transition
 - Update documentation to remove references to the old implementation
