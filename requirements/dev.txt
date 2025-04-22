@@ -21,7 +21,7 @@ babel==2.17.0
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
     #   sphinx
-beautifulsoup4==4.13.3
+beautifulsoup4==4.13.4
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
@@ -61,7 +61,7 @@ markupsafe==3.0.2
     # via
     #   -r requirements/base.txt
     #   jinja2
-packaging==24.2
+packaging==25.0
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
@@ -90,7 +90,7 @@ snowballstemmer==2.2.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-soupsieve==2.6
+soupsieve==2.7
     # via
     #   -r requirements/base.txt
     #   beautifulsoup4
@@ -147,7 +147,7 @@ urllib3==2.2.3
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
     #   requests
-uvicorn==0.34.1
+uvicorn==0.34.2
     # via sphinx-autobuild
 watchfiles==1.0.5
     # via sphinx-autobuild
