@@ -200,17 +200,17 @@ Tooling
 
 A few tools are being used to encourage and measure conformance to this standard:
 
-- A `GitHub Action <commitlint.yml>`_ uses `commitlint`_ with our own `configuration file <commitlint.config.js>`_ to check the commits in pull requests. The Python cookiecutters and frontend template have been updated to install this action in new repos, and the repo-health dashboard collects information about whether the action is in place.
+- A `GitHub Action`_ uses `commitlint`_ with our own `configuration file`_ to check the commits in pull requests. The Python cookiecutters and frontend template have been updated to install this action in new repos, and the repo-health dashboard collects information about whether the action is in place.
 
   Our configuration of commitlint allows for certain commit messages, like Github's "Revert" or Git's "`squash!`_ " and "`fixup!`_ " that are not meant to be merged.
 
 - A `conventional_commits command`_ in edx/repo-tools can examine repos and plot conformance over time.
 
-.. _commitlint.yml: https://github.com/openedx/.github/blob/master/.github/workflows/commitlint.yml
+.. _GitHub Action: https://github.com/openedx/.github/blob/master/.github/workflows/commitlint.yml
 .. _commitlint: https://commitlint.js.org
-.. _commitlint.config.js: https://github.com/openedx/edx-lint/blob/master/edx_lint/files/commitlint.config.js
-.. _squash!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---squashltcommitgt
-.. _fixup!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt
+.. _configuration file: https://github.com/openedx/edx-lint/blob/master/edx_lint/files/commitlint.config.js
+.. _squash!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt-code--squashltcommitgtcode
+.. _fixup!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt-code--fixupamendrewordltcommitgtcode
 .. _conventional_commits command: https://github.com/openedx/repo-tools/tree/master/edx_repo_tools/conventional_commits
 
 
