@@ -10,7 +10,7 @@ OEP-21: Deprecation and Removal
    * - Title
      - Deprecation and Removal
    * - Last Modified
-     - 2025-04-07
+     - 2025-04-28
    * - Authors
      - | Greg Sham <gsham@edx.org>,
        | Nimisha Asthagiri <nimisha@edx.org>,
@@ -97,7 +97,7 @@ A coordinator has claimed the ticket and is actively gathering community feedbac
 
 1. Announce the proposed deprecation on:
 
-   - `Open edX Discourse Deprecation Announcements category`_
+   - `Open edX Discourse Deprecation Announcements category`_ (see template below)
    - Slack channels `#general`_ and any relevant working groups (e.g., `#wg-frontend`_, `#wg-build-test-release`_, `#wg-maintenance`_)
 
 2. Allow time for feedback (typically 2 weeks, but negotiable)
@@ -105,6 +105,30 @@ A coordinator has claimed the ticket and is actively gathering community feedbac
 3. Respond to concerns and update the proposal as needed
 
 If significant issues arise, be willing to extend the feedback period or revise the plan. For complex cases, consider consulting the Deprecation Working Group for guidance.
+
+When posting to the `Open edX Discourse Deprecation Announcements category`_, you can use the following template:
+
+    Subject: Deprecation/Removal: <*Technology Name*> <*repo*>#<*issue-number*>
+
+    Body:
+        Hello.
+
+        We plan to deprecate and remove <*Short description of the technology*>.
+
+        Please read https://github.com/openedx/<*repo*>/issues/<*issue-number*> for
+        more information and to post any questions or comments. The proposed
+        deadline for comments before acceptance is <*Target Accepted Date*>.
+
+        Once the ticket is accepted, removal won't happen until <*Breaking Changes
+        Unblocked Target Date*>.
+
+        After acceptance, all future notifications around removal will only be posted
+        to the GitHub issue, so be sure to watch that issue if you want further updates.
+
+        Thank you.
+        <*Your name*>
+
+Once the Discourse message is posted, add a link to the Discourse thread in the GitHub issue.
 
 .. _Open edX Discourse Deprecation Announcements category: https://discuss.openedx.org/c/announcements/deprecation/20
 .. _#general: https://openedx.slack.com/archives/C02SNA1U4
@@ -203,6 +227,10 @@ References
 
 Change History
 **************
+
+2025-04-28
+==========
+* Restore and update the Discourse announcement template.
 
 2025-04-15
 ==========
