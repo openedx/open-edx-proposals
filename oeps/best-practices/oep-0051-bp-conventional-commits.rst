@@ -116,7 +116,7 @@ Subject
 
 Commit message subjects should be short enough to fit on one line.  We aren't putting a hard limit on character length, but 70 characters is a good time to turn your attention to the body of the commit message.  Put more information in the body of the commit message to fully explain your change.  In no case should the subject contain a reference to an external system that is not accessible by all members of the Open edX community.
 
-Don't include Jira or GitHub issue numbers in the subject.  The body is the right place for links to supporting information.  The subject is precious real estate that should be used for words.  While it is true that it takes more work to get information from the body than from the subject, we are emphasizing writing longer commit messages, and so need to be good at reading the body anyway.
+Don't include Jira or GitHub issue numbers in the subject.  The body is the right place for links to supporting information.  The subject is precious real estate that should be used for words.  While it's true that it requires more effort to get information from the body than from the subject, we are emphasizing the importance of writing longer commit messages, and so it's necessary that we become proficient at reading them.
 
 Body
 ====
