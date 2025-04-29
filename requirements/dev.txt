@@ -25,7 +25,7 @@ beautifulsoup4==4.13.4
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
-certifi==2025.1.31
+certifi==2025.4.26
     # via
     #   -r requirements/base.txt
     #   requests
@@ -42,7 +42,7 @@ docutils==0.21.2
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
     #   sphinx
-h11==0.14.0
+h11==0.16.0
     # via uvicorn
 idna==3.10
     # via
