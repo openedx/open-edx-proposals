@@ -167,7 +167,7 @@ Frontend Technology Selection
    commit a package-lock.json file. The package-lock.json file will keep a full list
    of dependencies and their versions, ensuring when built for deployments the
    version of libraries are consistent. This follows the same pattern used in Open edX
-   Python code - see `OEP 18`_ for more information. For more information on
+   Python code - see :doc:`OEP-18 <oep-0018-bp-python-dependencies>` for more information. For more information on
    package-lock files see `Package Lock`_.
 
 #. **Keep dependencies up to date by using Renovate**
@@ -177,7 +177,7 @@ Frontend Technology Selection
    dependencies in a ``package.json`` file and verifying the tests still work. When
    possible, leverage Renovate to ensure JavaScript software remains up to date.
    Documentation on how to configure Renovate automation on a repository is available
-   in the `Upgrade Automation How-to`_.
+   in :doc:`docs.openedx.org:developers/how-tos/enable-javascript-upgrade-automation`.
 
 #. **JavaScript projects should use caret ranges for npm dependencies**
 
@@ -242,9 +242,9 @@ Frontend Technology Selection
    changed afterwards. CSS variables are evaluated by the browser and
    therefore can be changed at runtime, enabling dynamic theming support.
 
-#. **API calls should be made with the edX Frontend Auth Client or Axios**
+#. **API calls should be made with the frontend-platform**
 
-   **Rationale**: The `edX Frontend Auth Client`_ simplifies the process of
+   **Rationale**: The `frontend-platform`_ simplifies the process of
    talking to Open edX APIs by using Axios interceptors and handling JWT Cookie
    authentication. It also provides React components to handle private routes
    and should be used when possible. When making calls to non-Open edX APIs
@@ -400,27 +400,21 @@ Change History
 .. _AMD Modules: https://github.com/amdjs/amdjs-api/wiki/AMD
 .. _Babel: https://babeljs.io/
 .. _Codecov: https://about.codecov.io/
-.. _edX ESLint Config: https://github.com/edx/eslint-config-edx/tree/master/packages/eslint-config-edx
-.. _edX ESLint Config for ES5: https://github.com/edx/eslint-config-edx/tree/master/packages/eslint-config-edx-es5
-.. _edx Frontend Auth Client: https://github.com/edx/frontend-auth
+.. _edX ESLint Config: https://github.com/openedx/eslint-config
+.. _frontend-platform: https://github.com/openedx/frontend-platform
 .. _enzyme: https://airbnb.io/enzyme/
-.. _enzyme-adapter-react-17: https://www.npmjs.com/package/@wojtekmaj/enzyme-adapter-react-17
 .. _ESLint configuration cascading: https://eslint.org/docs/user-guide/configuring/configuration-files#cascading-and-hierarchy
 .. _ES2015 Modules: http://www.ecma-international.org/ecma-262/6.0/#sec-imports
 .. _ES2017: https://tc39.github.io/ecma262/
 .. _Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 .. _Jest: https://jestjs.io/
-.. _JSX: https://facebook.github.io/react/docs/introducing-jsx.html
 .. _Managing State: https://react.dev/learn/managing-state
-.. _oep 18: https://open-edx-proposals.readthedocs.io/en/latest/oep-0018-bp-python-dependencies.html
 .. _package lock: https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 .. _React: https://github.com/facebook/react
-.. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React
 .. _React Query: https://tanstack.com/query/latest/docs/framework/react/overview
 .. _React-Testing-Library: https://testing-library.com/docs/react-testing-library/intro
 .. _ReactRender: https://github.com/openedx/edx-platform/blob/4b38b1f750918ff83c02cff776681aabe44bd689/common/djangoapps/pipeline_mako/templates/static_content.html#L159-L167
 .. _Renovate: https://renovatebot.com/
 .. _Sass documentation: http://sass-lang.com/
 .. _the browsers we support: https://github.com/openedx/browserslist-config#supported-browsers
-.. _Upgrade Automation How-to: https://docs.openedx.org/en/latest/developers/how-tos/enable-javascript-upgrade-automation.html
 .. _Webpack: https://webpack.github.io/
