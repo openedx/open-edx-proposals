@@ -152,10 +152,6 @@ Frontend Technology Selection
    `edX ESLint Config`_ is made available as an npm package that can be
    installed into any Open edX package.
 
-   **Exception**: The `edX ESLint Config for ES5`_ may be used only where ES5
-   is in use. Both configs may be used in the same codebase through the
-   use of `ESLint configuration cascading`_.
-
 #. **JavaScript libraries should be installed via npm**
 
    **Rationale**: It is important that JavaScript libraries are kept
