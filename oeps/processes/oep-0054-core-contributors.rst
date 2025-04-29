@@ -98,7 +98,7 @@ agreements are signed. Foremost, this is a Program Agreement between the CC and
 Axim (sent to you by a Program Administrator). Additionally, if the CC commits
 code to a GitHub repo, a CLA is needed (which should have been signed when you
 made your first PR). Finally, for new companies or organizations joining the
-community, an Entity Contributor Agreement most be signed (please communicate
+community, an Entity Contributor Agreement must be signed (please communicate
 with a Program Administrator about this).
 
 We are additionally asking that all companies and teams joining the Open edX

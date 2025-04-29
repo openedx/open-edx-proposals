@@ -83,7 +83,7 @@ We use these commit types labels:
 
 * **perf**: performance improvement.
 
-* **refactor**: code reorganization that doesn't change behavior from the repo consumer perspective.
+* **refactor**: code reorganization that does not change behavior from the repo consumer perspective.
 
 * **revert**: undo a previous change. The previous commit message, including the type label, is included.
 
@@ -114,16 +114,16 @@ Open edX repos are large and varied, making standardization of scopes difficult.
 Subject
 =======
 
-Commit message subjects should be short enough to fit on one line.  We aren't putting a hard limit on character length, but 70 characters is a good time to turn your attention to the body of the commit message.  Put more information in the body of the commit message to fully explain your change.  In no case should the subject contain a reference to an external system that is not accessible by all members of the Open edX community.
+Commit message subjects should be short enough to fit on one line.  We are not putting a hard limit on character length, but 70 characters is a good time to turn your attention to the body of the commit message.  Put more information in the body of the commit message to fully explain your change.  In no case should the subject contain a reference to an external system that is not accessible by all members of the Open edX community.
 
-Don't include Jira or GitHub issue numbers in the subject.  The body is the right place for links to supporting information.  The subject is precious real estate that should be used for words.  While it is true that it takes more work to get information from the body than from the subject, we are emphasizing writing longer commit messages, and so need to be good at reading the body anyway.
+Do not include Jira or GitHub issue numbers in the subject.  The body is the right place for links to supporting information.  The subject is precious real estate that should be used for words.  While it is true that it requires more effort to get information from the body than from the subject, we are emphasizing the importance of writing longer commit messages, and so it is necessary that we become proficient at reading them.
 
 Body
 ====
 
 The subject of the commit is rarely enough information to fully understand the commit.  The body can contain as much information as you like.  Be generous.  Take a moment to think about what you would want to know if someone else had authored this commit.
 
-The more information you can put in the body of the commit message, the better. It's not unreasonable to have two paragraphs of explanation in the body.  Especially important are the reasons for the change, or other factors that won't be apparent from the code itself.
+The more information you can put in the body of the commit message, the better. It is not unreasonable to have two paragraphs of explanation in the body.  Especially important are the reasons for the change, or other factors that will not be apparent from the code itself.
 
 Breaking changes especially should have detailed information about the implications and alternatives, including a ``BREAKING CHANGE`` footer.
 
@@ -147,9 +147,9 @@ Private references to content related to the commit may be included using the ``
 Discussion
 **********
 
-Conventional Commits asks us to categorize changes into a small number of categories.  There will naturally be cases where it isn't obvious which commit type to use.
+Conventional Commits asks us to categorize changes into a small number of categories.  There will naturally be cases where it is not obvious which commit type to use.
 
-Choosing the commit type label to use for a commit is important, but it's only the first step.  If you have doubts about which commit type to use, choose the highest-priority type that could apply.  Then write a detailed body explaining the full complexity of your change.
+Choosing the commit type label to use for a commit is important, but it is only the first step.  If you have doubts about which commit type to use, choose the highest-priority type that could apply.  Then write a detailed body explaining the full complexity of your change.
 
 **feat vs fix**: some user-visible changes to features could be classified as "feat" or "fix".  Choose "feat" if the change adds to the set of features.  Choose "fix" if the change affects how a feature behaves.  Yes, this is still subjective.
 
@@ -159,7 +159,7 @@ Choosing the commit type label to use for a commit is important, but it's only t
 
 **Deprecations**: deprecations happen in two steps: the announcement of the deprecation, and the eventual removal.  The first step is important for people to recognize, but is not a breaking change.  Use clear strong words in the commit subject to be sure people understand the importance.  The second step is usually a breaking change, if a component has been removed.
 
-**Pinned dependencies**: updating the version of a pinned dependency is "just" a chore, but can bring significant changes to the depending repo.  Conventional commits can't solve this problem.  Reading the commits for a repo won't show that a "chore" might have the effect of a "feat".  When updating a single targeted dependency to pull in a "feat" or a "fix", using these labels will provide more information.
+**Pinned dependencies**: updating the version of a pinned dependency is "just" a chore, but can bring significant changes to the depending repo.  Conventional commits cannot solve this problem.  Reading the commits for a repo will not show that a "chore" might have the effect of a "feat".  When updating a single targeted dependency to pull in a "feat" or a "fix", using these labels will provide more information.
 
 **Merge commits**: Commits that git generates (such as merge commits) do not follow these guidelines.  This is not a reason to avoid those commits, though you may want to for other reasons.  The structure of conventional commits will still be useful if merge and other auto-generated commits are in the commit history.
 
@@ -171,11 +171,11 @@ __ https://github.com/conventional-commits/conventionalcommits.org/issues
 Rationale
 *********
 
-The existing Conventional Commits standard is a familiar and widely adopted standard.  It's a good place to start our own guidelines.  It builds on our recently adopted pull request template to help focus developers on providing helpful information about their changes.
+The existing Conventional Commits standard is a familiar and widely adopted standard.  It is a good place to start our own guidelines.  It builds on our recently adopted pull request template to help focus developers on providing helpful information about their changes.
 
-We've adapted the guidelines to our own projects, and started small.
+We have adapted the guidelines to our own projects, and started small.
 
-Here's an example of a conventional commit, with a one-line subject, and details in the body::
+Here is an example of a conventional commit, with a one-line subject, and details in the body::
 
     build: handle private.txt files properly
 
@@ -184,7 +184,7 @@ Here's an example of a conventional commit, with a one-line subject, and details
     neither handled the file properly:
 
     - `paver install_prereqs` had the wrong file name.  The file was moved
-      almost three years ago, and paver wasn't kept up.
+      almost three years ago, and paver was not kept up.
 
     - `make requirements` used `private.*` which included private.in, which
       pip-sync balks at.
@@ -200,17 +200,17 @@ Tooling
 
 A few tools are being used to encourage and measure conformance to this standard:
 
-- A `GitHub Action <commitlint.yml>`_ uses `commitlint`_ with our own `configuration file <commitlint.config.js>`_ to check the commits in pull requests. The Python cookiecutters and frontend template have been updated to install this action in new repos, and the repo-health dashboard collects information about whether the action is in place.
+- A `GitHub Action`_ uses `commitlint`_ with our own `configuration file`_ to check the commits in pull requests. The Python cookiecutters and frontend template have been updated to install this action in new repos, and the repo-health dashboard collects information about whether the action is in place.
 
   Our configuration of commitlint allows for certain commit messages, like Github's "Revert" or Git's "`squash!`_ " and "`fixup!`_ " that are not meant to be merged.
 
 - A `conventional_commits command`_ in edx/repo-tools can examine repos and plot conformance over time.
 
-.. _commitlint.yml: https://github.com/openedx/.github/blob/master/.github/workflows/commitlint.yml
+.. _GitHub Action: https://github.com/openedx/.github/blob/master/.github/workflows/commitlint.yml
 .. _commitlint: https://commitlint.js.org
-.. _commitlint.config.js: https://github.com/openedx/edx-lint/blob/master/edx_lint/files/commitlint.config.js
-.. _squash!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---squashltcommitgt
-.. _fixup!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt
+.. _configuration file: https://github.com/openedx/edx-lint/blob/master/edx_lint/files/commitlint.config.js
+.. _squash!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt-code--squashltcommitgtcode
+.. _fixup!: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt-code--fixupamendrewordltcommitgtcode
 .. _conventional_commits command: https://github.com/openedx/repo-tools/tree/master/edx_repo_tools/conventional_commits
 
 
