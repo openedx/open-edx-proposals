@@ -29,7 +29,7 @@ certifi==2025.4.26
     # via
     #   -r requirements/base.txt
     #   requests
-charset-normalizer==3.4.1
+charset-normalizer==3.4.2
     # via
     #   -r requirements/base.txt
     #   requests
