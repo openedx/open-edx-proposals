@@ -33,7 +33,7 @@ charset-normalizer==3.4.2
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.1.8
+click==8.2.0
     # via uvicorn
 colorama==0.4.6
     # via sphinx-autobuild
@@ -86,7 +86,7 @@ roman-numerals-py==3.1.0
     #   sphinx
 sniffio==1.3.1
     # via anyio
-snowballstemmer==2.2.0
+snowballstemmer==3.0.1
     # via
     #   -r requirements/base.txt
     #   sphinx
