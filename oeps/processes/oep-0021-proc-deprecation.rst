@@ -72,7 +72,14 @@ The following sections describe each state in the deprecation and removal proces
 Draft
 -----
 
-Initial state where code is identified for removal but no one has committed to coordinating the process. A ticket created with the "Deprecation (DEPR) Ticket" template remains in Draft until someone claims it as coordinator.
+Initial state where code is identified for removal but no one has committed to coordinating the process.
+
+A GitHub ticket is created with the "Deprecation (DEPR) Ticket" template in the relevant repository (either in the repository to be deprecated, or the repository where the to-be-deprecated component exists):
+
+.. image:: oep-0021/select-DEPR-ticket-type.png
+   :align: center
+
+This ticket remains in Draft until someone claims it as coordinator.
 
 When to Consider Removal
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -227,6 +234,10 @@ References
 
 Change History
 **************
+
+2025-05-23
+==========
+* Clarify that "ticket" in this context refers to a GitHub ticket made using the DEPR template.
 
 2025-04-28
 ==========
