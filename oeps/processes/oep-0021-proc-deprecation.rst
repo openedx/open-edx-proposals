@@ -239,33 +239,40 @@ Change History
 2025-05-23
 ==========
 * Clarify that "ticket" in this context refers to a GitHub ticket made using the DEPR template.
+* `Pull request #711 <https://github.com/openedx/open-edx-proposals/pull/711>`_
 
 2025-04-28
 ==========
 * Restore and update the Discourse announcement template.
+* `Pull request #704 <https://github.com/openedx/open-edx-proposals/pull/704>`_
 
 2025-04-15
 ==========
 * Updated process with new workflow states
 * Simplified document for greater clarity and conciseness
+* `Pull request #660 <https://github.com/openedx/open-edx-proposals/pull/660>`_
 
 2024-04-12
 ==========
 * Changed process to require every DEPR have a coordinator.
+* `Pull request #576 <https://github.com/openedx/open-edx-proposals/pull/576>`_
 
 2023-06-21
 ==========
 * Update Discourse template to describe how to stay up to date on removal status.
+* `Pull request #500 <https://github.com/openedx/open-edx-proposals/pull/500>`_
 
 2022-11-01
 ==========
 * Simplified guidance around the earliest named release and removal dates.
 * Clarify that proposal can be made while incomplete, as long as they aren't communicated until they are complete.
+* `Pull request #404 <https://github.com/openedx/open-edx-proposals/pull/404>`_
 
 2022-07-05
 ==========
 
 * Add suggestion for monitoring.
+* `Pull request #350 <https://github.com/openedx/open-edx-proposals/pull/350>`_
 
 2022-06-03
 ==========
