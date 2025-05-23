@@ -78,6 +78,7 @@ A GitHub ticket is created with the "Deprecation (DEPR) Ticket" template in the 
 
 .. image:: oep-0021/select-DEPR-ticket-type.png
    :align: center
+   :alt: The create new issue choice list, showing the second option is Deprecation and Removal (DEPR) Ticket
 
 This ticket remains in Draft until someone claims it as coordinator.
 
