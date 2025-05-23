@@ -194,11 +194,13 @@ Change History
 
 * Reference catalog-info.yaml instead of OEP-2 for where we store
   release metadata.
+* `Pull request #526 <https://github.com/openedx/open-edx-proposals/pull/526>`_
 
 2022-02-24
 ==========
 
 * Remove info about older installation methods that are no longer relevant.
+* `Pull request #452 <https://github.com/openedx/open-edx-proposals/pull/452>`_
 
 2020-04-26
 ==========
