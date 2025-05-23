@@ -90,10 +90,10 @@ meet further criteria:
 
 - It must be documented thoroughly and accurately.
 
-- An engineering team either in edX or outside of edX, must agree to be
+- An engineering team must agree to be
   minimally available for answering questions in the public channels.
 
-- An engineering team either in edX or outside of edX, must agree to provide
+- An engineering team must agree to provide
   fixes if severe problems are identified.
 
 Many of these criteria are open to interpretation, or varying degrees of
@@ -107,8 +107,8 @@ Dependencies
 ============
 
 Our software is built atop other software layers supported by their creators.
-It's important to consider the support windows for those layers when choosing
-which version to use.  An Open edX release is supported by edX until the next
+It is important to consider the support windows for those layers when choosing
+which version to use.  An Open edX release is supported by the community until the next
 release, so for about six months.  The supporting layers must be supported by
 their developers for the entire Open edX release.
 
@@ -135,11 +135,17 @@ After the .1 release, new releases in a line are made only for severe problems
 such as security problems, data loss, or feature breakage.
 
 A new release line is created by making a "release master" branch in each
-involved repo.  These are named "open-release/RELEASENAME.master".  This branch
+involved repo.  These are named ``release/RELEASENAME``.  This branch
 will be where changes are accumulated to create each release in the line.
-Releases will be tagged "open-release/RELEASENAME.1",
-"open-release/RELEASENAME.2", and so on.
+Releases will be tagged ``release/RELEASENAME.1``,
+``release/RELEASENAME.2``, and so on.
 
+.. note::
+
+  Prior to the Teak release, branches were named as follows:
+
+  * Master branch: ``open-release/RELEASENAME.master``
+  * Point releases: ``open-release/RELEASENAME.1``, ``open-release/RELEASENAME.2``, etc
 
 Involving repos in the Open edX build process
 =============================================
@@ -152,27 +158,36 @@ Details can be found in the above ADR but in summary there will be a new catalog
 annotation by the name of ``openedx.org/release`` that will indicate whether or
 not a given repo should be tagged for Open edX releases.
 
+
+Transitive Dependencies and Docs Builds
+=======================================
+
+Note that transitive dependencies should not be explicitly tagged for release.
+If a transitive dependency has a need for their own docs build, this can be
+configured in the ReadTheDocs admin panel to build a release with the
+appropriate RELEASENAME, build from the tagged release version that is included
+in RELEASENAME.
+
 Installing Open edX
 ===================
 
-Open edX provides a few supported installation methods, explained below.
-Currently, none of the supported installation methods are intended for
-production.  Running production servers requires making many choices based on
-factors such as expected load, budget, and expertise.
+The Open edX community provides a supported installation method, `Tutor`_. Tutor
+is suitable for both development and production environments.
 
+.. _Tutor: https://docs.tutor.edly.io/
 
-Installation methods
-====================
-
-There are two supported installation methods:
-
-
-- `Tutor <https://overhang.io/tutor/>`_
-
-- `Devstack <https://github.com/openedx/devstack>`_
 
 Change History
 **************
+
+2025-05-23
+==========
+
+* Update the naming convention for release branches
+* Remove mention of Devstack as a supported development environment
+* Clarify that Tutor is suitable for production environments
+* `Pull request #712 <https://github.com/openedx/open-edx-proposals/pull/712>`_
+
 
 2023-09-28
 ==========
