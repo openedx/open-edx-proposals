@@ -90,10 +90,10 @@ meet further criteria:
 
 - It must be documented thoroughly and accurately.
 
-- An engineering team must agree to be
+- A maintainer (or maintainer group) must agree to be
   minimally available for answering questions in the public channels.
 
-- An engineering team must agree to provide
+- A maintainer (or maintainer group) must agree to provide
   fixes if severe problems are identified.
 
 Many of these criteria are open to interpretation, or varying degrees of
