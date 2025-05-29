@@ -74,7 +74,7 @@ Draft
 
 Initial state where code is identified for removal but no one has committed to coordinating the process.
 
-A GitHub ticket is created with the "Deprecation (DEPR) Ticket" template in the relevant repository (either in the repository to be deprecated, or the repository where the to-be-deprecated component exists):
+A GitHub issue (or ticket) is created with the "Deprecation (DEPR) Ticket" template in the relevant repository (either in the repository to be deprecated, the repository where the to-be-deprecated component exists, or in public-engineering (see the `DEPR board README for more details <https://github.com/orgs/openedx/projects/9/views/4>`_)):
 
 .. image:: oep-0021/select-DEPR-ticket-type.png
    :align: center
