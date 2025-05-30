@@ -72,7 +72,15 @@ The following sections describe each state in the deprecation and removal proces
 Draft
 -----
 
-Initial state where code is identified for removal but no one has committed to coordinating the process. A ticket created with the "Deprecation (DEPR) Ticket" template remains in Draft until someone claims it as coordinator.
+Initial state where code is identified for removal but no one has committed to coordinating the process.
+
+A GitHub issue (or ticket) is created with the "Deprecation (DEPR) Ticket" template in the relevant repository (either in the repository to be deprecated, the repository where the to-be-deprecated component exists, or in public-engineering (see the `DEPR board README for more details <https://github.com/orgs/openedx/projects/9/views/4>`_)):
+
+.. image:: oep-0021/select-DEPR-ticket-type.png
+   :align: center
+   :alt: The create new issue choice list, showing the second option is Deprecation and Removal (DEPR) Ticket
+
+This ticket remains in Draft until someone claims it as coordinator.
 
 When to Consider Removal
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -228,32 +236,43 @@ References
 Change History
 **************
 
+2025-05-23
+==========
+* Clarify that "ticket" in this context refers to a GitHub ticket made using the DEPR template.
+* `Pull request #711 <https://github.com/openedx/open-edx-proposals/pull/711>`_
+
 2025-04-28
 ==========
 * Restore and update the Discourse announcement template.
+* `Pull request #704 <https://github.com/openedx/open-edx-proposals/pull/704>`_
 
 2025-04-15
 ==========
 * Updated process with new workflow states
 * Simplified document for greater clarity and conciseness
+* `Pull request #660 <https://github.com/openedx/open-edx-proposals/pull/660>`_
 
 2024-04-12
 ==========
 * Changed process to require every DEPR have a coordinator.
+* `Pull request #576 <https://github.com/openedx/open-edx-proposals/pull/576>`_
 
 2023-06-21
 ==========
 * Update Discourse template to describe how to stay up to date on removal status.
+* `Pull request #500 <https://github.com/openedx/open-edx-proposals/pull/500>`_
 
 2022-11-01
 ==========
 * Simplified guidance around the earliest named release and removal dates.
 * Clarify that proposal can be made while incomplete, as long as they aren't communicated until they are complete.
+* `Pull request #404 <https://github.com/openedx/open-edx-proposals/pull/404>`_
 
 2022-07-05
 ==========
 
 * Add suggestion for monitoring.
+* `Pull request #350 <https://github.com/openedx/open-edx-proposals/pull/350>`_
 
 2022-06-03
 ==========
