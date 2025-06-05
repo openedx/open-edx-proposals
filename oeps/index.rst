@@ -17,6 +17,8 @@ archive of large and broadly relevant choices made for the platform.
 OEPs
 ****
 
+.. _Processes:
+
 Processes
 =========
 
@@ -28,6 +30,8 @@ OEPs that relate to processes we want to put in place for the Open edX community
    :caption: Processes
 
    processes/oep-*
+
+.. _Best-Practices:
 
 Best Practices
 ==============
@@ -43,6 +47,8 @@ you have a good reason not to.
 
    best-practices/oep-*
 
+.. _Architectural-Decisions:
+
 Architectural Decisions
 =======================
 
@@ -56,6 +62,8 @@ is no clear code repository where they should reside.
    :caption: Architectural Decisions
 
    architectural-decisions/oep-*
+
+.. _Archived-Proposals:
 
 Archived Proposals
 ==================

@@ -207,7 +207,7 @@ Standardized Libraries and Utilities
 
 This section details a variety of authentication related libraries and utilities that Open edX has standardized on. It is important to keep to these standards in order to help keep Open edX more secure.
 
-For any of the following solutions, it is important to avoid creating local alternatives inside an IDA. If a local alternative exists, it should either be deprecated and replaced by these standards, or requires an :ref:`Architecture Decision Record (ADR)` explaining why the exception is necessary and how the security of Open edX will continue to be ensured.
+For any of the following solutions, it is important to avoid creating local alternatives inside an IDA. If a local alternative exists, it should either be deprecated and replaced by these standards, or requires an :ref:`ADRs` explaining why the exception is necessary and how the security of Open edX will continue to be ensured.
 
 API Providers: Authentication Classes
 -------------------------------------
@@ -230,7 +230,7 @@ The following are all DRF Authentication classes.
      - Deprecated
    * - `BasicAuthentication`_ (django-rest-framework)
      - * Exceptions Only
-       * Requires an :ref:`Architecture Decision Record (ADR)` explaining why it is required.
+       * Requires an :ref:`ADRs` explaining why it is required.
 
 Note: Our JwtAuthentication class is a subclass of JSONWebTokenAuthentication, which can be found in `drf-jwt`_, an open source fork of django-rest-framework-jwt that supports Django 2.2.
 

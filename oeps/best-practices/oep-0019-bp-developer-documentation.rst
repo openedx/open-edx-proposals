@@ -113,7 +113,7 @@ OEPs
 .. _OEP-1: https://open-edx-proposals.readthedocs.io/en/latest/oep-0001.html
 .. _edX Architecture team: https://openedx.atlassian.net/wiki/spaces/AC/pages/439353453/Architecture+Team
 
-.. _Architecture Decision Record (ADR):
+.. _ADRs:
 
 ADRs
 ----
