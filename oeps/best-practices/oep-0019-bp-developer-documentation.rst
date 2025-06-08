@@ -1,3 +1,5 @@
+.. _OEP-19 Developer Documentation:
+
 OEP-19: Developer Documentation
 ###############################
 

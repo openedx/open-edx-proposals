@@ -1,3 +1,5 @@
+.. _OEP-42 Authentication:
+
 OEP-42: Authentication
 ######################
 

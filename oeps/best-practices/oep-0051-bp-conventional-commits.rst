@@ -1,3 +1,5 @@
+.. _OEP-51 Conventional Commits:
+
 OEP-51: Conventional Commits
 ############################
 

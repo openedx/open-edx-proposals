@@ -1,3 +1,5 @@
+.. _OEP-55 Project Maintainers:
+
 OEP-55: Project Maintainers
 ###########################
 

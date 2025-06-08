@@ -1,3 +1,5 @@
+.. _OEP-50 Hooks extension framework:
+
 OEP-50: Hooks extension framework
 #################################
 
