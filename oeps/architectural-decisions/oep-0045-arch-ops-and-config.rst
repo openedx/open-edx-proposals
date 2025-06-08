@@ -1,3 +1,5 @@
+.. _OEP-45 Configuring and Operating Open edX:
+
 OEP-45: Configuring and Operating Open edX
 ##########################################
 

@@ -1,3 +1,5 @@
+.. _OEP-10 Open edX Releases:
+
 OEP-10: Open edX Releases
 #########################
 
@@ -150,7 +152,7 @@ Releases will be tagged ``release/RELEASENAME.1``,
 Involving repos in the Open edX build process
 =============================================
 
-:doc:`/processes/oep-0055/decisions/0004-release-data-in-catalog-info-files`
+:ref:`Release Data in catalog-info.yaml`
 defines annotations the ``catalog-info.yaml`` metadata file that can be used to
 indicate that a repo needs to be tagged for releases.
 

@@ -1,3 +1,5 @@
+.. _OEP-11:
+
 OEP-11: Front End Technology Standards
 ######################################
 
@@ -23,7 +25,7 @@ OEP-11: Front End Technology Standards
 .. warning::
 
    This OEP has been replaced and may be out of date.  For the most up-to-date
-   information see :doc:`/best-practices/oep-0067-bp-tools-and-technology`.
+   information see :ref:`OEP-67 Standard Tools and Technologies`.
 
 
 Abstract
@@ -214,7 +216,7 @@ Decisions
 
 .. note::
 
-   The decisions from this OEP have been moved to :doc:`/best-practices/oep-0067-bp-tools-and-technology`.
+   The decisions from this OEP have been moved to :ref:`OEP-67 Standard Tools and Technologies`.
 
 Change History
 **************

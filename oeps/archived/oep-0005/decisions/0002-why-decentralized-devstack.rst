@@ -4,7 +4,7 @@ Why Decentralized Devstack
 Status
 ******
 
-Superceded by :doc:`0005-centralized-devstack`
+Superceded by :ref:`Deciding Not To Use Decentralized Devstack`.
 
 Context
 *******

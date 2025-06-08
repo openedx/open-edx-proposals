@@ -1,3 +1,5 @@
+.. _OEP-66 User Authorization:
+
 OEP-66: User Authorization
 ##########################
 
@@ -23,11 +25,11 @@ OEP-66: User Authorization
    * - `Review Period`
      - 2023-09-27 - 2023-10-18
    * - Replaces
-     - :doc:`/archived/oep-0009-bp-permissions`
+     - :ref:`OEP-9`
    * - References
      -
-       * :doc:`/architectural-decisions/oep-0004-arch-oauth-scopes`
-       * :doc:`oep-0042-bp-authentication`
+       * :ref:`OEP-4`
+       * :ref:`OEP-42 Authentication`
 
 Summary
 *******
@@ -82,7 +84,7 @@ Authorization is the granting of permission of a certain user to perform specifi
 
 .. note::
   The definition of authorization found here is the same as that found in
-  :doc:`OEP 42 <oep-0042-bp-authentication>`.
+  :ref:`OEP 42 <OEP-42 Authentication>`.
   Credit for this definition belongs to the authors of OEP-42; Robert Raposa, Nimisha Asthagiri, and Julia Eskew.
 
 Authentication (Authn)
@@ -94,7 +96,7 @@ Authentication is the verification of the identity of a user, which typically in
 
   Authentication is out of scope of this OEP.
   The definition is included here to clarify the difference between it and Authorization.
-  The definition comes from :doc:`OEP 42 <oep-0042-bp-authentication>`.
+  The definition comes from :ref:`OEP 42 <OEP-42 Authentication>`.
   Credit for this definition belongs to the authors of OEP-42; Robert Raposa, Nimisha Asthagiri, and Julia Eskew.
 
 RBAC
@@ -269,7 +271,7 @@ changed if desired by creating a subclass, for example:
 If additional information about the session is needed beyond the user's
 identity in order to make a permission decision (for example, if an action
 should only be allowed if the client has been granted a particular OAuth
-scope, as outlined in :doc:`OEP 4 </architectural-decisions/oep-0004-arch-oauth-scopes>`),
+scope, as outlined in :ref:`OEP 4 <OEP-4>`),
 then a custom `BasePermission`_ subclass can
 be implemented which both consults the Django authorization API and makes the
 necessary checks against the session or other properties of the request

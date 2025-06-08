@@ -1,3 +1,5 @@
+.. _OEP-2:
+
 OEP-2: Repository Metadata
 ##########################
 
@@ -23,7 +25,7 @@ OEP-2: Repository Metadata
 
 .. warning::
 
-   This OEP has been replaced with :doc:`/processes/oep-0055/decisions/0004-release-data-in-catalog-info-files`.
+   This OEP has been replaced with :ref:`Release Data in catalog-info.yaml`.
 
 Abstract
 ********
@@ -57,8 +59,8 @@ Each repo will include a file ``openedx.yaml``, with the following keys:
     -  If the ``state`` is ``False`` a ``reason`` value must be included that explains why.
     -  If the ``state`` is ``True`` or ``applicable`` is ``False`` the ``reason`` can optionally provide more information. The ``reason`` value will be displayed in reporting tools. If an OEP isn't listed in the ``oeps`` dictionary, then it is assumed to be ``False``, unless the reporting tool can auto-detect accordance.
 
-``openedx-release``: defined by :doc:`OEP-10 </processes/oep-0010-proc-openedx-releases>` (optional)
-    Define this key if your repo is an application or IDA that is part of Open edX releases.  Omit this key if your repo is a library, or is not part of Open edX releases.  See :doc:`OEP-10 </processes/oep-0010-proc-openedx-releases>` for details.
+``openedx-release``: defined by :ref:`OEP-10 <OEP-10 Open edX Releases>` (optional)
+    Define this key if your repo is an application or IDA that is part of Open edX releases.  Omit this key if your repo is a library, or is not part of Open edX releases.  See :ref:`OEP-10 <OEP-10 Open edX Releases>` for details.
 
 Obsolete Keys
 -------------
@@ -240,7 +242,7 @@ Change History
 2016-10-13
 ==========
 
-* Move the definition of ``openedx-release`` to :doc:`OEP-10 </processes/oep-0010-proc-openedx-releases>`.
+* Move the definition of ``openedx-release`` to :ref:`OEP-10 <OEP-10 Open edX Releases>`.
 
 2016-08-24
 ==========

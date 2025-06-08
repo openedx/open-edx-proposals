@@ -218,9 +218,8 @@ READMEs
        * *What are the terms and definitions of this component's ubiquitous language?*
        * *How can I navigate the documentation within and related to this component?*
    * - **Specification**
-     - The details of what should be in a readme were codified in :doc:`OEP-55 </processes/oep-0055-proc-project-maintainers>` and can be found in the
-       related :doc:`README ADR
-       </processes/oep-0055/decisions/0003-readme-specification>`
+     - The details of what should be in a readme were codified in :ref:`OEP-55 <OEP-55 Project Maintainers>` and can be found in the
+       related :ref:`README ADR <README specification>`
    * - **Rationale**
      - The future evolution and development of a component remains within the intended boundaries of the component's responsibility. Otherwise, it invites unintended complexity and incongruity.
    * - **Location in GitHub**

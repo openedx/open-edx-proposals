@@ -1,3 +1,5 @@
+.. _OEP-5:
+
 OEP-5: Pre-built Developer Environments
 #######################################
 
@@ -22,8 +24,8 @@ OEP-5: Pre-built Developer Environments
 .. attention::
 
    This OEP has been replaced by
-   :doc:`/architectural-decisions/oep-0045/decisions/0001-tutor-as-replacement-for-edx-configuration`
-   a decision made as a part of :doc:`/architectural-decisions/oep-0045-arch-ops-and-config`
+   :ref:`Tutor as a replacement for edx/configuration`,
+   a decision made as a part of :ref:`OEP-45 Configuring and Operating Open edX`.
 
 Abstract
 ********

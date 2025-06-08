@@ -1,3 +1,5 @@
+.. _Create a unified platform repository:
+
 Create a unified platform repository
 ####################################
 
@@ -9,7 +11,7 @@ Accepted
 Summary
 *******
 
-This ADR proposes combining a number of repositories into a single, unified frontend platform library as a migration strategy for implementing :doc:`OEP-65 <../../oep-0065-arch-frontend-composability>`.  This library is named `frontend-base <https://github.com/openedx/frontend-base>`_.
+This ADR proposes combining a number of repositories into a single, unified frontend platform library as a migration strategy for implementing :ref:`OEP-65 <OEP-65 Frontend Composibility>`.  This library is named `frontend-base <https://github.com/openedx/frontend-base>`_.
 
 Context
 *******
@@ -124,10 +126,10 @@ We believe this is a reasonable migration strategy given the generally low rate 
 References
 **********
 
-* :doc:`OEP-65: Frontend Composability <../../oep-0065-arch-frontend-composability>`
-* :doc:`OEP-65 Frontend Glossary <./frontend-glossary>`
-* :doc:`ADR-0002: Frontend App Migrations <./0002-frontend-app-migrations>`
-* :doc:`ADR-0003: Frontend Projects <./0003-frontend-projects>`
+* :ref:`OEP-65: Frontend Composability <OEP-65 Frontend Composibility>`
+* :ref:`OEP-65 Frontend Glossary <Frontend Glossary>`
+* :ref:`ADR-0002: Frontend App Migrations <Frontend App Migrations>`
+* :ref:`ADR-0003: Frontend Projects <Frontend Projects>`
 
 Change History
 **************

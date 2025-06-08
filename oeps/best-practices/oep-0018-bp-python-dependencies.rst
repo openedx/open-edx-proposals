@@ -1,3 +1,5 @@
+.. _OEP-18 Python Dependency Management:
+
 OEP-18: Python Dependency Management
 ####################################
 

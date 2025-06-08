@@ -45,7 +45,7 @@ Overview
 Context
 *******
 
-The already accepted :doc:`oep-0041-arch-async-server-event-messaging` details the general format and conventions the Open edX platform should use for asynchronous event messaging across services. It also provides background on a set of :ref:`Event Messaging Architectural Goals` for the Open edX platform, including:
+The already accepted :ref:`OEP-41 Asynchronous Server Event Message Format` details the general format and conventions the Open edX platform should use for asynchronous event messaging across services. It also provides background on a set of :ref:`Event Messaging Architectural Goals` for the Open edX platform, including:
 
 * Align with the `Architecture Manifesto`_ themes of decentralization and asynchronous communication in support of loose coupling between services.
 * Eliminate blocking, synchronous requests.
