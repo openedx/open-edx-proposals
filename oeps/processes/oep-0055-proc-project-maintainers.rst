@@ -7,7 +7,7 @@ OEP-55: Project Maintainers
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0055 <oep-0055-proc-project-maintainers>`
+     - :ref:`OEP-0055 <OEP-55 Project Maintainers>`
    * - Title
      - Project Maintainers
    * - Last Modified

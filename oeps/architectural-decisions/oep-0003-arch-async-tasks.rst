@@ -1,8 +1,10 @@
+.. _OEP-3 Asynchronous Task Management:
+
 OEP-3: Asynchronous Task Management
 ###################################
 
 +---------------+-------------------------------------------+
-| OEP           | :doc:`oep-0003-arch-async-tasks`          |
+| OEP           | :ref:`OEP-3 Asynchronous Task Management` |
 +---------------+-------------------------------------------+
 | Title         | Asynchronous Task Management              |
 +---------------+-------------------------------------------+

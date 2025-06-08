@@ -1,4 +1,5 @@
 .. _oep-52:
+.. _OEP-52 Event Bus Architecture:
 
 OEP-52: Event Bus Architecture
 ##############################
@@ -9,7 +10,7 @@ OEP-52: Event Bus Architecture
    :widths: 25 75
 
    * - OEP-52
-     - :doc:`OEP-0052 <oep-0052-arch-event-bus-architecture>`
+     - :ref:`OEP-52 <OEP-52 Event Bus Architecture>`
    * - Title
      - Event Bus Architecture
    * - Last Modified

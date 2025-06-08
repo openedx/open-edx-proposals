@@ -7,7 +7,7 @@ OEP-67: Standard Tools and Technologies
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-67 <oep-0067-bp-tools-and-technology>`
+     - :ref:`OEP-67 <OEP-67 Standard Tools and Technologies>`
    * - Title
      - Tools and Technology Standards
    * - Last Modified
@@ -27,7 +27,7 @@ OEP-67: Standard Tools and Technologies
    * - Resolution
      - * https://github.com/openedx/open-edx-proposals/pull/518
    * - References
-     - :ref:`OEP-11`
+     - :ref:`OEP-11 Front End Technology Standards`
 
 Abstract
 ********
@@ -46,9 +46,9 @@ The problems we're trying to solve are:
 * It is unclear how to go about the discussion and decision-making process to
   change a best practice.
 
-:ref:`OEP-11` serves as a great example for the
+:ref:`OEP-11 Front End Technology Standards` serves as a great example for the
 usefulness of this kind of OEP but limits itself to be relevant only to
-frontend technologies.  This OEP supersedes :ref:`OEP-11`
+frontend technologies.  This OEP supersedes :ref:`OEP-11 Front End Technology Standards`
 and encompass not only front-end technology but any
 technology that:
 
@@ -355,7 +355,7 @@ considered.
 Consequences
 ************
 
-* :ref:`OEP-11` will be superseded.
+* :ref:`OEP-11 Front End Technology Standards` will be superseded.
 
 * All ADRs under OEP-11 will be moved to be under this OEP instead.
 

@@ -7,7 +7,7 @@ OEP-58: Translations Management
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-58 <oep-0058-arch-translations-management>`
+     - :ref:`OEP-58 Translations Management`
    * - Title
      - Translations Management
    * - Last Modified

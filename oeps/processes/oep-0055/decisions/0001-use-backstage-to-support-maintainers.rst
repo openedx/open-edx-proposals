@@ -11,7 +11,7 @@ Status
 Context
 *******
 
-* :doc:`OEP-55 <../../oep-0055-proc-project-maintainers>` laid out that we should document the maintainers of a component.
+* :ref:`OEP-55 <OEP-55 Project Maintainers>` laid out that we should document the maintainers of a component.
 
 * As a maintainer it is hard to know what components you are maintaining.
 

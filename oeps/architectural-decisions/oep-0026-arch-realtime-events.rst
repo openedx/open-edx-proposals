@@ -1,8 +1,10 @@
+.. _OEP-26 Real-time Events:
+
 OEP-26: Real-time Events
 ##########################
 
 +-----------------+--------------------------------------------------------+
-| OEP             | :doc:`OEP-26 <oep-0026-arch-realtime-events>`          |
+| OEP             | :ref:`OEP-26 Real-time Events`                         |
 +-----------------+--------------------------------------------------------+
 | Title           | Real-time Events                                       |
 +-----------------+--------------------------------------------------------+
@@ -35,7 +37,7 @@ Status
 
 As of 2025-02-05, this OEP has been accepted. It has been implemented in Open edX as the `event_routing_backends`_ plugin, which is currently in use for delivering real-time analytics to Aspects and to deliver real-time events to external systems via xAPI and Caliper. While that project adheres closely to this OEP, there are also other event-based communication mechanisms within the platform that are covered by other OEPs.
 
-`OEP-41 <oep-0041-arch-async-server-event-messaging>`_ and `OEP-52 <oep-0052-arch-event-bus-architecture>`_ cover the general format and conventions for generic asynchronous event messaging across and within services. While this OEP concerns itself learner-specific event sharing. There is also some overlap, for instance when event-routing-backends is configured to send events to an event bus, however this OEP is not considered superceded at this time.
+:ref:`OEP-41 <OEP-41 Asynchronous Server Event Message Format>` and :ref:`OEP-52 <oep-52>` cover the general format and conventions for generic asynchronous event messaging across and within services. While this OEP concerns itself learner-specific event sharing. There is also some overlap, for instance when event-routing-backends is configured to send events to an event bus, however this OEP is not considered superceded at this time.
 
 Where possible this document has been updated to match the implemented reality. However some sections may be out of date. The `event_routing_backends`_ plugin is the authoritative source for the current implementation.
 

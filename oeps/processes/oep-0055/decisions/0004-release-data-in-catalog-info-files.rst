@@ -56,7 +56,7 @@ The data will be housed in a new annotation by the name of ``openedx.org/release
 Consequences
 ************
 
-* :ref:`OEP-2` will be marked as superseded as it contains no more useful data.
+* :ref:`OEP-2 Repository Metadata` will be marked as superseded as it contains no more useful data.
 
 * `Tooling related to the release <https://github.com/openedx/repo-tools/tree/master/edx_repo_tools/release>`_ will need to be updated.
 
