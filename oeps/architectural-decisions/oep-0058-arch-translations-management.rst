@@ -1,3 +1,5 @@
+.. _OEP-58 Translations Management:
+
 OEP-58: Translations Management
 ###############################
 
