@@ -7,7 +7,7 @@ OEP-50: Hooks extension framework
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0050 <oep-0050-hooks-extension-framework>`
+     - :ref:`OEP-50 Hooks extension framework`
    * - Title
      - Open edX Hooks Extension Framework
    * - Last Modified

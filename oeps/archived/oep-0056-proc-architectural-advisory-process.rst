@@ -1,3 +1,5 @@
+.. _OEP-56 Architectural Advisory Process:
+
 OEP-56: Architectural Advisory Process
 ######################################
 
@@ -5,7 +7,7 @@ OEP-56: Architectural Advisory Process
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-56 <oep-0056-proc-architectural-advisory-process>`
+     - :ref:`OEP-56 <OEP-56 Architectural Advisory Process>`
    * - Title
      - Architectural Advisory Process
    * - Last Modified

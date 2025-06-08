@@ -7,7 +7,7 @@ OEP-42: Authentication
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-42 <oep-0042-bp-authentication>`
+     - :ref:`OEP-42 <OEP-42 Authentication>`
    * - Title
      - Authentication
    * - Last Modified

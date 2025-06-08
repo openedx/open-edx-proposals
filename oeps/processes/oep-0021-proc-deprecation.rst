@@ -1,3 +1,5 @@
+.. _OEP-21 DEPR:
+
 OEP-21: Deprecation and Removal
 ###############################
 
@@ -6,7 +8,7 @@ OEP-21: Deprecation and Removal
    :header-rows: 0
 
    * - OEP
-     - :doc:`OEP-21 <oep-0021-proc-deprecation>`
+     - :ref:`OEP-21 <OEP-21 DEPR>`
    * - Title
      - Deprecation and Removal
    * - Last Modified

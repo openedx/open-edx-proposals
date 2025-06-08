@@ -1,4 +1,5 @@
 .. _oep-32:
+.. _OEP-32 Unique Identifier for Users:
 
 OEP-32: Unique Identifier for Users
 ###################################
@@ -7,7 +8,7 @@ OEP-32: Unique Identifier for Users
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-32 <oep-0032-arch-unique-identifier-for-users>`
+     - :ref:`OEP-32 <OEP-32 Unique Identifier for Users>`
    * - Title
      - Unique Identifier for Users
    * - Last Modified

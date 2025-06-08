@@ -7,7 +7,7 @@ OEP-66: User Authorization
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-66 <oep-0066-bp-authorization>`
+     - :ref:`OEP-66 <OEP-66 User Authorization>`
    * - Title
      - User Authorization
    * - Last Modified
@@ -25,10 +25,10 @@ OEP-66: User Authorization
    * - `Review Period`
      - 2023-09-27 - 2023-10-18
    * - Replaces
-     - :ref:`OEP-9`
+     - :ref:`OEP-9 User Authorization (Permissions)`
    * - References
      -
-       * :ref:`OEP-4`
+       * :ref:`OEP-4 Application Authorization (Scopes)`
        * :ref:`OEP-42 Authentication`
 
 Summary
@@ -271,7 +271,7 @@ changed if desired by creating a subclass, for example:
 If additional information about the session is needed beyond the user's
 identity in order to make a permission decision (for example, if an action
 should only be allowed if the client has been granted a particular OAuth
-scope, as outlined in :ref:`OEP 4 <OEP-4>`),
+scope, as outlined in :ref:`OEP 4 <OEP-4 Application Authorization (Scopes)>`),
 then a custom `BasePermission`_ subclass can
 be implemented which both consults the Django authorization API and makes the
 necessary checks against the session or other properties of the request

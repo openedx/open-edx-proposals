@@ -1,10 +1,10 @@
-.. _OEP-9:
+.. _OEP-9 User Authorization (Permissions):
 
 OEP-9: User Authorization (Permissions)
 #######################################
 
 +---------------+-----------------------------------------------------------------------+
-| OEP           | :doc:`OEP-9 <oep-0009-bp-permissions>`                                |
+| OEP           | :ref:`OEP-9 <OEP-9 User Authorization (Permissions)>`                 |
 +---------------+-----------------------------------------------------------------------+
 | Title         | User Authorization (Permissions)                                      |
 +---------------+-----------------------------------------------------------------------+
@@ -214,12 +214,10 @@ changed if desired by creating a subclass, for example:
 If additional information about the session is needed beyond the user's
 identity in order to make a permission decision (for example, if an action
 should only be allowed if the client has been granted a particular OAuth
-scope, as outlined in `OEP-4`_), then a custom `BasePermission`_ subclass can
+scope, as outlined in :ref:`OEP-4 Application Authorization (Scopes)`), then a custom `BasePermission`_ subclass can
 be implemented which both consults the Django authorization API and makes the
 necessary checks against the session or other properties of the request
 object.
-
-.. _OEP-4: https://open-edx-proposals.readthedocs.io/en/latest/oeps/oep-0004.html
 
 In order to filter the querysets used to generate list responses to only
 include objects appropriate for the users permissions, an appropriate filter

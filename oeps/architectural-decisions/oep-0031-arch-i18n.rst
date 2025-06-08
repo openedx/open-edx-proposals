@@ -1,10 +1,12 @@
+.. _OEP-31 Micro-frontend Internationalization:
+
 OEP-31: Micro-frontend Internationalization
 ###########################################
 
 .. list-table::
 
    * - OEP
-     - :doc:`OEP-31 <oep-0031-arch-i18n>`
+     - :ref:`OEP-31 Micro-frontend Internationalization`
    * - Title
      - Micro-frontend Internationalization
    * - Last Modified

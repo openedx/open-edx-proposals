@@ -1,4 +1,4 @@
-.. _OEP-2:
+.. _OEP-2 Repository Metadata:
 
 OEP-2: Repository Metadata
 ##########################
@@ -7,7 +7,7 @@ OEP-2: Repository Metadata
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-2 <oep-0002-bp-repo-metadata>`
+     - :ref:`OEP-2 <OEP-2 Repository Metadata>`
    * - Title
      - Repository Metadata
    * - Last Modified

@@ -21,7 +21,7 @@ Context
 Decision
 ********
 
-Place DD documentation(general decisions, general how-tos) in :ref:`OEP-5`. Eventually, these decisions will be used to update OEP-5.
+Place DD documentation(general decisions, general how-tos) in :ref:`OEP-5 Pre-built Developer Environments`. Eventually, these decisions will be used to update OEP-5.
 
 .. note::
 

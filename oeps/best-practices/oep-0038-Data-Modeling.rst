@@ -1,8 +1,10 @@
-OEP-38:  Data Modeling Best Practices
+.. _OEP-38 Data Modeling Best Practices:
+
+OEP-38: Data Modeling Best Practices
 #####################################
 
 +---------------+------------------------------------------------------------+
-| OEP           | :doc:`OEP-0038 <oep-0038-Data-Modeling>`                   |
+| OEP           | :ref:`OEP-0038 <OEP-38 Data Modeling Best Practices>`      |
 +---------------+------------------------------------------------------------+
 | Title         | Data Modeling Best Practices                               |
 +---------------+------------------------------------------------------------+

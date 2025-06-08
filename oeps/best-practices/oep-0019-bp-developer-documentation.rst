@@ -7,7 +7,7 @@ OEP-19: Developer Documentation
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0019 <oep-0019-bp-developer-documentation>`
+     - :ref:`OEP-0019 <OEp-19 Developer Documentation>`
    * - Title
      - Developer Documentation
    * - Last Modified

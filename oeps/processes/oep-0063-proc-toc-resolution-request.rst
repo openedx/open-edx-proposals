@@ -1,4 +1,4 @@
-.. _pep_based_template:
+.. _OEP-63 TOC Resolution Request:
 
 OEP-63: TOC Resolution Request
 ##############################
@@ -7,7 +7,7 @@ OEP-63: TOC Resolution Request
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0063 <oep-0063-proc-toc-resolution-request>`
+     - :ref:`OEP-0063 <OEP-63 TOC Resolution Request>`
    * - Title
      - TOC Resolution Request
    * - Last Modified

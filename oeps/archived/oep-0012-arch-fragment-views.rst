@@ -1,8 +1,10 @@
+.. _OEP-12 Pluggable User Interfaces:
+
 OEP-12: Pluggable User Interfaces
 #################################
 
 +---------------+----------------------------------------------------+
-| OEP           | :doc:`OEP-12 <oep-0012-arch-fragment-views>`       |
+| OEP           | :ref:`OEP-12 <OEP-12 Pluggable User Interfaces>`   |
 +---------------+----------------------------------------------------+
 | Title         | Pluggable User Interfaces                          |
 +---------------+----------------------------------------------------+

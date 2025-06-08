@@ -1,3 +1,5 @@
+.. _OEP-37 Dev Data:
+
 OEP-37: Dev Data (Deferred)
 ###########################
 
@@ -5,7 +7,7 @@ OEP-37: Dev Data (Deferred)
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-37 <oep-0037-bp-test-data>`
+     - :ref:`OEP-37 <OEP-37 Dev Data>`
    * - Title
      - Devstack Dev Data (Deferred)
    * - Last Modified

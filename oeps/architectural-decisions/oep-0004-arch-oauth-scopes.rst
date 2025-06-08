@@ -1,4 +1,4 @@
-.. _OEP-4:
+.. _OEP-4 Application Authorization (Scopes):
 
 OEP-4: Application Authorization (Scopes)
 #########################################
@@ -7,7 +7,7 @@ OEP-4: Application Authorization (Scopes)
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-4 <oep-0004-arch-oauth-scopes>`
+     - :ref:`OEP-4 Application Authorization (Scopes)`
    * - Title
      - Application Authorization (Scopes)
    * - Last Modified
