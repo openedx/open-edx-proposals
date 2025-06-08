@@ -1,3 +1,5 @@
+.. _Use Codecov:
+
 Use Codecov to measure code covered by tests
 ############################################
 

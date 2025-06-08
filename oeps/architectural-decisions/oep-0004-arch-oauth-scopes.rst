@@ -1,3 +1,5 @@
+.. _OEP-4:
+
 OEP-4: Application Authorization (Scopes)
 #########################################
 

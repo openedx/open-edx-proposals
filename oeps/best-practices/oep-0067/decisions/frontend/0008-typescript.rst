@@ -1,3 +1,5 @@
+.. _Use TypeScript:
+
 Use TypeScript for static type checking
 #######################################
 
@@ -9,7 +11,7 @@ Accepted
 Context
 *******
 
-As documented in :doc:`OEP-0011-0004 <0004-js-ecma>`, the Open edX community has previously
+As documented in :ref:`OEP-0011-0004 <Target the latest standardized JavaScript version>`, the Open edX community has previously
 :ref:`decided against adopting TypeScript <Reasons for rejecting TypeScript>`. In the time
 since that decision was made, TypeScript has grown to be quite popular and commonplace for JavaScript developers.
 This has led to more discussion within the community about the `pros and cons of adopting TypeScript`_.

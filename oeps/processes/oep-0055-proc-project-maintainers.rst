@@ -371,8 +371,7 @@ Documenting Maintainers
 
 As it is essential that maintainers are discoverable and reachable, the person
 or group responsible for maintaining a component should be listed in the
-repository.  Per :doc:`the backstage ADR
-<oep-0055/decisions/0001-use-backstage-to-support-maintainers>` we will use a
+repository.  Per :ref:`the backstage ADR <Use Backstage>`, we will use a
 ``catalog-info.yaml`` file to capture the GitHub username or team name of each
 repository maintainer.
 
@@ -416,7 +415,7 @@ categories
   in the following documents:
 
   * A required ``README`` file.  The specification of the README file is defined
-    in :doc:`ADR 3 <oep-0055/decisions/0003-readme-specification>`.
+    in :ref:`ADR 3 <README Specification>`.
 
   * We additionally recommend documentation to help others understand the
     component, such as:

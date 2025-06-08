@@ -1,3 +1,5 @@
+.. _README specification:
+
 0003 README specification
 #########################
 

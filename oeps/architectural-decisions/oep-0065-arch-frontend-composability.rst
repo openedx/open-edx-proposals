@@ -1,3 +1,5 @@
+.. _OEP-65 Frontend Composibility:
+
 OEP-65: Frontend Composability
 ##############################
 
@@ -29,10 +31,10 @@ OEP-65: Frontend Composability
    * - References
      - * `FC-0054 - Composable Micro-frontends Discovery <https://openedx.atlassian.net/wiki/spaces/COMM/pages/4063821827/FC-0054+-+Composable+Micro-frontends+Piral+Discovery>`_
        * `FC-0007 - Modular MFE Domains Discovery <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3614900241/CLOSED+FC-0007+-+Modular+MFE+Domains+Discovery>`_
-       * :doc:`ADR 0001 - Create a unified platform repository </architectural-decisions/oep-0065/decisions/0001-unified-platform-repository>`
-       * :doc:`ADR 0002 - Frontend app migrations </architectural-decisions/oep-0065/decisions/0002-frontend-app-migrations>`
-       * :doc:`ADR 0003 - Frontend projects </architectural-decisions/oep-0065/decisions/0003-frontend-projects>`
-       * :doc:`OEP-65 Frontend Glossary </architectural-decisions/oep-0065/decisions/frontend-glossary>`
+       * :ref:`ADR 0001 - Create a unified platform repository <Create a unified platform repository>`
+       * :ref:`ADR 0002 - Frontend app migrations <Frontend App Migrations>`
+       * :ref:`ADR 0003 - Frontend projects <Frontend Projects>`
+       * :ref:`OEP-65 Frontend Glossary <Frontend Glossary>`
 
 .. contents::
 	   :local:

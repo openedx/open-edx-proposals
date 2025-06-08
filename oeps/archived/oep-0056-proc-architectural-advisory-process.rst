@@ -52,7 +52,7 @@ The realities described below, in the following sections, have ultimately built 
 Under-utilized ADRs
 ===================
 
-We adopted ADRs in :doc:`../best-practices/oep-0019-bp-developer-documentation` several years ago as way of recording technical decisions and co-locating them with their corresponding code.  OEP-19 is otherwise unopinionated about how those ADRs get used and reviewed, or when in our engineering process writing them should occur.  At times this can lead to ambiguity and ambivalence around ADRs; sometimes they're created as an afterthought and serve only as documentation of a decision after it has been made.
+We adopted ADRs in :ref:`OEP-19 Developer Documentation` several years ago as way of recording technical decisions and co-locating them with their corresponding code.  OEP-19 is otherwise unopinionated about how those ADRs get used and reviewed, or when in our engineering process writing them should occur.  At times this can lead to ambiguity and ambivalence around ADRs; sometimes they're created as an afterthought and serve only as documentation of a decision after it has been made.
 
 We believe that ADRs - and more importantly, the conversations that happen around them - can be so much more.  We can use these documents and conversations as a vehicle for decentralizing and scaling our decision making process, making more informed decisions, democratizing access to domain knowledge, elevating our architectural discourse, and recording our decisions for posterity with additional contextual information that's often missing today.
 

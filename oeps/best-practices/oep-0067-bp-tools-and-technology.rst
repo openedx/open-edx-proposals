@@ -1,3 +1,5 @@
+.. _OEP-67 Standard Tools and Technologies:
+
 OEP-67: Standard Tools and Technologies
 #######################################
 
@@ -25,7 +27,7 @@ OEP-67: Standard Tools and Technologies
    * - Resolution
      - * https://github.com/openedx/open-edx-proposals/pull/518
    * - References
-     - :doc:`/archived/oep-0011-bp-FED-technology`
+     - :ref:`OEP-11`
 
 Abstract
 ********
@@ -44,10 +46,10 @@ The problems we're trying to solve are:
 * It is unclear how to go about the discussion and decision-making process to
   change a best practice.
 
-:doc:`OEP-11 </archived/oep-0011-bp-FED-technology>` serves as a great example for the
+:ref:`OEP-11` serves as a great example for the
 usefulness of this kind of OEP but limits itself to be relevant only to
-frontend technologies.  This OEP supersedes :doc:`OEP-11
-</archived/oep-0011-bp-FED-technology>` and encompass not only front-end technology but any
+frontend technologies.  This OEP supersedes :ref:`OEP-11`
+and encompass not only front-end technology but any
 technology that:
 
 * Is considered a best practice for the Open edX Platform
@@ -113,7 +115,7 @@ Frontend Technology Selection
    recommended to use React Query and plain React state instead as described.
 
    **Decision Record**: For details, see
-   :doc:`OEP-0067-0010 React Query <oep-0067/decisions/frontend/0010-react-query>`.
+   :ref:`OEP-0067-0010 React Query <Use React Query>`.
 
 #. **Use Jest and React-Testing-Library to test React components**
 
@@ -135,7 +137,7 @@ Frontend Technology Selection
    **TypeScript**: TypeScript should be utilized in frontend code wherever it
    seems to provide value (especially in any code that is reused: libraries, API
    wrappers, shared components, data type definitions, etc.). For details, see
-   :doc:`OEP-0067-0008 TypeScript <oep-0067/decisions/frontend/0008-typescript>`.
+   :ref:`OEP-0067-0008 TypeScript <Use TypeScript>`.
 
    **JSX**: Babel or other tooling may be used to add JSX syntax support to our
    JavaScript/TypeScript code.
@@ -167,7 +169,7 @@ Frontend Technology Selection
    commit a package-lock.json file. The package-lock.json file will keep a full list
    of dependencies and their versions, ensuring when built for deployments the
    version of libraries are consistent. This follows the same pattern used in Open edX
-   Python code - see :doc:`OEP-18 <oep-0018-bp-python-dependencies>` for more information. For more information on
+   Python code - see :ref:`OEP-18 <OEP-18 Python Dependency Management>` for more information. For more information on
    package-lock files see `Package Lock`_.
 
 #. **Keep dependencies up to date by using Renovate**
@@ -353,7 +355,7 @@ considered.
 Consequences
 ************
 
-* :doc:`OEP-11 </archived/oep-0011-bp-FED-technology>` will be superseded.
+* :ref:`OEP-11` will be superseded.
 
 * All ADRs under OEP-11 will be moved to be under this OEP instead.
 

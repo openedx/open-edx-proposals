@@ -1,3 +1,5 @@
+.. _OEP-41 Asynchronous Server Event Message Format:
+
 OEP-41: Asynchronous Server Event Message Format
 ################################################
 

@@ -4,7 +4,7 @@ Location of Decentralized Devstack Docs
 Status
 ******
 
-Superceded by :doc:`0005-centralized-devstack`
+Superceded by :ref:`Deciding Not To Use Decentralized Devstack`.
 
 Context
 *******
@@ -21,7 +21,7 @@ Context
 Decision
 ********
 
-Place DD documentation(general decisions, general how-tos) in edx/open-edx-proposals/oeps/oep-0005. Eventually, these decisions will be used to update OEP-5.
+Place DD documentation(general decisions, general how-tos) in :ref:`OEP-5`. Eventually, these decisions will be used to update OEP-5.
 
 .. note::
 

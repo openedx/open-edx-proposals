@@ -42,7 +42,7 @@ The *LMS user_id* should be used for all internal events. Additionally, the *LMS
 
 .. warning::
 
-    A new external user id should still be used with third-parties under certain circumstances. This is especially important when the user id is sent along with other :doc:`Personally Identifiable Information (PII) <oep-0030-arch-pii-markup-and-auditing>`. See the `ADR for the edx-platform external_user_ids Django app`_ for more details.
+    A new external user id should still be used with third-parties under certain circumstances. This is especially important when the user id is sent along with other :ref:`Personally Identifiable Information (PII) <OEP-30 PII Markup and Auditing>`. See the `ADR for the edx-platform external_user_ids Django app`_ for more details.
 
 .. _Django auth_user: https://docs.djangoproject.com/en/2.0/topics/auth/default/#user-objects
 .. _ADR for the edx-platform external_user_ids Django app: https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/external_user_ids/docs/decisions/0001-externalid.rst
@@ -66,7 +66,7 @@ The requirements for a User Identifier are as follows:
 
 * The identifier for a given user should not change.
 
-* The identifier should not contain :doc:`Personally Identifiable Information (PII) <oep-0030-arch-pii-markup-and-auditing>`.
+* The identifier should not contain :ref:`Personally Identifiable Information (PII) <OEP-30 PII Markup and Auditing>`.
 
 * The identifier should be consistent across all systems, including the LMS and Studio, mobile apps for iOS and Android, and other Open edX Services like Ecommerce.
 

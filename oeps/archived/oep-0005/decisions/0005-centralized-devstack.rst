@@ -1,3 +1,5 @@
+.. _Deciding Not To Use Decentralized Devstack:
+
 Deciding Not To Use Decentralized Devstack
 ##########################################
 
