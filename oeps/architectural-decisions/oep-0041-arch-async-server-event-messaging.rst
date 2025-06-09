@@ -243,6 +243,8 @@ all Open edX installs. Events that are strictly edX-specific, like those that
 might interact with internal IT or finance reporting systems, should use
 ``org.edx`` as the prefix instead. If in doubt, default to ``org.openedx``.
 
+.. _Subdomain from DDD:
+
 Subdomain (from Domain Driven Design)
 -------------------------------------
 
@@ -331,6 +333,8 @@ corresponding database changes. If you are sending out multiple event messages
 describing the same occurrence (e.g. a version 1 and version 2 of an event), they
 should have the *exact* same timestamp.
 
+
+.. _Message Content Data Guidelines:
 
 Message Content Data Guidelines
 ===============================
