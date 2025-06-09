@@ -70,7 +70,7 @@ Decision
 
 * An abstraction layer will be provided to enable the choice of multiple technologies for implementing an Open edX event bus.
 
-  * See `ADR on Multiple Event Types Per Topic`_ to learn more about the requirement of Open edX event bus implementations to support multiple event types per topic.
+  * See :ref:`ADR on Multiple Event Types Per Topic <openedx-events:ADR-10>` to learn more about the requirement of Open edX event bus implementations to support multiple event types per topic.
 
 * An initial event bus implementation has been implemented using Kafka.
 
@@ -84,10 +84,8 @@ Decision
 
 * Event bus events extend the Hooks Extension Framework events, and use an Avro schema to serialize the existing hooks signals.
 
-  * See `ADR on External event bus and Django Signal events`_ to learn more about how the ``OpenEdxPublicSignal`` internal used to send the same internal signal-based events across services, and then fire the signal-based events again within consuming services.
-  * See `ADR on External Event Schema Format`_ and `ADR on Event Schema Serialization and Evolution`_ to learn about how the Avro Schema format is used for serializing external events published to Kafka, and consumed from Kafka. Additionally, learn about tooling to automatically handle the translation from ``OpenEdxPublicSignal`` internal events to Avro Schema formatted events, and back again. Also learn how this explicit schema format can aid in schema evolution.
-
-.. _ADR on Multiple Event Types Per Topic: https://openedx-events.readthedocs.io/en/latest/decisions/0010-multiple-event-types-per-topic.html
+  * See :ref:`ADR on External event bus and Django Signal events <openedx-events:ADR-4>` to learn more about how the ``OpenEdxPublicSignal`` internal used to send the same internal signal-based events across services, and then fire the signal-based events again within consuming services.
+  * See :ref:`ADR on External Event Schema Format <openedx-events:ADR-5>` and :ref:`ADR on Event Schema Serialization and Evolution <openedx-events:ADR-6>` to learn about how the Avro Schema format is used for serializing external events published to Kafka, and consumed from Kafka. Additionally, learn about tooling to automatically handle the translation from ``OpenEdxPublicSignal`` internal events to Avro Schema formatted events, and back again. Also learn how this explicit schema format can aid in schema evolution.
 
 .. _ADR on Kafka-Based Event Bus: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0002-kafka-based-event-bus.rst
 .. _ADR on Kafka Managed Hosting: https://github.com/openedx/event-bus-kafka/blob/main/docs/decisions/0004-kafka-managed-hosting.rst
@@ -95,11 +93,7 @@ Decision
 
 .. _ADR on Redis streams Event Bus: https://github.com/openedx/event-bus-redis/blob/main/docs/decisions/0002-redis-streams-based-event-bus.rst
 
-.. _ADR on External event bus and Django Signal events: https://openedx-events.readthedocs.io/en/latest/decisions/0004-external-event-bus-and-django-signal-events.html
-.. _ADR on External Event Schema Format: https://openedx-events.readthedocs.io/en/latest/decisions/0005-external-event-schema-format.html
-.. _ADR on Event Schema Serialization and Evolution: https://openedx-events.readthedocs.io/en/latest/decisions/0006-event-schema-serialization-and-evolution.html
-
-.. note:: All decisions related to Open edX Events where the event bus key components are implemented will now be documented and made publicly available through the Architectural Decision Records (ADRs) in the `openedx-events <https://github.com/openedx/openedx-events>`_ repository. For more details, refer to the :doc:`Open edX Events ADRs <openedx-events:decisions/index>`.
+.. note:: All decisions related to Open edX Events where the event bus key components are implemented will now be documented and made publicly available through the Architectural Decision Records (ADRs) in the `openedx-events <https://github.com/openedx/openedx-events>`_ repository. For more details, refer to the :ref:`Open edX Events ADRs <openedx-events:ADRs>`.
 
 Consequences
 ************

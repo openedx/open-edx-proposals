@@ -479,7 +479,7 @@ management.
 
 ------------
 
-.. note:: All future decisions related to :doc:`Open edX Events <openedx-events:index>` that adhere to these guidelines for asynchronous event messaging will now be documented and made publicly available through the Architectural Decision Records (ADRs) in :doc:`Open edX Events ADRs <openedx-events:decisions/index>`. This includes decisions regarding the Event Bus, schema format, serialization, evolution, and design practices for event-driven architecture.
+.. note:: All future decisions related to :ref:`Open edX Events <openedx-events:Open edX Events Docs>` that adhere to these guidelines for asynchronous event messaging will now be documented and made publicly available through the Architectural Decision Records (ADRs) in :ref:`Open edX Events ADRs <openedx-events:ADRs>`. This includes decisions regarding the Event Bus, schema format, serialization, evolution, and design practices for event-driven architecture.
 
 **************
 Change History
