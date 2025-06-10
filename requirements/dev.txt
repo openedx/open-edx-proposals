@@ -76,7 +76,7 @@ pygments==2.19.1
     #   accessible-pygments
     #   pydata-sphinx-theme
     #   sphinx
-requests==2.32.3
+requests==2.32.4
     # via
     #   -r requirements/base.txt
     #   sphinx
