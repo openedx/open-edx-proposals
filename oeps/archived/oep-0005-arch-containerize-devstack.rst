@@ -1,29 +1,31 @@
+.. _OEP-5  Pre-built Developer Environments:
+
 OEP-5: Pre-built Developer Environments
 #######################################
 
-+---------------+----------------------------------------------------+
-| OEP           | :doc:`OEP-5 <oep-0005-arch-containerize-devstack>` |
-+---------------+----------------------------------------------------+
-| Title         | Pre-built Developer Environments                   |
-+---------------+----------------------------------------------------+
-| Last Modified | 2016-08-04                                         |
-+---------------+----------------------------------------------------+
-| Author        | Calen Pennington <cale@edx.org>                    |
-+---------------+----------------------------------------------------+
-| Arbiter       | Jesse Zoldak <jzoldak@edx.org>                     |
-+---------------+----------------------------------------------------+
-| Status        | Replaced                                           |
-+---------------+----------------------------------------------------+
-| Type          | Architecture                                       |
-+---------------+----------------------------------------------------+
-| Created       | 2016-06-28                                         |
-+---------------+----------------------------------------------------+
++---------------+------------------------------------------------------+
+| OEP           | :ref:`OEP-5 <OEP-5 Pre-built Developer Environments>`|
++---------------+------------------------------------------------------+
+| Title         | Pre-built Developer Environments                     |
++---------------+------------------------------------------------------+
+| Last Modified | 2016-08-04                                           |
++---------------+------------------------------------------------------+
+| Author        | Calen Pennington <cale@edx.org>                      |
++---------------+------------------------------------------------------+
+| Arbiter       | Jesse Zoldak <jzoldak@edx.org>                       |
++---------------+------------------------------------------------------+
+| Status        | Replaced                                             |
++---------------+------------------------------------------------------+
+| Type          | Architecture                                         |
++---------------+------------------------------------------------------+
+| Created       | 2016-06-28                                           |
++---------------+------------------------------------------------------+
 
 .. attention::
 
    This OEP has been replaced by
-   :doc:`/architectural-decisions/oep-0045/decisions/0001-tutor-as-replacement-for-edx-configuration`
-   a decision made as a part of :doc:`/architectural-decisions/oep-0045-arch-ops-and-config`
+   :ref:`Tutor as a replacement for edx/configuration`,
+   a decision made as a part of :ref:`OEP-45 Configuring and Operating Open edX`.
 
 Abstract
 ********

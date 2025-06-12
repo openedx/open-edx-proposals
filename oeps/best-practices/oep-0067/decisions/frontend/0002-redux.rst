@@ -6,7 +6,7 @@ Status
 
 Replaced
 
-(See :doc:`OEP-0067-0010 <0010-react-query>`)
+(See :ref:`Use React Query`)
 
 Context
 *******

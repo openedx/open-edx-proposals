@@ -1,3 +1,5 @@
+.. _Use React Query:
+
 Use React Query
 ###############
 

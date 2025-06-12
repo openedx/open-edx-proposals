@@ -1,3 +1,5 @@
+.. _Target the latest standardized JavaScript version:
+
 Target the latest standardized JavaScript version
 #################################################
 

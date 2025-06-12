@@ -1,8 +1,10 @@
+.. _OEP-15 Course-wide Custom JavaScript:
+
 OEP-15: Course-wide Custom JavaScript
 #####################################
 
 +---------------+----------------------------------------------------+
-| OEP           | :doc:`OEP-15 <oep-0015-arch-course-wide-js>`       |
+| OEP           | :ref:`OEP-15 Course-wide Custom JavaScript`        |
 +---------------+----------------------------------------------------+
 | Title         | Course-wide Custom JavaScript                      |
 +---------------+----------------------------------------------------+

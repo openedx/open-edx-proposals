@@ -1,3 +1,5 @@
+.. _OEP-54 Core Contributors:
+
 OEP-54: Core Contributors
 #########################
 
@@ -5,7 +7,7 @@ OEP-54: Core Contributors
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-54 <oep-0054-core-contributors>`
+     - :ref:`OEP-54 <OEP-54 Core Contributors>`
    * - Title
      - Core Contributor Program
    * - Last Modified

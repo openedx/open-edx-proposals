@@ -1,3 +1,5 @@
+.. _OEP-51 Conventional Commits:
+
 OEP-51: Conventional Commits
 ############################
 
@@ -5,7 +7,7 @@ OEP-51: Conventional Commits
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0051 <oep-0051-bp-conventional-commits>`
+     - :ref:`OEP-0051 <OEP-51 Conventional Commits>`
    * - Title
      - Conventional Commits
    * - Last Modified

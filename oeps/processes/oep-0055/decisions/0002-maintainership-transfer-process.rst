@@ -118,7 +118,7 @@ Integrate the Maintainership Transfer process into the DEPR Process
 ===================================================================
 
 * The existing `DEPR`_ process and its documentation is oriented fully around the removal of code, updating it would require a significant re-write of the `DEPR`_ OEP.
-* The overlap between what `DEPR`_ needs and what :doc:`OEP-55</processes/oep-0055-proc-project-maintainers>` needs is fairly small, mostly around announcing.
+* The overlap between what `DEPR`_ needs and what :ref:`OEP-55 Project Maintainers` needs is fairly small, mostly around announcing.
 * It's easy to have a simple transfer process that feeds into the existing DEPR process.
 
 References

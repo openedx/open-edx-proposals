@@ -1,8 +1,10 @@
+.. _OEP-6 Context-scoped XBlock Fields:
+
 OEP-6: Context-scoped XBlock Fields
 ###################################
 
 +---------------+----------------------------------------------------------+
-| OEP           | :doc:`OEP-6 <oep-0006-arch-context-xblock-fields>`       |
+| OEP           | :ref:`OEP-6 <OEP-6 Context-scoped XBlock Fields>`        |
 +---------------+----------------------------------------------------------+
 | Title         | Context-scoped XBlock Fields                             |
 +---------------+----------------------------------------------------------+

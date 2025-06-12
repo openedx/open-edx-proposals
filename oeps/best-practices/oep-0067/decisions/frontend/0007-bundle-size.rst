@@ -46,7 +46,7 @@ Rejected Alternatives
    than just bundle size monitoring, presenting us with an opportunity to rethink our
    current CI workflows. For example, Code Checks provides test coverage monitoring,
    which would allow us to re-evaluate the choice to use CodeCov as documented in
-   :doc:`0006-codecov`.
+   :ref:`Use Codecov`.
 
    While this additional functionality is potentially desirable, moving forward with a
    single purpose tool (`BundleWatch`_) provides us the functionality we need with

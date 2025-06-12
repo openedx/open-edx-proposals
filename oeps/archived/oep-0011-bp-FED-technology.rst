@@ -1,29 +1,31 @@
+.. _OEP-11 Front End Technology Standards:
+
 OEP-11: Front End Technology Standards
 ######################################
 
-+---------------+--------------------------------------------------+
-| OEP           | :doc:`OEP-11 <oep-0011-bp-FED-technology>`       |
-+---------------+--------------------------------------------------+
-| Title         | Front End Technology Standards                   |
-+---------------+--------------------------------------------------+
-| Last Modified | 2018-02-22                                       |
-+---------------+--------------------------------------------------+
-| Author        | Andy Armstrong <andya@edx.org>,                  |
-|               | George Babey <gbabey@edx.org>                    |
-+---------------+--------------------------------------------------+
-| Arbiter       | Matt Drayer <mattdrayer@edx.org>                 |
-+---------------+--------------------------------------------------+
-| Status        | Replaced                                         |
-+---------------+--------------------------------------------------+
-| Type          | Best Practice                                    |
-+---------------+--------------------------------------------------+
-| Created       | 2016-10-19                                       |
-+---------------+--------------------------------------------------+
++---------------+------------------------------------------------------+
+| OEP           | :ref:`OEP-11 <OEP-11 Front End Technology Standards>`|
++---------------+------------------------------------------------------+
+| Title         | Front End Technology Standards                       |
++---------------+------------------------------------------------------+
+| Last Modified | 2018-02-22                                           |
++---------------+------------------------------------------------------+
+| Author        | Andy Armstrong <andya@edx.org>,                      |
+|               | George Babey <gbabey@edx.org>                        |
++---------------+------------------------------------------------------+
+| Arbiter       | Matt Drayer <mattdrayer@edx.org>                     |
++---------------+------------------------------------------------------+
+| Status        | Replaced                                             |
++---------------+------------------------------------------------------+
+| Type          | Best Practice                                        |
++---------------+------------------------------------------------------+
+| Created       | 2016-10-19                                           |
++---------------+------------------------------------------------------+
 
 .. warning::
 
    This OEP has been replaced and may be out of date.  For the most up-to-date
-   information see :doc:`/best-practices/oep-0067-bp-tools-and-technology`.
+   information see :ref:`OEP-67 Standard Tools and Technologies`.
 
 
 Abstract
@@ -214,7 +216,7 @@ Decisions
 
 .. note::
 
-   The decisions from this OEP have been moved to :doc:`/best-practices/oep-0067-bp-tools-and-technology`.
+   The decisions from this OEP have been moved to :ref:`OEP-67 Standard Tools and Technologies`.
 
 Change History
 **************

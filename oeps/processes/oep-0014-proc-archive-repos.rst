@@ -1,29 +1,30 @@
 .. _OEP-14:
+.. _OEP-14 Archiving Open edX GitHub Repositories:
 
-OEP-14: Archiving edX GitHub Repositories
-#########################################
+OEP-14: Archiving Open edX GitHub Repositories
+###############################################
 
-+---------------+----------------------------------------------------------+
-| OEP           | :doc:`OEP-14 <oep-0014-proc-archive-repos>`              |
-+---------------+----------------------------------------------------------+
-| Title         | Archiving edX GitHub Repositories                        |
-+---------------+----------------------------------------------------------+
-| Last Modified | 2022-06-21                                               |
-+---------------+----------------------------------------------------------+
-| Author        | Christina Roberts <christina@edx.org>                    |
-|               | Feanil Patel <feanil@axim.org>                           |
-+---------------+----------------------------------------------------------+
-| Arbiter       | Nimisha Asthagiri <nasthagiri@edx.org>                   |
-+---------------+----------------------------------------------------------+
-| Status        | Accepted                                                 |
-+---------------+----------------------------------------------------------+
-| Type          | Process                                                  |
-+---------------+----------------------------------------------------------+
-| Created       | 2017-01-09                                               |
-+---------------+----------------------------------------------------------+
-| `References`  | `ORA PR Discussion`_,                                    |
-|               | `Moving More Repos to edx-unsupported`_                  |
-+---------------+----------------------------------------------------------+
++---------------+---------------------------------------------------------------+
+| OEP           | :ref:`OEP-14 <OEP-14 Archiving Open edX GitHub Repositories>` |
++---------------+---------------------------------------------------------------+
+| Title         | Archiving edX GitHub Repositories                             |
++---------------+---------------------------------------------------------------+
+| Last Modified | 2022-06-21                                                    |
++---------------+---------------------------------------------------------------+
+| Author        | Christina Roberts <christina@edx.org>                         |
+|               | Feanil Patel <feanil@axim.org>                                |
++---------------+---------------------------------------------------------------+
+| Arbiter       | Nimisha Asthagiri <nasthagiri@edx.org>                        |
++---------------+---------------------------------------------------------------+
+| Status        | Accepted                                                      |
++---------------+---------------------------------------------------------------+
+| Type          | Process                                                       |
++---------------+---------------------------------------------------------------+
+| Created       | 2017-01-09                                                    |
++---------------+---------------------------------------------------------------+
+| `References`  | `ORA PR Discussion`_,                                         |
+|               | `Moving More Repos to edx-unsupported`_                       |
++---------------+---------------------------------------------------------------+
 
 .. _ORA PR Discussion: https://github.com/openedx/edx-ora/pull/187
 .. _Moving More Repos to edx-unsupported: https://openedx.atlassian.net/browse/ARCHBOM-1481
@@ -38,11 +39,9 @@ The `openedx organization`_ contains a large number of repositories, most of whi
 Motivation
 **********
 
-Recently openedx.yaml files were added to edX repositories per `OEP-2`_. In the course of deciding owners for those repositories, there was an `ORA PR Discussion`_ about how best to handle deprecated or obsolete repositories. In particular, do obsolete repositories need owners, and how can repositories be clearly marked as present for archive purposes only?
+Recently openedx.yaml files were added to edX repositories per :ref:`OEP-2 <OEP-2 Repository Metadata>`. In the course of deciding owners for those repositories, there was an `ORA PR Discussion`_ about how best to handle deprecated or obsolete repositories. In particular, do obsolete repositories need owners, and how can repositories be clearly marked as present for archive purposes only?
 
 This discussion resurfaced related to edX's usage of Gemnasium to report the usage of third-party libraries that have known security issues. All repositories under the Open edX organization were being monitored, but this added noise when trying to understand the number of third-party library updates required for actively maintained repositories.
-
-.. _OEP-2: https://open-edx-proposals.readthedocs.io/en/latest/oep-0002.html
 
 
 Specification
@@ -183,6 +182,11 @@ Reasons rejected:
 
 Change History
 **************
+
+2025-06-12
+===========
+
+* Change title of OEP to "Archiving Open edX GitHub Repositories" from "Archiving edX GitHub Repositories"
 
 2022-06-21
 ==========

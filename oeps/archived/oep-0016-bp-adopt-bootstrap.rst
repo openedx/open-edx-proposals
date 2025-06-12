@@ -1,8 +1,10 @@
+.. _OEP-16 Bootstrap Adoption:
+
 OEP-16: Bootstrap Adoption
 ##########################
 
 +---------------+---------------------------------------------------+
-| OEP           | :doc:`OEP-16 <oep-0016-bp-adopt-bootstrap>`       |
+| OEP           | :ref:`OEP-16 <OEP-16 Bootstrap Adoption>`         |
 +---------------+---------------------------------------------------+
 | Title         | Bootstrap Adoption                                |
 +---------------+---------------------------------------------------+
@@ -81,7 +83,7 @@ within the edX platform:
 
 Another key factor in the switch is the availability of Bootstrap-based
 React components. With edX's move to adopt React (see
-`OEP-11 - Front End Technology Standards`_), this will provide the community
+:ref:`OEP-11 Front End Technology Standards`), this will provide the community
 with an ever increasing set of components with which to extend the platform.
 
 Finally, a critical benefit to using Bootstrap is that the edX community
@@ -259,7 +261,6 @@ variety of sites in the Open edX community.
 .. _edX Front End Working Group: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3090056949/Frontend+Working+Group
 .. _edX UI Toolkit: http://ui-toolkit.edx.org/
 .. _edX Pattern Library: https://github.com/edx/ux-pattern-library
-.. _OEP-11 - Front End Technology Standards: https://open-edx-proposals.readthedocs.io/en/latest/oep-0011.html
 .. _Open edX Front End Working Group: https://openedx.atlassian.net/wiki/display/FEDX/Front+End+Working+Group
 .. _postcss: http://postcss.org/
 .. _rtlcss: http://rtlcss.com/

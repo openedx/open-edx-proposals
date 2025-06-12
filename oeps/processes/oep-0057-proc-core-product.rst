@@ -1,17 +1,13 @@
-.. _pep_based_template:
-
-.. Below is the display in the left sidebar on RTD. Please omit leading 0's
+.. _OEP-57 Core Product:
 
 OEP-57: Core Product
 ####################
-
-.. This OEP template is based on Python's PEP standard.
 
 .. list-table::
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0057 <oep-0057-proc-core-product>`
+     - :ref:`OEP-0057 <OEP-57 Core Product>`
    * - Title
      - Core Product
    * - Last Modified

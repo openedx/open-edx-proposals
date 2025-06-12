@@ -1,3 +1,5 @@
+.. _Frontend Glossary:
+
 Frontend Glossary
 #################
 

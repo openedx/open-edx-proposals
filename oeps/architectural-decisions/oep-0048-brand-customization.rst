@@ -1,3 +1,5 @@
+.. _OEP-48 Brand Customization:
+
 OEP-48: Brand Customization
 ###########################
 
@@ -5,7 +7,7 @@ OEP-48: Brand Customization
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0048 <oep-0048-brand-customization>`
+     - :ref:`OEP-48 Brand Customization`
    * - Title
      - Brand Customization
    * - Last Modified

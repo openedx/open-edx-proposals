@@ -2,6 +2,8 @@
 
 .. Below is the display in the left sidebar on RTD. Please omit leading 0's
 
+.. _OEP XXXX OEP Template:
+
 OEP-XXXX: OEP Template
 ######################
 
@@ -13,7 +15,7 @@ OEP-XXXX: OEP Template
    * - OEP
      - Link to the doc in the following format::
 
-        :doc:`OEP-XXXX <oep-XXXX-YYYY-ZZZZ>`
+        :ref:`OEP-XXXX OEP Template`
 
         * <XXXX is the next available OEP number>
         * <YYYY is the abbreviated Type: proc | bp | arch>

@@ -1,3 +1,5 @@
+.. _Frontend Projects:
+
 Frontend Projects
 #################
 
@@ -127,10 +129,10 @@ We expect that there will be edge cases that we didn't anticipate in the module 
 References
 **********
 
-* :doc:`OEP-65: Frontend Composability <../../oep-0065-arch-frontend-composability>`
-* :doc:`OEP-65 Frontend Glossary <./frontend-glossary>`
-* :doc:`ADR-0001: Unified Platform Repository <./0001-unified-platform-repository>`
-* :doc:`ADR-0002: Frontend App Migrations <./0002-frontend-app-migrations>`
+* :ref:`OEP-65: Frontend Composability <OEP-65 Frontend Composibility>`
+* :ref:`OEP-65 Frontend Glossary <Frontend Glossary>`
+* :ref:`ADR-0001: Unified Platform Repository <Create a unified platform repository>`
+* :ref:`ADR-0002: Frontend App Migrations <Frontend App Migrations>`
 
 Change History
 **************

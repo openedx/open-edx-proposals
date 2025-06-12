@@ -1,8 +1,10 @@
+.. _OEP-25 Incremental Improvements:
+
 OEP-25: Incremental Improvements
 ################################
 
 +-----------------+----------------------------------------------------------+
-| OEP             | :doc:`OEP-25 <oep-0025-proc-incremental-improvements>`   |
+| OEP             | :ref:`OEP-25 <OEP-25 Incremental Improvements>`          |
 +-----------------+----------------------------------------------------------+
 | Title           | Incremental Improvements                                 |
 +-----------------+----------------------------------------------------------+

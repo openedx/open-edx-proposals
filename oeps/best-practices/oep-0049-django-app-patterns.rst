@@ -1,3 +1,5 @@
+.. _OEP-49 Django App Patterns:
+
 OEP-49: Django App Patterns
 ###########################
 
@@ -5,7 +7,7 @@ OEP-49: Django App Patterns
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0049 <oep-0049-django-app-patterns>`
+     - :ref:`OEP-0049 <OEP-49 Django App Patterns>`
    * - Title
      - Django App Patterns
    * - Last Modified

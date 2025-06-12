@@ -1,3 +1,5 @@
+.. _OEP-45 Configuring and Operating Open edX:
+
 OEP-45: Configuring and Operating Open edX
 ##########################################
 
@@ -5,7 +7,7 @@ OEP-45: Configuring and Operating Open edX
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-0045 <oep-0045-arch-ops-and-config>`
+     - :ref:`OEP-45 Configuring and Operating Open edX`
    * - Title
      - Configuring and Operating Open edX
    * - Last Modified

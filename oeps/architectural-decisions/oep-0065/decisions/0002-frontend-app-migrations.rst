@@ -1,3 +1,5 @@
+.. _Frontend App Migrations:
+
 Frontend App Migrations
 #######################
 
@@ -11,7 +13,7 @@ Summary
 
 This ADR describes a migration path and simplified repository organization for the ``frontend-app-*`` repositories that is compatible with :term:`Module Architecture`: the :term:`Shell` provided by the `frontend-base <https://github.com/openedx/frontend-base>`_ library, :term:`module federation`, and frontend :term:`projects <Project>`.
 
-Please see :doc:`0001-unified-platform-repository` for more information on ``frontend-base``.
+Please see :ref:`Create a unified platform repository` for more information on ``frontend-base``.
 
 Context
 *******
@@ -47,7 +49,7 @@ Environment Agnostic
 
 The :term:`module libraries <Module Library>` will no longer contain ``.env`` or ``env.config`` files for any specific environment, including `Devstack <https://github.com/openedx/devstack>`_ and `Tutor <https://docs.tutor.edly.io/>`_. Config filename patterns will be added to the ``.gitignore`` file. They will continue to support adding a (git ignored) config file into the repository to build or develop it, but we also expect operators to use Projects and check their config files into those project repositories as their primary way of working with the module libraries.
 
-Please see :doc:`0003-frontend-projects` for more information on projects.
+Please see :ref:`Frontend Projects` for more information on projects.
 
 Removed Dependencies
 ====================
@@ -120,7 +122,7 @@ Our ``frontend-app-*`` repositories go from being "micro-frontend applications" 
 Unsupported Customizations
 ==========================
 
-The :term:`micro-frontend architecture` took an extreme approach to "flexibility", allowing MFEs to diverge from each other in a variety of ways as described in :doc:`OEP-65 <../../oep-0065-arch-frontend-composability>`. As a result, in the process of migrating them to the :term:`module architecture`, there could be unforeseen refactoring that may need to happen in some MFEs that don't map into modules well, or which have customizations that aren't supported by the Shell. While we hope to provide enough extensibility mechanisms to reduce the need for forking or hacky customizations, there will be customizations we haven't anticipated, which the community will need to work around or find ways to support.
+The :term:`micro-frontend architecture` took an extreme approach to "flexibility", allowing MFEs to diverge from each other in a variety of ways as described in :ref:`OEP-65 <OEP-65 Frontend Composibility>`. As a result, in the process of migrating them to the :term:`module architecture`, there could be unforeseen refactoring that may need to happen in some MFEs that don't map into modules well, or which have customizations that aren't supported by the Shell. While we hope to provide enough extensibility mechanisms to reduce the need for forking or hacky customizations, there will be customizations we haven't anticipated, which the community will need to work around or find ways to support.
 
 Consistent Dependency Versions
 ==============================
@@ -132,10 +134,10 @@ The shell will support specific versions of shared dependencies (such as React, 
 References
 **********
 
-* :doc:`OEP-65: Frontend Composability <../../oep-0065-arch-frontend-composability>`
-* :doc:`OEP-65 Frontend Glossary <./frontend-glossary>`
-* :doc:`ADR-0001: Unified Platform Repository <./0001-unified-platform-repository>`
-* :doc:`ADR-0003: Frontend Projects <./0003-frontend-projects>`
+* :ref:`OEP-65: Frontend Composability <OEP-65 Frontend Composibility>`
+* :ref:`OEP-65 Frontend Glossary <Frontend Glossary>`
+* :ref:`ADR-0001: Unified Platform Repository <Create a unified platform repository>`
+* :ref:`ADR-0003: Frontend Projects <Frontend Projects>`
 
 Change History
 **************

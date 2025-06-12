@@ -1,3 +1,5 @@
+.. _OEP-64 Mobile App Codebase Modernization:
+
 OEP-64: Mobile App Codebase Modernization
 #########################################
 
@@ -5,7 +7,7 @@ OEP-64: Mobile App Codebase Modernization
    :widths: 25 75
 
    * - OEP
-     - :doc:`OEP-64 <oep-0064-arch-mobile-application-codebase-modernization>`
+     - :ref:`OEP-64 Mobile App Codebase Modernization`
    * - Title
      - Mobile Application Codebase Modernization
    * - Last Modified

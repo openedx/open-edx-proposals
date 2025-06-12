@@ -1,3 +1,5 @@
+.. _Tutor as a replacement for edx/configuration:
+
 Tutor as a replacement for ``edx/configuration``
 ################################################
 

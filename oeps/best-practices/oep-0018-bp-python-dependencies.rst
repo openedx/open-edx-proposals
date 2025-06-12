@@ -1,8 +1,10 @@
+.. _OEP-18 Python Dependency Management:
+
 OEP-18: Python Dependency Management
 ####################################
 
 +-----------------+--------------------------------------------------------+
-| OEP             | :doc:`OEP-18 <oep-0018-bp-python-dependencies>`        |
+| OEP             | :ref:`OEP-18 <OEP-18 Python Dependency Management>`    |
 +-----------------+--------------------------------------------------------+
 | Title           | Python Dependencies Management                         |
 +-----------------+--------------------------------------------------------+

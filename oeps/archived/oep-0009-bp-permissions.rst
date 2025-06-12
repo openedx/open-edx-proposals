@@ -1,8 +1,10 @@
+.. _OEP-9 User Authorization (Permissions):
+
 OEP-9: User Authorization (Permissions)
 #######################################
 
 +---------------+-----------------------------------------------------------------------+
-| OEP           | :doc:`OEP-9 <oep-0009-bp-permissions>`                                |
+| OEP           | :ref:`OEP-9 <OEP-9 User Authorization (Permissions)>`                 |
 +---------------+-----------------------------------------------------------------------+
 | Title         | User Authorization (Permissions)                                      |
 +---------------+-----------------------------------------------------------------------+
@@ -12,7 +14,7 @@ OEP-9: User Authorization (Permissions)
 +---------------+-----------------------------------------------------------------------+
 | Arbiter       | Eddie Fagin <eddie@edx.org>                                           |
 +---------------+-----------------------------------------------------------------------+
-| Status        | Replaced by :doc:`OEP-66 </best-practices/oep-0066-bp-authorization>` |
+| Status        | Replaced by :ref:`OEP-66 <OEP-66 User Authorization>`                 |
 +---------------+-----------------------------------------------------------------------+
 | Type          | Best Practice                                                         |
 +---------------+-----------------------------------------------------------------------+
@@ -21,7 +23,7 @@ OEP-9: User Authorization (Permissions)
 
 .. warning::
 
-   This OEP has been replaced by :doc:`OEP-66 </best-practices/oep-0066-bp-authorization>`
+   This OEP has been replaced by :ref:`OEP-66 User Authorization`
 
 Abstract
 ********
@@ -212,12 +214,10 @@ changed if desired by creating a subclass, for example:
 If additional information about the session is needed beyond the user's
 identity in order to make a permission decision (for example, if an action
 should only be allowed if the client has been granted a particular OAuth
-scope, as outlined in `OEP-4`_), then a custom `BasePermission`_ subclass can
+scope, as outlined in :ref:`OEP-4 Application Authorization (Scopes)`), then a custom `BasePermission`_ subclass can
 be implemented which both consults the Django authorization API and makes the
 necessary checks against the session or other properties of the request
 object.
-
-.. _OEP-4: https://open-edx-proposals.readthedocs.io/en/latest/oeps/oep-0004.html
 
 In order to filter the querysets used to generate list responses to only
 include objects appropriate for the users permissions, an appropriate filter
@@ -306,5 +306,5 @@ Change History
 2023-10-02
 ===========
 
-* Status updated to "Replaced by :doc:`OEP-66 </best-practices/oep-0066-bp-authorization>`"
+* Status updated to "Replaced by :ref:`OEP-66 User Authorization`"
 * `PR #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
