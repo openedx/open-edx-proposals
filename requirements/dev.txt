@@ -25,7 +25,7 @@ beautifulsoup4==4.13.4
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
-certifi==2025.4.26
+certifi==2025.6.15
     # via
     #   -r requirements/base.txt
     #   requests
@@ -149,7 +149,7 @@ urllib3==2.2.3
     #   requests
 uvicorn==0.34.3
     # via sphinx-autobuild
-watchfiles==1.0.5
+watchfiles==1.1.0
     # via sphinx-autobuild
 websockets==15.0.1
     # via sphinx-autobuild
