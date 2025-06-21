@@ -243,6 +243,8 @@ all Open edX installs. Events that are strictly edX-specific, like those that
 might interact with internal IT or finance reporting systems, should use
 ``org.edx`` as the prefix instead. If in doubt, default to ``org.openedx``.
 
+.. _Subdomain from DDD:
+
 Subdomain (from Domain Driven Design)
 -------------------------------------
 
@@ -331,6 +333,8 @@ corresponding database changes. If you are sending out multiple event messages
 describing the same occurrence (e.g. a version 1 and version 2 of an event), they
 should have the *exact* same timestamp.
 
+
+.. _Message Content Data Guidelines:
 
 Message Content Data Guidelines
 ===============================
@@ -479,7 +483,7 @@ management.
 
 ------------
 
-.. note:: All future decisions related to :doc:`Open edX Events <openedx-events:index>` that adhere to these guidelines for asynchronous event messaging will now be documented and made publicly available through the Architectural Decision Records (ADRs) in :doc:`Open edX Events ADRs <openedx-events:decisions/index>`. This includes decisions regarding the Event Bus, schema format, serialization, evolution, and design practices for event-driven architecture.
+.. note:: All future decisions related to :ref:`Open edX Events <openedx-events:Open edX Events Docs>` that adhere to these guidelines for asynchronous event messaging will now be documented and made publicly available through the Architectural Decision Records (ADRs) in :ref:`Open edX Events ADRs <openedx-events:ADRs>`. This includes decisions regarding the Event Bus, schema format, serialization, evolution, and design practices for event-driven architecture.
 
 **************
 Change History
