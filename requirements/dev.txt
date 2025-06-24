@@ -70,7 +70,7 @@ pydata-sphinx-theme==0.15.4
     # via
     #   -r requirements/base.txt
     #   sphinx-book-theme
-pygments==2.19.1
+pygments==2.19.2
     # via
     #   -r requirements/base.txt
     #   accessible-pygments
@@ -134,7 +134,7 @@ sphinxcontrib-serializinghtml==2.0.0
     #   sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
-starlette==0.47.0
+starlette==0.47.1
     # via sphinx-autobuild
 typing-extensions==4.14.0
     # via
@@ -142,6 +142,7 @@ typing-extensions==4.14.0
     #   anyio
     #   beautifulsoup4
     #   pydata-sphinx-theme
+    #   starlette
 urllib3==2.2.3
     # via
     #   -c requirements/common_constraints.txt
