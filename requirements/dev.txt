@@ -134,7 +134,7 @@ sphinxcontrib-serializinghtml==2.0.0
     #   sphinx
 sphinxext-rediraffe==0.2.7
     # via -r requirements/base.txt
-starlette==0.47.1
+starlette==0.47.2
     # via sphinx-autobuild
 typing-extensions==4.14.1
     # via
