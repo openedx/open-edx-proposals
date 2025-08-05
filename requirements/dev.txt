@@ -12,7 +12,7 @@ alabaster==1.0.0
     # via
     #   -r requirements/base.txt
     #   sphinx
-anyio==4.9.0
+anyio==4.10.0
     # via
     #   starlette
     #   watchfiles
@@ -25,7 +25,7 @@ beautifulsoup4==4.13.4
     # via
     #   -r requirements/base.txt
     #   pydata-sphinx-theme
-certifi==2025.7.14
+certifi==2025.8.3
     # via
     #   -r requirements/base.txt
     #   requests
@@ -143,9 +143,8 @@ typing-extensions==4.14.1
     #   beautifulsoup4
     #   pydata-sphinx-theme
     #   starlette
-urllib3==2.2.3
+urllib3==2.5.0
     # via
-    #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
     #   requests
 uvicorn==0.35.0
