@@ -121,7 +121,7 @@ the support needed.
 The layers in question here are Django, Python, and Ubuntu.  Here's a `calendar
 of the known support windows`__ and how they overlap with Open edX plans.
 
-.. __: https://docs.google.com/spreadsheets/d/11DheEtMDGrbA9hsUvZ2SEd4Cc8CaC4mAfoV8SVaLBGI
+.. __: https://docs.google.com/spreadsheets/d/1wtpoypH1XOPc_G6h9AUNXJ6XiNKD6dlkMP3lubdpE9I
 
 
 Release creation
@@ -181,6 +181,12 @@ is suitable for both development and production environments.
 
 Change History
 **************
+
+2025-08-24
+==========
+
+* Updated the link to the Google sheets calendar
+
 
 2025-05-23
 ==========
