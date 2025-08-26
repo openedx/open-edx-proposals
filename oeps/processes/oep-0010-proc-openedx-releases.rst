@@ -186,6 +186,7 @@ Change History
 ==========
 
 * Updated the link to the Google sheets calendar
+* `Pull request #731 <https://github.com/openedx/open-edx-proposals/pull/731>`_
 
 
 2025-05-23
