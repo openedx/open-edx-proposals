@@ -1,3 +1,5 @@
+.. _Open edX Auth Overview Table:
+
 Open edX Auth Overview Table
 ----------------------------
 .. list-table:: 
