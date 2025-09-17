@@ -262,6 +262,9 @@ The process for nomination is as follows:
 #. At the end of the comment period, a candidate is approved if there are at
    least 5 (five) affirmative "yes" votes from current CCs, and zero "no" votes.
 
+   #. For sponsored candidates, the sponsor themselves counts as an implicit
+      "yes" vote.
+
    #. Candidates coming from an organization must have support from someone
       outside their organization. This can be done by having a sponsor from
       outside their organization, or by receiving at least one "yes" vote from
@@ -409,6 +412,11 @@ values every day.
 
 Change History
 **************
+
+2025-09-17
+==========
+
+* Clarify that the sponsor is a "yes" vote
 
 2023-11-28
 ==========
