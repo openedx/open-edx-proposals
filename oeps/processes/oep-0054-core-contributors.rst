@@ -263,7 +263,7 @@ The process for nomination is as follows:
    least 5 (five) affirmative "yes" votes from current CCs, and zero "no" votes.
 
    #. For sponsored candidates, the sponsor themselves counts as an implicit
-      "yes" vote.
+      "yes" vote, if the sponsor is a current Core Contributor.
 
    #. Candidates coming from an organization must have support from someone
       outside their organization. This can be done by having a sponsor from
