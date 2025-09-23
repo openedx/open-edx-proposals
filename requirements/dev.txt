@@ -33,7 +33,7 @@ charset-normalizer==3.4.3
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.2.1
+click==8.3.0
     # via uvicorn
 colorama==0.4.6
     # via sphinx-autobuild
@@ -147,7 +147,7 @@ urllib3==2.5.0
     # via
     #   -r requirements/base.txt
     #   requests
-uvicorn==0.35.0
+uvicorn==0.36.0
     # via sphinx-autobuild
 watchfiles==1.1.0
     # via sphinx-autobuild
