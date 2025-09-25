@@ -1,9 +1,7 @@
-.. _OEP-68 Multi-Tenant Mobile Support:
-
 OEP-68: Multi-Tenant Support in Open edX Mobile Apps
 ####################################################
 
-.. list-table::
+ .. list-table::
    :widths: 25 75
 
    * - OEP
@@ -120,6 +118,59 @@ Push Notifications
 - Payloads include ``tenant_id``.  
 - Notifications routed to the correct tenant listener.  
 
+
+Tradeoffs
+=========
+We considered three approaches:
+
+**1. Single App + Bundled Config (proposed)**
+
+- **Pros**:
+  - Single codebase and release process, reducing duplication.  
+  - Works offline immediately since tenant definitions are bundled.  
+  - Reliable theming and branding without network dependency.  
+- **Cons**:
+  - Updating tenant metadata requires an app update (until remote fetch is added).  
+  - Larger app size if many assets are included.  
+- **Implications**:
+  - **Push notifications**: One device token registered with all tenants, routed by ``tenant_id``.  
+  - **Theming**: Strong, since assets/colors are local.  
+  - **Offline**: Strong support — tenants always available.  
+
+**2. Remote Configuration**  
+
+- **Pros**:
+  - Tenant metadata can change without an app update.  
+  - Centralized management of tenant definitions.  
+- **Cons**:
+  - Requires robust caching and fallbacks to work offline.  
+  - Higher runtime complexity and security considerations.  
+- **Implications**:
+  - **Push notifications**: Requires re-registration if tenant config changes.  
+  - **Theming**: More flexible, but must be cached to avoid broken UI offline.  
+  - **Offline**: Dependent on last successful fetch.  
+
+**3. Separate Builds (current state)**  
+
+- **Pros**:
+  - Full isolation per tenant (bundle IDs, push notifications, store presence).  
+  - Simple runtime logic.  
+- **Cons**:
+  - High maintenance and CI/CD overhead.  
+  - Risk of divergence across builds.  
+- **Implications**:
+  - **Push notifications**: Simplest — separate certs per build.  
+  - **Theming**: Static and guaranteed.  
+  - **Offline**: Guaranteed, but at the cost of scalability.  
+
+Impact on Single-Tenant Deployments
+===================================
+For single-tenant deployments, this proposal introduces minimal change:
+
+- If only one tenant is defined in the configuration, the tenant selector is skipped and the app behaves exactly as today.  
+- Branding, theming, and login flows remain static to that single tenant.  
+- No additional runtime overhead is introduced for single-tenant cases.  
+
 Alternatives
 ************
 - Separate app per tenant (high maintenance).  
@@ -144,3 +195,7 @@ Change History
 2025-03-18
 ==========
 * Initial draft created based on ADR.  
+
+2025-09-23
+==========
+* Added Tradeoffs and Single-Tenant Impact sections.  
