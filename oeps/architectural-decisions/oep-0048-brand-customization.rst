@@ -56,6 +56,22 @@ We will create a new project that defines a branding package interface and a def
 
 A branding package will be a node module that contains a defined set of files and directories. The default implementation will be available on Github at `openedx/brand-openedx <https://github.com/openedx/brand-openedx>`_ and published to npm as `@edx/brand-openedx`.
 
+Brand packages can either be loaded at runtime or installed using an npm alias.
+
+Loading at runtime
+==================
+
+As of Paragon 23, Paragon styles and brand packages utilize CSS variables instead of SCSS variables. This change was made as part of the Design Tokens project. CSS variables enable runtime theming, because, unlike SCSS variables, the variables continue to exist in the compiled CSS.
+
+For more information see:
+
+* `The Design Tokens section of the Paragon README <https://github.com/openedx/paragon/?tab=readme-ov-file#design-tokens>`_
+* `The frontend-platform theming how-to document <https://github.com/openedx/frontend-platform/blob/master/docs/how_tos/theming.md>`_
+* `The tutor-contrib-paragon Plugin <https://github.com/openedx/openedx-tutor-plugins/tree/main/plugins/tutor-contrib-paragon>`_
+
+Using an npm alias
+==================
+
 Brand packages will be installed in edx-platform and all MFEs via npm, aliased as `@edx/brand`.
 
 .. image:: oep-0048/branding_architecture_overview.png
