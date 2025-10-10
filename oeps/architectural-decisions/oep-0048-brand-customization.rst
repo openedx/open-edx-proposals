@@ -106,4 +106,9 @@ See `npm cli documentation <https://docs.npmjs.com/cli-commands/install.html>`_ 
 Change History
 **************
 
+2025-10-10
+==========
+* Add information about Design Tokens in Paragon 23
+* `Pull request #744 <https://github.com/openedx/open-edx-proposals/pull/744>`_
+
 2022-10-27: Marked this OEP as Accepted since the recommendations are already widely in use across the platform.
