@@ -44,7 +44,7 @@ docutils==0.21.2
     #   sphinx
 h11==0.16.0
     # via uvicorn
-idna==3.10
+idna==3.11
     # via
     #   -r requirements/base.txt
     #   anyio
