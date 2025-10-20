@@ -317,6 +317,12 @@ of the frontend.
 
     * edx-lint/pylint
 
+#. **MySQL should be used as the default backing database**
+
+**Rationale**: We have been using MySQL as the default backend for our services for
+over a decade. There is a lot of assumptions and performance optimizations built around
+this decision.  That said, we are open to patches and fixes that allow other databases
+to work with the Open edX Platform.  Though support for them is not gauranteed.
 
 
 Decisions
