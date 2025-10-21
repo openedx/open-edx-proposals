@@ -317,6 +317,15 @@ of the frontend.
 
     * edx-lint/pylint
 
+#. **MySQL should be used as the default backing database**
+
+**Rationale**: The Open edX platform has traditionally run on MySQL, and this is
+the only officially supported Django ORM database backend. A number of schema
+design decisions and optimizations assume that you are running MySQL. That being
+said, we are open to patches and fixes that enable other databases, so long as
+they do not require disruptive migrations that would break existing MySQL
+installations. Support for these other database backends is not guaranteed and
+may require plugins or lag behind the official releases.
 
 
 Decisions
