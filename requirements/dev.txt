@@ -29,7 +29,7 @@ certifi==2025.10.5
     # via
     #   -r requirements/base.txt
     #   requests
-charset-normalizer==3.4.3
+charset-normalizer==3.4.4
     # via
     #   -r requirements/base.txt
     #   requests
@@ -147,9 +147,9 @@ urllib3==2.5.0
     # via
     #   -r requirements/base.txt
     #   requests
-uvicorn==0.37.0
+uvicorn==0.38.0
     # via sphinx-autobuild
-watchfiles==1.1.0
+watchfiles==1.1.1
     # via sphinx-autobuild
 websockets==15.0.1
     # via sphinx-autobuild
