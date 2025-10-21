@@ -319,10 +319,13 @@ of the frontend.
 
 #. **MySQL should be used as the default backing database**
 
-**Rationale**: We have been using MySQL as the default backend for our services for
-over a decade. There is a lot of assumptions and performance optimizations built around
-this decision.  That said, we are open to patches and fixes that allow other databases
-to work with the Open edX Platform.  Though support for them is not gauranteed.
+**Rationale**: The Open edX platform has traditionally run on MySQL, and this is
+the only officially supported Django ORM database backend. A number of schema
+design decisions and optimizations assume that you are running MySQL. That being
+said, we are open to patches and fixes that enable other databases, so long as
+they do not require disruptive migrations that would break existing MySQL
+installations. Support for these other database backends is not guaranteed and
+may require plugins or lag behind the official releases.
 
 
 Decisions
