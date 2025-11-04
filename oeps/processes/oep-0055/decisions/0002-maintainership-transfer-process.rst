@@ -57,7 +57,7 @@ Communicate on the `forums`_ that ``component X`` is seeking a new maintainer.
    On <date 2 weeks in the future> if now new maintainer can be found I'll begin
    putting `component X` through the deprecation and removal process.
 
-.. _forums: https://discuss.openedx.org/c/announcements/deprecation/20
+.. _forums: https://discuss.openedx.org/c/announcements/maintainers/45
 
 Wait
 ====
