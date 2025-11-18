@@ -88,7 +88,7 @@ If a new maintainer is found, initiate the transfer process.
 
 #. Once you know who the new maintainer is, announce the decision on the discourse thread created in the :ref:`oep-55-adr-2-announce` phase.
 
-#. Add the new maintainer(s) to the relevant maintainers GitHub group.  ``<component_name>-maintainers``
+#. Update the ``spec.owner`` key in the repository's ``catalog-info.yaml`` file. For details, see :ref:`Use Backstage`.
 
 #. (Optional but recommended) Meet with the new maintainers and review what is being transferred and any relevant knowledge that needs to be transferred.
 
