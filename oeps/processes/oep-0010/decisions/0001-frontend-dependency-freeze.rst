@@ -19,6 +19,7 @@ Decision
 A new release development milestone is hereby established, dubbed the "Frontend Dependency Freeze".  It is fixed at eight weeks prior to cutoff milestone, at which point a decision is published by the `Frontend Working Group`_ regarding what feature level of the following fundamental libraries, as represented by either a specific major or specific minor `semantic version`_ of the corresponding NPM packages, will be used by all frontend repositories that are part of the subsequent Open edX release:
 
 - Node.js
+- Webpack
 - React
 - React Router
 - React Query
