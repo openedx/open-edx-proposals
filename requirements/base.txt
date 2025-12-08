@@ -49,7 +49,7 @@ snowballstemmer==3.0.1
     # via sphinx
 soupsieve==2.8
     # via beautifulsoup4
-sphinx==9.0.1
+sphinx==9.0.4
     # via
     #   -r requirements/base.in
     #   pydata-sphinx-theme
@@ -78,5 +78,5 @@ typing-extensions==4.15.0
     # via
     #   beautifulsoup4
     #   pydata-sphinx-theme
-urllib3==2.5.0
+urllib3==2.6.0
     # via requests
