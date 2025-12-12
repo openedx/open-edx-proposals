@@ -332,15 +332,15 @@ Open edX Auth Overview Diagram
 
   oep-0066/Open_edX_Auth_Overview_Table.rst
 
-Open edX Authorization Explicit Roles Diagram
----------------------------------------------
+Open edX Authorization Explicit Roles
+-------------------------------------
 
-.. image:: oep-0066/Open_edX_Authorization_Explicit_Roles.png
-  :alt: A diagram that shows the different systems/protocols that are used to control explicit roles in the Open edX codebase. The information in the diagram is also in the Open edX Authorization Explicit Roles Table (linked to in this document).
+The Open edX ecosystem uses multiple systems to manage these roles, including course-level roles, discussion roles, Django admin permissions, edx-rbac, and content library permissions. Each system has distinct role assignment mechanisms, data models, and use cases.
+
+For detailed information about each explicit role system, including system users, role options, use cases, implementation details, and data models, see:
 
 .. toctree::
   :maxdepth: 1
-  :glob:
 
   oep-0066/Open_edX_Authorization_Explicit_Roles_Table.rst
 
@@ -479,8 +479,24 @@ authn data point, but is an accepted way to implement feature specific roles and
 It is advisable to be very careful regarding the jwt token header limits if adding a new feature specific
 set of roles using this implementation path.
 
-content_libraries_contentlibrarypermission
-------------------------------------------
+openedx-authz
+-------------
+
+Open edX AuthZ is a unified authorization framework that centralizes roles and permissions across the Open edX platform, replacing the fragmented legacy system.
+
+The `openedx-authz`_ package uses the `Casbin`_ policy-based evaluation framework to ensure scalable and consistent authorization. This approach standardizes policy storage and provides a unified API, making it easier to maintain and extend authorization logic across the entire ecosystem.
+
+Currently, openedx-authz only supports the default roles and permissions of content libraries, but the idea is to extend its capabilities to the entire Open edX system.
+
+For more information, see the `openedx-authz documentation`_ and the `openedx-authz repository`_.
+
+.. _openedx-authz: https://github.com/openedx/openedx-authz
+.. _Casbin: https://casbin.org/
+.. _openedx-authz documentation: https://github.com/openedx/openedx-authz/blob/main/README.rst
+.. _openedx-authz repository: https://github.com/openedx/openedx-authz
+
+content libraries
+------------------
 
 Permission is granted on a Feature, in this case Content Library.
 
@@ -581,8 +597,18 @@ References
 
 `bridgekeeper <https://bridgekeeper.readthedocs.io/en/latest/index.html>`_
 
+`Casbin`_
+
+`openedx-authz`_
+
 Change History
 **************
+
+2025-12-15
+----------
+
+* Update how the content libraries' permissions work to reflect the addition of `openedx-authz`.
+* Add `openedx-authz` information.
 
 2024-01-23
 ----------
