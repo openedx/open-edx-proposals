@@ -11,9 +11,9 @@ OEP-66: User Authorization
    * - Title
      - User Authorization
    * - Last Modified
-     - 2023-10-20
+     - 2025-12-15
    * - Authors
-     - Hilary Sinkoff (hsinkoff@2u.com), Jeremy Bowman (jbowman@edx.org)
+     - Hilary Sinkoff (hsinkoff@2u.com), Jeremy Bowman (jbowman@edx.org), Maria F Magallanes (maria.magallanes@edunext.co)
    * - Arbiter
      - Feanil Patel (feanil@axim.org)
    * - Status
@@ -479,6 +479,8 @@ authn data point, but is an accepted way to implement feature specific roles and
 It is advisable to be very careful regarding the jwt token header limits if adding a new feature specific
 set of roles using this implementation path.
 
+.. _openedx-authz-section:
+
 openedx-authz
 -------------
 
@@ -490,21 +492,15 @@ Currently, openedx-authz only supports the default roles and permissions of cont
 
 For more information, see the `openedx-authz documentation`_ and the `openedx-authz repository`_.
 
-.. _openedx-authz: https://github.com/openedx/openedx-authz
-.. _Casbin: https://casbin.org/
-.. _openedx-authz documentation: https://github.com/openedx/openedx-authz/blob/main/README.rst
-.. _openedx-authz repository: https://github.com/openedx/openedx-authz
-
-content libraries
+Content Libraries
 ------------------
 
-Permission is granted on a Feature, in this case Content Library.
+Roles and permissions are granted on a per-library basis for v2 content libraries.
 
-Permission is assigned in the CMS exclusively for providing explicit permission to
-view or edit a library in the CMS.
+Explicit roles can be assigned through Studio by accessing the library and selecting the "Manage Team" option. This provides granular control over who can view, edit, or administer each content library.
 
-It grants access on a library by library basis and is used for v2 of content libraries
-in the CMS.
+.. note::
+  Since Ulmo, these permissions are handled by :ref:`openedx-authz <openedx-authz-section>`.
 
 .. note::
   v1 libraries (deprecated) granted access to libraries on a course by course basis
@@ -601,6 +597,11 @@ References
 
 `openedx-authz`_
 
+.. _openedx-authz: https://github.com/openedx/openedx-authz
+.. _Casbin: https://casbin.org/
+.. _openedx-authz documentation: https://github.com/openedx/openedx-authz/blob/main/README.rst
+.. _openedx-authz repository: https://github.com/openedx/openedx-authz
+
 Change History
 **************
 
@@ -609,6 +610,7 @@ Change History
 
 * Update how the content libraries' permissions work to reflect the addition of `openedx-authz`.
 * Add `openedx-authz` information.
+* `Pull request #760 <https://github.com/openedx/open-edx-proposals/pull/760>`_
 
 2024-01-23
 ----------
