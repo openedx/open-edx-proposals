@@ -105,11 +105,8 @@ Role Based Access Control. A system in which roles are assigned to a user
 in order to grant that user permission to perform specific operations.
 
 There are multiple RBAC implementations in use within the Open edX codebase,
-including, but not limited to, `edx-rbac`_ and `student_courseaccessrole`_.
+including, but not limited to, `edx-rbac`_, `student_courseaccessrole`_ and :ref:`openedx-authz <openedx-authz-section>`.
 The implementations will be described in detail below.
-
-.. _student_courseaccessrole: https://github.com/openedx/edx-platform/blob/master/common/djangoapps/student/roles.py
-.. _edx-rbac: https://github.com/openedx/edx-rbac/tree/master
 
 Explicit Role
 -------------
@@ -597,6 +594,8 @@ References
 
 `openedx-authz`_
 
+.. _student_courseaccessrole: https://github.com/openedx/edx-platform/blob/master/common/djangoapps/student/roles.py
+.. _edx-rbac: https://github.com/openedx/edx-rbac/tree/master
 .. _openedx-authz: https://github.com/openedx/openedx-authz
 .. _Casbin: https://casbin.org/
 .. _openedx-authz documentation: https://github.com/openedx/openedx-authz/blob/main/README.rst
