@@ -43,7 +43,7 @@ pygments==2.19.2
     #   sphinx
 requests==2.32.5
     # via sphinx
-roman-numerals==3.1.0
+roman-numerals==4.0.0
     # via sphinx
 snowballstemmer==3.0.1
     # via sphinx
@@ -78,5 +78,5 @@ typing-extensions==4.15.0
     # via
     #   beautifulsoup4
     #   pydata-sphinx-theme
-urllib3==2.6.1
+urllib3==2.6.2
     # via requests

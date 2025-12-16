@@ -80,7 +80,7 @@ requests==2.32.5
     # via
     #   -r requirements/base.txt
     #   sphinx
-roman-numerals==3.1.0
+roman-numerals==4.0.0
     # via
     #   -r requirements/base.txt
     #   sphinx
@@ -141,7 +141,7 @@ typing-extensions==4.15.0
     #   beautifulsoup4
     #   pydata-sphinx-theme
     #   starlette
-urllib3==2.6.1
+urllib3==2.6.2
     # via
     #   -r requirements/base.txt
     #   requests
