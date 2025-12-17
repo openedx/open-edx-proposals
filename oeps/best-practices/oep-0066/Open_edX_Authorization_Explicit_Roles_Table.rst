@@ -140,8 +140,8 @@ edx-rbac
 content_libraries - v2 Library Roles
 ------------------------------------
 
-Legacy
-^^^^^^^
+Old - Before Ulmo
+^^^^^^^^^^^^^^^^^^
 
 .. list-table:: 
    :widths: 15 75
@@ -172,8 +172,8 @@ Legacy
      - 
        * content_libraries_contentlibrarypermission table in the edx-platform LMS database with access_level, id, library_id, user_id, _sdc_deleted_at fields
 
-New
-^^^^^
+New - Starting Ulmo
+^^^^^^^^^^^^^^^^^^^^
 
 .. list-table:: 
    :widths: 15 75
