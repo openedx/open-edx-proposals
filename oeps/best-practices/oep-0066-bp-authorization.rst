@@ -11,7 +11,7 @@ OEP-66: User Authorization
    * - Title
      - User Authorization
    * - Last Modified
-     - 2025-12-15
+     - 2025-12-18
    * - Authors
      - Hilary Sinkoff (hsinkoff@2u.com), Jeremy Bowman (jbowman@edx.org), Maria F Magallanes (maria.magallanes@edunext.co)
    * - Arbiter
@@ -604,7 +604,7 @@ References
 Change History
 **************
 
-2025-12-15
+2025-12-18
 ----------
 
 * Update how the content libraries' permissions work to reflect the addition of `openedx-authz`.
