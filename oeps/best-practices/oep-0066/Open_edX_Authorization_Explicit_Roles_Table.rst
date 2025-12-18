@@ -139,6 +139,10 @@ edx-rbac
 
 content_libraries - v2 Library Roles
 ------------------------------------
+
+Old - Before Ulmo
+^^^^^^^^^^^^^^^^^^
+
 .. list-table:: 
    :widths: 15 75
 
@@ -152,6 +156,7 @@ content_libraries - v2 Library Roles
           * admin = Administer users and author content
           * author = Author content
           * read = Read-only
+
    * - **Example Use Cases**
      - 
        * v2 Content Library Service
@@ -166,3 +171,27 @@ content_libraries - v2 Library Roles
    * - **Data Model**
      - 
        * content_libraries_contentlibrarypermission table in the edx-platform LMS database with access_level, id, library_id, user_id, _sdc_deleted_at fields
+
+New - Starting Ulmo
+^^^^^^^^^^^^^^^^^^^^
+
+.. list-table:: 
+   :widths: 15 75
+
+   * - **System Users**
+     - 
+       * Roles are assigned by the library creator or a library admin in the CMS.
+   * - **System Role Options**
+     - 
+       * `Open edX Authorization Content Libraries Roles`_.
+   * - **System Details**
+     - 
+       * Roles can be assigned through Studio.
+       * Roles can be managed through the `openedx-authz <https://github.com/openedx/openedx-authz>`_ Rest API.
+   * - **Data Model**
+     - 
+       * Uses `Casbin <https://casbin.org/>`_ for policy-based access control.
+       * Policies stored in casbin_rule table with fields: id, ptype, v0, v1, v2, v3, v4, v5.
+       * Policy structure: subject (role/user), action (role/permission), scope (pattern), effect.
+
+.. _Open edX Authorization Content Libraries Roles: https://openedx-authz.readthedocs.io/en/latest/concepts/core_roles_and_permissions/content_library_roles.html#roles

@@ -11,9 +11,9 @@ OEP-66: User Authorization
    * - Title
      - User Authorization
    * - Last Modified
-     - 2023-10-20
+     - 2025-12-18
    * - Authors
-     - Hilary Sinkoff (hsinkoff@2u.com), Jeremy Bowman (jbowman@edx.org)
+     - Hilary Sinkoff (hsinkoff@2u.com), Jeremy Bowman (jbowman@edx.org), Maria F Magallanes (maria.magallanes@edunext.co)
    * - Arbiter
      - Feanil Patel (feanil@axim.org)
    * - Status
@@ -105,11 +105,8 @@ Role Based Access Control. A system in which roles are assigned to a user
 in order to grant that user permission to perform specific operations.
 
 There are multiple RBAC implementations in use within the Open edX codebase,
-including, but not limited to, `edx-rbac`_ and `student_courseaccessrole`_.
+including, but not limited to, `edx-rbac`_, `student_courseaccessrole`_ and :ref:`openedx-authz <openedx-authz-section>`.
 The implementations will be described in detail below.
-
-.. _student_courseaccessrole: https://github.com/openedx/edx-platform/blob/master/common/djangoapps/student/roles.py
-.. _edx-rbac: https://github.com/openedx/edx-rbac/tree/master
 
 Explicit Role
 -------------
@@ -332,15 +329,15 @@ Open edX Auth Overview Diagram
 
   oep-0066/Open_edX_Auth_Overview_Table.rst
 
-Open edX Authorization Explicit Roles Diagram
----------------------------------------------
+Open edX Authorization Explicit Roles
+-------------------------------------
 
-.. image:: oep-0066/Open_edX_Authorization_Explicit_Roles.png
-  :alt: A diagram that shows the different systems/protocols that are used to control explicit roles in the Open edX codebase. The information in the diagram is also in the Open edX Authorization Explicit Roles Table (linked to in this document).
+The Open edX ecosystem uses multiple systems to manage these roles, including course-level roles, discussion roles, Django admin permissions, edx-rbac, and content library permissions. Each system has distinct role assignment mechanisms, data models, and use cases.
+
+For detailed information about each explicit role system, including system users, role options, use cases, implementation details, and data models, see:
 
 .. toctree::
   :maxdepth: 1
-  :glob:
 
   oep-0066/Open_edX_Authorization_Explicit_Roles_Table.rst
 
@@ -479,16 +476,28 @@ authn data point, but is an accepted way to implement feature specific roles and
 It is advisable to be very careful regarding the jwt token header limits if adding a new feature specific
 set of roles using this implementation path.
 
-content_libraries_contentlibrarypermission
-------------------------------------------
+.. _openedx-authz-section:
 
-Permission is granted on a Feature, in this case Content Library.
+openedx-authz
+-------------
 
-Permission is assigned in the CMS exclusively for providing explicit permission to
-view or edit a library in the CMS.
+Open edX AuthZ is a unified authorization framework that centralizes roles and permissions across the Open edX platform, replacing the fragmented legacy system.
 
-It grants access on a library by library basis and is used for v2 of content libraries
-in the CMS.
+The `openedx-authz`_ package uses the `Casbin`_ policy-based evaluation framework to ensure scalable and consistent authorization. This approach standardizes policy storage and provides a unified API, making it easier to maintain and extend authorization logic across the entire ecosystem.
+
+Currently, openedx-authz only supports the default roles and permissions of content libraries, but the idea is to extend its capabilities to the entire Open edX system.
+
+For more information, see the `openedx-authz documentation`_ and the `openedx-authz repository`_.
+
+Content Libraries
+------------------
+
+Roles and permissions are granted on a per-library basis for v2 content libraries.
+
+Explicit roles can be assigned through Studio by accessing the library and selecting the "Manage Team" option. This provides granular control over who can view, edit, or administer each content library.
+
+.. note::
+  Since Ulmo, these permissions are handled by :ref:`openedx-authz <openedx-authz-section>`.
 
 .. note::
   v1 libraries (deprecated) granted access to libraries on a course by course basis
@@ -581,8 +590,26 @@ References
 
 `bridgekeeper <https://bridgekeeper.readthedocs.io/en/latest/index.html>`_
 
+`Casbin`_
+
+`openedx-authz`_
+
+.. _student_courseaccessrole: https://github.com/openedx/edx-platform/blob/master/common/djangoapps/student/roles.py
+.. _edx-rbac: https://github.com/openedx/edx-rbac/tree/master
+.. _openedx-authz: https://github.com/openedx/openedx-authz
+.. _Casbin: https://casbin.org/
+.. _openedx-authz documentation: https://github.com/openedx/openedx-authz/blob/main/README.rst
+.. _openedx-authz repository: https://github.com/openedx/openedx-authz
+
 Change History
 **************
+
+2025-12-18
+----------
+
+* Update how the content libraries' permissions work to reflect the addition of `openedx-authz`.
+* Add `openedx-authz` information.
+* `Pull request #760 <https://github.com/openedx/open-edx-proposals/pull/760>`_
 
 2024-01-23
 ----------
