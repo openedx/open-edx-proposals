@@ -179,6 +179,18 @@ is suitable for both development and production environments.
 .. _Tutor: https://docs.tutor.edly.io/
 
 
+Related Decisions
+*****************
+
+The following related decisions modify or enhance this OEP, but have not yet been fully incorporated as updates to this OEP:
+
+.. toctree::
+   :caption: OEP-10 Decisions
+   :maxdepth: 1
+   :glob:
+
+   oep-0010/decisions/*
+
 Change History
 **************
 
