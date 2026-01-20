@@ -47,7 +47,7 @@ roman-numerals==4.1.0
     # via sphinx
 snowballstemmer==3.0.1
     # via sphinx
-soupsieve==2.8.1
+soupsieve==2.8.2
     # via beautifulsoup4
 sphinx==9.0.4
     # via
