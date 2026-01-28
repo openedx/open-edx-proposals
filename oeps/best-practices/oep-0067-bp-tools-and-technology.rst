@@ -25,7 +25,7 @@ OEP-67: Standard Tools and Technologies
    * - Review Period
      - 2023-09-05 - 2023-10-10
    * - Resolution
-     - * https://github.com/openedx/open-edx-proposals/pull/518
+     - * https://github.com/openedx/openedx-proposals/pull/518
    * - References
      - :ref:`OEP-11 Front End Technology Standards`
 
@@ -378,29 +378,29 @@ Change History
 
 * Add note encouraging CSS Variables instead of SCSS
 * Remove note about the Tech Radar as it is deprecated (`DEPR ticket <https://github.com/openedx/public-engineering/issues/264>`_)
-* `Pull request #675 <https://github.com/openedx/open-edx-proposals/pull/675>`_
+* `Pull request #675 <https://github.com/openedx/openedx-proposals/pull/675>`_
 
 2025-01-30
 ==========
 
 * Updated "edX"-specific language to "Open edX" where applicable
 * Removed and/or updated author notes from when the OEP was being written
-* `Pull request #666 <https://github.com/openedx/open-edx-proposals/pull/666>`_
+* `Pull request #666 <https://github.com/openedx/openedx-proposals/pull/666>`_
 
 2024-07-25
 ==========
 
 * Added "Development dependencies should be separated into devDependencies"
-* `Pull request #615 <https://github.com/openedx/open-edx-proposals/pull/615>`_
+* `Pull request #615 <https://github.com/openedx/openedx-proposals/pull/615>`_
 * Changed guidance on React state/data loading to recommend React Query instead of Redux
 * Updated JavaScript/TypeScript guidance
-* `Pull request #616 <https://github.com/openedx/open-edx-proposals/pull/616>`_
+* `Pull request #616 <https://github.com/openedx/openedx-proposals/pull/616>`_
 
 2023-09-05
 ==========
 
 * Document created
-* `Pull request #518 <https://github.com/openedx/open-edx-proposals/pull/518>`_
+* `Pull request #518 <https://github.com/openedx/openedx-proposals/pull/518>`_
 
 2024-05-23
 ==========

@@ -103,7 +103,7 @@ References
   .. code:: yaml
 
     # This file records information about this repo. Its use is described in OEP-55:
-    # https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
+    # https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0055-proc-project-maintainers.html
 
     apiVersion: backstage.io/v1alpha1
     # (Required) Acceptable Values: Component, Resource, System

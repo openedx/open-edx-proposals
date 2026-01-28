@@ -20,7 +20,7 @@ Despite this, many major commercial Open edX hosting providers have migrated tow
 
 .. _Kubernetes: https://kubernetes.io/
 .. _Deploying multiple Open edX instances onto a Kubernetes Cluster with Tutor: https://discuss.openedx.org/t/tech-talk-demo-deploying-multiple-open-edx-instances-onto-a-kubernetes-cluster-with-tutor/4641
-.. _decision 0001: https://open-edx-proposals.readthedocs.io/en/latest/architectural-decisions/oep-0045/decisions/0001-tutor-as-replacement-for-edx-configuration.html
+.. _decision 0001: https://docs.openedx.org/projects/openedx-proposals/en/latest/architectural-decisions/oep-0045/decisions/0001-tutor-as-replacement-for-edx-configuration.html
 
 
 Decision
@@ -35,7 +35,7 @@ As the needs and deployment scale of Open edX operators can vary significantly, 
 The goal is for these Helm charts to be developed and maintained collaboratively, by the Open edX Operators that are using them. All relevant best practices from both the Open edX and Helm projects should be followed from the start, such as `OEP-55 Project Maintainers`_.
 
 
-.. _OEP-55 Project Maintainers: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
+.. _OEP-55 Project Maintainers: https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0055-proc-project-maintainers.html
 .. _Helm Charts: https://helm.sh/
 
 
@@ -129,4 +129,4 @@ Change History
 ==========
 
 * Document created
-* `Pull request #372 <https://github.com/openedx/open-edx-proposals/pull/372>`_
+* `Pull request #372 <https://github.com/openedx/openedx-proposals/pull/372>`_

@@ -66,7 +66,7 @@ README.rst
 
 Each app should contain a README.rst to explain its use. See full details of what should go in the README.rst in OEP-0019_.
 
-.. _OEP-0019: https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#readmes
+.. _OEP-0019: https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0019-bp-developer-documentation.html#readmes
 
 .. _apps.py:
 
@@ -258,7 +258,7 @@ This should be an architectural decision record (ADR) describing the decision be
 
 If this is the only app in the repository, this ADR should just be a stub linking to the full ADR in `0001-purpose-of-this-repo.rst` (see `TODOs after running cookiecutter`_).
 
-.. _ADRs section of OEP-0019: https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#adrs
+.. _ADRs section of OEP-0019: https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0019-bp-developer-documentation.html#adrs
 .. _TODOs after running cookiecutter: https://github.com/openedx/edx-cookiecutters#3-todos-after-running-cookiecutter
 
 Consequences

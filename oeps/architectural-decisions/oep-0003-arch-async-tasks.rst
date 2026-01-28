@@ -229,4 +229,4 @@ Change History
 2025-02-02
 ==========
 * Mark OEP as "Accepted", due to the implementation of the proposal in ``django-user-tasks``
-* `Pull request #672 <https://github.com/openedx/open-edx-proposals/pull/672>`_
+* `Pull request #672 <https://github.com/openedx/openedx-proposals/pull/672>`_

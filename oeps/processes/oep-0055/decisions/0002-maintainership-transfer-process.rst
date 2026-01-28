@@ -48,7 +48,7 @@ Communicate on the `forums`_ that ``component X`` is seeking a new maintainer.
 
    Hello, I'm the current maintainer of `component X`.  I am no longer able to
    dedicate the amount of time needed to properly maintain this component to the
-   level described in (OEP-55)[https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html]
+   level described in (OEP-55)[https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0055-proc-project-maintainers.html]
    and I am seeking a new maintainer.
 
    Code: /link/to/codebase
@@ -126,5 +126,5 @@ References
 
 * Link to the deprecation process.
 
-.. _the deprecation and removal(DEPR) process: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0021-proc-deprecation.html
-.. _DEPR: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0021-proc-deprecation.html
+.. _the deprecation and removal(DEPR) process: https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0021-proc-deprecation.html
+.. _DEPR: https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0021-proc-deprecation.html

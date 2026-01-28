@@ -116,33 +116,33 @@ Change History
 ==========
 
 * Removed note about OEP being provisional, as it has been marked as Accepted.
-* `Pull request #605 <https://github.com/openedx/open-edx-proposals/pull/605>`_
+* `Pull request #605 <https://github.com/openedx/openedx-proposals/pull/605>`_
 
 2023-05-15
 ==========
 
 * Added link to event_bus_redis implementation ADR.
 * Updated OEP status to Accepted.
-* `Pull request #477 <https://github.com/openedx/open-edx-proposals/pull/477>`_
+* `Pull request #477 <https://github.com/openedx/openedx-proposals/pull/477>`_
 
 2023-05-12
 ==========
 
 * Added link to new openedx-events ADR
-* `Pull request #478 <https://github.com/openedx/open-edx-proposals/pull/478>`_
+* `Pull request #478 <https://github.com/openedx/openedx-proposals/pull/478>`_
 
 2022-11-29
 ==========
 
 * Removed disclaimer about provisional ADRs (most have since been accepted) and added follow-up work in References
-* `Pull request #414 <https://github.com/openedx/open-edx-proposals/pull/414>`_
+* `Pull request #414 <https://github.com/openedx/openedx-proposals/pull/414>`_
 
 2022-07-11
 ==========
 
 * Updated formatting.
 * Updated note about provisional updates, including reference to roadmap item.
-* `Pull request #351 <https://github.com/openedx/open-edx-proposals/pull/351>`_
+* `Pull request #351 <https://github.com/openedx/openedx-proposals/pull/351>`_
 
 2022-03-30
 ==========
@@ -152,7 +152,7 @@ Updated draft as follows:
 * Moved the Kafka technology choice to a separate edx.org ADR.
 * Added references and overview of a variety of other event bus related ADRs.
 * Moved ADR on schema representation to openedx-events, near a number of other event bus related ADRs.
-* `Pull request #324 <https://github.com/openedx/open-edx-proposals/pull/324>`_
+* `Pull request #324 <https://github.com/openedx/openedx-proposals/pull/324>`_
 
 2021-08-16
 ==========

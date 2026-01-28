@@ -30,7 +30,7 @@ OEP-15: Course-wide Custom JavaScript
 |               | - `Documentation on course-wide JS/CSS`_           |
 +---------------+----------------------------------------------------+
 
-.. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/43
+.. _Original pull request: https://github.com/openedx/openedx-proposals/pull/43
 .. _Initial OEP suggestion: https://groups.google.com/d/topic/edx-code/T83TDxhH74E/discussion
 .. _An edx-code question: https://groups.google.com/d/topic/edx-code/idjPWUIx8Ls/discussion
 .. _Documentation on course-wide JS/CSS: https://docs.openedx.org/en/latest/educators/how-tos/add_custom_css_or_javascript_code_to_a_course.html
@@ -153,16 +153,16 @@ Change History
 ==========
 
 * Mark as accepted
-* `PR #693 <https://github.com/openedx/open-edx-proposals/pull/693>`_
+* `PR #693 <https://github.com/openedx/openedx-proposals/pull/693>`_
 
 2022-10-07
 ==========
 
 * There were differences between the approach described in OEP-15 and the final implemntation in `edx-platform#28411 <https://github.com/openedx/edx-platform/pull/28411>`_ . This commit updated the OEP to match the latest implementation.
-* `PR #396 <https://github.com/openedx/open-edx-proposals/pull/396>`_
+* `PR #396 <https://github.com/openedx/openedx-proposals/pull/396>`_
 
 2017-01-24
 ==========
 
 * Initial draft
-* `PR #43 <https://github.com/openedx/open-edx-proposals/pull/43>`_
+* `PR #43 <https://github.com/openedx/openedx-proposals/pull/43>`_

@@ -204,7 +204,7 @@ References
       https://openedx.atlassian.net/wiki/spaces/FEDX/pages/112001431/Challenges+with+comprehensive+theming+in+Eucalyptus
 
 7. OEP-16: Bootstrap Adoption
-      https://github.com/openedx/open-edx-proposals/blob/a0c284c6c5f0f9419df1f5d6730b2a0c8ff26efc/oeps/oep-0016-bp-adopt-bootstrap.rst
+      https://github.com/openedx/openedx-proposals/blob/a0c284c6c5f0f9419df1f5d6730b2a0c8ff26efc/oeps/oep-0016-bp-adopt-bootstrap.rst
 
 8. edx-bootstrap edx theme
       https://github.com/openedx/edx-bootstrap/tree/v1.0.3/sass

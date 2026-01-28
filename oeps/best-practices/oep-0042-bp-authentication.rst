@@ -284,7 +284,7 @@ References
 
 * `Architectural Decision Records (ADRs)`_
 
-.. _Architectural Decision Records (ADRs): https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#adrs
+.. _Architectural Decision Records (ADRs): https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0019-bp-developer-documentation.html#adrs
 
 
 Change History

@@ -100,6 +100,6 @@ Examples
 
 * `DoneXBlock <https://github.com/openedx/DoneXBlock/blob/master/README.rst>`_
 
-.. _OEP-55: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
-.. _OEP-19: https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0019-bp-developer-documentation.html
+.. _OEP-55: https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0055-proc-project-maintainers.html
+.. _OEP-19: https://docs.openedx.org/projects/openedx-proposals/en/latest/best-practices/oep-0019-bp-developer-documentation.html
 

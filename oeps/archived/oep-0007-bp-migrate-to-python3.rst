@@ -24,7 +24,7 @@ OEP-7: Migrating to Python 3
 | Resolution    | `open-edx-proposals#21`_                      |
 +---------------+-----------------------------------------------+
 
-.. _open-edx-proposals#21: https://github.com/openedx/open-edx-proposals/pull/21#pullrequestreview-18018383
+.. _open-edx-proposals#21: https://github.com/openedx/openedx-proposals/pull/21#pullrequestreview-18018383
 
 
 .. attention::

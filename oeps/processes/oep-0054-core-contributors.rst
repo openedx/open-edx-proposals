@@ -443,43 +443,43 @@ Change History
 
 * Clarify that CC nominations must provide supporting evidence that candidate
   has demonstrated the 3C's
-* `Pull request #355 <https://github.com/openedx/open-edx-proposals/pull/355>`_
+* `Pull request #355 <https://github.com/openedx/openedx-proposals/pull/355>`_
 
 2022-06-08
 ==========
 
 * Add link to the runbooks guide for onboarding new CCs
-* `Pull request #335 <https://github.com/openedx/open-edx-proposals/pull/335>`_
+* `Pull request #335 <https://github.com/openedx/openedx-proposals/pull/335>`_
 
 2022-02-28
 ==========
 
 * Elaborate on CC's responsibilities to fulfill their commitment
-* `Pull request #304 <https://github.com/openedx/open-edx-proposals/pull/304>`_
+* `Pull request #304 <https://github.com/openedx/openedx-proposals/pull/304>`_
 
 2022-02-16
 ==========
 
 * Added clarifications around the voting process for new CC members.
-* `Pull request #293 <https://github.com/openedx/open-edx-proposals/pull/293>`_
+* `Pull request #293 <https://github.com/openedx/openedx-proposals/pull/293>`_
 
 2022-02-11
 ==========
 
 * Specify how to expand responsibilities for roles with fine-grained permissions
   (such as code committers)
-* `Pull request #296 <https://github.com/openedx/open-edx-proposals/pull/296>`_
+* `Pull request #296 <https://github.com/openedx/openedx-proposals/pull/296>`_
 
 2022-02-04
 ==========
 
 * Procedures to remove CCs added.
-* `Pull request #292 <https://github.com/openedx/open-edx-proposals/pull/292>`_
+* `Pull request #292 <https://github.com/openedx/openedx-proposals/pull/292>`_
 
 2021-12-20
 ==========
 
 * Document created.
-* `Pull request #275 <https://github.com/openedx/open-edx-proposals/pull/275>`_
+* `Pull request #275 <https://github.com/openedx/openedx-proposals/pull/275>`_
 
 .. _Code of Conduct: https://openedx.org/code-of-conduct/

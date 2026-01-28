@@ -68,7 +68,7 @@ Specification
 Step-by-step - How to Submit a Resolution Request
 =================================================
 
-- Open a discussion in a public place, such as the `forum <discuss.openedx.org/>`_ or using one of the formal decision recording formats such as `OEPs <https://open-edx-proposals.readthedocs.io/en/latest/>`_. The topics presented need to have been discussed in the community before being formally considered by the TOC.
+- Open a discussion in a public place, such as the `forum <discuss.openedx.org/>`_ or using one of the formal decision recording formats such as `OEPs <https://docs.openedx.org/projects/openedx-proposals/>`_. The topics presented need to have been discussed in the community before being formally considered by the TOC.
 - After public review, post a formal Resolution Request to the TOC, by opening a `github ticket <https://github.com/openedx/wg-coordination/issues/new>`_. Mention the `TOC chair <https://openedx.atlassian.net/wiki/spaces/COMM/pages/3575939113/Technical+Oversight+Committee+TOC#Details>`_ in the request to make sure they get notified. See the format below.
 - Notify the participants of the public discussions that you have created the TOC Resolution Request, by posting a link to it in the discussion threads.
 - Core contributors and/or TOC members supporting the Resolution Request reply in the thread to say so.
@@ -103,4 +103,4 @@ Change History
 ==========
 
 * Document created with rough first draft
-* `Pull request #484 <https://github.com/openedx/open-edx-proposals/pull/484>`_ created
+* `Pull request #484 <https://github.com/openedx/openedx-proposals/pull/484>`_ created

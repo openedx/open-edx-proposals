@@ -23,7 +23,7 @@ OEP-12: Pluggable User Interfaces
 | Resolution    | `open-edx-proposals#34`_                           |
 +---------------+----------------------------------------------------+
 
-.. _open-edx-proposals#34: https://github.com/openedx/open-edx-proposals/pull/34#pullrequestreview-18294926
+.. _open-edx-proposals#34: https://github.com/openedx/openedx-proposals/pull/34#pullrequestreview-18294926
 
 .. attention::
 
@@ -549,7 +549,7 @@ A list of dated sections that describes a brief summary of each revision of the 
 .. _How we switched our template rendering engine to React: https://engineering.pinterest.com/blog/how-we-switched-our-template-rendering-engine-react
 .. _Nunjucks Asynchronous Support: https://mozilla.github.io/nunjucks/api.html#asynchronous-support
 .. _jQuery-XBlock: https://github.com/edx-unsupported/edx-solutions-jquery-xblock
-.. _OEP-6 Context-scoped XBlock Fields: https://open-edx-proposals.readthedocs.io/en/latest/oep-0006.html
+.. _OEP-6 Context-scoped XBlock Fields: https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0006.html
 .. _Pluggable UI hackathon project: https://github.com/openedx/edx-platform/pull/14122
 .. _React Native: https://facebook.github.io/react-native/
 .. _Web Components: http://webcomponents.org/

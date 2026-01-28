@@ -51,7 +51,7 @@ When a repository under the `openedx organization`_ will no longer be maintained
 
 This process is not for repositories that are currently still in use by either the latest release or the master branches of the Open edX platform.  If a repository is in use, but planned to be removed, it should go through the `deprecation process`_ and when that is completed it can be archived as described by the process below.
 
-.. _deprecation process: https://open-edx-proposals.readthedocs.io/en/latest/oep-0021-proc-deprecation.html
+.. _deprecation process: https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0021-proc-deprecation.html
 
 
 Transfer to New Owner if Interest
@@ -59,7 +59,7 @@ Transfer to New Owner if Interest
 
 First, if the repository is public, and a part of Open edX releases, follow these steps to see if anyone would like to take ownership of it:
 
-1. Post a notice to `Open edX Deprecation Announcements`_ announcing that the repository will be archived, and inquiring if anyone would like to take ownership of the repo. Cross post to the ``#general`` and ``#open-edx-proposals`` channels in the `Open edX slack`_. If there are no responses after 2 work days, skip to `Archive Steps`_.
+1. Post a notice to `Open edX Deprecation Announcements`_ announcing that the repository will be archived, and inquiring if anyone would like to take ownership of the repo. Cross post to the ``#general`` and ``#openedx-proposals`` channels in the `Open edX slack`_. If there are no responses after 2 work days, skip to `Archive Steps`_.
 
 2. If someone does wish to take ownership of the repository, post a new notice to `Open edX Deprecation Announcements`_, clearly indicating who the new proposed owner is, how much time they have to spend maintaining the repo, and when the transfer will take place. Cross post in the above mentioned Slack channels. Wait at least 2 business days before proceeding.
 

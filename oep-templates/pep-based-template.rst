@@ -103,4 +103,4 @@ YYYY-MM-DD
 ==========
 
 * Document created
-* `Pull request #XXX <https://github.com/openedx/open-edx-proposals/pull/XXX>`_
+* `Pull request #XXX <https://github.com/openedx/openedx-proposals/pull/XXX>`_

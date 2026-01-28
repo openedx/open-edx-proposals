@@ -241,71 +241,71 @@ Change History
 2025-05-23
 ==========
 * Clarify that "ticket" in this context refers to a GitHub ticket made using the DEPR template.
-* `Pull request #711 <https://github.com/openedx/open-edx-proposals/pull/711>`_
+* `Pull request #711 <https://github.com/openedx/openedx-proposals/pull/711>`_
 
 2025-04-28
 ==========
 * Restore and update the Discourse announcement template.
-* `Pull request #704 <https://github.com/openedx/open-edx-proposals/pull/704>`_
+* `Pull request #704 <https://github.com/openedx/openedx-proposals/pull/704>`_
 
 2025-04-15
 ==========
 * Updated process with new workflow states
 * Simplified document for greater clarity and conciseness
-* `Pull request #660 <https://github.com/openedx/open-edx-proposals/pull/660>`_
+* `Pull request #660 <https://github.com/openedx/openedx-proposals/pull/660>`_
 
 2024-04-12
 ==========
 * Changed process to require every DEPR have a coordinator.
-* `Pull request #576 <https://github.com/openedx/open-edx-proposals/pull/576>`_
+* `Pull request #576 <https://github.com/openedx/openedx-proposals/pull/576>`_
 
 2023-06-21
 ==========
 * Update Discourse template to describe how to stay up to date on removal status.
-* `Pull request #500 <https://github.com/openedx/open-edx-proposals/pull/500>`_
+* `Pull request #500 <https://github.com/openedx/openedx-proposals/pull/500>`_
 
 2022-11-01
 ==========
 * Simplified guidance around the earliest named release and removal dates.
 * Clarify that proposal can be made while incomplete, as long as they aren't communicated until they are complete.
-* `Pull request #404 <https://github.com/openedx/open-edx-proposals/pull/404>`_
+* `Pull request #404 <https://github.com/openedx/openedx-proposals/pull/404>`_
 
 2022-07-05
 ==========
 
 * Add suggestion for monitoring.
-* `Pull request #350 <https://github.com/openedx/open-edx-proposals/pull/350>`_
+* `Pull request #350 <https://github.com/openedx/openedx-proposals/pull/350>`_
 
 2022-06-03
 ==========
 
 * Suggest alignment with release cycle
-* `Pull request #252 <https://github.com/openedx/open-edx-proposals/pull/252>`_
+* `Pull request #252 <https://github.com/openedx/openedx-proposals/pull/252>`_
 
 2022-02-08
 ==========
 
 * Migrate from Jira to GitHub Issues/Projects
-* `Pull request #280 <https://github.com/openedx/open-edx-proposals/pull/280>`_
+* `Pull request #280 <https://github.com/openedx/openedx-proposals/pull/280>`_
 
 2021-04-26
 ==========
 
 * "Removal dates" has become synonymous with "Accepted dates", so we are
   eliminating them to clarify the process.
-* `Pull request #207 <https://github.com/openedx/open-edx-proposals/pull/207>`_
+* `Pull request #207 <https://github.com/openedx/openedx-proposals/pull/207>`_
 
 2021-02-05
 ==========
 
 * Added TL;DR section and workflow visuals
-* `Pull request #176 <https://github.com/openedx/open-edx-proposals/pull/176>`_
+* `Pull request #176 <https://github.com/openedx/openedx-proposals/pull/176>`_
 
 2019-01-02
 ==========
 
 * Recommend codebase impact review as part of DEPR process
-* `Pull request #95 <https://github.com/openedx/open-edx-proposals/pull/95>`_
+* `Pull request #95 <https://github.com/openedx/openedx-proposals/pull/95>`_
 
 2018-11-02
 ==========
@@ -313,10 +313,10 @@ Change History
 * Describes the process in specific ordered steps for one to follow.
 * Adds references to external docs.
 * Updates information on the JIRA ticketing process.
-* `Pull request #83 <https://github.com/openedx/open-edx-proposals/pull/83>`_
+* `Pull request #83 <https://github.com/openedx/openedx-proposals/pull/83>`_
 
 2018-06-21
 ==========
 
 * Document created
-* `Pull request #63 <https://github.com/openedx/open-edx-proposals/pull/63>`_
+* `Pull request #63 <https://github.com/openedx/openedx-proposals/pull/63>`_

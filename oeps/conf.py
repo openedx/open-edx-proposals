@@ -66,8 +66,8 @@ copyright = f"{current_year}, Axim Collaborative"
 
 html_context = {
     "display_github": True, # Integrate GitHub
-    "github_user": "edx", # Username
-    "github_repo": "open-edx-proposals", # Repo name
+    "github_user": "openedx", # Username
+    "github_repo": "openedx-proposals", # Repo name
     "github_version": "master", # Version
     "conf_py_path": "/oeps/", # Path in the checkout to the docs root
 }
@@ -134,7 +134,7 @@ todo_include_todos = True
 html_theme = 'sphinx_book_theme'
 
 html_theme_options = {
-    "repository_url": "https://github.com/openedx/open-edx-proposals",
+    "repository_url": "https://github.com/openedx/openedx-proposals",
     "repository_branch": "master",
     "path_to_docs": "oeps",
     "use_repository_button": True,

@@ -224,7 +224,7 @@ Change History
 2023-05-23
 ==========
 * Mark Enzyme as deprecated
-* `Pull request #487 <https://github.com/openedx/open-edx-proposals/pull/487>`_
+* `Pull request #487 <https://github.com/openedx/openedx-proposals/pull/487>`_
 
 .. Cross-references
 .. _AMD Modules: https://github.com/amdjs/amdjs-api/wiki/AMD
@@ -242,7 +242,7 @@ Change History
 .. _Greenkeeper: https://greenkeeper.io/
 .. _Jest: https://jestjs.io/
 .. _JSX: https://facebook.github.io/react/docs/introducing-jsx.html
-.. _oep 18: https://open-edx-proposals.readthedocs.io/en/latest/oep-0018-bp-python-dependencies.html
+.. _oep 18: https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0018-bp-python-dependencies.html
 .. _package lock: https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 .. _React: https://github.com/facebook/react
 .. _React at edX: https://openedx.atlassian.net/wiki/display/FEDX/React

@@ -148,4 +148,4 @@ Change History
 **************
 
 * Document created
-* `Pull request #626 <https://github.com/openedx/open-edx-proposals/pull/626>`_
+* `Pull request #626 <https://github.com/openedx/openedx-proposals/pull/626>`_

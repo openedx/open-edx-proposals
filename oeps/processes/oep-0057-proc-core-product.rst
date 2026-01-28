@@ -27,7 +27,7 @@ OEP-57: Core Product
    * - Review Period
      - 2022-10-11 - 2022-11-07
    * - References
-     - | * `Earlier draft of OEP-57 <https://github.com/openedx/open-edx-proposals/pull/312>`_
+     - | * `Earlier draft of OEP-57 <https://github.com/openedx/openedx-proposals/pull/312>`_
        | * `Earlier discussions on the Core Product and Kernel <https://openedx.atlassian.net/wiki/spaces/OEPM/pages/3499786241>`_
        | * `Follow-up Work: Definition of Product Narrative <https://openedx.atlassian.net/wiki/spaces/OEPM/pages/3499655173>`_
        | * `Follow-up Work: Definition of the Core Product <https://openedx.atlassian.net/wiki/spaces/OEPM/pages/3499589638/Core+Product+Offering>`_
@@ -339,9 +339,9 @@ Notes
 
 .. _FUN MOOC: https://www.fun-mooc.fr/en/
 
-.. _OEP-10: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0010-proc-openedx-releases.html
+.. _OEP-10: https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0010-proc-openedx-releases.html
 
-.. _Maintainers Program: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
+.. _Maintainers Program: https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0055-proc-project-maintainers.html
 
 Change History
 **************
@@ -355,4 +355,4 @@ Change History
   footnotes into one because the text was reordered, and the 2nd footnote
   depended on the first; using the "Open edX" trademark appropriately (it may
   only be used as an adjective); removing forward references as discussed.
-* `Pull request #398 <https://github.com/openedx/open-edx-proposals/pull/398>`_
+* `Pull request #398 <https://github.com/openedx/openedx-proposals/pull/398>`_

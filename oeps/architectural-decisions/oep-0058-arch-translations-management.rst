@@ -275,12 +275,12 @@ Change History
 2024-07-25
 ==========
 * Mark OEP as "Accepted", due to the full implementation of the proposal
-* `Pull request #610 <https://github.com/openedx/open-edx-proposals/pull/610>`_
+* `Pull request #610 <https://github.com/openedx/openedx-proposals/pull/610>`_
 
 2022-08-08
 ==========
 * Document created
-* `Pull request #367 <https://github.com/openedx/open-edx-proposals/pull/367>`_
+* `Pull request #367 <https://github.com/openedx/openedx-proposals/pull/367>`_
 
 .. _ecommerce-scripts: https://github.com/openedx/ecommerce-scripts/tree/master/transifex
 .. _edx-platform: https://github.com/openedx/edx-platform

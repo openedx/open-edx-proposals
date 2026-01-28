@@ -463,9 +463,9 @@ Change History
 * 2025-03-10 - A group can maintain a repo as long as at least one person in
   the group satisifies all the indivudal requirements. Before, it was
   unclear/impied that every group member needed CC access to the repo.
-  `PR 691 <https://github.com/openedx/open-edx-proposals/pull/691>`_.
+  `PR 691 <https://github.com/openedx/openedx-proposals/pull/691>`_.
 
-* 2022-01-28 - `Document created <https://github.com/openedx/open-edx-proposals/pull/290/>`_
+* 2022-01-28 - `Document created <https://github.com/openedx/openedx-proposals/pull/290/>`_
 
 
 Source Material
@@ -525,7 +525,7 @@ Notes
 
 .. _Django framework: https://www.djangoproject.com/
 
-.. _Core Contributor Program: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0054-core-contributors.html
+.. _Core Contributor Program: https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0054-core-contributors.html
 
 .. _maintainership documents: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3426418790/Maintainership+of+Open+edX+Repos
 
