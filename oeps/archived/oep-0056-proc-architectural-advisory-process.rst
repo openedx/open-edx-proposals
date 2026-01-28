@@ -214,7 +214,7 @@ Change History
 ==========
 
 * Marked as Obsolete, as this was never implemented
-* `Pull request #606 <https://github.com/openedx/open-edx-proposals/pull/606>`_
+* `Pull request #606 <https://github.com/openedx/openedx-proposals/pull/606>`_
 
 2022-03-28
 ==========
@@ -223,7 +223,7 @@ Change History
 * Renamed "Decision Maker's Checklist" to "Decision Impact checklist" to be clearer around the role it plays in the process.  A separate "decision maker's checklist" may exist to help walk people through the overall AAP.
 * Added some more cross-links in the document to (hopefully) help readers find information and understand concepts.
 * Added a section about Discourse forums and the role they (and other mediums) might play in the AAP.
-* `Pull request #305 <https://github.com/openedx/open-edx-proposals/pull/305>`_
+* `Pull request #305 <https://github.com/openedx/openedx-proposals/pull/305>`_
 
 2022-03-23
 ==========
@@ -232,17 +232,17 @@ Change History
 * Adding "proc" prefix to the filename.
 * Removing usage of "ADR authors" and "decision authors" in favor of "decision makers"
 * Clarifying "experts" to be "subject matter experts"
-* `Pull request #305 <https://github.com/openedx/open-edx-proposals/pull/305>`_
+* `Pull request #305 <https://github.com/openedx/openedx-proposals/pull/305>`_
 
 2022-02-25
 ==========
 
 * Ready for review.
 * Removed sections on "Technical Strategic Review" in favor of focusing solely on the Architecture Advisory Process.  This focuses the OEP on tactical architectural decision making, rather than trying to also include a suggestion for how to handle architectural strategic planning.
-* `Pull request #305 <https://github.com/openedx/open-edx-proposals/pull/305>`_
+* `Pull request #305 <https://github.com/openedx/openedx-proposals/pull/305>`_
 
 2022-02-09
 ==========
 
 * Document created.
-* `Pull request #305 <https://github.com/openedx/open-edx-proposals/pull/305>`_
+* `Pull request #305 <https://github.com/openedx/openedx-proposals/pull/305>`_

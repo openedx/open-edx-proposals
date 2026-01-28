@@ -23,7 +23,7 @@ OEP-10: Open edX Releases
 | Resolution    | `Original pull request`_                          |
 +---------------+---------------------------------------------------+
 
-.. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/26
+.. _Original pull request: https://github.com/openedx/openedx-proposals/pull/26
 
 ..
     - Expectations for component owners
@@ -186,7 +186,7 @@ Change History
 ==========
 
 * Updated the link to the Google sheets calendar
-* `Pull request #731 <https://github.com/openedx/open-edx-proposals/pull/731>`_
+* `Pull request #731 <https://github.com/openedx/openedx-proposals/pull/731>`_
 
 
 2025-05-23
@@ -195,7 +195,7 @@ Change History
 * Update the naming convention for release branches
 * Remove mention of Devstack as a supported development environment
 * Clarify that Tutor is suitable for production environments
-* `Pull request #712 <https://github.com/openedx/open-edx-proposals/pull/712>`_
+* `Pull request #712 <https://github.com/openedx/openedx-proposals/pull/712>`_
 
 
 2023-09-28
@@ -203,28 +203,28 @@ Change History
 
 * Reference catalog-info.yaml instead of OEP-2 for where we store
   release metadata.
-* `Pull request #526 <https://github.com/openedx/open-edx-proposals/pull/526>`_
+* `Pull request #526 <https://github.com/openedx/openedx-proposals/pull/526>`_
 
 2022-02-24
 ==========
 
 * Remove info about older installation methods that are no longer relevant.
-* `Pull request #452 <https://github.com/openedx/open-edx-proposals/pull/452>`_
+* `Pull request #452 <https://github.com/openedx/openedx-proposals/pull/452>`_
 
 2020-04-26
 ==========
 
 * Added the "maybe" key for "openedx-release".
-* `Pull request #145 <https://github.com/openedx/open-edx-proposals/pull/145>`_
+* `Pull request #145 <https://github.com/openedx/openedx-proposals/pull/145>`_
 
 2018-08-22
 ==========
 
 * Installation details adjusted to match current Hawthorn realities.
-* `Pull request #78 <https://github.com/openedx/open-edx-proposals/pull/78>`_
+* `Pull request #78 <https://github.com/openedx/openedx-proposals/pull/78>`_
 
 2016-11-21
 ==========
 
 * Document created
-* `Pull request #26 <https://github.com/openedx/open-edx-proposals/pull/26>`_
+* `Pull request #26 <https://github.com/openedx/openedx-proposals/pull/26>`_

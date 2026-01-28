@@ -98,7 +98,7 @@ Change History
 ==========
 
 * Document created, draft PR opened
-* `Pull request #496 <https://github.com/openedx/open-edx-proposals/pull/496>`_
+* `Pull request #496 <https://github.com/openedx/openedx-proposals/pull/496>`_
 * Updated PR to reflect the latest OEP number and the named release planned
 * Updates to match conventions and other OEP feedback
 * Minor styling and formatting updates to document, including final Approved status. 

@@ -253,7 +253,7 @@ the LTI "context" parameter.
 
 Previous discussions of note include:
 
-* https://github.com/openedx/open-edx-proposals/pull/15
+* https://github.com/openedx/openedx-proposals/pull/15
 * https://openedx.atlassian.net/browse/PLAT-325
 * https://groups.google.com/d/msg/edx-code/ywjXV0wzQiw/FRzaK5nTAgAJ
 * On 2016-07-08, the author met with several stakeholders from edX (Calen
@@ -435,4 +435,4 @@ Change History
 ==========
 
 * Marked as Obsolete, as this was never implemented
-* `Pull request #606 <https://github.com/openedx/open-edx-proposals/pull/606>`_
+* `Pull request #606 <https://github.com/openedx/openedx-proposals/pull/606>`_

@@ -262,4 +262,4 @@ Change History
 ==========
 
 * Document created
-* `Pull request #401 <https://github.com/openedx/open-edx-proposals/pull/401>`_
+* `Pull request #401 <https://github.com/openedx/openedx-proposals/pull/401>`_

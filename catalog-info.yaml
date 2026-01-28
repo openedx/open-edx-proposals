@@ -1,15 +1,15 @@
 # This file records information about this repo. Its use is described in OEP-55:
-# https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
+# https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0055-proc-project-maintainers.html
 
 apiVersion: backstage.io/v1alpha1
 # (Required) Acceptable Values: Component, Resource, System
 # A repo will almost certainly be a Component.
 kind: Component
 metadata:
-  name: 'open-edx-proposals'
+  name: 'openedx-proposals'
   description: "Open edX (Enhancement) Proposals"
   links:
-    - url: "https://open-edx-proposals.readthedocs.io/en/latest/index.html"
+    - url: "https://docs.openedx.org/projects/openedx-proposals/"
       title: "OEP Index"
       # Backstage uses the MaterialUI Icon Set.
       # https://mui.com/material-ui/material-icons/

@@ -37,11 +37,11 @@ OEP-1: OEP Purpose and Guidelines
 |               | - Similar in principle to `Architecture Decision Records`_   |
 +---------------+--------------------------------------------------------------+
 
-.. _open-edx-proposals#1: https://github.com/openedx/open-edx-proposals/pull/1
-.. _open-edx-proposals#53: https://github.com/openedx/open-edx-proposals/pull/53
-.. _open-edx-proposals#60: https://github.com/openedx/open-edx-proposals/pull/60
-.. _open-edx-proposals#85: https://github.com/openedx/open-edx-proposals/pull/85
-.. _open-edx-proposals#1 resolution: https://github.com/openedx/open-edx-proposals/pull/1#issuecomment-220419055
+.. _open-edx-proposals#1: https://github.com/openedx/openedx-proposals/pull/1
+.. _open-edx-proposals#53: https://github.com/openedx/openedx-proposals/pull/53
+.. _open-edx-proposals#60: https://github.com/openedx/openedx-proposals/pull/60
+.. _open-edx-proposals#85: https://github.com/openedx/openedx-proposals/pull/85
+.. _open-edx-proposals#1 resolution: https://github.com/openedx/openedx-proposals/pull/1#issuecomment-220419055
 .. _PEP: https://www.python.org/dev/peps/pep-0001/
 .. _Architecture Decision Records: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
 
@@ -56,7 +56,7 @@ Overview
   community process that the Open edX community has agreed should be adopted by
   the project.
 * OEPs are not used to dictate small decisions made in every day feature work.
-  See `OEP-19 <https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0019-bp-developer-documentation.html?highlight=documentation#agile-documentation-types>`_
+  See `OEP-19 <https://docs.openedx.org/projects/openedx-proposals/en/latest/best-practices/oep-0019-bp-developer-documentation.html?highlight=documentation#agile-documentation-types>`_
   for more detail.
 * This document specifies both how to write an OEP and how to get to a consensus
   throughout the community that the OEP should be accepted.
@@ -209,7 +209,7 @@ available number.
 The pull request title should be of the form "OEP-XXXX: <OEP title>", where
 *XXXX* is the OEP number claimed for the included proposal.
 
-.. _central OEP repository: https://github.com/openedx/open-edx-proposals
+.. _central OEP repository: https://github.com/openedx/openedx-proposals
 
 Step 3. Review with Arbiter
 ---------------------------
@@ -220,7 +220,7 @@ is achieved, announce the OEP to the community in the following channels:
 
 * Create a topic in the `Announcements - Architecture category`_ in Discourse,
   with "OEP", its number and its title in the subject line.
-* `#open-edx-proposals Slack channel`_.
+* `#openedx-proposals Slack channel`_.
 
 The Open edX community is given the opportunity to comment on the OEP.
 The Arbiter serves to keep the discussion on track and to bring the review
@@ -234,14 +234,14 @@ wording/status change to an existing OEP, or the addition of a new ADR to an
 OEP - please announce the change:
 
 #. Announce the merge - and briefly describe the change - in the
-   `#open-edx-proposals Slack channel`_.
+   `#openedx-proposals Slack channel`_.
 #. If applicable, announce to an appropriate working group in Slack or at an
    upcoming working group meeting.
 #. If applicable, close the associated GitHub ticket(s) associated with the
    change.
 
 .. _Announcements - Architecture category: https://discuss.openedx.org/c/announcements/architecture
-.. _#open-edx-proposals Slack channel: https://openedx.slack.com/messages/C1L370YTZ/details/
+.. _#openedx-proposals Slack channel: https://openedx.slack.com/messages/C1L370YTZ/details/
 
 OEP Status
 ==========
@@ -323,7 +323,7 @@ that this particular one requires some renewed attention.
 
 When changing status to "Needs Revision", a row titled "Revision Ticket" should
 be added to the preamble (directly under the status field) that directs to the
-GitHub issue or draft pull request in the ``open-edx-proposals`` repository that
+GitHub issue or draft pull request in the ``openedx-proposals`` repository that
 describes what about the OEP that needs revisioning.
 
 Rejecting an OEP
@@ -378,7 +378,7 @@ document, and assist in linking Authors with Arbiters when needed.
 Submitting OEP Updates
 ----------------------
 
-Once an OEP has merged to the open-edx-proposals repository (which can
+Once an OEP has merged to the openedx-proposals repository (which can
 happen when the OEP is in any status, including "Under Review"), changes can be
 suggested to it via new pull requests. Whether those changes are included is up
 to the Authors of the OEP.
@@ -389,7 +389,7 @@ Unpublished OEPs
 Sometimes an OEP is written but ultimately abandoned before being merged. These
 can be found in closed, unmerged, PRs (see the list `here`_).
 
-.. _here: https://github.com/openedx/open-edx-proposals/pulls?q=is%3Apr+is%3Aclosed+is%3Aunmerged
+.. _here: https://github.com/openedx/openedx-proposals/pulls?q=is%3Apr+is%3Aclosed+is%3Aunmerged
 
 Updating Best Practice and Process OEPs
 ---------------------------------------
@@ -483,9 +483,9 @@ for use:
 * `External link template`_ for OEPs with mostly external content.
 
 
-.. _PEP-based template: https://github.com/openedx/open-edx-proposals/tree/master/oep-templates/pep-based-template.rst
-.. _ADR-based template: https://github.com/openedx/open-edx-proposals/tree/master/oep-templates/adr-based-template.rst
-.. _External link template: https://github.com/openedx/open-edx-proposals/tree/master/oep-templates/external-link-template.rst
+.. _PEP-based template: https://github.com/openedx/openedx-proposals/tree/master/oep-templates/pep-based-template.rst
+.. _ADR-based template: https://github.com/openedx/openedx-proposals/tree/master/oep-templates/adr-based-template.rst
+.. _External link template: https://github.com/openedx/openedx-proposals/tree/master/oep-templates/external-link-template.rst
 
 
 OEP Header Preamble
@@ -590,36 +590,36 @@ Change History
 2024-07-25
 ==========
 * Add guidance on announcing changes (new as well as changed OEPs and ADRs)
-* `Pull request #602 <https://github.com/openedx/open-edx-proposals/pull/602>`_
+* `Pull request #602 <https://github.com/openedx/openedx-proposals/pull/602>`_
 
 2024-07-08
 ==========
 * Reflect reality that rejected or withdrawn proposals are frequently left
   unmerged even though OEP-1 calls for it.
 * Remove "Rejected" status, as it is unused.
-* `Pull request #601 <https://github.com/openedx/open-edx-proposals/pull/601>`_
+* `Pull request #601 <https://github.com/openedx/openedx-proposals/pull/601>`_
 
 2024-06-25
 ==========
 * Remove "Withdrawn" status
-* `Pull request #597 <https://github.com/openedx/open-edx-proposals/pull/597>`_
+* `Pull request #597 <https://github.com/openedx/openedx-proposals/pull/597>`_
 
 2024-05-16
 ==========
 * Add a "Needs Revision" status
-* `Pull request #586 <https://github.com/openedx/open-edx-proposals/pull/586>`_
+* `Pull request #586 <https://github.com/openedx/openedx-proposals/pull/586>`_
 
 2022-10-05
 ==========
 * Require OEPs merged as "Draft" or "Provisional" to provide a reference for
   "Follow Up Work" with a link to a rollout doc, follow up PR, or similar.
-* `Pull request #387 <https://github.com/openedx/open-edx-proposals/pull/387>`_
-* `Pull request #391 <https://github.com/openedx/open-edx-proposals/pull/391>`_
+* `Pull request #387 <https://github.com/openedx/openedx-proposals/pull/387>`_
+* `Pull request #391 <https://github.com/openedx/openedx-proposals/pull/391>`_
 
 2022-09-23
 ==========
 * Move OEP templates to a top-level directory for better discoverability
-* `Pull request #382 <https://github.com/openedx/open-edx-proposals/pull/382>`_
+* `Pull request #382 <https://github.com/openedx/openedx-proposals/pull/382>`_
 
 2022-06-22
 ==========
@@ -631,7 +631,7 @@ Change History
 ==========
 
 * Clarify what is currently meant by "Architecture Group" (not an official team right now)
-* `Pull request #326 <https://github.com/openedx/open-edx-proposals/pull/326>`_
+* `Pull request #326 <https://github.com/openedx/openedx-proposals/pull/326>`_
 
 2022-02-27
 ==========
@@ -642,32 +642,32 @@ Multiple changes.
 
   * Codify the "Change History" section, which most OEPs already use
   * Specify that entries should link to the discussion PR.
-  * `Pull request #297 <https://github.com/openedx/open-edx-proposals/pull/297>`_
+  * `Pull request #297 <https://github.com/openedx/openedx-proposals/pull/297>`_
 
 #.
 
   * Add Overview section for greater clarity
-  * `Pull request #298 <https://github.com/openedx/open-edx-proposals/pull/298>`_
+  * `Pull request #298 <https://github.com/openedx/openedx-proposals/pull/298>`_
 
 #.
 
   * Add an at-a-glance section for the Arbiter role
-  * `Pull request #299 <https://github.com/openedx/open-edx-proposals/pull/299>`_
+  * `Pull request #299 <https://github.com/openedx/openedx-proposals/pull/299>`_
 
 #.
 
   * Codify that Process OEPs may be updated
-  * `Pull request #300 <https://github.com/openedx/open-edx-proposals/pull/300>`_
+  * `Pull request #300 <https://github.com/openedx/openedx-proposals/pull/300>`_
 
 #.
 
   * Clarified OEP update procedures
-  * `Pull request #301 <https://github.com/openedx/open-edx-proposals/pull/301>`_
+  * `Pull request #301 <https://github.com/openedx/openedx-proposals/pull/301>`_
 
 #.
 
   * Switch author-ownership model to a community-stewardship one
-  * `Pull request #302 <https://github.com/openedx/open-edx-proposals/pull/302>`_
+  * `Pull request #302 <https://github.com/openedx/openedx-proposals/pull/302>`_
 
 2022-01-13
 ==========
@@ -675,26 +675,26 @@ Multiple changes.
 * Codifying that choosing an Arbiter, in practice, is done by the OEP Author(s)
 * Remove authority for assiting with arbitration and the overall process from
   the edX internal architecture team to the Open edX community architecture group
-* `Pull request #284 <https://github.com/openedx/open-edx-proposals/pull/284>`_
+* `Pull request #284 <https://github.com/openedx/openedx-proposals/pull/284>`_
 
 2020-10-01
 ==========
 
 * Add a new "Obsolete" status to OEPs
-* `Pull request #246 <https://github.com/openedx/open-edx-proposals/pull/246>`_
+* `Pull request #246 <https://github.com/openedx/openedx-proposals/pull/246>`_
 
 2019-08-27
 ==========
 
 * Changed announcement process from email to Discourse.
 * Minor clarifications to wording.
-* `Pull request #123 <https://github.com/openedx/open-edx-proposals/pull/123>`_
+* `Pull request #123 <https://github.com/openedx/openedx-proposals/pull/123>`_
 
 2018-11-06
 ==========
 
 * Added a new "Provisional" status.
-* `Pull request #85 <https://github.com/openedx/open-edx-proposals/pull/85>`_
+* `Pull request #85 <https://github.com/openedx/openedx-proposals/pull/85>`_
 
 2018-05-05
 ==========
@@ -710,7 +710,7 @@ Multiple changes.
   * Support alternative simpler templates.
 
 * Refactored description for OEP status and review.
-* `Pull request #60 <https://github.com/openedx/open-edx-proposals/pull/60>`_
+* `Pull request #60 <https://github.com/openedx/openedx-proposals/pull/60>`_
 
 2018-02-05
 ==========
@@ -731,7 +731,7 @@ Multiple changes.
 * Append type and brief title to an OEP's file name.
 * Remove "Product Enhancement" proposal type.
 * Remove support for Google Docs for discussion.
-* `Pull request #53 <https://github.com/openedx/open-edx-proposals/pull/53>`_
+* `Pull request #53 <https://github.com/openedx/openedx-proposals/pull/53>`_
 
 2016-10-11
 ==========
@@ -744,17 +744,17 @@ Multiple changes.
 * Add support for Google Docs and other external forums for discussion of
   the proposal.
 * Add "References" field to the preamble.
-* `Pull request #17 <https://github.com/openedx/open-edx-proposals/pull/17>`_
+* `Pull request #17 <https://github.com/openedx/openedx-proposals/pull/17>`_
 
 2016-08-24
 ==========
 
 * Add a definition of the *Change History* section.
 * Add a copyright notice.
-* `Pull request #19 <https://github.com/openedx/open-edx-proposals/pull/19>`_
+* `Pull request #19 <https://github.com/openedx/openedx-proposals/pull/19>`_
 
 2016-05-16
 ==========
 
 * Document created
-* `Pull request #1 <https://github.com/openedx/open-edx-proposals/pull/1>`_
+* `Pull request #1 <https://github.com/openedx/openedx-proposals/pull/1>`_

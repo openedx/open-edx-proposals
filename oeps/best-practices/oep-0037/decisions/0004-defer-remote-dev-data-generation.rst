@@ -36,4 +36,4 @@ Consequences
 - `OEP-37`_ shall be marked as deferred for now until it is ready to be picked up again.
 
 
-.. _OEP-37: https://github.com/openedx/open-edx-proposals/pull/118
+.. _OEP-37: https://github.com/openedx/openedx-proposals/pull/118

@@ -58,9 +58,9 @@ Once PII has been removed, an attempt can be made to export just the needed data
 
 Note that if the following recommendations on creating data are followed, test data created for a unit test can be fairly easily re-purposed for use as development environment data sets.  This can be useful because the starting point is already free of PII and has been verified by tests to work as intended.
 
-.. _PII: https://open-edx-proposals.readthedocs.io/en/latest/oep-0030-arch-pii-markup-and-auditing.html
+.. _PII: https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0030-arch-pii-markup-and-auditing.html
 .. _dj_anonymizer: https://github.com/preply/dj_anonymizer
-.. _OEP-30: https://open-edx-proposals.readthedocs.io/en/latest/oep-0030-arch-pii-markup-and-auditing.html
+.. _OEP-30: https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0030-arch-pii-markup-and-auditing.html
 .. _django-fixture-magic: https://github.com/davedash/django-fixture-magic
 
 Creating Data
@@ -199,4 +199,4 @@ A list of dated sections that describes a brief summary of each revision of the 
 ==========
 
 * Add "Deferred" to the title of the OEP to more clearly indicate the status of this OEP.
-* `Pull request #674 <https://github.com/openedx/open-edx-proposals/pull/674>`_
+* `Pull request #674 <https://github.com/openedx/openedx-proposals/pull/674>`_

@@ -616,17 +616,17 @@ Change History
 
 * Update django_comment_client_role section
 * Add draft course_roles section
-* `Pull request #556 <https://github.com/openedx/open-edx-proposals/pull/556>`_
+* `Pull request #556 <https://github.com/openedx/openedx-proposals/pull/556>`_
 
 2023-10-23
 ----------
 
 * PR comment updates - add additional diagram, add information from `Authorization Architecture Vision & Principles`_
-* `Pull request #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
+* `Pull request #520 <https://github.com/openedx/openedx-proposals/pull/520>`_
 
 2023-08-21
 ----------
 
 * Document created
-* `Pull request #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
+* `Pull request #520 <https://github.com/openedx/openedx-proposals/pull/520>`_
 

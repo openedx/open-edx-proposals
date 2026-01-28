@@ -455,7 +455,7 @@ We feel that the siloing of micro-frontends, the proliferation of dependencies, 
 .. _paragon: https://github.com/openedx/paragon
 .. _brand-openedx: https://github.com/openedx/brand-openedx
 .. _frontend-plugin-framework: https://github.com/openedx/frontend-plugin-framework
-.. _depr-process: https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0021-proc-deprecation.html
+.. _depr-process: https://docs.openedx.org/projects/openedx-proposals/en/latest/processes/oep-0021-proc-deprecation.html
 .. _frontend-template-application: https://github.com/openedx/frontend-template-application
 .. _LucidChart source: https://lucid.app/lucidchart/8c2db108-7c14-4525-8e3a-d2853db68b9e/edit?invitationId=inv_7a61f692-df0b-465b-8ec1-5a18ce4447ca
 
@@ -488,7 +488,7 @@ Change History
 ==========
 
 * Document created
-* `Pull request #575 <https://github.com/openedx/open-edx-proposals/pull/575>`_ contains all review feedback.
+* `Pull request #575 <https://github.com/openedx/openedx-proposals/pull/575>`_ contains all review feedback.
 
 2024-06-26
 ==========

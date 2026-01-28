@@ -62,14 +62,14 @@ Decisions
 
 * The `developer section`_ of docs.openedx.org will contain the main index for all repo specific and system wide developer docs.
 
-* System wide decisions, best practices and processes will live in the `open-edx-proposals`_ repository.
+* System wide decisions, best practices and processes will live in the `openedx-proposals`_ repository.
 
 * ADRs, How Tos and other single repo impacting docs will live in a ``/docs`` folder in the impacted repo.
 
 * edX Inc. specific documentation such as notes, agile meeting artifacts, and documentation of edX specific process and decisions will live in `Confluence`_.
 
 .. _developer section: https://docs.openedx.org/en/latest/developers
-.. _open-edx-proposals: https://github.com/openedx/open-edx-proposals
+.. _openedx-proposals: https://github.com/openedx/openedx-proposals
 .. _Open API: https://www.openapis.org/
 .. _MDX: https://mdxjs.com/
 
@@ -106,13 +106,13 @@ OEPs
    * - **Rationale**
      - To establish software development coherency and efficiency with minimal centralized governance across a long-term maintained platform.
    * - **Location in GitHub**
-     - Stored and reviewed in the `open-edx-proposals`_ GitHub repo; published to `Open edX Proposals Read The Docs`_.
+     - Stored and reviewed in the `openedx-proposals`_ GitHub repo; published to `Open edX Proposals Read The Docs`_.
    * - **Maintenance**
      - OEP-1_ describes the OEP review process. They will be maintained by the `edX Architecture team`_.
 
-.. _open-edx-proposals: https://github.com/openedx/open-edx-proposals
-.. _Open edX Proposals Read The Docs: https://open-edx-proposals.readthedocs.io
-.. _OEP-1: https://open-edx-proposals.readthedocs.io/en/latest/oep-0001.html
+.. _openedx-proposals: https://github.com/openedx/openedx-proposals
+.. _Open edX Proposals Read The Docs: https://docs.openedx.org/projects/openedx-proposals
+.. _OEP-1: https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0001.html
 .. _edX Architecture team: https://openedx.atlassian.net/wiki/spaces/AC/pages/439353453/Architecture+Team
 
 .. _ADRs:
@@ -302,7 +302,7 @@ This section summarizes the requirements for long-term developer documentation.
 
     * For system-wide documentation:
 
-      * OEPs_ will live within the open-edx-proposals_ repo.
+      * OEPs_ will live within the openedx-proposals_ repo.
       * If other system-wide documentation is needed, they will live within the developer section of the `docs.openedx.org repo`.
 
   * **Exported Diagrams**. In order to keep diagrams updated across time, they will need to be exported from whichever tool they were created in, with the exported version maintained in GitHub.
@@ -481,12 +481,12 @@ Change History
 
 * Remove references to the deprecated edx-developer docs.
 * Also update references to docs.edx.org to docs.openedx.org.
-* `Pull request #411 <https://github.com/openedx/open-edx-proposals/pull/411>`_
+* `Pull request #411 <https://github.com/openedx/openedx-proposals/pull/411>`_
 
 2022-09-22
 ----------
 
-* `Tweaks to ADR template <https://github.com/openedx/open-edx-proposals/pull/375>`_
+* `Tweaks to ADR template <https://github.com/openedx/openedx-proposals/pull/375>`_
 
 2022-06-22
 ----------
@@ -497,4 +497,4 @@ Change History
 ----------
 
 * Add ADR template, add Change History section
-* `Pull request #340 <https://github.com/openedx/open-edx-proposals/pull/340>`_
+* `Pull request #340 <https://github.com/openedx/openedx-proposals/pull/340>`_

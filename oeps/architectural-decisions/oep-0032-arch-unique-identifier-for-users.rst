@@ -20,7 +20,7 @@ OEP-32: Unique Identifier for Users
    * - Status
      - Needs Revision
    * - Revision Ticket
-     - https://github.com/openedx/open-edx-proposals/issues/407
+     - https://github.com/openedx/openedx-proposals/issues/407
    * - Type
      - Architecture
    * - Created
@@ -32,7 +32,7 @@ OEP-32: Unique Identifier for Users
 
     The guidance for external ids in this OEP is currently incorrect; it has been superseded by `this ADR <https://github.com/openedx/edx-platform/blob/e1c8fb51bec2be3aa8da9750cb52b01728d1a740/openedx/core/djangoapps/external_user_ids/docs/decisions/0001-externalid.rst>`_.
 
-    The guidance in this OEP is partially correct. It is valid for internal ids, and invalid for external ids. For questions and discussion, please post on `GitHub issue 407 <https://github.com/openedx/open-edx-proposals/issues/407>`_.
+    The guidance in this OEP is partially correct. It is valid for internal ids, and invalid for external ids. For questions and discussion, please post on `GitHub issue 407 <https://github.com/openedx/openedx-proposals/issues/407>`_.
 
 Decision
 ********
@@ -144,5 +144,5 @@ Change History
 2024-07-08
 ==========
 * Change status to "Needs Revision"
-* `Discussion issue #407 <https://github.com/openedx/open-edx-proposals/issues/407>`
-* `Pull request #603 <https://github.com/openedx/open-edx-proposals/pull/603>`_
+* `Discussion issue #407 <https://github.com/openedx/openedx-proposals/issues/407>`
+* `Pull request #603 <https://github.com/openedx/openedx-proposals/pull/603>`_

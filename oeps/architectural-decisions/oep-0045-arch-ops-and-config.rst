@@ -19,7 +19,7 @@ OEP-45: Configuring and Operating Open edX
    * - Status
      - Needs Revision
    * - Revision Ticket
-     - https://github.com/openedx/open-edx-proposals/issues/587
+     - https://github.com/openedx/openedx-proposals/issues/587
    * - Type
      - Architecture
    * - Created
@@ -158,7 +158,7 @@ A clear manual of operations will exist in the form of RST files in an ``operati
 
 In the same vein as not dictating how operators create and manage their IDA config files, operators will also be expected to manage how they execute the operations documented in the manual.
 
-.. _OEP-19: https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html
+.. _OEP-19: https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0019-bp-developer-documentation.html
 .. _this commit: https://github.com/openedx-btr-wg/edx-platform/commit/18effd83f983f497ca0a1535108fa41dc50d06a2#diff-ca02329742db0a77612a18ba1260d178R1-R39
 
 
@@ -200,7 +200,7 @@ Implementation Strategy
 
 Discussion of implentation of this OEP will happen in a `separate Pull Request`_ .
 
-.. _separate Pull Request: https://github.com/openedx/open-edx-proposals/pull/144
+.. _separate Pull Request: https://github.com/openedx/openedx-proposals/pull/144
 
 Related Decisions
 *****************
@@ -220,4 +220,4 @@ Change History
 2024-05-16
 ==========
 * Change status to "Needs Revision"
-* `Pull request #586 <https://github.com/openedx/open-edx-proposals/pull/586>`_
+* `Pull request #586 <https://github.com/openedx/openedx-proposals/pull/586>`_

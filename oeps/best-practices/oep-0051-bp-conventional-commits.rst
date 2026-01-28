@@ -133,7 +133,7 @@ Include references or links to supporting information, such as Jira or GitHub is
 
 Larger decisions should be recorded in Architectural Decision Records, as explained in `OEP-0019`__.
 
-__ https://open-edx-proposals.readthedocs.io/en/latest/oep-0019-bp-developer-documentation.html#adrs
+__ https://docs.openedx.org/projects/openedx-proposals/en/latest/oep-0019-bp-developer-documentation.html#adrs
 
 Footer
 ======
@@ -255,5 +255,5 @@ Change History
 
 
 .. _Conventional Commits: https://www.conventionalcommits.org
-.. _Change Transparency: https://github.com/openedx/open-edx-proposals/pull/180
+.. _Change Transparency: https://github.com/openedx/openedx-proposals/pull/180
 .. _Angular commit message format: https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format

@@ -23,7 +23,7 @@ OEP-16: Bootstrap Adoption
 | Resolution    | `Original pull request`_                          |
 +---------------+---------------------------------------------------+
 
-.. _Original pull request: https://github.com/openedx/open-edx-proposals/pull/46
+.. _Original pull request: https://github.com/openedx/openedx-proposals/pull/46
 
 Abstract
 ********

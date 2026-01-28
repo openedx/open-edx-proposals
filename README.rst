@@ -11,16 +11,16 @@ that choice. OEPs are not the only way for a change to be made to Open edX, howe
 the goal is to create a collection of OEP documents as a repository or knowledge
 archive of large and broadly relevant choices made for the platform.
 
-View the published list of `Open edX Proposals (OEPs)`_ on ReadTheDocs.
+View the published list of `Open edX Proposals (OEPs)`_ on docs.openedx.org.
 
-.. _Open edX Proposals (OEPs): https://open-edx-proposals.readthedocs.io
+.. _Open edX Proposals (OEPs): https://docs.openedx.org/projects/openedx-proposals/
 
 Getting Started
 ***************
 
 This repository holds a bunch of text files, each of which represents an OEP or
 supplementary documentation. For browsing these OEPs, we recommend you read them
-in `their published form <https://open-edx-proposals.readthedocs.io>`_ on ReadTheDocs.
+in `their published form <https://docs.openedx.org/projects/openedx-proposals/>`_ on docs.openedx.org.
 
 Contributing
 ************
@@ -30,7 +30,7 @@ Please read `How To Contribute <https://openedx.org/r/how-to-contribute>`_ for d
 
 OEPs are foundational *community* documents. The whole community is invited to collaborate
 on these documents, from writing to fixing to updating to reviewing. Persons interested
-in following OEP progress should join the `#open-edx-proposals Slack channel`_ and/or
+in following OEP progress should join the `#openedx-proposals Slack channel`_ and/or
 follow the `Announcements category in the forums`_.
 
 Any member of the community is welcome to propose changes or addendums to existing
@@ -38,7 +38,7 @@ OEPs, or to propose a brand new one! All that is needed is to fork this repo and
 get writing. We use `ReStructured Text (RST)`_ to write all our OEPs, and we discuss
 all proposed changes and additions on `pull requests`_.
 
-.. _#open-edx-proposals Slack channel: https://openedx.slack.com/archives/C1L370YTZ
+.. _#openedx-proposals Slack channel: https://openedx.slack.com/archives/C1L370YTZ
 .. _Announcements category in the forums: https://discuss.openedx.org/c/announcements/17
 .. _ReStructured Text (RST): https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _pull requests: https://docs.openedx.org/en/latest/developers/quickstarts/first_openedx_pr.html
@@ -99,10 +99,10 @@ listed in the Code of Conduct text.
 People
 ******
 
-See the `open-edx-proposals Backstage page`_ for more information about who the
+See the `openedx-proposals Backstage page`_ for more information about who the
 maintainers of this repo are and how to get in touch with them.
 
-.. _open-edx-proposals Backstage page: https://backstage.openedx.org/catalog/default/component/open-edx-proposals
+.. _openedx-proposals Backstage page: https://backstage.openedx.org/catalog/default/component/openedx-proposals
 
 Reporting Security Issues
 *************************
@@ -111,13 +111,13 @@ Please do not report security issues in public. Please email security@openedx.or
 
 
 .. |license-badge| image:: https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg
-    :target: https://github.com/openedx/open-edx-proposals/blob/main/LICENSE.txt
+    :target: https://github.com/openedx/openedx-proposals/blob/main/LICENSE.txt
     :alt: License
 
-.. |doc-badge| image:: https://readthedocs.org/projects/open-edx-proposals/badge/?version=latest
-    :target: https://open-edx-proposals.readthedocs.io/en/latest/
+.. |doc-badge| image:: https://readthedocs.org/projects/openedx-proposals/badge/?version=latest
+    :target: https://docs.openedx.org/projects/openedx-proposals/
     :alt: Documentation
 
 .. |status-badge| image:: https://img.shields.io/badge/Status-Maintained-brightgreen
 
-.. |contributors-badge| image:: https://img.shields.io/github/contributors/openedx/open-edx-proposals.svg
+.. |contributors-badge| image:: https://img.shields.io/github/contributors/openedx/openedx-proposals.svg

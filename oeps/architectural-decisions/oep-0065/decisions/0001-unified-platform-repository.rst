@@ -138,7 +138,7 @@ Change History
 ==========
 
 * Document created
-* `Pull request #598 <https://github.com/openedx/open-edx-proposals/pull/598>`_
+* `Pull request #598 <https://github.com/openedx/openedx-proposals/pull/598>`_
 
 2024-09-13
 ==========

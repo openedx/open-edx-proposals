@@ -280,7 +280,7 @@ shaped the recommendations:
 * Don't require database migrations or data loads each time a new permission
   is added or the implementation of one is changed
 
-.. _OEP-3: https://open-edx-proposals.readthedocs.io/en/latest/oeps/oep-0003.html
+.. _OEP-3: https://docs.openedx.org/projects/openedx-proposals/en/latest/oeps/oep-0003.html
 
 
 Backward Compatibility
@@ -307,4 +307,4 @@ Change History
 ===========
 
 * Status updated to "Replaced by :ref:`OEP-66 User Authorization`"
-* `PR #520 <https://github.com/openedx/open-edx-proposals/pull/520>`_
+* `PR #520 <https://github.com/openedx/openedx-proposals/pull/520>`_
